@@ -18,7 +18,7 @@ offset_left = 116.0
 offset_top = 346.0
 offset_right = 231.0
 offset_bottom = -279.0
-text = "test"
+text = "hello world	"
 
 [node name="Character" parent="." unique_id=1353995757 instance=ExtResource("1_iioh5")]
 position = Vector2(650, 390)
