@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://b348jpw2tgl70"]
+
+[ext_resource type="Texture2D" uid="uid://bvdtrgow0qq3s" path="res://gitTutorial/doomsprites.png" id="1_t6xta"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14nv5"]
+atlas = ExtResource("1_t6xta")
+region = Rect2(106, 0, 53, 103)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pf7uk"]
+atlas = ExtResource("1_t6xta")
+region = Rect2(159, 0, 53, 103)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fw4kf"]
+atlas = ExtResource("1_t6xta")
+region = Rect2(212, 0, 53, 103)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibflf"]
+atlas = ExtResource("1_t6xta")
+region = Rect2(265, 0, 53, 103)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fpcxu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14nv5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pf7uk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fw4kf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibflf")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Character" type="Node2D" unique_id=1353995757]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=965981993]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_fpcxu")
+frame = 3
+frame_progress = 0.7679823

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bsq0ocv6rhqxc"]
+
+[ext_resource type="PackedScene" uid="uid://b348jpw2tgl70" path="res://gitTutorial/Character.tscn" id="1_iioh5"]
+
+[node name="Control" type="Control" unique_id=482410221]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=1831168234]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 1.0
+offset_left = 116.0
+offset_top = 346.0
+offset_right = 231.0
+offset_bottom = -279.0
+text = "test"
+
+[node name="Character" parent="." unique_id=1353995757 instance=ExtResource("1_iioh5")]
+position = Vector2(650, 390)
