@@ -1,5 +1,15 @@
 [gd_scene format=3 uid="uid://das1vanpdrtkh"]
 
+[ext_resource type="SpineSkeletonDataResource" uid="uid://co1srmfcu5aky" path="res://Spine Showcase/Nitronic_Spine_Test.tres" id="1_bgdir"]
+[ext_resource type="Script" uid="uid://cgfhk4l4v2g8m" path="res://Spine Showcase/spine_showcase.gd" id="1_i5bls"]
+
 [node name="SpineShowcase" type="Node2D" unique_id=1459249567]
+script = ExtResource("1_i5bls")
 
 [node name="SpineSprite" type="SpineSprite" parent="." unique_id=6821236]
+skeleton_data_res = ExtResource("1_bgdir")
+preview_skin = "Default"
+preview_animation = "Demo/atktest"
+preview_frame = false
+preview_time = 0.0
+position = Vector2(996, 917)

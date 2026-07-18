@@ -1,3 +1,8 @@
 [gd_resource type="SpineSkeletonDataResource" format=3 uid="uid://co1srmfcu5aky"]
 
+[ext_resource type="SpineAtlasResource" uid="uid://xmar03ycp77f" path="res://Spine Showcase/char_nitronic new ver.atlas" id="1_oui44"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://cmeo1ckwluija" path="res://Spine Showcase/NitronicIdleAnim.skel" id="2_de5ov"]
+
 [resource]
+atlas_res = ExtResource("1_oui44")
+skeleton_file_res = ExtResource("2_de5ov")
