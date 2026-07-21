@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://v3dcpf0y0k5o"]
+
+[ext_resource type="Script" uid="uid://fq7rmltiiyc8" path="res://scripts/ducking_demo.gd" id="1_duck"]
+[ext_resource type="AudioStream" uid="uid://1xg6j08apxhh" path="res://audio/bgm_structured.wav" id="2_music"]
+[ext_resource type="AudioStream" uid="uid://d2kmq4fublhcl" path="res://audio/sfx_duck.wav" id="3_sfx"]
+
+[node name="DuckingDemo" type="Node" unique_id=1352141235]
+script = ExtResource("1_duck")
+music_stream = ExtResource("2_music")
+sfx_stream = ExtResource("3_sfx")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1391896485]
+
+[node name="Label" type="Label" parent="UI" unique_id=1902405093]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 616.0
+offset_bottom = 100.0
+text = "SPACE = play SFX (music ducks)"

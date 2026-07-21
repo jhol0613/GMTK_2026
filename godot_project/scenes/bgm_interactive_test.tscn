@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/bgm_interactive_test.gd" id="1_test"]
+[ext_resource type="Script" path="res://scripts/bgm_interactive.gd" id="2_bgm"]
+[ext_resource type="AudioStream" path="res://audio/bgm_intro.wav" id="3_intro"]
+[ext_resource type="AudioStream" path="res://audio/bgm_body_a.wav" id="4_body_a"]
+[ext_resource type="AudioStream" path="res://audio/bgm_body_b.wav" id="5_body_b"]
+[ext_resource type="AudioStream" path="res://audio/bgm_outro.wav" id="6_outro"]
+
+[node name="BGMInteractiveTest" type="Node"]
+script = ExtResource("1_test")
+
+[node name="BGMInteractive" type="Node" parent="."]
+script = ExtResource("2_bgm")
+intro_stream = ExtResource("3_intro")
+body_a_stream = ExtResource("4_body_a")
+body_b_stream = ExtResource("5_body_b")
+outro_stream = ExtResource("6_outro")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="UI"]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 616.0
+offset_bottom = 120.0
+text = "O = gameends   I = ingame   R = restart"

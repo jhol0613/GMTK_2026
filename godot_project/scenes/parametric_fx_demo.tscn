@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dej0dlbfjwu5v"]
+
+[ext_resource type="Script" uid="uid://bocudafqrryi7" path="res://scripts/parametric_fx_demo.gd" id="1_fx"]
+[ext_resource type="AudioStream" uid="uid://1xg6j08apxhh" path="res://audio/bgm_structured.wav" id="2_music"]
+
+[node name="ParametricFXDemo" type="Node" unique_id=624312363]
+script = ExtResource("1_fx")
+music_stream = ExtResource("2_music")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=70529140]
+
+[node name="Label" type="Label" parent="UI" unique_id=1375344846]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 616.0
+offset_bottom = 100.0
+text = "F = toggle muffle (underwater)"

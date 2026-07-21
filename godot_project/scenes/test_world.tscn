@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://bpjaeny242uaj"]
+
+[ext_resource type="Script" uid="uid://dawpka5otupn4" path="res://scripts/music_manager.gd" id="1_music"]
+[ext_resource type="Script" uid="uid://crjmjmdbyyf5" path="res://scripts/looped_zone.gd" id="2_loop"]
+[ext_resource type="Script" uid="uid://tp8bc5gd50tu" path="res://scripts/transient_zone.gd" id="3_trans"]
+[ext_resource type="Script" uid="uid://dlrlyyw28pdk5" path="res://scripts/test_player.gd" id="4_player"]
+
+[sub_resource type="BoxShape3D" id="Ground_Shape"]
+size = Vector3(40, 1, 40)
+
+[sub_resource type="BoxMesh" id="Ground_Mesh"]
+size = Vector3(40, 1, 40)
+
+[sub_resource type="BoxShape3D" id="Loop_Shape"]
+size = Vector3(8, 4, 8)
+
+[sub_resource type="BoxMesh" id="Loop_Mesh"]
+size = Vector3(8, 4, 8)
+
+[sub_resource type="StandardMaterial3D" id="Loop_Mat"]
+transparency = 1
+albedo_color = Color(0.2, 0.5, 1, 0.25)
+
+[sub_resource type="BoxShape3D" id="Trans_Shape"]
+size = Vector3(6, 4, 6)
+
+[sub_resource type="BoxMesh" id="Trans_Mesh"]
+size = Vector3(6, 4, 6)
+
+[sub_resource type="StandardMaterial3D" id="Trans_Mat"]
+transparency = 1
+albedo_color = Color(1, 0.35, 0.2, 0.25)
+
+[sub_resource type="CapsuleShape3D" id="Player_Shape"]
+
+[node name="TestWorld" type="Node3D" unique_id=2075909373]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=838512327]
+transform = Transform3D(0.7, -0.5, 0.5, 0, 0.7, 0.7, -0.7, -0.5, 0.5, 0, 12, 0)
+shadow_enabled = true
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=664613006]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1303382430]
+shape = SubResource("Ground_Shape")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=1803554780]
+mesh = SubResource("Ground_Mesh")
+
+[node name="MusicManager" type="Node" parent="." unique_id=2059375048]
+script = ExtResource("1_music")
+
+[node name="LoopedZone" type="Area3D" parent="." unique_id=2107248321]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2, 0)
+script = ExtResource("2_loop")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LoopedZone" unique_id=264094726]
+shape = SubResource("Loop_Shape")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LoopedZone" unique_id=1595091628]
+mesh = SubResource("Loop_Mesh")
+surface_material_override/0 = SubResource("Loop_Mat")
+
+[node name="TransientZone" type="Area3D" parent="." unique_id=646778359]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2, 0)
+script = ExtResource("3_trans")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TransientZone" unique_id=805624090]
+shape = SubResource("Trans_Shape")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TransientZone" unique_id=1762049103]
+mesh = SubResource("Trans_Mesh")
+surface_material_override/0 = SubResource("Trans_Mat")
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=1874809981]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("4_player")
+music_manager_path = NodePath("../MusicManager")
+status_label_path = NodePath("../UI/Status")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1306286617]
+shape = SubResource("Player_Shape")
+
+[node name="Camera3D" type="Camera3D" parent="Player" unique_id=1752052095]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=610865195]
+
+[node name="Status" type="Label" parent="UI" unique_id=1284923764]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 616.0
+offset_bottom = 80.0
+text = "WASD move  |  mouse look  |  1/2/3 = music state  |  ESC = free cursor"
