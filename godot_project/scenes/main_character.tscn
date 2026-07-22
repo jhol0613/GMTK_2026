@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bn2ibeuqk0rgt"]
 
-[ext_resource type="Script" uid="uid://bbe8eqoq6087j" path="res://node_2d.gd" id="1_ig48j"]
+[ext_resource type="Script" uid="uid://bbe8eqoq6087j" path="res://scripts/main_character.gd" id="1_ig48j"]
 [ext_resource type="Texture2D" uid="uid://b5go5afjbr5vp" path="res://player/sprites/idle_down.png" id="2_tqm6u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e6tc2"]
