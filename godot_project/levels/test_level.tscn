@@ -3,6 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://ddbgow303m2gq" path="res://levels/tileset/TX Tileset Grass.png" id="1_hgrid"]
 [ext_resource type="Script" uid="uid://cny5d4l3v5fof" path="res://levels/test_level.gd" id="1_x25rp"]
 [ext_resource type="PackedScene" uid="uid://bn2ibeuqk0rgt" path="res://player/player.tscn" id="3_gmgay"]
+[ext_resource type="PackedScene" uid="uid://i202174cj82c" path="res://interactables/sign_interactable.tscn" id="4_w7r7j"]
+[ext_resource type="PackedScene" uid="uid://0h6rwq0bq753" path="res://interactables/sign_panel.tscn" id="5_o6mel"]
+[ext_resource type="Texture2D" uid="uid://vhkf2uikem7e" path="res://icon.svg" id="6_4n8tn"]
+[ext_resource type="PackedScene" uid="uid://bmapint7k2qaq" path="res://interactables/map_interactable.tscn" id="6_mapin"]
+[ext_resource type="PackedScene" uid="uid://cmapanel8x3m2" path="res://interactables/map_panel.tscn" id="7_mappn"]
+[ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialogue_interactable.tscn" id="8_dlgIn"]
+[ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialogue_panel.tscn" id="9_dlgPn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hgrid"]
 texture = ExtResource("1_hgrid")
@@ -274,3 +281,29 @@ tile_map_data = PackedByteArray("AAAAAAAAAQAHAAAAAAAAAAEAAQAPAAEAAAAAAAIAAQANAAA
 tile_set = SubResource("TileSet_bhunq")
 
 [node name="Player" parent="." unique_id=799939449 instance=ExtResource("3_gmgay")]
+position = Vector2(1027, 372)
+
+[node name="SignInteractable" parent="." unique_id=809648706 instance=ExtResource("4_w7r7j")]
+position = Vector2(1192, 372)
+title = "This is a Sign"
+panel_path = NodePath("%SignPanel")
+
+[node name="MapInteractable" parent="." unique_id=124864371 instance=ExtResource("6_mapin")]
+position = Vector2(1352, 372)
+title = "Local Map"
+map_texture = ExtResource("6_4n8tn")
+panel_path = NodePath("%MapPanel")
+
+[node name="DialogueInteractable" parent="." unique_id=983647093 instance=ExtResource("8_dlgIn")]
+position = Vector2(1512, 372)
+lines = ["Hello!", "Welcome to Berlin hbf"]
+panel_path = NodePath("%DialoguePanel")
+
+[node name="SignPanel" parent="." unique_id=1582616772 instance=ExtResource("5_o6mel")]
+unique_name_in_owner = true
+
+[node name="MapPanel" parent="." unique_id=2029121882 instance=ExtResource("7_mappn")]
+unique_name_in_owner = true
+
+[node name="DialoguePanel" parent="." unique_id=2063004982 instance=ExtResource("9_dlgPn")]
+unique_name_in_owner = true
