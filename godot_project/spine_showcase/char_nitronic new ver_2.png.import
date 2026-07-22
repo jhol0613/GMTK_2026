@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uyek5dq2ismy"
-path="res://.godot/imported/char_nitronic new ver_7.png-366b8790c43d348b25e884c6a9225177.ctex"
+uid="uid://ddlg2dkpuorqa"
+path="res://.godot/imported/char_nitronic new ver_2.png-1f99a8897df6fbdf463b1e7d5b4029cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Spine Showcase/char_nitronic new ver_7.png"
-dest_files=["res://.godot/imported/char_nitronic new ver_7.png-366b8790c43d348b25e884c6a9225177.ctex"]
+source_file="res://spine_showcase/char_nitronic new ver_2.png"
+dest_files=["res://.godot/imported/char_nitronic new ver_2.png-1f99a8897df6fbdf463b1e7d5b4029cc.ctex"]
 
 [params]
 

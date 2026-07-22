@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://d2kmq4fublhcl"
-path="res://.godot/imported/sfx_duck.wav-b090ca17f73ee8b46b2537529487b835.sample"
+path="res://.godot/imported/sfx_duck.wav-248c0cc92335a25a68db0f18b8804ee2.sample"
 
 [deps]
 
-source_file="res://audio/sfx_duck.wav"
-dest_files=["res://.godot/imported/sfx_duck.wav-b090ca17f73ee8b46b2537529487b835.sample"]
+source_file="res://audio_tools_showcase/placeholder_audio/sfx_duck.wav"
+dest_files=["res://.godot/imported/sfx_duck.wav-248c0cc92335a25a68db0f18b8804ee2.sample"]
 
 [params]
 

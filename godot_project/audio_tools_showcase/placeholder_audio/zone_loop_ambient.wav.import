@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dt46mu3m3fbwe"
-path="res://.godot/imported/zone_loop_ambient.wav-30943c3e7dc3674313b85934ac5e3e32.sample"
+path="res://.godot/imported/zone_loop_ambient.wav-832f3636639daa292ace3fa767d7a49b.sample"
 
 [deps]
 
-source_file="res://audio/zone_loop_ambient.wav"
-dest_files=["res://.godot/imported/zone_loop_ambient.wav-30943c3e7dc3674313b85934ac5e3e32.sample"]
+source_file="res://audio_tools_showcase/placeholder_audio/zone_loop_ambient.wav"
+dest_files=["res://.godot/imported/zone_loop_ambient.wav-832f3636639daa292ace3fa767d7a49b.sample"]
 
 [params]
 

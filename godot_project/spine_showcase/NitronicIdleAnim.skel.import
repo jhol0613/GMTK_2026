@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://cmeo1ckwluija"
+path="res://.godot/imported/NitronicIdleAnim.skel-bb91ec2d0d8b7dbf6ec70549a8b0f6c2.spskel"
+
+[deps]
+
+source_file="res://spine_showcase/NitronicIdleAnim.skel"
+dest_files=["res://.godot/imported/NitronicIdleAnim.skel-bb91ec2d0d8b7dbf6ec70549a8b0f6c2.spskel"]
+
+[params]
+

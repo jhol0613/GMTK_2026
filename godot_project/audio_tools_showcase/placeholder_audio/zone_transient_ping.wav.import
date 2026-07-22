@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bv4ug36r5mkys"
-path="res://.godot/imported/zone_transient_ping.wav-14d3cb65429b10e69566314e483a51cc.sample"
+path="res://.godot/imported/zone_transient_ping.wav-6c53c2cd9dbf473f6cfbcaffea973fe3.sample"
 
 [deps]
 
-source_file="res://audio/zone_transient_ping.wav"
-dest_files=["res://.godot/imported/zone_transient_ping.wav-14d3cb65429b10e69566314e483a51cc.sample"]
+source_file="res://audio_tools_showcase/placeholder_audio/zone_transient_ping.wav"
+dest_files=["res://.godot/imported/zone_transient_ping.wav-6c53c2cd9dbf473f6cfbcaffea973fe3.sample"]
 
 [params]
 

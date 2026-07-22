@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://xmar03ycp77f"
+path="res://.godot/imported/char_nitronic new ver.atlas-509ce8a802024607b7fd20863e97d6a1.spatlas"
+
+[deps]
+
+source_file="res://spine_showcase/char_nitronic new ver.atlas"
+dest_files=["res://.godot/imported/char_nitronic new ver.atlas-509ce8a802024607b7fd20863e97d6a1.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"
