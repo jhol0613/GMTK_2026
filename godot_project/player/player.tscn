@@ -119,7 +119,6 @@ sprite_frames = SubResource("SpriteFrames_chyd6")
 animation = &"idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1839516700]
-position = Vector2(4, 0)
 shape = SubResource("RectangleShape2D_chyd6")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=906284541]
