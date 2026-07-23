@@ -19,5 +19,6 @@ func interact() -> void:
 	if panel == null:
 		return
 	panel.show_dialogue(
-		speaker, lines, option_a, option_b, correct_option, reward, success_line, failure_line
+		speaker, lines, option_a, option_b, correct_option, reward, success_line, failure_line,
+		minutes_cost
 	)

@@ -25,12 +25,12 @@ func is_open() -> bool:
 	return _is_open
 
 
-func _open() -> void:
+func _open(minutes: int = 1) -> void:
 	# If the CanvasLayer is invisible, the Root will not be visible either.
 	visible = true
 	_root.visible = true
 	_is_open = true
-	SignalBus.interaction_started.emit()
+	SignalBus.interaction_started.emit(minutes)
 
 
 func _unhandled_input(event: InputEvent) -> void:

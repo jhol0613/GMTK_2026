@@ -12,4 +12,4 @@ func interact() -> void:
 	var panel := get_node_or_null(panel_path) as MapPanel
 	if panel == null:
 		return
-	panel.show_map(title, map_texture)
+	panel.show_map(title, map_texture, minutes_cost)
