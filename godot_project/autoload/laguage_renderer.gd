@@ -27,8 +27,13 @@ static func draw_text(text: String, node:CanvasItem) -> Array[RectangleShape2D]:
 	return shapes
 
 ## Returned RectableShape2D is the size of the entire Resshan word
-static func draw_resshan_text(pos:Vector2,str:String, node:CanvasItem) -> RectangleShape2D:
-	var arr: PackedStringArray = encode(str).split('.')
+static func draw_resshan_text(pos:Vector2,str:String, node:CanvasItem, encoded: = false) -> RectangleShape2D:
+	var arr: PackedStringArray = []
+	if not encoded:
+		arr = encode(str).split('.')
+	else:
+		arr = str.split('.')
+	
 	pos.y -= 16
 	for indx:String in arr:
 		var char_rec: = Rect2(pos, Vector2(16,16))
@@ -43,6 +48,6 @@ static func draw_resshan_text(pos:Vector2,str:String, node:CanvasItem) -> Rectan
 	shape.size.y = 16
 	return shape
 
-## Turns <<***>> into *.*.*.* encoded format
+## Turns <<***>> Resshen format into *.*.*.*... encoded format
 static func encode(str:String) -> String:
 	return preload("res://resshan_alphabet/vocab.json").data[str.capitalize()]
