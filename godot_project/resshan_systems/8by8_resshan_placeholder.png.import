@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://chr3bmdwet6vo"
-path="res://.godot/imported/8by8_resshan_placeholder.png-407ae5a56c7d8f308f1779fcadbcd092.ctex"
+path="res://.godot/imported/8by8_resshan_placeholder.png-65382ec954746c765439be73356d1589.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resshan_alphabet/8by8_resshan_placeholder.png"
-dest_files=["res://.godot/imported/8by8_resshan_placeholder.png-407ae5a56c7d8f308f1779fcadbcd092.ctex"]
+source_file="res://resshan_systems/8by8_resshan_placeholder.png"
+dest_files=["res://.godot/imported/8by8_resshan_placeholder.png-65382ec954746c765439be73356d1589.ctex"]
 
 [params]
 

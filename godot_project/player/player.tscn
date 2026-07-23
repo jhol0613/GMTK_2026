@@ -38,7 +38,7 @@ region = Rect2(709, 24, 20, 34)
 [sub_resource type="SpriteFrames" id="SpriteFrames_chyd6"]
 animations = [{
 "frames": [],
-"loop": 1,
+"loop": true,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -67,42 +67,42 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hj3w6")
 }],
-"loop": 1,
+"loop": true,
 "name": &"idle_down",
 "speed": 5.0
 }, {
 "frames": [],
-"loop": 1,
+"loop": true,
 "name": &"idle_left",
 "speed": 5.0
 }, {
 "frames": [],
-"loop": 1,
+"loop": true,
 "name": &"idle_right",
 "speed": 5.0
 }, {
 "frames": [],
-"loop": 1,
+"loop": true,
 "name": &"idle_up",
 "speed": 5.0
 }, {
 "frames": [],
-"loop": 1,
+"loop": true,
 "name": &"run_down",
 "speed": 5.0
 }, {
 "frames": [],
-"loop": 1,
+"loop": true,
 "name": &"run_left",
 "speed": 5.0
 }, {
 "frames": [],
-"loop": 1,
+"loop": true,
 "name": &"run_right",
 "speed": 5.0
 }, {
 "frames": [],
-"loop": 1,
+"loop": true,
 "name": &"run_up",
 "speed": 5.0
 }]

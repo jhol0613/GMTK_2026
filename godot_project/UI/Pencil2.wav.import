@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bgd5836r45dbr"
-path="res://.godot/imported/Pencil2.wav-af6cf616f23eeb2dd2448936d453ac56.sample"
+path="res://.godot/imported/Pencil2.wav-8fc28becdfd1ea441d4f7e74d182b173.sample"
 
 [deps]
 
-source_file="res://ui/Pencil2.wav"
-dest_files=["res://.godot/imported/Pencil2.wav-af6cf616f23eeb2dd2448936d453ac56.sample"]
+source_file="res://UI/Pencil2.wav"
+dest_files=["res://.godot/imported/Pencil2.wav-8fc28becdfd1ea441d4f7e74d182b173.sample"]
 
 [params]
 
