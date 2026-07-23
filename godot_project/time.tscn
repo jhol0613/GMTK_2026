@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bdx06b4wet51l"]
+
+[ext_resource type="Script" uid="uid://byquvvrlqrlgj" path="res://time.gd" id="1_ep8tu"]
+
+[node name="Time" type="Control" unique_id=1094747133]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ep8tu")
+
+[node name="Label" type="Label" parent="." unique_id=666558975]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 24
+text = "14:0"
+
+[node name="Timer" type="Timer" parent="." unique_id=1898257493]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

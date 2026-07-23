@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialogue_interactable.tscn" id="8_dlgIn"]
 [ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialogue_panel.tscn" id="9_dlgPn"]
 [ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_alphabet/language_display.gd" id="11_wkb0e"]
+[ext_resource type="PackedScene" uid="uid://bdx06b4wet51l" path="res://time.tscn" id="11_wkb0e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hgrid"]
 texture = ExtResource("1_hgrid")
@@ -307,6 +308,8 @@ visible = false
 unique_name_in_owner = true
 visible = false
 
+[node name="Countdown" parent="MapPanel" unique_id=1094747133 instance=ExtResource("11_wkb0e")]
+
 [node name="DialoguePanel" parent="." unique_id=2063004982 instance=ExtResource("9_dlgPn")]
 unique_name_in_owner = true
 visible = false
@@ -315,3 +318,5 @@ visible = false
 position = Vector2(405, 328)
 script = ExtResource("11_wkb0e")
 string = "Testing the renderer resshan text <<train>> test"
+
+[node name="Time" parent="." unique_id=916905734 instance=ExtResource("11_wkb0e")]
