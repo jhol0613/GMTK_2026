@@ -16,17 +16,13 @@ func _physics_process(delta: float) -> void:
 	if _is_any_panel_open():
 		direction = Vector2.ZERO
 		return
-	
-	
-	
-func _process(delta: float) -> void:
+
 	var old_position = position
 	direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = direction * speed
 	move_and_slide()
 	if position != old_position:
 		distance += 1
-		print(str(distance) + "px")
 	
 	if distance == distance_per_minute:
 		SignalBus.player_moved.emit()
