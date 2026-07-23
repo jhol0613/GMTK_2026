@@ -2,6 +2,8 @@ class_name LanguageRenderer
 extends Node2D
 
 
+# It's for the "str" variables. str() is a keyword, so it's fine
+@warning_ignore_start('shadowed_global_identifier')
 static func draw_text(text: String, node:CanvasItem) -> void:
 	var char_pos: Vector2 = Vector2.ZERO
 	var arr: PackedStringArray = text.split(" ")
@@ -25,6 +27,7 @@ static func draw_resshan_text(pos:Vector2,str:String, node:CanvasItem) -> float:
 		)
 		pos.x += 16
 	return arr.size() * 16 + 15
+
 
 static func encode(str:String) -> String:
 	return preload("res://resshan_alphabet/vocab.json").data[str.capitalize()]
