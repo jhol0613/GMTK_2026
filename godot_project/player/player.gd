@@ -7,6 +7,9 @@ var distance: int = 0
 @export var distance_per_minute: int = 50
 
 @onready var timer: Timer = $Timer
+@export var footstep_sounds: Array[AudioStream] = []
+var _footsteps: AudioStreamPlayer
+
 
 func _ready() -> void:
 	add_to_group("player")
@@ -34,3 +37,6 @@ func _is_any_panel_open() -> bool:
 		if panel.has_method("is_open") and panel.is_open():
 			return true
 	return false
+
+func _on_player_moved() -> void:
+	_footsteps.play()
