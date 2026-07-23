@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://2pwlm8itluel"]
+
+[ext_resource type="Texture2D" uid="uid://bof6fneov4vmn" path="res://level_elements/ticket_booth/Ticketbooth.png" id="1_8vy6h"]
+[ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialogue_interactable.tscn" id="2_ui1pi"]
+[ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="3_ui1pi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vr77"]
+atlas = ExtResource("1_8vy6h")
+region = Rect2(0, 0, 94, 87)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ujtin"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vr77")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8d5ud"]
+size = Vector2(29.5, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ujtin"]
+radius = 18.027756
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]
+size = Vector2(57, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbyu3"]
+size = Vector2(15, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pyhej"]
+size = Vector2(19, 14)
+
+[node name="TicketBooth" type="Node2D" unique_id=861247956]
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=530977529]
+z_index = 1
+position = Vector2(-12, -44.5)
+sprite_frames = SubResource("SpriteFrames_ujtin")
+
+[node name="DialogueInteractable" parent="." unique_id=358228256 instance=ExtResource("2_ui1pi")]
+z_index = 1
+position = Vector2(4, -33.5)
+option_a = "yes"
+option_b = "no"
+correct_option = 0
+reward = null
+success_line = "take this train ticket"
+failure_line = "go away"
+
+[node name="CollisionShape2D" parent="DialogueInteractable" index="0" unique_id=278382881]
+z_index = 1
+position = Vector2(-4, 34)
+shape = SubResource("RectangleShape2D_8d5ud")
+
+[node name="Prompt" parent="DialogueInteractable" index="1" unique_id=1343467040]
+z_index = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1210208580]
+z_index = 1
+position = Vector2(-12, -44.5)
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=613909825]
+position = Vector2(12, 27)
+shape = SubResource("CircleShape2D_ujtin")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=2118445653]
+position = Vector2(-17.5, 35)
+shape = SubResource("RectangleShape2D_ujtin")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1667725021]
+position = Vector2(30.5, 35.5)
+shape = SubResource("RectangleShape2D_qbyu3")
+
+[node name="ResshanInteractable" type="Area2D" parent="." unique_id=1918025937]
+script = ExtResource("3_ui1pi")
+_string = "<<ticket>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ResshanInteractable" unique_id=1516641839]
+position = Vector2(-34.5, -34)
+shape = SubResource("RectangleShape2D_pyhej")
+
+[editable path="DialogueInteractable"]
