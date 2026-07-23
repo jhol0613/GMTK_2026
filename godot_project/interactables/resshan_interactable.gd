@@ -9,7 +9,8 @@ signal text_clicked(str:String)
 var _encoded_string: String = ''
 
 func _ready() -> void:
-	_encoded_string = LanguageRenderer.encode(_string)
+	if not _string.is_empty():
+		_encoded_string = LanguageRenderer.encode(_string)
 
 func _input_event(viewport: Viewport, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton:

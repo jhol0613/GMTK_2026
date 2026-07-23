@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialogue_interactable.tscn" id="8_dlgIn"]
 [ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialogue_panel.tscn" id="9_dlgPn"]
 [ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_alphabet/language_display.gd" id="11_wkb0e"]
-[ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://interactables/resshan_interactable.gd" id="12_paa45"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hgrid"]
 texture = ExtResource("1_hgrid")
@@ -275,9 +274,6 @@ texture = ExtResource("1_hgrid")
 [sub_resource type="TileSet" id="TileSet_bhunq"]
 sources/1 = SubResource("TileSetAtlasSource_hgrid")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1fef"]
-size = Vector2(54, 20)
-
 [node name="TestLevel" type="Node2D" unique_id=929390849]
 script = ExtResource("1_x25rp")
 
@@ -319,15 +315,3 @@ visible = false
 position = Vector2(405, 328)
 script = ExtResource("11_wkb0e")
 string = "Testing the renderer resshan text <<train>> test"
-
-[node name="ResshanInteractable" type="Area2D" parent="." unique_id=276003300]
-position = Vector2(731, 320)
-monitorable = false
-script = ExtResource("12_paa45")
-_string = "<<train>>"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ResshanInteractable" unique_id=70934112]
-position = Vector2(17, 0)
-shape = SubResource("RectangleShape2D_s1fef")
-
-[connection signal="text_clicked" from="ResshanInteractable" to="." method="_on_resshan_interactable_text_clicked"]
