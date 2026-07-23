@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b0wdi5jy8x5w8"]
+[gd_scene format=3 uid="uid://dchuwbctx2fxx"]
 
 [ext_resource type="Texture2D" uid="uid://cgwgqt1s02cre" path="res://train/sprites/Titelloses_26.png" id="1_wbttr"]
 
@@ -13,9 +13,18 @@ func _on_timer_end():
 	move_local_x(1)
 "
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_chyd6"]
+size = Vector2(167, 64)
+
 [node name="Train" type="Node2D" unique_id=1063531120]
 script = SubResource("GDScript_chyd6")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1661955303]
 position = Vector2(80, 32)
 texture = ExtResource("1_wbttr")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=521111925]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1615410251]
+position = Vector2(79.5, 38)
+shape = SubResource("RectangleShape2D_chyd6")
