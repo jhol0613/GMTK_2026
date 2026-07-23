@@ -111,18 +111,22 @@ animations = [{
 size = Vector2(24, 40)
 
 [node name="Player" type="CharacterBody2D" unique_id=799939449 groups=["player"]]
-collision_layer = 1
 collision_mask = 2
 script = ExtResource("1_rkbax")
 
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1051840407]
-scale = Vector2(2, 2)
+position = Vector2(10, 17)
 sprite_frames = SubResource("SpriteFrames_chyd6")
 animation = &"idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1839516700]
-scale = Vector2(2, 2)
+position = Vector2(10, 17)
 shape = SubResource("RectangleShape2D_chyd6")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=906284541]
+zoom = Vector2(4, 4)
+
+[node name="Timer" type="Timer" parent="." unique_id=785300633]
+wait_time = 0.5
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
