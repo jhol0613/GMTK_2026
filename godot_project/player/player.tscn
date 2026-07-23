@@ -126,4 +126,6 @@ shape = SubResource("RectangleShape2D_chyd6")
 [node name="Timer" type="Timer" parent="." unique_id=785300633]
 wait_time = 0.5
 
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="." unique_id=1994860091]
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
