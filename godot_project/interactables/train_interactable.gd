@@ -9,6 +9,7 @@ func interact() -> void:
 	if not can_board():
 		print("Cannot board train to ", id)
 		return
+	SignalBus.interaction_started.emit(minutes_cost)
 	# TODO: Transition to the next scene
 	print("Boarding train to ", id)
 
