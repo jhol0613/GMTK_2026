@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bm4sfhu5efxak"
-path="res://.godot/imported/Purchased Ticket.wav-5dcbd14ff319d512f615c63d22abe0aa.sample"
+path="res://.godot/imported/Purchased Ticket.wav-2bff095b6bd125ed918ff16b55186c18.sample"
 
 [deps]
 
-source_file="res://ui/Purchased Ticket/Purchased Ticket.wav"
-dest_files=["res://.godot/imported/Purchased Ticket.wav-5dcbd14ff319d512f615c63d22abe0aa.sample"]
+source_file="res://UI/Purchased Ticket/Purchased Ticket.wav"
+dest_files=["res://.godot/imported/Purchased Ticket.wav-2bff095b6bd125ed918ff16b55186c18.sample"]
 
 [params]
 
