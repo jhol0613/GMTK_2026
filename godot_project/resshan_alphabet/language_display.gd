@@ -22,12 +22,12 @@ func _draw() -> void:
 		var area: = ResshanInteractable.new()
 		var collision_shape: = CollisionShape2D.new()
 		var pos:Vector2 = shape.get_meta('text_position')
-		var encoded:String = shape.get_meta('encoded_text')
+		var resshen:String = shape.get_meta('resshen_text')
 		
 		area.position = pos
 		area.position.y -= 8
 		area.position.x += shape.size.x * 0.5
-		area._encoded_string = encoded
+		area._encoded_string = LanguageRenderer.encode(resshen)
 		collision_shape.shape = shape
 		area.add_child(collision_shape)
 		

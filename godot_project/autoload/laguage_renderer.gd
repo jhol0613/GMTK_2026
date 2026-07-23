@@ -4,23 +4,29 @@ extends Node2D
 
 # It's for the "str" variables. str() is a keyword, so it's fine
 @warning_ignore_start('shadowed_global_identifier')
+## This function should only be called in the _draw() function of the node
+## It returns Array[RectangleShape2D] which contains data 
+## to build ResshanInteractable
 static func draw_text(text: String, node:CanvasItem) -> Array[RectangleShape2D]:
 	var shapes: Array[RectangleShape2D]
 	var char_pos: Vector2 = Vector2.ZERO
 	var arr: PackedStringArray = text.split(" ")
+	
 	for str:String in arr:
 		if str.contains("<<"):
 			var shape: = draw_resshan_text(char_pos, str, node)
-			shape.set_meta('encoded_text', str)
+			shape.set_meta('resshen_text', str)
 			shape.set_meta('text_position', char_pos)
 			shapes.append(shape)
 			char_pos.x += shape.size.x + 15
 			continue
+		
 		node.draw_string(ThemeDB.fallback_font, char_pos, str)
 		char_pos.x += ThemeDB.fallback_font.get_string_size(str).x + 15
+	
 	return shapes
 
-
+## Returned RectableShape2D is the size of the entire Resshan word
 static func draw_resshan_text(pos:Vector2,str:String, node:CanvasItem) -> RectangleShape2D:
 	var arr: PackedStringArray = encode(str).split('.')
 	pos.y -= 16
@@ -37,6 +43,6 @@ static func draw_resshan_text(pos:Vector2,str:String, node:CanvasItem) -> Rectan
 	shape.size.y = 16
 	return shape
 
-
+## Turns <<***>> into *.*.*.* encoded format
 static func encode(str:String) -> String:
 	return preload("res://resshan_alphabet/vocab.json").data[str.capitalize()]
