@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://dlagfmlay2r8"]
+
+[ext_resource type="Script" path="res://interactables/dialogue_panel.gd" id="1_script"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dialogue"]
+bg_color = Color(0.9372549, 0.68235296, 0.54509807, 1)
+
+[node name="DialoguePanel" type="CanvasLayer"]
+layer = 20
+script = ExtResource("1_script")
+
+[node name="Root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DimScreen" type="ColorRect" parent="Root"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.54901963)
+
+[node name="Popup" type="PanelContainer" parent="Root"]
+custom_minimum_size = Vector2(640, 180)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -220.0
+offset_right = 320.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_dialogue")
+
+[node name="MarginContainer" type="MarginContainer" parent="Root/Popup"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="Root/Popup/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Speaker" type="Label" parent="Root/Popup/MarginContainer/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Speaker"
+
+[node name="Body" type="Label" parent="Root/Popup/MarginContainer/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Dialogue line"
+autowrap_mode = 3

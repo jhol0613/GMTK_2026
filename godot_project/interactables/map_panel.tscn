@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://cmapanel8x3m2"]
+
+[ext_resource type="Script" uid="uid://c7j1a37mghb3i" path="res://interactables/map_panel.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://vhkf2uikem7e" path="res://icon.svg" id="2_foff4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_map"]
+bg_color = Color(0.9372549, 0.68235296, 0.54509807, 1)
+
+[node name="MapPanel" type="CanvasLayer" unique_id=445367700]
+layer = 20
+script = ExtResource("1_script")
+
+[node name="Root" type="Control" parent="." unique_id=2036134766]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DimScreen" type="ColorRect" parent="Root" unique_id=1318928651]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.54901963)
+
+[node name="Popup" type="PanelContainer" parent="Root" unique_id=380372494]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_map")
+
+[node name="MarginContainer" type="MarginContainer" parent="Root/Popup" unique_id=1619139428]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBox" type="VBoxContainer" parent="Root/Popup/MarginContainer" unique_id=1512772017]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Title" type="Label" parent="Root/Popup/MarginContainer/VBox" unique_id=168683168]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Map"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MapImage" type="TextureRect" parent="Root/Popup/MarginContainer/VBox" unique_id=1180785616]
+custom_minimum_size = Vector2(0, 360)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_foff4")
+expand_mode = 1
+stretch_mode = 5
