@@ -282,7 +282,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAQAHAAAAAAAAAAEAAQAPAAEAAAAAAAIAAQANAAA
 tile_set = SubResource("TileSet_bhunq")
 
 [node name="Player" parent="." unique_id=799939449 instance=ExtResource("3_gmgay")]
-position = Vector2(1408, 368)
+position = Vector2(1426, 352)
 
 [node name="SignInteractable" parent="." unique_id=809648706 instance=ExtResource("4_w7r7j")]
 position = Vector2(1192, 372)
@@ -323,3 +323,7 @@ visible = false
 position = Vector2(405, 328)
 
 [node name="Time" parent="." unique_id=916905734 instance=ExtResource("11_wkb0e")]
+offset_left = 1200.0
+offset_top = 224.0
+offset_right = 1240.0
+offset_bottom = 264.0

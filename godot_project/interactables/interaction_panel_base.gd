@@ -30,6 +30,7 @@ func _open() -> void:
 	visible = true
 	_root.visible = true
 	_is_open = true
+	SignalBus.interaction_started.emit()
 
 
 func _unhandled_input(event: InputEvent) -> void:
