@@ -2,7 +2,7 @@ extends Control
 
 const MINUTES_PER_HOUR: int = 8
 
-@onready var label: Label = $Label
+@onready var label: ResshanLabel2D = $Label
 @onready var timer: Timer = $Timer
 
 var rhour: int = 0
@@ -24,7 +24,7 @@ func _advance_time() -> void:
 
 
 func _update_label() -> void:
-	label.text = "%s:%s" % [rhour, rminutes]
+	label.string = "<<%s>> : <<%s>>" % [rhour, rminutes]
 
 
 func _on_interaction_started() -> void:
