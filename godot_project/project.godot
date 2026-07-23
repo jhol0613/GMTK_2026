@@ -25,6 +25,7 @@ Enums="*res://autoload/enums.gd"
 GameManager="*res://autoload/game_manager.tscn"
 SaveManager="*res://autoload/save_manager.gd"
 AudioManager="*res://autoload/audio_manager.gd"
+LanguageRenderer="*uid://bh4wslmdfs467"
 
 [display]
 

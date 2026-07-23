@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cmapanel8x3m2" path="res://interactables/map_panel.tscn" id="7_mappn"]
 [ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialogue_interactable.tscn" id="8_dlgIn"]
 [ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialogue_panel.tscn" id="9_dlgPn"]
+[ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_alphabet/language_display.gd" id="11_wkb0e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hgrid"]
 texture = ExtResource("1_hgrid")
@@ -301,9 +302,17 @@ panel_path = NodePath("%DialoguePanel")
 
 [node name="SignPanel" parent="." unique_id=1582616772 instance=ExtResource("5_o6mel")]
 unique_name_in_owner = true
+visible = false
 
 [node name="MapPanel" parent="." unique_id=2029121882 instance=ExtResource("7_mappn")]
 unique_name_in_owner = true
+visible = false
 
 [node name="DialoguePanel" parent="." unique_id=2063004982 instance=ExtResource("9_dlgPn")]
 unique_name_in_owner = true
+visible = false
+
+[node name="LanguageTest" type="Node2D" parent="." unique_id=1131743426]
+position = Vector2(405, 328)
+script = ExtResource("11_wkb0e")
+string = "Testing the renderer resshan text <<train>> test"
