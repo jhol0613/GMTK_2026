@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cgwgqt1s02cre"
-path="res://.godot/imported/Titelloses_26.png-be4db82f04569cc96ddb96747e195641.ctex"
+path="res://.godot/imported/Titelloses_26.png-fcee5e775acdf0aa28a02aed41523c29.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://train/sprites/Titelloses_26.png"
-dest_files=["res://.godot/imported/Titelloses_26.png-be4db82f04569cc96ddb96747e195641.ctex"]
+source_file="res://interactables/sprites/Titelloses_26.png"
+dest_files=["res://.godot/imported/Titelloses_26.png-fcee5e775acdf0aa28a02aed41523c29.ctex"]
 
 [params]
 
