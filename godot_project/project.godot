@@ -23,6 +23,7 @@ config/icon="res://icon.svg"
 
 Enums="*res://autoload/enums.gd"
 SignalBus="*uid://s3nok8vshif0"
+Inventory="*uid://dcg2h1mjoj4xl"
 GameManager="*res://autoload/game_manager.tscn"
 SaveManager="*res://autoload/save_manager.gd"
 AudioManager="*res://autoload/audio_manager.gd"

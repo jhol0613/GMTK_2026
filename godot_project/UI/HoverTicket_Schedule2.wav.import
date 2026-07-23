@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cv8f86i2rxspt"
-path="res://.godot/imported/HoverTicket_Schedule2.wav-bdd959be62488881109b2fc33162ced2.sample"
+path="res://.godot/imported/HoverTicket_Schedule2.wav-666057e2c6ae0d576b16a2abd3a8596a.sample"
 
 [deps]
 
-source_file="res://UI/HoverTicket_Schedule2.wav"
-dest_files=["res://.godot/imported/HoverTicket_Schedule2.wav-bdd959be62488881109b2fc33162ced2.sample"]
+source_file="res://ui/HoverTicket_Schedule2.wav"
+dest_files=["res://.godot/imported/HoverTicket_Schedule2.wav-666057e2c6ae0d576b16a2abd3a8596a.sample"]
 
 [params]
 
