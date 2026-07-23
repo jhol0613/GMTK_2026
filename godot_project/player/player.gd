@@ -32,11 +32,18 @@ func _on_timer_timeout() -> void:
 	timer.start(movement_speed)
 
 func get_direction() -> void:
-	var x: int = Input.get_axis("move_left", "move_right")
+	var x: float = Input.get_axis("move_left", "move_right")
 		
-	var y: int = Input.get_axis("move_up", "move_down")
+	var y: float = Input.get_axis("move_up", "move_down")
 	
 	if x != 0 and y != 0:
 		direction = Vector2(0, 0)
 	else:
 		direction = Vector2(x, y)
+
+
+func _is_any_panel_open() -> bool:
+	for panel in get_tree().get_nodes_in_group("interaction_panel"):
+		if panel.has_method("is_open") and panel.is_open():
+			return true
+	return false

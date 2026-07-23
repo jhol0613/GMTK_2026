@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://dlagfmlay2r8"]
 
-[ext_resource type="Script" path="res://interactables/dialogue_panel.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://pii20xdxfb3p" path="res://interactables/dialogue_panel.gd" id="1_script"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dialogue"]
-bg_color = Color(0.9372549, 0.68235296, 0.54509807, 1)
+bg_color = Color(0, 0, 0, 1)
 
-[node name="DialoguePanel" type="CanvasLayer"]
+[node name="DialoguePanel" type="CanvasLayer" unique_id=210961773]
 layer = 20
 script = ExtResource("1_script")
 
-[node name="Root" type="Control" parent="."]
+[node name="Root" type="Control" parent="." unique_id=919228005]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,7 +17,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DimScreen" type="ColorRect" parent="Root"]
+[node name="DimScreen" type="ColorRect" parent="Root" unique_id=591646733]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,7 +26,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.54901963)
 
-[node name="Popup" type="PanelContainer" parent="Root"]
+[node name="Popup" type="PanelContainer" parent="Root" unique_id=805446468]
 custom_minimum_size = Vector2(640, 180)
 layout_mode = 1
 anchors_preset = 7
@@ -42,24 +42,37 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_dialogue")
 
-[node name="MarginContainer" type="MarginContainer" parent="Root/Popup"]
+[node name="MarginContainer" type="MarginContainer" parent="Root/Popup" unique_id=874999154]
 layout_mode = 2
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 20
 
-[node name="VBox" type="VBoxContainer" parent="Root/Popup/MarginContainer"]
+[node name="VBox" type="VBoxContainer" parent="Root/Popup/MarginContainer" unique_id=831945309]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Speaker" type="Label" parent="Root/Popup/MarginContainer/VBox"]
+[node name="Speaker" type="Label" parent="Root/Popup/MarginContainer/VBox" unique_id=1847174837]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Speaker"
 
-[node name="Body" type="Label" parent="Root/Popup/MarginContainer/VBox"]
+[node name="Body" type="Label" parent="Root/Popup/MarginContainer/VBox" unique_id=1305937975]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Dialogue line"
 autowrap_mode = 3
+
+[node name="Options" type="VBoxContainer" parent="Root/Popup/MarginContainer/VBox" unique_id=1694041012]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="OptionA" type="Label" parent="Root/Popup/MarginContainer/VBox/Options" unique_id=1856774170]
+layout_mode = 2
+text = "Yes"
+
+[node name="OptionB" type="Label" parent="Root/Popup/MarginContainer/VBox/Options" unique_id=1314661437]
+layout_mode = 2
+text = "No"

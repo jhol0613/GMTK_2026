@@ -26,6 +26,8 @@ func is_open() -> bool:
 
 
 func _open() -> void:
+	# If the CanvasLayer is invisible, the Root will not be visible either.
+	visible = true
 	_root.visible = true
 	_is_open = true
 
