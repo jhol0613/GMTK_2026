@@ -12,6 +12,7 @@ var rminutes: int = 0
 func _ready() -> void:
 	SignalBus.interaction_started.connect(_on_interaction_started)
 	SignalBus.player_moved.connect(_on_player_moved)
+	_update_label()
 
 
 func _advance_time() -> void:

@@ -123,9 +123,6 @@ animation = &"idle_down"
 position = Vector2(10, 17)
 shape = SubResource("RectangleShape2D_chyd6")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=906284541]
-zoom = Vector2(4, 4)
-
 [node name="Timer" type="Timer" parent="." unique_id=785300633]
 wait_time = 0.5
 

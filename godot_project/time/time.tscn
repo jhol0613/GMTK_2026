@@ -13,7 +13,8 @@ script = ExtResource("1_ep8tu")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 40
+text = "0:0"
 
 [node name="Timer" type="Timer" parent="." unique_id=1898257493]
 
