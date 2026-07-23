@@ -12,7 +12,7 @@ func _draw() -> void:
 
 
 func _new_entry(encoded:String) -> void:
-	var entry:NotebookEntry = preload('res://player/notebook_entry.tscn').instantiate()
+	var entry:NotebookEntry = preload('uid://s4gdpvpyayn0').instantiate()
 	
 	$Holder.add_child(entry)
 	entry.add_resshan(encoded)

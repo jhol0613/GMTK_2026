@@ -39,7 +39,7 @@ static func draw_resshan_text(pos:Vector2,str:String, node:CanvasItem, encoded: 
 		var char_rec: = Rect2(pos, Vector2(16,16))
 		var src_rect: = Rect2(str_to_var(indx) * 8, 0, 8,8)
 		node.draw_texture_rect_region(
-			preload("res://resshan_alphabet/resshan_placeholder.png"),
+			preload("uid://ihhqr2q1fxal"),
 			char_rec, src_rect
 		)
 		pos.x += 16
