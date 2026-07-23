@@ -19,18 +19,22 @@ func _physics_process(delta: float) -> void:
 	
 func _on_timer_timeout() -> void:
 	
-	if Input.is_action_pressed("left") or Input.is_action_pressed("right"):
+	if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
 		self.position += Vector2(tile_size_x, 0) * direction
+		if direction != Vector2(0, 0):
+			SignalBus.player_moved.emit()
 		
-	if Input.is_action_pressed("up") or Input.is_action_pressed("down"):
+	if Input.is_action_pressed("move_up") or Input.is_action_pressed("move_down"):
 		self.position += Vector2(0, tile_size_y) * direction
+		if direction != Vector2(0, 0):
+			SignalBus.player_moved.emit()
 	
 	timer.start(movement_speed)
 
 func get_direction() -> void:
-	var x: int = Input.get_axis("left", "right")
+	var x: int = Input.get_axis("move_left", "move_right")
 		
-	var y: int = Input.get_axis("up", "down")
+	var y: int = Input.get_axis("move_up", "move_down")
 	
 	if x != 0 and y != 0:
 		direction = Vector2(0, 0)
