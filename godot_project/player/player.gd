@@ -3,7 +3,7 @@ extends CharacterBody2D
 var direction: Vector2 = Vector2(1,1)
 var tile_size_x: int = 16
 var tile_size_y: int = 16
-var movement_speed: float = 0.3 #time inbetween moving a tile
+var movement_speed: float = 0.25 #time inbetween moving a tile
 
 @onready var timer: Timer = $Timer
 

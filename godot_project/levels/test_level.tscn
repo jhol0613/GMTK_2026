@@ -11,7 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://cmapanel8x3m2" path="res://interactables/map_panel.tscn" id="7_mappn"]
 [ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialogue_interactable.tscn" id="8_dlgIn"]
 [ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialogue_panel.tscn" id="9_dlgPn"]
-[ext_resource type="PackedScene" uid="uid://bdx06b4wet51l" path="res://time.tscn" id="11_wkb0e"]
+[ext_resource type="PackedScene" uid="uid://bdx06b4wet51l" path="res://time/time.tscn" id="11_wkb0e"]
+[ext_resource type="PackedScene" uid="uid://b0wdi5jy8x5w8" path="res://train/train.tscn" id="13_axl34"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hgrid"]
 texture = ExtResource("1_hgrid")
@@ -331,3 +332,6 @@ visible = false
 
 [node name="LanguageTest" type="Node2D" parent="." unique_id=1131743426]
 position = Vector2(405, 328)
+
+[node name="Train" parent="." unique_id=1063531120 instance=ExtResource("13_axl34")]
+position = Vector2(0, -64)

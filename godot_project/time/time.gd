@@ -7,6 +7,7 @@ const MINUTES_PER_HOUR: int = 8
 
 var rhour: int = 0
 var rminutes: int = 0
+var train_leave_rhour: int = 20
 
 
 func _ready() -> void:
@@ -14,6 +15,9 @@ func _ready() -> void:
 	SignalBus.player_moved.connect(_on_player_moved)
 	_update_label()
 
+func _process(delta: float) -> void:
+	if rhour >= train_leave_rhour:
+		SignalBus.timer_end.emit()
 
 func _advance_time() -> void:
 	rminutes += 1

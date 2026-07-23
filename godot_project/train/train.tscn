@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b0wdi5jy8x5w8"]
+
+[ext_resource type="Texture2D" uid="uid://cgwgqt1s02cre" path="res://train/sprites/Titelloses_26.png" id="1_wbttr"]
+
+[sub_resource type="GDScript" id="GDScript_chyd6"]
+script/source = "extends Node2D
+
+
+func _ready() -> void:
+	SignalBus.timer_end.connect(_on_timer_end)
+
+func _on_timer_end():
+	move_local_x(1)
+"
+
+[node name="Train" type="Node2D" unique_id=1063531120]
+script = SubResource("GDScript_chyd6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1661955303]
+position = Vector2(80, 32)
+texture = ExtResource("1_wbttr")
