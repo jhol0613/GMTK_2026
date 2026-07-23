@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bbe8eqoq6087j" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://b5go5afjbr5vp" path="res://player/sprites/idle_down.png" id="2_g1dw6"]
+[ext_resource type="AudioStream" uid="uid://cqyl7fj0cs5e8" path="res://player/Footsteps/Character_Footstep_1.wav" id="2_g6k8r"]
+[ext_resource type="AudioStream" uid="uid://cbrt81elewm4v" path="res://player/Footsteps/Character_Footstep_2.wav" id="3_boad6"]
+[ext_resource type="AudioStream" uid="uid://dgei1mu5i8cfq" path="res://player/Footsteps/Character_Footstep_3.wav" id="4_rgyib"]
+[ext_resource type="AudioStream" uid="uid://bhu0de8gq8wnu" path="res://player/Footsteps/Character_Footstep_4.wav" id="5_hg6s5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e6tc2"]
 atlas = ExtResource("2_g1dw6")
@@ -113,6 +117,7 @@ size = Vector2(24, 40)
 [node name="Player" type="CharacterBody2D" unique_id=799939449 groups=["player"]]
 collision_mask = 2
 script = ExtResource("1_rkbax")
+footstep_sounds = Array[AudioStream]([ExtResource("2_g6k8r"), ExtResource("3_boad6"), ExtResource("4_rgyib"), ExtResource("5_hg6s5")])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1051840407]
 position = Vector2(10, 17)
@@ -127,5 +132,7 @@ shape = SubResource("RectangleShape2D_chyd6")
 wait_time = 0.5
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="." unique_id=1994860091]
+
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=1431780527]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

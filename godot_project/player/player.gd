@@ -6,10 +6,23 @@ var tile_size_y: int = 16
 var movement_speed: float = 0.25 #time inbetween moving a tile
 
 @onready var timer: Timer = $Timer
+@export var footstep_sounds: Array[AudioStream] = []
+var _footsteps: AudioStreamPlayer
+
 
 func _ready() -> void:
 	add_to_group("player")
 	timer.start(movement_speed)
+	_footsteps = AudioStreamPlayer.new()
+	var rng := AudioStreamRandomizer.new()
+	rng.playback_mode = AudioStreamRandomizer.PLAYBACK_RANDOM_NO_REPEATS
+	rng.random_pitch = 1.1
+	for s in footstep_sounds:
+		rng.add_stream(-1, s)
+	_footsteps.stream = rng
+	add_child(_footsteps)
+	SignalBus.player_moved.connect(_on_player_moved)
+	$AudioListener2D.make_current()
 
 
 func _physics_process(delta: float) -> void:
@@ -50,3 +63,6 @@ func _is_any_panel_open() -> bool:
 		if panel.has_method("is_open") and panel.is_open():
 			return true
 	return false
+
+func _on_player_moved() -> void:
+	_footsteps.play()
