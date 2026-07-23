@@ -1,7 +1,8 @@
+class_name LanguageRenderer
 extends Node2D
 
 
-func draw_text(text: String, node:CanvasItem) -> void:
+static func draw_text(text: String, node:CanvasItem) -> void:
 	var char_pos: Vector2 = Vector2.ZERO
 	var arr: PackedStringArray = text.split(" ")
 	for str:String in arr:
@@ -12,10 +13,8 @@ func draw_text(text: String, node:CanvasItem) -> void:
 		char_pos.x += ThemeDB.fallback_font.get_string_size(str).x + 15
 
 
-func draw_resshan_text(pos:Vector2,str:String, node:CanvasItem) -> float:
-	var json: = preload("res://resshan_alphabet/vocab.json")
-	var encoded: String = json.data[str.capitalize()]
-	var arr: PackedStringArray = encoded.split('.')
+static func draw_resshan_text(pos:Vector2,str:String, node:CanvasItem) -> float:
+	var arr: PackedStringArray = encode(str).split('.')
 	pos.y -= 16
 	for indx:String in arr:
 		var char_rec: = Rect2(pos, Vector2(16,16))
@@ -26,3 +25,6 @@ func draw_resshan_text(pos:Vector2,str:String, node:CanvasItem) -> float:
 		)
 		pos.x += 16
 	return arr.size() * 16 + 15
+
+static func encode(str:String) -> String:
+	return preload("res://resshan_alphabet/vocab.json").data[str.capitalize()]
