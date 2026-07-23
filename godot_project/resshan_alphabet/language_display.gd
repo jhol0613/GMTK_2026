@@ -18,6 +18,7 @@ func _draw() -> void:
 	_shapes = LanguageRenderer.draw_text(string, self)
 	for i:Node in _areas:
 		i.queue_free()
+	_areas.clear()
 	
 	for shape: RectangleShape2D in _shapes:
 		var area: = ResshanInteractable.new()
