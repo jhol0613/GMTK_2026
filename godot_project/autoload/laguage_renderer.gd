@@ -50,4 +50,4 @@ static func draw_resshan_text(pos:Vector2,str:String, node:CanvasItem, encoded: 
 
 ## Turns <<***>> Resshen format into *.*.*.*... encoded format
 static func encode(str:String) -> String:
-	return preload("res://resshan_alphabet/vocab.json").data[str.capitalize()]
+	return preload("res://resshan_systems/vocab.json").data[str.capitalize()]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ihhqr2q1fxal"
-path="res://.godot/imported/resshan_placeholder.png-3379377d4f95f2f70c499274a1c550c2.ctex"
+uid="uid://dy3h6m8das3ut"
+path="res://.godot/imported/brickborder.png-acfcf6b591934a398bbcb920eec11379.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resshan_systems/resshan_placeholder.png"
-dest_files=["res://.godot/imported/resshan_placeholder.png-3379377d4f95f2f70c499274a1c550c2.ctex"]
+source_file="res://levels/tileset/brickborder.png"
+dest_files=["res://.godot/imported/brickborder.png-acfcf6b591934a398bbcb920eec11379.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ihhqr2q1fxal"
-path="res://.godot/imported/resshan_placeholder.png-3379377d4f95f2f70c499274a1c550c2.ctex"
+uid="uid://ca8r7wcmgae0o"
+path="res://.godot/imported/grasstiles.png-5c9988352f0a04e53e357ed227516de4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resshan_systems/resshan_placeholder.png"
-dest_files=["res://.godot/imported/resshan_placeholder.png-3379377d4f95f2f70c499274a1c550c2.ctex"]
+source_file="res://levels/tileset/grasstiles.png"
+dest_files=["res://.godot/imported/grasstiles.png-5c9988352f0a04e53e357ed227516de4.ctex"]
 
 [params]
 

@@ -1,13 +1,14 @@
 extends Control
 
 const MINUTES_PER_HOUR: int = 8
+const HOUR_PER_DAY: int = 8
 
 @onready var label: ResshanLabel2D = $Label
 @onready var timer: Timer = $Timer
 
 var rhour: int = 0
 var rminutes: int = 0
-var train_leave_rhour: int = 20
+var train_leave_rhour: int = 7
 
 
 func _ready() -> void:
@@ -15,15 +16,20 @@ func _ready() -> void:
 	SignalBus.player_moved.connect(_on_player_moved)
 	_update_label()
 
-func _process(delta: float) -> void:
+
+func _process(_delta: float) -> void:
 	if rhour >= train_leave_rhour:
 		SignalBus.timer_end.emit()
 
-func _advance_time() -> void:
-	rminutes += 1
-	if rminutes >= MINUTES_PER_HOUR:
+
+func _advance_time(amount: int = 1) -> void:
+	rminutes += amount
+	while rminutes >= MINUTES_PER_HOUR:
 		rhour += 1
-		rminutes = 0
+		rminutes -= MINUTES_PER_HOUR
+		if rhour >= HOUR_PER_DAY:
+			rhour = 0
+			rminutes = 0
 	_update_label()
 
 
@@ -31,8 +37,8 @@ func _update_label() -> void:
 	label.string = "<<%s>> : <<%s>>" % [rhour, rminutes]
 
 
-func _on_interaction_started() -> void:
-	_advance_time()
+func _on_interaction_started(minutes: int) -> void:
+	_advance_time(minutes)
 
 
 func _on_player_moved() -> void:

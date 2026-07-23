@@ -30,6 +30,7 @@ func show_dialogue(
 	reward: ItemData,
 	success_line: String,
 	failure_line: String,
+	minutes: int = 1,
 ) -> void:
 	_showing_options = false
 	_selected_option = 0
@@ -47,7 +48,7 @@ func show_dialogue(
 	_awaiting_reward = false
 
 	_update_body()
-	_open()
+	_open(minutes)
 
 
 func _update_body() -> void:
