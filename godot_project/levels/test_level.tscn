@@ -10,7 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://cmapanel8x3m2" path="res://interactables/map_panel.tscn" id="7_mappn"]
 [ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialogue_interactable.tscn" id="8_dlgIn"]
 [ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialogue_panel.tscn" id="9_dlgPn"]
+[ext_resource type="Script" uid="uid://cpfgjwe2lpk0k" path="res://scripts/ticket_data.gd" id="10_8hjdj"]
 [ext_resource type="PackedScene" uid="uid://bdx06b4wet51l" path="res://time/time.tscn" id="11_wkb0e"]
+[ext_resource type="PackedScene" uid="uid://dchuwbctx2fxx" path="res://train/train_interactable.tscn" id="13_axl34"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hgrid"]
 texture = ExtResource("1_hgrid")
@@ -274,6 +276,15 @@ texture = ExtResource("1_hgrid")
 [sub_resource type="TileSet" id="TileSet_bhunq"]
 sources/1 = SubResource("TileSetAtlasSource_hgrid")
 
+[sub_resource type="Resource" id="Resource_bctfo"]
+script = ExtResource("10_8hjdj")
+destination = "Berlin Hbf"
+departure_hour = 4
+id = &"ber"
+item_name = "Ticket to Berlin Hbf"
+item_description = "train ticket"
+metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
+
 [node name="TestLevel" type="Node2D" unique_id=929390849]
 script = ExtResource("1_x25rp")
 
@@ -291,7 +302,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAQAHAAAAAAAAAAEAAQAPAAEAAAAAAAIAAQANAAA
 tile_set = SubResource("TileSet_bhunq")
 
 [node name="Player" parent="." unique_id=799939449 instance=ExtResource("3_gmgay")]
-position = Vector2(1426, 352)
+position = Vector2(103, 22)
 
 [node name="SignInteractable" parent="." unique_id=809648706 instance=ExtResource("4_w7r7j")]
 position = Vector2(1192, 372)
@@ -305,14 +316,14 @@ map_texture = ExtResource("6_4n8tn")
 panel_path = NodePath("%MapPanel")
 
 [node name="DialogueInteractable" parent="." unique_id=983647093 instance=ExtResource("8_dlgIn")]
-position = Vector2(1512, 372)
+position = Vector2(189, 59)
 panel_path = NodePath("%DialoguePanel")
-option_a = "yes"
-option_b = "no"
-correct_option = 0
-reward = "train ticket"
-success_line = "take this train ticket"
-failure_line = "go away"
+option_a = null
+option_b = null
+correct_option = null
+reward = SubResource("Resource_bctfo")
+success_line = null
+failure_line = null
 
 [node name="SignPanel" parent="." unique_id=1582616772 instance=ExtResource("5_o6mel")]
 unique_name_in_owner = true
@@ -328,3 +339,7 @@ visible = false
 
 [node name="LanguageTest" type="Node2D" parent="." unique_id=1131743426]
 position = Vector2(405, 328)
+
+[node name="TrainInteractable" parent="." unique_id=1063531120 instance=ExtResource("13_axl34")]
+position = Vector2(0, -64)
+time_path = NodePath("../Camera2D/CanvasLayer/Time")

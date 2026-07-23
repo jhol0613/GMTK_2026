@@ -7,7 +7,7 @@ extends Interactable
 @export var option_a: String = "yes"
 @export var option_b: String = "no"
 @export var correct_option: int = 0
-@export var reward: String = "train ticket" # TODO: Add reward item
+@export var reward: ItemData
 @export var success_line: String = "take this train ticket"
 @export var failure_line: String = "go away"
 

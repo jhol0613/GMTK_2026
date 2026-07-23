@@ -13,14 +13,24 @@ var _index: int = 0
 var _showing_options: bool
 var _selected_option: int
 var _correct_option: int
-var _reward: String
+var _reward: ItemData
 var _awaiting_close: bool
 var _awaiting_reward: bool
 var _success_line: String
 var _failure_line: String
 
+
 ## Initialize the dialogue panel
-func show_dialogue(speaker: String, lines: PackedStringArray, option_a: String, option_b: String, correct_option: int, reward: String, success_line: String, failure_line: String) -> void:
+func show_dialogue(
+	speaker: String,
+	lines: PackedStringArray,
+	option_a: String,
+	option_b: String,
+	correct_option: int,
+	reward: ItemData,
+	success_line: String,
+	failure_line: String,
+) -> void:
 	_showing_options = false
 	_selected_option = 0
 	_options.visible = false
@@ -59,17 +69,19 @@ func _on_interact_while_open() -> void:
 	if _showing_options:
 		_confirm_option()
 		return
-		
+
 	if _index < _lines.size() - 1:
 		_index += 1
 		_update_body()
 	else:
 		_enter_options_mode()
 
+
 func _enter_options_mode() -> void:
 	_showing_options = true
 	_options.visible = true
 	_refresh_options_visual()
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not _is_open:
@@ -85,6 +97,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 		return
 	super._unhandled_input(event)
+
 
 func _confirm_option() -> void:
 	_showing_options = false
@@ -102,6 +115,8 @@ func _refresh_options_visual() -> void:
 	_option_a.modulate = Color.WHITE if _selected_option == 0 else Color.GRAY
 	_option_b.modulate = Color.WHITE if _selected_option == 1 else Color.GRAY
 
+
 func _give_reward() -> void:
-	# TODO: Add reward item
-	print("Reward given: ", _reward)
+	if _reward == null:
+		return
+	Inventory.add_item(_reward.duplicate() as ItemData)
