@@ -13,6 +13,9 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if _is_any_panel_open():
+		direction = Vector2.ZERO
+		return
 	get_direction()
 	
 	

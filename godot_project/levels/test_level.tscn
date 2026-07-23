@@ -282,6 +282,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAQAHAAAAAAAAAAEAAQAPAAEAAAAAAAIAAQANAAA
 tile_set = SubResource("TileSet_bhunq")
 
 [node name="Player" parent="." unique_id=799939449 instance=ExtResource("3_gmgay")]
+position = Vector2(1408, 368)
 
 [node name="SignInteractable" parent="." unique_id=809648706 instance=ExtResource("4_w7r7j")]
 position = Vector2(1192, 372)
@@ -297,6 +298,12 @@ panel_path = NodePath("%MapPanel")
 [node name="DialogueInteractable" parent="." unique_id=983647093 instance=ExtResource("8_dlgIn")]
 position = Vector2(1512, 372)
 panel_path = NodePath("%DialoguePanel")
+option_a = "yes"
+option_b = "no"
+correct_option = 0
+reward = "train ticket"
+success_line = "take this train ticket"
+failure_line = "go away"
 
 [node name="SignPanel" parent="." unique_id=1582616772 instance=ExtResource("5_o6mel")]
 unique_name_in_owner = true
