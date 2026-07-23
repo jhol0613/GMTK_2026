@@ -1,25 +1,52 @@
 extends CharacterBody2D
 
 var direction: Vector2 = Vector2(1,1)
-var speed: int = 400
+var tile_size_x: int = 16
+var tile_size_y: int = 16
+var movement_speed: float = 0.3 #time inbetween moving a tile
 
+@onready var timer: Timer = $Timer
 
 func _ready() -> void:
 	add_to_group("player")
+	timer.start(movement_speed)
 
 
 func _physics_process(delta: float) -> void:
-	direction = Input.get_vector("left", "right", "up", "down")
-	velocity = direction * speed
-	move_and_slide()
+	if _is_any_panel_open():
+		direction = Vector2.ZERO
+		return
+	get_direction()
+	
+	
+	
+func _on_timer_timeout() -> void:
+	
+	if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
+		self.position += Vector2(tile_size_x, 0) * direction
+		if direction != Vector2(0, 0):
+			SignalBus.player_moved.emit()
+		
+	if Input.is_action_pressed("move_up") or Input.is_action_pressed("move_down"):
+		self.position += Vector2(0, tile_size_y) * direction
+		if direction != Vector2(0, 0):
+			SignalBus.player_moved.emit()
+	
+	timer.start(movement_speed)
+
+func get_direction() -> void:
+	var x: float = Input.get_axis("move_left", "move_right")
+		
+	var y: float = Input.get_axis("move_up", "move_down")
+	
+	if x != 0 and y != 0:
+		direction = Vector2(0, 0)
+	else:
+		direction = Vector2(x, y)
 
 
-#if Input.pressed("up"):
-#	velocity.x = Vector2(0, -1) * SPEED
-#	
-#	if direction:
-#		velocity.x = direction * SPEED
-#	else:
-#		velocity.x = move_toward(velocity.x, 0, SPEED)
-#
-#	move_and_slide()
+func _is_any_panel_open() -> bool:
+	for panel in get_tree().get_nodes_in_group("interaction_panel"):
+		if panel.has_method("is_open") and panel.is_open():
+			return true
+	return false
