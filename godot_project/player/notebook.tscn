@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://gskcbdshu54h"]
+
+[ext_resource type="PackedScene" uid="uid://bfuu8moxyxa5w" path="res://player/notebook_page.tscn" id="1_qjmkm"]
+[ext_resource type="Script" uid="uid://d0ulsk74p60bn" path="res://player/notebook.gd" id="1_tvakd"]
+
+[node name="Notebook" type="Node2D" unique_id=2020796058]
+script = ExtResource("1_tvakd")
+
+[node name="Pages" type="Node2D" parent="." unique_id=1748261027]
+
+[node name="NotebookPage" parent="Pages" unique_id=1099925378 instance=ExtResource("1_qjmkm")]
+
+[node name="NotebookPage2" parent="Pages" unique_id=1129297689 instance=ExtResource("1_qjmkm")]
+position = Vector2(980, 4)
