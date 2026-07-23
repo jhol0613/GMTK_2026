@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://s4gdpvpyayn0"]
+
+[ext_resource type="Script" uid="uid://cmnojh7wiitk5" path="res://player/notebook_entry.gd" id="1_pf7jf"]
+
+[node name="Entry" type="HBoxContainer" unique_id=594339083]
+script = ExtResource("1_pf7jf")
+
+[node name="Resshan" type="Control" parent="." unique_id=1442823585]
+layout_mode = 2
+
+[node name="PlayerInput" type="LineEdit" parent="." unique_id=414481906]
+layout_mode = 2
+size_flags_horizontal = 3
+flat = true
+
+[connection signal="gui_input" from="Resshan" to="." method="_on_resshan_gui_input"]
