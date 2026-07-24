@@ -4,9 +4,9 @@ extends InteractionPanelBase
 ## Emitted when an option is confirmed, can be used to trigger actions based on the outcome
 signal option_confirmed(outcome_id: StringName)
 
-@onready var _speaker: ResshanLabel = $Root/HBoxContainer/Popup/MarginContainer/VBox/Speaker
-@onready var _body: ResshanLabel = $Root/HBoxContainer/Popup/MarginContainer/VBox/Body
-@onready var _options: VBoxContainer = $Root/HBoxContainer/Popup/MarginContainer/VBox/Options
+@onready var _speaker: ResshanLabel = $Root/Popup/MarginContainer/HBoxContainer/VBox/Speaker
+@onready var _body: ResshanLabel = $Root/Popup/MarginContainer/HBoxContainer/VBox/Body
+@onready var _options: VBoxContainer = $Root/Popup/MarginContainer/HBoxContainer/VBox/Options
 
 var _lines: PackedStringArray = []
 var _index: int = 0
