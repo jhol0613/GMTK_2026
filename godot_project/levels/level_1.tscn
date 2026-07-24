@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://8aci422hp6qo" path="res://levels/level_0_audio.gd" id="9_5ot28"]
 [ext_resource type="AudioStream" uid="uid://cu3ssob4apsrg" path="res://UI/Train/Train Pulling Into.mp3" id="10_aerfg"]
 [ext_resource type="AudioStream" uid="uid://bbcbac8i6a3xm" path="res://levels/You TRAINed for this copy.mp3" id="11_nmsli"]
+[ext_resource type="AudioStream" uid="uid://dlip7tol2c20x" path="res://notebook/Keeping TRACK of my Notes demo.mp3" id="15_vjtdm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8v7xn"]
 texture = ExtResource("4_betor")
@@ -645,8 +646,12 @@ script = ExtResource("9_5ot28")
 [node name="TrainIntro" type="AudioStreamPlayer" parent="LevelAudioController" index="0" unique_id=951886548]
 stream = ExtResource("10_aerfg")
 
-[node name="BGM" type="AudioStreamPlayer" parent="LevelAudioController" index="1" unique_id=1541658038 groups=["footstep_surfaces"]]
+[node name="BGM" type="AudioStreamPlayer" parent="LevelAudioController" index="1" unique_id=1541658038]
 stream = ExtResource("11_nmsli")
+
+[node name="NotebookBGM" type="AudioStreamPlayer" parent="LevelAudioController" index="2" unique_id=296046078]
+stream = ExtResource("15_vjtdm")
+volume_db = -4.0
 
 [editable path="UiOverlay"]
 [editable path="Platform1"]
