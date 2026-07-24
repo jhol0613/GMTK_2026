@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialogue_interactable.tscn" id="2_ui1pi"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="3_ui1pi"]
 [ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialogue_panel.tscn" id="4_2vr77"]
+[ext_resource type="AudioStream" uid="uid://6llsv27ckbd2" path="res://UI/Purchased Ticket.mp3" id="5_8d5ud"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2vr77"]
 atlas = ExtResource("1_8vy6h")
@@ -52,8 +53,9 @@ z_index = 1
 position = Vector2(-4, 34)
 shape = SubResource("RectangleShape2D_8d5ud")
 
-[node name="Prompt" parent="DialogueInteractable" index="1" unique_id=1343467040]
+[node name="Prompt" parent="DialogueInteractable" index="1" unique_id=272794898]
 z_index = 1
+texture_filter = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1210208580]
@@ -85,5 +87,8 @@ shape = SubResource("RectangleShape2D_pyhej")
 
 [node name="DialoguePanel" parent="." unique_id=210961773 instance=ExtResource("4_2vr77")]
 unique_name_in_owner = true
+
+[node name="PurchasedTicket" type="AudioStreamPlayer" parent="." unique_id=1025218668]
+stream = ExtResource("5_8d5ud")
 
 [editable path="DialogueInteractable"]

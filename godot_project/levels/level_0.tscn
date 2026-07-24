@@ -37,9 +37,6 @@ script = ExtResource("3_as6hq")
 lines = Array[ExtResource("3_obtcn")]([ExtResource("4_2ro2b"), ExtResource("5_fj15s"), ExtResource("6_p0s0h")])
 choices = Array[ExtResource("3_jum3j")]([ExtResource("6_dm5o4"), ExtResource("5_tfamw"), ExtResource("4_c4pne")])
 
-[node name="Prompt" parent="TicketBooth/DialogueInteractable" index="1" unique_id=272794898]
-texture_filter = 1
-
 [node name="BoothAmbient" type="AudioStreamPlayer2D" parent="TicketBooth" index="5" unique_id=1160823064]
 stream = ExtResource("11_axdoh")
 volume_db = 4.0
