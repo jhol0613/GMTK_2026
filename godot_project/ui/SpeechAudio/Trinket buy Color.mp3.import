@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://3enq5iehjq21"
-path="res://.godot/imported/Trinket buy Color.mp3-833d59e271b23600df2b35aa58a6bd92.mp3str"
+path="res://.godot/imported/Trinket buy Color.mp3-2c13d514bfe1ccd91e745e245ff28c05.mp3str"
 
 [deps]
 
-source_file="res://ui/SpeechAudio/Trinket buy Color.mp3"
-dest_files=["res://.godot/imported/Trinket buy Color.mp3-833d59e271b23600df2b35aa58a6bd92.mp3str"]
+source_file="res://UI/SpeechAudio/Trinket buy Color.mp3"
+dest_files=["res://.godot/imported/Trinket buy Color.mp3-2c13d514bfe1ccd91e745e245ff28c05.mp3str"]
 
 [params]
 
