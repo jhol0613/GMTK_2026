@@ -98,11 +98,15 @@ func _build_fadeout_rect(alpha: float) -> ColorRect:
 
 func stash_time_before_reload(hour: int, minute: int, penalty_minutes: int) -> void:
 	restore_hour = hour
-	restore_minute = minute + penalty_minutes
+	restore_minute = minute - penalty_minutes
 
-	while restore_minute >= 8:
-		restore_hour += 1
-		restore_minute -= 8
+	while restore_minute < 0:
+		restore_hour -= 1
+		restore_minute += 8
+
+	if restore_hour < 0:
+		restore_hour = 0
+		restore_minute = 0
 
 	restore_time = true
 	flash_timer = true
