@@ -9,17 +9,12 @@ const HOUR_PER_DAY: int = 8
 var rhour: int = 0
 var rminutes: int = 0
 var train_leave_rhour: int = 7
+var _train_departed: bool = false
 
 
 func _ready() -> void:
-	SignalBus.interaction_started.connect(_on_interaction_started)
-	SignalBus.player_moved.connect(_on_player_moved)
+	SignalBus.minutes_passed.connect(_advance_time)
 	_update_label()
-
-
-func _process(_delta: float) -> void:
-	if rhour >= train_leave_rhour:
-		SignalBus.timer_end.emit()
 
 
 func _advance_time(amount: int = 1) -> void:
@@ -31,15 +26,16 @@ func _advance_time(amount: int = 1) -> void:
 			rhour = 0
 			rminutes = 0
 	_update_label()
+	_check_train_departure()
+
+
+func _check_train_departure() -> void:
+	if _train_departed:
+		return
+	if rhour >= train_leave_rhour:
+		_train_departed = true
+		SignalBus.train_departed.emit()
 
 
 func _update_label() -> void:
 	label.text = "<<%s>> : <<%s>>" % [rhour, rminutes]
-
-
-func _on_interaction_started(minutes: int) -> void:
-	_advance_time(minutes)
-
-
-func _on_player_moved() -> void:
-	_advance_time()
