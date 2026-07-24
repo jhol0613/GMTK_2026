@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var pause_between_loops: float = 2.7
+@export var pause_between_loops: float = 4.3
 @export var resume_delay: float = 3.0
 
 @onready var _ambient: AudioStreamPlayer2D = $BoothAmbient
