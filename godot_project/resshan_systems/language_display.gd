@@ -1,21 +1,31 @@
 @tool
-class_name ResshanLabel2D
-extends Node2D
+class_name ResshanLabel
+extends Control
 
 signal text_clicked(str:String)
 
-@export_multiline() var string:String :
+@export_multiline() var text: String :
 	set(value):
-		string = value
+		text = value
 		queue_redraw()
 
+@export var spacing: float = 1.0 :
+	set(value):
+		spacing = value
+		queue_redraw()
+
+@export var font_size: int = 16 :
+	set(value):
+		font_size = value
+		queue_redraw()
 
 var _shapes: Array[RectangleShape2D]
 var _areas: Array[ResshanInteractable]
 
 
 func _draw() -> void:
-	_shapes = LanguageRenderer.draw_text(string, self)
+	_shapes = LanguageRenderer.draw_text(text, self, spacing, "/n", ThemeDB.fallback_font, font_size)
+	#ThemeDB.fallback_font.get_multiline_string_size()
 	for i:Node in _areas:
 		i.queue_free()
 	_areas.clear()
