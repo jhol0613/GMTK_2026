@@ -1,13 +1,14 @@
 extends Node2D
 
-@export var pause_between_loops: float = 2.0
-
+@export var pause_between_loops: float = 2.7
 @export var resume_delay: float = 3.0
 
 @onready var _ambient: AudioStreamPlayer2D = $BoothAmbient
 @onready var _loop_pause_timer: Timer = $LoopPauseTimer
 @onready var _resume_timer: Timer = $ResumeTimer
 @onready var _dialogue_panel: InteractionPanelBase = $DialoguePanel
+
+@onready var purchased_ticket: AudioStreamPlayer = $PurchasedTicket
 
 @export_category("BGM Ducking")
 @export var bgm_duck_amount_db: float = -6.0
@@ -19,6 +20,8 @@ var _interaction_active: bool = false
 var _music_bus_index: int = -1
 var _music_normal_db: float = 0.0
 var _music_tween: Tween
+
+
 
 
 func _ready() -> void:
@@ -37,6 +40,9 @@ func _ready() -> void:
 
 	_dialogue_panel.opened.connect(_on_dialogue_opened)
 	_dialogue_panel.closed.connect(_on_dialogue_closed)
+	_dialogue_panel.option_confirmed.connect(
+	_on_option_confirmed
+)
 
 	_play_ambient()
 
@@ -123,3 +129,20 @@ func _tween_music_bus(
 		target_db,
 		duration
 	)
+	
+func _on_option_confirmed(outcome_id: StringName) -> void:
+	if outcome_id != &"sold_ticket":
+		return
+
+	if purchased_ticket.stream == null:
+		push_warning("FirstChoiceSound has no audio stream.")
+		return
+
+	# 暂时禁止玩家继续操作对话，面板保持打开。
+	_dialogue_panel.set_process_unhandled_input(false)
+
+	purchased_ticket.play()
+	await purchased_ticket.finished
+
+	if is_instance_valid(_dialogue_panel):
+		_dialogue_panel.set_process_unhandled_input(true)
