@@ -1,31 +1,20 @@
 class_name TrainInteractable
 extends Interactable
 
-@export var id: StringName = "ber"
-@export var time_path: NodePath
+@export var id: StringName = "berlin_s5"
+
+@onready var train: Train = get_parent() as Train
 
 
 func interact() -> void:
-	if not can_board():
-		print("Cannot board train to ", id)
+	if train == null:
 		return
-	# TODO: Transition to the next scene
-	print("Boarding train to ", id)
+	train.try_board(self)
 
 
 ## Checks if the player can board the train
-func can_board() -> bool:
-	var ticket: TicketData = Inventory.get_ticket()
-	if ticket == null:
-		return false
-
-	if ticket.id != id:
-		return false
-
-	if ticket.train_line != id:
-		return false
-
-	var time_node: Control = get_node_or_null(time_path)
+func can_board(ticket: TicketData) -> bool:
+	var time_node: Control = get_tree().get_first_node_in_group("time")
 	if time_node == null:
 		return false
 
