@@ -67,14 +67,16 @@ size = Vector2(29.5, 16)
 size = Vector2(46.5, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ld73o"]
-size = Vector2(16.75, 27)
+size = Vector2(16.6875, 14)
 
 [node name="ATM" type="Node2D" unique_id=124595741]
+z_index = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1776144098]
 y_sort_enabled = true
 position = Vector2(0, -57)
 sprite_frames = SubResource("SpriteFrames_fpcxu")
+frame_progress = 0.6529543
 
 [node name="DialogueInteractable" type="Area2D" parent="." unique_id=1894356249]
 position = Vector2(0, -65)
@@ -111,9 +113,18 @@ shape = SubResource("RectangleShape2D_1w4un")
 
 [node name="ResshanInteractable" type="Area2D" parent="." unique_id=1722091080]
 script = ExtResource("4_dfvvi")
-_string = "<<ticket>>"
+_string = "<<money>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ResshanInteractable" unique_id=1706932137]
-position = Vector2(-24.375, -33.5)
+position = Vector2(-24.6875, -41)
+shape = SubResource("RectangleShape2D_ld73o")
+
+[node name="ResshanInteractable2" type="Area2D" parent="." unique_id=142653958]
+script = ExtResource("4_dfvvi")
+_string = "<<machine>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ResshanInteractable2" unique_id=835999535]
+position = Vector2(-24.34375, -26)
 shape = SubResource("RectangleShape2D_ld73o")
