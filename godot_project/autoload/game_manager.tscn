@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b2sgccr2hm22l" path="res://autoload/game_manager.gd" id="1_7xclw"]
 [ext_resource type="PackedScene" uid="uid://beutnrud0mm3l" path="res://levels/level_0.tscn" id="2_fjyxg"]
-[ext_resource type="PackedScene" uid="uid://b3uwqbmauqt0b" path="res://UI/level_overlay/ui_overlay.tscn" id="2_lb6xn"]
+[ext_resource type="PackedScene" uid="uid://b3uwqbmauqt0b" path="res://ui/level_overlay/ui_overlay.tscn" id="2_lb6xn"]
 
 [node name="GameManager" type="Node2D" unique_id=482173798]
 script = ExtResource("1_7xclw")

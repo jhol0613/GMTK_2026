@@ -2,8 +2,6 @@
 class_name ResshanLabel
 extends Control
 
-signal text_clicked(str:String)
-
 @export_multiline() var text: String :
 	set(value):
 		text = value
@@ -27,6 +25,8 @@ signal text_clicked(str:String)
 var _shapes: Array[RectangleShape2D]
 var _areas: Array[ResshanInteractable]
 
+func _ready() -> void:
+	mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 func _draw() -> void:
 	var _f:Font = font
@@ -43,10 +43,6 @@ func _draw() -> void:
 		var collision_shape: = CollisionShape2D.new()
 		var pos:Vector2 = shape.get_meta('text_position')
 		var resshen:String = shape.get_meta('resshen_text')
-		
-		area.text_clicked.connect( func(a):
-			text_clicked.emit(a)
-		)
 		
 		area.position = pos
 		area.position.y -= 8

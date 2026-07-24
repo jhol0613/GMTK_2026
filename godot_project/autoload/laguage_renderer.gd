@@ -17,6 +17,8 @@ static func draw_text(
 	separator: String = DEFAULT_PARAGRAPH_SEPARATOR,
 	font: = ThemeDB.fallback_font,
 	font_size: = DEFAULT_FONT_SIZE,
+	modulate_color: = Color.WHITE
+
 ) -> Array[RectangleShape2D]:
 	
 	var shapes: Array[RectangleShape2D]
@@ -36,7 +38,7 @@ static func draw_text(
 			char_pos.x += shape.size.x + spacing
 			continue
 		
-		node.draw_string(font, char_pos, str, 0, -1, font_size)
+		node.draw_string(font, char_pos, str, 0, -1, font_size, modulate_color)
 		char_pos.x += font.get_string_size(str, 0, -1, font_size).x + spacing
 	
 	return shapes
@@ -48,6 +50,7 @@ static func draw_resshan_text(
 	node:CanvasItem,
 	encoded: = false,
 	font_size: = DEFAULT_FONT_SIZE,
+	modulate_color: = Color.WHITE,
 	
 	) -> RectangleShape2D:
 		
@@ -65,7 +68,7 @@ static func draw_resshan_text(
 		var src_rect: = Rect2(i % 10 * 8, int(i/10) * 8, 8,8)
 		node.draw_texture_rect_region(
 			preload("uid://bb6n1hnvxcvej"),
-			char_rec, src_rect
+			char_rec, src_rect, modulate_color
 		)
 		pos.x += font_size
 	var shape: = RectangleShape2D.new()
