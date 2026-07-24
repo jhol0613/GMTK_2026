@@ -40,6 +40,7 @@ reply = "Very funny. Just stick with me and I'll get us there."
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 
 [node name="TutorialConversation" type="Node2D" unique_id=1792772109]
+z_index = 4
 script = ExtResource("1_h61wc")
 
 [node name="DialogueInteractable" parent="." unique_id=1631350735 instance=ExtResource("3_7b540")]
@@ -56,6 +57,7 @@ scale = Vector2(4, 4)
 texture = ExtResource("5_7b540")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1181970416]
+layer = 1000
 
 [node name="DialoguePanel" parent="CanvasLayer" unique_id=210961773 instance=ExtResource("5_vtjp4")]
 
