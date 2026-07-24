@@ -10,6 +10,6 @@ func _ready() -> void:
 	$AnimationPlayer.play("cutscene_sequence")
 	await $AnimationPlayer.animation_finished
 	var tween = create_tween()
-	tween.tween_property(self, "self_modulate:a", 1.0, 2.0)
+	tween.tween_property(self, "self_modulate:a", 0.0, 2.0)
 	await tween.finished
 	queue_free()
