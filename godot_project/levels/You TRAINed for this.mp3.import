@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bj25660un2frl"
+path="res://.godot/imported/You TRAINed for this.mp3-ff9fe9be4eca46ad5967371f10efb641.mp3str"
+
+[deps]
+
+source_file="res://levels/You TRAINed for this.mp3"
+dest_files=["res://.godot/imported/You TRAINed for this.mp3-ff9fe9be4eca46ad5967371f10efb641.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
