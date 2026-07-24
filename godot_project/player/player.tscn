@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bn2ibeuqk0rgt"]
 
 [ext_resource type="Script" uid="uid://bbe8eqoq6087j" path="res://player/player.gd" id="1_rkbax"]
-[ext_resource type="AudioStream" uid="uid://cqyl7fj0cs5e8" path="res://player/Footsteps/Character_Footstep_1.wav" id="2_g6k8r"]
-[ext_resource type="AudioStream" uid="uid://cbrt81elewm4v" path="res://player/Footsteps/Character_Footstep_2.wav" id="3_boad6"]
-[ext_resource type="AudioStream" uid="uid://dgei1mu5i8cfq" path="res://player/Footsteps/Character_Footstep_3.wav" id="4_rgyib"]
-[ext_resource type="AudioStream" uid="uid://bhu0de8gq8wnu" path="res://player/Footsteps/Character_Footstep_4.wav" id="5_hg6s5"]
+[ext_resource type="AudioStream" uid="uid://db7ptmf0kwjy0" path="res://player/Footsteps/Character_Footstep_1.mp3" id="2_g6k8r"]
+[ext_resource type="AudioStream" uid="uid://duqoewxoogc08" path="res://player/Footsteps/Character_Footstep_2.mp3" id="3_boad6"]
+[ext_resource type="AudioStream" uid="uid://blax8x14hbpgw" path="res://player/Footsteps/Character_Footstep_3.mp3" id="4_rgyib"]
+[ext_resource type="AudioStream" uid="uid://cyjsi1r1vlx8x" path="res://player/Footsteps/Character_Footstep_4.mp3" id="5_hg6s5"]
 [ext_resource type="Texture2D" uid="uid://d0p3sbfud3275" path="res://player/sprites/Main_Character.png" id="6_g6k8r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_boad6"]
