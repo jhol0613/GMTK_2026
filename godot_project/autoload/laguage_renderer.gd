@@ -77,5 +77,41 @@ static func draw_resshan_text(
 static func encode(str:String) -> String:
 	return preload("res://resshan_systems/vocab.json").data[str.capitalize()]
 
-static func get_string_size() -> Vector2:
-	return Vector2()
+static func get_string_size(
+	str:String,
+	font:Font,
+	font_size:int,
+	separator:String,
+	spacing:float
+) -> Vector2:
+	
+	var separated_arr: = str.split(separator)
+	var biggest_string: String = ''
+	if separated_arr.size() == 1:
+		biggest_string = separated_arr[0]
+	else:
+		for i: String in separated_arr:
+			if i.length() > biggest_string.length():
+				biggest_string = i
+	
+	if not biggest_string.contains("<<"):
+		return font.get_string_size(biggest_string,0,-1,font_size)
+	
+	var size: = Vector2.ZERO
+	var arr: = biggest_string.split(" ")
+	for i:String in arr:
+		if i.contains("<<") and i.contains('>>'):
+			var encoded: = encode(i)
+			var indexes: = encoded.split('.')
+			if size.y < font_size:
+				size.y = font_size
+			size.x += font_size * indexes.size()
+			continue
+		
+		var str_size: = font.get_string_size(i, 0, -1, font_size)
+		if size.y < str_size.y:
+			size.y = str_size.y
+		size.x += str_size.x + spacing
+		
+	size.y *= separated_arr.size()
+	return size
