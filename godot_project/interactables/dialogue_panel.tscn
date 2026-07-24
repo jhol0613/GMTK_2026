@@ -75,23 +75,24 @@ layout_mode = 2
 theme_override_constants/separation = 8
 
 [node name="Speaker" type="Control" parent="Root/Popup/MarginContainer/HBoxContainer/VBox" unique_id=1657995010]
+visible = false
 texture_filter = 1
-custom_minimum_size = Vector2(117, 42)
+custom_minimum_size = Vector2(164, 58)
 layout_mode = 2
 mouse_filter = 2
 script = ExtResource("2_wos7g")
 text = "Speaker"
-font_size = 30
+font_size = 42
 metadata/_custom_type_script = "uid://sidowamkhcrt"
 
 [node name="Body" type="Control" parent="Root/Popup/MarginContainer/HBoxContainer/VBox" unique_id=895602396]
 texture_filter = 1
-custom_minimum_size = Vector2(151, 34)
+custom_minimum_size = Vector2(263, 58)
 layout_mode = 2
 mouse_filter = 2
 script = ExtResource("2_wos7g")
 text = "Dialogue line"
-font_size = 24
+font_size = 42
 metadata/_custom_type_script = "uid://sidowamkhcrt"
 
 [node name="Options" type="VBoxContainer" parent="Root/Popup/MarginContainer/HBoxContainer/VBox" unique_id=1694041012]
