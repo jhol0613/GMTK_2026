@@ -6,6 +6,9 @@ extends CanvasLayer
 @onready var _notebook_button := $NotebookButton
 @onready var _ticket_button := $TicketButton
 @onready var _ticket := $Ticket
+@onready var _notebook_hover_sound: AudioStreamPlayer = $NotebookHoverSound
+@onready var _notebook_click_sound: AudioStreamPlayer = $NotebookClickSound
+@onready var _notebook_exit_sound: AudioStreamPlayer = $NotebookExitSound
 
 
 # Called when the node enters the scene tree for the first time.
@@ -28,17 +31,19 @@ func _refresh_ticket() -> void:
 
 func _on_notebook_button_mouse_entered() -> void:
 	_notebook_button.position += mouse_hover_offset
-
+	_notebook_hover_sound.play()
 
 func _on_notebook_button_mouse_exited() -> void:
 	_notebook_button.position -= mouse_hover_offset
 
 
 func _on_notebook_button_pressed() -> void:
+	_notebook_click_sound.play()
 	_notebook.visible = true
 
 
 func _on_exit_button_pressed() -> void:
+	_notebook_exit_sound.play()
 	_notebook.visible = false
 
 
