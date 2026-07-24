@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://d3a648lgo0wqh" path="res://level_elements/ATM/ATM_broken.png" id="1_df8qj"]
 [ext_resource type="Texture2D" uid="uid://bodxnyj4yyn7c" path="res://level_elements/ATM/ATM.png" id="2_5sl07"]
 [ext_resource type="Script" uid="uid://bi61ptmirslbj" path="res://interactables/dialogue_interactable.gd" id="3_de0lt"]
+[ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/language_display.gd" id="4_5sl07"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="4_dfvvi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ylf28"]
@@ -88,17 +89,21 @@ z_index = 1
 position = Vector2(0, 65)
 shape = SubResource("RectangleShape2D_cmhjf")
 
-[node name="Prompt" type="Label" parent="DialogueInteractable" unique_id=870582897]
+[node name="Prompt" type="Control" parent="DialogueInteractable" unique_id=754325276]
 z_index = 1
+texture_filter = 1
+custom_minimum_size = Vector2(107, 23)
+layout_mode = 3
+anchors_preset = 0
 offset_left = -58.0
 offset_top = -67.0
 offset_right = 58.0
 offset_bottom = -44.0
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 12
+mouse_filter = 2
+script = ExtResource("4_5sl07")
 text = "Press E to use"
-horizontal_alignment = 1
-vertical_alignment = 1
+metadata/_custom_type_script = "uid://sidowamkhcrt"
 metadata/_edit_use_anchors_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1122527182]
