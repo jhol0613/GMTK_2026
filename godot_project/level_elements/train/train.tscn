@@ -314,28 +314,28 @@ position = Vector2(64.5, -27)
 texture = SubResource("AtlasTexture_boarded")
 
 [node name="DoorL" type="Sprite2D" parent="." unique_id=371770877]
-z_index = 3
+z_index = 2
 position = Vector2(-78.5, -61.5)
 scale = Vector2(0.9, 1)
 texture = SubResource("AtlasTexture_door_l")
 offset = Vector2(8, 27)
 
 [node name="DoorR" type="Sprite2D" parent="." unique_id=621257440]
-z_index = 3
+z_index = 2
 position = Vector2(-65, -61.5)
 scale = Vector2(0.9, 1)
 texture = SubResource("AtlasTexture_door_r")
 offset = Vector2(8.222221, 27)
 
 [node name="DoorL2" type="Sprite2D" parent="." unique_id=1692903795]
-z_index = 3
+z_index = 2
 position = Vector2(50.5, -61.5)
 scale = Vector2(0.9, 1)
 texture = SubResource("AtlasTexture_door_l")
 offset = Vector2(8, 27)
 
 [node name="DoorR2" type="Sprite2D" parent="." unique_id=71265228]
-z_index = 3
+z_index = 2
 position = Vector2(64, -61.5)
 scale = Vector2(0.9, 1)
 texture = SubResource("AtlasTexture_door_r")
@@ -359,6 +359,10 @@ l_or_r = "l"
 position = Vector2(13, 57)
 shape = SubResource("RectangleShape2D_5xnue")
 
+[node name="Prompt" parent="TrainInteractableL" index="1" unique_id=272794898]
+texture_filter = 1
+mouse_filter = 2
+
 [node name="TrainInteractableR" parent="." unique_id=1631350735 instance=ExtResource("3_725i7")]
 position = Vector2(51, -52)
 id = &"berlin_s5"
@@ -367,6 +371,10 @@ l_or_r = "r"
 [node name="CollisionShape2D" parent="TrainInteractableR" index="0" unique_id=278382881]
 position = Vector2(13, 57)
 shape = SubResource("RectangleShape2D_5xnue")
+
+[node name="Prompt" parent="TrainInteractableR" index="1" unique_id=272794898]
+texture_filter = 1
+mouse_filter = 2
 
 [editable path="TrainInteractableL"]
 [editable path="TrainInteractableR"]
