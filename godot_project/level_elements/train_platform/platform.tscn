@@ -319,10 +319,10 @@ sources/1 = SubResource("TileSetAtlasSource_mpakt")
 sources/0 = SubResource("TileSetAtlasSource_8v7xn")
 sources/2 = SubResource("TileSetAtlasSource_0fg8s")
 
-[node name="Platform" type="Node2D" unique_id=1302422271 node_paths=PackedStringArray("upper_train", "lower_train")]
+[node name="Platform" type="Node2D" unique_id=1302422271 node_paths=PackedStringArray("arrival_train", "lower_train")]
 y_sort_enabled = true
 script = ExtResource("1_n6ck0")
-upper_train = NodePath("UpperTrain")
+arrival_train = NodePath("UpperTrain")
 lower_train = NodePath("LowerTrain")
 
 [node name="Ground" type="TileMapLayer" parent="." unique_id=1607148194]
