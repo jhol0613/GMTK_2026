@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://u1j8iapwbxgk"
-path="res://.godot/imported/Pencil1.mp3-c619ecd76dc336c9ffb489175c17c51f.mp3str"
+path="res://.godot/imported/Pencil1.mp3-fe99abd71189a40d041c94a9fa27da5b.mp3str"
 
 [deps]
 
-source_file="res://UI/Pencil1.mp3"
-dest_files=["res://.godot/imported/Pencil1.mp3-c619ecd76dc336c9ffb489175c17c51f.mp3str"]
+source_file="res://ui/Pencil1.mp3"
+dest_files=["res://.godot/imported/Pencil1.mp3-fe99abd71189a40d041c94a9fa27da5b.mp3str"]
 
 [params]
 

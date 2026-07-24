@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://clvosvg2vfbfv"
-path="res://.godot/imported/Ticket buy West or East.mp3-3442a0bc8f88c3c327e2c6eaa146df28.mp3str"
+path="res://.godot/imported/Ticket buy West or East.mp3-c3c5650a5a5cfe30e54f57a5ebb105ab.mp3str"
 
 [deps]
 
-source_file="res://UI/SpeechAudio/Ticket buy West or East.mp3"
-dest_files=["res://.godot/imported/Ticket buy West or East.mp3-3442a0bc8f88c3c327e2c6eaa146df28.mp3str"]
+source_file="res://ui/SpeechAudio/Ticket buy West or East.mp3"
+dest_files=["res://.godot/imported/Ticket buy West or East.mp3-c3c5650a5a5cfe30e54f57a5ebb105ab.mp3str"]
 
 [params]
 

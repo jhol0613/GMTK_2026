@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://ba1lgv5xg2hgx"
-path="res://.godot/imported/0 Money Trinket buy please.mp3-35455659d2a37bb04d88c0eaeaadd759.mp3str"
+path="res://.godot/imported/0 Money Trinket buy please.mp3-d1d311c2ffcf7016bc408d7b84ef81c7.mp3str"
 
 [deps]
 
-source_file="res://UI/SpeechAudio/0 Money Trinket buy please.mp3"
-dest_files=["res://.godot/imported/0 Money Trinket buy please.mp3-35455659d2a37bb04d88c0eaeaadd759.mp3str"]
+source_file="res://ui/SpeechAudio/0 Money Trinket buy please.mp3"
+dest_files=["res://.godot/imported/0 Money Trinket buy please.mp3-d1d311c2ffcf7016bc408d7b84ef81c7.mp3str"]
 
 [params]
 
