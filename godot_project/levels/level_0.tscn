@@ -11,14 +11,14 @@
 [node name="Level0" unique_id=783439983 instance=ExtResource("1_eus5j")]
 
 [node name="UiOverlay" parent="." index="0" unique_id=368800410]
-visible = false
-
-[node name="Time" parent="Camera2D/CanvasLayer" parent_id_path=PackedInt32Array(845644440) index="0" unique_id=1094747133 groups=["time"]]
+scale = Vector2(1, 1)
+transform = Transform2D(1, 0, 0, 1, 0, 0)
 
 [node name="TicketBooth" parent="." index="4" unique_id=861247956 instance=ExtResource("2_823pn")]
 position = Vector2(-56, 1)
 
 [node name="DialogueInteractable" parent="TicketBooth" index="1" unique_id=358228256]
+lines = ["<<ticket>> <<buy>> <<?>>"]
 choices = Array[ExtResource("3_jum3j")]([ExtResource("4_c4pne"), ExtResource("5_tfamw"), ExtResource("6_dm5o4")])
 minutes_cost = 1
 
@@ -30,5 +30,6 @@ position = Vector2(55, -51)
 
 [node name="Platform" parent="." index="6" unique_id=1302422271 instance=ExtResource("3_iss0w")]
 
+[editable path="UiOverlay"]
 [editable path="TicketBooth"]
 [editable path="TicketBooth/DialogueInteractable"]
