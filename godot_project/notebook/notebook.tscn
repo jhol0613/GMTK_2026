@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://gskcbdshu54h"]
 
-[ext_resource type="PackedScene" uid="uid://bfuu8moxyxa5w" path="res://player/notebook_page.tscn" id="1_qjmkm"]
-[ext_resource type="Script" uid="uid://d0ulsk74p60bn" path="res://player/notebook.gd" id="1_tvakd"]
+[ext_resource type="PackedScene" uid="uid://bfuu8moxyxa5w" path="res://notebook/notebook_page.tscn" id="1_qjmkm"]
+[ext_resource type="Script" uid="uid://d0ulsk74p60bn" path="res://notebook/notebook.gd" id="1_tvakd"]
+[ext_resource type="Texture2D" uid="uid://cmp7iukc3tyy4" path="res://notebook/notebook.png" id="3_kkelw"]
 
 [node name="Notebook" type="Node2D" unique_id=2020796058]
 script = ExtResource("1_tvakd")
@@ -12,3 +13,6 @@ script = ExtResource("1_tvakd")
 
 [node name="NotebookPage2" parent="Pages" unique_id=1129297689 instance=ExtResource("1_qjmkm")]
 position = Vector2(980, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=944945366]
+texture = ExtResource("3_kkelw")

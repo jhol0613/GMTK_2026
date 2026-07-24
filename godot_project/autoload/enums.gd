@@ -6,9 +6,12 @@ enum TransitionStyle {
 }
 
 enum Scenes {
-	DEFAULT,
-	EXAMPLE_1,
-	PAUSE
+	PAUSE,
+	UI_OVERLAY,
+	LEVEL_0,
+	LEVEL_1,
+	LEVEL_2,
+	TITLE
 }
 
 # order matters

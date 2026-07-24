@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c72jo4tde0cb4"]
+
+[ext_resource type="Script" uid="uid://c35x4it7udhry" path="res://menus/title_screen.gd" id="1_m4alt"]
+
+[node name="TitleScreen" type="Node2D" unique_id=1887702429]
+script = ExtResource("1_m4alt")
+
+[node name="Button" type="Button" parent="." unique_id=686099538]
+offset_left = 545.0
+offset_top = 391.0
+offset_right = 723.0
+offset_bottom = 427.0
+text = "Play"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b3uwqbmauqt0b"]
+
+[ext_resource type="Script" uid="uid://hq6717r04nmv" path="res://UI/level_overlay/ui_overlay.gd" id="1_0h6y4"]
+[ext_resource type="PackedScene" uid="uid://gskcbdshu54h" path="res://notebook/notebook.tscn" id="2_l5of1"]
+[ext_resource type="Texture2D" uid="uid://bq1nedqe3gcam" path="res://notebook/icon_notebook.png" id="3_l5of1"]
+
+[node name="UiOverlay" type="Node2D" unique_id=368800410]
+script = ExtResource("1_0h6y4")
+
+[node name="Notebook" parent="." unique_id=2020796058 instance=ExtResource("2_l5of1")]
+position = Vector2(987, 553)
+
+[node name="NotebookButton" type="TextureButton" parent="." unique_id=1767702104]
+offset_left = 30.0
+offset_top = 908.0
+offset_right = 185.0
+offset_bottom = 1069.0
+texture_normal = ExtResource("3_l5of1")
+ignore_texture_size = true
+stretch_mode = 4
+
+[connection signal="mouse_entered" from="NotebookButton" to="." method="_on_notebook_button_mouse_entered"]
+[connection signal="mouse_exited" from="NotebookButton" to="." method="_on_notebook_button_mouse_exited"]

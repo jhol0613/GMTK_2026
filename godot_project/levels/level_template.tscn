@@ -6,8 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://ddbgow303m2gq" path="res://levels/tileset/TX Tileset Grass.png" id="3_pqv4r"]
 [ext_resource type="PackedScene" uid="uid://bn2ibeuqk0rgt" path="res://player/player.tscn" id="4_3dbtp"]
 [ext_resource type="Texture2D" uid="uid://dy3h6m8das3ut" path="res://levels/tileset/brickborder.png" id="4_yglgk"]
+[ext_resource type="PackedScene" uid="uid://b3uwqbmauqt0b" path="res://UI/level_overlay/ui_overlay.tscn" id="7_glpk1"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_glpk1"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yglgk"]
 texture = ExtResource("2_8xmsw")
 0:0/0 = 0
 1:0/0 = 0
@@ -26,7 +27,7 @@ texture = ExtResource("2_8xmsw")
 2:3/0 = 0
 3:3/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_22dcj"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_glpk1"]
 texture = ExtResource("3_pqv4r")
 0:0/0 = 0
 1:0/0 = 0
@@ -285,7 +286,7 @@ texture = ExtResource("3_pqv4r")
 14:15/0 = 0
 15:15/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8urs1"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_22dcj"]
 texture = ExtResource("4_yglgk")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 0.43525887, -1.6539803, 0.78346443, -1.828083, 8, -8, 8, -8, -8)
@@ -316,13 +317,18 @@ texture = ExtResource("4_yglgk")
 [sub_resource type="TileSet" id="TileSet_64qpc"]
 physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 3
-sources/1 = SubResource("TileSetAtlasSource_22dcj")
-sources/0 = SubResource("TileSetAtlasSource_glpk1")
-sources/2 = SubResource("TileSetAtlasSource_8urs1")
+sources/1 = SubResource("TileSetAtlasSource_glpk1")
+sources/0 = SubResource("TileSetAtlasSource_yglgk")
+sources/2 = SubResource("TileSetAtlasSource_22dcj")
 
 [node name="LevelTemplate" type="Node2D" unique_id=783439983]
 y_sort_enabled = true
 script = ExtResource("1_yglgk")
+
+[node name="UiOverlay" parent="." unique_id=368800410 instance=ExtResource("7_glpk1")]
+z_index = 1000
+position = Vector2(-211.99998, -116)
+scale = Vector2(0.22, 0.22)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1821430600]
 zoom = Vector2(4, 4)
