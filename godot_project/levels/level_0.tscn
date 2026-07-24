@@ -44,9 +44,6 @@ id = &"berlin_s7"
 [node name="Prompt" parent="Platform/UpperTrain/TrainInteractable" index="1" unique_id=272794898]
 texture_filter = 1
 
-[node name="LowerTrain" parent="Platform" index="7" unique_id=1370361982]
-visible = true
-
 [editable path="UiOverlay"]
 [editable path="TicketBooth"]
 [editable path="TicketBooth/DialogueInteractable"]
