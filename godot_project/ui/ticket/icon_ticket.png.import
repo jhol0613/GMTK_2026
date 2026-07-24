@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2pmbmcs4uquk"
-path="res://.godot/imported/icon_notebook.png-bf031477bc47ffc1eba88c02af191fc5.ctex"
+uid="uid://d05r7jsgne3d5"
+path="res://.godot/imported/icon_ticket.png-66967b00312bac42ee19a5482e884f18.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/level_overlay/icon_notebook.png"
-dest_files=["res://.godot/imported/icon_notebook.png-bf031477bc47ffc1eba88c02af191fc5.ctex"]
+source_file="res://ui/ticket/icon_ticket.png"
+dest_files=["res://.godot/imported/icon_ticket.png-66967b00312bac42ee19a5482e884f18.ctex"]
 
 [params]
 

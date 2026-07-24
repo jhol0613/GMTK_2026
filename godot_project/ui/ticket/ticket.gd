@@ -1,5 +1,5 @@
-class_name TicketUI
-extends Control
+class_name Ticket
+extends Node2D
 
 @export var ticket_data: TicketData
 
