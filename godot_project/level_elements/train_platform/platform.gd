@@ -2,7 +2,8 @@
 
 extends Node2D
 
-@export var train: AnimatedSprite2D
+@export var upper_train: Train
+@export var lower_train: Train
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
