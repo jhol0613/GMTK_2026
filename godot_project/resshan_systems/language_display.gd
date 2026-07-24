@@ -25,6 +25,8 @@ extends Control
 var _shapes: Array[RectangleShape2D]
 var _areas: Array[ResshanInteractable]
 
+func _ready() -> void:
+	mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 func _draw() -> void:
 	var _f:Font = font
