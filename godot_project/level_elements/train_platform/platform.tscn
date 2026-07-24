@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ddbgow303m2gq" path="res://levels/tileset/TX Tileset Grass.png" id="3_3v7e2"]
 [ext_resource type="Texture2D" uid="uid://dy3h6m8das3ut" path="res://levels/tileset/brickborder.png" id="4_tem3n"]
 [ext_resource type="PackedScene" uid="uid://67c8xgtu7o7f" path="res://level_elements/train/train.tscn" id="5_ajha7"]
+[ext_resource type="PackedScene" uid="uid://dpexe87ps0d7f" path="res://level_elements/hourglass/hourglass.tscn" id="6_f3ea8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8v7xn"]
 texture = ExtResource("2_f3ea8")
@@ -382,3 +383,6 @@ position = Vector2(3, -79)
 z_index = 3
 position = Vector2(2, 145)
 color = 8
+
+[node name="Hourglass" parent="." unique_id=259821884 instance=ExtResource("6_f3ea8")]
+position = Vector2(-136, 32)
