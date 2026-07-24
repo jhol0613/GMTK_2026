@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://djoepaapryv6s"]
+
+[ext_resource type="Texture2D" uid="uid://blepwufe0phuw" path="res://level_elements/trinket_shop/Trinket shop level 1.png" id="1_400x5"]
+[ext_resource type="Texture2D" uid="uid://dcoghm70vomqf" path="res://level_elements/trinket_shop/Trinket shop level 2.png" id="2_8tbst"]
+[ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialogue_interactable.tscn" id="3_xxwc8"]
+[ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="4_kg6p5"]
+[ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialogue_panel.tscn" id="5_73t7r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvn3i"]
+atlas = ExtResource("1_400x5")
+region = Rect2(0, 0, 179, 107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wyia"]
+atlas = ExtResource("2_8tbst")
+region = Rect2(0, 0, 179, 107)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3uvvl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvn3i")
+}],
+"loop": 1,
+"name": &"level1_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wyia")
+}],
+"loop": 1,
+"name": &"level2_idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bqp2h"]
+size = Vector2(54, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhk1x"]
+size = Vector2(117, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_awq2l"]
+size = Vector2(19, 14)
+
+[node name="TrinketShop" type="Node2D" unique_id=877031898]
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=984962632]
+z_index = 1
+position = Vector2(-14, -47)
+sprite_frames = SubResource("SpriteFrames_3uvvl")
+animation = &"level2_idle"
+
+[node name="DialogueInteractable" parent="." unique_id=358228256 instance=ExtResource("3_xxwc8")]
+z_index = 1
+position = Vector2(4, -33.5)
+lines = ["<<ticket>>"]
+panel_path = NodePath("../DialoguePanel")
+option_a = "yes"
+option_b = "no"
+correct_option = 0
+reward = null
+success_line = "take this train ticket"
+failure_line = "go away"
+
+[node name="CollisionShape2D" parent="DialogueInteractable" index="0" unique_id=278382881]
+z_index = 1
+position = Vector2(-5, 37.5)
+shape = SubResource("RectangleShape2D_bqp2h")
+
+[node name="Prompt" parent="DialogueInteractable" index="1" unique_id=1343467040]
+z_index = 1
+text = "Press E to shop"
+metadata/_edit_use_anchors_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=806731683]
+z_index = 1
+position = Vector2(-12, -44.5)
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=900354829]
+position = Vector2(2.5, 29)
+shape = SubResource("RectangleShape2D_fhk1x")
+
+[node name="ResshanInteractable" type="Area2D" parent="." unique_id=122838747]
+script = ExtResource("4_kg6p5")
+_string = "<<ticket>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ResshanInteractable" unique_id=1731261149]
+position = Vector2(-34.5, -34)
+shape = SubResource("RectangleShape2D_awq2l")
+
+[node name="DialoguePanel" parent="." unique_id=210961773 instance=ExtResource("5_73t7r")]
+unique_name_in_owner = true
+
+[editable path="DialogueInteractable"]
