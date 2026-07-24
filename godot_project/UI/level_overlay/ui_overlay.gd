@@ -43,11 +43,13 @@ func _on_notebook_button_mouse_exited() -> void:
 func _on_notebook_button_pressed() -> void:
 	_notebook_click_sound.play()
 	_notebook.visible = true
+	SignalBus.notebook_opened.emit()
 
 
 func _on_exit_button_pressed() -> void:
 	_notebook_exit_sound.play()
 	_notebook.visible = false
+	SignalBus.notebook_closed.emit()
 
 
 func _on_ticket_button_mouse_entered():

@@ -78,7 +78,7 @@ static func draw_resshan_text(
 
 ## Turns <<***>> Resshen format into *.*.*.*... encoded format
 static func encode(str:String) -> String:
-	return preload("res://resshan_systems/vocab.json").data[str.capitalize()]
+	return preload("res://resshan_systems/table-a-dictionary.json").data[str.capitalize()]
 
 static func get_string_size(
 	str:String,
