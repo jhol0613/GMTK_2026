@@ -1,3 +1,150 @@
 [gd_scene format=3 uid="uid://dnm5746r17yej"]
 
+[ext_resource type="Script" uid="uid://ckfqwxkaxsejq" path="res://cutscenes/intro_cutscene/intro_cutscene.gd" id="1_2prw1"]
+[ext_resource type="Texture2D" uid="uid://blvksusp3s7nh" path="res://cutscenes/intro_cutscene/comic1_picture1.png" id="1_8owei"]
+[ext_resource type="Script" uid="uid://dlgrteq5xyd5w" path="res://cutscenes/fading_sprite.gd" id="2_2prw1"]
+[ext_resource type="Texture2D" uid="uid://3qxbvj05mwpd" path="res://cutscenes/intro_cutscene/comic1_picture2.png" id="2_oneg1"]
+[ext_resource type="Texture2D" uid="uid://dyxm8e138v2id" path="res://cutscenes/intro_cutscene/comic1_picture3.png" id="3_2prw1"]
+[ext_resource type="Texture2D" uid="uid://dx0cfgj1iyl4" path="res://cutscenes/intro_cutscene/comic1_picture4a.png" id="4_3auth"]
+[ext_resource type="Texture2D" uid="uid://cffs26ui61eb2" path="res://cutscenes/intro_cutscene/comic1_picture4b.png" id="5_p0bb6"]
+
+[sub_resource type="Animation" id="Animation_3auth"]
+resource_name = "cutscene_sequence"
+length = 19.166666
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Comic1Picture1")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"fade_in"
+}, {
+"args": [],
+"method": &"fade_out"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Comic1Picture2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3.0333333, 5.9666667),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"fade_in"
+}, {
+"args": [],
+"method": &"fade_out"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Comic1Picture3")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(7.9666667, 17),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"fade_in"
+}, {
+"args": [],
+"method": &"fade_out"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Comic1Picture4a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(11, 17),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"fade_in"
+}, {
+"args": [],
+"method": &"fade_out"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Comic1Picture4b")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(14.033334, 17.066668),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"fade_in"
+}, {
+"args": [],
+"method": &"fade_out"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p0bb6"]
+_data = {
+&"cutscene_sequence": SubResource("Animation_3auth")
+}
+
 [node name="IntroCutscene" type="Node2D" unique_id=627022193]
+script = ExtResource("1_2prw1")
+
+[node name="Comic1Picture1" type="Sprite2D" parent="." unique_id=1013606209]
+position = Vector2(980, 293)
+texture = ExtResource("1_8owei")
+script = ExtResource("2_2prw1")
+fade_in_time = 2.0
+fade_out_time = 1.5
+metadata/_custom_type_script = "uid://dlgrteq5xyd5w"
+
+[node name="Comic1Picture2" type="Sprite2D" parent="." unique_id=206320261]
+position = Vector2(976, 781)
+texture = ExtResource("2_oneg1")
+script = ExtResource("2_2prw1")
+fade_in_time = 2.0
+fade_out_time = 1.5
+metadata/_custom_type_script = "uid://dlgrteq5xyd5w"
+
+[node name="Comic1Picture3" type="Sprite2D" parent="." unique_id=1850597694]
+position = Vector2(981, 295)
+texture = ExtResource("3_2prw1")
+script = ExtResource("2_2prw1")
+fade_in_time = 2.0
+fade_out_time = 1.5
+metadata/_custom_type_script = "uid://dlgrteq5xyd5w"
+
+[node name="Comic1Picture4a" type="Sprite2D" parent="." unique_id=674879809]
+position = Vector2(980, 781)
+texture = ExtResource("4_3auth")
+script = ExtResource("2_2prw1")
+fade_in_time = 2.0
+fade_out_time = 1.5
+metadata/_custom_type_script = "uid://dlgrteq5xyd5w"
+
+[node name="Comic1Picture4b" type="Sprite2D" parent="." unique_id=255630539]
+position = Vector2(976, 782)
+texture = ExtResource("5_p0bb6")
+script = ExtResource("2_2prw1")
+fade_in_time = 2.0
+fade_out_time = 1.5
+metadata/_custom_type_script = "uid://dlgrteq5xyd5w"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=395345619]
+libraries/ = SubResource("AnimationLibrary_p0bb6")
+autoplay = &"cutscene_sequence"
