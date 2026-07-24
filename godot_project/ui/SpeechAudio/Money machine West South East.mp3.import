@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://drd5s382t710m"
-path="res://.godot/imported/Money machine West South East.mp3-d76e8b11c02117ce0092140f5a3bca00.mp3str"
+path="res://.godot/imported/Money machine West South East.mp3-1a69441f65246ed064c61a0a42cbb619.mp3str"
 
 [deps]
 
-source_file="res://UI/SpeechAudio/Money machine West South East.mp3"
-dest_files=["res://.godot/imported/Money machine West South East.mp3-d76e8b11c02117ce0092140f5a3bca00.mp3str"]
+source_file="res://ui/SpeechAudio/Money machine West South East.mp3"
+dest_files=["res://.godot/imported/Money machine West South East.mp3-1a69441f65246ed064c61a0a42cbb619.mp3str"]
 
 [params]
 
