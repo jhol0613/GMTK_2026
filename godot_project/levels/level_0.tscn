@@ -14,7 +14,7 @@
 [ext_resource type="Resource" uid="uid://csufuxgt75mu7" path="res://resources/dialogue/mc_line_3.tres" id="6_p0s0h"]
 [ext_resource type="AudioStream" uid="uid://432wueyitdra" path="res://UI/Ticket_Booth_Noise.mp3" id="11_axdoh"]
 [ext_resource type="Script" uid="uid://8aci422hp6qo" path="res://levels/level_0_audio.gd" id="12_p0s0h"]
-[ext_resource type="AudioStream" uid="uid://b2wn0pyea81p3" path="res://ui/Train/Train Pulling Into.mp3" id="13_axdoh"]
+[ext_resource type="AudioStream" uid="uid://cu3ssob4apsrg" path="res://UI/Train/Train Pulling Into.mp3" id="13_axdoh"]
 [ext_resource type="AudioStream" uid="uid://bbcbac8i6a3xm" path="res://levels/You TRAINed for this copy.mp3" id="14_as6hq"]
 
 [node name="Level0" unique_id=783439983 instance=ExtResource("1_eus5j")]
@@ -31,6 +31,7 @@ tile_map_data = PackedByteArray("AADX/wMAAgAFAAEAAADW/wMAAgAFAAEAAADV/wMAAgAFAAE
 
 [node name="TicketBooth" parent="." index="4" unique_id=861247956 instance=ExtResource("2_823pn")]
 position = Vector2(-85, 17)
+script = ExtResource("3_as6hq")
 
 [node name="DialogueInteractable" parent="TicketBooth" index="1" unique_id=358228256]
 lines = Array[ExtResource("3_obtcn")]([ExtResource("4_2ro2b"), ExtResource("5_fj15s"), ExtResource("6_p0s0h")])
@@ -61,6 +62,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAMAAAAAAAEAAAAAAAMAAAAAAAIAAAAAAAM
 
 [node name="TrainInteractable" parent="Platform/UpperTrain" parent_id_path=PackedInt32Array(1302422271, 995237668) index="9" unique_id=779530687]
 id = &"berlin_s7"
+l_or_r = ""
 
 [node name="LevelAudioController" type="Node2D" parent="." index="7" unique_id=217677735]
 script = ExtResource("12_p0s0h")
@@ -70,6 +72,7 @@ stream = ExtResource("13_axdoh")
 
 [node name="BGM" type="AudioStreamPlayer" parent="LevelAudioController" index="1" unique_id=290439202]
 stream = ExtResource("14_as6hq")
+bus = &"Music"
 
 [editable path="UiOverlay"]
 [editable path="TicketBooth"]
