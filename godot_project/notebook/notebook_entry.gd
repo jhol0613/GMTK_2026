@@ -12,9 +12,14 @@ func _draw() -> void:
 	)
 	$Resshan.custom_minimum_size.x = shape.size.x
 
+
 func add_resshan(encoded:String) -> void:
 	_resshan_string = encoded
 	queue_redraw()
+
+
+func get_note() -> String:
+	return $PlayerInput.text
 
 
 func _on_resshan_gui_input(event: InputEvent) -> void:
