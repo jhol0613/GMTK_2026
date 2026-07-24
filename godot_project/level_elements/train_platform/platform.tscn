@@ -337,6 +337,13 @@ tile_set = SubResource("TileSet_3beyx")
 
 [node name="UpperTrain" parent="." unique_id=995237668 instance=ExtResource("5_ajha7")]
 position = Vector2(3, -79)
+player_disembark_marker = Vector2(-105.5, -28)
+is_incorrect_train = null
+incorrect_penalty_minutes = null
+reload_scene = null
 
 [node name="LowerTrain" parent="." unique_id=1370361982 instance=ExtResource("5_ajha7")]
 position = Vector2(2, 113)
+player_disembark_marker = Vector2(-105.5, -28)
+is_incorrect_train = true
+color = 8

@@ -23,6 +23,7 @@ choices = Array[ExtResource("3_jum3j")]([ExtResource("4_c4pne"), ExtResource("5_
 minutes_cost = 1
 
 [node name="Prompt" parent="TicketBooth/DialogueInteractable" index="1" unique_id=272794898]
+texture_filter = 1
 mouse_filter = 2
 
 [node name="Player" parent="." index="5" unique_id=799939449]
@@ -30,6 +31,31 @@ position = Vector2(55, -51)
 
 [node name="Platform" parent="." index="6" unique_id=1302422271 instance=ExtResource("3_iss0w")]
 
+[node name="UpperTrain" parent="Platform" index="2" unique_id=995237668]
+depart_offset = Vector2(800, 0)
+depart_duration = 1.5
+arrival_offset = Vector2(-800, 0)
+arrival_duration = 1.5
+incorrect_penalty_minutes = 5
+reload_scene = 2
+
+[node name="TrainInteractable" parent="Platform/UpperTrain" index="8" unique_id=779530687]
+id = &"berlin_s7"
+
+[node name="Prompt" parent="Platform/UpperTrain/TrainInteractable" index="1" unique_id=272794898]
+texture_filter = 1
+
+[node name="LowerTrain" parent="Platform" index="3" unique_id=1370361982]
+depart_offset = Vector2(800, 0)
+depart_duration = 1.5
+arrival_offset = Vector2(-800, 0)
+arrival_duration = 1.5
+incorrect_penalty_minutes = 5
+reload_scene = 2
+
 [editable path="UiOverlay"]
 [editable path="TicketBooth"]
 [editable path="TicketBooth/DialogueInteractable"]
+[editable path="Platform"]
+[editable path="Platform/UpperTrain"]
+[editable path="Platform/UpperTrain/TrainInteractable"]
