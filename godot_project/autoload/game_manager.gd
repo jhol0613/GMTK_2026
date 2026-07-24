@@ -13,13 +13,7 @@ extends Node2D
 @onready var _transition_in_time = default_fade_in_time
 
 @onready var _pause_layer: CanvasLayer
-@onready var _notebook_layer: CanvasLayer
 
-#@onready var ui_overlay := scene_dict[Enums.Scenes.UI_OVERLAY].instantiate()
-
-#func _ready():
-	#if ui_overlay:
-		#get_tree().current_scene.add_child(ui_overlay)
 
 func load_scene(scene: Enums.Scenes, transition_style = Enums.TransitionStyle.FADEINOUT, transition_in_time = default_fade_in_time,
 	transition_out_time = default_fade_out_time):

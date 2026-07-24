@@ -10,6 +10,13 @@ script = ExtResource("1_0h6y4")
 [node name="Notebook" parent="." unique_id=2020796058 instance=ExtResource("2_l5of1")]
 position = Vector2(987, 553)
 
+[node name="ExitButton" type="Button" parent="Notebook" unique_id=1754393924]
+offset_left = -306.0
+offset_top = 375.0
+offset_right = -175.0
+offset_bottom = 439.0
+text = "Return"
+
 [node name="NotebookButton" type="TextureButton" parent="." unique_id=1767702104]
 offset_left = 30.0
 offset_top = 908.0
@@ -19,5 +26,7 @@ texture_normal = ExtResource("3_l5of1")
 ignore_texture_size = true
 stretch_mode = 4
 
+[connection signal="pressed" from="Notebook/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="mouse_entered" from="NotebookButton" to="." method="_on_notebook_button_mouse_entered"]
 [connection signal="mouse_exited" from="NotebookButton" to="." method="_on_notebook_button_mouse_exited"]
+[connection signal="pressed" from="NotebookButton" to="." method="_on_notebook_button_pressed"]
