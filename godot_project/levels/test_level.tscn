@@ -18,6 +18,10 @@
 [ext_resource type="Resource" path="res://resources/dialogue/test_choice_yes.tres" id="12_chy"]
 [ext_resource type="Resource" path="res://resources/dialogue/test_choice_no.tres" id="12_chn"]
 [ext_resource type="Resource" path="res://resources/dialogue/test_choice_ask.tres" id="12_cha"]
+[ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://scripts/dialogue_line.gd" id="12_line"]
+[ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://scripts/dialogue_choice.gd" id="12_choice"]
+[ext_resource type="Resource" path="res://resources/dialogue/clerk_line_1.tres" id="12_cl1"]
+[ext_resource type="Resource" path="res://resources/dialogue/clerk_line_2.tres" id="12_cl2"]
 [ext_resource type="PackedScene" uid="uid://dchuwbctx2fxx" path="res://interactables/train_interactable.tscn" id="13_axl34"]
 [ext_resource type="PackedScene" uid="uid://baukigq6wfgs1" path="res://level_elements/ATM/atm.tscn" id="14_8hjdj"]
 [ext_resource type="PackedScene" uid="uid://2pwlm8itluel" path="res://level_elements/ticket_booth/ticket_booth.tscn" id="15_0vv12"]
@@ -318,8 +322,8 @@ panel_path = NodePath("%MapPanel")
 [node name="DialogueInteractable" parent="." unique_id=983647093 instance=ExtResource("8_dlgIn")]
 position = Vector2(189, 59)
 speaker = "Clerk"
-lines = PackedStringArray("Need a ticket?", "Berlin leaves at 04:00.")
-choices = Array[DialogueChoice]([ExtResource("12_chy"), ExtResource("12_chn"), ExtResource("12_cha")])
+lines = Array[ExtResource("12_line")]([ExtResource("12_cl1"), ExtResource("12_cl2")])
+choices = Array[ExtResource("12_choice")]([ExtResource("12_chy"), ExtResource("12_chn"), ExtResource("12_cha")])
 panel_path = NodePath("%DialoguePanel")
 
 [node name="SignPanel" parent="." unique_id=1582616772 instance=ExtResource("5_o6mel")]
