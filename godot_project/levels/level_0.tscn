@@ -7,6 +7,9 @@
 [ext_resource type="Resource" uid="uid://de30fu8su2vwp" path="res://resources/dialogue/test_choice_ask.tres" id="4_c4pne"]
 [ext_resource type="Resource" uid="uid://bxserhv03whnd" path="res://resources/dialogue/test_choice_no.tres" id="5_tfamw"]
 [ext_resource type="Resource" path="res://resources/dialogue/test_choice_yes.tres" id="6_dm5o4"]
+[ext_resource type="Script" uid="uid://8aci422hp6qo" path="res://levels/level_0_audio.gd" id="8_dm5o4"]
+[ext_resource type="AudioStream" uid="uid://b2wn0pyea81p3" path="res://UI/Train/Train Pulling Into.mp3" id="8_tfamw"]
+[ext_resource type="AudioStream" uid="uid://bbcbac8i6a3xm" path="res://levels/You TRAINed for this copy.mp3" id="9_dm5o4"]
 
 [node name="Level0" unique_id=783439983 instance=ExtResource("1_eus5j")]
 
@@ -43,6 +46,15 @@ id = &"berlin_s7"
 
 [node name="Prompt" parent="Platform/UpperTrain/TrainInteractable" index="1" unique_id=272794898]
 texture_filter = 1
+
+[node name="LevelAudioController" type="Node2D" parent="." index="7" unique_id=721402509]
+script = ExtResource("8_dm5o4")
+
+[node name="TrainInto" type="AudioStreamPlayer" parent="LevelAudioController" index="0" unique_id=1793583830]
+stream = ExtResource("8_tfamw")
+
+[node name="BGM" type="AudioStreamPlayer" parent="LevelAudioController" index="1" unique_id=2025745728]
+stream = ExtResource("9_dm5o4")
 
 [editable path="UiOverlay"]
 [editable path="TicketBooth"]
