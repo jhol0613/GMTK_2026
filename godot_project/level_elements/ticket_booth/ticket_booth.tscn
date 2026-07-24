@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bof6fneov4vmn" path="res://level_elements/ticket_booth/Ticketbooth.png" id="1_8vy6h"]
 [ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialogue_interactable.tscn" id="2_ui1pi"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="3_ui1pi"]
+[ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialogue_panel.tscn" id="4_2vr77"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2vr77"]
 atlas = ExtResource("1_8vy6h")
@@ -44,6 +45,8 @@ sprite_frames = SubResource("SpriteFrames_ujtin")
 [node name="DialogueInteractable" parent="." unique_id=358228256 instance=ExtResource("2_ui1pi")]
 z_index = 1
 position = Vector2(4, -33.5)
+lines = ["<<ticket>>"]
+panel_path = NodePath("../DialoguePanel")
 option_a = "yes"
 option_b = "no"
 correct_option = 0
@@ -86,5 +89,8 @@ metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ResshanInteractable" unique_id=1516641839]
 position = Vector2(-34.5, -34)
 shape = SubResource("RectangleShape2D_pyhej")
+
+[node name="DialoguePanel" parent="." unique_id=210961773 instance=ExtResource("4_2vr77")]
+unique_name_in_owner = true
 
 [editable path="DialogueInteractable"]
