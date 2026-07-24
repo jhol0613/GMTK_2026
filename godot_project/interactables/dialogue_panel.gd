@@ -19,6 +19,8 @@ var _reward: ItemData
 var _awaiting_close: bool
 var _awaiting_reward: bool
 
+signal dialogue_complete
+
 
 ## Initialize the dialogue panel
 func show_dialogue(
@@ -73,6 +75,7 @@ func _on_interact_while_open() -> void:
 		_awaiting_reward = false
 		_awaiting_close = false
 		hide_popup()
+		dialogue_complete.emit()
 		return
 
 	if _showing_options:

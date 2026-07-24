@@ -26,9 +26,6 @@ position = Vector2(0, 0)
 [node name="Platform1" parent="." index="5" unique_id=1302422271 instance=ExtResource("2_bt44k")]
 position = Vector2(128, 32)
 
-[node name="Hourglass" parent="Platform1" index="8" unique_id=259821884]
-position = Vector2(-304, 32)
-
 [node name="Platform2" parent="." index="6" unique_id=1366717491 instance=ExtResource("2_bt44k")]
 position = Vector2(1616, -1040)
 
@@ -37,9 +34,6 @@ position = Vector2(272, -79)
 
 [node name="LowerTrain" parent="Platform2" index="7" unique_id=1370361982]
 position = Vector2(272, 145)
-
-[node name="Hourglass" parent="Platform2" index="8" unique_id=259821884]
-position = Vector2(32, 32)
 
 [node name="Platform3" parent="." index="7" unique_id=857207177 instance=ExtResource("2_bt44k")]
 position = Vector2(1616, -336)
@@ -50,14 +44,8 @@ position = Vector2(272, -79)
 [node name="LowerTrain" parent="Platform3" index="7" unique_id=1370361982]
 position = Vector2(272, 145)
 
-[node name="Hourglass" parent="Platform3" index="8" unique_id=259821884]
-position = Vector2(32, 32)
-
 [node name="Platform4" parent="." index="8" unique_id=1812990888 instance=ExtResource("2_bt44k")]
 position = Vector2(672, -688)
-
-[node name="Hourglass" parent="Platform4" index="8" unique_id=259821884]
-position = Vector2(-304, 32)
 
 [node name="TrainMap" parent="." index="9" unique_id=223339207 instance=ExtResource("3_n46q3")]
 position = Vector2(736, 336)

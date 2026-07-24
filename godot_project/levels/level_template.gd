@@ -1,5 +1,6 @@
 extends Node2D
 
+class_name LevelTemplate
 
 func _ready() -> void:
 	# sync the camera to the player
