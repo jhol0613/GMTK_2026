@@ -1,8 +1,8 @@
 class_name DialoguePanel
 extends InteractionPanelBase
 
-@onready var _speaker: Label = $Root/Popup/MarginContainer/VBox/Speaker
-@onready var _body: Label = $Root/Popup/MarginContainer/VBox/Body
+@onready var _speaker: ResshanLabel = $Root/Popup/MarginContainer/VBox/Speaker
+@onready var _body: ResshanLabel = $Root/Popup/MarginContainer/VBox/Body
 @onready var _options: VBoxContainer = $Root/Popup/MarginContainer/VBox/Options
 @onready var _option_a: Label = _options.get_child(0)
 @onready var _option_b: Label = _options.get_child(1)
