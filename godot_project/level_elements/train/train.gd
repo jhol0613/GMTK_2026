@@ -11,7 +11,11 @@ class_name Train
 @export var depart_duration: float = 1.5
 @export var arrival_offset: Vector2 = Vector2(-800, 0)
 @export var arrival_duration: float = 1.5
+# TODO: use actual marker instead of hardcoded value
 @export var player_disembark_marker: Vector2 = Vector2(55, -51)
+
+@export var incorrect_penalty_minutes: int = 5
+@export var reload_scene: Enums.Scenes = Enums.Scenes.LEVEL_0
 
 @export var sprite: AnimatedSprite2D
 @export var color := Enums.TrainColor.BROWN:
@@ -40,35 +44,40 @@ func try_board(interactable: TrainInteractable) -> void:
 		return
 
 	var ticket: TicketData = Inventory.get_ticket()
-	if ticket == null or not interactable.can_board(ticket):
-		await _flash_reject(_no_ticket_light)
-		return
-
-	await _boarding_sequence()
+	match interactable.evaluate_board(ticket):
+		Enums.BoardResult.REJECTED:
+			await _flash_reject(_no_ticket_light)
+			return
+		Enums.BoardResult.WRONG_TRAIN:
+			await _wrong_train_sequence()
+			return
+		Enums.BoardResult.SUCCESS:
+			await _boarding_sequence()
 
 
 func _boarding_sequence() -> void:
 	_boarding = true
 
-	# Disable player input
-	var player := get_tree().get_first_node_in_group("player")
-	player.visible = false
-	player.set_physics_process(false)
+	_set_player_active(false)
+	await _run_boarding_and_departure()
 
-	animation_player.play("doors_open")
-	await animation_player.animation_finished
-
-	_boarded_player.visible = true
-
-	animation_player.play("doors_close")
-	await animation_player.animation_finished
-
-	await _train_depart()
 	GameManager.load_scene(next_scene)
 	_boarding = false
 
 
-# Flashes a light on and off for a given number of times
+func _wrong_train_sequence() -> void:
+	_boarding = true
+
+	_set_player_active(false)
+	await _run_boarding_and_departure()
+	
+	_apply_penalty()
+
+	GameManager.load_scene(reload_scene)
+	_boarding = false
+
+
+## Flashes a light on and off for a given number of times
 func _flash_reject(light: Sprite2D, flashes: int = 3, interval: float = 0.5) -> void:
 	for i in flashes:
 		light.visible = true
@@ -83,6 +92,7 @@ func _train_depart() -> void:
 	await tween.finished
 
 
+## Plays the arrival animation on scene start
 func play_arrival_animation() -> void:
 	var player := get_tree().get_first_node_in_group("player")
 	player.visible = false
@@ -99,7 +109,7 @@ func play_arrival_animation() -> void:
 	animation_player.play("doors_open")
 	await animation_player.animation_finished
 
-	# Cut: inside train → on platform
+	# inside train to platform
 	_boarded_player.visible = false
 	if player_disembark_marker:
 		player.global_position = player_disembark_marker
@@ -107,3 +117,42 @@ func play_arrival_animation() -> void:
 	animation_player.play("doors_close")
 	await animation_player.animation_finished
 	player.set_physics_process(true)
+
+
+#---------------------------------------------------------
+# Helper functions
+#---------------------------------------------------------
+func _set_player_active(active: bool) -> void:
+	var player := get_tree().get_first_node_in_group("player")
+	if player == null:
+		return
+	player.visible = active
+	player.set_physics_process(active)
+
+
+func _apply_penalty() -> void:
+	var time_node: Control = get_tree().get_first_node_in_group("time")
+	if time_node:
+		GameManager.stash_time_before_reload(
+			time_node.rhour,
+			time_node.rminute,
+			incorrect_penalty_minutes,
+		)
+
+
+func _open_doors() -> void:
+	animation_player.play("doors_open")
+	await animation_player.animation_finished
+
+
+func _close_doors() -> void:
+	animation_player.play("doors_close")
+	await animation_player.animation_finished
+
+
+func _run_boarding_and_departure() -> void:
+	_set_player_active(false)
+	await _open_doors()
+	_boarded_player.visible = true
+	await _close_doors()
+	await _train_depart()

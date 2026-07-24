@@ -218,6 +218,15 @@ size = Vector2(40, 23)
 
 [node name="Train" type="Node2D" unique_id=2086324427 node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_cjdsu")
+next_scene = 2
+depart_offset = null
+depart_duration = null
+arrival_offset = null
+arrival_duration = null
+player_disembark_marker = null
+is_incorrect_train = null
+incorrect_penalty_minutes = null
+reload_scene = null
 sprite = NodePath("TrainSprite")
 color = 5
 
