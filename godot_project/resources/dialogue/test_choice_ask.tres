@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DialogueChoice" format=3 uid="uid://de30fu8su2vwp"]
+
+[ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://scripts/dialogue_choice.gd" id="1_choice"]
+
+[resource]
+script = ExtResource("1_choice")
+player_text = "Do you take cards?"
+reply = "Cash only!"
+outcome_id = &"shrug"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
