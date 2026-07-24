@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dlagfmlay2r8"]
 
 [ext_resource type="Script" uid="uid://pii20xdxfb3p" path="res://interactables/dialogue_panel.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/language_display.gd" id="2_wos7g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dialogue"]
 bg_color = Color(0, 0, 0, 1)
@@ -53,26 +54,23 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Speaker" type="Label" parent="Root/Popup/MarginContainer/VBox" unique_id=1847174837]
+[node name="Speaker" type="Control" parent="Root/Popup/MarginContainer/VBox" unique_id=1657995010]
+custom_minimum_size = Vector2(63, 23)
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
+script = ExtResource("2_wos7g")
 text = "Speaker"
+metadata/_custom_type_script = "uid://sidowamkhcrt"
 
-[node name="Body" type="Label" parent="Root/Popup/MarginContainer/VBox" unique_id=1305937975]
+[node name="Body" type="Control" parent="Root/Popup/MarginContainer/VBox" unique_id=895602396]
+custom_minimum_size = Vector2(113, 26)
 layout_mode = 2
 size_flags_vertical = 3
+script = ExtResource("2_wos7g")
 text = "Dialogue line"
-autowrap_mode = 3
+font_size = 18
+metadata/_custom_type_script = "uid://sidowamkhcrt"
 
 [node name="Options" type="VBoxContainer" parent="Root/Popup/MarginContainer/VBox" unique_id=1694041012]
 visible = false
 layout_mode = 2
 theme_override_constants/separation = 4
-
-[node name="OptionA" type="Label" parent="Root/Popup/MarginContainer/VBox/Options" unique_id=1856774170]
-layout_mode = 2
-text = "Yes"
-
-[node name="OptionB" type="Label" parent="Root/Popup/MarginContainer/VBox/Options" unique_id=1314661437]
-layout_mode = 2
-text = "No"

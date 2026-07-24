@@ -14,6 +14,7 @@ extends Node2D
 
 @onready var _pause_layer: CanvasLayer
 
+
 func load_scene(scene: Enums.Scenes, transition_style = Enums.TransitionStyle.FADEINOUT, transition_in_time = default_fade_in_time,
 	transition_out_time = default_fade_out_time):
 
@@ -21,7 +22,6 @@ func load_scene(scene: Enums.Scenes, transition_style = Enums.TransitionStyle.FA
 	_transition_in_time = transition_in_time
 
 	pause_enabled = false
-	
 
 	match transition_style:
 		Enums.TransitionStyle.FADEINOUT:

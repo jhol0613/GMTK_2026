@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cp2hq8ti8r10h"
+path="res://.godot/imported/Boarding the Train.mp3-87f3a15f7eb504013f04319a0f7cfbf4.mp3str"
+
+[deps]
+
+source_file="res://ui/Train/Boarding the Train.mp3"
+dest_files=["res://.godot/imported/Boarding the Train.mp3-87f3a15f7eb504013f04319a0f7cfbf4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://v28j4lmegtwq"]
+[gd_scene format=3 uid="uid://v28j4lmegtwq"]
 
 [ext_resource type="Script" uid="uid://b2sgccr2hm22l" path="res://autoload/game_manager.gd" id="1_7xclw"]
+[ext_resource type="PackedScene" uid="uid://beutnrud0mm3l" path="res://levels/level_0.tscn" id="2_fjyxg"]
+[ext_resource type="PackedScene" uid="uid://b3uwqbmauqt0b" path="res://ui/level_overlay/ui_overlay.tscn" id="2_lb6xn"]
 
-[node name="GameManager" type="Node2D"]
+[node name="GameManager" type="Node2D" unique_id=482173798]
 script = ExtResource("1_7xclw")
+scene_dict = Dictionary[int, PackedScene]({
+1: ExtResource("2_lb6xn"),
+2: ExtResource("2_fjyxg")
+})

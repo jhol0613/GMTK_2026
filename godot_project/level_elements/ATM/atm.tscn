@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://baukigq6wfgs1"]
+
+[ext_resource type="Texture2D" uid="uid://d3a648lgo0wqh" path="res://level_elements/ATM/ATM_broken.png" id="1_df8qj"]
+[ext_resource type="Texture2D" uid="uid://bodxnyj4yyn7c" path="res://level_elements/ATM/ATM.png" id="2_5sl07"]
+[ext_resource type="Script" uid="uid://bi61ptmirslbj" path="res://interactables/dialogue_interactable.gd" id="3_de0lt"]
+[ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="4_dfvvi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylf28"]
+atlas = ExtResource("1_df8qj")
+region = Rect2(0, 0, 67, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yo11r"]
+atlas = ExtResource("1_df8qj")
+region = Rect2(67, 0, 67, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qagpu"]
+atlas = ExtResource("1_df8qj")
+region = Rect2(134, 0, 67, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jncj"]
+atlas = ExtResource("2_5sl07")
+region = Rect2(0, 0, 67, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7yx5x"]
+atlas = ExtResource("2_5sl07")
+region = Rect2(67, 0, 67, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mcea"]
+atlas = ExtResource("2_5sl07")
+region = Rect2(134, 0, 67, 112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fpcxu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ylf28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yo11r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qagpu")
+}],
+"loop": 1,
+"name": &"broken",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6jncj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7yx5x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mcea")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cmhjf"]
+size = Vector2(29.5, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1w4un"]
+size = Vector2(46.5, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ld73o"]
+size = Vector2(16.6875, 14)
+
+[node name="ATM" type="Node2D" unique_id=124595741]
+z_index = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1776144098]
+y_sort_enabled = true
+position = Vector2(0, -57)
+sprite_frames = SubResource("SpriteFrames_fpcxu")
+frame_progress = 0.6529543
+
+[node name="DialogueInteractable" type="Area2D" parent="." unique_id=1894356249]
+position = Vector2(0, -65)
+script = ExtResource("3_de0lt")
+metadata/_custom_type_script = "uid://bi61ptmirslbj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueInteractable" unique_id=1443245986]
+z_index = 1
+position = Vector2(0, 65)
+shape = SubResource("RectangleShape2D_cmhjf")
+
+[node name="Prompt" type="Label" parent="DialogueInteractable" unique_id=870582897]
+z_index = 1
+offset_left = -58.0
+offset_top = -67.0
+offset_right = 58.0
+offset_bottom = -44.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 12
+text = "Press E to use"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1122527182]
+z_index = 1
+position = Vector2(-12, -44.5)
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=897162520]
+position = Vector2(2.25, 34.5)
+shape = SubResource("RectangleShape2D_1w4un")
+
+[node name="ResshanInteractable" type="Area2D" parent="." unique_id=1722091080]
+script = ExtResource("4_dfvvi")
+_string = "<<money>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ResshanInteractable" unique_id=1706932137]
+position = Vector2(-24.6875, -41)
+shape = SubResource("RectangleShape2D_ld73o")
+
+[node name="ResshanInteractable2" type="Area2D" parent="." unique_id=142653958]
+script = ExtResource("4_dfvvi")
+_string = "<<machine>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ResshanInteractable2" unique_id=835999535]
+position = Vector2(-24.34375, -26)
+shape = SubResource("RectangleShape2D_ld73o")

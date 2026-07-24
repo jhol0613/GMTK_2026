@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bdx06b4wet51l"]
 
 [ext_resource type="Script" uid="uid://byquvvrlqrlgj" path="res://time/time.gd" id="1_ep8tu"]
-[ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_alphabet/language_display.gd" id="2_i56kd"]
+[ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/language_display.gd" id="2_i56kd"]
 
 [node name="Time" type="Control" unique_id=1094747133]
 layout_mode = 3
@@ -10,10 +10,11 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_ep8tu")
 
-[node name="Label" type="Node2D" parent="." unique_id=338211322]
-position = Vector2(0, 16)
+[node name="Label" type="Control" parent="." unique_id=331463616]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 script = ExtResource("2_i56kd")
-string = "<<train>>"
 metadata/_custom_type_script = "uid://sidowamkhcrt"
 
 [node name="Timer" type="Timer" parent="." unique_id=1898257493]

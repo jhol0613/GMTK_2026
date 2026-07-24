@@ -5,14 +5,22 @@
 [ext_resource type="PackedScene" uid="uid://bn2ibeuqk0rgt" path="res://player/player.tscn" id="3_gmgay"]
 [ext_resource type="PackedScene" uid="uid://i202174cj82c" path="res://interactables/sign_interactable.tscn" id="4_w7r7j"]
 [ext_resource type="PackedScene" uid="uid://0h6rwq0bq753" path="res://interactables/sign_panel.tscn" id="5_o6mel"]
+[ext_resource type="AudioStream" uid="uid://db7ptmf0kwjy0" path="res://player/Footsteps/Character_Footstep_1.mp3" id="5_pgbyh"]
 [ext_resource type="Texture2D" uid="uid://vhkf2uikem7e" path="res://icon.svg" id="6_4n8tn"]
+[ext_resource type="AudioStream" uid="uid://duqoewxoogc08" path="res://player/Footsteps/Character_Footstep_2.mp3" id="6_68kkm"]
 [ext_resource type="PackedScene" uid="uid://bmapint7k2qaq" path="res://interactables/map_interactable.tscn" id="6_mapin"]
 [ext_resource type="PackedScene" uid="uid://cmapanel8x3m2" path="res://interactables/map_panel.tscn" id="7_mappn"]
+[ext_resource type="AudioStream" uid="uid://blax8x14hbpgw" path="res://player/Footsteps/Character_Footstep_3.mp3" id="7_n4g7x"]
+[ext_resource type="AudioStream" uid="uid://cyjsi1r1vlx8x" path="res://player/Footsteps/Character_Footstep_4.mp3" id="8_atrxo"]
 [ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialogue_interactable.tscn" id="8_dlgIn"]
 [ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialogue_panel.tscn" id="9_dlgPn"]
-[ext_resource type="Script" uid="uid://cpfgjwe2lpk0k" path="res://scripts/ticket_data.gd" id="10_8hjdj"]
 [ext_resource type="PackedScene" uid="uid://bdx06b4wet51l" path="res://time/time.tscn" id="11_wkb0e"]
+[ext_resource type="Resource" path="res://resources/dialogue/test_choice_yes.tres" id="12_chy"]
+[ext_resource type="Resource" path="res://resources/dialogue/test_choice_no.tres" id="12_chn"]
+[ext_resource type="Resource" path="res://resources/dialogue/test_choice_ask.tres" id="12_cha"]
 [ext_resource type="PackedScene" uid="uid://dchuwbctx2fxx" path="res://interactables/train_interactable.tscn" id="13_axl34"]
+[ext_resource type="PackedScene" uid="uid://baukigq6wfgs1" path="res://level_elements/ATM/atm.tscn" id="14_8hjdj"]
+[ext_resource type="PackedScene" uid="uid://2pwlm8itluel" path="res://level_elements/ticket_booth/ticket_booth.tscn" id="15_0vv12"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hgrid"]
 texture = ExtResource("1_hgrid")
@@ -276,15 +284,6 @@ texture = ExtResource("1_hgrid")
 [sub_resource type="TileSet" id="TileSet_bhunq"]
 sources/1 = SubResource("TileSetAtlasSource_hgrid")
 
-[sub_resource type="Resource" id="Resource_bctfo"]
-script = ExtResource("10_8hjdj")
-destination = "Berlin Hbf"
-departure_hour = 4
-id = &"ber"
-item_name = "Ticket to Berlin Hbf"
-item_description = "train ticket"
-metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
-
 [node name="TestLevel" type="Node2D" unique_id=929390849]
 script = ExtResource("1_x25rp")
 
@@ -303,6 +302,7 @@ tile_set = SubResource("TileSet_bhunq")
 
 [node name="Player" parent="." unique_id=799939449 instance=ExtResource("3_gmgay")]
 position = Vector2(103, 22)
+footstep_sounds = Array[AudioStream]([ExtResource("5_pgbyh"), ExtResource("6_68kkm"), ExtResource("7_n4g7x"), ExtResource("8_atrxo")])
 
 [node name="SignInteractable" parent="." unique_id=809648706 instance=ExtResource("4_w7r7j")]
 position = Vector2(1192, 372)
@@ -317,13 +317,10 @@ panel_path = NodePath("%MapPanel")
 
 [node name="DialogueInteractable" parent="." unique_id=983647093 instance=ExtResource("8_dlgIn")]
 position = Vector2(189, 59)
+speaker = "Clerk"
+lines = PackedStringArray("Need a ticket?", "Berlin leaves at 04:00.")
+choices = Array[DialogueChoice]([ExtResource("12_chy"), ExtResource("12_chn"), ExtResource("12_cha")])
 panel_path = NodePath("%DialoguePanel")
-option_a = null
-option_b = null
-correct_option = null
-reward = SubResource("Resource_bctfo")
-success_line = null
-failure_line = null
 
 [node name="SignPanel" parent="." unique_id=1582616772 instance=ExtResource("5_o6mel")]
 unique_name_in_owner = true
@@ -337,10 +334,12 @@ visible = false
 unique_name_in_owner = true
 visible = false
 
-[node name="LanguageTest" type="Node2D" parent="." unique_id=1131743426]
-position = Vector2(405, 328)
-
 [node name="TrainInteractable" parent="." unique_id=1063531120 instance=ExtResource("13_axl34")]
 position = Vector2(0, -64)
-id = &"ber"
 time_path = NodePath("../Camera2D/CanvasLayer/Time")
+
+[node name="ATM" parent="." unique_id=124595741 instance=ExtResource("14_8hjdj")]
+position = Vector2(391, 125)
+
+[node name="TicketBooth" parent="." unique_id=861247956 instance=ExtResource("15_0vv12")]
+position = Vector2(276, 145)

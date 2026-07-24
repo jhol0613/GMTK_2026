@@ -7,7 +7,3 @@ func _ready() -> void:
 	var camera: Camera2D = $Camera2D
 	var remote_transform: RemoteTransform2D = player.get_node("RemoteTransform2D")
 	remote_transform.remote_path = remote_transform.get_path_to(camera)
-
-
-func _on_resshan_interactable_text_clicked(str: String) -> void:
-	print(str)
