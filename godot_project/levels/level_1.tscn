@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://denris0n7w5iu"]
+
+[ext_resource type="PackedScene" uid="uid://hhrseelwguig" path="res://levels/level_template.tscn" id="1_jirdo"]
+[ext_resource type="PackedScene" uid="uid://cxekovsy3q368" path="res://level_elements/train_platform/platform.tscn" id="2_bt44k"]
+
+[node name="Level1" unique_id=783439983 instance=ExtResource("1_jirdo")]
+
+[node name="Platform1" parent="." index="5" unique_id=1302422271 instance=ExtResource("2_bt44k")]
+position = Vector2(605, -412)
+
+[node name="Platform2" parent="." index="6" unique_id=1366717491 instance=ExtResource("2_bt44k")]
+position = Vector2(-776, 623)
+
+[node name="Platform3" parent="." index="7" unique_id=857207177 instance=ExtResource("2_bt44k")]
+position = Vector2(778, 1072)
+
+[node name="Platform4" parent="." index="8" unique_id=1812990888 instance=ExtResource("2_bt44k")]
+position = Vector2(771, 397)
+
+[editable path="UiOverlay"]
