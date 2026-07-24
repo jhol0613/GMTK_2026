@@ -1,3 +1,51 @@
 [gd_scene format=3 uid="uid://b40aq7wt2wqcs"]
 
+[ext_resource type="Script" uid="uid://d4bklq4j0j1ok" path="res://cutscenes/tutorial_conversation/tutorial_conversation.gd" id="1_h61wc"]
+[ext_resource type="Texture2D" uid="uid://b5go5afjbr5vp" path="res://player/sprites/placeholder/idle_down.png" id="1_wcn6v"]
+[ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialogue_interactable.tscn" id="3_7b540"]
+[ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://scripts/dialogue_choice.gd" id="4_yisg7"]
+[ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialogue_panel.tscn" id="5_vtjp4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4210"]
+atlas = ExtResource("1_wcn6v")
+region = Rect2(0, 0, 96, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ujtin"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4210")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_ujtin"]
+script = ExtResource("4_yisg7")
+player_text = "I hope you know where you're going"
+reply = "Just stick with me and I'll get us there."
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_qbyu3"]
+script = ExtResource("4_yisg7")
+player_text = "What's the Resshan word for \"cocky\"?"
+reply = "Very funny. Just stick with me and I'll get us there."
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
 [node name="TutorialConversation" type="Node2D" unique_id=1792772109]
+script = ExtResource("1_h61wc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1360935984]
+sprite_frames = SubResource("SpriteFrames_ujtin")
+
+[node name="DialogueInteractable" parent="." unique_id=1631350735 instance=ExtResource("3_7b540")]
+lines = ["I'm so happy you're visiting!", "Not many folks here speak English...", "But don't worry, I've lived here all semester!", "I speak perfect <<resshan>> and I'm basically a native at this point."]
+choices = Array[ExtResource("4_yisg7")]([SubResource("Resource_ujtin"), SubResource("Resource_qbyu3")])
+
+[node name="Prompt" parent="DialogueInteractable" index="1" unique_id=272794898]
+texture_filter = 1
+
+[node name="DialoguePanel" parent="." unique_id=210961773 instance=ExtResource("5_vtjp4")]
+
+[editable path="DialogueInteractable"]
