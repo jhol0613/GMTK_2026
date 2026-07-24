@@ -30,6 +30,7 @@ position = Vector2(-10, -33)
 position = Vector2(-10, -33)
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=433724991]
+position = Vector2(0, -16)
 sprite_frames = ExtResource("6_g6k8r")
 animation = &"idle"
 
