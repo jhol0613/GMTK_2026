@@ -3,6 +3,7 @@ extends Interactable
 
 @export var title: String = "Sign"
 @export var panel_path: NodePath
+@export var minutes_cost: int = 1
 
 
 func interact() -> void:

@@ -1,5 +1,4 @@
 extends Node
 
-signal player_moved
-signal interaction_started(minutes: int)
-signal timer_end
+signal minutes_passed(minutes: int)
+signal train_departed

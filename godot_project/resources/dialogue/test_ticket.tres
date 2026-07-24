@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TicketData" load_steps=2 format=3]
+
+[ext_resource type="Script" uid="uid://cpfgjwe2lpk0k" path="res://scripts/ticket_data.gd" id="1_ticket"]
+
+[resource]
+script = ExtResource("1_ticket")
+destination = "Berlin Hbf"
+departure_hour = 4
+departure_minute = 0
+id = &"ber"
+item_name = "Ticket to Berlin Hbf"
+item_description = "A one-way train ticket."
+metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"

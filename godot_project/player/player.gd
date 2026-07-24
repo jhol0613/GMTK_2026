@@ -48,7 +48,7 @@ func _physics_process(delta: float) -> void:
 		distance += 1
 	
 	if distance == distance_per_minute:
-		SignalBus.player_moved.emit()
+		SignalBus.minutes_passed.emit(1)
 		distance = 0
 		
 	_step_accum += (position - old_position).length()

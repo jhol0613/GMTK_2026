@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ba1lgv5xg2hgx"
+path="res://.godot/imported/0 Money Trinket buy please.mp3-d1d311c2ffcf7016bc408d7b84ef81c7.mp3str"
+
+[deps]
+
+source_file="res://ui/SpeechAudio/0 Money Trinket buy please.mp3"
+dest_files=["res://.godot/imported/0 Money Trinket buy please.mp3-d1d311c2ffcf7016bc408d7b84ef81c7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
