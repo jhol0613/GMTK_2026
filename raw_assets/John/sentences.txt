@@ -1,0 +1,13 @@
+<<Ticket buy ? West or East ?>>
+<<Thank you>>
+<<Trinket buy ? Color ?>>
+<<0 Money 0 Ticket !>>
+<<0 Money ! Trinket buy please ?>>
+<<Trinket buy ? Number ?>>
+<<Color (word for whichever color you bought). Thank you>>
+<<0>> English
+<<Hello>>
+<<Money machine West South East>>
+
+
+(exclamation is angry, and there needs to be a symbol for it in Resshan)
