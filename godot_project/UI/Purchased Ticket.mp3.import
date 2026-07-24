@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://6llsv27ckbd2"
+path="res://.godot/imported/Purchased Ticket.mp3-f59ef85e6771c86c273ddd01337918a9.mp3str"
+
+[deps]
+
+source_file="res://UI/Purchased Ticket.mp3"
+dest_files=["res://.godot/imported/Purchased Ticket.mp3-f59ef85e6771c86c273ddd01337918a9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
