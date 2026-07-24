@@ -1,17 +1,16 @@
 [gd_scene format=3 uid="uid://483qwouln1ra"]
 
-[ext_resource type="PackedScene" uid="uid://d34pxtg1mlqmy" path="res://interactables/interactable.tscn" id="1_base"]
-[ext_resource type="Script" uid="uid://bi61ptmirslbj" path="res://interactables/dialogue_interactable.gd" id="2_script"]
+[ext_resource type="PackedScene" uid="uid://d34pxtg1mlqmy" path="res://interactables/interactable.tscn" id="1_sbur3"]
+[ext_resource type="Script" uid="uid://bi61ptmirslbj" path="res://interactables/dialogue_interactable.gd" id="2_0byqe"]
 
-[node name="DialogueInteractable" unique_id=358228256 instance=ExtResource("1_base")]
-script = ExtResource("2_script")
-speaker = "Passenger"
+[node name="DialogueInteractable" unique_id=1631350735 instance=ExtResource("1_sbur3")]
+script = ExtResource("2_0byqe")
+speaker = "NPC"
 lines = ["Hello!"]
 panel_path = NodePath("")
-
-[node name="Prompt" parent="." index="1" unique_id=1343467040]
-offset_left = -58.0
-offset_top = -67.0
-offset_right = 58.0
-offset_bottom = -44.0
-text = "Press E to talk"
+option_a = "yes"
+option_b = "no"
+correct_option = 0
+reward = null
+success_line = "take this train ticket"
+failure_line = "go away"
