@@ -1,9 +1,18 @@
 [gd_scene format=3 uid="uid://dlagfmlay2r8"]
 
 [ext_resource type="Script" uid="uid://pii20xdxfb3p" path="res://interactables/dialogue_panel.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://xyxl2kfpsy52" path="res://interactables/sprites/dialogue_window.png" id="2_ieq4k"]
+[ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/language_display.gd" id="2_wos7g"]
+[ext_resource type="Texture2D" uid="uid://lrmhbdpln080" path="res://interactables/sprites/Portraits/MainCharacter/mc_portrait_1.png" id="2_ynh0y"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dialogue"]
-bg_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yyy73"]
+texture = ExtResource("2_ieq4k")
+texture_margin_left = 64.0
+texture_margin_top = 30.0
+texture_margin_right = 60.0
+texture_margin_bottom = 30.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ynh0y"]
 
 [node name="DialoguePanel" type="CanvasLayer" unique_id=210961773]
 layer = 20
@@ -27,52 +36,62 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.54901963)
 
 [node name="Popup" type="PanelContainer" parent="Root" unique_id=805446468]
-custom_minimum_size = Vector2(640, 180)
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -320.0
-offset_top = -220.0
-offset_right = 320.0
-offset_bottom = -40.0
+custom_minimum_size = Vector2(1440, 180)
+layout_mode = 0
+offset_left = 240.0
+offset_top = 657.0
+offset_right = 1680.0
+offset_bottom = 999.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_dialogue")
+theme_override_styles/panel = SubResource("StyleBoxTexture_yyy73")
 
 [node name="MarginContainer" type="MarginContainer" parent="Root/Popup" unique_id=874999154]
 layout_mode = 2
 theme_override_constants/margin_left = 24
-theme_override_constants/margin_top = 20
+theme_override_constants/margin_top = 42
 theme_override_constants/margin_right = 24
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_bottom = 42
 
-[node name="VBox" type="VBoxContainer" parent="Root/Popup/MarginContainer" unique_id=831945309]
+[node name="HBoxContainer" type="HBoxContainer" parent="Root/Popup/MarginContainer" unique_id=1882468605]
+layout_mode = 2
+theme_override_constants/separation = 41
+
+[node name="MarginContainer" type="MarginContainer" parent="Root/Popup/MarginContainer/HBoxContainer" unique_id=274384998]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Root/Popup/MarginContainer/HBoxContainer/MarginContainer" unique_id=1480363704]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ynh0y")
+
+[node name="Icon" type="TextureRect" parent="Root/Popup/MarginContainer/HBoxContainer/MarginContainer/PanelContainer" unique_id=463443169]
+layout_mode = 2
+texture = ExtResource("2_ynh0y")
+stretch_mode = 5
+
+[node name="VBox" type="VBoxContainer" parent="Root/Popup/MarginContainer/HBoxContainer" unique_id=831945309]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Speaker" type="Label" parent="Root/Popup/MarginContainer/VBox" unique_id=1847174837]
+[node name="Speaker" type="Control" parent="Root/Popup/MarginContainer/HBoxContainer/VBox" unique_id=1657995010]
+custom_minimum_size = Vector2(63, 23)
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
+mouse_filter = 2
+script = ExtResource("2_wos7g")
 text = "Speaker"
+metadata/_custom_type_script = "uid://sidowamkhcrt"
 
-[node name="Body" type="Label" parent="Root/Popup/MarginContainer/VBox" unique_id=1305937975]
+[node name="Body" type="Control" parent="Root/Popup/MarginContainer/HBoxContainer/VBox" unique_id=895602396]
+custom_minimum_size = Vector2(113, 26)
 layout_mode = 2
-size_flags_vertical = 3
+mouse_filter = 2
+script = ExtResource("2_wos7g")
 text = "Dialogue line"
-autowrap_mode = 3
+font_size = 18
+metadata/_custom_type_script = "uid://sidowamkhcrt"
 
-[node name="Options" type="VBoxContainer" parent="Root/Popup/MarginContainer/VBox" unique_id=1694041012]
+[node name="Options" type="VBoxContainer" parent="Root/Popup/MarginContainer/HBoxContainer/VBox" unique_id=1694041012]
 visible = false
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/separation = 4
-
-[node name="OptionA" type="Label" parent="Root/Popup/MarginContainer/VBox/Options" unique_id=1856774170]
-layout_mode = 2
-text = "Yes"
-
-[node name="OptionB" type="Label" parent="Root/Popup/MarginContainer/VBox/Options" unique_id=1314661437]
-layout_mode = 2
-text = "No"

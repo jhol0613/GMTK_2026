@@ -11,6 +11,7 @@ var _is_open: bool = false
 func _ready() -> void:
 	add_to_group("interaction_panel")
 	_root.visible = false
+	_root.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 
 
 func hide_popup() -> void:
@@ -30,7 +31,7 @@ func _open(minutes: int = 1) -> void:
 	visible = true
 	_root.visible = true
 	_is_open = true
-	SignalBus.interaction_started.emit(minutes)
+	SignalBus.minutes_passed.emit(minutes)
 
 
 func _unhandled_input(event: InputEvent) -> void:

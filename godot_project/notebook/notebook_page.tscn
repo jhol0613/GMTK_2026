@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bfuu8moxyxa5w"]
 
-[ext_resource type="Script" uid="uid://fn3nxsh2c61h" path="res://player/notebook_page.gd" id="1_qf3y3"]
-[ext_resource type="PackedScene" uid="uid://s4gdpvpyayn0" path="res://player/notebook_entry.tscn" id="2_u1gxt"]
+[ext_resource type="Script" uid="uid://fn3nxsh2c61h" path="res://notebook/notebook_page.gd" id="1_qf3y3"]
 
 [node name="NotebookPage" type="Node2D" unique_id=1099925378]
 script = ExtResource("1_qf3y3")
@@ -10,6 +9,4 @@ script = ExtResource("1_qf3y3")
 unique_name_in_owner = true
 offset_right = 745.0
 offset_bottom = 48.0
-
-[node name="Entry" parent="Holder" unique_id=594339083 instance=ExtResource("2_u1gxt")]
-layout_mode = 2
+mouse_filter = 2
