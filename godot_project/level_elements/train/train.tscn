@@ -303,9 +303,14 @@ animation = &"BROWN"
 [node name="PlayerDisembarkMarker" type="Marker2D" parent="." unique_id=886720525]
 position = Vector2(-64, 18)
 
-[node name="BoardedPlayer" type="Sprite2D" parent="." unique_id=1300163411]
+[node name="BoardedPlayerL" type="Sprite2D" parent="." unique_id=1300163411]
 z_index = 2
 position = Vector2(-64.5, -27)
+texture = SubResource("AtlasTexture_boarded")
+
+[node name="BoardedPlayerR" type="Sprite2D" parent="." unique_id=1382221662]
+z_index = 2
+position = Vector2(64.5, -27)
 texture = SubResource("AtlasTexture_boarded")
 
 [node name="DoorL" type="Sprite2D" parent="." unique_id=371770877]
@@ -345,20 +350,23 @@ texture = SubResource("AtlasTexture_ticket")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1218134382]
 libraries/ = SubResource("AnimationLibrary_oe38n")
 
-[node name="TrainInteractable" parent="." unique_id=779530687 instance=ExtResource("3_725i7")]
+[node name="TrainInteractableL" parent="." unique_id=779530687 instance=ExtResource("3_725i7")]
 position = Vector2(-77, -52)
 id = &"berlin_s5"
+l_or_r = "l"
 
-[node name="CollisionShape2D" parent="TrainInteractable" index="0" unique_id=278382881]
+[node name="CollisionShape2D" parent="TrainInteractableL" index="0" unique_id=278382881]
 position = Vector2(13, 57)
 shape = SubResource("RectangleShape2D_5xnue")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="TrainInteractable" unique_id=633108232]
-position = Vector2(142, 57)
+[node name="TrainInteractableR" parent="." unique_id=1631350735 instance=ExtResource("3_725i7")]
+position = Vector2(51, -52)
+id = &"berlin_s5"
+l_or_r = "r"
+
+[node name="CollisionShape2D" parent="TrainInteractableR" index="0" unique_id=278382881]
+position = Vector2(13, 57)
 shape = SubResource("RectangleShape2D_5xnue")
 
-[node name="Prompt" parent="TrainInteractable" index="2" unique_id=272794898]
-texture_filter = 1
-mouse_filter = 2
-
-[editable path="TrainInteractable"]
+[editable path="TrainInteractableL"]
+[editable path="TrainInteractableR"]

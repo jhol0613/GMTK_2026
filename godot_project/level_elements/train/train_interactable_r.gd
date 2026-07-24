@@ -1,8 +1,7 @@
-class_name TrainInteractable
+class_name TrainInteractableR
 extends Interactable
 
 @export var id: StringName = "berlin_s5"
-@export var l_or_r: String
 
 @onready var train: Train = get_parent() as Train
 
@@ -10,7 +9,7 @@ extends Interactable
 func interact() -> void:
 	if train == null:
 		return
-	train.try_board(self, l_or_r)
+	train.try_board(self)
 
 
 ## Evaluates whether the player can board the train
@@ -24,22 +23,18 @@ func evaluate_board(ticket: TicketData) -> Enums.BoardResult:
 	return Enums.BoardResult.SUCCESS
 
 
-## Checks if the ticket is on time.
-## The countdown clock ticks down towards 0:0, so the ticket's departure
-## hour/minute represents the remaining time left on the clock when that
-## train leaves. Boarding is only valid while there's still at least that
-## much time left.
+## Checks if the ticket is on time
 func _is_on_time(ticket: TicketData) -> bool:
 	var time_node: Control = get_tree().get_first_node_in_group("time")
 	if time_node == null:
 		return false
-	if time_node.rhour < ticket.departure_hour:
+	if time_node.rhour > ticket.departure_hour:
 		return false
-	if time_node.rhour == ticket.departure_hour and time_node.rminute < ticket.departure_minute:
+	if time_node.rhour == ticket.departure_hour and time_node.rminute > ticket.departure_minute:
 		return false
 	return true
 
 
 ## Checks if the ticket is for the correct train
 func _is_correct_train(ticket: TicketData) -> bool:
-	return ticket.id == id
+	return ticket.train_line == String(id)
