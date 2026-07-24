@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://ythelkd4xy0y"]
+
+[ext_resource type="Script" uid="uid://2d6h0dqwf8td" path="res://interactables/train_interactable.gd" id="1_8s4lg"]
+
+[node name="TrainInteractable" type="Area2D" unique_id=962943763]
+script = ExtResource("1_8s4lg")
+metadata/_custom_type_script = "uid://2d6h0dqwf8td"

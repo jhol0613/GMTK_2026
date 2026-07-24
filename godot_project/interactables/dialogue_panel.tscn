@@ -64,7 +64,8 @@ layout_mode = 2
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_ynh0y")
 
-[node name="Icon" type="TextureRect" parent="Root/Popup/MarginContainer/HBoxContainer/MarginContainer/PanelContainer" unique_id=463443169]
+[node name="SpeakerIcon" type="TextureRect" parent="Root/Popup/MarginContainer/HBoxContainer/MarginContainer/PanelContainer" unique_id=463443169]
+unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("2_ynh0y")
 stretch_mode = 5
@@ -74,7 +75,8 @@ layout_mode = 2
 theme_override_constants/separation = 8
 
 [node name="Speaker" type="Control" parent="Root/Popup/MarginContainer/HBoxContainer/VBox" unique_id=1657995010]
-custom_minimum_size = Vector2(63, 23)
+texture_filter = 1
+custom_minimum_size = Vector2(117, 42)
 layout_mode = 2
 mouse_filter = 2
 script = ExtResource("2_wos7g")
@@ -83,7 +85,8 @@ font_size = 30
 metadata/_custom_type_script = "uid://sidowamkhcrt"
 
 [node name="Body" type="Control" parent="Root/Popup/MarginContainer/HBoxContainer/VBox" unique_id=895602396]
-custom_minimum_size = Vector2(113, 26)
+texture_filter = 1
+custom_minimum_size = Vector2(151, 34)
 layout_mode = 2
 mouse_filter = 2
 script = ExtResource("2_wos7g")

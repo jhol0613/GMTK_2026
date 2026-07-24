@@ -137,7 +137,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-105.5, -35)]
+"values": [Vector2(-78.5, -61.5)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -146,14 +146,39 @@ tracks/1/path = NodePath("DoorR:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0.009999998),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-65, -61.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DoorL2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(104.5, -35)]
+"values": [Vector2(50.5, -61.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DoorR2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(64, -61.5)]
 }
 
 [sub_resource type="Animation" id="Animation_oe38n"]
 resource_name = "doors_close"
+step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -164,7 +189,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-152, -35), Vector2(-105.5, -35)]
+"values": [Vector2(-93.5, -61.5), Vector2(-78.5, -61.5)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -176,7 +201,31 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(150, -35), Vector2(104.5, -35)]
+"values": [Vector2(-50, -61.5), Vector2(-65, -61.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DoorL2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(35.5, -61.5), Vector2(50.5, -61.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DoorR2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(79, -61.5), Vector2(64, -61.5)]
 }
 
 [sub_resource type="Animation" id="Animation_17x1t"]
@@ -191,7 +240,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-105.5, -35), Vector2(-152, -35)]
+"values": [Vector2(-78.5, -61.5), Vector2(-93, -61.5)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -203,7 +252,31 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0.01, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(104.5, -35), Vector2(150, -35)]
+"values": [Vector2(-65, -61.5), Vector2(-50, -61.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DoorL2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(50.5, -61.5), Vector2(35.5, -61.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DoorR2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(64, -61.5), Vector2(79, -61.5)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oe38n"]
@@ -219,14 +292,6 @@ size = Vector2(40, 23)
 [node name="Train" type="Node2D" unique_id=2086324427 node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_cjdsu")
 next_scene = 2
-depart_offset = null
-depart_duration = null
-arrival_offset = null
-arrival_duration = null
-player_disembark_marker = null
-is_incorrect_train = null
-incorrect_penalty_minutes = null
-reload_scene = null
 sprite = NodePath("TrainSprite")
 color = 5
 
@@ -235,35 +300,46 @@ position = Vector2(0, -40)
 sprite_frames = SubResource("SpriteFrames_ujtin")
 animation = &"BROWN"
 
-[node name="InteriorL" type="Polygon2D" parent="." unique_id=1100376202]
-z_index = 1
-position = Vector2(-105.5, -35)
-color = Color(0.06, 0.05, 0.1, 1)
-polygon = PackedVector2Array(-23, -26.5, 23, -26.5, 23, 26.5, -23, 26.5)
+[node name="PlayerDisembarkMarker" type="Marker2D" parent="." unique_id=886720525]
+position = Vector2(-64, 18)
 
-[node name="InteriorR" type="Polygon2D" parent="." unique_id=314855334]
-z_index = 1
-position = Vector2(104.5, -35)
-color = Color(0.06, 0.05, 0.1, 1)
-polygon = PackedVector2Array(-23, -26.5, 23, -26.5, 23, 26.5, -23, 26.5)
-
-[node name="BoardedPlayer" type="Sprite2D" parent="." unique_id=1300163411]
-visible = false
+[node name="BoardedPlayerL" type="Sprite2D" parent="." unique_id=1300163411]
 z_index = 2
-position = Vector2(-105.5, -28)
+position = Vector2(-64.5, -27)
+texture = SubResource("AtlasTexture_boarded")
+
+[node name="BoardedPlayerR" type="Sprite2D" parent="." unique_id=1382221662]
+z_index = 2
+position = Vector2(64.5, -27)
 texture = SubResource("AtlasTexture_boarded")
 
 [node name="DoorL" type="Sprite2D" parent="." unique_id=371770877]
 z_index = 3
-position = Vector2(-105.5, -35)
-scale = Vector2(2.875, 1)
+position = Vector2(-78.5, -61.5)
+scale = Vector2(0.9, 1)
 texture = SubResource("AtlasTexture_door_l")
+offset = Vector2(8, 27)
 
 [node name="DoorR" type="Sprite2D" parent="." unique_id=621257440]
 z_index = 3
-position = Vector2(104.5, -35)
-scale = Vector2(2.875, 1)
+position = Vector2(-65, -61.5)
+scale = Vector2(0.9, 1)
 texture = SubResource("AtlasTexture_door_r")
+offset = Vector2(8.222221, 27)
+
+[node name="DoorL2" type="Sprite2D" parent="." unique_id=1692903795]
+z_index = 3
+position = Vector2(50.5, -61.5)
+scale = Vector2(0.9, 1)
+texture = SubResource("AtlasTexture_door_l")
+offset = Vector2(8, 27)
+
+[node name="DoorR2" type="Sprite2D" parent="." unique_id=71265228]
+z_index = 3
+position = Vector2(64, -61.5)
+scale = Vector2(0.9, 1)
+texture = SubResource("AtlasTexture_door_r")
+offset = Vector2(8.222221, 27)
 
 [node name="NoTicketLight" type="Sprite2D" parent="." unique_id=994817530]
 visible = false
@@ -274,15 +350,23 @@ texture = SubResource("AtlasTexture_ticket")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1218134382]
 libraries/ = SubResource("AnimationLibrary_oe38n")
 
-[node name="TrainInteractable" parent="." unique_id=779530687 instance=ExtResource("3_725i7")]
+[node name="TrainInteractableL" parent="." unique_id=779530687 instance=ExtResource("3_725i7")]
 position = Vector2(-77, -52)
 id = &"berlin_s5"
+l_or_r = "l"
 
-[node name="CollisionShape2D" parent="TrainInteractable" index="0" unique_id=278382881]
-position = Vector2(77, 56.5)
+[node name="CollisionShape2D" parent="TrainInteractableL" index="0" unique_id=278382881]
+position = Vector2(13, 57)
 shape = SubResource("RectangleShape2D_5xnue")
 
-[node name="Prompt" parent="TrainInteractable" index="1" unique_id=272794898]
-mouse_filter = 2
+[node name="TrainInteractableR" parent="." unique_id=1631350735 instance=ExtResource("3_725i7")]
+position = Vector2(51, -52)
+id = &"berlin_s5"
+l_or_r = "r"
 
-[editable path="TrainInteractable"]
+[node name="CollisionShape2D" parent="TrainInteractableR" index="0" unique_id=278382881]
+position = Vector2(13, 57)
+shape = SubResource("RectangleShape2D_5xnue")
+
+[editable path="TrainInteractableL"]
+[editable path="TrainInteractableR"]

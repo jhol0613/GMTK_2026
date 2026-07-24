@@ -7,8 +7,9 @@ signal option_confirmed(outcome_id: StringName)
 @onready var _speaker: ResshanLabel = $Root/Popup/MarginContainer/HBoxContainer/VBox/Speaker
 @onready var _body: ResshanLabel = $Root/Popup/MarginContainer/HBoxContainer/VBox/Body
 @onready var _options: VBoxContainer = $Root/Popup/MarginContainer/HBoxContainer/VBox/Options
+@onready var _speaker_icon: TextureRect = %SpeakerIcon
 
-var _lines: PackedStringArray = []
+var _lines: Array[DialogueLine] = []
 var _index: int = 0
 var _choices: Array[DialogueChoice] = []
 
@@ -22,7 +23,7 @@ var _awaiting_reward: bool
 ## Initialize the dialogue panel
 func show_dialogue(
 	speaker: String,
-	lines: PackedStringArray,
+	lines: Array[DialogueLine],
 	choices: Array[DialogueChoice],
 	minutes: int = 1,
 ) -> void:
@@ -38,7 +39,7 @@ func show_dialogue(
 	_reward = null
 
 	_rebuild_option_labels()
-	_update_body()
+	_update_line()
 	_open(minutes)
 
 
@@ -52,11 +53,17 @@ func _rebuild_option_labels() -> void:
 		_options.add_child(label)
 
 
-func _update_body() -> void:
+func _update_line() -> void:
 	if _lines.is_empty():
+		_speaker.text = ""
 		_body.text = ""
+		_speaker_icon.texture = null
 		return
-	_body.text = _lines[_index]
+
+	var line: DialogueLine = _lines[_index]
+	_speaker.text = line.speaker
+	_body.text = line.text
+	_speaker_icon.texture = line.speaker_icon
 
 
 func _on_interact_while_open() -> void:
@@ -74,7 +81,7 @@ func _on_interact_while_open() -> void:
 
 	if _index < _lines.size() - 1:
 		_index += 1
-		_update_body()
+		_update_line()
 	elif _choices.is_empty():
 		_awaiting_close = true
 	else:

@@ -5,25 +5,42 @@
 [ext_resource type="Texture2D" uid="uid://ddbgow303m2gq" path="res://levels/tileset/TX Tileset Grass.png" id="3_3v7e2"]
 [ext_resource type="Texture2D" uid="uid://dy3h6m8das3ut" path="res://levels/tileset/brickborder.png" id="4_tem3n"]
 [ext_resource type="PackedScene" uid="uid://67c8xgtu7o7f" path="res://level_elements/train/train.tscn" id="5_ajha7"]
+[ext_resource type="PackedScene" uid="uid://dpexe87ps0d7f" path="res://level_elements/hourglass/hourglass.tscn" id="6_f3ea8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8v7xn"]
 texture = ExtResource("2_f3ea8")
 0:0/0 = 0
+0:0/0/custom_data_0 = "grass"
 1:0/0 = 0
+1:0/0/custom_data_0 = "grass"
 2:0/0 = 0
+2:0/0/custom_data_0 = "stone"
 3:0/0 = 0
+3:0/0/custom_data_0 = "grass"
 0:1/0 = 0
+0:1/0/custom_data_0 = "grass"
 1:1/0 = 0
+1:1/0/custom_data_0 = "stone"
 2:1/0 = 0
+2:1/0/custom_data_0 = "stone"
 3:1/0 = 0
+3:1/0/custom_data_0 = "stone"
 0:2/0 = 0
+0:2/0/custom_data_0 = "grass"
 1:2/0 = 0
+1:2/0/custom_data_0 = "grass"
 2:2/0 = 0
+2:2/0/custom_data_0 = "stone"
 3:2/0 = 0
+3:2/0/custom_data_0 = "grass"
 0:3/0 = 0
+0:3/0/custom_data_0 = "grass"
 1:3/0 = 0
+1:3/0/custom_data_0 = "grass"
 2:3/0 = 0
+2:3/0/custom_data_0 = "grass"
 3:3/0 = 0
+3:3/0/custom_data_0 = "grass"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mpakt"]
 texture = ExtResource("3_3v7e2")
@@ -315,6 +332,8 @@ texture = ExtResource("4_tem3n")
 [sub_resource type="TileSet" id="TileSet_3beyx"]
 physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 3
+custom_data_layer_0/name = "footstep_surface"
+custom_data_layer_0/type = 4
 sources/1 = SubResource("TileSetAtlasSource_mpakt")
 sources/0 = SubResource("TileSetAtlasSource_8v7xn")
 sources/2 = SubResource("TileSetAtlasSource_0fg8s")
@@ -344,7 +363,7 @@ tile_set = SubResource("TileSet_3beyx")
 
 [node name="CentralWalls" type="TileMapLayer" parent="." unique_id=2081030449]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAHAAAAAgACAAEAAAAHAAEAAgACAAEAAAAHAAIAAgACAAEAAAAHAAMAAgACAAEAAAAHAAQAAgACAAEAAAAHAP//AgACAAEAAAAHAP7/AgACAAEAAAAHAP3/AgACAAEAAAAHAPz/AgACAAEAAAAHAPv/AgACAAAAAAAGAPv/AgABAAAAAAAFAPv/AgABAAAAAAAEAPv/AgABAAAAAAADAPv/AgABAAAAAAACAPv/AgABAAAAAAABAPv/AgABAAAAAAAAAPv/AgABAAAAAAD///v/AgABAAAAAAD+//v/AgABAAAAAAD9//v/AgABAAAAAAD8//v/AgABAAAAAAD7//v/AgABAAAAAAD6//v/AgABAAAAAAD5//v/AgABAAAAAAD4//v/AgABAAAAAAAHAAUAAgACAAEAAADn/wMAAgAAAAEAAADn/wIAAgAAAAEAAADn/wEAAgAAAAEAAADn/wAAAgAAAAEAAADn////AgAAAAEAAADn//7/AgAAAAEAAADn//3/AgAAAAEAAADn//z/AgAAAAEAAADn//v/AgAAAAAAAADo//v/AgABAAAAAADp//v/AgABAAAAAADq//v/AgABAAAAAADr//v/AgABAAAAAADs//v/AgABAAAAAADt//v/AgABAAAAAADu//v/AgABAAAAAADv//v/AgABAAAAAADw//v/AgABAAAAAADx//v/AgABAAAAAADy//v/AgABAAAAAADz//v/AgABAAAAAAD0//v/AgABAAAAAAD1//v/AgABAAAAAAD2//v/AgABAAAAAAD3//v/AgABAAAAAADn/wUAAgAAAAEAAADn/wQAAgAAAAEAAADn/wYAAgAAAAIAAAAHAAYAAgACAAIAAADo/wYAAgABAAIAAADp/wYAAgABAAIAAADq/wYAAgABAAIAAADr/wYAAgABAAIAAADs/wYAAgABAAIAAADt/wYAAgABAAIAAADu/wYAAgABAAIAAADv/wYAAgABAAIAAADw/wYAAgABAAIAAADx/wYAAgABAAIAAADy/wYAAgABAAIAAADz/wYAAgABAAIAAAD0/wYAAgABAAIAAAD1/wYAAgABAAIAAAD2/wYAAgABAAIAAAD3/wYAAgABAAIAAAD4/wYAAgABAAIAAAD5/wYAAgABAAIAAAD6/wYAAgABAAIAAAD7/wYAAgABAAIAAAD8/wYAAgABAAIAAAD9/wYAAgABAAIAAAD+/wYAAgABAAIAAAD//wYAAgABAAIAAAAAAAYAAgABAAIAAAABAAYAAgABAAIAAAACAAYAAgABAAIAAAADAAYAAgABAAIAAAAEAAYAAgABAAIAAAAFAAYAAgABAAIAAAAGAAYAAgABAAIAAADn/wcAAgAEAAEAAAAHAAcAAgAGAAEAAADo/wcAAgAFAAEAAADp/wcAAgAFAAEAAADq/wcAAgAFAAEAAADr/wcAAgAFAAEAAADs/wcAAgAFAAEAAADt/wcAAgAFAAEAAADu/wcAAgAFAAEAAADv/wcAAgAFAAEAAADw/wcAAgAFAAEAAADx/wcAAgAFAAEAAADy/wcAAgAFAAEAAADz/wcAAgAFAAEAAAD0/wcAAgAFAAEAAAD1/wcAAgAFAAEAAAD2/wcAAgAFAAEAAAD3/wcAAgAFAAEAAAD4/wcAAgAFAAEAAAD5/wcAAgAFAAEAAAD6/wcAAgAFAAEAAAD7/wcAAgAFAAEAAAD8/wcAAgAFAAEAAAD9/wcAAgAFAAEAAAD+/wcAAgAFAAEAAAD//wcAAgAFAAEAAAAAAAcAAgAFAAEAAAABAAcAAgAFAAEAAAACAAcAAgAFAAEAAAADAAcAAgAFAAEAAAAEAAcAAgAFAAEAAAAFAAcAAgAFAAEAAAAGAAcAAgAFAAEAAAA=")
+tile_map_data = PackedByteArray("AAAHAAQAAgACAAEAAAAHAP3/AgACAAEAAAAHAPz/AgACAAEAAAAHAPv/AgACAAAAAAAGAPv/AgABAAAAAAAFAPv/AgABAAAAAAAEAPv/AgABAAAAAAADAPv/AgABAAAAAAACAPv/AgABAAAAAAABAPv/AgABAAAAAAAAAPv/AgABAAAAAAD///v/AgABAAAAAAD+//v/AgABAAAAAAD9//v/AgABAAAAAAD8//v/AgABAAAAAAD7//v/AgABAAAAAAD6//v/AgABAAAAAAD5//v/AgABAAAAAAD4//v/AgABAAAAAAAHAAUAAgACAAEAAADn//3/AgAAAAEAAADn//z/AgAAAAEAAADn//v/AgAAAAAAAADo//v/AgABAAAAAADp//v/AgABAAAAAADq//v/AgABAAAAAADr//v/AgABAAAAAADs//v/AgABAAAAAADt//v/AgABAAAAAADu//v/AgABAAAAAADv//v/AgABAAAAAADw//v/AgABAAAAAADx//v/AgABAAAAAADy//v/AgABAAAAAADz//v/AgABAAAAAAD0//v/AgABAAAAAAD1//v/AgABAAAAAAD2//v/AgABAAAAAAD3//v/AgABAAAAAADn/wUAAgAAAAEAAADn/wQAAgAAAAEAAADn/wYAAgAAAAIAAAAHAAYAAgACAAIAAADo/wYAAgABAAIAAADp/wYAAgABAAIAAADq/wYAAgABAAIAAADr/wYAAgABAAIAAADs/wYAAgABAAIAAADt/wYAAgABAAIAAADu/wYAAgABAAIAAADv/wYAAgABAAIAAADw/wYAAgABAAIAAADx/wYAAgABAAIAAADy/wYAAgABAAIAAADz/wYAAgABAAIAAAD0/wYAAgABAAIAAAD1/wYAAgABAAIAAAD2/wYAAgABAAIAAAD3/wYAAgABAAIAAAD4/wYAAgABAAIAAAD5/wYAAgABAAIAAAD6/wYAAgABAAIAAAD7/wYAAgABAAIAAAD8/wYAAgABAAIAAAD9/wYAAgABAAIAAAD+/wYAAgABAAIAAAD//wYAAgABAAIAAAAAAAYAAgABAAIAAAABAAYAAgABAAIAAAACAAYAAgABAAIAAAADAAYAAgABAAIAAAAEAAYAAgABAAIAAAAFAAYAAgABAAIAAAAGAAYAAgABAAIAAADn/wcAAgAEAAEAAAAHAAcAAgAGAAEAAADo/wcAAgAFAAEAAADp/wcAAgAFAAEAAADq/wcAAgAFAAEAAADr/wcAAgAFAAEAAADs/wcAAgAFAAEAAADt/wcAAgAFAAEAAADu/wcAAgAFAAEAAADv/wcAAgAFAAEAAADw/wcAAgAFAAEAAADx/wcAAgAFAAEAAADy/wcAAgAFAAEAAADz/wcAAgAFAAEAAAD0/wcAAgAFAAEAAAD1/wcAAgAFAAEAAAD2/wcAAgAFAAEAAAD3/wcAAgAFAAEAAAD4/wcAAgAFAAEAAAD5/wcAAgAFAAEAAAD6/wcAAgAFAAEAAAD7/wcAAgAFAAEAAAD8/wcAAgAFAAEAAAD9/wcAAgAFAAEAAAD+/wcAAgAFAAEAAAD//wcAAgAFAAEAAAAAAAcAAgAFAAEAAAABAAcAAgAFAAEAAAACAAcAAgAFAAEAAAADAAcAAgAFAAEAAAAEAAcAAgAFAAEAAAAFAAcAAgAFAAEAAAAGAAcAAgAFAAEAAAA=")
 tile_set = SubResource("TileSet_3beyx")
 
 [node name="RearGround" type="TileMapLayer" parent="." unique_id=94519414]
@@ -359,22 +378,11 @@ tile_set = SubResource("TileSet_3beyx")
 
 [node name="UpperTrain" parent="." unique_id=995237668 instance=ExtResource("5_ajha7")]
 position = Vector2(3, -79)
-depart_offset = Vector2(800, 0)
-depart_duration = 1.5
-arrival_offset = Vector2(-800, 0)
-arrival_duration = 1.5
-player_disembark_marker = Vector2(-105.5, -28)
-incorrect_penalty_minutes = 5
-reload_scene = 2
 
 [node name="LowerTrain" parent="." unique_id=1370361982 instance=ExtResource("5_ajha7")]
 z_index = 3
 position = Vector2(2, 145)
-depart_offset = Vector2(800, 0)
-depart_duration = 1.5
-arrival_offset = Vector2(-800, 0)
-arrival_duration = 1.5
-player_disembark_marker = Vector2(-105.5, -28)
-incorrect_penalty_minutes = 5
-reload_scene = 2
 color = 8
+
+[node name="Hourglass" parent="." unique_id=259821884 instance=ExtResource("6_f3ea8")]
+position = Vector2(-136, 32)

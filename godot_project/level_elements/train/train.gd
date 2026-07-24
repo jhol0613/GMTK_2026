@@ -11,14 +11,14 @@ class_name Train
 @export var depart_duration: float = 1.5
 @export var arrival_offset: Vector2 = Vector2(-800, 0)
 @export var arrival_duration: float = 1.5
-# TODO: use actual marker instead of hardcoded value
-@export var player_disembark_marker: Vector2 = Vector2(55, -51)
 
 @export var incorrect_penalty_minutes: int = 5
 @export var reload_scene: Enums.Scenes = Enums.Scenes.LEVEL_0
 
 @export var sprite: AnimatedSprite2D
 @export var color := Enums.TrainColor.BROWN:
+
+
 	# Ensure that index of animation names matches the order of the Enums
 	set(new_color):
 		color = new_color
@@ -26,20 +26,28 @@ class_name Train
 			sprite.play(Enums.TrainColor.find_key(color))
 
 @onready var _no_ticket_light: Sprite2D = $NoTicketLight
-@onready var _boarded_player: Sprite2D = $BoardedPlayer
+@onready var _boarded_player_l: Sprite2D = $BoardedPlayerL
+@onready var _boarded_player_r: Sprite2D = $BoardedPlayerR
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var train_interactable_l: TrainInteractable = $TrainInteractableL
+@onready var train_interactable_r: TrainInteractable = $TrainInteractableR
+
 
 var _boarding: bool = false
+var _l_or_r: String
 
+@onready var player_disembark_marker: Marker2D = $PlayerDisembarkMarker
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 	_no_ticket_light.visible = false
-	_boarded_player.visible = false
+	_boarded_player_l.visible = false
+	_boarded_player_r.visible = false
 
 
-func try_board(interactable: TrainInteractable) -> void:
+func try_board(interactable: TrainInteractable, l_or_r: String) -> void:
+	_l_or_r = l_or_r
 	if _boarding:
 		return
 
@@ -100,7 +108,7 @@ func play_arrival_animation() -> void:
 
 	var stop_position: Vector2 = position
 	position = stop_position + arrival_offset
-	_boarded_player.visible = true
+	_boarded_player_l.visible = true
 
 	var tween := create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(self, "position", stop_position, arrival_duration)
@@ -110,9 +118,9 @@ func play_arrival_animation() -> void:
 	await animation_player.animation_finished
 
 	# inside train to platform
-	_boarded_player.visible = false
+	_boarded_player_l.visible = false
 	if player_disembark_marker:
-		player.global_position = player_disembark_marker
+		player.global_position = player_disembark_marker.global_position
 	player.visible = true
 	animation_player.play("doors_close")
 	await animation_player.animation_finished
@@ -153,6 +161,9 @@ func _close_doors() -> void:
 func _run_boarding_and_departure() -> void:
 	_set_player_active(false)
 	await _open_doors()
-	_boarded_player.visible = true
+	if _l_or_r == "l":
+		_boarded_player_l.visible = true
+	else:
+		_boarded_player_r.visible = true
 	await _close_doors()
 	await _train_depart()

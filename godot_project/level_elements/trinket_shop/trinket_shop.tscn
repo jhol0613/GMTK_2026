@@ -53,14 +53,7 @@ animation = &"level2_idle"
 [node name="DialogueInteractable" parent="." unique_id=358228256 instance=ExtResource("3_xxwc8")]
 z_index = 1
 position = Vector2(4, -33.5)
-lines = ["<<ticket>>"]
 panel_path = NodePath("../DialoguePanel")
-option_a = "yes"
-option_b = "no"
-correct_option = 0
-reward = null
-success_line = "take this train ticket"
-failure_line = "go away"
 
 [node name="CollisionShape2D" parent="DialogueInteractable" index="0" unique_id=278382881]
 z_index = 1

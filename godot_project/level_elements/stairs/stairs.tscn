@@ -1,20 +1,21 @@
-[gd_scene format=3 uid="uid://36mb1vm82410"]
+[gd_scene format=3 uid="uid://bfr0xdfwn46ip"]
 
-[ext_resource type="Script" uid="uid://ca4667f76be6n" path="res://level_elements/stairs/stairs.gd" id="1_if644"]
-[ext_resource type="Texture2D" uid="uid://ca8r7wcmgae0o" path="res://levels/tileset/grasstiles.png" id="2_n2e4l"]
+[ext_resource type="Script" uid="uid://dg7ohg3nijivp" path="res://level_elements/stairs/stairs.gd" id="1_if644"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fpcxu"]
-size = Vector2(64, 64)
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_fpcxu"]
+points = PackedVector2Array(0, 0, 16, -16, 16, 0)
 
-[node name="Stairs" type="Area2D" unique_id=802605353]
-collision_layer = 3
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_if644"]
+points = PackedVector2Array(0, 0, 16, -16, 0, -16)
+
+[node name="Stairs" type="StaticBody2D" unique_id=9632141 node_paths=PackedStringArray("upper_collider", "lower_collider")]
+collision_layer = 2
 script = ExtResource("1_if644")
+upper_collider = NodePath("CollisionShape2D2")
+lower_collider = NodePath("CollisionShape2D")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1749119950]
-shape = SubResource("RectangleShape2D_fpcxu")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1062887949]
+shape = SubResource("ConvexPolygonShape2D_fpcxu")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=729202290]
-texture = ExtResource("2_n2e4l")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=748886649]
+shape = SubResource("ConvexPolygonShape2D_if644")
