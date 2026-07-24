@@ -7,12 +7,49 @@
 [node name="Notebook" type="Node2D" unique_id=2020796058]
 script = ExtResource("1_tvakd")
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=944945366]
+texture = ExtResource("3_kkelw")
+
 [node name="Pages" type="Node2D" parent="." unique_id=1748261027]
 
 [node name="NotebookPage" parent="Pages" unique_id=1099925378 instance=ExtResource("1_qjmkm")]
+position = Vector2(-311, -422)
 
 [node name="NotebookPage2" parent="Pages" unique_id=1129297689 instance=ExtResource("1_qjmkm")]
-position = Vector2(980, 4)
+visible = false
+position = Vector2(-311, -422)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=944945366]
-texture = ExtResource("3_kkelw")
+[node name="NotebookPage3" parent="Pages" unique_id=229438952 instance=ExtResource("1_qjmkm")]
+visible = false
+position = Vector2(-311, -422)
+
+[node name="NotebookPage4" parent="Pages" unique_id=1781370792 instance=ExtResource("1_qjmkm")]
+visible = false
+position = Vector2(-311, -422)
+
+[node name="NotebookPage5" parent="Pages" unique_id=2129026908 instance=ExtResource("1_qjmkm")]
+visible = false
+position = Vector2(-311, -422)
+
+[node name="NotebookPage6" parent="Pages" unique_id=18371070 instance=ExtResource("1_qjmkm")]
+visible = false
+position = Vector2(-311, -422)
+
+[node name="NextPage" type="Button" parent="." unique_id=1734661789]
+unique_name_in_owner = true
+offset_left = 248.0
+offset_top = 402.0
+offset_right = 293.0
+offset_bottom = 433.0
+text = "Next"
+
+[node name="PreviousPage" type="Button" parent="." unique_id=2095987400]
+unique_name_in_owner = true
+offset_left = -299.0
+offset_top = 402.0
+offset_right = -254.0
+offset_bottom = 433.0
+text = "Previous"
+
+[connection signal="pressed" from="NextPage" to="." method="_on_previous_page_pressed"]
+[connection signal="pressed" from="PreviousPage" to="." method="_on_next_page_pressed"]

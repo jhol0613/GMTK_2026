@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://s4gdpvpyayn0"]
 
-[ext_resource type="Script" uid="uid://cmnojh7wiitk5" path="res://player/notebook_entry.gd" id="1_pf7jf"]
+[ext_resource type="Script" uid="uid://cmnojh7wiitk5" path="res://notebook/notebook_entry.gd" id="1_pf7jf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rsnfv"]
 
 [node name="Entry" type="HBoxContainer" unique_id=594339083]
 script = ExtResource("1_pf7jf")
@@ -11,6 +13,9 @@ layout_mode = 2
 [node name="PlayerInput" type="LineEdit" parent="." unique_id=414481906]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/caret_color = Color(0.10374341, 0.103743546, 0.10374386, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rsnfv")
 flat = true
 
 [connection signal="gui_input" from="Resshan" to="." method="_on_resshan_gui_input"]
