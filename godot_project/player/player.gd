@@ -28,7 +28,7 @@ func _ready() -> void:
 	$AudioListener2D.make_current()
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if _is_any_panel_open():
 		direction = Vector2.ZERO
 		return
