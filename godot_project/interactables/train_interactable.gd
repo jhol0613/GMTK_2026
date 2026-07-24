@@ -1,38 +1,40 @@
 class_name TrainInteractable
 extends Interactable
 
-@export var id: StringName = "ber"
-@export var time_path: NodePath
+@export var id: StringName = "berlin_s5"
+
+@onready var train: Train = get_parent() as Train
 
 
 func interact() -> void:
-	if not can_board():
-		print("Cannot board train to ", id)
+	if train == null:
 		return
-	# TODO: Transition to the next scene
-	print("Boarding train to ", id)
+	train.try_board(self)
 
 
-## Checks if the player can board the train
-func can_board() -> bool:
-	var ticket: TicketData = Inventory.get_ticket()
+## Evaluates whether the player can board the train
+func evaluate_board(ticket: TicketData) -> Enums.BoardResult:
 	if ticket == null:
-		return false
+		return Enums.BoardResult.REJECTED
+	if not _is_on_time(ticket):
+		return Enums.BoardResult.REJECTED
+	if not _is_correct_train(ticket):
+		return Enums.BoardResult.WRONG_TRAIN
+	return Enums.BoardResult.SUCCESS
 
-	if ticket.id != id:
-		return false
 
-	if ticket.train_line != id:
-		return false
-
-	var time_node: Control = get_node_or_null(time_path)
+## Checks if the ticket is on time
+func _is_on_time(ticket: TicketData) -> bool:
+	var time_node: Control = get_tree().get_first_node_in_group("time")
 	if time_node == null:
 		return false
-
-	# Check if the time is after the ticket's departure time
 	if time_node.rhour > ticket.departure_hour:
 		return false
 	if time_node.rhour == ticket.departure_hour and time_node.rminute > ticket.departure_minute:
 		return false
-
 	return true
+
+
+## Checks if the ticket is for the correct train
+func _is_correct_train(ticket: TicketData) -> bool:
+	return ticket.train_line == String(id)

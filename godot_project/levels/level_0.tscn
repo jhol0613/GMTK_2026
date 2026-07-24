@@ -4,26 +4,58 @@
 [ext_resource type="PackedScene" uid="uid://2pwlm8itluel" path="res://level_elements/ticket_booth/ticket_booth.tscn" id="2_823pn"]
 [ext_resource type="PackedScene" uid="uid://cxekovsy3q368" path="res://level_elements/train_platform/platform.tscn" id="3_iss0w"]
 [ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://scripts/dialogue_choice.gd" id="3_jum3j"]
-[ext_resource type="Resource" path="res://resources/dialogue/test_choice_ask.tres" id="4_c4pne"]
-[ext_resource type="Resource" path="res://resources/dialogue/test_choice_no.tres" id="5_tfamw"]
+[ext_resource type="Resource" uid="uid://de30fu8su2vwp" path="res://resources/dialogue/test_choice_ask.tres" id="4_c4pne"]
+[ext_resource type="Resource" uid="uid://bxserhv03whnd" path="res://resources/dialogue/test_choice_no.tres" id="5_tfamw"]
 [ext_resource type="Resource" path="res://resources/dialogue/test_choice_yes.tres" id="6_dm5o4"]
 
 [node name="Level0" unique_id=783439983 instance=ExtResource("1_eus5j")]
 
 [node name="UiOverlay" parent="." index="0" unique_id=368800410]
-visible = false
+scale = Vector2(1, 1)
+transform = Transform2D(1, 0, 0, 1, 0, 0)
 
 [node name="TicketBooth" parent="." index="4" unique_id=861247956 instance=ExtResource("2_823pn")]
 position = Vector2(-56, 1)
 
 [node name="DialogueInteractable" parent="TicketBooth" index="1" unique_id=358228256]
+lines = ["<<ticket>> <<buy>> <<?>>"]
 choices = Array[ExtResource("3_jum3j")]([ExtResource("4_c4pne"), ExtResource("5_tfamw"), ExtResource("6_dm5o4")])
 minutes_cost = 1
+
+[node name="Prompt" parent="TicketBooth/DialogueInteractable" index="1" unique_id=272794898]
+texture_filter = 1
+mouse_filter = 2
 
 [node name="Player" parent="." index="5" unique_id=799939449]
 position = Vector2(55, -51)
 
 [node name="Platform" parent="." index="6" unique_id=1302422271 instance=ExtResource("3_iss0w")]
 
+[node name="UpperTrain" parent="Platform" index="2" unique_id=995237668]
+depart_offset = Vector2(800, 0)
+depart_duration = 1.5
+arrival_offset = Vector2(-800, 0)
+arrival_duration = 1.5
+incorrect_penalty_minutes = 5
+reload_scene = 2
+
+[node name="TrainInteractable" parent="Platform/UpperTrain" index="8" unique_id=779530687]
+id = &"berlin_s7"
+
+[node name="Prompt" parent="Platform/UpperTrain/TrainInteractable" index="1" unique_id=272794898]
+texture_filter = 1
+
+[node name="LowerTrain" parent="Platform" index="3" unique_id=1370361982]
+depart_offset = Vector2(800, 0)
+depart_duration = 1.5
+arrival_offset = Vector2(-800, 0)
+arrival_duration = 1.5
+incorrect_penalty_minutes = 5
+reload_scene = 2
+
+[editable path="UiOverlay"]
 [editable path="TicketBooth"]
 [editable path="TicketBooth/DialogueInteractable"]
+[editable path="Platform"]
+[editable path="Platform/UpperTrain"]
+[editable path="Platform/UpperTrain/TrainInteractable"]
