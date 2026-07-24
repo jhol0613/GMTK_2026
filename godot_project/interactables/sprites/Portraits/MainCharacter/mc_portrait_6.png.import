@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2pmbmcs4uquk"
-path="res://.godot/imported/icon_notebook.png-ebca7e86b5b24a28fae3fe51bbc09c84.ctex"
+uid="uid://vtnyqlsk2aie"
+path="res://.godot/imported/mc_portrait_6.png-bb4b3269ee6cb5029166de10c46541a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/level_overlay/icon_notebook.png"
-dest_files=["res://.godot/imported/icon_notebook.png-ebca7e86b5b24a28fae3fe51bbc09c84.ctex"]
+source_file="res://interactables/sprites/Portraits/MainCharacter/mc_portrait_6.png"
+dest_files=["res://.godot/imported/mc_portrait_6.png-bb4b3269ee6cb5029166de10c46541a4.ctex"]
 
 [params]
 
