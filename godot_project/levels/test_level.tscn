@@ -344,9 +344,6 @@ visible = false
 unique_name_in_owner = true
 visible = false
 
-[node name="LanguageTest" type="Node2D" parent="." unique_id=1131743426]
-position = Vector2(405, 328)
-
 [node name="TrainInteractable" parent="." unique_id=1063531120 instance=ExtResource("13_axl34")]
 position = Vector2(0, -64)
 time_path = NodePath("../Camera2D/CanvasLayer/Time")
