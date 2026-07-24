@@ -8,7 +8,7 @@ extends CanvasLayer
 @onready var _ticket := $Ticket
 @onready var _notebook_hover_sound: AudioStreamPlayer = $NotebookHoverSound
 @onready var _notebook_click_sound: AudioStreamPlayer = $NotebookClickSound
-@onready var _notebook_exit_sound: AudioStreamPlayer = $NotebookExitSound
+@onready var _notebook_exit_sound: AudioStreamPlayer = $NotebookCloseSound
 
 
 # Called when the node enters the scene tree for the first time.
