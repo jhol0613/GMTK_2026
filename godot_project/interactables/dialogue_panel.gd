@@ -48,6 +48,7 @@ func _rebuild_option_labels() -> void:
 	for choice in _choices:
 		var label := ResshanLabel.new()
 		label.text = choice.player_text
+		label.font_size = 24
 		_options.add_child(label)
 
 
