@@ -14,6 +14,11 @@ signal text_clicked(str:String)
 		spacing = value
 		queue_redraw()
 
+@export var font: Font :
+	set(value):
+		font = value
+		queue_redraw()
+
 @export var font_size: int = 16 :
 	set(value):
 		font_size = value
@@ -24,7 +29,10 @@ var _areas: Array[ResshanInteractable]
 
 
 func _draw() -> void:
-	_shapes = LanguageRenderer.draw_text(text, self, spacing, "/n", ThemeDB.fallback_font, font_size)
+	var _f:Font = font
+	if not font:
+		_f = ThemeDB.fallback_font
+	_shapes = LanguageRenderer.draw_text(text, self, spacing, "/n", _f, font_size)
 	#ThemeDB.fallback_font.get_multiline_string_size()
 	for i:Node in _areas:
 		i.queue_free()
@@ -49,3 +57,6 @@ func _draw() -> void:
 		
 		_areas.append(area)
 		add_child(area)
+	custom_minimum_size = LanguageRenderer.get_string_size(
+		text, ThemeDB.fallback_font, font_size, "/n", spacing
+	)
