@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dnv4fwvbs6jr5"]
+
+[ext_resource type="PackedScene" uid="uid://gskcbdshu54h" path="res://notebook/notebook.tscn" id="1_ghnyq"]
+[ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/language_display.gd" id="2_rsnfv"]
+
+[node name="NotebookTest" type="Node2D" unique_id=18127596]
+
+[node name="Notebook" parent="." unique_id=2020796058 instance=ExtResource("1_ghnyq")]
+position = Vector2(970, 530)
+
+[node name="ResshanLabel" type="Control" parent="." unique_id=306997885]
+custom_minimum_size = Vector2(31, 30)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 219.0
+offset_top = 150.0
+offset_right = 259.0
+offset_bottom = 190.0
+mouse_filter = 2
+script = ExtResource("2_rsnfv")
+text = "<<train>> "
+font_size = 30
+metadata/_custom_type_script = "uid://sidowamkhcrt"
