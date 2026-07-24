@@ -9,6 +9,9 @@ extends CanvasLayer
 @onready var _notebook_hover_sound: AudioStreamPlayer = $NotebookHoverSound
 @onready var _notebook_click_sound: AudioStreamPlayer = $NotebookClickSound
 @onready var _notebook_exit_sound: AudioStreamPlayer = $NotebookCloseSound
+@onready var _ticket_hover_sound: AudioStreamPlayer = $TicketHoverSound
+@onready var _ticket_click_sound: AudioStreamPlayer = $TicketClickSound
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -49,6 +52,7 @@ func _on_exit_button_pressed() -> void:
 
 func _on_ticket_button_mouse_entered():
 	_ticket_button.position += mouse_hover_offset
+	_notebook_hover_sound.play()
 
 
 func _on_ticket_button_mouse_exited():
@@ -56,6 +60,7 @@ func _on_ticket_button_mouse_exited():
 
 
 func _on_ticket_button_pressed():
+	_ticket_click_sound.play()
 	if Inventory.get_ticket() == null:
 		return
 	_ticket.visible = not _ticket.visible

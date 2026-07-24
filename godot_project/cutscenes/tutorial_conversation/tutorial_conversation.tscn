@@ -1,29 +1,35 @@
 [gd_scene format=3 uid="uid://b40aq7wt2wqcs"]
 
 [ext_resource type="Script" uid="uid://d4bklq4j0j1ok" path="res://cutscenes/tutorial_conversation/tutorial_conversation.gd" id="1_h61wc"]
-[ext_resource type="Texture2D" uid="uid://b5go5afjbr5vp" path="res://player/sprites/placeholder/idle_down.png" id="1_wcn6v"]
 [ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialogue_interactable.tscn" id="3_7b540"]
+[ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://scripts/dialogue_line.gd" id="4_7b540"]
 [ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://scripts/dialogue_choice.gd" id="4_yisg7"]
+[ext_resource type="Texture2D" uid="uid://dtienb1p5xsvp" path="res://cutscenes/tutorial_conversation/BFF.png" id="5_7b540"]
 [ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialogue_panel.tscn" id="5_vtjp4"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w4210"]
-atlas = ExtResource("1_wcn6v")
-region = Rect2(0, 0, 96, 80)
+[sub_resource type="Resource" id="Resource_h61wc"]
+script = ExtResource("4_7b540")
+text = "I'm so excited that you're here to visit!"
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ujtin"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w4210")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="Resource" id="Resource_7b540"]
+script = ExtResource("4_7b540")
+text = "Not many people around here speak English."
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_yisg7"]
+script = ExtResource("4_7b540")
+text = "But don't worry! I've been studying resshan (replace with resshan word for resshan) all semester."
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_vtjp4"]
+script = ExtResource("4_7b540")
+text = "I'm pretty much a native at this point!"
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_ujtin"]
 script = ExtResource("4_yisg7")
-player_text = "I hope you know where you're going"
+player_text = "I just hope you know where you're going"
 reply = "Just stick with me and I'll get us there."
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 
@@ -34,18 +40,25 @@ reply = "Very funny. Just stick with me and I'll get us there."
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 
 [node name="TutorialConversation" type="Node2D" unique_id=1792772109]
+z_index = 4
 script = ExtResource("1_h61wc")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1360935984]
-sprite_frames = SubResource("SpriteFrames_ujtin")
-
 [node name="DialogueInteractable" parent="." unique_id=1631350735 instance=ExtResource("3_7b540")]
-lines = ["I'm so happy you're visiting!", "Not many folks here speak English...", "But don't worry, I've lived here all semester!", "I speak perfect <<resshan>> and I'm basically a native at this point."]
+lines = Array[ExtResource("4_7b540")]([SubResource("Resource_h61wc"), SubResource("Resource_7b540"), SubResource("Resource_yisg7"), SubResource("Resource_vtjp4")])
 choices = Array[ExtResource("4_yisg7")]([SubResource("Resource_ujtin"), SubResource("Resource_qbyu3")])
+panel_path = NodePath("../CanvasLayer/DialoguePanel")
 
 [node name="Prompt" parent="DialogueInteractable" index="1" unique_id=272794898]
 texture_filter = 1
 
-[node name="DialoguePanel" parent="." unique_id=210961773 instance=ExtResource("5_vtjp4")]
+[node name="Bff" type="Sprite2D" parent="." unique_id=1632636105]
+position = Vector2(770, 499)
+scale = Vector2(4, 4)
+texture = ExtResource("5_7b540")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1181970416]
+layer = 1000
+
+[node name="DialoguePanel" parent="CanvasLayer" unique_id=210961773 instance=ExtResource("5_vtjp4")]
 
 [editable path="DialogueInteractable"]
