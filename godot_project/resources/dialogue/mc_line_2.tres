@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DialogueLine" format=3 uid="uid://de8vutde04r55"]
+
+[ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://scripts/dialogue_line.gd" id="1_line"]
+[ext_resource type="Texture2D" uid="uid://cce7fpphf8n1m" path="res://interactables/sprites/Portraits/MainCharacter/mc_portrait_2.png" id="2_l5p2f"]
+
+[resource]
+script = ExtResource("1_line")
+speaker = "You"
+text = "test line 2"
+speaker_icon = ExtResource("2_l5p2f")

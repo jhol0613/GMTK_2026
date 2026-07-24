@@ -4,9 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://2pwlm8itluel" path="res://level_elements/ticket_booth/ticket_booth.tscn" id="2_823pn"]
 [ext_resource type="PackedScene" uid="uid://cxekovsy3q368" path="res://level_elements/train_platform/platform.tscn" id="3_iss0w"]
 [ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://scripts/dialogue_choice.gd" id="3_jum3j"]
+[ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://scripts/dialogue_line.gd" id="3_obtcn"]
+[ext_resource type="Resource" path="res://resources/dialogue/mc_line_1.tres" id="4_2ro2b"]
 [ext_resource type="Resource" uid="uid://de30fu8su2vwp" path="res://resources/dialogue/test_choice_ask.tres" id="4_c4pne"]
+[ext_resource type="Resource" path="res://resources/dialogue/mc_line_2.tres" id="5_fj15s"]
 [ext_resource type="Resource" uid="uid://bxserhv03whnd" path="res://resources/dialogue/test_choice_no.tres" id="5_tfamw"]
 [ext_resource type="Resource" path="res://resources/dialogue/test_choice_yes.tres" id="6_dm5o4"]
+[ext_resource type="Resource" path="res://resources/dialogue/mc_line_3.tres" id="6_p0s0h"]
 
 [node name="Level0" unique_id=783439983 instance=ExtResource("1_eus5j")]
 
@@ -24,8 +28,8 @@ tile_map_data = PackedByteArray("AADX/wMAAgAFAAEAAADW/wMAAgAFAAEAAADV/wMAAgAFAAE
 position = Vector2(-946, -196)
 
 [node name="DialogueInteractable" parent="TicketBooth" index="1" unique_id=358228256]
-lines = ["Hello!"]
-choices = Array[ExtResource("3_jum3j")]([ExtResource("4_c4pne"), ExtResource("5_tfamw"), ExtResource("6_dm5o4")])
+lines = Array[ExtResource("3_obtcn")]([ExtResource("4_2ro2b"), ExtResource("5_fj15s"), ExtResource("6_p0s0h")])
+choices = Array[ExtResource("3_jum3j")]([ExtResource("6_dm5o4"), ExtResource("5_tfamw"), ExtResource("4_c4pne")])
 
 [node name="Prompt" parent="TicketBooth/DialogueInteractable" index="1" unique_id=272794898]
 texture_filter = 1
