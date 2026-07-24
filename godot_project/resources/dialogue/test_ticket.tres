@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_ticket")
-destination = "Berlin Hbf"
-train_line = "S5"
+destination = "<<east>>"
+train_line = "<<5>>"
 departure_hour = 4
 id = &"berlin_s5"
 item_name = "Ticket to Berlin Hbf"

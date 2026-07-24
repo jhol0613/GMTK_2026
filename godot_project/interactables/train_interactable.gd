@@ -41,4 +41,4 @@ func _is_on_time(ticket: TicketData) -> bool:
 
 ## Checks if the ticket is for the correct train
 func _is_correct_train(ticket: TicketData) -> bool:
-	return ticket.train_line == String(id)
+	return ticket.id == id
