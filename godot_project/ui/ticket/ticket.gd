@@ -1,5 +1,5 @@
 class_name Ticket
-extends Control
+extends Node2D
 
 @export var ticket_data: TicketData
 

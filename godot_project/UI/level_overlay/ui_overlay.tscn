@@ -33,10 +33,7 @@ text = "Return"
 
 [node name="Ticket" parent="." unique_id=1917505248 instance=ExtResource("4_ticket")]
 texture_filter = 2
-offset_left = 820.0
-offset_top = 400.0
-offset_right = 1100.0
-offset_bottom = 560.0
+position = Vector2(992, 496)
 ticket_data = null
 
 [node name="NotebookButton" type="TextureButton" parent="." unique_id=1767702104]
