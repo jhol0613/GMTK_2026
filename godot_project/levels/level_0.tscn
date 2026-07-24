@@ -5,14 +5,14 @@
 [ext_resource type="PackedScene" uid="uid://cxekovsy3q368" path="res://level_elements/train_platform/platform.tscn" id="3_iss0w"]
 
 [node name="Level0" unique_id=783439983 instance=ExtResource("1_eus5j")]
+y_sort_enabled = false
 
-[node name="UiOverlay" parent="." index="0" unique_id=368800410]
-visible = false
-
-[node name="TicketBooth" parent="." index="4" unique_id=861247956 instance=ExtResource("2_823pn")]
-position = Vector2(-56, 1)
-
-[node name="Player" parent="." index="5" unique_id=799939449]
+[node name="Player" parent="." index="3" unique_id=799939449]
+z_index = 1
 position = Vector2(55, -51)
 
-[node name="Platform" parent="." index="6" unique_id=1302422271 instance=ExtResource("3_iss0w")]
+[node name="TicketBooth" parent="." index="4" unique_id=861247956 instance=ExtResource("2_823pn")]
+z_index = 1
+position = Vector2(-56, 1)
+
+[node name="Platform" parent="." index="5" unique_id=1302422271 instance=ExtResource("3_iss0w")]

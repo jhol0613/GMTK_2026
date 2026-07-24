@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 
 @export var mouse_hover_offset := Vector2(0, -8)

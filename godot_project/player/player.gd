@@ -6,12 +6,13 @@ var distance: int = 0
 
 @export var distance_per_minute: int = 50
 
-@export var sprite : AnimatedSprite2D
-@onready var timer: Timer = $Timer
 @export var footstep_sounds: Array[AudioStream] = []
 var _footsteps: AudioStreamPlayer
 @export var footstep_distance: float = 40.0
 var _step_accum: float = 0.0
+
+@onready var sprite := $PlayerSprite
+@onready var timer: Timer = $Timer
 
 
 func _ready() -> void:
