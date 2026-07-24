@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://36mb1vm82410"]
+
+[ext_resource type="Script" uid="uid://ca4667f76be6n" path="res://level_elements/stairs/stairs.gd" id="1_if644"]
+[ext_resource type="Texture2D" uid="uid://ca8r7wcmgae0o" path="res://levels/tileset/grasstiles.png" id="2_n2e4l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fpcxu"]
+size = Vector2(64, 64)
+
+[node name="Stairs" type="Area2D" unique_id=802605353]
+collision_layer = 3
+script = ExtResource("1_if644")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1749119950]
+shape = SubResource("RectangleShape2D_fpcxu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=729202290]
+texture = ExtResource("2_n2e4l")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
