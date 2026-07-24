@@ -22,6 +22,9 @@ func can_board() -> bool:
 	if ticket.id != id:
 		return false
 
+	if ticket.train_line != id:
+		return false
+
 	var time_node: Control = get_node_or_null(time_path)
 	if time_node == null:
 		return false
