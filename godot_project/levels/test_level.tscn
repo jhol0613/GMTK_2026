@@ -13,6 +13,8 @@
 [ext_resource type="Script" uid="uid://cpfgjwe2lpk0k" path="res://scripts/ticket_data.gd" id="10_8hjdj"]
 [ext_resource type="PackedScene" uid="uid://bdx06b4wet51l" path="res://time/time.tscn" id="11_wkb0e"]
 [ext_resource type="PackedScene" uid="uid://dchuwbctx2fxx" path="res://interactables/train_interactable.tscn" id="13_axl34"]
+[ext_resource type="PackedScene" uid="uid://baukigq6wfgs1" path="res://level_elements/ATM/atm.tscn" id="14_8hjdj"]
+[ext_resource type="PackedScene" uid="uid://2pwlm8itluel" path="res://level_elements/ticket_booth/ticket_booth.tscn" id="15_0vv12"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hgrid"]
 texture = ExtResource("1_hgrid")
@@ -344,3 +346,9 @@ position = Vector2(405, 328)
 position = Vector2(0, -64)
 id = &"ber"
 time_path = NodePath("../Camera2D/CanvasLayer/Time")
+
+[node name="ATM" parent="." unique_id=124595741 instance=ExtResource("14_8hjdj")]
+position = Vector2(391, 125)
+
+[node name="TicketBooth" parent="." unique_id=861247956 instance=ExtResource("15_0vv12")]
+position = Vector2(276, 145)
