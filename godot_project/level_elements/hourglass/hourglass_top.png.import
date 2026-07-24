@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2pmbmcs4uquk"
-path="res://.godot/imported/icon_notebook.png-ebca7e86b5b24a28fae3fe51bbc09c84.ctex"
+uid="uid://cenr55g5p2s5b"
+path="res://.godot/imported/hourglass_top.png-a158ff880e9cc7378e136e40c5d75ef3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/level_overlay/icon_notebook.png"
-dest_files=["res://.godot/imported/icon_notebook.png-ebca7e86b5b24a28fae3fe51bbc09c84.ctex"]
+source_file="res://level_elements/hourglass/hourglass_top.png"
+dest_files=["res://.godot/imported/hourglass_top.png-a158ff880e9cc7378e136e40c5d75ef3.ctex"]
 
 [params]
 
