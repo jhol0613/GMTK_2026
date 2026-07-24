@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://bjnescgt4ic"
-path="res://.godot/imported/HoverTicket_Schedule2.mp3-7a6099165e12ee79deffc6d36377308d.mp3str"
+path="res://.godot/imported/HoverTicket_Schedule2.mp3-af6eaca246d067386f0fa4eb281bae30.mp3str"
 
 [deps]
 
-source_file="res://ui/HoverTicket_Schedule2.mp3"
-dest_files=["res://.godot/imported/HoverTicket_Schedule2.mp3-7a6099165e12ee79deffc6d36377308d.mp3str"]
+source_file="res://UI/HoverTicket_Schedule2.mp3"
+dest_files=["res://.godot/imported/HoverTicket_Schedule2.mp3-af6eaca246d067386f0fa4eb281bae30.mp3str"]
 
 [params]
 

@@ -11,14 +11,14 @@ class_name Train
 @export var depart_duration: float = 1.5
 @export var arrival_offset: Vector2 = Vector2(-800, 0)
 @export var arrival_duration: float = 1.5
-# TODO: use actual marker instead of hardcoded value
-@export var player_disembark_marker: Vector2 = Vector2(55, -51)
 
 @export var incorrect_penalty_minutes: int = 5
 @export var reload_scene: Enums.Scenes = Enums.Scenes.LEVEL_0
 
 @export var sprite: AnimatedSprite2D
 @export var color := Enums.TrainColor.BROWN:
+
+
 	# Ensure that index of animation names matches the order of the Enums
 	set(new_color):
 		color = new_color
@@ -31,6 +31,8 @@ class_name Train
 
 var _boarding: bool = false
 
+
+@onready var player_disembark_marker: Marker2D = $PlayerDisembarkMarker
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
@@ -112,7 +114,7 @@ func play_arrival_animation() -> void:
 	# inside train to platform
 	_boarded_player.visible = false
 	if player_disembark_marker:
-		player.global_position = player_disembark_marker
+		player.global_position = player_disembark_marker.global_position
 	player.visible = true
 	animation_player.play("doors_close")
 	await animation_player.animation_finished

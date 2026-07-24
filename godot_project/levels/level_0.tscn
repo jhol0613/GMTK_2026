@@ -45,9 +45,6 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAMAAAAAAAEAAAAAAAMAAAAAAAIAAAAAAAM
 [node name="TrainInteractable" parent="Platform/UpperTrain" parent_id_path=PackedInt32Array(1302422271, 995237668) index="8" unique_id=779530687]
 id = &"berlin_s7"
 
-[node name="Prompt" parent="Platform/UpperTrain/TrainInteractable" index="1" unique_id=272794898]
-texture_filter = 1
-
 [editable path="UiOverlay"]
 [editable path="TicketBooth"]
 [editable path="TicketBooth/DialogueInteractable"]
