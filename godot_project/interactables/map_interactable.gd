@@ -4,6 +4,7 @@ extends Interactable
 @export var title: String = "Map"
 @export var map_texture: Texture2D
 @export var panel_path: NodePath
+@export var minutes_cost: int = 1
 
 
 func interact() -> void:

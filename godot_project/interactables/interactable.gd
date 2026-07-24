@@ -1,8 +1,6 @@
 extends Area2D
 class_name Interactable
 
-@export var minutes_cost: int = 1
-
 @onready var _prompt: ResshanLabel = $Prompt
 
 var _player_in_range: bool = false

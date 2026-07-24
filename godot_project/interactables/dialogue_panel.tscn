@@ -74,11 +74,3 @@ metadata/_custom_type_script = "uid://sidowamkhcrt"
 visible = false
 layout_mode = 2
 theme_override_constants/separation = 4
-
-[node name="OptionA" type="Label" parent="Root/Popup/MarginContainer/VBox/Options" unique_id=1856774170]
-layout_mode = 2
-text = "Yes"
-
-[node name="OptionB" type="Label" parent="Root/Popup/MarginContainer/VBox/Options" unique_id=1314661437]
-layout_mode = 2
-text = "No"

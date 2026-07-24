@@ -3,6 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://hhrseelwguig" path="res://levels/level_template.tscn" id="1_eus5j"]
 [ext_resource type="PackedScene" uid="uid://2pwlm8itluel" path="res://level_elements/ticket_booth/ticket_booth.tscn" id="2_823pn"]
 [ext_resource type="PackedScene" uid="uid://cxekovsy3q368" path="res://level_elements/train_platform/platform.tscn" id="3_iss0w"]
+[ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://scripts/dialogue_choice.gd" id="3_jum3j"]
+[ext_resource type="Resource" path="res://resources/dialogue/test_choice_ask.tres" id="4_c4pne"]
+[ext_resource type="Resource" path="res://resources/dialogue/test_choice_no.tres" id="5_tfamw"]
+[ext_resource type="Resource" path="res://resources/dialogue/test_choice_yes.tres" id="6_dm5o4"]
 
 [node name="Level0" unique_id=783439983 instance=ExtResource("1_eus5j")]
 
@@ -12,7 +16,14 @@ visible = false
 [node name="TicketBooth" parent="." index="4" unique_id=861247956 instance=ExtResource("2_823pn")]
 position = Vector2(-56, 1)
 
+[node name="DialogueInteractable" parent="TicketBooth" index="1" unique_id=358228256]
+choices = Array[ExtResource("3_jum3j")]([ExtResource("4_c4pne"), ExtResource("5_tfamw"), ExtResource("6_dm5o4")])
+minutes_cost = 1
+
 [node name="Player" parent="." index="5" unique_id=799939449]
 position = Vector2(55, -51)
 
 [node name="Platform" parent="." index="6" unique_id=1302422271 instance=ExtResource("3_iss0w")]
+
+[editable path="TicketBooth"]
+[editable path="TicketBooth/DialogueInteractable"]

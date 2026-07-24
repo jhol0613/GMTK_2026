@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DialogueChoice" load_steps=3 format=3]
+
+[ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://scripts/dialogue_choice.gd" id="1_choice"]
+[ext_resource type="Resource" path="res://resources/dialogue/test_ticket.tres" id="2_ticket"]
+
+[resource]
+script = ExtResource("1_choice")
+player_text = "Yes, I'll take a ticket."
+reply = "Here's your ticket to Berlin. Safe travels!"
+reward = ExtResource("2_ticket")
+outcome_id = &"sold_ticket"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"

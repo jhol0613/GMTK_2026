@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://daw2cy8af3u28"
+path="res://.godot/imported/0 Money 0 Ticket.mp3-217ea796fb5d2ff8db78fefcaa4a6e72.mp3str"
+
+[deps]
+
+source_file="res://ui/SpeechAudio/0 Money 0 Ticket.mp3"
+dest_files=["res://.godot/imported/0 Money 0 Ticket.mp3-217ea796fb5d2ff8db78fefcaa4a6e72.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
