@@ -20,11 +20,9 @@ position = Vector2(-56, 1)
 [node name="DialogueInteractable" parent="TicketBooth" index="1" unique_id=358228256]
 lines = ["<<ticket>> <<buy>> <<?>>"]
 choices = Array[ExtResource("3_jum3j")]([ExtResource("4_c4pne"), ExtResource("5_tfamw"), ExtResource("6_dm5o4")])
-minutes_cost = 1
 
 [node name="Prompt" parent="TicketBooth/DialogueInteractable" index="1" unique_id=272794898]
 texture_filter = 1
-mouse_filter = 2
 
 [node name="Player" parent="." index="5" unique_id=799939449]
 position = Vector2(55, -51)
