@@ -11,6 +11,7 @@ var _is_open: bool = false
 func _ready() -> void:
 	add_to_group("interaction_panel")
 	_root.visible = false
+	_root.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 
 
 func hide_popup() -> void:

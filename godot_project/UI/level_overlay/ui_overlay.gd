@@ -14,6 +14,7 @@ func _ready() -> void:
 	_ticket.visible = false
 	_refresh_ticket()
 	Inventory.inventory_changed.connect(_refresh_ticket)
+	
 
 
 func _refresh_ticket() -> void:
