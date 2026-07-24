@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1kth8njoagh4"
-path="res://.godot/imported/trainplaceholder_gray.png-e8199e36f0a1132d6e2c0be79d78d6ca.ctex"
+uid="uid://dbioka1xtrjb7"
+path="res://.godot/imported/train.png-9375a62ea6064c5b6ea9f3198bbd158b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level_elements/train/trainplaceholder_gray.png"
-dest_files=["res://.godot/imported/trainplaceholder_gray.png-e8199e36f0a1132d6e2c0be79d78d6ca.ctex"]
+source_file="res://level_elements/train/train.png"
+dest_files=["res://.godot/imported/train.png-9375a62ea6064c5b6ea9f3198bbd158b.ctex"]
 
 [params]
 

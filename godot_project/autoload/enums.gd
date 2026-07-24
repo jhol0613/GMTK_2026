@@ -14,15 +14,15 @@ enum Scenes {
 	TITLE
 }
 
-# order matters
+# unfortunately alphabetical order here matters. Sorry
 enum TrainColor {
-	BROWN = 0,
-	GRAY = 1,
-	TEAL = 2,
-	RED = 3,
-	MAROON = 4,
-	YELLOW = 5,
-	PINK = 6,
-	PURPLE = 7,
-	BLUE = 8
+	BLUE = 0,
+	BROWN = 1,
+	GRAY = 2,
+	MAROON = 3,
+	PINK = 4,
+	PURPLE = 5,
+	RED = 6,
+	TEAL = 7,
+	YELLOW = 8
 }

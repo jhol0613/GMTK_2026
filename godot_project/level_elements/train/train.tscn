@@ -1,26 +1,73 @@
 [gd_scene format=3 uid="uid://67c8xgtu7o7f"]
 
 [ext_resource type="Script" uid="uid://bf2ekd1ldyduy" path="res://level_elements/train/train.gd" id="1_cjdsu"]
-[ext_resource type="Texture2D" uid="uid://bftafubradqvr" path="res://level_elements/train/trainplaceholder_brown.png" id="2_5xnue"]
-[ext_resource type="Texture2D" uid="uid://1kth8njoagh4" path="res://level_elements/train/trainplaceholder_gray.png" id="3_17x1t"]
+[ext_resource type="Texture2D" uid="uid://dbioka1xtrjb7" path="res://level_elements/train/train.png" id="2_725i7"]
 [ext_resource type="PackedScene" uid="uid://dchuwbctx2fxx" path="res://interactables/train_interactable.tscn" id="3_725i7"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_725i7"]
+atlas = ExtResource("2_725i7")
+region = Rect2(0, 258, 1355, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xnue"]
+atlas = ExtResource("2_725i7")
+region = Rect2(0, 387, 1355, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17x1t"]
+atlas = ExtResource("2_725i7")
+region = Rect2(0, 0, 1355, 129)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_oe38n"]
-atlas = ExtResource("2_5xnue")
-region = Rect2(0, 0, 142, 112)
+atlas = ExtResource("2_725i7")
+region = Rect2(0, 774, 1355, 129)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rvps3"]
-atlas = ExtResource("3_17x1t")
-region = Rect2(0, 0, 142, 112)
+atlas = ExtResource("2_725i7")
+region = Rect2(0, 516, 1355, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wb4gf"]
+atlas = ExtResource("2_725i7")
+region = Rect2(0, 645, 1355, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ee42e"]
+atlas = ExtResource("2_725i7")
+region = Rect2(0, 129, 1355, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fu51"]
+atlas = ExtResource("2_725i7")
+region = Rect2(0, 1161, 1355, 129)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ujtin"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oe38n")
+"texture": SubResource("AtlasTexture_725i7")
 }],
 "loop": 1,
-"name": &"brown",
+"name": &"BLUE",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xnue")
+}],
+"loop": 2,
+"name": &"BROWN",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17x1t")
+}],
+"loop": 0,
+"name": &"GRAY",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oe38n")
+}],
+"loop": 0,
+"name": &"MAROON",
 "speed": 5.0
 }, {
 "frames": [{
@@ -28,7 +75,36 @@ animations = [{
 "texture": SubResource("AtlasTexture_rvps3")
 }],
 "loop": 1,
-"name": &"gray",
+"name": &"PINK",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wb4gf")
+}],
+"loop": 1,
+"name": &"PURPLE",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"RED",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ee42e")
+}],
+"loop": 1,
+"name": &"TEAL",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fu51")
+}],
+"loop": 1,
+"name": &"YELLOW",
 "speed": 5.0
 }]
 
@@ -38,12 +114,12 @@ size = Vector2(40, 23)
 [node name="Train" type="Node2D" unique_id=995237668 node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_cjdsu")
 sprite = NodePath("TrainSprite")
+color = 5
 
 [node name="TrainSprite" type="AnimatedSprite2D" parent="." unique_id=1047198]
 position = Vector2(0, -40)
 sprite_frames = SubResource("SpriteFrames_ujtin")
-animation = &"brown"
-frame_progress = 0.8451741
+animation = &"PURPLE"
 
 [node name="TrainInteractable" parent="." unique_id=1598737422 instance=ExtResource("3_725i7")]
 position = Vector2(-77, -52)
