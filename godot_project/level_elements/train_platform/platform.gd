@@ -18,3 +18,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
+	
+func depart_upper_train():
+	arrival_train._train_depart()
+
+func arrive_upper_train():
+	arrival_train.play_simple_arrival_animation()

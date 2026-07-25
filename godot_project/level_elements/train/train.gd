@@ -38,6 +38,8 @@ var _l_or_r: String
 
 @onready var player_disembark_marker: Marker2D = $PlayerDisembarkMarker
 
+@onready var original_position = position
+
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
@@ -126,7 +128,15 @@ func play_arrival_animation() -> void:
 	await animation_player.animation_finished
 	player.set_physics_process(true)
 
-
+## Play arrival animation without moving player
+func play_simple_arrival_animation() -> void:
+	var stop_position: Vector2 = original_position
+	position = stop_position + arrival_offset
+		
+	var tween := create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(self, "position", stop_position, arrival_duration)
+	await tween.finished
+	
 #---------------------------------------------------------
 # Helper functions
 #---------------------------------------------------------
