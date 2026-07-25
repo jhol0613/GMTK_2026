@@ -26,7 +26,6 @@
 [ext_resource type="PackedScene" uid="uid://boj5ceg5pnoi3" path="res://level_elements/decorative/bench_vertical.tscn" id="24_0fu15"]
 [ext_resource type="PackedScene" uid="uid://b3rra7yj17p2b" path="res://level_elements/decorative/bench_snoozin.tscn" id="25_4knja"]
 [ext_resource type="PackedScene" uid="uid://dcsei1m2axnjk" path="res://level_elements/decorative/bench.tscn" id="26_voubc"]
-[ext_resource type="Texture2D" uid="uid://pkkbdvh3ie8q" path="res://level_elements/decorative/bench_vertical.png" id="27_0x1rk"]
 
 [sub_resource type="Resource" id="Resource_oqlok"]
 script = ExtResource("15_w75he")
@@ -200,9 +199,11 @@ tile_map_data = PackedByteArray("AAAAAAAAAAADAAAAAAAAAAEAAAACAAEAAAAAAAIAAAADAAE
 tile_map_data = PackedByteArray("AAAHAAQAAgADAAAAAAAHAP3/AgADAAIAAAAHAPz/AgADAAAAAAAHAAUAAgADAAIAAADn//3/AgADAAIAAADn//z/AgADAAAAAADn//v/BAABAAAAAADn/wUAAgADAAIAAADn/wQAAgADAAAAAADn/wYABAABAAQAAAAHAAYABAADAAQAAADo/wYABAACAAQAAADp/wYABAACAAQAAADq/wYABAACAAQAAADr/wYABAACAAQAAADs/wYABAACAAQAAADt/wYABAACAAQAAADu/wYABAACAAQAAADv/wYABAACAAQAAADw/wYABAACAAQAAADx/wYABAACAAQAAADy/wYABAACAAQAAADz/wYABAACAAQAAAD0/wYABAACAAQAAAD1/wYABAACAAQAAAD2/wYABAACAAQAAAD3/wYABAACAAQAAAD4/wYABAACAAQAAAD5/wYABAACAAQAAAD6/wYABAACAAQAAAD7/wYABAACAAQAAAD8/wYABAACAAQAAAD9/wYABAACAAQAAAD+/wYABAACAAQAAAD//wYABAACAAQAAAAAAAYABAACAAQAAAABAAYABAACAAQAAAACAAYABAACAAQAAAADAAYABAACAAQAAAAEAAYABAACAAQAAAAFAAYABAACAAQAAAAGAAYABAACAAQAAADn/wcAAgAEAAEAAAAHAAcAAgAGAAEAAADo/wcAAgAFAAEAAADp/wcAAgAFAAEAAADq/wcAAgAFAAEAAADr/wcAAgAFAAEAAADs/wcAAgAFAAEAAADt/wcAAgAFAAEAAADu/wcAAgAFAAEAAADv/wcAAgAFAAEAAADw/wcAAgAFAAEAAADx/wcAAgAFAAEAAADy/wcAAgAFAAEAAADz/wcAAgAFAAEAAAD0/wcAAgAFAAEAAAD1/wcAAgAFAAEAAAD2/wcAAgAFAAEAAAD3/wcAAgAFAAEAAAD4/wcAAgAFAAEAAAD5/wcAAgAFAAEAAAD6/wcAAgAFAAEAAAD7/wcAAgAFAAEAAAD8/wcAAgAFAAEAAAD9/wcAAgAFAAEAAAD+/wcAAgAFAAEAAAD//wcAAgAFAAEAAAAAAAcAAgAFAAEAAAABAAcAAgAFAAEAAAACAAcAAgAFAAEAAAADAAcAAgAFAAEAAAAEAAcAAgAFAAEAAAAFAAcAAgAFAAEAAAAGAAcAAgAFAAEAAAAHAPv/BAADAAAAAADo//v/BAACAAAAAADp//v/BAACAAAAAADq//v/BAACAAAAAADr//v/BAACAAAAAADs//v/BAACAAAAAADt//v/BAACAAAAAADu//v/BAACAAAAAADv//v/BAACAAAAAADw//v/BAACAAAAAADx//v/BAACAAAAAADy//v/BAACAAAAAADz//v/BAACAAAAAAD0//v/BAACAAAAAAD1//v/BAACAAAAAAD2//v/BAACAAAAAAD3//v/BAACAAAAAAD4//v/BAACAAAAAAD5//v/BAACAAAAAAD6//v/BAACAAAAAAD7//v/BAACAAAAAAD8//v/BAACAAAAAAD9//v/BAACAAAAAAD+//v/BAACAAAAAAD///v/BAACAAAAAAAAAPv/BAACAAAAAAABAPv/BAACAAAAAAACAPv/BAACAAAAAAADAPv/BAACAAAAAAAEAPv/BAACAAAAAAAFAPv/BAACAAAAAAAGAPv/BAACAAAAAADn//7/AgAAAAEAAADn////AgAAAAEAAADn/wAAAgAAAAEAAADn/wEAAgAAAAEAAADn/wIAAgAAAAEAAADn/wMAAgAAAAEAAAA=")
 
 [node name="UpperTrain" parent="Platform" index="6" unique_id=995237668]
+ticket_id = &"RED_east"
 color = 7
 
 [node name="LowerTrain" parent="Platform" index="7" unique_id=1370361982]
+ticket_id = &"RED_west"
 color = 7
 
 [node name="Platform2" parent="." index="10" unique_id=6608098 instance=ExtResource("2_bt44k")]
@@ -216,9 +217,11 @@ tile_map_data = PackedByteArray("AAAAAAAAAAADAAEAAAAAAAEAAAADAAMAAAAAAAIAAAADAAA
 tile_map_data = PackedByteArray("AAAHAAQAAgADAAAAAAAHAP3/AgADAAIAAAAHAPz/AgADAAAAAAAHAAUAAgADAAIAAADn//3/AgADAAIAAADn//z/AgADAAAAAADn//v/BAABAAAAAADn/wUAAgADAAIAAADn/wQAAgADAAAAAADn/wYABAABAAQAAAAHAAYABAADAAQAAADo/wYABAACAAQAAADp/wYABAACAAQAAADq/wYABAACAAQAAADr/wYABAACAAQAAADs/wYABAACAAQAAADt/wYABAACAAQAAADu/wYABAACAAQAAADv/wYABAACAAQAAADw/wYABAACAAQAAADx/wYABAACAAQAAADy/wYABAACAAQAAADz/wYABAACAAQAAAD0/wYABAACAAQAAAD1/wYABAACAAQAAAD2/wYABAACAAQAAAD3/wYABAACAAQAAAD4/wYABAACAAQAAAD5/wYABAACAAQAAAD6/wYABAACAAQAAAD7/wYABAACAAQAAAD8/wYABAACAAQAAAD9/wYABAACAAQAAAD+/wYABAACAAQAAAD//wYABAACAAQAAAAAAAYABAACAAQAAAABAAYABAACAAQAAAACAAYABAACAAQAAAADAAYABAACAAQAAAAEAAYABAACAAQAAAAFAAYABAACAAQAAAAGAAYABAACAAQAAADn/wcAAgAEAAEAAAAHAAcAAgAGAAEAAADo/wcAAgAFAAEAAADp/wcAAgAFAAEAAADq/wcAAgAFAAEAAADr/wcAAgAFAAEAAADs/wcAAgAFAAEAAADt/wcAAgAFAAEAAADu/wcAAgAFAAEAAADv/wcAAgAFAAEAAADw/wcAAgAFAAEAAADx/wcAAgAFAAEAAADy/wcAAgAFAAEAAADz/wcAAgAFAAEAAAD0/wcAAgAFAAEAAAD1/wcAAgAFAAEAAAD2/wcAAgAFAAEAAAD3/wcAAgAFAAEAAAD4/wcAAgAFAAEAAAD5/wcAAgAFAAEAAAD6/wcAAgAFAAEAAAD7/wcAAgAFAAEAAAD8/wcAAgAFAAEAAAD9/wcAAgAFAAEAAAD+/wcAAgAFAAEAAAD//wcAAgAFAAEAAAAAAAcAAgAFAAEAAAABAAcAAgAFAAEAAAACAAcAAgAFAAEAAAADAAcAAgAFAAEAAAAEAAcAAgAFAAEAAAAFAAcAAgAFAAEAAAAGAAcAAgAFAAEAAAAHAPv/BAADAAAAAADo//v/BAACAAAAAADp//v/BAACAAAAAADq//v/BAACAAAAAADr//v/BAACAAAAAADs//v/BAACAAAAAADt//v/BAACAAAAAADu//v/BAACAAAAAADv//v/BAACAAAAAADw//v/BAACAAAAAADx//v/BAACAAAAAADy//v/BAACAAAAAADz//v/BAACAAAAAAD0//v/BAACAAAAAAD1//v/BAACAAAAAAD2//v/BAACAAAAAAD3//v/BAACAAAAAAD4//v/BAACAAAAAAD5//v/BAACAAAAAAD6//v/BAACAAAAAAD7//v/BAACAAAAAAD8//v/BAACAAAAAAD9//v/BAACAAAAAAD+//v/BAACAAAAAAD///v/BAACAAAAAAAAAPv/BAACAAAAAAABAPv/BAACAAAAAAACAPv/BAACAAAAAAADAPv/BAACAAAAAAAEAPv/BAACAAAAAAAFAPv/BAACAAAAAAAGAPv/BAACAAAAAAAHAP7/AgACAAEAAAAHAP//AgACAAEAAAAHAAAAAgACAAEAAAAHAAEAAgACAAEAAAAHAAIAAgACAAEAAAAHAAMAAgACAAEAAAA=")
 
 [node name="UpperTrain" parent="Platform2" index="6" unique_id=995237668]
+ticket_id = &"PINK_east"
 color = 5
 
 [node name="LowerTrain" parent="Platform2" index="7" unique_id=1370361982]
+ticket_id = &"PINK_west"
 color = 5
 
 [node name="Platform3" parent="." index="11" unique_id=1115988881 instance=ExtResource("2_bt44k")]
@@ -232,9 +235,11 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAMAAAAAAAEAAAAAAAMAAAAAAAIAAAAAAAM
 tile_map_data = PackedByteArray("AAAHAAQAAgADAAAAAAAHAP3/AgADAAIAAAAHAPz/AgADAAAAAAAHAAUAAgADAAIAAADn//3/AgADAAIAAADn//z/AgADAAAAAADn//v/BAABAAAAAADn/wUAAgADAAIAAADn/wQAAgADAAAAAADn/wYABAABAAQAAAAHAAYABAADAAQAAADo/wYABAACAAQAAADp/wYABAACAAQAAADq/wYABAACAAQAAADr/wYABAACAAQAAADs/wYABAACAAQAAADt/wYABAACAAQAAADu/wYABAACAAQAAADv/wYABAACAAQAAADw/wYABAACAAQAAADx/wYABAACAAQAAADy/wYABAACAAQAAADz/wYABAACAAQAAAD0/wYABAACAAQAAAD1/wYABAACAAQAAAD2/wYABAACAAQAAAD3/wYABAACAAQAAAD4/wYABAACAAQAAAD5/wYABAACAAQAAAD6/wYABAACAAQAAAD7/wYABAACAAQAAAD8/wYABAACAAQAAAD9/wYABAACAAQAAAD+/wYABAACAAQAAAD//wYABAACAAQAAAAAAAYABAACAAQAAAABAAYABAACAAQAAAACAAYABAACAAQAAAADAAYABAACAAQAAAAEAAYABAACAAQAAAAFAAYABAACAAQAAAAGAAYABAACAAQAAADn/wcAAgAEAAEAAAAHAAcAAgAGAAEAAADo/wcAAgAFAAEAAADp/wcAAgAFAAEAAADq/wcAAgAFAAEAAADr/wcAAgAFAAEAAADs/wcAAgAFAAEAAADt/wcAAgAFAAEAAADu/wcAAgAFAAEAAADv/wcAAgAFAAEAAADw/wcAAgAFAAEAAADx/wcAAgAFAAEAAADy/wcAAgAFAAEAAADz/wcAAgAFAAEAAAD0/wcAAgAFAAEAAAD1/wcAAgAFAAEAAAD2/wcAAgAFAAEAAAD3/wcAAgAFAAEAAAD4/wcAAgAFAAEAAAD5/wcAAgAFAAEAAAD6/wcAAgAFAAEAAAD7/wcAAgAFAAEAAAD8/wcAAgAFAAEAAAD9/wcAAgAFAAEAAAD+/wcAAgAFAAEAAAD//wcAAgAFAAEAAAAAAAcAAgAFAAEAAAABAAcAAgAFAAEAAAACAAcAAgAFAAEAAAADAAcAAgAFAAEAAAAEAAcAAgAFAAEAAAAFAAcAAgAFAAEAAAAGAAcAAgAFAAEAAAAHAPv/BAADAAAAAADo//v/BAACAAAAAADp//v/BAACAAAAAADq//v/BAACAAAAAADr//v/BAACAAAAAADs//v/BAACAAAAAADt//v/BAACAAAAAADu//v/BAACAAAAAADv//v/BAACAAAAAADw//v/BAACAAAAAADx//v/BAACAAAAAADy//v/BAACAAAAAADz//v/BAACAAAAAAD0//v/BAACAAAAAAD1//v/BAACAAAAAAD2//v/BAACAAAAAAD3//v/BAACAAAAAAD4//v/BAACAAAAAAD5//v/BAACAAAAAAD6//v/BAACAAAAAAD7//v/BAACAAAAAAD8//v/BAACAAAAAAD9//v/BAACAAAAAAD+//v/BAACAAAAAAD///v/BAACAAAAAAAAAPv/BAACAAAAAAABAPv/BAACAAAAAAACAPv/BAACAAAAAAADAPv/BAACAAAAAAAEAPv/BAACAAAAAAAFAPv/BAACAAAAAAAGAPv/BAACAAAAAAAHAP7/AgACAAEAAAAHAP//AgACAAEAAAAHAAAAAgACAAEAAAAHAAEAAgACAAEAAAAHAAIAAgACAAEAAAAHAAMAAgACAAEAAAA=")
 
 [node name="UpperTrain" parent="Platform3" index="6" unique_id=995237668]
+ticket_id = &"GREEN_east"
 color = 3
 
 [node name="LowerTrain" parent="Platform3" index="7" unique_id=1370361982]
+ticket_id = &"GREEN_west"
 color = 3
 
 [node name="Platform4" parent="." index="12" unique_id=1026362249 instance=ExtResource("2_bt44k")]
@@ -301,6 +306,7 @@ position = Vector2(-256, -432)
 position = Vector2(-496, -448)
 
 [node name="Decorations" type="Node2D" parent="." index="20" unique_id=1967516623]
+y_sort_enabled = true
 
 [node name="Hoverthruster" type="Sprite2D" parent="Decorations" index="0" unique_id=236404443]
 z_index = -1
@@ -422,93 +428,85 @@ texture = ExtResource("22_ryfpa")
 flip_h = true
 
 [node name="Board" parent="Decorations" index="25" unique_id=1185998454 instance=ExtResource("23_ntdhj")]
-position = Vector2(-1448, -744)
+position = Vector2(-1448, -712)
 
 [node name="Board2" parent="Decorations" index="26" unique_id=1351519759 instance=ExtResource("23_ntdhj")]
-position = Vector2(-1360, -744)
+position = Vector2(-1360, -712)
 
 [node name="Bench" parent="Decorations" index="27" unique_id=1044758855 instance=ExtResource("24_0fu15")]
-position = Vector2(-1016, -768)
+position = Vector2(-1016, -744)
 
 [node name="Bench2" parent="Decorations" index="28" unique_id=1868333744 instance=ExtResource("24_0fu15")]
-position = Vector2(-1016, -648)
+position = Vector2(-1016, -624)
 
 [node name="Bench6" parent="Decorations" index="29" unique_id=427024811 instance=ExtResource("24_0fu15")]
-position = Vector2(-1496, -768)
-flip_h = true
+position = Vector2(-1496, -744)
+scale = Vector2(-1, 1)
 
 [node name="Bench7" parent="Decorations" index="30" unique_id=2143635392 instance=ExtResource("24_0fu15")]
-position = Vector2(-1496, -648)
-flip_h = true
+position = Vector2(-1496, -624)
+scale = Vector2(-1, 1)
 
 [node name="Bench3" parent="Decorations" index="31" unique_id=2088653367 instance=ExtResource("25_4knja")]
-position = Vector2(-880, -1456)
+position = Vector2(-880, -1424)
 
 [node name="Bench4" parent="Decorations" index="32" unique_id=1470324368 instance=ExtResource("26_voubc")]
-position = Vector2(-560, -1448)
+position = Vector2(-560, -1424)
 
-[node name="BenchVertical" type="Sprite2D" parent="Decorations" index="33" unique_id=1599167149]
-position = Vector2(472, -1792)
-texture = ExtResource("27_0x1rk")
+[node name="Bench5" parent="Decorations" index="33" unique_id=743396368 instance=ExtResource("26_voubc")]
+position = Vector2(800, -1096)
 
-[node name="BenchVertical2" type="Sprite2D" parent="Decorations" index="34" unique_id=1252074483]
-position = Vector2(504, -1792)
-texture = ExtResource("27_0x1rk")
-flip_h = true
+[node name="Bench8" parent="Decorations" index="34" unique_id=1711168543 instance=ExtResource("26_voubc")]
+position = Vector2(448, -1096)
 
-[node name="BenchVertical3" type="Sprite2D" parent="Decorations" index="35" unique_id=1331735123]
-position = Vector2(744, -1792)
-texture = ExtResource("27_0x1rk")
+[node name="Board3" parent="Decorations" index="35" unique_id=1417847566 instance=ExtResource("23_ntdhj")]
+position = Vector2(552, -1080)
 
-[node name="BenchVertical4" type="Sprite2D" parent="Decorations" index="36" unique_id=2067222216]
-position = Vector2(776, -1792)
-texture = ExtResource("27_0x1rk")
-flip_h = true
+[node name="Board4" parent="Decorations" index="36" unique_id=1361364478 instance=ExtResource("23_ntdhj")]
+position = Vector2(696, -1080)
 
-[node name="BenchVertical5" type="Sprite2D" parent="Decorations" index="37" unique_id=1520306400]
-position = Vector2(840, -1088)
-texture = ExtResource("27_0x1rk")
+[node name="Board5" parent="Decorations" index="37" unique_id=1504911370 instance=ExtResource("23_ntdhj")]
+position = Vector2(-440, -136)
 
-[node name="BenchVertical6" type="Sprite2D" parent="Decorations" index="38" unique_id=1308740357]
-position = Vector2(760, -1088)
-texture = ExtResource("27_0x1rk")
-flip_h = true
+[node name="Board6" parent="Decorations" index="38" unique_id=375758270 instance=ExtResource("23_ntdhj")]
+position = Vector2(-216, -336)
 
-[node name="Bench5" parent="Decorations" index="39" unique_id=743396368 instance=ExtResource("26_voubc")]
-position = Vector2(800, -1120)
+[node name="Bench9" parent="Decorations" index="39" unique_id=1417377454 instance=ExtResource("24_0fu15")]
+position = Vector2(-48, -1392)
 
-[node name="BenchVertical7" type="Sprite2D" parent="Decorations" index="40" unique_id=1091919592]
-position = Vector2(488, -1088)
-texture = ExtResource("27_0x1rk")
+[node name="Bench10" parent="Decorations" index="40" unique_id=170501895 instance=ExtResource("24_0fu15")]
+position = Vector2(-48, -1232)
 
-[node name="BenchVertical8" type="Sprite2D" parent="Decorations" index="41" unique_id=1380817070]
-position = Vector2(408, -1088)
-texture = ExtResource("27_0x1rk")
-flip_h = true
+[node name="Board7" parent="Decorations" index="41" unique_id=741087564 instance=ExtResource("23_ntdhj")]
+position = Vector2(256, -1800)
 
-[node name="Bench8" parent="Decorations" index="42" unique_id=1711168543 instance=ExtResource("26_voubc")]
-position = Vector2(448, -1120)
+[node name="BenchVertical" parent="." index="21" unique_id=232674008 instance=ExtResource("24_0fu15")]
+position = Vector2(488, -1056)
 
-[node name="Board3" parent="Decorations" index="43" unique_id=1417847566 instance=ExtResource("23_ntdhj")]
-position = Vector2(552, -1112)
+[node name="BenchVertical2" parent="." index="22" unique_id=9735683 instance=ExtResource("24_0fu15")]
+position = Vector2(840, -1056)
 
-[node name="Board4" parent="Decorations" index="44" unique_id=1361364478 instance=ExtResource("23_ntdhj")]
-position = Vector2(696, -1112)
+[node name="BenchVertical7" parent="." index="23" unique_id=1655954103 instance=ExtResource("24_0fu15")]
+position = Vector2(472, -1768)
 
-[node name="Board5" parent="Decorations" index="45" unique_id=1504911370 instance=ExtResource("23_ntdhj")]
-position = Vector2(-440, -168)
+[node name="BenchVertical8" parent="." index="24" unique_id=1124528582 instance=ExtResource("24_0fu15")]
+position = Vector2(744, -1768)
 
-[node name="Board6" parent="Decorations" index="46" unique_id=375758270 instance=ExtResource("23_ntdhj")]
-position = Vector2(-216, -368)
+[node name="BenchVertical3" parent="." index="25" unique_id=2030446934 instance=ExtResource("24_0fu15")]
+position = Vector2(408, -1056)
+scale = Vector2(-1, 1)
 
-[node name="Bench9" parent="Decorations" index="47" unique_id=1417377454 instance=ExtResource("24_0fu15")]
-position = Vector2(-48, -1416)
+[node name="BenchVertical4" parent="." index="26" unique_id=2109670415 instance=ExtResource("24_0fu15")]
+position = Vector2(760, -1056)
+scale = Vector2(-1, 1)
 
-[node name="Bench10" parent="Decorations" index="48" unique_id=170501895 instance=ExtResource("24_0fu15")]
-position = Vector2(-48, -1256)
+[node name="BenchVertical5" parent="." index="27" unique_id=88579422 instance=ExtResource("24_0fu15")]
+position = Vector2(504, -1768)
+scale = Vector2(-1, 1)
 
-[node name="Board7" parent="Decorations" index="49" unique_id=741087564 instance=ExtResource("23_ntdhj")]
-position = Vector2(256, -1832)
+[node name="BenchVertical6" parent="." index="28" unique_id=604326937 instance=ExtResource("24_0fu15")]
+position = Vector2(776, -1768)
+scale = Vector2(-1, 1)
 
 [editable path="UiOverlay"]
 [editable path="Platform"]

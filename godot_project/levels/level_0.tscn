@@ -630,20 +630,21 @@ tile_set = SubResource("TileSet_3beyx")
 tile_set = SubResource("TileSet_3beyx")
 
 [node name="UpperTrain" parent="Platform" index="6" unique_id=995237668]
+ticket_id = &"RED_east"
 color = 7
 
 [node name="TrainSprite" parent="Platform/UpperTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.40758246
+frame_progress = 0.6910889
 
 [node name="LowerTrain" parent="Platform" index="7" unique_id=1370361982]
 next_scene = 2
-ticket_id = &"red_west"
+ticket_id = &"RED_west"
 color = 7
 
 [node name="TrainSprite" parent="Platform/LowerTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.6490414
+frame_progress = 0.93254495
 
 [node name="LevelAudioController" type="Node2D" parent="." index="6" unique_id=217677735]
 script = ExtResource("12_p0s0h")
@@ -703,30 +704,30 @@ position = Vector2(56, 16)
 shape = SubResource("RectangleShape2D_fpcxu")
 
 [node name="Decorations" type="Node2D" parent="." index="13" unique_id=192914961]
+y_sort_enabled = true
 
 [node name="Bench" parent="Decorations" index="0" unique_id=232674008 instance=ExtResource("23_gxks1")]
-position = Vector2(-1272, -280)
-frame_progress = 0.0
+position = Vector2(-1272, -272)
 
 [node name="Bench2" parent="Decorations" index="1" unique_id=1185998454 instance=ExtResource("24_gxks1")]
-position = Vector2(-1080, -288)
+position = Vector2(-1080, -272)
 
 [node name="Bench7" parent="Decorations" index="2" unique_id=1817933154 instance=ExtResource("25_osodt")]
-position = Vector2(-240, -272)
+position = Vector2(-240, -248)
 
 [node name="Bench8" parent="Decorations" index="3" unique_id=989663145 instance=ExtResource("25_osodt")]
-position = Vector2(-288, -272)
-flip_h = true
+position = Vector2(-288, -248)
+scale = Vector2(-1, 1)
 
 [node name="Bench9" parent="Decorations" index="4" unique_id=997770017 instance=ExtResource("25_osodt")]
-position = Vector2(-512, -272)
+position = Vector2(-512, -248)
 
 [node name="Bench10" parent="Decorations" index="5" unique_id=472910187 instance=ExtResource("25_osodt")]
-position = Vector2(-560, -272)
-flip_h = true
+position = Vector2(-560, -248)
+scale = Vector2(-1, 1)
 
 [node name="Bench6" parent="Decorations" index="6" unique_id=10712426 instance=ExtResource("23_gxks1")]
-position = Vector2(-784, -304)
+position = Vector2(-784, -288)
 
 [node name="Solardecor1" type="Sprite2D" parent="Decorations" index="7" unique_id=1204172538]
 position = Vector2(-1344, -456)
@@ -752,13 +753,13 @@ texture = ExtResource("26_vfwqd")
 flip_h = true
 
 [node name="Board" parent="Decorations" index="12" unique_id=1452368732 instance=ExtResource("27_juy1h")]
-position = Vector2(-1296, -336)
+position = Vector2(-1296, -320)
 
 [node name="Board2" parent="Decorations" index="13" unique_id=291304219 instance=ExtResource("27_juy1h")]
-position = Vector2(-832, -320)
+position = Vector2(-832, -296)
 
 [node name="Board3" parent="Decorations" index="14" unique_id=760774543 instance=ExtResource("27_juy1h")]
-position = Vector2(-736, -320)
+position = Vector2(-736, -296)
 
 [node name="Hoverthruster" type="Sprite2D" parent="Decorations" index="15" unique_id=1841506950]
 z_index = -1

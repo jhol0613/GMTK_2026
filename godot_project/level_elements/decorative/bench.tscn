@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://cvnqkyp5mc1nq" path="res://level_elements/decorative/bench.png" id="1_6bm8i"]
 [ext_resource type="Texture2D" uid="uid://df2ldgroey8mb" path="res://level_elements/decorative/snoozin.png" id="2_h4k8w"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fpcxu"]
+size = Vector2(48, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_h4k8w"]
 atlas = ExtResource("1_6bm8i")
 region = Rect2(0, 0, 48, 32)
@@ -44,20 +47,16 @@ animations = [{
 "speed": 2.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fpcxu"]
-size = Vector2(48, 16)
+[node name="Bench" type="StaticBody2D" unique_id=232674008]
+collision_layer = 2
 
-[node name="Bench" type="AnimatedSprite2D" unique_id=1185998454]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1878472438]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_fpcxu")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1185998454]
 z_index = 1
+position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_fpcxu")
 autoplay = "default"
 frame_progress = 0.0259226
-
-[node name="StaticBody" type="StaticBody2D" parent="." unique_id=232674008]
-z_index = 1
-position = Vector2(0, 16)
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody" unique_id=1878472438]
-position = Vector2(0, -8)
-shape = SubResource("RectangleShape2D_fpcxu")

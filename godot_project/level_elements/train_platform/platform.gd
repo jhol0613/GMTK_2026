@@ -6,8 +6,6 @@ extends Node2D
 @export var play_arrival_on_ready: bool = true
 @export var lower_train: Train
 
-@export var color: Enums.TrainColor
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
