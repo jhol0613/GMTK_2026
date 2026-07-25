@@ -125,13 +125,17 @@ func _confirm_option() -> void:
 		return
 	var choice: DialogueChoice = _choices[_selected_option]
 
-	_showing_options = false
-	_options.visible = false
-	_awaiting_close = true
-	_body.text = choice.reply
 	_reward = choice.reward
-	_awaiting_reward = _reward != null
 	option_confirmed.emit(choice.outcome_id)
+	if _reward != null:
+		_give_reward()
+		_awaiting_close = false
+		_awaiting_reward = false
+		hide_popup()
+		dialogue_complete.emit()
+	else:
+		_awaiting_close = true
+		_awaiting_reward = false
 
 
 func _refresh_options_visual() -> void:
