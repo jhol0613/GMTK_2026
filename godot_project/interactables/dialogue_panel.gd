@@ -11,6 +11,7 @@ signal option_confirmed(outcome_id: StringName)
 @onready var _body: ResshanLabel = $Root/Popup/MarginContainer/HBoxContainer/VBox/Body
 @onready var _options: VBoxContainer = $Root/Popup/MarginContainer/HBoxContainer/VBox/Options
 @onready var _speaker_icon: TextureRect = %SpeakerIcon
+@onready var _lines_sfx: AudioStreamPlayer = %LinesSFX
 
 var _lines: Array[DialogueLine] = []
 var _index: int = 0
@@ -69,6 +70,10 @@ func _update_line() -> void:
 	_speaker.text = line.speaker
 	_body.text = line.text
 	_speaker_icon.texture = line.speaker_icon
+	# Play the line's SFX if it exists
+	if line.sfx != null:
+		_lines_sfx.stream = line.sfx
+		_lines_sfx.play()
 
 
 func _on_interact_while_open() -> void:
@@ -125,13 +130,17 @@ func _confirm_option() -> void:
 		return
 	var choice: DialogueChoice = _choices[_selected_option]
 
-	_showing_options = false
-	_options.visible = false
-	_awaiting_close = true
-	_body.text = choice.reply
 	_reward = choice.reward
-	_awaiting_reward = _reward != null
 	option_confirmed.emit(choice.outcome_id)
+	if _reward != null:
+		_give_reward()
+		_awaiting_close = false
+		_awaiting_reward = false
+		hide_popup()
+		dialogue_complete.emit()
+	else:
+		_awaiting_close = true
+		_awaiting_reward = false
 
 
 func _refresh_options_visual() -> void:
@@ -139,6 +148,8 @@ func _refresh_options_visual() -> void:
 		var label := _options.get_child(i) as ResshanLabel
 		if label == null:
 			continue
+		var prefix := "> " if i == _selected_option else "  "
+		label.text = prefix + _choices[i].player_text
 		label.modulate = Color.WHITE if i == _selected_option else Color.GRAY
 
 

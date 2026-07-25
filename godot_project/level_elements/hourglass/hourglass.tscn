@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dpexe87ps0d7f"]
 
+[ext_resource type="Script" uid="uid://blreopjlfjcir" path="res://level_elements/hourglass/hourglass.gd" id="1_30fjg"]
 [ext_resource type="Texture2D" uid="uid://cenr55g5p2s5b" path="res://level_elements/hourglass/hourglass_top.png" id="1_nngdn"]
 [ext_resource type="Texture2D" uid="uid://bwqwekg3psljq" path="res://level_elements/hourglass/hourglass_bottom.png" id="2_30fjg"]
 
@@ -195,7 +196,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_psi6n")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"time_tick",
 "speed": 5.0
 }]
@@ -252,7 +253,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_635t5")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"time_tick",
 "speed": 5.0
 }]
@@ -261,6 +262,7 @@ animations = [{
 size = Vector2(78, 16)
 
 [node name="Hourglass" type="Node2D" unique_id=259821884]
+script = ExtResource("1_30fjg")
 
 [node name="HourglassTop" type="AnimatedSprite2D" parent="." unique_id=1470103453]
 z_index = 1

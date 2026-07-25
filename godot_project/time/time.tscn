@@ -2,24 +2,49 @@
 
 [ext_resource type="Script" uid="uid://byquvvrlqrlgj" path="res://time/time.gd" id="1_ep8tu"]
 [ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/resshan_label.gd" id="2_i56kd"]
+[ext_resource type="Texture2D" uid="uid://cxcsgyq6cucb6" path="res://time/ui_clock.png" id="2_ss088"]
+[ext_resource type="AudioStream" uid="uid://dyjirite3on8y" path="res://time/clock countdown sfx.mp3" id="4_1r2q8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kgoo1"]
+texture = ExtResource("2_ss088")
 
 [node name="Time" type="Control" unique_id=1094747133]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+pivot_offset = Vector2(117, 63)
 script = ExtResource("1_ep8tu")
+
+[node name="Highlight" type="Panel" parent="." unique_id=882150287]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -14.0
+offset_right = 216.5
+offset_bottom = 167.5
+scale = Vector2(1.1, 1.1)
+theme_override_styles/panel = SubResource("StyleBoxTexture_kgoo1")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1927031688]
+layout_mode = 0
+offset_right = 123.0
+offset_bottom = 83.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ss088")
 
 [node name="Label" type="Control" parent="." unique_id=331463616]
 texture_filter = 1
+custom_minimum_size = Vector2(22, 34)
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 69.0
+offset_top = 52.0
+offset_right = 218.0
+offset_bottom = 156.0
 mouse_filter = 2
 script = ExtResource("2_i56kd")
+text = "hi"
+font_size = 24
 metadata/_custom_type_script = "uid://sidowamkhcrt"
 
-[node name="Timer" type="Timer" parent="." unique_id=1898257493]
-autostart = true
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="." unique_id=1979466321]
+stream = ExtResource("4_1r2q8")
