@@ -33,9 +33,7 @@ func _ready() -> void:
 
 
 func _draw() -> void:
-	if text == prev_text:
-		return
-	prev_text = text
+	
 
 	var _f: Font = font
 	if not font:
@@ -68,3 +66,7 @@ func _draw() -> void:
 		"/n",
 		spacing,
 	)
+	
+	if text == prev_text:
+		return
+	prev_text = text
