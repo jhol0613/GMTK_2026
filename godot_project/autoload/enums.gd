@@ -31,6 +31,6 @@ enum TrainColor {
 enum BoardResult {
 	REJECTED,	## No ticket
 	TOO_LATE,	## Valid ticket, but the departure deadline has passed
-	WRONG_TRAIN,	## Valid ticket, but the train is the wrong color
-	SUCCESS,	## Valid ticket, time and train is the correct color
+	WRONG_TRAIN,	## Ticket matches a train, but wrong train/destination for the level
+	SUCCESS,	## Correct train, correct destination, and still on time
 }

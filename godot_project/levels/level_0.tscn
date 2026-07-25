@@ -530,7 +530,7 @@ metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_fpprv"]
 script = ExtResource("17_owf05")
-destination = "<<station.1>>"
+destination = "<<station.0>>"
 train_line = "<<red>> <<line>>"
 departure_hours_offset = 5
 id = &"red_west"
@@ -564,6 +564,7 @@ size = Vector2(112, 32)
 [node name="Level0" unique_id=783439983 instance=ExtResource("1_eus5j")]
 z_index = 1270
 script = ExtResource("2_as6hq")
+correct_destination = "<<station.1>>"
 
 [node name="Time" parent="UiOverlay" parent_id_path=PackedInt32Array(368800410) index="0" unique_id=1094747134]
 mouse_filter = 0

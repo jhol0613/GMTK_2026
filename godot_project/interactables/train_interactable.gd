@@ -16,7 +16,8 @@ func interact() -> void:
 func evaluate_board(ticket: TicketData) -> Enums.BoardResult:
 	if ticket == null:
 		return Enums.BoardResult.REJECTED
-	if not _is_correct_train(ticket):
+	# Matching ticket for this train, but wrong destination for the level wrong train.
+	if not _is_correct_train(ticket) or not _is_correct_destination(ticket):
 		return Enums.BoardResult.WRONG_TRAIN
 	if not _is_on_time(ticket):
 		return Enums.BoardResult.TOO_LATE
@@ -30,3 +31,20 @@ func _is_on_time(ticket: TicketData) -> bool:
 ## Checks if the ticket is for the correct train
 func _is_correct_train(ticket: TicketData) -> bool:
 	return train != null and ticket.id == train.ticket_id
+
+
+## Checks if the ticket goes to this level's one correct destination
+func _is_correct_destination(ticket: TicketData) -> bool:
+	var level := _get_level()
+	if level == null or level.correct_destination.is_empty():
+		return true
+	return ticket.destination == level.correct_destination
+
+
+func _get_level() -> LevelTemplate:
+	var node: Node = self
+	while node != null:
+		if node is LevelTemplate:
+			return node as LevelTemplate
+		node = node.get_parent()
+	return null
