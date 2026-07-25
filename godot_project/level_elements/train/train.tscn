@@ -462,21 +462,21 @@ shape = SubResource("RectangleShape2D_ujtin")
 libraries/ = SubResource("AnimationLibrary_oe38n")
 
 [node name="TrainInteractableL" parent="." unique_id=779530687 instance=ExtResource("3_725i7")]
-position = Vector2(-77, -52)
+position = Vector2(-64, -66)
 id = &"red_east"
 l_or_r = "l"
 
 [node name="CollisionShape2D" parent="TrainInteractableL" index="0" unique_id=278382881]
-position = Vector2(13, 57)
+position = Vector2(0, 57)
 shape = SubResource("RectangleShape2D_5xnue")
 
 [node name="TrainInteractableR" parent="." unique_id=1631350735 instance=ExtResource("3_725i7")]
-position = Vector2(51, -52)
+position = Vector2(64, -66)
 id = &"red_east"
 l_or_r = "r"
 
 [node name="CollisionShape2D" parent="TrainInteractableR" index="0" unique_id=278382881]
-position = Vector2(13, 57)
+position = Vector2(0, 57)
 shape = SubResource("RectangleShape2D_5xnue")
 
 [editable path="TrainInteractableL"]

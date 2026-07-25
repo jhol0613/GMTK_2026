@@ -6,12 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://cxekovsy3q368" path="res://level_elements/train_platform/platform.tscn" id="3_iss0w"]
 [ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://scripts/dialogue_choice.gd" id="3_jum3j"]
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://scripts/dialogue_line.gd" id="3_obtcn"]
-[ext_resource type="AudioStream" uid="uid://ce6kvjn3hwsb0" path="res://UI/Schedule_Open.mp3" id="3_uuq13"]
+[ext_resource type="AudioStream" uid="uid://ce6kvjn3hwsb0" path="res://ui/Schedule_Open.mp3" id="3_uuq13"]
 [ext_resource type="TileSet" uid="uid://dvxgqw1r5w5ps" path="res://levels/tileset/station_tileset.tres" id="4_owf05"]
 [ext_resource type="AudioStream" uid="uid://dg0waag44ulse" path="res://bgm/TRAINing with friends.mp3" id="12_8mki0"]
 [ext_resource type="AudioStream" uid="uid://bwdovww0j8m0k" path="res://bgm/Tripped and Lost v2.mp3" id="12_58gyl"]
 [ext_resource type="Script" uid="uid://8aci422hp6qo" path="res://levels/level_0_audio.gd" id="12_p0s0h"]
-[ext_resource type="AudioStream" uid="uid://cu3ssob4apsrg" path="res://UI/Train/Train Pulling Into.mp3" id="13_axdoh"]
+[ext_resource type="AudioStream" uid="uid://cu3ssob4apsrg" path="res://ui/Train/Train Pulling Into.mp3" id="13_axdoh"]
 [ext_resource type="Texture2D" uid="uid://kayfkwypm2a" path="res://character_portraits/ticket_lady/ticket_lady_portrait_2.png" id="15_fv0x7"]
 [ext_resource type="Texture2D" uid="uid://ca8r7wcmgae0o" path="res://levels/tileset/grasstiles.png" id="17_ggct0"]
 [ext_resource type="Script" uid="uid://cpfgjwe2lpk0k" path="res://scripts/ticket_data.gd" id="17_owf05"]
@@ -565,31 +565,27 @@ size = Vector2(112, 32)
 z_index = 1270
 script = ExtResource("2_as6hq")
 
-[node name="UiOverlay" parent="." index="0" unique_id=368800410]
-scale = Vector2(1, 1)
-transform = Transform2D(1, 0, 0, 1, 0, 0)
-
-[node name="Time" parent="UiOverlay" index="0" unique_id=1094747134]
+[node name="Time" parent="UiOverlay" parent_id_path=PackedInt32Array(368800410) index="0" unique_id=1094747134]
 mouse_filter = 0
 
-[node name="Notebook" parent="UiOverlay" index="1" unique_id=2020796058]
+[node name="Notebook" parent="UiOverlay" parent_id_path=PackedInt32Array(368800410) index="1" unique_id=2020796058]
 texture_filter = 2
 
-[node name="NotebookHoverSound" parent="UiOverlay" index="5" unique_id=732685104]
+[node name="NotebookHoverSound" parent="UiOverlay" parent_id_path=PackedInt32Array(368800410) index="5" unique_id=732685104]
 volume_db = 18.067
 
-[node name="TicketHoverSound" type="AudioStreamPlayer" parent="UiOverlay" index="6" unique_id=1936571993]
+[node name="TicketHoverSound" type="AudioStreamPlayer" parent="UiOverlay" parent_id_path=PackedInt32Array(368800410) index="6" unique_id=1936571993]
 stream = SubResource("AudioStreamMP3_qgvj7")
 volume_db = 18.978
 
-[node name="NotebookClickSound" parent="UiOverlay" index="7" unique_id=361111950]
+[node name="NotebookClickSound" parent="UiOverlay" parent_id_path=PackedInt32Array(368800410) index="7" unique_id=361111950]
 volume_db = 5.323
 
-[node name="TicketClickSound" type="AudioStreamPlayer" parent="UiOverlay" index="8" unique_id=1079414562]
+[node name="TicketClickSound" type="AudioStreamPlayer" parent="UiOverlay" parent_id_path=PackedInt32Array(368800410) index="8" unique_id=1079414562]
 stream = ExtResource("3_uuq13")
 volume_db = 5.551
 
-[node name="NotebookCloseSound" parent="UiOverlay" index="9" unique_id=798573098]
+[node name="NotebookCloseSound" parent="UiOverlay" parent_id_path=PackedInt32Array(368800410) index="9" unique_id=798573098]
 volume_db = 5.5
 
 [node name="Ground" parent="." index="2" unique_id=405308893 groups=["footstep_surfaces"]]
@@ -597,7 +593,7 @@ tile_map_data = PackedByteArray("AADm/wIAAAACAAEAAADm/wEAAAACAAEAAADm/wAAAAACAAE
 tile_set = ExtResource("4_owf05")
 
 [node name="Walls" parent="." index="3" unique_id=1210886880]
-tile_map_data = PackedByteArray("AADX/wMAAgAFAAEAAADW/wMAAgAFAAEAAADV/wMAAgAFAAEAAADU/wMAAgAFAAEAAADT/wMAAgAFAAEAAADT/wIAAgAFAAEAAADT/wEAAgAFAAEAAADT/wAAAgAFAAEAAADT////AgAFAAEAAADU/wAAAgAFAAEAAADU/wEAAgAFAAEAAADU/wIAAgAFAAEAAADV/wEAAgAFAAEAAADV/wIAAgAFAAEAAADW/wIAAgAFAAEAAADR//7/AgAEAAEAAADR////AgAEAAEAAADR/wAAAgAEAAEAAADR/wEAAgAEAAEAAADR/wIAAgAEAAEAAADR/wMAAgAEAAEAAADS//7/AgAFAAEAAADS////AgAFAAEAAADS/wAAAgAFAAEAAADS/wEAAgAFAAEAAADS/wIAAgAFAAEAAADS/wMAAgAFAAEAAADR//3/AgAEAAEAAADY/wMAAwABAAoAABDX/wIAAwABAAoAABDW/wEAAwABAAoAABDV/wAAAwABAAoAABDU////AwABAAoAABDT//7/AwABAAoAABDS//3/AwABAAoAABDR//z/AwABAAoAABDQ//z/AgADAAIAAADm/wQAAgAGAAEAAADR/wQAAgAEAAEAAADS/wQAAgAFAAEAAADT/wQAAgAFAAEAAADU/wQAAgAFAAEAAADV/wQAAgAFAAEAAADW/wQAAgAFAAEAAADX/wQAAgAFAAEAAADY/wQAAgAFAAEAAADZ/wQAAgAFAAEAAADa/wQAAgAFAAEAAADb/wQAAgAFAAEAAADc/wQAAgAFAAEAAADd/wQAAgAFAAEAAADe/wQAAgAFAAEAAADf/wQAAgAFAAEAAADg/wQAAgAFAAEAAADh/wQAAgAFAAEAAADi/wQAAgAFAAEAAADj/wQAAgAFAAEAAADk/wQAAgAFAAEAAADl/wQAAgAFAAEAAADm/wMAAgABAAIAAADl/wMAAgABAAIAAADk/wMAAgABAAIAAADj/wMAAgABAAIAAADi/wMAAgABAAIAAADh/wMAAgABAAIAAADg/wMAAgABAAIAAADf/wMAAgABAAIAAADe/wMAAgABAAIAAADd/wMAAgABAAIAAADc/wMAAgABAAIAAADb/wMAAgABAAIAAADa/wMAAgABAAIAAADZ/wMAAgABAAIAAADm//3/AgABAAIAAADl//3/AgABAAIAAADk//3/AgABAAIAAADj//3/AgABAAIAAADi//3/AgABAAIAAADh//3/AgABAAIAAADg//3/AgABAAIAAADf//3/AgABAAIAAADe//3/AgABAAIAAADd//3/AgABAAIAAADc//3/AgABAAIAAADb//3/AgABAAIAAADa//3/AgABAAIAAADZ//3/AgABAAIAAADY//3/AwABAAUAABDX//z/AwABAAUAABDW//v/AwABAAUAABDV//r/AwABAAUAABDU//n/AwABAAUAABDT//j/AwABAAUAABDS//f/AwABAAUAABDR//b/AwAEAAIAABDQ//3/AgACAAEAAADQ//b/AgADAAIAAADQ//X/AgADAAAAAADQ//D/AgACAAAAAADQ/wIAAgACAAIAAAC+/wIAAgAAAAIAAAC//wIAAgABAAIAAADA/wIAAgABAAIAAADB/wIAAgABAAIAAADC/wIAAgABAAIAAADD/wIAAgABAAIAAADM/wIAAgABAAIAAADN/wIAAgABAAIAAADO/wIAAgABAAIAAADP/wIAAgABAAIAAAC+//D/AgAAAAAAAAC///D/AgABAAAAAADA//D/AgABAAAAAADB//D/AgABAAAAAADC//D/AgABAAAAAADD//D/AgABAAAAAADE//D/AgABAAAAAADF//D/AgABAAAAAADG//D/AgABAAAAAADH//D/AgABAAAAAADI//D/AgABAAAAAADJ//D/AgABAAAAAADK//D/AgABAAAAAADL//D/AgABAAAAAADM//D/AgABAAAAAADN//D/AgABAAAAAADO//D/AgABAAAAAADP//D/AgABAAAAAADQ//7/AgACAAEAAADQ////AgACAAEAAADQ/wAAAgACAAEAAADQ/wEAAgACAAEAAADQ//H/AgACAAEAAADQ//L/AgACAAEAAADQ//P/AgACAAEAAADQ//T/AgACAAEAAADL/wIAAgABAAIAAADH/wIAAgADAAAAAADH/wMAAgADAAEAAADH/wQAAgADAAEAAADH/wUAAgADAAEAAAC+//H/AgAAAAEAAAC+//L/AgAAAAEAAAC+//P/AgAAAAEAAAC+//T/AgAAAAEAAAC+//X/AgAAAAEAAAC+//b/AgAAAAEAAAC+//f/AgAAAAEAAAC+//j/AgAAAAEAAAC+//n/AgAAAAEAAAC+//r/AgAAAAEAAAC+//v/AgAAAAEAAAC+//z/AgAAAAEAAAC+//3/AgAAAAEAAAC+//7/AgAAAAEAAAC+////AgAAAAEAAAC+/wAAAgAAAAEAAAC+/wEAAgAAAAEAAADE/wMAAgADAAIAAADE/wQAAgAAAAEAAADE/wUAAgAAAAEAAADK/wQAAgACAAEAAADK/wUAAgACAAEAAADY//z/AwABAAQAABDX//v/AwABAAQAABDW//r/AwABAAQAABDV//n/AwABAAQAABDU//j/AwABAAQAABDT//f/AwABAAQAABDS//b/AwABAAQAABDR//X/AwAEAAEAABDY/wIAAwABAAkAABDX/wEAAwABAAkAABDW/wAAAwABAAkAABDV////AwABAAkAABDU//7/AwABAAkAABDT//3/AwABAAkAABDS//z/AwABAAkAABDR//v/AwAEAAYAABDK/wMAAgADAAIAAADQ//v/AgADAAAAAADK/wIAAgADAAAAAADE/wIAAgADAAAAAAA=")
+tile_map_data = PackedByteArray("AADX/wMAAgAFAAEAAADW/wMAAgAFAAEAAADV/wMAAgAFAAEAAADU/wMAAgAFAAEAAADT/wMAAgAFAAEAAADT/wIAAgAFAAEAAADT/wEAAgAFAAEAAADT/wAAAgAFAAEAAADT////AgAFAAEAAADU/wAAAgAFAAEAAADU/wEAAgAFAAEAAADU/wIAAgAFAAEAAADV/wEAAgAFAAEAAADV/wIAAgAFAAEAAADW/wIAAgAFAAEAAADR//7/AgAEAAEAAADR////AgAEAAEAAADR/wAAAgAEAAEAAADR/wEAAgAEAAEAAADR/wIAAgAEAAEAAADR/wMAAgAEAAEAAADS//7/AgAFAAEAAADS////AgAFAAEAAADS/wAAAgAFAAEAAADS/wEAAgAFAAEAAADS/wIAAgAFAAEAAADS/wMAAgAFAAEAAADR//3/AgAEAAEAAADY/wMAAwABAAoAABDX/wIAAwABAAoAABDW/wEAAwABAAoAABDV/wAAAwABAAoAABDU////AwABAAoAABDT//7/AwABAAoAABDS//3/AwABAAoAABDR//z/AwABAAoAABDQ//z/AgADAAIAAADm/wQAAgAGAAEAAADR/wQAAgAEAAEAAADS/wQAAgAFAAEAAADT/wQAAgAFAAEAAADU/wQAAgAFAAEAAADV/wQAAgAFAAEAAADW/wQAAgAFAAEAAADX/wQAAgAFAAEAAADY/wQAAgAFAAEAAADZ/wQAAgAFAAEAAADa/wQAAgAFAAEAAADb/wQAAgAFAAEAAADc/wQAAgAFAAEAAADd/wQAAgAFAAEAAADe/wQAAgAFAAEAAADf/wQAAgAFAAEAAADg/wQAAgAFAAEAAADh/wQAAgAFAAEAAADi/wQAAgAFAAEAAADj/wQAAgAFAAEAAADk/wQAAgAFAAEAAADl/wQAAgAFAAEAAADm/wMAAgABAAIAAADl/wMAAgABAAIAAADk/wMAAgABAAIAAADj/wMAAgABAAIAAADi/wMAAgABAAIAAADh/wMAAgABAAIAAADg/wMAAgABAAIAAADf/wMAAgABAAIAAADe/wMAAgABAAIAAADd/wMAAgABAAIAAADc/wMAAgABAAIAAADb/wMAAgABAAIAAADa/wMAAgABAAIAAADZ/wMAAgABAAIAAADm//3/AgABAAIAAADl//3/AgABAAIAAADk//3/AgABAAIAAADj//3/AgABAAIAAADi//3/AgABAAIAAADh//3/AgABAAIAAADg//3/AgABAAIAAADf//3/AgABAAIAAADe//3/AgABAAIAAADd//3/AgABAAIAAADc//3/AgABAAIAAADb//3/AgABAAIAAADa//3/AgABAAIAAADZ//3/AgABAAIAAADY//3/AwABAAUAABDX//z/AwABAAUAABDW//v/AwABAAUAABDV//r/AwABAAUAABDU//n/AwABAAUAABDT//j/AwABAAUAABDS//f/AwABAAUAABDR//b/AwADAAMAABDQ//3/AgACAAEAAADQ//b/AgADAAIAAADQ//X/AgADAAAAAADQ//D/AgACAAAAAADQ/wIAAgACAAIAAAC+/wIAAgAAAAIAAAC//wIAAgABAAIAAADA/wIAAgABAAIAAADB/wIAAgABAAIAAADC/wIAAgABAAIAAADD/wIAAgABAAIAAADM/wIAAgABAAIAAADN/wIAAgABAAIAAADO/wIAAgABAAIAAADP/wIAAgABAAIAAAC+//D/AgAAAAAAAAC///D/AgABAAAAAADA//D/AgABAAAAAADB//D/AgABAAAAAADC//D/AgABAAAAAADD//D/AgABAAAAAADE//D/AgABAAAAAADF//D/AgABAAAAAADG//D/AgABAAAAAADH//D/AgABAAAAAADI//D/AgABAAAAAADJ//D/AgABAAAAAADK//D/AgABAAAAAADL//D/AgABAAAAAADM//D/AgABAAAAAADN//D/AgABAAAAAADO//D/AgABAAAAAADP//D/AgABAAAAAADQ//7/AgACAAEAAADQ////AgACAAEAAADQ/wAAAgACAAEAAADQ/wEAAgACAAEAAADQ//H/AgACAAEAAADQ//L/AgACAAEAAADQ//P/AgACAAEAAADQ//T/AgACAAEAAADL/wIAAgABAAIAAADH/wIAAgADAAAAAADH/wMAAgADAAEAAADH/wQAAgADAAEAAADH/wUAAgADAAEAAAC+//H/AgAAAAEAAAC+//L/AgAAAAEAAAC+//P/AgAAAAEAAAC+//T/AgAAAAEAAAC+//X/AgAAAAEAAAC+//b/AgAAAAEAAAC+//f/AgAAAAEAAAC+//j/AgAAAAEAAAC+//n/AgAAAAEAAAC+//r/AgAAAAEAAAC+//v/AgAAAAEAAAC+//z/AgAAAAEAAAC+//3/AgAAAAEAAAC+//7/AgAAAAEAAAC+////AgAAAAEAAAC+/wAAAgAAAAEAAAC+/wEAAgAAAAEAAADE/wMAAgADAAIAAADE/wQAAgAAAAEAAADE/wUAAgAAAAEAAADK/wQAAgACAAEAAADK/wUAAgACAAEAAADY//z/AwABAAQAABDX//v/AwABAAQAABDW//r/AwABAAQAABDV//n/AwABAAQAABDU//j/AwABAAQAABDT//f/AwABAAQAABDS//b/AwABAAQAABDR//X/AwAEAAEAABDY/wIAAwABAAkAABDX/wEAAwABAAkAABDW/wAAAwABAAkAABDV////AwABAAkAABDU//7/AwABAAkAABDT//3/AwABAAkAABDS//z/AwABAAkAABDR//v/AwAEAAYAABDK/wMAAgADAAIAAADQ//v/AgADAAAAAADK/wIAAgADAAAAAADE/wIAAgADAAAAAAA=")
 tile_set = ExtResource("4_owf05")
 
 [node name="Player" parent="." index="4" unique_id=799939449]
@@ -629,7 +625,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/UpperTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.19540852
+frame_progress = 0.9452969
 
 [node name="TrainInteractableL" parent="Platform/UpperTrain" index="10" unique_id=779530687]
 id = &"red_west"
