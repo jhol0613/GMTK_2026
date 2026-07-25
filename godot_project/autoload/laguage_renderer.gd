@@ -32,7 +32,7 @@ static func draw_text(
 			char_pos.x = 0
 			continue
 		if str.contains("<<") and str.contains(">>"):
-			var shape: = draw_resshan_text(char_pos, str, node, false)
+			var shape: = draw_resshan_text(char_pos, str, node, false, font_size)
 			shape.set_meta('resshen_text', str)
 			shape.set_meta('text_position', char_pos)
 			shapes.append(shape)
