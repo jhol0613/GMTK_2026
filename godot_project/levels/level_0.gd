@@ -5,6 +5,8 @@ var _intro_conversation_scene
 var _intro_falling_scene
 
 @onready var platform := $Platform
+@onready var ui_layer := $UiOverlay
+@onready var audio_controller := $LevelAudioController
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,8 +19,12 @@ func _ready() -> void:
 
 func _on_conversation_complete():
 	add_child(_intro_falling_scene)
+	await get_tree().create_timer(2).timeout
+	audio_controller.play_tripped_music()
+	
 
 func _on_falling_scene_complete():
 	platform.depart_upper_train()
+	ui_layer._on_notebook_button_pressed()
 	await get_tree().create_timer(10).timeout
 	platform.arrive_upper_train()

@@ -12,6 +12,7 @@ extends Node
 
 @onready var _train_intro: AudioStreamPlayer = $TrainIntro
 @onready var _bgm: AudioStreamPlayer = $BGM
+@onready var _tripped: AudioStreamPlayer = $Tripped
 
 @export_category("Notebook Music")
 @export var notebook_bgm_target_db: float = -4.0
@@ -46,6 +47,9 @@ func _play_level_timeline() -> void:
 		await get_tree().create_timer(bgm_play_duration).timeout
 		await fade_out_bgm(2.0)
 
+func play_tripped_music() -> void:
+	_bgm.stop()
+	_tripped.play()
 
 func play_train_intro() -> void:
 	_train_intro.play()

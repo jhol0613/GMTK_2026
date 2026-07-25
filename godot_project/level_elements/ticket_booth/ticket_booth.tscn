@@ -12,15 +12,43 @@
 atlas = ExtResource("1_8vy6h")
 region = Rect2(0, 0, 94, 87)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2qtd"]
+atlas = ExtResource("1_8vy6h")
+region = Rect2(0, 0, 94, 87)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vjcj"]
+atlas = ExtResource("1_8vy6h")
+region = Rect2(94, 0, 94, 87)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwpts"]
+atlas = ExtResource("1_8vy6h")
+region = Rect2(188, 0, 94, 87)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aff56"]
+atlas = ExtResource("1_8vy6h")
+region = Rect2(282, 0, 94, 87)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ujtin"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2vr77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2qtd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vjcj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwpts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aff56")
 }],
 "loop": 1,
 "name": &"default",
-"speed": 5.0
+"speed": 6.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8d5ud"]
@@ -45,6 +73,7 @@ script = ExtResource("1_e2qtd")
 z_index = 1
 position = Vector2(-12, -44.5)
 sprite_frames = SubResource("SpriteFrames_ujtin")
+autoplay = "default"
 
 [node name="DialogueInteractable" parent="." unique_id=358228256 instance=ExtResource("2_ui1pi")]
 z_index = 1
@@ -84,7 +113,7 @@ _string = "<<ticket>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ResshanInteractable" unique_id=1516641839]
-position = Vector2(-34.5, -34)
+position = Vector2(-28, -35)
 shape = SubResource("RectangleShape2D_pyhej")
 
 [node name="DialoguePanel" parent="." unique_id=210961773 instance=ExtResource("4_2vr77")]

@@ -108,6 +108,7 @@ script = ExtResource("1_2prw1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=395345619]
 libraries/ = SubResource("AnimationLibrary_p0bb6")
+speed_scale = 1.2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1313267312]
 layer = 30

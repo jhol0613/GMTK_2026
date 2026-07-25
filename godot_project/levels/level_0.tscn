@@ -9,9 +9,10 @@
 [ext_resource type="AudioStream" uid="uid://ce6kvjn3hwsb0" path="res://ui/Schedule_Open.mp3" id="3_uuq13"]
 [ext_resource type="TileSet" uid="uid://dvxgqw1r5w5ps" path="res://levels/tileset/station_tileset.tres" id="4_owf05"]
 [ext_resource type="PackedScene" uid="uid://denclmxtn1x1l" path="res://level_elements/departure_board/deaprture_board.tscn" id="9_ggct0"]
+[ext_resource type="AudioStream" uid="uid://dg0waag44ulse" path="res://bgm/TRAINing with friends.mp3" id="12_8mki0"]
 [ext_resource type="Script" uid="uid://8aci422hp6qo" path="res://levels/level_0_audio.gd" id="12_p0s0h"]
 [ext_resource type="AudioStream" uid="uid://cu3ssob4apsrg" path="res://ui/Train/Train Pulling Into.mp3" id="13_axdoh"]
-[ext_resource type="AudioStream" uid="uid://bbcbac8i6a3xm" path="res://levels/You TRAINed for this copy.mp3" id="14_as6hq"]
+[ext_resource type="AudioStream" uid="uid://iij1het2knks" path="res://bgm/Tripped and Lost.mp3" id="13_gxks1"]
 [ext_resource type="Texture2D" uid="uid://kayfkwypm2a" path="res://character_portraits/ticket_lady/ticket_lady_portrait_2.png" id="15_fv0x7"]
 [ext_resource type="Texture2D" uid="uid://ca8r7wcmgae0o" path="res://levels/tileset/grasstiles.png" id="17_ggct0"]
 [ext_resource type="Script" uid="uid://cpfgjwe2lpk0k" path="res://scripts/ticket_data.gd" id="17_owf05"]
@@ -603,7 +604,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/UpperTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.5814369
+frame_progress = 0.24632509
 
 [node name="TrainInteractableL" parent="Platform/UpperTrain" index="10" unique_id=779530687]
 id = &"berlin_s7"
@@ -622,9 +623,12 @@ script = ExtResource("12_p0s0h")
 stream = ExtResource("13_axdoh")
 
 [node name="BGM" type="AudioStreamPlayer" parent="LevelAudioController" index="1" unique_id=290439202]
-stream = ExtResource("14_as6hq")
+stream = ExtResource("12_8mki0")
 
-[node name="NotebookBGM" type="AudioStreamPlayer" parent="LevelAudioController" index="2" unique_id=1145455676]
+[node name="Tripped" type="AudioStreamPlayer" parent="LevelAudioController" index="2" unique_id=45072314]
+stream = ExtResource("13_gxks1")
+
+[node name="NotebookBGM" type="AudioStreamPlayer" parent="LevelAudioController" index="3" unique_id=1145455676]
 stream = ExtResource("23_8mki0")
 volume_db = -4.0
 
@@ -634,7 +638,7 @@ script = null
 
 [node name="DialogueInteractable" parent="TicketBooth" index="1" unique_id=358228256]
 lines = Array[ExtResource("3_obtcn")]([SubResource("Resource_d8oir")])
-choices = Array[ExtResource("3_jum3j")]([SubResource("Resource_snxo8")])
+choices = Array[ExtResource("3_jum3j")]([SubResource("Resource_snxo8"), null])
 
 [node name="ATM" parent="." index="8" unique_id=124595741 instance=ExtResource("18_uuq13")]
 position = Vector2(-784, -208)
