@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://dpnmacxamctuf"
-path="res://.godot/imported/Thank you.mp3-58760eab72348dfa77cf18a6112a24e8.mp3str"
+path="res://.godot/imported/Thank you.mp3-ee65431816a6010a579109d9d398f2a7.mp3str"
 
 [deps]
 
-source_file="res://ui/SpeechAudio/Thank you.mp3"
-dest_files=["res://.godot/imported/Thank you.mp3-58760eab72348dfa77cf18a6112a24e8.mp3str"]
+source_file="res://UI/SpeechAudio/Thank you.mp3"
+dest_files=["res://.godot/imported/Thank you.mp3-ee65431816a6010a579109d9d398f2a7.mp3str"]
 
 [params]
 
