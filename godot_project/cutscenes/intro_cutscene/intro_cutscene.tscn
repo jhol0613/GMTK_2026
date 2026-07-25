@@ -128,6 +128,7 @@ fade_out_time = 1.5
 metadata/_custom_type_script = "uid://dlgrteq5xyd5w"
 
 [node name="Comic1Picture2" type="Sprite2D" parent="CanvasLayer" unique_id=206320261]
+texture_filter = 2
 position = Vector2(976, 781)
 texture = ExtResource("2_oneg1")
 script = ExtResource("2_2prw1")
@@ -136,6 +137,7 @@ fade_out_time = 1.5
 metadata/_custom_type_script = "uid://dlgrteq5xyd5w"
 
 [node name="Comic1Picture3" type="Sprite2D" parent="CanvasLayer" unique_id=1850597694]
+texture_filter = 2
 position = Vector2(981, 295)
 texture = ExtResource("3_2prw1")
 script = ExtResource("2_2prw1")
@@ -144,6 +146,7 @@ fade_out_time = 1.5
 metadata/_custom_type_script = "uid://dlgrteq5xyd5w"
 
 [node name="Comic1Picture4a" type="Sprite2D" parent="CanvasLayer" unique_id=674879809]
+texture_filter = 2
 position = Vector2(980, 781)
 texture = ExtResource("4_3auth")
 script = ExtResource("2_2prw1")
@@ -152,6 +155,7 @@ fade_out_time = 1.5
 metadata/_custom_type_script = "uid://dlgrteq5xyd5w"
 
 [node name="Comic1Picture4b" type="Sprite2D" parent="CanvasLayer" unique_id=255630539]
+texture_filter = 2
 position = Vector2(976, 782)
 texture = ExtResource("5_p0bb6")
 script = ExtResource("2_2prw1")
