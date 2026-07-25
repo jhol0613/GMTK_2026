@@ -1,6 +1,6 @@
 extends Node
 
-signal time_changed(hour: int, minute: int)
+signal time_changed(hour: int, minute: int, second: int)
 signal flash_requested
 
 const SECONDS_PER_MINUTE: int = 8
@@ -50,20 +50,29 @@ func advance(amount: int = 1) -> void:
 
 
 func total_seconds() -> int:
-	return hour * MINUTES_PER_HOUR + minute * SECONDS_PER_MINUTE + second
+	return hour * MINUTES_PER_HOUR * SECONDS_PER_MINUTE + minute * SECONDS_PER_MINUTE + second
 
 
 ## Countdown "now + offset" → remaining time after offset minutes elapse.
 func remaining_after_offset(offset_hours: int, offset_minutes: int, offset_seconds: int) -> Vector3i:
 	var total := total_seconds() - (offset_hours * MINUTES_PER_HOUR * SECONDS_PER_MINUTE + offset_minutes * SECONDS_PER_MINUTE + offset_seconds)
 	total = maxi(total, 0)
-	return Vector3i(total / (MINUTES_PER_HOUR * SECONDS_PER_MINUTE), total % (MINUTES_PER_HOUR * SECONDS_PER_MINUTE) / SECONDS_PER_MINUTE, total % (MINUTES_PER_HOUR * SECONDS_PER_MINUTE) % MINUTES_PER_HOUR)
+	var seconds_per_hour := MINUTES_PER_HOUR * SECONDS_PER_MINUTE
+	return Vector3i(
+		total / seconds_per_hour,
+		(total % seconds_per_hour) / SECONDS_PER_MINUTE,
+		total % SECONDS_PER_MINUTE,
+	)
 
 
 ## Countdown comparison: true while remaining time is still at/above the target.
 ## (Higher remaining = earlier)
 func has_at_least(target_hour: int, target_minute: int, target_second: int) -> bool:
-	return total_seconds() >= target_hour * MINUTES_PER_HOUR + target_minute * SECONDS_PER_MINUTE + target_second
+	return total_seconds() >= (
+		target_hour * MINUTES_PER_HOUR * SECONDS_PER_MINUTE
+		+ target_minute * SECONDS_PER_MINUTE
+		+ target_second
+	)
 
 
 
