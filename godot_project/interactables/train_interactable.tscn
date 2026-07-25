@@ -6,8 +6,11 @@
 [node name="TrainInteractableL" unique_id=1631350735 instance=ExtResource("1_base")]
 script = ExtResource("2_script")
 id = &"ber"
+l_or_r = ""
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=278382881]
+position = Vector2(0, -9)
+scale = Vector2(1, 4.5)
 
 [node name="Prompt" parent="." index="1" unique_id=272794898]
-texture_filter = 1
-mouse_filter = 2
 metadata/_edit_use_anchors_ = true

@@ -108,12 +108,13 @@ position = Vector2(30.5, 35.5)
 shape = SubResource("RectangleShape2D_qbyu3")
 
 [node name="ResshanInteractable" type="Area2D" parent="." unique_id=1918025937]
+z_index = 1
+position = Vector2(-29, -34)
 script = ExtResource("3_ui1pi")
 _string = "<<ticket>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ResshanInteractable" unique_id=1516641839]
-position = Vector2(-29, -35)
 shape = SubResource("RectangleShape2D_pyhej")
 
 [node name="DialoguePanel" parent="." unique_id=210961773 instance=ExtResource("4_2vr77")]
