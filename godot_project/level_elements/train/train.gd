@@ -23,8 +23,6 @@ class_name Train
 
 @export var sprite: AnimatedSprite2D
 @export var color := Enums.TrainColor.BROWN:
-
-
 	# Ensure that index of animation names matches the order of the Enums
 	set(new_color):
 		color = new_color
@@ -38,7 +36,6 @@ class_name Train
 @onready var train_interactable_l: TrainInteractable = $TrainInteractableL
 @onready var train_interactable_r: TrainInteractable = $TrainInteractableR
 
-
 var _boarding: bool = false
 var _missed_departure: bool = false
 var _l_or_r: String
@@ -46,6 +43,7 @@ var _l_or_r: String
 @onready var player_disembark_marker: Marker2D = $PlayerDisembarkMarker
 
 @onready var original_position = position
+
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
@@ -85,7 +83,11 @@ func _on_time_changed(_hour: int, _minute: int) -> void:
 	var ticket: TicketData = Inventory.get_ticket()
 	if ticket == null or not _matches_ticket(ticket):
 		return
-	if TimeManager.has_at_least(ticket.departure_hours, ticket.departure_minutes, ticket.departure_seconds):
+	if TimeManager.has_at_least(
+		ticket.departure_hours,
+		ticket.departure_minutes,
+		ticket.departure_seconds,
+	):
 		return
 	_missed_departure = true
 	_missed_departure_sequence()
@@ -110,7 +112,7 @@ func _wrong_train_sequence() -> void:
 
 	_set_player_active(false)
 	await _run_boarding_and_departure()
-	
+
 	TimeManager.stash_before_reload(incorrect_penalty_minutes)
 
 	GameManager.load_scene(reload_scene)
@@ -174,15 +176,17 @@ func play_arrival_animation() -> void:
 	await animation_player.animation_finished
 	player.set_physics_process(true)
 
+
 ## Play arrival animation without moving player
 func play_simple_arrival_animation() -> void:
 	var stop_position: Vector2 = original_position
 	position = stop_position + arrival_offset
-		
+
 	var tween := create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(self, "position", stop_position, arrival_duration)
 	await tween.finished
-	
+
+
 #---------------------------------------------------------
 # Helper functions
 #---------------------------------------------------------

@@ -2,7 +2,7 @@ extends Node
 
 enum TransitionStyle {
 	NONE,
-	FADEINOUT
+	FADEINOUT,
 }
 
 enum Scenes {
@@ -11,7 +11,7 @@ enum Scenes {
 	LEVEL_0,
 	LEVEL_1,
 	LEVEL_2,
-	TITLE
+	TITLE,
 }
 
 # unfortunately alphabetical order here matters. Sorry
@@ -25,12 +25,12 @@ enum TrainColor {
 	PURPLE = 6,
 	RED = 7,
 	TEAL = 8,
-	YELLOW = 9
+	YELLOW = 9,
 }
 
 enum BoardResult {
-	REJECTED,	## No ticket
-	TOO_LATE,	## Valid ticket, but the departure deadline has passed
-	WRONG_TRAIN,	## Ticket matches a train, but wrong train/destination for the level
-	SUCCESS,	## Correct train, correct destination, and still on time
+	REJECTED, ## No ticket, or ticket does not match this train
+	TOO_LATE, ## Matching ticket, but the departure deadline has passed
+	WRONG_TRAIN, ## Ticket matches this train, but destination is wrong for the level
+	SUCCESS, ## Correct train, correct destination, and still on time
 }
