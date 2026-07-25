@@ -612,7 +612,6 @@ tile_set = SubResource("TileSet_64qpc")
 [node name="Walls" type="TileMapLayer" parent="." unique_id=1210886880]
 y_sort_enabled = true
 tile_set = SubResource("TileSet_64qpc")
-collision_visibility_mode = 1
 
 [node name="Player" parent="." unique_id=799939449 instance=ExtResource("4_3dbtp")]
 position = Vector2(-43, -7)

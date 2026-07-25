@@ -5,43 +5,51 @@
 [ext_resource type="PackedScene" uid="uid://dchuwbctx2fxx" path="res://interactables/train_interactable.tscn" id="3_725i7"]
 [ext_resource type="Texture2D" uid="uid://d0p3sbfud3275" path="res://player/sprites/Main_Character.png" id="4_player"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_725i7"]
-atlas = ExtResource("2_725i7")
-region = Rect2(0, 258, 1355, 129)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_5xnue"]
 atlas = ExtResource("2_725i7")
-region = Rect2(0, 387, 1355, 129)
+region = Rect2(0, 258, 813, 129)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_17x1t"]
 atlas = ExtResource("2_725i7")
-region = Rect2(0, 0, 1355, 129)
+region = Rect2(0, 387, 813, 129)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oe38n"]
 atlas = ExtResource("2_725i7")
-region = Rect2(0, 774, 1355, 129)
+region = Rect2(0, 0, 813, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkva7"]
+atlas = ExtResource("2_725i7")
+region = Rect2(0, 903, 813, 129)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rvps3"]
 atlas = ExtResource("2_725i7")
-region = Rect2(0, 516, 1355, 129)
+region = Rect2(0, 774, 813, 129)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wb4gf"]
 atlas = ExtResource("2_725i7")
-region = Rect2(0, 645, 1355, 129)
+region = Rect2(0, 516, 813, 129)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ee42e"]
 atlas = ExtResource("2_725i7")
-region = Rect2(0, 129, 1355, 129)
+region = Rect2(0, 645, 813, 129)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4fu51"]
 atlas = ExtResource("2_725i7")
-region = Rect2(0, 1161, 1355, 129)
+region = Rect2(0, 1032, 813, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vmqs"]
+atlas = ExtResource("2_725i7")
+region = Rect2(0, 129, 813, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfhyf"]
+atlas = ExtResource("2_725i7")
+region = Rect2(0, 1161, 813, 129)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ujtin"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_725i7")
+"texture": SubResource("AtlasTexture_5xnue")
 }],
 "loop": 1,
 "name": &"BLUE",
@@ -49,7 +57,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5xnue")
+"texture": SubResource("AtlasTexture_17x1t")
 }],
 "loop": 2,
 "name": &"BROWN",
@@ -57,7 +65,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_17x1t")
+"texture": SubResource("AtlasTexture_oe38n")
 }],
 "loop": 0,
 "name": &"GRAY",
@@ -65,7 +73,15 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oe38n")
+"texture": SubResource("AtlasTexture_pkva7")
+}],
+"loop": 1,
+"name": &"GREEN",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvps3")
 }],
 "loop": 0,
 "name": &"MAROON",
@@ -73,7 +89,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rvps3")
+"texture": SubResource("AtlasTexture_wb4gf")
 }],
 "loop": 1,
 "name": &"PINK",
@@ -81,20 +97,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wb4gf")
+"texture": SubResource("AtlasTexture_ee42e")
 }],
 "loop": 1,
 "name": &"PURPLE",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fu51")
+}],
 "loop": 1,
 "name": &"RED",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ee42e")
+"texture": SubResource("AtlasTexture_1vmqs")
 }],
 "loop": 1,
 "name": &"TEAL",
@@ -102,7 +121,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4fu51")
+"texture": SubResource("AtlasTexture_gfhyf")
 }],
 "loop": 1,
 "name": &"YELLOW",
@@ -293,12 +312,12 @@ size = Vector2(40, 23)
 script = ExtResource("1_cjdsu")
 next_scene = 2
 sprite = NodePath("TrainSprite")
-color = 5
 
 [node name="TrainSprite" type="AnimatedSprite2D" parent="." unique_id=865404147]
 position = Vector2(0, -40)
 sprite_frames = SubResource("SpriteFrames_ujtin")
 animation = &"BROWN"
+frame_progress = 0.06476942
 
 [node name="PlayerDisembarkMarker" type="Marker2D" parent="." unique_id=886720525]
 position = Vector2(-64, 18)
@@ -359,10 +378,6 @@ l_or_r = "l"
 position = Vector2(13, 57)
 shape = SubResource("RectangleShape2D_5xnue")
 
-[node name="Prompt" parent="TrainInteractableL" index="1" unique_id=272794898]
-texture_filter = 1
-mouse_filter = 2
-
 [node name="TrainInteractableR" parent="." unique_id=1631350735 instance=ExtResource("3_725i7")]
 position = Vector2(51, -52)
 id = &"berlin_s5"
@@ -371,10 +386,6 @@ l_or_r = "r"
 [node name="CollisionShape2D" parent="TrainInteractableR" index="0" unique_id=278382881]
 position = Vector2(13, 57)
 shape = SubResource("RectangleShape2D_5xnue")
-
-[node name="Prompt" parent="TrainInteractableR" index="1" unique_id=272794898]
-texture_filter = 1
-mouse_filter = 2
 
 [editable path="TrainInteractableL"]
 [editable path="TrainInteractableR"]
