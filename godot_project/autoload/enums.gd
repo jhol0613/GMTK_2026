@@ -19,12 +19,13 @@ enum TrainColor {
 	BLUE = 0,
 	BROWN = 1,
 	GRAY = 2,
-	MAROON = 3,
-	PINK = 4,
-	PURPLE = 5,
-	RED = 6,
-	TEAL = 7,
-	YELLOW = 8
+	GREEN = 3,
+	MAROON = 4,
+	PINK = 5,
+	PURPLE = 6,
+	RED = 7,
+	TEAL = 8,
+	YELLOW = 9
 }
 
 enum BoardResult {

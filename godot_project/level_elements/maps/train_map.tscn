@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cit6uoxu58nwk"]
+
+[ext_resource type="Texture2D" uid="uid://cnf5hjo1lj1xu" path="res://level_elements/maps/trainmap.png" id="1_f63an"]
+[ext_resource type="PackedScene" uid="uid://i202174cj82c" path="res://interactables/sign_interactable.tscn" id="2_ed7fu"]
+[ext_resource type="PackedScene" uid="uid://0h6rwq0bq753" path="res://interactables/sign_panel.tscn" id="3_rlmea"]
+[ext_resource type="Texture2D" uid="uid://t1gbduu3o0qs" path="res://level_elements/maps/map_sign.png" id="4_rlmea"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]
+size = Vector2(34, 12)
+
+[node name="TrainMap" type="Node2D" unique_id=940096549]
+
+[node name="Trainmap" type="Sprite2D" parent="." unique_id=2020560551]
+z_index = 1
+position = Vector2(0, -31)
+texture = ExtResource("1_f63an")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1879648832]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=570825698]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_ujtin")
+
+[node name="SignInteractable" parent="." unique_id=1631350735 instance=ExtResource("2_ed7fu")]
+panel_path = NodePath("../SignPanel")
+minutes_cost = 1
+
+[node name="CollisionShape2D" parent="SignInteractable" index="0" unique_id=278382881]
+position = Vector2(0, 1)
+
+[node name="SignPanel" parent="." unique_id=1998267979 instance=ExtResource("3_rlmea")]
+
+[node name="Sprite2D" type="Sprite2D" parent="SignPanel/Root/Popup" parent_id_path=PackedInt32Array(1998267979, 2123670025) index="1" unique_id=87657577]
+position = Vector2(228, 240)
+scale = Vector2(0.77, 0.77)
+texture = ExtResource("4_rlmea")
+
+[editable path="SignInteractable"]
+[editable path="SignPanel"]
