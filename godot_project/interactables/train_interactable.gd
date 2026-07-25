@@ -1,7 +1,7 @@
 class_name TrainInteractable
 extends Interactable
 
-@export var id: StringName = "berlin_s5"
+@export var id: StringName = "red_east"
 @export var l_or_r: String
 
 @onready var train: Train = get_parent() as Train
