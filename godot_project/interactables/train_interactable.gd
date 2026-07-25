@@ -1,7 +1,6 @@
 class_name TrainInteractable
 extends Interactable
 
-@export var id: StringName = "red_east"
 @export var l_or_r: String
 
 @onready var train: Train = get_parent() as Train
@@ -30,4 +29,4 @@ func _is_on_time(ticket: TicketData) -> bool:
 
 ## Checks if the ticket is for the correct train
 func _is_correct_train(ticket: TicketData) -> bool:
-	return ticket.id == id
+	return train != null and ticket.id == train.ticket_id

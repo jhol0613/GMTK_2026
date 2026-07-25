@@ -625,16 +625,15 @@ tile_set = SubResource("TileSet_3beyx")
 
 [node name="UpperTrain" parent="Platform" index="6" unique_id=995237668]
 color = 7
+ticket_id = &"red_east"
 
 [node name="TrainSprite" parent="Platform/UpperTrain" index="0" unique_id=865404147]
 animation = &"RED"
 frame_progress = 0.40785214
 
-[node name="TrainInteractableL" parent="Platform/UpperTrain" index="10" unique_id=779530687]
-id = &"red_west"
-
 [node name="LowerTrain" parent="Platform" index="7" unique_id=1370361982]
 color = 7
+ticket_id = &"red_west"
 
 [node name="LevelAudioController" type="Node2D" parent="." index="6" unique_id=217677735]
 script = ExtResource("12_p0s0h")
@@ -698,7 +697,6 @@ shape = SubResource("RectangleShape2D_fpcxu")
 [editable path="UiOverlay"]
 [editable path="Platform"]
 [editable path="Platform/UpperTrain"]
-[editable path="Platform/UpperTrain/TrainInteractableL"]
-[editable path="Platform/UpperTrain/TrainInteractableR"]
+[editable path="Platform/LowerTrain"]
 [editable path="TicketBooth"]
 [editable path="TicketBooth/DialogueInteractable"]
