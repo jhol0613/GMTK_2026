@@ -75,7 +75,7 @@ func try_board(interactable: TrainInteractable, l_or_r: String) -> void:
 			await _boarding_sequence()
 
 
-func _on_time_changed(_hour: int, _minute: int) -> void:
+func _on_time_changed(_hour: int, _minute: int, _second: int) -> void:
 	if not departs_on_missed_deadline:
 		return
 	if _boarding or _missed_departure:
