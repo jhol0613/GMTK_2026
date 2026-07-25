@@ -5,6 +5,7 @@ var speed: int = 100
 var sprint_speed: int = 200
 var sprint_animation_multiplier := 1.5
 var distance: int = 0
+var movement_disabled: bool = false
 
 @export var distance_per_minute: int = 50
 
@@ -30,39 +31,11 @@ var _footstep_randomizers: Dictionary[StringName, AudioStreamRandomizer] = {}
 func _ready() -> void:
 	add_to_group("player")
 	
-	_footsteps = AudioStreamPlayer.new()
-	var rng := AudioStreamRandomizer.new()
-	rng.playback_mode = AudioStreamRandomizer.PLAYBACK_RANDOM_NO_REPEATS
-	rng.random_pitch = 1.1
-	for s in footstep_sounds:
-		rng.add_stream(-1, s)
-	_footsteps.stream = rng
-	add_child(_footsteps)
-	$AudioListener2D.make_current()
-	
-	_footsteps = AudioStreamPlayer.new()
-
-	add_child(_footsteps)
-
-	_footstep_randomizers[&"default"] = (
-		_create_footstep_randomizer(footstep_sounds)
-	)
-	_footstep_randomizers[&"grass"] = (
-		_create_footstep_randomizer(grass_footstep_sounds)
-	)
-	_footstep_randomizers[&"stone"] = (
-		_create_footstep_randomizer(stone_footstep_sounds)
-	)
-	_footstep_randomizers[&"wood"] = (
-		_create_footstep_randomizer(wood_footstep_sounds)
-	)
-	
-
-	$AudioListener2D.make_current()
+	_initialize_footstep_audio()
 
 
 func _physics_process(_delta: float) -> void:
-	if _is_any_panel_open():
+	if _is_any_panel_open() or movement_disabled:
 		direction = Vector2.ZERO
 		return
 
@@ -119,6 +92,37 @@ func _animate() -> void:
 				sprite.play( "idle_up" )
 			"walk_down" :
 				sprite.play( "idle" )
+
+func _initialize_footstep_audio():
+	_footsteps = AudioStreamPlayer.new()
+	var rng := AudioStreamRandomizer.new()
+	rng.playback_mode = AudioStreamRandomizer.PLAYBACK_RANDOM_NO_REPEATS
+	rng.random_pitch = 1.1
+	for s in footstep_sounds:
+		rng.add_stream(-1, s)
+	_footsteps.stream = rng
+	add_child(_footsteps)
+	$AudioListener2D.make_current()
+	
+	_footsteps = AudioStreamPlayer.new()
+
+	add_child(_footsteps)
+
+	_footstep_randomizers[&"default"] = (
+		_create_footstep_randomizer(footstep_sounds)
+	)
+	_footstep_randomizers[&"grass"] = (
+		_create_footstep_randomizer(grass_footstep_sounds)
+	)
+	_footstep_randomizers[&"stone"] = (
+		_create_footstep_randomizer(stone_footstep_sounds)
+	)
+	_footstep_randomizers[&"wood"] = (
+		_create_footstep_randomizer(wood_footstep_sounds)
+	)
+	
+
+	$AudioListener2D.make_current()
 
 func _create_footstep_randomizer(
 	sounds: Array[AudioStream]
