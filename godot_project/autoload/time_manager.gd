@@ -18,6 +18,14 @@ func _ready() -> void:
 	SignalBus.minutes_passed.connect(advance)
 
 
+func _unhandled_input(event: InputEvent) -> void:
+	if not OS.is_debug_build():
+		return
+	if event is InputEventKey and event.pressed and not event.echo:
+		if event.physical_keycode == KEY_T:
+			advance(MINUTES_PER_HOUR)
+
+
 func reset(start_hour: int = HOUR_PER_DAY, start_minute: int = 0) -> void:
 	hour = start_hour
 	minute = start_minute
