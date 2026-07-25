@@ -10,16 +10,32 @@ position = Vector2(970, 530)
 
 [node name="ResshanLabel" type="Control" parent="." unique_id=306997885]
 texture_filter = 1
-custom_minimum_size = Vector2(31, 30)
+custom_minimum_size = Vector2(229, 110)
 layout_mode = 3
 anchors_preset = 0
 offset_left = 219.0
 offset_top = 150.0
-offset_right = 259.0
-offset_bottom = 190.0
+offset_right = 448.0
+offset_bottom = 260.0
 mouse_filter = 2
 script = ExtResource("2_rsnfv")
-text = "<<train>> "
+text = "<<train>> test"
 spacing = 1.0
-font_size = 30
+font_size = 80
+metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="ResshanLabel2" type="Control" parent="." unique_id=1442795618]
+texture_filter = 1
+custom_minimum_size = Vector2(229, 110)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 219.0
+offset_top = 438.0
+offset_right = 448.0
+offset_bottom = 548.0
+mouse_filter = 2
+script = ExtResource("2_rsnfv")
+text = "<<ticket>> test"
+spacing = 1.0
+font_size = 80
 metadata/_custom_type_script = "uid://sidowamkhcrt"

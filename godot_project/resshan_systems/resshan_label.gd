@@ -59,6 +59,7 @@ func _draw() -> void:
 
 		_areas.append(area)
 		add_child(area)
+	
 	custom_minimum_size = LanguageRenderer.get_string_size(
 		text,
 		ThemeDB.fallback_font,

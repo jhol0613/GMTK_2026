@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://b6orlsmg3aep5"]
+
+[ext_resource type="Shader" uid="uid://b4vij27e26aiy" path="res://resshan_systems/shine.gdshader" id="1_u8tx3"]
+
+[resource]
+shader = ExtResource("1_u8tx3")
+shader_parameter/pixel_size = 10
+shader_parameter/color = Color(1, 0.92156863, 0.5686275, 1)
+shader_parameter/time = 0.32
