@@ -2,8 +2,8 @@ extends Node2D
 
 class_name LevelTemplate
 
-## The only destination that lets the player leave this level.
-@export var correct_destination: String = ""
+## The train line that lets the player leave this level.
+@export var correct_line: StringName = &"red_east"
 
 func _ready() -> void:
 	# sync the camera to the player
