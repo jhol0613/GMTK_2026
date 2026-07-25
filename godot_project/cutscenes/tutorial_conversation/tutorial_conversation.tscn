@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ccrqgct6bn6ok" path="res://character_portraits/friend/friend_portrait_2.png" id="5_inmqh"]
 [ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialogue_panel.tscn" id="5_vtjp4"]
 [ext_resource type="Texture2D" uid="uid://drbj4g6y7pqm3" path="res://character_portraits/friend/friend_portrait_3.png" id="6_h3ycx"]
+[ext_resource type="Texture2D" uid="uid://cnx2wdgdmxkv6" path="res://character_portraits/player/mc_portrait_1.png" id="10_h3ycx"]
 
 [sub_resource type="Resource" id="Resource_h61wc"]
 script = ExtResource("4_7b540")
@@ -63,6 +64,7 @@ texture_filter = 1
 layer = 20
 
 [node name="DialoguePanel" parent="CanvasLayer" unique_id=210961773 instance=ExtResource("5_vtjp4")]
+player_icon = ExtResource("10_h3ycx")
 
 [node name="Bff" type="Sprite2D" parent="CanvasLayer" unique_id=1632636105]
 position = Vector2(1088, 597)

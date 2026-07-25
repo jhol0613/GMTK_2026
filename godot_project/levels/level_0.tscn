@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://ddbgow303m2gq" path="res://levels/tileset/TX Tileset Grass.png" id="18_8mki0"]
 [ext_resource type="PackedScene" uid="uid://cit6uoxu58nwk" path="res://level_elements/maps/train_map.tscn" id="18_owf05"]
 [ext_resource type="PackedScene" uid="uid://baukigq6wfgs1" path="res://level_elements/ATM/atm.tscn" id="18_uuq13"]
+[ext_resource type="Texture2D" uid="uid://cnx2wdgdmxkv6" path="res://character_portraits/player/mc_portrait_1.png" id="19_ggct0"]
 [ext_resource type="Texture2D" uid="uid://dy3h6m8das3ut" path="res://levels/tileset/brickborder.png" id="19_gxks1"]
 [ext_resource type="PackedScene" uid="uid://dpexe87ps0d7f" path="res://level_elements/hourglass/hourglass.tscn" id="20_uuq13"]
 [ext_resource type="AudioStream" uid="uid://dlip7tol2c20x" path="res://notebook/Keeping TRACK of my Notes demo.mp3" id="23_8mki0"]
@@ -652,6 +653,9 @@ position = Vector2(-896, -96)
 lines = Array[ExtResource("3_obtcn")]([SubResource("Resource_d8oir")])
 choices = Array[ExtResource("3_jum3j")]([SubResource("Resource_snxo8"), SubResource("Resource_2prw1")])
 
+[node name="DialoguePanel" parent="TicketBooth" index="4" unique_id=210961773]
+player_icon = ExtResource("19_ggct0")
+
 [node name="ATM" parent="." index="8" unique_id=124595741 instance=ExtResource("18_uuq13")]
 position = Vector2(-784, -208)
 
@@ -660,6 +664,22 @@ position = Vector2(-1008, -192)
 
 [node name="Hourglass" parent="." index="10" unique_id=259821884 instance=ExtResource("20_uuq13")]
 position = Vector2(-904, -202)
+
+[node name="SkipIntroLayer" type="CanvasLayer" parent="." index="11"]
+layer = 31
+
+[node name="SkipIntroButton" type="Button" parent="SkipIntroLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -180.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = 64.0
+grow_horizontal = 0
+text = "Skip Intro"
+
+[connection signal="pressed" from="SkipIntroLayer/SkipIntroButton" to="." method="_skip_intro"]
 
 [editable path="UiOverlay"]
 [editable path="Platform"]
