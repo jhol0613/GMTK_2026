@@ -139,6 +139,8 @@ func _refresh_options_visual() -> void:
 		var label := _options.get_child(i) as ResshanLabel
 		if label == null:
 			continue
+		var prefix := "> " if i == _selected_option else "  "
+		label.text = prefix + _choices[i].player_text
 		label.modulate = Color.WHITE if i == _selected_option else Color.GRAY
 
 
