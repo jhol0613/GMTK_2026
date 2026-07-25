@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://denclmxtn1x1l"]
+
+[ext_resource type="Texture2D" uid="uid://bk0lode0vclmc" path="res://level_elements/departure_board/departure board.png" id="1_gh1tk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]
+size = Vector2(87, 14)
+
+[node name="DeaprtureBoard" type="Node2D" unique_id=994016923]
+
+[node name="DepartureBoard" type="Sprite2D" parent="." unique_id=723603560]
+z_index = 1
+position = Vector2(0, -55)
+texture = ExtResource("1_gh1tk")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1810997999]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=150451808]
+position = Vector2(2.5, -8)
+shape = SubResource("RectangleShape2D_ujtin")
