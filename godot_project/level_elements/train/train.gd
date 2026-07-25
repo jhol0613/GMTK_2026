@@ -13,7 +13,6 @@ class_name Train
 @export var arrival_duration: float = 1.5
 
 @export var incorrect_penalty_minutes: int = 5
-@export var reload_scene: Enums.Scenes = Enums.Scenes.LEVEL_0
 ## The delay before the train arrives at the platform after missing the deadline
 @export var missed_rearrive_delay: float = 8.0
 ## If true, this train leaves on its own when a matching ticket's deadline passes
@@ -115,7 +114,7 @@ func _wrong_train_sequence() -> void:
 
 	TimeManager.stash_before_reload(incorrect_penalty_minutes)
 
-	GameManager.load_scene(reload_scene)
+	GameManager.load_scene(next_scene)
 	_boarding = false
 
 
