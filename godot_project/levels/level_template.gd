@@ -2,6 +2,9 @@ extends Node2D
 
 class_name LevelTemplate
 
+## The only destination that lets the player leave this level.
+@export var correct_destination: String = ""
+
 func _ready() -> void:
 	# sync the camera to the player
 	var player: CharacterBody2D = $Player

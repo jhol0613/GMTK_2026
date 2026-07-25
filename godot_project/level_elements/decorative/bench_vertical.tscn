@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://boj5ceg5pnoi3"]
+
+[ext_resource type="Texture2D" uid="uid://pkkbdvh3ie8q" path="res://level_elements/decorative/bench_vertical.png" id="1_rtlqk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3r4dp"]
+atlas = ExtResource("1_rtlqk")
+region = Rect2(0, 0, 16, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fpcxu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3r4dp")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fpcxu"]
+size = Vector2(16, 40)
+
+[node name="Bench" type="AnimatedSprite2D" unique_id=1185998454]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_fpcxu")
+autoplay = "default"
+
+[node name="StaticBody" type="StaticBody2D" parent="." unique_id=232674008]
+z_index = 1
+position = Vector2(0, 16)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody" unique_id=1878472438]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_fpcxu")

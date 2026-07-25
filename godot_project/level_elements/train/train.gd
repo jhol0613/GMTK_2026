@@ -18,6 +18,8 @@ class_name Train
 @export var missed_rearrive_delay: float = 8.0
 ## If true, this train leaves on its own when a matching ticket's deadline passes
 @export var departs_on_missed_deadline: bool = true
+## Ticket id this train accepts (e.g. red_east / red_west).
+@export var ticket_id: StringName = &"red_east"
 
 @export var sprite: AnimatedSprite2D
 @export var color := Enums.TrainColor.BROWN:
@@ -193,7 +195,7 @@ func _set_player_active(active: bool) -> void:
 
 
 func _matches_ticket(ticket: TicketData) -> bool:
-	return train_interactable_l.id == ticket.id or train_interactable_r.id == ticket.id
+	return ticket_id == ticket.id
 
 
 ## Sets the interactables to enabled or disabled

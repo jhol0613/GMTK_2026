@@ -60,10 +60,6 @@ func _on_ticket_button_pressed():
 	_ticket.visible = not _ticket.visible
 	
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("toggle_notebook"):
-		_on_notebook_button_pressed()
-	if event.is_action_pressed("toggle_ticket"):
-		_on_ticket_button_pressed()
 	if event.is_action_pressed("escape"):
 		if _ticket.visible:
 			_ticket_click_sound.play()
@@ -74,4 +70,4 @@ func _input(event: InputEvent) -> void:
 		
 		# Enable player movement if closing the notebook
 		for player in get_tree().get_nodes_in_group("player"):
-			player.movement_disabled = true
+			player.movement_disabled = false
