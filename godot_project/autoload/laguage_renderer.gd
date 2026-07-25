@@ -3,7 +3,8 @@ extends Node2D
 
 const DEFAULT_SPACING: = 15.0
 const DEFAULT_PARAGRAPH_SEPARATOR: = "\n"
-const DEFAULT_FONT_SIZE: int = 16
+const ENGLISH_DEFAULT_FONT_SIZE: int = 42
+const RESSHAN_DEFAULT_FONT_SIZE: int = 80
 
 # It's for the "str" variables. str() is a keyword, so it's fine
 @warning_ignore_start('shadowed_global_identifier')
@@ -16,7 +17,7 @@ static func draw_text(
 	spacing: float = DEFAULT_SPACING,
 	separator: String = DEFAULT_PARAGRAPH_SEPARATOR,
 	font: = ThemeDB.fallback_font,
-	font_size: = DEFAULT_FONT_SIZE,
+	font_size: = ENGLISH_DEFAULT_FONT_SIZE,
 	modulate_color: = Color.WHITE
 
 ) -> Array[RectangleShape2D]:
@@ -31,7 +32,7 @@ static func draw_text(
 			char_pos.x = 0
 			continue
 		if str.contains("<<") and str.contains(">>"):
-			var shape: = draw_resshan_text(char_pos, str, node, false, font_size)
+			var shape: = draw_resshan_text(char_pos, str, node, false)
 			shape.set_meta('resshen_text', str)
 			shape.set_meta('text_position', char_pos)
 			shapes.append(shape)
@@ -49,8 +50,8 @@ static func draw_resshan_text(
 	str:String,
 	node:CanvasItem,
 	encoded: = false,
-	font_size: = DEFAULT_FONT_SIZE,
-	modulate_color: = Color.WHITE,
+	font_size: = RESSHAN_DEFAULT_FONT_SIZE,
+	modulate_color: = Color.SKY_BLUE,
 	
 	) -> RectangleShape2D:
 		
@@ -60,7 +61,7 @@ static func draw_resshan_text(
 	else:
 		arr = str.split('.')
 	
-	pos.y -= font_size
+	pos.y -= font_size * .75 
 	for indx:String in arr:
 		var char_rec: = Rect2(pos, Vector2(font_size,font_size))
 		var i:int = str_to_var(indx)

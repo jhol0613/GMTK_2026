@@ -8,7 +8,7 @@ func _draw() -> void:
 		return
 	var shape: = LanguageRenderer.draw_resshan_text(
 		$Resshan.position + Vector2(0,24), _resshan_string, self, true,
-		60, Color.BLACK
+		80, Color.BLACK
 	)
 	$Resshan.custom_minimum_size.x = shape.size.x
 

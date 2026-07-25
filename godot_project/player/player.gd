@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 var direction: Vector2 = Vector2(1,1)
 var speed: int = 100
+var sprint_speed: int = 200
+var sprint_animation_multiplier := 1.5
 var distance: int = 0
 
 @export var distance_per_minute: int = 50
@@ -71,8 +73,9 @@ func _physics_process(_delta: float) -> void:
 	if not direction:
 		return
 	
-	
-	velocity = direction * speed
+	var sprinting = Input.is_action_pressed("sprint")
+	sprite.speed_scale = sprint_animation_multiplier if sprinting else 1.0
+	velocity = direction * (sprint_speed if sprinting else speed)
 	var old_position = position
 	move_and_slide()
 	if position != old_position:

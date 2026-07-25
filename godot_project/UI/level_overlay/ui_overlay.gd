@@ -20,8 +20,6 @@ func _ready() -> void:
 	_ticket.visible = false
 	_refresh_ticket()
 	Inventory.inventory_changed.connect(_refresh_ticket)
-	
-
 
 func _refresh_ticket() -> void:
 	var ticket := Inventory.get_ticket()
@@ -42,15 +40,8 @@ func _on_notebook_button_mouse_exited() -> void:
 
 func _on_notebook_button_pressed() -> void:
 	_notebook_click_sound.play()
-	_notebook.visible = true
 	SignalBus.notebook_opened.emit()
-
-
-func _on_exit_button_pressed() -> void:
-	_notebook_exit_sound.play()
-	_notebook.visible = false
-	SignalBus.notebook_closed.emit()
-
+	_notebook.visible = not _notebook.visible
 
 func _on_ticket_button_mouse_entered():
 	_ticket_button.position += mouse_hover_offset
@@ -66,3 +57,12 @@ func _on_ticket_button_pressed():
 	if Inventory.get_ticket() == null:
 		return
 	_ticket.visible = not _ticket.visible
+	
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("escape"):
+		if _ticket.visible:
+			_ticket_click_sound.play()
+		if _notebook.visible:
+			_notebook_click_sound.play()
+		_ticket.visible = false
+		_notebook.visible = false

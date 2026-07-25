@@ -25,7 +25,7 @@ metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_yisg7"]
 script = ExtResource("4_7b540")
-text = "But don't worry! I've been studying resshan (replace) all semester."
+text = "But don't worry! I've been studying <<resshan>> all semester."
 speaker_icon = ExtResource("4_3t1sb")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
