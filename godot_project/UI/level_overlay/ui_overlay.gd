@@ -29,7 +29,6 @@ func _refresh_ticket() -> void:
 	else:
 		_ticket.set_ticket(ticket)
 
-
 func _on_notebook_button_mouse_entered() -> void:
 	_notebook_button.position += mouse_hover_offset
 	_notebook_hover_sound.play()
@@ -59,6 +58,10 @@ func _on_ticket_button_pressed():
 	_ticket.visible = not _ticket.visible
 	
 func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("toggle_notebook"):
+		_on_notebook_button_pressed()
+	if event.is_action_pressed("toggle_ticket"):
+		_on_ticket_button_pressed()
 	if event.is_action_pressed("escape"):
 		if _ticket.visible:
 			_ticket_click_sound.play()
