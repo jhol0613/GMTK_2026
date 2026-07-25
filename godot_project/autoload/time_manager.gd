@@ -54,13 +54,11 @@ func remaining_after_offset(offset_hours: int, offset_minutes: int) -> Vector2i:
 	return Vector2i(total / MINUTES_PER_HOUR, total % MINUTES_PER_HOUR)
 
 
-## Checks if the current time is at or after the target time.
-func is_at_or_after(target_hour: int, target_minute: int) -> bool:
-	if hour > target_hour:
-		return true
-	if hour == target_hour and minute >= target_minute:
-		return true
-	return false
+## Countdown comparison: true while remaining time is still at/above the target.
+## (Higher remaining = earlier)
+func has_at_least(target_hour: int, target_minute: int) -> bool:
+	return total_minutes() >= target_hour * MINUTES_PER_HOUR + target_minute
+
 
 
 ## Stash the current time before reloading the game.
