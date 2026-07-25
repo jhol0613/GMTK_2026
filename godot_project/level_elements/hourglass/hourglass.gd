@@ -32,4 +32,4 @@ func _set_frame_from_progress(sprite: AnimatedSprite2D, progress: float) -> void
 	if count <= 0:
 		return
 
-	sprite.frame = int(count * progress)
+	sprite.frame = mini(int(progress * count), count - 1) # Clamp to the last frame
