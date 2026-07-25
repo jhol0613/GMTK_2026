@@ -1,12 +1,13 @@
 extends Node
 
+
 @export var train_start_delay: float = 0.0
 
-@export var bgm_start_delay: float = 3.0
+@export var bgm_start_delay: float = 0.0
 
 @export var bgm_play_duration: float = -1.0
 
-@export var bgm_fade_in_duration: float = 3.0
+@export var bgm_fade_in_duration: float = 0.0
 @export var bgm_target_volume_db: float = -4.0
 
 @onready var _train_intro: AudioStreamPlayer = $TrainIntro
@@ -39,13 +40,6 @@ func _ready() -> void:
 
 
 func _play_level_timeline() -> void:
-	if train_start_delay > 0.0:
-		await get_tree().create_timer(train_start_delay).timeout
-
-	play_train_intro()
-
-	await _train_intro.finished
-
 	play_bgm()
 
 	if bgm_play_duration > 0.0:
