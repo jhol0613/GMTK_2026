@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bktaj88n48qdp"
+path="res://.godot/imported/Clock Second.mp3-c5bf7ee1d6eca30db9eb61cb64188d4b.mp3str"
+
+[deps]
+
+source_file="res://time/Clock Second.mp3"
+dest_files=["res://.godot/imported/Clock Second.mp3-c5bf7ee1d6eca30db9eb61cb64188d4b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
