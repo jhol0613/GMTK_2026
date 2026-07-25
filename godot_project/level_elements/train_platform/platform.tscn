@@ -8,10 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://dpexe87ps0d7f" path="res://level_elements/hourglass/hourglass.tscn" id="6_f3ea8"]
 [ext_resource type="Texture2D" uid="uid://danrb3vfq83ag" path="res://level_elements/decorative/hoverthruster.png" id="7_3v7e2"]
 
-[node name="Platform" type="Node2D" unique_id=1302422271 node_paths=PackedStringArray("arrival_train", "lower_train")]
+[node name="Platform" type="Node2D" unique_id=1302422271 node_paths=PackedStringArray("upper_train", "lower_train")]
 y_sort_enabled = true
 script = ExtResource("1_n6ck0")
-arrival_train = NodePath("UpperTrain")
+upper_train = NodePath("UpperTrain")
 lower_train = NodePath("LowerTrain")
 
 [node name="FrontGround" type="TileMapLayer" parent="." unique_id=673161970]
