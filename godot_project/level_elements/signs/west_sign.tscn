@@ -36,7 +36,7 @@ animations = [{
 size = Vector2(11, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qbyu3"]
-size = Vector2(11, 10)
+size = Vector2(11, 11)
 
 [node name="WestSign" type="Node2D" unique_id=733299724]
 
@@ -61,5 +61,5 @@ _string = "<<west>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ResshanInteractable" unique_id=1309111021]
-position = Vector2(2, -40)
+position = Vector2(0, -39.5)
 shape = SubResource("RectangleShape2D_qbyu3")

@@ -68,7 +68,7 @@ size = Vector2(29.5, 16)
 size = Vector2(46.5, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ld73o"]
-size = Vector2(16.6875, 14)
+size = Vector2(8.5, 8)
 
 [node name="ATM" type="Node2D" unique_id=124595741]
 z_index = 1
@@ -117,19 +117,19 @@ position = Vector2(2.25, 34.5)
 shape = SubResource("RectangleShape2D_1w4un")
 
 [node name="ResshanInteractable" type="Area2D" parent="." unique_id=1722091080]
+position = Vector2(-24, -39)
 script = ExtResource("4_dfvvi")
 _string = "<<money>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ResshanInteractable" unique_id=1706932137]
-position = Vector2(-24.6875, -41)
 shape = SubResource("RectangleShape2D_ld73o")
 
 [node name="ResshanInteractable2" type="Area2D" parent="." unique_id=142653958]
+position = Vector2(-24, -28)
 script = ExtResource("4_dfvvi")
 _string = "<<machine>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ResshanInteractable2" unique_id=835999535]
-position = Vector2(-24.34375, -26)
 shape = SubResource("RectangleShape2D_ld73o")

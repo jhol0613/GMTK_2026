@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bs11d6gbcpom8" path="res://level_elements/train/door_blocker.png" id="3_17x1t"]
 [ext_resource type="PackedScene" uid="uid://dchuwbctx2fxx" path="res://interactables/train_interactable.tscn" id="3_725i7"]
 [ext_resource type="Texture2D" uid="uid://d0p3sbfud3275" path="res://player/sprites/Main_Character.png" id="4_player"]
+[ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="5_oe38n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5xnue"]
 atlas = ExtResource("2_725i7")
@@ -144,6 +145,9 @@ region = Rect2(200, 1333, 16, 54)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ticket"]
 atlas = ExtResource("2_725i7")
 region = Rect2(89, 1504, 93, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]
+size = Vector2(7.5, 10.5)
 
 [sub_resource type="Animation" id="Animation_5xnue"]
 length = 0.001
@@ -381,6 +385,78 @@ visible = false
 z_index = 4
 position = Vector2(0, -12)
 texture = SubResource("AtlasTexture_ticket")
+
+[node name="ResshanInteractable" type="Area2D" parent="NoTicketLight" unique_id=1024948732]
+position = Vector2(-40, 0)
+script = ExtResource("5_oe38n")
+_string = "<<ticket>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoTicketLight/ResshanInteractable" unique_id=108107675]
+shape = SubResource("RectangleShape2D_ujtin")
+
+[node name="ResshanInteractable2" type="Area2D" parent="NoTicketLight" unique_id=2012550030]
+position = Vector2(-17, 0)
+script = ExtResource("5_oe38n")
+_string = "<<ticket>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoTicketLight/ResshanInteractable2" unique_id=158574755]
+shape = SubResource("RectangleShape2D_ujtin")
+
+[node name="ResshanInteractable3" type="Area2D" parent="NoTicketLight" unique_id=643799980]
+position = Vector2(7, 0)
+script = ExtResource("5_oe38n")
+_string = "<<ticket>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoTicketLight/ResshanInteractable3" unique_id=477905494]
+shape = SubResource("RectangleShape2D_ujtin")
+
+[node name="ResshanInteractable4" type="Area2D" parent="NoTicketLight" unique_id=597137996]
+position = Vector2(31, 0)
+script = ExtResource("5_oe38n")
+_string = "<<ticket>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoTicketLight/ResshanInteractable4" unique_id=554430660]
+shape = SubResource("RectangleShape2D_ujtin")
+
+[node name="ResshanInteractable5" type="Area2D" parent="NoTicketLight" unique_id=709873775]
+position = Vector2(-31, 0)
+script = ExtResource("5_oe38n")
+_string = "<<0>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoTicketLight/ResshanInteractable5" unique_id=1053277122]
+shape = SubResource("RectangleShape2D_ujtin")
+
+[node name="ResshanInteractable6" type="Area2D" parent="NoTicketLight" unique_id=19968820]
+position = Vector2(-7, 0)
+script = ExtResource("5_oe38n")
+_string = "<<0>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoTicketLight/ResshanInteractable6" unique_id=2116526916]
+shape = SubResource("RectangleShape2D_ujtin")
+
+[node name="ResshanInteractable7" type="Area2D" parent="NoTicketLight" unique_id=941893496]
+position = Vector2(18, 0)
+script = ExtResource("5_oe38n")
+_string = "<<0>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoTicketLight/ResshanInteractable7" unique_id=369143111]
+shape = SubResource("RectangleShape2D_ujtin")
+
+[node name="ResshanInteractable8" type="Area2D" parent="NoTicketLight" unique_id=834489774]
+position = Vector2(41, 0)
+script = ExtResource("5_oe38n")
+_string = "<<0>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoTicketLight/ResshanInteractable8" unique_id=763394878]
+shape = SubResource("RectangleShape2D_ujtin")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1218134382]
 libraries/ = SubResource("AnimationLibrary_oe38n")
