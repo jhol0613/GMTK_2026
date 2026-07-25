@@ -599,8 +599,6 @@ y_sort_enabled = true
 script = ExtResource("1_yglgk")
 
 [node name="UiOverlay" parent="." unique_id=368800410 instance=ExtResource("7_glpk1")]
-scale = Vector2(0.22, 0.22)
-transform = Transform2D(0.22, 0, 0, 0.22, 0, 0)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1821430600]
 zoom = Vector2(4, 4)

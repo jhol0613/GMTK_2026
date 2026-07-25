@@ -4,32 +4,32 @@
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="2_iaw7m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]
-size = Vector2(11, 10.5)
+size = Vector2(14, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qbyu3"]
-size = Vector2(12.5, 12)
+size = Vector2(14, 14)
 
 [node name="Bathroom" type="Node2D" unique_id=1865459548]
-position = Vector2(8, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=850273726]
 z_index = 1
-position = Vector2(0, -17)
+position = Vector2(24, -16)
 texture = ExtResource("1_cdmhv")
 
 [node name="ResshanInteractable" type="Area2D" parent="." unique_id=2064183586]
 z_index = 1
-position = Vector2(-8, -10)
+position = Vector2(16, -8)
 script = ExtResource("2_iaw7m")
 _string = "<<closed>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ResshanInteractable" unique_id=842915425]
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_ujtin")
 
 [node name="ResshanInteractable2" type="Area2D" parent="." unique_id=1631249381]
 z_index = 1
-position = Vector2(16, -25)
+position = Vector2(40, -24)
 script = ExtResource("2_iaw7m")
 _string = "<<bathroom>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
