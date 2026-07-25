@@ -273,6 +273,8 @@ sprite_frames = SubResource("SpriteFrames_i8oxj")
 animation = &"new_animation"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=505405969]
+collision_layer = 2
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=144890011]
 position = Vector2(0, -8)
