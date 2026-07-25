@@ -66,7 +66,3 @@ func _draw() -> void:
 		"/n",
 		spacing,
 	)
-	
-	if text == prev_text:
-		return
-	prev_text = text
