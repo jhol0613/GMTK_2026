@@ -15,6 +15,9 @@
 [ext_resource type="Script" uid="uid://xohmb0i1enyw" path="res://level_elements/departure_board/train_timer.gd" id="13_vjtdm"]
 [ext_resource type="AudioStream" uid="uid://dlip7tol2c20x" path="res://notebook/Keeping TRACK of my Notes demo.mp3" id="15_vjtdm"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_betor"]
+size = Vector2(128, 32)
+
 [node name="Level1" unique_id=783439983 instance=ExtResource("1_jirdo")]
 
 [node name="Ground" parent="." index="2" unique_id=405308893 groups=["footstep_surfaces"]]
@@ -139,6 +142,14 @@ position = Vector2(992, 528)
 
 [node name="TicketBooth" parent="." index="15" unique_id=861247956 instance=ExtResource("13_bgw3c")]
 position = Vector2(726, 552)
+
+[node name="LevelExitBarrier" type="StaticBody2D" parent="." index="16" unique_id=1631214184]
+position = Vector2(672, 752)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelExitBarrier" index="0" unique_id=1054452651]
+position = Vector2(64, 16)
+shape = SubResource("RectangleShape2D_betor")
 
 [editable path="UiOverlay"]
 [editable path="Platform"]
