@@ -119,6 +119,7 @@ offset_right = 1926.0
 offset_bottom = 1086.0
 
 [node name="Comic1Picture1" type="Sprite2D" parent="CanvasLayer" unique_id=1013606209]
+texture_filter = 2
 position = Vector2(980, 293)
 texture = ExtResource("1_8owei")
 script = ExtResource("2_2prw1")
