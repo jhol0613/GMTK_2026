@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialogue_interactable.tscn" id="2_ui1pi"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="3_ui1pi"]
 [ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialogue_panel.tscn" id="4_2vr77"]
-[ext_resource type="AudioStream" uid="uid://6llsv27ckbd2" path="res://ui/Purchased Ticket.mp3" id="5_8d5ud"]
+[ext_resource type="AudioStream" uid="uid://6llsv27ckbd2" path="res://UI/Purchased Ticket.mp3" id="5_8d5ud"]
 [ext_resource type="AudioStream" uid="uid://dtf5vr8s8qloo" path="res://level_elements/ticket_booth/Ticket_Booth_Noise.mp3" id="7_8vjcj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2vr77"]
@@ -124,6 +124,7 @@ stream = ExtResource("5_8d5ud")
 
 [node name="BoothAmbient" type="AudioStreamPlayer2D" parent="." unique_id=986529912]
 stream = ExtResource("7_8vjcj")
+max_distance = 917.0
 attenuation = 4.0000014
 
 [node name="LoopPauseTimer" type="Timer" parent="." unique_id=258006226]
