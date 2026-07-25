@@ -7,7 +7,7 @@ extends Node
 
 @export var bgm_play_duration: float = -1.0
 
-@export var bgm_fade_in_duration: float = 0.0
+@export var bgm_fade_in_duration: float = 1.0
 @export var bgm_target_volume_db: float = -4.0
 
 @onready var _train_intro: AudioStreamPlayer = $TrainIntro
@@ -157,3 +157,10 @@ func _on_notebook_closed() -> void:
 		bgm_target_volume_db,
 		SILENT_DB
 	)
+func skip_intro_to_bgm() -> void:
+	_tripped.stop()
+	
+	if _bgm.playing:
+		_bgm.stop()
+		
+	play_bgm()

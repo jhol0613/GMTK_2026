@@ -45,7 +45,7 @@ func _skip_intro() -> void:
 	_free_intro_scene(_intro_falling_scene)
 	_intro_falling_scene = null
 
-	audio_controller.play_tripped_music()
+	audio_controller.skip_intro_to_bgm()
 	if not ui_layer._notebook.visible:
 		ui_layer._on_notebook_button_pressed()
 	platform.arrive_upper_train()
