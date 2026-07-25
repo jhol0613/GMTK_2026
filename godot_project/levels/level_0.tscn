@@ -8,11 +8,10 @@
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://scripts/dialogue_line.gd" id="3_obtcn"]
 [ext_resource type="AudioStream" uid="uid://ce6kvjn3hwsb0" path="res://ui/Schedule_Open.mp3" id="3_uuq13"]
 [ext_resource type="TileSet" uid="uid://dvxgqw1r5w5ps" path="res://levels/tileset/station_tileset.tres" id="4_owf05"]
-[ext_resource type="PackedScene" uid="uid://denclmxtn1x1l" path="res://level_elements/departure_board/deaprture_board.tscn" id="9_ggct0"]
 [ext_resource type="AudioStream" uid="uid://dg0waag44ulse" path="res://bgm/TRAINing with friends.mp3" id="12_8mki0"]
+[ext_resource type="AudioStream" uid="uid://bwdovww0j8m0k" path="res://bgm/Tripped and Lost v2.mp3" id="12_58gyl"]
 [ext_resource type="Script" uid="uid://8aci422hp6qo" path="res://levels/level_0_audio.gd" id="12_p0s0h"]
 [ext_resource type="AudioStream" uid="uid://cu3ssob4apsrg" path="res://ui/Train/Train Pulling Into.mp3" id="13_axdoh"]
-[ext_resource type="AudioStream" uid="uid://iij1het2knks" path="res://bgm/Tripped and Lost.mp3" id="13_gxks1"]
 [ext_resource type="Texture2D" uid="uid://kayfkwypm2a" path="res://character_portraits/ticket_lady/ticket_lady_portrait_2.png" id="15_fv0x7"]
 [ext_resource type="Texture2D" uid="uid://ca8r7wcmgae0o" path="res://levels/tileset/grasstiles.png" id="17_ggct0"]
 [ext_resource type="Script" uid="uid://cpfgjwe2lpk0k" path="res://scripts/ticket_data.gd" id="17_owf05"]
@@ -21,7 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://baukigq6wfgs1" path="res://level_elements/ATM/atm.tscn" id="18_uuq13"]
 [ext_resource type="Texture2D" uid="uid://dy3h6m8das3ut" path="res://levels/tileset/brickborder.png" id="19_gxks1"]
 [ext_resource type="PackedScene" uid="uid://dpexe87ps0d7f" path="res://level_elements/hourglass/hourglass.tscn" id="20_uuq13"]
-[ext_resource type="PackedScene" uid="uid://c7ekkaj708al" path="res://level_elements/maps/station_map_lvl1.tscn" id="22_8mki0"]
 [ext_resource type="AudioStream" uid="uid://dlip7tol2c20x" path="res://notebook/Keeping TRACK of my Notes demo.mp3" id="23_8mki0"]
 
 [sub_resource type="AudioStreamMP3" id="AudioStreamMP3_qgvj7"]
@@ -531,15 +529,27 @@ metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_fpprv"]
 script = ExtResource("17_owf05")
-destination = "Station 1"
-train_line = "<<Red>> <<Line>>"
+destination = "<<station1>>"
+train_line = "<<red>> <<line>>"
 metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
 
 [sub_resource type="Resource" id="Resource_snxo8"]
 script = ExtResource("3_jum3j")
 player_text = "<<west>>"
-reply = "<<east>>"
 reward = SubResource("Resource_fpprv")
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_ggct0"]
+script = ExtResource("17_owf05")
+destination = "<<station1>>"
+train_line = "<<red>> <<line>>"
+id = &"red_east"
+metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
+
+[sub_resource type="Resource" id="Resource_2prw1"]
+script = ExtResource("3_jum3j")
+player_text = "<<east>>"
+reward = SubResource("Resource_ggct0")
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 
 [node name="Level0" unique_id=783439983 instance=ExtResource("1_eus5j")]
@@ -604,7 +614,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/UpperTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.24632509
+frame_progress = 0.4501636
 
 [node name="TrainInteractableL" parent="Platform/UpperTrain" index="10" unique_id=779530687]
 id = &"berlin_s7"
@@ -612,9 +622,6 @@ l_or_r = ""
 
 [node name="LowerTrain" parent="Platform" index="7" unique_id=1370361982]
 color = 7
-
-[node name="DeaprtureBoard" parent="Platform" index="9" unique_id=994016923 instance=ExtResource("9_ggct0")]
-position = Vector2(-1008, 0)
 
 [node name="LevelAudioController" type="Node2D" parent="." index="6" unique_id=217677735]
 script = ExtResource("12_p0s0h")
@@ -626,7 +633,7 @@ stream = ExtResource("13_axdoh")
 stream = ExtResource("12_8mki0")
 
 [node name="Tripped" type="AudioStreamPlayer" parent="LevelAudioController" index="2" unique_id=45072314]
-stream = ExtResource("13_gxks1")
+stream = ExtResource("12_58gyl")
 
 [node name="NotebookBGM" type="AudioStreamPlayer" parent="LevelAudioController" index="3" unique_id=1145455676]
 stream = ExtResource("23_8mki0")
@@ -638,7 +645,7 @@ script = null
 
 [node name="DialogueInteractable" parent="TicketBooth" index="1" unique_id=358228256]
 lines = Array[ExtResource("3_obtcn")]([SubResource("Resource_d8oir")])
-choices = Array[ExtResource("3_jum3j")]([SubResource("Resource_snxo8"), null])
+choices = Array[ExtResource("3_jum3j")]([SubResource("Resource_snxo8"), SubResource("Resource_2prw1")])
 
 [node name="ATM" parent="." index="8" unique_id=124595741 instance=ExtResource("18_uuq13")]
 position = Vector2(-784, -208)
@@ -648,9 +655,6 @@ position = Vector2(-1008, -192)
 
 [node name="Hourglass" parent="." index="10" unique_id=259821884 instance=ExtResource("20_uuq13")]
 position = Vector2(-904, -202)
-
-[node name="StationMapLvl1" parent="." index="11" unique_id=1108949590 instance=ExtResource("22_8mki0")]
-position = Vector2(-816, -32)
 
 [editable path="UiOverlay"]
 [editable path="Platform"]

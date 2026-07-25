@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bf2ekd1ldyduy" path="res://level_elements/train/train.gd" id="1_cjdsu"]
 [ext_resource type="Texture2D" uid="uid://dbioka1xtrjb7" path="res://level_elements/train/train.png" id="2_725i7"]
+[ext_resource type="Texture2D" uid="uid://bs11d6gbcpom8" path="res://level_elements/train/door_blocker.png" id="3_17x1t"]
 [ext_resource type="PackedScene" uid="uid://dchuwbctx2fxx" path="res://interactables/train_interactable.tscn" id="3_725i7"]
 [ext_resource type="Texture2D" uid="uid://d0p3sbfud3275" path="res://player/sprites/Main_Character.png" id="4_player"]
 
@@ -310,7 +311,6 @@ size = Vector2(40, 23)
 
 [node name="Train" type="Node2D" unique_id=2086324427 node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_cjdsu")
-next_scene = 2
 sprite = NodePath("TrainSprite")
 
 [node name="TrainSprite" type="AnimatedSprite2D" parent="." unique_id=865404147]
@@ -318,6 +318,22 @@ position = Vector2(0, -40)
 sprite_frames = SubResource("SpriteFrames_ujtin")
 animation = &"BROWN"
 frame_progress = 0.06476942
+
+[node name="DoorBlocker" type="Sprite2D" parent="TrainSprite" unique_id=1733779265]
+position = Vector2(-335, 5)
+texture = ExtResource("3_17x1t")
+
+[node name="DoorBlocker2" type="Sprite2D" parent="TrainSprite" unique_id=566216451]
+position = Vector2(-206, 5)
+texture = ExtResource("3_17x1t")
+
+[node name="DoorBlocker3" type="Sprite2D" parent="TrainSprite" unique_id=1551714510]
+position = Vector2(207, 5)
+texture = ExtResource("3_17x1t")
+
+[node name="DoorBlocker4" type="Sprite2D" parent="TrainSprite" unique_id=1361625764]
+position = Vector2(336, 5)
+texture = ExtResource("3_17x1t")
 
 [node name="PlayerDisembarkMarker" type="Marker2D" parent="." unique_id=886720525]
 position = Vector2(-64, 18)
@@ -371,7 +387,7 @@ libraries/ = SubResource("AnimationLibrary_oe38n")
 
 [node name="TrainInteractableL" parent="." unique_id=779530687 instance=ExtResource("3_725i7")]
 position = Vector2(-77, -52)
-id = &"berlin_s5"
+id = &"red_east"
 l_or_r = "l"
 
 [node name="CollisionShape2D" parent="TrainInteractableL" index="0" unique_id=278382881]
@@ -380,7 +396,7 @@ shape = SubResource("RectangleShape2D_5xnue")
 
 [node name="TrainInteractableR" parent="." unique_id=1631350735 instance=ExtResource("3_725i7")]
 position = Vector2(51, -52)
-id = &"berlin_s5"
+id = &"red_east"
 l_or_r = "r"
 
 [node name="CollisionShape2D" parent="TrainInteractableR" index="0" unique_id=278382881]
