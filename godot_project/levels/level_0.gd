@@ -13,11 +13,20 @@ var _intro_active := true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super._ready()
+	if TimeManager.consume_skip_intro():
+		_begin_without_intro()
+		return
 	_intro_conversation_scene = preload("uid://b40aq7wt2wqcs").instantiate()
 	_intro_falling_scene = preload("uid://dnm5746r17yej").instantiate()
 	add_child(_intro_conversation_scene)
 	_intro_conversation_scene.scene_complete.connect(_on_conversation_complete)
 	_intro_falling_scene.scene_complete.connect(_on_falling_scene_complete)
+
+
+func _begin_without_intro() -> void:
+	_intro_active = false
+	_remove_skip_intro_button()
+	platform.arrive_upper_train()
 
 
 func _remove_skip_intro_button() -> void:

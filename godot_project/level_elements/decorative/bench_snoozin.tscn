@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://b3rra7yj17p2b"]
+
+[ext_resource type="Texture2D" uid="uid://cvnqkyp5mc1nq" path="res://level_elements/decorative/bench.png" id="1_6yaug"]
+[ext_resource type="Texture2D" uid="uid://df2ldgroey8mb" path="res://level_elements/decorative/snoozin.png" id="2_xx6my"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4k8w"]
+atlas = ExtResource("1_6yaug")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w78y7"]
+atlas = ExtResource("2_xx6my")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46ctn"]
+atlas = ExtResource("2_xx6my")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cc0yq"]
+atlas = ExtResource("2_xx6my")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fpcxu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4k8w")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w78y7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46ctn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cc0yq")
+}],
+"loop": 1,
+"name": &"snoozin",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fpcxu"]
+size = Vector2(48, 16)
+
+[node name="Bench" type="AnimatedSprite2D" unique_id=1185998454]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_fpcxu")
+animation = &"snoozin"
+autoplay = "snoozin"
+frame_progress = 0.2870343
+
+[node name="StaticBody" type="StaticBody2D" parent="." unique_id=232674008]
+z_index = 1
+position = Vector2(0, 16)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody" unique_id=1878472438]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_fpcxu")

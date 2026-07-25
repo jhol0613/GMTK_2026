@@ -14,10 +14,11 @@ func interact() -> void:
 
 ## Evaluates whether the player can board the train
 func evaluate_board(ticket: TicketData) -> Enums.BoardResult:
-	if ticket == null:
+	# No ticket, or ticket is for a different train.
+	if ticket == null or not _is_correct_train(ticket):
 		return Enums.BoardResult.REJECTED
-	# Matching ticket for this train, but wrong destination for the level wrong train.
-	if not _is_correct_train(ticket) or not _is_correct_destination(ticket):
+	# Ticket matches this train, but goes to the wrong destination for the level.
+	if not _is_correct_destination(ticket):
 		return Enums.BoardResult.WRONG_TRAIN
 	if not _is_on_time(ticket):
 		return Enums.BoardResult.TOO_LATE
