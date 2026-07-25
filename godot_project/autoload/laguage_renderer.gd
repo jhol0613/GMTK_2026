@@ -55,7 +55,6 @@ static func draw_resshan_text(
 	
 ) -> RectangleShape2D:
 	
-	print('foof')
 	
 	var arr: PackedStringArray = []
 	if not encoded:
