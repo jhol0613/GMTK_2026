@@ -81,7 +81,7 @@ func _wrong_train_sequence() -> void:
 	_set_player_active(false)
 	await _run_boarding_and_departure()
 	
-	_apply_penalty()
+	TimeManager.stash_before_reload(incorrect_penalty_minutes)
 
 	GameManager.load_scene(reload_scene)
 	_boarding = false
@@ -147,15 +147,6 @@ func _set_player_active(active: bool) -> void:
 	player.visible = active
 	player.set_physics_process(active)
 
-
-func _apply_penalty() -> void:
-	var time_node: Control = get_tree().get_first_node_in_group("time")
-	if time_node:
-		GameManager.stash_time_before_reload(
-			time_node.rhour,
-			time_node.rminute,
-			incorrect_penalty_minutes,
-		)
 
 
 func _open_doors() -> void:

@@ -139,4 +139,8 @@ func _refresh_options_visual() -> void:
 func _give_reward() -> void:
 	if _reward == null:
 		return
-	Inventory.add_item(_reward.duplicate() as ItemData)
+
+	var item := _reward.duplicate() as ItemData
+	if item is TicketData:
+		(item as TicketData).resolve_departure()
+	Inventory.add_item(item)

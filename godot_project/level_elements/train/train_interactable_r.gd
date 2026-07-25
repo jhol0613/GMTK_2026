@@ -23,16 +23,8 @@ func evaluate_board(ticket: TicketData) -> Enums.BoardResult:
 	return Enums.BoardResult.SUCCESS
 
 
-## Checks if the ticket is on time
 func _is_on_time(ticket: TicketData) -> bool:
-	var time_node: Control = get_tree().get_first_node_in_group("time")
-	if time_node == null:
-		return false
-	if time_node.rhour > ticket.departure_hour:
-		return false
-	if time_node.rhour == ticket.departure_hour and time_node.rminute > ticket.departure_minute:
-		return false
-	return true
+	return TimeManager.is_at_or_after(ticket.departure_hours, ticket.departure_minutes)
 
 
 ## Checks if the ticket is for the correct train

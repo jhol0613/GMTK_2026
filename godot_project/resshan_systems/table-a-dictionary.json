@@ -58,7 +58,7 @@
   "<<yellow>>": "56",
   "<<store>>": "57",
   "<<resshancentralsquare>>": "58",
-  "<<station0>>": "59",
-  "<<station1>>": "60",
-  "<<station3>>": "61"
+  "<<station.0>>": "59",
+  "<<station.1>>": "60",
+  "<<station.3>>": "61"
 }

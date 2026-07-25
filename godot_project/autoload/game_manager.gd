@@ -14,11 +14,6 @@ extends Node2D
 
 @onready var _pause_layer: CanvasLayer
 
-var restore_time: bool = false
-var restore_hour: int = 0
-var restore_minute: int = 0
-var flash_timer: bool = false
-
 
 func load_scene(
 	scene: Enums.Scenes,
@@ -94,19 +89,3 @@ func _build_fadeout_rect(alpha: float) -> ColorRect:
 	fadeout_rect.z_index = RenderingServer.CANVAS_ITEM_Z_MAX
 	fadeout_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	return fadeout_rect
-
-
-func stash_time_before_reload(hour: int, minute: int, penalty_minutes: int) -> void:
-	restore_hour = hour
-	restore_minute = minute - penalty_minutes
-
-	while restore_minute < 0:
-		restore_hour -= 1
-		restore_minute += 8
-
-	if restore_hour < 0:
-		restore_hour = 0
-		restore_minute = 0
-
-	restore_time = true
-	flash_timer = true

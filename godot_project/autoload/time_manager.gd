@@ -1,0 +1,78 @@
+extends Node
+
+signal time_changed(hour: int, minute: int)
+signal flash_requested
+
+const MINUTES_PER_HOUR: int = 8
+const HOUR_PER_DAY: int = 8
+
+var hour: int = HOUR_PER_DAY
+var minute: int = 0
+
+var _preserve_across_reload: bool = false
+
+var _pending_flash: bool = false
+
+
+func _ready() -> void:
+	SignalBus.minutes_passed.connect(advance)
+
+
+func reset(start_hour: int = HOUR_PER_DAY, start_minute: int = 0) -> void:
+	hour = start_hour
+	minute = start_minute
+	time_changed.emit(hour, minute)
+
+
+func advance(amount: int = 1) -> void:
+	minute -= amount
+	while minute < 0:
+		hour -= 1
+		minute += MINUTES_PER_HOUR
+	if hour < 0:
+		hour = 0
+		minute = 0
+	time_changed.emit(hour, minute)
+
+
+func total_minutes() -> int:
+	return hour * MINUTES_PER_HOUR + minute
+
+
+## Countdown "now + offset" → remaining time after offset minutes elapse.
+func remaining_after_offset(offset_hours: int, offset_minutes: int) -> Vector2i:
+	var total := total_minutes() - (offset_hours * MINUTES_PER_HOUR + offset_minutes)
+	total = maxi(total, 0)
+	return Vector2i(total / MINUTES_PER_HOUR, total % MINUTES_PER_HOUR)
+
+
+## Checks if the current time is at or after the target time.
+func is_at_or_after(target_hour: int, target_minute: int) -> bool:
+	if hour > target_hour:
+		return true
+	if hour == target_hour and minute >= target_minute:
+		return true
+	return false
+
+
+## Stash the current time before reloading the game.
+func stash_before_reload(penalty_minutes: int) -> void:
+	advance(penalty_minutes)
+	_pending_flash = true
+	_preserve_across_reload = true
+
+
+## Call from the clock UI on ready. Skips reset after a penalty reload.
+func sync_from_ui(start_hour: int, start_minute: int) -> void:
+	if _preserve_across_reload:
+		_preserve_across_reload = false
+		time_changed.emit(hour, minute)
+		return
+	reset(start_hour, start_minute)
+
+
+func consume_flash() -> bool:
+	if not _pending_flash:
+		return false
+	_pending_flash = false
+	return true

@@ -16,5 +16,5 @@ func _ready() -> void:
 func set_ticket(data: TicketData) -> void:
 	ticket_data = data
 	_line_label.text = data.train_line
-	_departure_label.text = "<<%s>> : <<%s>>" % [data.departure_hour, data.departure_minute]
+	_departure_label.text = "<<%s>> : <<%s>>" % [data.departure_hours, data.departure_minutes]
 	_destination_label.text = data.destination
