@@ -635,14 +635,14 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/UpperTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.8793626
+frame_progress = 0.682151
 
 [node name="LowerTrain" parent="Platform" index="7" unique_id=1370361982]
 color = 7
 
 [node name="TrainSprite" parent="Platform/LowerTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.12082363
+frame_progress = 0.9236108
 
 [node name="LevelAudioController" type="Node2D" parent="." index="6" unique_id=217677735]
 script = ExtResource("12_p0s0h")
