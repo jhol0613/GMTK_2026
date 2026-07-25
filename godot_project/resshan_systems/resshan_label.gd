@@ -52,7 +52,8 @@ func _draw() -> void:
 
 		area.position = pos
 		area.position.y -= pos.y / 2
-		area.position.x += shape.size.x * 0.5
+		#area.position.x = 0
+		#area.position.x += shape.size.x * 0.5
 		area._encoded_string = LanguageRenderer.encode(resshen)
 		collision_shape.shape = shape
 		area.add_child(collision_shape)
