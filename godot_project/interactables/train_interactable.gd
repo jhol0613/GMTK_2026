@@ -17,8 +17,8 @@ func evaluate_board(ticket: TicketData) -> Enums.BoardResult:
 	# No ticket, or ticket is for a different train.
 	if ticket == null or not _is_correct_train(ticket):
 		return Enums.BoardResult.REJECTED
-	# Ticket matches this train, but goes to the wrong destination for the level.
-	if not _is_correct_destination(ticket):
+	# Ticket matches this train, but is on the wrong line for the level.
+	if not _is_correct_line(ticket):
 		return Enums.BoardResult.WRONG_TRAIN
 	if not _is_on_time(ticket):
 		return Enums.BoardResult.TOO_LATE
@@ -34,12 +34,12 @@ func _is_correct_train(ticket: TicketData) -> bool:
 	return train != null and ticket.id == train.ticket_id
 
 
-## Checks if the ticket goes to this level's one correct destination
-func _is_correct_destination(ticket: TicketData) -> bool:
+## Checks if the ticket is on this level's correct line
+func _is_correct_line(ticket: TicketData) -> bool:
 	var level := _get_level()
-	if level == null or level.correct_destination.is_empty():
+	if level == null or level.correct_line.is_empty():
 		return true
-	return ticket.destination == level.correct_destination
+	return ticket.train_line == level.correct_line
 
 
 func _get_level() -> LevelTemplate:
