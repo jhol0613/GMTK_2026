@@ -41,6 +41,8 @@ func _on_notebook_button_pressed() -> void:
 	_notebook_click_sound.play()
 	SignalBus.notebook_opened.emit()
 	_notebook.visible = not _notebook.visible
+	for player in get_tree().get_nodes_in_group("player"):
+		player.movement_disabled = _notebook.visible
 
 func _on_ticket_button_mouse_entered():
 	_ticket_button.position += mouse_hover_offset
