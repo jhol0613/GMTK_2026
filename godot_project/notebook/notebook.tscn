@@ -54,7 +54,7 @@ text = "Previous"
 
 [node name="PageTurnSound" type="AudioStreamPlayer" parent="." unique_id=561482912]
 stream = ExtResource("4_y1ha3")
-volume_db = 19.285
+volume_db = 24.0
 
 [connection signal="pressed" from="NextPage" to="." method="_on_previous_page_pressed"]
 [connection signal="pressed" from="PreviousPage" to="." method="_on_next_page_pressed"]
