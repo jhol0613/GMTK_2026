@@ -5,9 +5,11 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rsnfv"]
 
 [node name="Entry" type="HBoxContainer" unique_id=594339083]
+texture_filter = 1
 script = ExtResource("1_pf7jf")
 
 [node name="Resshan" type="Control" parent="." unique_id=1442823585]
+texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 8
 

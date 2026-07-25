@@ -6,8 +6,10 @@
 script = ExtResource("1_ticket")
 destination = "<<east>>"
 train_line = "<<5>>"
-departure_hours_offset = 1
+departure_hour = 4
+departure_minute = null
 id = &"berlin_s5"
 item_name = "Ticket to Berlin Hbf"
 item_description = "A one-way train ticket."
+departure_hours_offset = 1
 metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
