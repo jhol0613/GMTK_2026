@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://byquvvrlqrlgj" path="res://time/time.gd" id="1_ep8tu"]
 [ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/resshan_label.gd" id="2_i56kd"]
 [ext_resource type="Texture2D" uid="uid://cxcsgyq6cucb6" path="res://time/ui_clock.png" id="2_ss088"]
+[ext_resource type="AudioStream" uid="uid://dyjirite3on8y" path="res://time/clock countdown sfx.mp3" id="4_1r2q8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kgoo1"]
 texture = ExtResource("2_ss088")
@@ -44,3 +45,6 @@ script = ExtResource("2_i56kd")
 text = "hi"
 font_size = 24
 metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="." unique_id=1979466321]
+stream = ExtResource("4_1r2q8")
