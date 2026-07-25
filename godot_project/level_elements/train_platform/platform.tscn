@@ -55,6 +55,7 @@ position = Vector2(-128, -79)
 z_index = 3
 position = Vector2(-128, 145)
 color = 8
+departs_on_missed_deadline = false
 
 [node name="Hourglass" parent="." unique_id=259821884 instance=ExtResource("6_f3ea8")]
 position = Vector2(-127, 12)

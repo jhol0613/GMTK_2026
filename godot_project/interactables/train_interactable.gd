@@ -17,10 +17,10 @@ func interact() -> void:
 func evaluate_board(ticket: TicketData) -> Enums.BoardResult:
 	if ticket == null:
 		return Enums.BoardResult.REJECTED
-	if not _is_on_time(ticket):
-		return Enums.BoardResult.REJECTED
 	if not _is_correct_train(ticket):
 		return Enums.BoardResult.WRONG_TRAIN
+	if not _is_on_time(ticket):
+		return Enums.BoardResult.TOO_LATE
 	return Enums.BoardResult.SUCCESS
 
 
