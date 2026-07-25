@@ -9,10 +9,11 @@ const LIMIT: = 10
 var entries_count: int = 0
 var entries: Array[NotebookEntry] = []
 
-func _new_entry(encoded:String) -> void:
+func _new_entry(encoded:String, initial_text = "") -> void:
 	var entry:NotebookEntry = preload('uid://s4gdpvpyayn0').instantiate()
 	
 	$Holder.add_child(entry)
+	entry.player_input.text = initial_text
 	entry.add_resshan(encoded)
 	entry.tree_exiting.connect(_remove_entry.bind(entry))
 	entries_count += 1

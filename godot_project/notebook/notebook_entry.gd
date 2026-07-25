@@ -3,6 +3,8 @@ extends HBoxContainer
 
 var _resshan_string:String
 
+@onready var player_input = $PlayerInput
+
 func _draw() -> void:
 	if not _resshan_string:
 		return
@@ -20,7 +22,7 @@ func add_resshan(encoded:String) -> void:
 
 
 func get_note() -> String:
-	return $PlayerInput.text
+	return player_input.text
 
 
 func _on_resshan_gui_input(event: InputEvent) -> void:

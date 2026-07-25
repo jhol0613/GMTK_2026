@@ -9,6 +9,8 @@ var _current_page: int = 0
 var _free_page: int = 0
 var _pages: Array[NotebookPage] = []
 
+var _first_entry := true
+
 func _ready() -> void:
 	SignalBus.resshan_clicked.connect(_add_entry_to_the_page)
 	SignalBus.resshan_note_requested.connect(_handle_note_requested)
@@ -21,6 +23,11 @@ func _ready() -> void:
 		%PreviousPage.disabled = true
 	if _current_page == PAGE_COUNT:
 		%NextPage.disabled = true
+
+	# Tutorialize the notebook
+	_first_entry = false
+	_add_entry_to_the_page("58", "The place I'm trying to go")
+	_first_entry = true
 
 
 func _handle_entry_removed() -> void:
@@ -45,11 +52,13 @@ func _handle_note_requested(resshan:ResshanInteractable) -> void:
 	
 
 
-func _add_entry_to_the_page(encoded:String) -> void:
+func _add_entry_to_the_page(encoded:String, initial_text = "") -> void:
 	if _free_page == -1:
 		notebook_is_full.emit()
 	var page: = _pages[_free_page]
-	page._new_entry(encoded)
+	if _first_entry:
+		initial_text = "I can take notes here!"
+	page._new_entry(encoded, initial_text)
 
 
 func _on_next_page_pressed() -> void:
