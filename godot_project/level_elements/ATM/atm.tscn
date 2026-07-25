@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bi61ptmirslbj" path="res://interactables/dialogue_interactable.gd" id="3_de0lt"]
 [ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/resshan_label.gd" id="4_5sl07"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="4_dfvvi"]
+[ext_resource type="AudioStream" uid="uid://depqietaoj2si" path="res://level_elements/ATM/ATMTurnOn.mp3" id="6_de0lt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ylf28"]
 atlas = ExtResource("1_df8qj")
@@ -79,10 +80,14 @@ position = Vector2(0, -57)
 sprite_frames = SubResource("SpriteFrames_fpcxu")
 frame_progress = 0.6529543
 
-[node name="DialogueInteractable" type="Area2D" parent="." unique_id=1894356249]
+[node name="DialogueInteractable" type="Area2D" parent="." unique_id=1894356249 node_paths=PackedStringArray("turn_on_sound")]
 position = Vector2(0, -65)
 script = ExtResource("3_de0lt")
+turn_on_sound = NodePath("ATMTurnON")
 metadata/_custom_type_script = "uid://bi61ptmirslbj"
+
+[node name="ATMTurnON" type="AudioStreamPlayer" parent="DialogueInteractable" unique_id=849463408]
+stream = ExtResource("6_de0lt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueInteractable" unique_id=1443245986]
 z_index = 1
