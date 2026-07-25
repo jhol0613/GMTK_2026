@@ -26,6 +26,7 @@ func _ready() -> void:
 	_shine_cover.size = coll.shape.size
 	_shine_cover.position -= coll.shape.size * 0.5
 	_shine_cover.material = shader
+	_shine_cover.z_index = 10
 	add_child(_shine_cover)
 	
 
@@ -34,7 +35,7 @@ func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
 	if shader:
-		shader.set_shader_parameter('time', shader.get_shader_parameter('time') + 0.05)
+		shader.set_shader_parameter('time', shader.get_shader_parameter('time') + .2 * delta)
 
 
 func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
@@ -46,6 +47,7 @@ func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> vo
 
 
 func _on_mouse_entered() -> void:
+	print("foof")
 	_shine_cover.show()
 	if noted:
 		shader.set_shader_parameter('color', Color.WHITE)
