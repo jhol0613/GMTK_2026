@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://bbcbac8i6a3xm" path="res://levels/You TRAINed for this copy.mp3" id="11_nmsli"]
 [ext_resource type="PackedScene" uid="uid://djoepaapryv6s" path="res://level_elements/trinket_shop/trinket_shop.tscn" id="12_vjtdm"]
 [ext_resource type="PackedScene" uid="uid://2pwlm8itluel" path="res://level_elements/ticket_booth/ticket_booth.tscn" id="13_bgw3c"]
+[ext_resource type="Script" uid="uid://xohmb0i1enyw" path="res://level_elements/departure_board/train_timer.gd" id="13_vjtdm"]
 [ext_resource type="AudioStream" uid="uid://dlip7tol2c20x" path="res://notebook/Keeping TRACK of my Notes demo.mp3" id="15_vjtdm"]
 
 [node name="Level1" unique_id=783439983 instance=ExtResource("1_jirdo")]
@@ -116,11 +117,28 @@ color = 0
 [node name="DeaprtureBoard" parent="." index="13" unique_id=994016923 instance=ExtResource("11_betor")]
 position = Vector2(910, 336)
 
+[node name="ResshanLabel" type="Control" parent="DeaprtureBoard" index="2" unique_id=1050601357]
+z_index = 1
+texture_filter = 1
+custom_minimum_size = Vector2(54, 9)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -32.0
+offset_top = -71.0
+offset_right = 37.0
+offset_bottom = -58.0
+mouse_filter = 2
+script = ExtResource("13_vjtdm")
+text = "<<Train>> <<red>> <<1>> <<6>> <<to>> <<station.3>>"
+spacing = 0.95
+font_size = 9
+metadata/_custom_type_script = "uid://sidowamkhcrt"
+
 [node name="TrinketShop" parent="." index="14" unique_id=877031898 instance=ExtResource("12_vjtdm")]
 position = Vector2(992, 528)
 
 [node name="TicketBooth" parent="." index="15" unique_id=861247956 instance=ExtResource("13_bgw3c")]
-position = Vector2(736, 592)
+position = Vector2(726, 552)
 
 [editable path="UiOverlay"]
 [editable path="Platform"]
