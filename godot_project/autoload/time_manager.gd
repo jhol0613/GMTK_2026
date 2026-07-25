@@ -12,6 +12,7 @@ var minute: int = 0
 var second: int = 0
 
 var _preserve_across_reload: bool = false
+var _skip_intro_on_reload: bool = false
 
 var _pending_flash: bool = false
 
@@ -81,6 +82,7 @@ func stash_before_reload(penalty_seconds: int) -> void:
 	advance(penalty_seconds)
 	_pending_flash = true
 	_preserve_across_reload = true
+	_skip_intro_on_reload = true
 
 
 ## Call from the clock UI on ready. Skips reset after a penalty reload.
@@ -90,6 +92,14 @@ func sync_from_ui(start_hour: int, start_minute: int, start_second: int) -> void
 		time_changed.emit(hour, minute, second)
 		return
 	reset(start_hour, start_minute, start_second)
+
+
+## True once after a wrong-train reload; consumes the flag.
+func consume_skip_intro() -> bool:
+	if not _skip_intro_on_reload:
+		return false
+	_skip_intro_on_reload = false
+	return true
 
 
 func consume_flash() -> bool:
