@@ -4,9 +4,9 @@ signal time_changed(hour: int, minute: int)
 signal flash_requested
 
 const MINUTES_PER_HOUR: int = 8
-const HOUR_PER_DAY: int = 8
+const HOURS_PER_DAY: int = 8
 
-var hour: int = HOUR_PER_DAY
+var hour: int = HOURS_PER_DAY
 var minute: int = 0
 
 var _preserve_across_reload: bool = false
@@ -26,7 +26,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			advance(MINUTES_PER_HOUR)
 
 
-func reset(start_hour: int = HOUR_PER_DAY, start_minute: int = 0) -> void:
+func reset(start_hour: int = HOURS_PER_DAY, start_minute: int = 0) -> void:
 	hour = start_hour
 	minute = start_minute
 	time_changed.emit(hour, minute)
