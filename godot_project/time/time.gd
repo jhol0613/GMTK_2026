@@ -4,7 +4,7 @@ const HOUR_PER_DAY: int = 8
 
 @export_category("Clock Sounds")
 @export var second_change_sound: AudioStream
-@export_range(-40.0, 6.0, 0.5) var second_volume_db: float = -6.0
+@export_range(-40.0, 6.0, 0.5) var second_volume_db: float = -8.0
 @export var minute_change_sound: AudioStream
 @export_range(-40.0, 6.0, 0.5) var minute_volume_db: float = -0.0
 
