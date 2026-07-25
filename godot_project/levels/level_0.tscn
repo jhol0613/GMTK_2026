@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://ca8r7wcmgae0o" path="res://levels/tileset/grasstiles.png" id="17_ggct0"]
 [ext_resource type="Script" uid="uid://cpfgjwe2lpk0k" path="res://scripts/ticket_data.gd" id="17_owf05"]
 [ext_resource type="Texture2D" uid="uid://ddbgow303m2gq" path="res://levels/tileset/TX Tileset Grass.png" id="18_8mki0"]
+[ext_resource type="PackedScene" uid="uid://cit6uoxu58nwk" path="res://level_elements/maps/train_map.tscn" id="18_owf05"]
 [ext_resource type="PackedScene" uid="uid://baukigq6wfgs1" path="res://level_elements/ATM/atm.tscn" id="18_uuq13"]
 [ext_resource type="Texture2D" uid="uid://dy3h6m8das3ut" path="res://levels/tileset/brickborder.png" id="19_gxks1"]
 [ext_resource type="AudioStream" uid="uid://dlip7tol2c20x" path="res://notebook/Keeping TRACK of my Notes demo.mp3" id="23_8mki0"]
@@ -610,6 +611,7 @@ volume_db = -4.0
 
 [node name="TicketBooth" parent="." index="7" unique_id=861247956 instance=ExtResource("2_823pn")]
 position = Vector2(-896, -100)
+script = null
 
 [node name="DialogueInteractable" parent="TicketBooth" index="1" unique_id=358228256]
 lines = Array[ExtResource("3_obtcn")]([SubResource("Resource_d8oir")])
@@ -617,6 +619,9 @@ choices = Array[ExtResource("3_jum3j")]([SubResource("Resource_snxo8")])
 
 [node name="ATM" parent="." index="8" unique_id=124595741 instance=ExtResource("18_uuq13")]
 position = Vector2(-776, -208)
+
+[node name="TrainMap" parent="." index="9" unique_id=940096549 instance=ExtResource("18_owf05")]
+position = Vector2(-843, -64)
 
 [editable path="UiOverlay"]
 [editable path="Platform"]

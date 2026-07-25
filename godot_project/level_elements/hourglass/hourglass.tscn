@@ -263,19 +263,21 @@ size = Vector2(78, 16)
 [node name="Hourglass" type="Node2D" unique_id=259821884]
 
 [node name="HourglassTop" type="AnimatedSprite2D" parent="." unique_id=1470103453]
+z_index = 1
 position = Vector2(0, -99)
 sprite_frames = SubResource("SpriteFrames_ujtin")
 animation = &"new_animation"
 
 [node name="HourglassBottom" type="AnimatedSprite2D" parent="." unique_id=250575528]
+z_index = 1
 position = Vector2(0, -35)
 sprite_frames = SubResource("SpriteFrames_i8oxj")
 animation = &"new_animation"
 
-[node name="Area2D" type="Area2D" parent="." unique_id=505405969]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=99889502]
 collision_layer = 2
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=144890011]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=144890011]
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_ujtin")
