@@ -70,4 +70,4 @@ func _input(event: InputEvent) -> void:
 		
 		# Enable player movement if closing the notebook
 		for player in get_tree().get_nodes_in_group("player"):
-			player.movement_disabled = true
+			player.movement_disabled = false
