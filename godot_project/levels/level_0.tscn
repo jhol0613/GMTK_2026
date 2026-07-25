@@ -6,10 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://cxekovsy3q368" path="res://level_elements/train_platform/platform.tscn" id="3_iss0w"]
 [ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://scripts/dialogue_choice.gd" id="3_jum3j"]
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://scripts/dialogue_line.gd" id="3_obtcn"]
-[ext_resource type="AudioStream" uid="uid://ce6kvjn3hwsb0" path="res://UI/Schedule_Open.mp3" id="3_uuq13"]
+[ext_resource type="Texture2D" uid="uid://d05r7jsgne3d5" path="res://UI/ticket/icon_ticket.png" id="3_owf05"]
+[ext_resource type="AudioStream" uid="uid://ce6kvjn3hwsb0" path="res://ui/Schedule_Open.mp3" id="3_uuq13"]
 [ext_resource type="TileSet" uid="uid://dvxgqw1r5w5ps" path="res://levels/tileset/station_tileset.tres" id="4_owf05"]
 [ext_resource type="Script" uid="uid://8aci422hp6qo" path="res://levels/level_0_audio.gd" id="12_p0s0h"]
-[ext_resource type="AudioStream" uid="uid://cu3ssob4apsrg" path="res://UI/Train/Train Pulling Into.mp3" id="13_axdoh"]
+[ext_resource type="AudioStream" uid="uid://cu3ssob4apsrg" path="res://ui/Train/Train Pulling Into.mp3" id="13_axdoh"]
 [ext_resource type="AudioStream" uid="uid://bbcbac8i6a3xm" path="res://levels/You TRAINed for this copy.mp3" id="14_as6hq"]
 [ext_resource type="Texture2D" uid="uid://kayfkwypm2a" path="res://character_portraits/ticket_lady/ticket_lady_portrait_2.png" id="15_fv0x7"]
 [ext_resource type="Texture2D" uid="uid://ca8r7wcmgae0o" path="res://levels/tileset/grasstiles.png" id="17_ggct0"]
@@ -545,6 +546,9 @@ script = ExtResource("2_as6hq")
 [node name="UiOverlay" parent="." index="0" unique_id=368800410]
 scale = Vector2(1, 1)
 transform = Transform2D(1, 0, 0, 1, 0, 0)
+
+[node name="TicketButton" parent="UiOverlay" index="4" unique_id=1767702105]
+texture_normal = ExtResource("3_owf05")
 
 [node name="NotebookHoverSound" parent="UiOverlay" index="5" unique_id=732685104]
 volume_db = 18.067
