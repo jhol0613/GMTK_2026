@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://i202174cj82c" path="res://interactables/sign_interactable.tscn" id="2_ed7fu"]
 [ext_resource type="PackedScene" uid="uid://0h6rwq0bq753" path="res://interactables/sign_panel.tscn" id="3_rlmea"]
 [ext_resource type="Texture2D" uid="uid://t1gbduu3o0qs" path="res://level_elements/maps/map_sign.png" id="4_rlmea"]
+[ext_resource type="Texture2D" uid="uid://csn2l5pottqor" path="res://level_elements/maps/station_name_overlay.png" id="5_jm6e6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]
 size = Vector2(34, 12)
@@ -38,10 +39,15 @@ offset_bottom = -61.0
 
 [node name="SignPanel" parent="." unique_id=1998267979 instance=ExtResource("3_rlmea")]
 
-[node name="Sprite2D" type="Sprite2D" parent="SignPanel/Root/Popup" parent_id_path=PackedInt32Array(1998267979, 2123670025) index="1" unique_id=87657577]
+[node name="Map" type="Sprite2D" parent="SignPanel/Root/Popup" parent_id_path=PackedInt32Array(1998267979, 2123670025) index="1" unique_id=87657577]
 position = Vector2(228, 240)
 scale = Vector2(0.77, 0.77)
 texture = ExtResource("4_rlmea")
+
+[node name="Overlay" type="Sprite2D" parent="SignPanel/Root/Popup" parent_id_path=PackedInt32Array(1998267979, 2123670025) index="2" unique_id=146975511]
+position = Vector2(228, 240)
+scale = Vector2(0.77, 0.77)
+texture = ExtResource("5_jm6e6")
 
 [editable path="SignInteractable"]
 [editable path="SignPanel"]
