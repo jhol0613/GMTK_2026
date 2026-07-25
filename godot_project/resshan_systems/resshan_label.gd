@@ -25,6 +25,7 @@ extends Control
 var _shapes: Array[RectangleShape2D]
 var _areas: Array[ResshanInteractable]
 
+var prev_text: String
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -32,6 +33,8 @@ func _ready() -> void:
 
 
 func _draw() -> void:
+	
+
 	var _f: Font = font
 	if not font:
 		_f = ThemeDB.fallback_font
@@ -63,3 +66,7 @@ func _draw() -> void:
 		"/n",
 		spacing,
 	)
+	
+	if text == prev_text:
+		return
+	prev_text = text
