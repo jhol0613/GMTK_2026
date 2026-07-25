@@ -1,5 +1,6 @@
 extends Node2D
 
+signal scene_complete
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,8 +13,11 @@ func _ready() -> void:
 	var tween = create_tween()
 	tween.tween_property($CanvasLayer/ColorRect, "modulate:a", 0.0, 2.0)
 	await tween.finished
+	scene_complete.emit()
 	queue_free()
+
 
 func _input(event):
 	if event.is_action_pressed("skip"):
+		scene_complete.emit()
 		queue_free()
