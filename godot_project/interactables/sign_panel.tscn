@@ -16,6 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="DimScreen" type="ColorRect" parent="Root" unique_id=2076536811]
 layout_mode = 1
@@ -24,6 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 0.54901963)
 
 [node name="Popup" type="PanelContainer" parent="Root" unique_id=2123670025]
@@ -40,10 +42,12 @@ offset_right = 250.0
 offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_sign")
 
 [node name="MarginContainer" type="MarginContainer" parent="Root/Popup" unique_id=1476388609]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24

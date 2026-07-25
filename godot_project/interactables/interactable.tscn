@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d34pxtg1mlqmy"]
 
 [ext_resource type="Script" uid="uid://btq7els1ofy3i" path="res://interactables/interactable.gd" id="1_7t3he"]
-[ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/language_display.gd" id="2_7t3he"]
+[ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/resshan_label.gd" id="2_7t3he"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_riqys"]
 size = Vector2(50, 19)

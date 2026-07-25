@@ -2,7 +2,7 @@ class_name LanguageRenderer
 extends Node2D
 
 const DEFAULT_SPACING: = 15.0
-const DEFAULT_PARAGRAPH_SEPARATOR: = "\n"
+const DEFAULT_PARAGRAPH_SEPARATOR: = "/n"
 const ENGLISH_DEFAULT_FONT_SIZE: int = 42
 const RESSHAN_DEFAULT_FONT_SIZE: int = 80
 
@@ -53,8 +53,10 @@ static func draw_resshan_text(
 	font_size: = RESSHAN_DEFAULT_FONT_SIZE,
 	modulate_color: = Color.SKY_BLUE,
 	
-	) -> RectangleShape2D:
-		
+) -> RectangleShape2D:
+	
+	print('foof')
+	
 	var arr: PackedStringArray = []
 	if not encoded:
 		arr = encode(str).split('.')

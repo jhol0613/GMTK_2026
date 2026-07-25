@@ -18,10 +18,11 @@ offset_left = 1680.0
 offset_top = 24.0
 offset_right = 1880.0
 offset_bottom = 104.0
+mouse_filter = 2
 
 [node name="Notebook" parent="." unique_id=2020796058 instance=ExtResource("2_l5of1")]
 visible = false
-texture_filter = 2
+texture_filter = 1
 position = Vector2(987, 553)
 
 [node name="Ticket" parent="." unique_id=1917505248 instance=ExtResource("4_ticket")]
