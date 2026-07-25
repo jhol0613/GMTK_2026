@@ -65,9 +65,6 @@ static func draw_resshan_text(
 	pos.y *= -1
 	pos.y += font_size
 	
-	var shape: = RectangleShape2D.new()
-	shape.set_meta('text_position', pos + Vector2(0,font_size/1.6))
-	
 	for indx:String in arr:
 		var char_rec: = Rect2(pos, Vector2(font_size,font_size))
 		var i:int = str_to_var(indx)
@@ -79,8 +76,10 @@ static func draw_resshan_text(
 		)
 		pos.x += font_size
 	
-	shape.size.x = arr.size() * font_size
+	var shape: = RectangleShape2D.new()
 	shape.size.y = font_size
+	shape.size.x = arr.size() * font_size
+	shape.set_meta('text_position', shape.size * Vector2(0,1))
 	return shape
 
 ## Turns <<***>> Resshen format into *.*.*.*... encoded format

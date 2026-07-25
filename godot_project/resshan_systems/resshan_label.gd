@@ -51,7 +51,7 @@ func _draw() -> void:
 		var resshen: String = shape.get_meta('resshen_text')
 
 		area.position = pos
-		area.position.y -= 8
+		area.position.y -= pos.y / 2
 		area.position.x += shape.size.x * 0.5
 		area._encoded_string = LanguageRenderer.encode(resshen)
 		collision_shape.shape = shape
