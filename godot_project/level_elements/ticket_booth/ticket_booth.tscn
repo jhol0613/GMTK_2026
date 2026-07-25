@@ -1,24 +1,54 @@
 [gd_scene format=3 uid="uid://2pwlm8itluel"]
 
 [ext_resource type="Texture2D" uid="uid://bof6fneov4vmn" path="res://level_elements/ticket_booth/Ticketbooth.png" id="1_8vy6h"]
+[ext_resource type="Script" uid="uid://dtxt0cu3nyw4g" path="res://level_elements/ticket_booth/ticket_booth.gd" id="1_e2qtd"]
 [ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialogue_interactable.tscn" id="2_ui1pi"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="3_ui1pi"]
 [ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialogue_panel.tscn" id="4_2vr77"]
-[ext_resource type="AudioStream" uid="uid://6llsv27ckbd2" path="res://UI/Purchased Ticket.mp3" id="5_8d5ud"]
+[ext_resource type="AudioStream" uid="uid://6llsv27ckbd2" path="res://ui/Purchased Ticket.mp3" id="5_8d5ud"]
+[ext_resource type="AudioStream" uid="uid://dtf5vr8s8qloo" path="res://level_elements/ticket_booth/Ticket_Booth_Noise.mp3" id="7_8vjcj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2vr77"]
 atlas = ExtResource("1_8vy6h")
 region = Rect2(0, 0, 94, 87)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2qtd"]
+atlas = ExtResource("1_8vy6h")
+region = Rect2(0, 0, 94, 87)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vjcj"]
+atlas = ExtResource("1_8vy6h")
+region = Rect2(94, 0, 94, 87)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwpts"]
+atlas = ExtResource("1_8vy6h")
+region = Rect2(188, 0, 94, 87)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aff56"]
+atlas = ExtResource("1_8vy6h")
+region = Rect2(282, 0, 94, 87)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ujtin"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2vr77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2qtd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vjcj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwpts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aff56")
 }],
 "loop": 1,
 "name": &"default",
-"speed": 5.0
+"speed": 6.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8d5ud"]
@@ -37,11 +67,13 @@ size = Vector2(15, 14)
 size = Vector2(19, 14)
 
 [node name="TicketBooth" type="Node2D" unique_id=861247956]
+script = ExtResource("1_e2qtd")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=530977529]
 z_index = 1
 position = Vector2(-12, -44.5)
 sprite_frames = SubResource("SpriteFrames_ujtin")
+autoplay = "default"
 
 [node name="DialogueInteractable" parent="." unique_id=358228256 instance=ExtResource("2_ui1pi")]
 z_index = 1
@@ -55,7 +87,6 @@ shape = SubResource("RectangleShape2D_8d5ud")
 
 [node name="Prompt" parent="DialogueInteractable" index="1" unique_id=272794898]
 z_index = 1
-texture_filter = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1210208580]
@@ -82,7 +113,7 @@ _string = "<<ticket>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ResshanInteractable" unique_id=1516641839]
-position = Vector2(-34.5, -34)
+position = Vector2(-28, -35)
 shape = SubResource("RectangleShape2D_pyhej")
 
 [node name="DialoguePanel" parent="." unique_id=210961773 instance=ExtResource("4_2vr77")]
@@ -90,5 +121,15 @@ unique_name_in_owner = true
 
 [node name="PurchasedTicket" type="AudioStreamPlayer" parent="." unique_id=1025218668]
 stream = ExtResource("5_8d5ud")
+
+[node name="BoothAmbient" type="AudioStreamPlayer2D" parent="." unique_id=986529912]
+stream = ExtResource("7_8vjcj")
+attenuation = 4.0000014
+
+[node name="LoopPauseTimer" type="Timer" parent="." unique_id=258006226]
+one_shot = true
+
+[node name="ResumeTimer" type="Timer" parent="." unique_id=791407281]
+one_shot = true
 
 [editable path="DialogueInteractable"]

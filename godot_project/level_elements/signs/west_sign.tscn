@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://cf017hd6cyx1m"]
+
+[ext_resource type="Texture2D" uid="uid://b1fqf7ehsjkoi" path="res://level_elements/signs/westsign.png" id="1_g11b7"]
+[ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="2_vpi8a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpi8a"]
+atlas = ExtResource("1_g11b7")
+region = Rect2(0, 0, 34, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_si4n5"]
+atlas = ExtResource("1_g11b7")
+region = Rect2(34, 0, 34, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7jne"]
+atlas = ExtResource("1_g11b7")
+region = Rect2(68, 0, 34, 49)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ujtin"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vpi8a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_si4n5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7jne")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]
+size = Vector2(11, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbyu3"]
+size = Vector2(11, 10)
+
+[node name="WestSign" type="Node2D" unique_id=733299724]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1452118075]
+z_index = 1
+position = Vector2(-2, -24)
+sprite_frames = SubResource("SpriteFrames_ujtin")
+autoplay = "default"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=500868513]
+position = Vector2(-2, 0)
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=351718269]
+position = Vector2(2, -3)
+shape = SubResource("RectangleShape2D_ujtin")
+
+[node name="ResshanInteractable" type="Area2D" parent="." unique_id=863376939]
+script = ExtResource("2_vpi8a")
+_string = "<<west>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ResshanInteractable" unique_id=1309111021]
+position = Vector2(2, -40)
+shape = SubResource("RectangleShape2D_qbyu3")

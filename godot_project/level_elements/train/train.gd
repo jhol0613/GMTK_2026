@@ -14,6 +14,10 @@ class_name Train
 
 @export var incorrect_penalty_minutes: int = 5
 @export var reload_scene: Enums.Scenes = Enums.Scenes.LEVEL_0
+## The delay before the train arrives at the platform after missing the deadline
+@export var missed_rearrive_delay: float = 8.0
+## If true, this train leaves on its own when a matching ticket's deadline passes
+@export var departs_on_missed_deadline: bool = true
 
 @export var sprite: AnimatedSprite2D
 @export var color := Enums.TrainColor.BROWN:
@@ -34,9 +38,12 @@ class_name Train
 
 
 var _boarding: bool = false
+var _missed_departure: bool = false
 var _l_or_r: String
 
 @onready var player_disembark_marker: Marker2D = $PlayerDisembarkMarker
+
+@onready var original_position = position
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
@@ -44,6 +51,8 @@ func _ready() -> void:
 	_no_ticket_light.visible = false
 	_boarded_player_l.visible = false
 	_boarded_player_r.visible = false
+	TimeManager.time_changed.connect(_on_time_changed)
+	Inventory.inventory_changed.connect(_on_inventory_changed)
 
 
 func try_board(interactable: TrainInteractable, l_or_r: String) -> void:
@@ -56,11 +65,32 @@ func try_board(interactable: TrainInteractable, l_or_r: String) -> void:
 		Enums.BoardResult.REJECTED:
 			await _flash_reject(_no_ticket_light)
 			return
+		Enums.BoardResult.TOO_LATE:
+			await _missed_departure_sequence()
+			return
 		Enums.BoardResult.WRONG_TRAIN:
 			await _wrong_train_sequence()
 			return
 		Enums.BoardResult.SUCCESS:
 			await _boarding_sequence()
+
+
+func _on_time_changed(_hour: int, _minute: int) -> void:
+	if not departs_on_missed_deadline:
+		return
+	if _boarding or _missed_departure:
+		return
+	var ticket: TicketData = Inventory.get_ticket()
+	if ticket == null or not _matches_ticket(ticket):
+		return
+	if TimeManager.has_at_least(ticket.departure_hours, ticket.departure_minutes):
+		return
+	_missed_departure = true
+	_missed_departure_sequence()
+
+
+func _on_inventory_changed() -> void:
+	_missed_departure = false
 
 
 func _boarding_sequence() -> void:
@@ -79,9 +109,25 @@ func _wrong_train_sequence() -> void:
 	_set_player_active(false)
 	await _run_boarding_and_departure()
 	
-	_apply_penalty()
+	TimeManager.stash_before_reload(incorrect_penalty_minutes)
 
 	GameManager.load_scene(reload_scene)
+	_boarding = false
+
+
+## Leaves without the player when the ticket deadline is missed.
+func _missed_departure_sequence() -> void:
+	if _boarding:
+		return
+	_boarding = true
+	_missed_departure = true
+	_set_interactables_enabled(false)
+
+	await _train_depart()
+	await get_tree().create_timer(missed_rearrive_delay).timeout
+	await play_simple_arrival_animation()
+
+	_set_interactables_enabled(true)
 	_boarding = false
 
 
@@ -126,7 +172,15 @@ func play_arrival_animation() -> void:
 	await animation_player.animation_finished
 	player.set_physics_process(true)
 
-
+## Play arrival animation without moving player
+func play_simple_arrival_animation() -> void:
+	var stop_position: Vector2 = original_position
+	position = stop_position + arrival_offset
+		
+	var tween := create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(self, "position", stop_position, arrival_duration)
+	await tween.finished
+	
 #---------------------------------------------------------
 # Helper functions
 #---------------------------------------------------------
@@ -138,14 +192,18 @@ func _set_player_active(active: bool) -> void:
 	player.set_physics_process(active)
 
 
-func _apply_penalty() -> void:
-	var time_node: Control = get_tree().get_first_node_in_group("time")
-	if time_node:
-		GameManager.stash_time_before_reload(
-			time_node.rhour,
-			time_node.rminute,
-			incorrect_penalty_minutes,
-		)
+func _matches_ticket(ticket: TicketData) -> bool:
+	return train_interactable_l.id == ticket.id or train_interactable_r.id == ticket.id
+
+
+## Sets the interactables to enabled or disabled
+func _set_interactables_enabled(enabled: bool) -> void:
+	for interactable in [train_interactable_l, train_interactable_r]:
+		if interactable == null:
+			continue
+		interactable.set_deferred("monitoring", enabled)
+		interactable.set_deferred("monitorable", enabled)
+		interactable.visible = enabled
 
 
 func _open_doors() -> void:

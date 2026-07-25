@@ -7,7 +7,7 @@ extends Control
 		text = value
 		queue_redraw()
 
-@export var spacing: float = 1.0:
+@export var spacing: float = 15.0:
 	set(value):
 		spacing = value
 		queue_redraw()
@@ -25,6 +25,7 @@ extends Control
 var _shapes: Array[RectangleShape2D]
 var _areas: Array[ResshanInteractable]
 
+var prev_text: String
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -32,6 +33,8 @@ func _ready() -> void:
 
 
 func _draw() -> void:
+	
+
 	var _f: Font = font
 	if not font:
 		_f = ThemeDB.fallback_font
@@ -48,14 +51,16 @@ func _draw() -> void:
 		var resshen: String = shape.get_meta('resshen_text')
 
 		area.position = pos
-		area.position.y -= 8
-		area.position.x += shape.size.x * 0.5
+		area.position.y -= pos.y / 2
+		#area.position.x = 0
+		#area.position.x += shape.size.x * 0.5
 		area._encoded_string = LanguageRenderer.encode(resshen)
 		collision_shape.shape = shape
 		area.add_child(collision_shape)
 
 		_areas.append(area)
 		add_child(area)
+	
 	custom_minimum_size = LanguageRenderer.get_string_size(
 		text,
 		ThemeDB.fallback_font,

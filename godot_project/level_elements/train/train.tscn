@@ -2,46 +2,55 @@
 
 [ext_resource type="Script" uid="uid://bf2ekd1ldyduy" path="res://level_elements/train/train.gd" id="1_cjdsu"]
 [ext_resource type="Texture2D" uid="uid://dbioka1xtrjb7" path="res://level_elements/train/train.png" id="2_725i7"]
+[ext_resource type="Texture2D" uid="uid://bs11d6gbcpom8" path="res://level_elements/train/door_blocker.png" id="3_17x1t"]
 [ext_resource type="PackedScene" uid="uid://dchuwbctx2fxx" path="res://interactables/train_interactable.tscn" id="3_725i7"]
 [ext_resource type="Texture2D" uid="uid://d0p3sbfud3275" path="res://player/sprites/Main_Character.png" id="4_player"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_725i7"]
-atlas = ExtResource("2_725i7")
-region = Rect2(0, 258, 1355, 129)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_5xnue"]
 atlas = ExtResource("2_725i7")
-region = Rect2(0, 387, 1355, 129)
+region = Rect2(0, 258, 813, 129)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_17x1t"]
 atlas = ExtResource("2_725i7")
-region = Rect2(0, 0, 1355, 129)
+region = Rect2(0, 387, 813, 129)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oe38n"]
 atlas = ExtResource("2_725i7")
-region = Rect2(0, 774, 1355, 129)
+region = Rect2(0, 0, 813, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkva7"]
+atlas = ExtResource("2_725i7")
+region = Rect2(0, 903, 813, 129)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rvps3"]
 atlas = ExtResource("2_725i7")
-region = Rect2(0, 516, 1355, 129)
+region = Rect2(0, 774, 813, 129)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wb4gf"]
 atlas = ExtResource("2_725i7")
-region = Rect2(0, 645, 1355, 129)
+region = Rect2(0, 516, 813, 129)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ee42e"]
 atlas = ExtResource("2_725i7")
-region = Rect2(0, 129, 1355, 129)
+region = Rect2(0, 645, 813, 129)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4fu51"]
 atlas = ExtResource("2_725i7")
-region = Rect2(0, 1161, 1355, 129)
+region = Rect2(0, 1032, 813, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vmqs"]
+atlas = ExtResource("2_725i7")
+region = Rect2(0, 129, 813, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfhyf"]
+atlas = ExtResource("2_725i7")
+region = Rect2(0, 1161, 813, 129)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ujtin"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_725i7")
+"texture": SubResource("AtlasTexture_5xnue")
 }],
 "loop": 1,
 "name": &"BLUE",
@@ -49,7 +58,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5xnue")
+"texture": SubResource("AtlasTexture_17x1t")
 }],
 "loop": 2,
 "name": &"BROWN",
@@ -57,7 +66,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_17x1t")
+"texture": SubResource("AtlasTexture_oe38n")
 }],
 "loop": 0,
 "name": &"GRAY",
@@ -65,7 +74,15 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oe38n")
+"texture": SubResource("AtlasTexture_pkva7")
+}],
+"loop": 1,
+"name": &"GREEN",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvps3")
 }],
 "loop": 0,
 "name": &"MAROON",
@@ -73,7 +90,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rvps3")
+"texture": SubResource("AtlasTexture_wb4gf")
 }],
 "loop": 1,
 "name": &"PINK",
@@ -81,20 +98,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wb4gf")
+"texture": SubResource("AtlasTexture_ee42e")
 }],
 "loop": 1,
 "name": &"PURPLE",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fu51")
+}],
 "loop": 1,
 "name": &"RED",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ee42e")
+"texture": SubResource("AtlasTexture_1vmqs")
 }],
 "loop": 1,
 "name": &"TEAL",
@@ -102,7 +122,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4fu51")
+"texture": SubResource("AtlasTexture_gfhyf")
 }],
 "loop": 1,
 "name": &"YELLOW",
@@ -291,14 +311,29 @@ size = Vector2(40, 23)
 
 [node name="Train" type="Node2D" unique_id=2086324427 node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_cjdsu")
-next_scene = 2
 sprite = NodePath("TrainSprite")
-color = 5
 
 [node name="TrainSprite" type="AnimatedSprite2D" parent="." unique_id=865404147]
 position = Vector2(0, -40)
 sprite_frames = SubResource("SpriteFrames_ujtin")
 animation = &"BROWN"
+frame_progress = 0.06476942
+
+[node name="DoorBlocker" type="Sprite2D" parent="TrainSprite" unique_id=1733779265]
+position = Vector2(-335, 5)
+texture = ExtResource("3_17x1t")
+
+[node name="DoorBlocker2" type="Sprite2D" parent="TrainSprite" unique_id=566216451]
+position = Vector2(-206, 5)
+texture = ExtResource("3_17x1t")
+
+[node name="DoorBlocker3" type="Sprite2D" parent="TrainSprite" unique_id=1551714510]
+position = Vector2(207, 5)
+texture = ExtResource("3_17x1t")
+
+[node name="DoorBlocker4" type="Sprite2D" parent="TrainSprite" unique_id=1361625764]
+position = Vector2(336, 5)
+texture = ExtResource("3_17x1t")
 
 [node name="PlayerDisembarkMarker" type="Marker2D" parent="." unique_id=886720525]
 position = Vector2(-64, 18)
@@ -314,28 +349,28 @@ position = Vector2(64.5, -27)
 texture = SubResource("AtlasTexture_boarded")
 
 [node name="DoorL" type="Sprite2D" parent="." unique_id=371770877]
-z_index = 3
+z_index = 2
 position = Vector2(-78.5, -61.5)
 scale = Vector2(0.9, 1)
 texture = SubResource("AtlasTexture_door_l")
 offset = Vector2(8, 27)
 
 [node name="DoorR" type="Sprite2D" parent="." unique_id=621257440]
-z_index = 3
+z_index = 2
 position = Vector2(-65, -61.5)
 scale = Vector2(0.9, 1)
 texture = SubResource("AtlasTexture_door_r")
 offset = Vector2(8.222221, 27)
 
 [node name="DoorL2" type="Sprite2D" parent="." unique_id=1692903795]
-z_index = 3
+z_index = 2
 position = Vector2(50.5, -61.5)
 scale = Vector2(0.9, 1)
 texture = SubResource("AtlasTexture_door_l")
 offset = Vector2(8, 27)
 
 [node name="DoorR2" type="Sprite2D" parent="." unique_id=71265228]
-z_index = 3
+z_index = 2
 position = Vector2(64, -61.5)
 scale = Vector2(0.9, 1)
 texture = SubResource("AtlasTexture_door_r")
@@ -352,7 +387,7 @@ libraries/ = SubResource("AnimationLibrary_oe38n")
 
 [node name="TrainInteractableL" parent="." unique_id=779530687 instance=ExtResource("3_725i7")]
 position = Vector2(-77, -52)
-id = &"berlin_s5"
+id = &"red_east"
 l_or_r = "l"
 
 [node name="CollisionShape2D" parent="TrainInteractableL" index="0" unique_id=278382881]
@@ -361,7 +396,7 @@ shape = SubResource("RectangleShape2D_5xnue")
 
 [node name="TrainInteractableR" parent="." unique_id=1631350735 instance=ExtResource("3_725i7")]
 position = Vector2(51, -52)
-id = &"berlin_s5"
+id = &"red_east"
 l_or_r = "r"
 
 [node name="CollisionShape2D" parent="TrainInteractableR" index="0" unique_id=278382881]

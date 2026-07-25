@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dx6anke6v5f76" path="res://ui/ticket/ticket.gd" id="1_script"]
 [ext_resource type="Resource" uid="uid://dj6yasn35nxsu" path="res://resources/dialogue/test_ticket.tres" id="2_mynkr"]
 [ext_resource type="Texture2D" uid="uid://dy4ed526c25en" path="res://ui/ticket/ticket.png" id="3_bxong"]
-[ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/language_display.gd" id="4_resshan"]
+[ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/resshan_label.gd" id="4_resshan"]
 
 [node name="Ticket" type="Node2D" unique_id=1930504366]
 script = ExtResource("1_script")

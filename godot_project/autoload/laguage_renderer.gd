@@ -2,8 +2,9 @@ class_name LanguageRenderer
 extends Node2D
 
 const DEFAULT_SPACING: = 15.0
-const DEFAULT_PARAGRAPH_SEPARATOR: = "\n"
-const DEFAULT_FONT_SIZE: int = 16
+const DEFAULT_PARAGRAPH_SEPARATOR: = "/n"
+const ENGLISH_DEFAULT_FONT_SIZE: int = 42
+const RESSHAN_DEFAULT_FONT_SIZE: int = 80
 
 # It's for the "str" variables. str() is a keyword, so it's fine
 @warning_ignore_start('shadowed_global_identifier')
@@ -16,7 +17,7 @@ static func draw_text(
 	spacing: float = DEFAULT_SPACING,
 	separator: String = DEFAULT_PARAGRAPH_SEPARATOR,
 	font: = ThemeDB.fallback_font,
-	font_size: = DEFAULT_FONT_SIZE,
+	font_size: = ENGLISH_DEFAULT_FONT_SIZE,
 	modulate_color: = Color.WHITE
 
 ) -> Array[RectangleShape2D]:
@@ -31,9 +32,9 @@ static func draw_text(
 			char_pos.x = 0
 			continue
 		if str.contains("<<") and str.contains(">>"):
-			var shape: = draw_resshan_text(char_pos, str, node, false, font_size)
+			var shape: = draw_resshan_text(char_pos, str, node, false, font_size, modulate_color, spacing)
 			shape.set_meta('resshen_text', str)
-			shape.set_meta('text_position', char_pos)
+			
 			shapes.append(shape)
 			char_pos.x += shape.size.x + spacing
 			continue
@@ -49,18 +50,22 @@ static func draw_resshan_text(
 	str:String,
 	node:CanvasItem,
 	encoded: = false,
-	font_size: = DEFAULT_FONT_SIZE,
-	modulate_color: = Color.WHITE,
+	font_size: = RESSHAN_DEFAULT_FONT_SIZE,
+	modulate_color: = Color.SKY_BLUE,
+	spacing: float = DEFAULT_SPACING,
 	
-	) -> RectangleShape2D:
-		
+) -> RectangleShape2D:
+	
+	
 	var arr: PackedStringArray = []
 	if not encoded:
 		arr = encode(str).split('.')
 	else:
 		arr = str.split('.')
 	
-	pos.y -= font_size
+	pos.y *= -1
+	pos.y += font_size
+	
 	for indx:String in arr:
 		var char_rec: = Rect2(pos, Vector2(font_size,font_size))
 		var i:int = str_to_var(indx)
@@ -71,14 +76,16 @@ static func draw_resshan_text(
 			char_rec, src_rect, modulate_color
 		)
 		pos.x += font_size
+	
 	var shape: = RectangleShape2D.new()
-	shape.size.x = arr.size() * font_size
 	shape.size.y = font_size
+	shape.size.x = arr.size() * font_size
+	shape.set_meta('text_position', shape.size * Vector2(0.5,1) + pos - Vector2(font_size,0))
 	return shape
 
 ## Turns <<***>> Resshen format into *.*.*.*... encoded format
 static func encode(str:String) -> String:
-	return preload("res://resshan_systems/vocab.json").data[str.capitalize()]
+	return preload("res://resshan_systems/table-a-dictionary.json").data[str.capitalize()]
 
 static func get_string_size(
 	str:String,

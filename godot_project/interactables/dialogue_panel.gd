@@ -4,6 +4,9 @@ extends InteractionPanelBase
 ## Emitted when an option is confirmed, can be used to trigger actions based on the outcome
 signal option_confirmed(outcome_id: StringName)
 
+@export var player_name: String = "You"
+@export var player_icon: Texture2D
+
 @onready var _speaker: ResshanLabel = $Root/Popup/MarginContainer/HBoxContainer/VBox/Speaker
 @onready var _body: ResshanLabel = $Root/Popup/MarginContainer/HBoxContainer/VBox/Body
 @onready var _options: VBoxContainer = $Root/Popup/MarginContainer/HBoxContainer/VBox/Options
@@ -93,6 +96,9 @@ func _on_interact_while_open() -> void:
 
 func _enter_options_mode() -> void:
 	_showing_options = true
+	_body.text = ""
+	_speaker.text = player_name
+	_speaker_icon.texture = player_icon
 	_options.visible = true
 	_refresh_options_visual()
 
@@ -133,10 +139,16 @@ func _refresh_options_visual() -> void:
 		var label := _options.get_child(i) as ResshanLabel
 		if label == null:
 			continue
+		var prefix := "> " if i == _selected_option else "  "
+		label.text = prefix + _choices[i].player_text
 		label.modulate = Color.WHITE if i == _selected_option else Color.GRAY
 
 
 func _give_reward() -> void:
 	if _reward == null:
 		return
-	Inventory.add_item(_reward.duplicate() as ItemData)
+
+	var item := _reward.duplicate() as ItemData
+	if item is TicketData:
+		(item as TicketData).resolve_departure()
+	Inventory.add_item(item)

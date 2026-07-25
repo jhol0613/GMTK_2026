@@ -1,51 +1,29 @@
 extends Control
 
-const MINUTES_PER_HOUR: int = 8
 const HOUR_PER_DAY: int = 8
 
 @onready var label: ResshanLabel = $Label
-@onready var timer: Timer = $Timer
 
 ## Countdown starts here and ticks down towards 0:0
 @export var start_hour: int = HOUR_PER_DAY
 @export var start_minute: int = 0
 
-var rhour: int = 0
-var rminute: int = 0
-
 
 func _ready() -> void:
-	add_to_group("time")
-	SignalBus.minutes_passed.connect(_advance_time)
+	TimeManager.time_changed.connect(_on_time_changed)
+	TimeManager.sync_from_ui(start_hour, start_minute)
+	_update_label(TimeManager.hour, TimeManager.minute)
 
-	rhour = start_hour
-	rminute = start_minute
-
-	if GameManager.restore_time:
-		rhour = GameManager.restore_hour
-		rminute = GameManager.restore_minute
-		GameManager.restore_time = false
-
-	_update_label()
-
-	if GameManager.flash_timer:
-		GameManager.flash_timer = false
+	if TimeManager.consume_flash():
 		_flash_timer()
 
 
-func _advance_time(amount: int = 1) -> void:
-	rminute -= amount
-	while rminute < 0:
-		rhour -= 1
-		rminute += MINUTES_PER_HOUR
-	if rhour < 0:
-		rhour = 0
-		rminute = 0
-	_update_label()
+func _on_time_changed(hour: int, minute: int) -> void:
+	_update_label(hour, minute)
 
 
-func _update_label() -> void:
-	label.text = "<<%s>> : <<%s>>" % [rhour, rminute]
+func _update_label(hour: int, minute: int) -> void:
+	label.text = "<<%s>> : <<%s>>" % [hour, minute]
 
 
 func _flash_timer(flashes: int = 3, interval: float = 0.5) -> void:
