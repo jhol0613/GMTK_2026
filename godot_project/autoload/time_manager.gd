@@ -3,11 +3,13 @@ extends Node
 signal time_changed(hour: int, minute: int)
 signal flash_requested
 
+const SECONDS_PER_MINUTE: int = 8
 const MINUTES_PER_HOUR: int = 8
 const HOURS_PER_DAY: int = 8
 
 var hour: int = HOURS_PER_DAY
 var minute: int = 0
+var second: int = 0
 
 var _preserve_across_reload: bool = false
 
@@ -26,55 +28,59 @@ func _unhandled_input(event: InputEvent) -> void:
 			advance(MINUTES_PER_HOUR)
 
 
-func reset(start_hour: int = HOURS_PER_DAY, start_minute: int = 0) -> void:
+func reset(start_hour: int = HOURS_PER_DAY, start_minute: int = 0, start_second: int = 0) -> void:
 	hour = start_hour
 	minute = start_minute
-	time_changed.emit(hour, minute)
+	second = start_second
+	time_changed.emit(hour, minute, second)
 
 
 func advance(amount: int = 1) -> void:
-	minute -= amount
+	second -= amount
+	while second < 0:
+		minute -= 1
+		second += SECONDS_PER_MINUTE
 	while minute < 0:
 		hour -= 1
 		minute += MINUTES_PER_HOUR
 	if hour < 0:
 		hour = 0
 		minute = 0
-	time_changed.emit(hour, minute)
+	time_changed.emit(hour, minute, second)
 
 
-func total_minutes() -> int:
-	return hour * MINUTES_PER_HOUR + minute
+func total_seconds() -> int:
+	return hour * MINUTES_PER_HOUR + minute * SECONDS_PER_MINUTE + second
 
 
 ## Countdown "now + offset" → remaining time after offset minutes elapse.
-func remaining_after_offset(offset_hours: int, offset_minutes: int) -> Vector2i:
-	var total := total_minutes() - (offset_hours * MINUTES_PER_HOUR + offset_minutes)
+func remaining_after_offset(offset_hours: int, offset_minutes: int, offset_seconds: int) -> Vector3i:
+	var total := total_seconds() - (offset_hours * MINUTES_PER_HOUR * SECONDS_PER_MINUTE + offset_minutes * SECONDS_PER_MINUTE + offset_seconds)
 	total = maxi(total, 0)
-	return Vector2i(total / MINUTES_PER_HOUR, total % MINUTES_PER_HOUR)
+	return Vector3i(total / (MINUTES_PER_HOUR * SECONDS_PER_MINUTE), total % (MINUTES_PER_HOUR * SECONDS_PER_MINUTE) / SECONDS_PER_MINUTE, total % (MINUTES_PER_HOUR * SECONDS_PER_MINUTE) % MINUTES_PER_HOUR)
 
 
 ## Countdown comparison: true while remaining time is still at/above the target.
 ## (Higher remaining = earlier)
-func has_at_least(target_hour: int, target_minute: int) -> bool:
-	return total_minutes() >= target_hour * MINUTES_PER_HOUR + target_minute
+func has_at_least(target_hour: int, target_minute: int, target_second: int) -> bool:
+	return total_seconds() >= target_hour * MINUTES_PER_HOUR + target_minute * SECONDS_PER_MINUTE + target_second
 
 
 
 ## Stash the current time before reloading the game.
-func stash_before_reload(penalty_minutes: int) -> void:
-	advance(penalty_minutes)
+func stash_before_reload(penalty_seconds: int) -> void:
+	advance(penalty_seconds)
 	_pending_flash = true
 	_preserve_across_reload = true
 
 
 ## Call from the clock UI on ready. Skips reset after a penalty reload.
-func sync_from_ui(start_hour: int, start_minute: int) -> void:
+func sync_from_ui(start_hour: int, start_minute: int, start_second: int) -> void:
 	if _preserve_across_reload:
 		_preserve_across_reload = false
-		time_changed.emit(hour, minute)
+		time_changed.emit(hour, minute, second)
 		return
-	reset(start_hour, start_minute)
+	reset(start_hour, start_minute, start_second)
 
 
 func consume_flash() -> bool:

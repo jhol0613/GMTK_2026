@@ -83,7 +83,7 @@ func _on_time_changed(_hour: int, _minute: int) -> void:
 	var ticket: TicketData = Inventory.get_ticket()
 	if ticket == null or not _matches_ticket(ticket):
 		return
-	if TimeManager.has_at_least(ticket.departure_hours, ticket.departure_minutes):
+	if TimeManager.has_at_least(ticket.departure_hours, ticket.departure_minutes, ticket.departure_seconds):
 		return
 	_missed_departure = true
 	_missed_departure_sequence()
