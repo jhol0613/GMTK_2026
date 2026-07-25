@@ -1,6 +1,7 @@
 extends CanvasLayer
 class_name InteractionPanelBase
 
+signal opened
 signal closed
 
 @onready var _root: Control = $Root
@@ -31,6 +32,7 @@ func _open(minutes: int = 1) -> void:
 	visible = true
 	_root.visible = true
 	_is_open = true
+	opened.emit()
 	SignalBus.minutes_passed.emit(minutes)
 
 

@@ -7,7 +7,7 @@ extends Control
 		text = value
 		queue_redraw()
 
-@export var spacing: float = 1.0:
+@export var spacing: float = 15.0:
 	set(value):
 		spacing = value
 		queue_redraw()

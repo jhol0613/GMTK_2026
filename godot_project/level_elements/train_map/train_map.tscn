@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b1eocdrw7mlj1"]
+
+[ext_resource type="Texture2D" uid="uid://b6k31b7s72nn2" path="res://level_elements/train_map/trainmap.png" id="1_8wteh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]
+size = Vector2(35, 10)
+
+[node name="TrainMap" type="Node2D" unique_id=223339207]
+
+[node name="Trainmap" type="Sprite2D" parent="." unique_id=760872699]
+position = Vector2(0, -32)
+texture = ExtResource("1_8wteh")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1634058953]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=333648877]
+position = Vector2(0.5, -7)
+shape = SubResource("RectangleShape2D_ujtin")

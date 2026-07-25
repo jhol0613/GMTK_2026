@@ -6,6 +6,14 @@
 [ext_resource type="AudioStream" uid="uid://blax8x14hbpgw" path="res://player/Footsteps/Character_Footstep_3.mp3" id="4_rgyib"]
 [ext_resource type="AudioStream" uid="uid://cyjsi1r1vlx8x" path="res://player/Footsteps/Character_Footstep_4.mp3" id="5_hg6s5"]
 [ext_resource type="SpriteFrames" uid="uid://c1cudv3v3tgvt" path="res://player/player_sprite_frames.tres" id="6_g6k8r"]
+[ext_resource type="AudioStream" uid="uid://cv4d6jt701kot" path="res://player/Footsteps/Footsteps_grass_1.mp3" id="6_kb6p2"]
+[ext_resource type="AudioStream" uid="uid://vruxmrqs4kqh" path="res://player/Footsteps/Footsteps_grass_2.mp3" id="7_wodsf"]
+[ext_resource type="AudioStream" uid="uid://cc3e4h15c8cd6" path="res://player/Footsteps/Footsteps_grass_3.mp3" id="8_32hag"]
+[ext_resource type="AudioStream" uid="uid://5be4bndmtvqv" path="res://player/Footsteps/Footsteps_grass_4.mp3" id="9_tqiix"]
+[ext_resource type="AudioStream" uid="uid://nvkgbc85n34q" path="res://player/Footsteps/Footsteps_wood_1.mp3" id="10_e7oew"]
+[ext_resource type="AudioStream" uid="uid://cksehd8mh63rg" path="res://player/Footsteps/Footsteps_wood_2.mp3" id="11_c35mf"]
+[ext_resource type="AudioStream" uid="uid://dq8tho5cfiylt" path="res://player/Footsteps/Footsteps_wood_3.mp3" id="12_65viv"]
+[ext_resource type="AudioStream" uid="uid://di7yp7owk0ld1" path="res://player/Footsteps/Footsteps_wood_4.mp3" id="13_x7c3f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_glpk1"]
 radius = 6.0
@@ -15,6 +23,9 @@ z_index = 1
 collision_mask = 2
 script = ExtResource("1_rkbax")
 footstep_sounds = Array[AudioStream]([ExtResource("2_g6k8r"), ExtResource("3_boad6"), ExtResource("4_rgyib"), ExtResource("5_hg6s5")])
+grass_footstep_sounds = Array[AudioStream]([ExtResource("6_kb6p2"), ExtResource("7_wodsf"), ExtResource("8_32hag"), ExtResource("9_tqiix")])
+stone_footstep_sounds = Array[AudioStream]([ExtResource("2_g6k8r"), ExtResource("3_boad6"), ExtResource("4_rgyib"), ExtResource("5_hg6s5")])
+wood_footstep_sounds = Array[AudioStream]([ExtResource("10_e7oew"), ExtResource("11_c35mf"), ExtResource("12_65viv"), ExtResource("13_x7c3f")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1839516700]
 position = Vector2(0, -3)

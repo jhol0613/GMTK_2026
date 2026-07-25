@@ -2,7 +2,7 @@ class_name DialogueInteractable
 extends Interactable
 
 @export var speaker: String = "NPC"
-@export var lines: PackedStringArray = ["Hello!"]
+@export var lines: Array[DialogueLine] = []
 @export var choices: Array[DialogueChoice] = []
 @export var panel_path: NodePath
 @export var minutes_cost: int = 1

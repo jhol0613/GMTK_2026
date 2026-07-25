@@ -17,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="DimScreen" type="ColorRect" parent="Root" unique_id=1318928651]
 layout_mode = 1
@@ -25,6 +26,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 0.54901963)
 
 [node name="Popup" type="PanelContainer" parent="Root" unique_id=380372494]
@@ -41,10 +43,12 @@ offset_right = 250.0
 offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_map")
 
 [node name="MarginContainer" type="MarginContainer" parent="Root/Popup" unique_id=1619139428]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
@@ -52,6 +56,7 @@ theme_override_constants/margin_bottom = 24
 
 [node name="VBox" type="VBoxContainer" parent="Root/Popup/MarginContainer" unique_id=1512772017]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 16
 
 [node name="Title" type="Label" parent="Root/Popup/MarginContainer/VBox" unique_id=168683168]
@@ -65,6 +70,7 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(0, 360)
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 texture = ExtResource("2_foff4")
 expand_mode = 1
 stretch_mode = 5

@@ -1,11 +1,11 @@
-class_name TicketUI
-extends Control
+class_name Ticket
+extends Node2D
 
 @export var ticket_data: TicketData
 
-@onready var _line_label: Label = %LineValue
-@onready var _departure_label: Label = %DepartureValue
-@onready var _destination_label: Label = %DestinationValue
+@onready var _line_label: ResshanLabel = %LineValue
+@onready var _departure_label: ResshanLabel = %DepartureValue
+@onready var _destination_label: ResshanLabel = %DestinationValue
 
 
 func _ready() -> void:
@@ -16,5 +16,5 @@ func _ready() -> void:
 func set_ticket(data: TicketData) -> void:
 	ticket_data = data
 	_line_label.text = data.train_line
-	_departure_label.text = "%02d:%02d" % [data.departure_hour, data.departure_minute]
+	_departure_label.text = "<<%s>> : <<%s>>" % [data.departure_hour, data.departure_minute]
 	_destination_label.text = data.destination

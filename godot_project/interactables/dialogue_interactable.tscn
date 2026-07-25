@@ -3,11 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://d34pxtg1mlqmy" path="res://interactables/interactable.tscn" id="1_sbur3"]
 [ext_resource type="Script" uid="uid://bi61ptmirslbj" path="res://interactables/dialogue_interactable.gd" id="2_0byqe"]
 [ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://scripts/dialogue_choice.gd" id="3_c4pd7"]
+[ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://scripts/dialogue_line.gd" id="4_line"]
 
 [node name="DialogueInteractable" unique_id=1631350735 instance=ExtResource("1_sbur3")]
 script = ExtResource("2_0byqe")
 speaker = "NPC"
-lines = ["Hello!"]
+lines = Array[ExtResource("4_line")]([])
 choices = Array[ExtResource("3_c4pd7")]([])
 panel_path = NodePath("")
 minutes_cost = 1
