@@ -524,7 +524,7 @@ sources/2 = SubResource("TileSetAtlasSource_0fg8s")
 
 [sub_resource type="Resource" id="Resource_d8oir"]
 script = ExtResource("3_obtcn")
-text = "<<ticket>> <<?>> <<west>> , <<east>> <<?>> "
+text = "<<ticket>> <<?>> <<west>> <<east>> <<?>> "
 speaker_icon = ExtResource("15_fv0x7")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
@@ -603,7 +603,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/UpperTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.3686169
+frame_progress = 0.5814369
 
 [node name="TrainInteractableL" parent="Platform/UpperTrain" index="10" unique_id=779530687]
 id = &"berlin_s7"

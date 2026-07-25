@@ -13,6 +13,8 @@ position = Vector2(0, -55)
 texture = ExtResource("1_gh1tk")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1810997999]
+collision_layer = 2
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=150451808]
 position = Vector2(2.5, -8)

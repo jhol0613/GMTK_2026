@@ -28,6 +28,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="DimScreen" type="ColorRect" parent="Root" unique_id=591646733]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

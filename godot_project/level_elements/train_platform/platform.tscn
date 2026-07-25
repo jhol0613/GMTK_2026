@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://dws2j2w3sgf60" path="res://level_elements/train_platform/platform.gd" id="1_n6ck0"]
 [ext_resource type="TileSet" uid="uid://dvxgqw1r5w5ps" path="res://levels/tileset/station_tileset.tres" id="2_617rf"]
 [ext_resource type="PackedScene" uid="uid://67c8xgtu7o7f" path="res://level_elements/train/train.tscn" id="5_ajha7"]
+[ext_resource type="PackedScene" uid="uid://cf017hd6cyx1m" path="res://level_elements/signs/west_sign.tscn" id="5_n6ck0"]
+[ext_resource type="PackedScene" uid="uid://dbiw0lhyerkp2" path="res://level_elements/signs/east_sign.tscn" id="6_3v7e2"]
 [ext_resource type="PackedScene" uid="uid://dpexe87ps0d7f" path="res://level_elements/hourglass/hourglass.tscn" id="6_f3ea8"]
 
 [node name="Platform" type="Node2D" unique_id=1302422271 node_paths=PackedStringArray("arrival_train", "lower_train")]
@@ -56,3 +58,15 @@ color = 8
 
 [node name="Hourglass" parent="." unique_id=259821884 instance=ExtResource("6_f3ea8")]
 position = Vector2(-127, 12)
+
+[node name="WestSign" parent="." unique_id=733299724 instance=ExtResource("5_n6ck0")]
+position = Vector2(8, 92)
+
+[node name="WestSign2" parent="." unique_id=632307095 instance=ExtResource("5_n6ck0")]
+position = Vector2(-264, 92)
+
+[node name="EastSign" parent="." unique_id=662041199 instance=ExtResource("6_3v7e2")]
+position = Vector2(-265, -57)
+
+[node name="EastSign2" parent="." unique_id=1379683978 instance=ExtResource("6_3v7e2")]
+position = Vector2(8, -59)
