@@ -11,6 +11,8 @@ var _pages: Array[NotebookPage] = []
 
 var _first_entry := true
 
+@onready var _page_turn_sound: AudioStreamPlayer = $PageTurnSound
+
 func _ready() -> void:
 	SignalBus.resshan_clicked.connect(_add_entry_to_the_page)
 	SignalBus.resshan_note_requested.connect(_handle_note_requested)
@@ -66,11 +68,15 @@ func _add_entry_to_the_page(encoded:String, initial_text = "") -> void:
 
 func _on_next_page_pressed() -> void:
 	_current_page -= 1
-	for i:NotebookPage in _pages:
+
+	for i: NotebookPage in _pages:
 		i.hide()
+
 	_pages[_current_page].show()
-	
+	_page_turn_sound.play()
+
 	%NextPage.disabled = false
+
 	if _current_page == 0:
 		%PreviousPage.disabled = true
 		return
@@ -79,11 +85,15 @@ func _on_next_page_pressed() -> void:
 
 func _on_previous_page_pressed() -> void:
 	_current_page += 1
-	for i:NotebookPage in _pages:
+
+	for i: NotebookPage in _pages:
 		i.hide()
+
 	_pages[_current_page].show()
-	
+	_page_turn_sound.play()
+
 	%PreviousPage.disabled = false
+
 	if _current_page == PAGE_COUNT - 1:
 		%NextPage.disabled = true
 		return
