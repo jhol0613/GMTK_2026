@@ -4,10 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://cxekovsy3q368" path="res://level_elements/train_platform/platform.tscn" id="2_bt44k"]
 [ext_resource type="TileSet" uid="uid://dvxgqw1r5w5ps" path="res://levels/tileset/station_tileset.tres" id="2_l53as"]
 [ext_resource type="PackedScene" uid="uid://b1eocdrw7mlj1" path="res://level_elements/train_map/train_map.tscn" id="3_n46q3"]
+[ext_resource type="Script" uid="uid://dxjexiy5uedbo" path="res://levels/level_1_audio.gd" id="6_betor"]
 [ext_resource type="PackedScene" uid="uid://baukigq6wfgs1" path="res://level_elements/ATM/atm.tscn" id="6_btoec"]
 [ext_resource type="PackedScene" uid="uid://dpexe87ps0d7f" path="res://level_elements/hourglass/hourglass.tscn" id="7_gwceb"]
-[ext_resource type="Script" uid="uid://8aci422hp6qo" path="res://levels/level_0_audio.gd" id="9_5ot28"]
-[ext_resource type="AudioStream" uid="uid://cu3ssob4apsrg" path="res://ui/Train/Train Pulling Into.mp3" id="10_aerfg"]
+[ext_resource type="AudioStream" uid="uid://cu3ssob4apsrg" path="res://UI/Train/Train Pulling Into.mp3" id="10_aerfg"]
 [ext_resource type="PackedScene" uid="uid://denclmxtn1x1l" path="res://level_elements/departure_board/deaprture_board.tscn" id="11_betor"]
 [ext_resource type="AudioStream" uid="uid://bbcbac8i6a3xm" path="res://levels/You TRAINed for this copy.mp3" id="11_nmsli"]
 [ext_resource type="PackedScene" uid="uid://djoepaapryv6s" path="res://level_elements/trinket_shop/trinket_shop.tscn" id="12_vjtdm"]
@@ -42,7 +42,7 @@ position = Vector2(480, 592)
 position = Vector2(736, 480)
 
 [node name="LevelAudioController" type="Node2D" parent="." index="8" unique_id=1654810337]
-script = ExtResource("9_5ot28")
+script = ExtResource("6_betor")
 
 [node name="TrainIntro" type="AudioStreamPlayer" parent="LevelAudioController" index="0" unique_id=951886548]
 stream = ExtResource("10_aerfg")
