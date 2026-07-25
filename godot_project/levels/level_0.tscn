@@ -1,15 +1,21 @@
 [gd_scene format=4 uid="uid://beutnrud0mm3l"]
 
 [ext_resource type="PackedScene" uid="uid://hhrseelwguig" path="res://levels/level_template.tscn" id="1_eus5j"]
+[ext_resource type="PackedScene" uid="uid://2pwlm8itluel" path="res://level_elements/ticket_booth/ticket_booth.tscn" id="2_823pn"]
 [ext_resource type="Script" uid="uid://nxfc4h6u5iq6" path="res://levels/level_0.gd" id="2_as6hq"]
 [ext_resource type="PackedScene" uid="uid://cxekovsy3q368" path="res://level_elements/train_platform/platform.tscn" id="3_iss0w"]
+[ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://scripts/dialogue_choice.gd" id="3_jum3j"]
+[ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://scripts/dialogue_line.gd" id="3_obtcn"]
 [ext_resource type="AudioStream" uid="uid://ce6kvjn3hwsb0" path="res://UI/Schedule_Open.mp3" id="3_uuq13"]
 [ext_resource type="TileSet" uid="uid://dvxgqw1r5w5ps" path="res://levels/tileset/station_tileset.tres" id="4_owf05"]
 [ext_resource type="Script" uid="uid://8aci422hp6qo" path="res://levels/level_0_audio.gd" id="12_p0s0h"]
 [ext_resource type="AudioStream" uid="uid://cu3ssob4apsrg" path="res://UI/Train/Train Pulling Into.mp3" id="13_axdoh"]
 [ext_resource type="AudioStream" uid="uid://bbcbac8i6a3xm" path="res://levels/You TRAINed for this copy.mp3" id="14_as6hq"]
+[ext_resource type="Texture2D" uid="uid://kayfkwypm2a" path="res://character_portraits/ticket_lady/ticket_lady_portrait_2.png" id="15_fv0x7"]
 [ext_resource type="Texture2D" uid="uid://ca8r7wcmgae0o" path="res://levels/tileset/grasstiles.png" id="17_ggct0"]
+[ext_resource type="Script" uid="uid://cpfgjwe2lpk0k" path="res://scripts/ticket_data.gd" id="17_owf05"]
 [ext_resource type="Texture2D" uid="uid://ddbgow303m2gq" path="res://levels/tileset/TX Tileset Grass.png" id="18_8mki0"]
+[ext_resource type="PackedScene" uid="uid://baukigq6wfgs1" path="res://level_elements/ATM/atm.tscn" id="18_uuq13"]
 [ext_resource type="Texture2D" uid="uid://dy3h6m8das3ut" path="res://levels/tileset/brickborder.png" id="19_gxks1"]
 [ext_resource type="AudioStream" uid="uid://dlip7tol2c20x" path="res://notebook/Keeping TRACK of my Notes demo.mp3" id="23_8mki0"]
 
@@ -512,6 +518,25 @@ sources/1 = SubResource("TileSetAtlasSource_mpakt")
 sources/0 = SubResource("TileSetAtlasSource_8v7xn")
 sources/2 = SubResource("TileSetAtlasSource_0fg8s")
 
+[sub_resource type="Resource" id="Resource_d8oir"]
+script = ExtResource("3_obtcn")
+text = "<<ticket>> <<?>> <<west>> , <<east>> <<?>> "
+speaker_icon = ExtResource("15_fv0x7")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_fpprv"]
+script = ExtResource("17_owf05")
+destination = "Station 1"
+train_line = "<<Red>> <<Line>>"
+metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
+
+[sub_resource type="Resource" id="Resource_snxo8"]
+script = ExtResource("3_jum3j")
+player_text = "<<west>>"
+reply = "<<east>>"
+reward = SubResource("Resource_fpprv")
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
 [node name="Level0" unique_id=783439983 instance=ExtResource("1_eus5j")]
 z_index = 1270
 script = ExtResource("2_as6hq")
@@ -583,8 +608,20 @@ stream = ExtResource("14_as6hq")
 stream = ExtResource("23_8mki0")
 volume_db = -4.0
 
+[node name="TicketBooth" parent="." index="7" unique_id=861247956 instance=ExtResource("2_823pn")]
+position = Vector2(-896, -100)
+
+[node name="DialogueInteractable" parent="TicketBooth" index="1" unique_id=358228256]
+lines = Array[ExtResource("3_obtcn")]([SubResource("Resource_d8oir")])
+choices = Array[ExtResource("3_jum3j")]([SubResource("Resource_snxo8")])
+
+[node name="ATM" parent="." index="8" unique_id=124595741 instance=ExtResource("18_uuq13")]
+position = Vector2(-776, -208)
+
 [editable path="UiOverlay"]
 [editable path="Platform"]
 [editable path="Platform/UpperTrain"]
 [editable path="Platform/UpperTrain/TrainInteractableL"]
 [editable path="Platform/UpperTrain/TrainInteractableR"]
+[editable path="TicketBooth"]
+[editable path="TicketBooth/DialogueInteractable"]

@@ -13,3 +13,7 @@ func _ready() -> void:
 	tween.tween_property($CanvasLayer/ColorRect, "modulate:a", 0.0, 2.0)
 	await tween.finished
 	queue_free()
+
+func _input(event):
+	if event.is_action_pressed("skip"):
+		queue_free()
