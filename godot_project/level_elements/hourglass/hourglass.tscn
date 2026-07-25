@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://blreopjlfjcir" path="res://level_elements/hourglass/hourglass.gd" id="1_30fjg"]
 [ext_resource type="Texture2D" uid="uid://cenr55g5p2s5b" path="res://level_elements/hourglass/hourglass_top.png" id="1_nngdn"]
 [ext_resource type="Texture2D" uid="uid://bwqwekg3psljq" path="res://level_elements/hourglass/hourglass_bottom.png" id="2_30fjg"]
+[ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/resshan_label.gd" id="3_time_lbl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i7vl5"]
 atlas = ExtResource("1_nngdn")
@@ -283,3 +284,19 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=144890011]
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_ujtin")
+
+[node name="TimeLabel" type="Control" parent="." unique_id=401528314]
+z_index = 2
+texture_filter = 1
+custom_minimum_size = Vector2(21, 11)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -13.0
+offset_top = -11.0
+offset_right = 14.0
+mouse_filter = 2
+script = ExtResource("3_time_lbl")
+text = "<<8>> : <<0>>"
+spacing = 5.0
+font_size = 7
+metadata/_custom_type_script = "uid://sidowamkhcrt"

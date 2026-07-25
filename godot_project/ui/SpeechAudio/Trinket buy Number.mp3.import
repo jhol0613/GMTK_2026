@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://betxa3fj87krr"
-path="res://.godot/imported/Trinket buy Number.mp3-7245a8e61dac2a5a49fc53840f628105.mp3str"
+path="res://.godot/imported/Trinket buy Number.mp3-b712a1b3e0aff2b163e14b5e757b460f.mp3str"
 
 [deps]
 
-source_file="res://UI/SpeechAudio/Trinket buy Number.mp3"
-dest_files=["res://.godot/imported/Trinket buy Number.mp3-7245a8e61dac2a5a49fc53840f628105.mp3str"]
+source_file="res://ui/SpeechAudio/Trinket buy Number.mp3"
+dest_files=["res://.godot/imported/Trinket buy Number.mp3-b712a1b3e0aff2b163e14b5e757b460f.mp3str"]
 
 [params]
 
