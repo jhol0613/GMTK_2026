@@ -11,6 +11,7 @@ signal option_confirmed(outcome_id: StringName)
 @onready var _body: ResshanLabel = $Root/Popup/MarginContainer/HBoxContainer/VBox/Body
 @onready var _options: VBoxContainer = $Root/Popup/MarginContainer/HBoxContainer/VBox/Options
 @onready var _speaker_icon: TextureRect = %SpeakerIcon
+@onready var _lines_sfx: AudioStreamPlayer = %LinesSFX
 
 var _lines: Array[DialogueLine] = []
 var _index: int = 0
@@ -69,6 +70,10 @@ func _update_line() -> void:
 	_speaker.text = line.speaker
 	_body.text = line.text
 	_speaker_icon.texture = line.speaker_icon
+	# Play the line's SFX if it exists
+	if line.sfx != null:
+		_lines_sfx.stream = line.sfx
+		_lines_sfx.play()
 
 
 func _on_interact_while_open() -> void:
