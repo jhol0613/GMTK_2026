@@ -4,8 +4,10 @@
 [ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/resshan_label.gd" id="2_rsnfv"]
 
 [node name="NotebookTest" type="Node2D" unique_id=18127596]
+texture_filter = 1
 
 [node name="Notebook" parent="." unique_id=2020796058 instance=ExtResource("1_ghnyq")]
+texture_filter = 1
 position = Vector2(970, 530)
 
 [node name="ResshanLabel" type="Control" parent="." unique_id=306997885]
