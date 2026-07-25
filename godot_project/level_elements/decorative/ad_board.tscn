@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cniar1emgicic"]
+
+[ext_resource type="Texture2D" uid="uid://rwmj8nau5w51" path="res://level_elements/decorative/ad.png" id="1_r42dx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nghmp"]
+atlas = ExtResource("1_r42dx")
+region = Rect2(0, 0, 36, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_foxih"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nghmp")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fpcxu"]
+size = Vector2(32, 7)
+
+[node name="Board" type="AnimatedSprite2D" unique_id=1185998454]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_foxih")
+autoplay = "default"
+
+[node name="StaticBody" type="StaticBody2D" parent="." unique_id=232674008]
+z_index = 1
+position = Vector2(0, 16)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody" unique_id=1878472438]
+position = Vector2(0, 12.5)
+shape = SubResource("RectangleShape2D_fpcxu")
