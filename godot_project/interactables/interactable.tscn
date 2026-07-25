@@ -4,14 +4,14 @@
 [ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/resshan_label.gd" id="2_7t3he"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_riqys"]
-size = Vector2(42, 16)
+size = Vector2(50, 19)
 
 [node name="Interactable" type="Area2D" unique_id=1631350735]
 collision_layer = 4
 script = ExtResource("1_7t3he")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=278382881]
-position = Vector2(0, -8)
+position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_riqys")
 
 [node name="Prompt" type="Control" parent="." unique_id=272794898]
