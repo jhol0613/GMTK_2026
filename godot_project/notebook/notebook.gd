@@ -49,10 +49,13 @@ func _handle_note_requested(resshan:ResshanInteractable) -> void:
 		for entry:NotebookEntry in page.entries:
 			if entry._resshan_string == resshan._encoded_string:
 				resshan.display_note(entry.get_note())
-	
 
 
 func _add_entry_to_the_page(encoded:String, initial_text = "") -> void:
+	for page:NotebookPage in _pages:
+		for entry:NotebookEntry in page.entries:
+			if entry._resshan_string == encoded:
+				return
 	if _free_page == -1:
 		notebook_is_full.emit()
 	var page: = _pages[_free_page]
