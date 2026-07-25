@@ -30,6 +30,12 @@ minutes_cost = 1
 [node name="CollisionShape2D" parent="SignInteractable" index="0" unique_id=278382881]
 position = Vector2(0, 1)
 
+[node name="Prompt" parent="SignInteractable" index="1" unique_id=272794898]
+offset_left = -25.0
+offset_top = -84.0
+offset_right = 30.0
+offset_bottom = -61.0
+
 [node name="SignPanel" parent="." unique_id=1998267979 instance=ExtResource("3_rlmea")]
 
 [node name="Sprite2D" type="Sprite2D" parent="SignPanel/Root/Popup" parent_id_path=PackedInt32Array(1998267979, 2123670025) index="1" unique_id=87657577]

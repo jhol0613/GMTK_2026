@@ -92,17 +92,17 @@ shape = SubResource("RectangleShape2D_cmhjf")
 [node name="Prompt" type="Control" parent="DialogueInteractable" unique_id=754325276]
 z_index = 1
 texture_filter = 1
-custom_minimum_size = Vector2(107, 23)
+custom_minimum_size = Vector2(55, 23)
 layout_mode = 3
 anchors_preset = 0
-offset_left = -58.0
-offset_top = -67.0
-offset_right = 58.0
-offset_bottom = -44.0
+offset_left = -37.0
+offset_top = -69.0
+offset_right = 79.0
+offset_bottom = -46.0
 size_flags_horizontal = 4
 mouse_filter = 2
 script = ExtResource("4_5sl07")
-text = "Press E to use"
+text = "Press E"
 metadata/_custom_type_script = "uid://sidowamkhcrt"
 metadata/_edit_use_anchors_ = true
 
