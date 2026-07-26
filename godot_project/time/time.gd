@@ -49,25 +49,16 @@ func _on_time_changed(
 ) -> void:
 	_update_label(hour, minute, second)
 
+	var reached_zero := hour == 0 and minute == 0 and second == 0
+	if reached_zero:
+		_previous_hour = hour
+		_previous_minute = minute
+		_previous_second = second
+		_has_previous_time = true
+		return
+
 	if _has_previous_time:
-		var countdown_just_finished := (
-			hour == 0
-			and minute == 0
-			and second == 0
-			and (
-				_previous_hour != 0
-				or _previous_minute != 0
-				or _previous_second != 0
-			)
-		)
-
-		if countdown_just_finished:
-			_play_clock_sound(
-				countdown_finished_sound,
-				countdown_finished_volume_db
-			)
-
-		elif minute != _previous_minute or hour != _previous_hour:
+		if minute != _previous_minute or hour != _previous_hour:
 			_play_clock_sound(
 				minute_change_sound,
 				minute_volume_db
@@ -116,6 +107,12 @@ func _on_time_changed(
 		1.0,
 		0.2
 	)
+
+
+func tick_second() -> void:
+	if tween and tween.is_running():
+		tween.kill()
+	_play_clock_sound(countdown_finished_sound, countdown_finished_volume_db)
 
 
 func _update_label(hour: int, minute: int, second: int) -> void:
