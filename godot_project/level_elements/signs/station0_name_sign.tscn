@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://cgh1oiiliq40l"]
+
+[ext_resource type="Texture2D" uid="uid://kqw3w0sof3qf" path="res://level_elements/signs/signs.png" id="1_j7hrh"]
+[ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="2_dh2s8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7hrh"]
+atlas = ExtResource("1_j7hrh")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dh2s8"]
+atlas = ExtResource("1_j7hrh")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ql7c4"]
+atlas = ExtResource("1_j7hrh")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iigjf"]
+atlas = ExtResource("1_j7hrh")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ujtin"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7hrh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dh2s8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ql7c4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iigjf")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]
+size = Vector2(26, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbyu3"]
+size = Vector2(17, 16.5)
+
+[node name="Station0Sign" type="Node2D" unique_id=98722644]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1584447426]
+z_index = 1
+position = Vector2(0, -24)
+sprite_frames = SubResource("SpriteFrames_ujtin")
+autoplay = "default"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1801662615]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=537014012]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_ujtin")
+
+[node name="ResshanInteractable" type="Area2D" parent="." unique_id=1503352510]
+script = ExtResource("2_dh2s8")
+_string = "<<station.0>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ResshanInteractable" unique_id=135279509]
+position = Vector2(-0.5, -23.75)
+shape = SubResource("RectangleShape2D_qbyu3")

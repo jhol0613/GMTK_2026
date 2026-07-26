@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1t6371th0ljj"
-path="res://.godot/imported/mask1.png-c3d41f3f1b5e2a2f7e51314f762d6068.ctex"
+uid="uid://dsaviofjnf4jt"
+path="res://.godot/imported/red.png-ac83c2d20c573dc1f79f8fcf76263854.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level_elements/trinket_shop/masks/mask1.png"
-dest_files=["res://.godot/imported/mask1.png-c3d41f3f1b5e2a2f7e51314f762d6068.ctex"]
+source_file="res://level_elements/trinket_shop/masks/red.png"
+dest_files=["res://.godot/imported/red.png-ac83c2d20c573dc1f79f8fcf76263854.ctex"]
 
 [params]
 
