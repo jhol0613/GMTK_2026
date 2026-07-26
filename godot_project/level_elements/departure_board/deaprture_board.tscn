@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bk0lode0vclmc" path="res://level_elements/departure_board/departure board.png" id="1_gh1tk"]
 [ext_resource type="Script" uid="uid://c1k84acxkh1w5" path="res://level_elements/departure_board/deaprture_board.gd" id="1_i2b7y"]
 [ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/resshan_label.gd" id="3_4ky8n"]
+[ext_resource type="AudioStream" uid="uid://c5fycxplhe2fh" path="res://level_elements/departure_board/DepartBoardUpdateSFX.mp3" id="4_4ky8n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]
 size = Vector2(87, 14)
@@ -239,3 +240,10 @@ text = "<<platform>> <<4>>"
 spacing = 0.0
 font_size = 9
 metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="UpdateSound" type="AudioStreamPlayer2D" parent="." unique_id=1076410545]
+stream = ExtResource("4_4ky8n")
+volume_db = 12.451
+max_distance = 483.0
+attenuation = 0.61557204
+bus = &"SFX"

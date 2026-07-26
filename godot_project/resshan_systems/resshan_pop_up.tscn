@@ -20,34 +20,29 @@ font_color = Color(0.0018410678, 0.0018410682, 0.0018410678, 1)
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 0
+scale = Vector2(0.39, 0.39)
 script = ExtResource("1_dt5xr")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=437998971]
-layer = 25
-scale = Vector2(0.21, 0.21)
-transform = Transform2D(0.21, 0, 0, 0.21, 0, 0)
-follow_viewport_enabled = true
-
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1377185846]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1377185846]
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -975.5
-offset_top = -1130.0
-offset_right = -944.5
-offset_bottom = -1090.0
+offset_left = -17.5
+offset_top = -88.0
+offset_right = 17.5
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_1uc05")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer" unique_id=1081625459]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1081625459]
 layout_mode = 2
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_right = 15
 
-[node name="Note" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer" unique_id=1435546551]
+[node name="Note" type="Label" parent="PanelContainer/MarginContainer" unique_id=1435546551]
 texture_filter = 1
 layout_mode = 2
 label_settings = SubResource("LabelSettings_dt5xr")

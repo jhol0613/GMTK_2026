@@ -73,9 +73,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yjbyy")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"look_right",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fpcxu"]
@@ -90,9 +90,10 @@ sprite = NodePath("AnimatedSprite2D")
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_fpcxu")
 animation = &"fly"
-frame_progress = 0.46824074
+autoplay = "look_right"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1087901685]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=929481813]
 shape = SubResource("CircleShape2D_fpcxu")
