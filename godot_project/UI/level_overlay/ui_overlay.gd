@@ -19,9 +19,15 @@ var pen = load("uid://c8yj5np7nrak6")
 @onready var _ticket_click_sound: AudioStreamPlayer = $TicketClickSound
 @onready var _inventory_hover_sound: AudioStreamPlayer = $InventoryHoverSound
 @onready var _inventory_click_sound: AudioStreamPlayer = $InventoryClickSound
+@onready var _item_popup: Control = $ItemPopup
+@onready var _item_popup_icon: TextureRect = $ItemPopup/Icon
 
 @onready var _initial_notebook_button_scale = _notebook_button.scale
 
+const TICKET_BUTTON_SHOW_DELAY := 2.0
+
+var _item_popup_tween: Tween
+var _ticket_button_show_tween: Tween
 
 
 # Called when the node enters the scene tree for the first time.
@@ -29,9 +35,12 @@ func _ready() -> void:
 	_notebook.visible = false
 	_ticket.visible = false
 	_inventory.visible = false
+	_item_popup.visible = false
+	_ticket_button.visible = false
 	_refresh_ticket()
 	Inventory.inventory_changed.connect(_refresh_ticket)
 	Inventory.inventory_changed.connect(_inventory.refresh)
+	Inventory.item_added.connect(_on_item_added)
 	SignalBus.new_unique_resshan_note_added_to_notebook.connect(_emphasize_notebook_icon)
 	TimeManager.time_up.connect(_on_time_up)
 
@@ -51,11 +60,24 @@ func _on_time_up() -> void:
 
 func _refresh_ticket() -> void:
 	var ticket := Inventory.get_ticket()
-	_ticket_button.visible = ticket != null
+	if _ticket_button_show_tween != null and _ticket_button_show_tween.is_valid():
+		_ticket_button_show_tween.kill()
+		_ticket_button_show_tween = null
+
 	if ticket == null:
+		_ticket_button.visible = false
 		_ticket.visible = false
-	else:
-		_ticket.set_ticket(ticket)
+		return
+
+	_ticket.set_ticket(ticket)
+	if _ticket_button.visible:
+		return
+
+	_ticket_button_show_tween = create_tween()
+	_ticket_button_show_tween.tween_interval(TICKET_BUTTON_SHOW_DELAY)
+	_ticket_button_show_tween.tween_callback(func() -> void:
+		_ticket_button.visible = true
+	)
 
 func _emphasize_notebook_icon():
 	var tween = create_tween()
@@ -187,3 +209,34 @@ func _close_inventory() -> void:
 
 	_inventory_click_sound.play()
 	_inventory.visible = false
+
+
+func _on_item_added(item: ItemData) -> void:
+	var icon: Texture2D = item.item_icon
+	if icon == null and item is TicketData:
+		icon = _ticket_button.texture_normal
+	if icon == null:
+		return
+	_show_item_popup(icon)
+
+
+func _show_item_popup(icon: Texture2D) -> void:
+	if _item_popup_tween != null and _item_popup_tween.is_valid():
+		_item_popup_tween.kill()
+
+	_item_popup_icon.texture = icon
+	_item_popup.visible = true
+	_item_popup_icon.modulate = Color(1, 1, 1, 0)
+	_item_popup_icon.scale = Vector2(0.6, 0.6)
+
+	_item_popup_tween = create_tween()
+	_item_popup_tween.set_parallel(true)
+	_item_popup_tween.tween_property(_item_popup_icon, "modulate:a", 1.0, 0.2)
+	_item_popup_tween.tween_property(_item_popup_icon, "scale", Vector2.ONE, 0.25)\
+		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	_item_popup_tween.set_parallel(false)
+	_item_popup_tween.tween_interval(1.2)
+	_item_popup_tween.tween_property(_item_popup_icon, "modulate:a", 0.0, 0.35)
+	_item_popup_tween.tween_callback(func() -> void:
+		_item_popup.visible = false
+	)

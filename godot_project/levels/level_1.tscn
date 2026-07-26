@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cit6uoxu58nwk" path="res://level_elements/maps/train_map.tscn" id="3_n46q3"]
 [ext_resource type="PackedScene" uid="uid://baukigq6wfgs1" path="res://level_elements/ATM/atm.tscn" id="6_btoec"]
 [ext_resource type="PackedScene" uid="uid://dpexe87ps0d7f" path="res://level_elements/hourglass/hourglass.tscn" id="7_gwceb"]
+[ext_resource type="Texture2D" uid="uid://5pslrs1jdnbu" path="res://level_elements/train/trainfront.png" id="7_toluw"]
 [ext_resource type="Texture2D" uid="uid://q2rsif8t8xqv" path="res://character_portraits/trinket_salesman/portrait_shopkeeper1_1.png" id="11_4knja"]
 [ext_resource type="PackedScene" uid="uid://denclmxtn1x1l" path="res://level_elements/departure_board/deaprture_board.tscn" id="11_betor"]
 [ext_resource type="PackedScene" uid="uid://djoepaapryv6s" path="res://level_elements/trinket_shop/trinket_shop.tscn" id="12_vjtdm"]
@@ -64,7 +65,7 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 [sub_resource type="Resource" id="Resource_pn4ta"]
 script = ExtResource("15_pnpm1")
 id = &"mask_green"
-item_name = "<<green>> Trinket"
+item_name = "<<green>> Thing"
 item_icon = ExtResource("16_pnpm1")
 metadata/_custom_type_script = "uid://1bxpf358unij"
 
@@ -78,7 +79,7 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 [sub_resource type="Resource" id="Resource_i0qum"]
 script = ExtResource("15_pnpm1")
 id = &"mask_blue"
-item_name = "<<blue>> Trinket"
+item_name = "<<blue>> Thing"
 item_icon = ExtResource("17_06ecp")
 metadata/_custom_type_script = "uid://1bxpf358unij"
 
@@ -92,7 +93,7 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 [sub_resource type="Resource" id="Resource_yrao0"]
 script = ExtResource("15_pnpm1")
 id = &"mask_red"
-item_name = "<<red>> Trinket"
+item_name = "<<red>> Thing"
 item_icon = ExtResource("18_ohjdc")
 metadata/_custom_type_script = "uid://1bxpf358unij"
 
@@ -241,6 +242,10 @@ correct_line = &"BLUE_east"
 level_music_track = 1
 play_train_intro_before_music = true
 
+[node name="Time" parent="UiOverlay" parent_id_path=PackedInt32Array(368800410) index="0" unique_id=1094747134]
+offset_left = 1680.0
+offset_right = 1880.0
+
 [node name="Camera2D" parent="." index="1" unique_id=1821430600]
 position = Vector2(-1056, -752)
 limit_bottom = 0
@@ -282,11 +287,20 @@ ticket_id = &"RED_east"
 disembark_camera_offset_y = 0.0
 color = 7
 
+[node name="Trainfront" parent="Platform/UpperTrain" index="13" unique_id=97515597]
+position = Vector2(522, -40)
+texture = ExtResource("7_toluw")
+
 [node name="LowerTrain" parent="Platform" index="7" unique_id=1370361982]
 reload_scene = 3
 ticket_id = &"RED_west"
 disembark_camera_offset_y = 0.0
 color = 7
+
+[node name="Trainfront2" parent="Platform/LowerTrain" index="13" unique_id=1995562429]
+position = Vector2(-526, -40)
+texture = ExtResource("7_toluw")
+flip_h = true
 
 [node name="Platform2" parent="." index="9" unique_id=6608098 instance=ExtResource("2_bt44k")]
 position = Vector2(752, -1792)
@@ -304,11 +318,20 @@ ticket_id = &"PINK_east"
 disembark_camera_offset_y = 0.0
 color = 5
 
+[node name="Trainfront" parent="Platform2/UpperTrain" index="13" unique_id=97515597]
+position = Vector2(522, -40)
+texture = ExtResource("7_toluw")
+
 [node name="LowerTrain" parent="Platform2" index="7" unique_id=1370361982]
 reload_scene = 3
 ticket_id = &"PINK_west"
 disembark_camera_offset_y = 0.0
 color = 5
+
+[node name="Trainfront2" parent="Platform2/LowerTrain" index="13" unique_id=1995562429]
+position = Vector2(-526, -40)
+texture = ExtResource("7_toluw")
+flip_h = true
 
 [node name="Platform3" parent="." index="10" unique_id=1115988881 instance=ExtResource("2_bt44k")]
 position = Vector2(752, -1088)
@@ -326,11 +349,20 @@ ticket_id = &"GREEN_east"
 disembark_camera_offset_y = 0.0
 color = 3
 
+[node name="Trainfront" parent="Platform3/UpperTrain" index="13" unique_id=97515597]
+position = Vector2(522, -40)
+texture = ExtResource("7_toluw")
+
 [node name="LowerTrain" parent="Platform3" index="7" unique_id=1370361982]
 reload_scene = 3
 ticket_id = &"GREEN_west"
 disembark_camera_offset_y = 0.0
 color = 3
+
+[node name="Trainfront2" parent="Platform3/LowerTrain" index="13" unique_id=1995562429]
+position = Vector2(-526, -40)
+texture = ExtResource("7_toluw")
+flip_h = true
 
 [node name="Platform4" parent="." index="11" unique_id=1026362249 instance=ExtResource("2_bt44k")]
 position = Vector2(-592, -1440)
@@ -348,10 +380,19 @@ reload_scene = 3
 disembark_camera_offset_y = 0.0
 color = 0
 
+[node name="Trainfront" parent="Platform4/UpperTrain" index="13" unique_id=97515597]
+position = Vector2(522, -40)
+texture = ExtResource("7_toluw")
+
 [node name="LowerTrain" parent="Platform4" index="7" unique_id=1370361982]
 reload_scene = 3
 disembark_camera_offset_y = 0.0
 color = 0
+
+[node name="Trainfront2" parent="Platform4/LowerTrain" index="13" unique_id=1995562429]
+position = Vector2(-526, -40)
+texture = ExtResource("7_toluw")
+flip_h = true
 
 [node name="DeaprtureBoard" parent="." index="12" unique_id=994016923 instance=ExtResource("11_betor")]
 position = Vector2(-146, -416)

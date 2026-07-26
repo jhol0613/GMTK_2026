@@ -620,7 +620,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/UpperTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.14933532
+frame_progress = 0.79364336
 
 [node name="LowerTrain" parent="Platform" index="7" unique_id=1370361982]
 next_scene = 2
@@ -632,7 +632,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/LowerTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.3907863
+frame_progress = 0.035089273
 
 [node name="TicketBooth" parent="." index="6" unique_id=861247956 instance=ExtResource("2_823pn")]
 position = Vector2(-1168, -368)

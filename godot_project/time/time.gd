@@ -16,6 +16,10 @@ const HOUR_PER_DAY: int = 8
 @export var start_minute: int = 8
 @export var start_second: int = 8
 
+@export var countdown_finished_sound: AudioStream
+@export_range(-40.0, 6.0, 0.5)
+var countdown_finished_volume_db: float = 0.0
+
 
 
 var tween: Tween
@@ -45,24 +49,40 @@ func _on_time_changed(
 ) -> void:
 	_update_label(hour, minute, second)
 
-	var reached_zero := hour == 0 and minute == 0 and second == 0
-	if reached_zero:
+	if _has_previous_time:
+		var countdown_just_finished := (
+			hour == 0
+			and minute == 0
+			and second == 0
+			and (
+				_previous_hour != 0
+				or _previous_minute != 0
+				or _previous_second != 0
+			)
+		)
+
+		if countdown_just_finished:
+			_play_clock_sound(
+				countdown_finished_sound,
+				countdown_finished_volume_db
+			)
+
+		elif minute != _previous_minute or hour != _previous_hour:
+			_play_clock_sound(
+				minute_change_sound,
+				minute_volume_db
+			)
+
+		elif second != _previous_second:
+			_play_clock_sound(
+				second_change_sound,
+				second_volume_db
+			)
+
 		_previous_hour = hour
 		_previous_minute = minute
 		_previous_second = second
 		_has_previous_time = true
-		return
-
-	if _has_previous_time:
-		if minute != _previous_minute or hour != _previous_hour:
-			_play_clock_sound(minute_change_sound, minute_volume_db)
-		elif second != _previous_second:
-			_play_clock_sound(second_change_sound, second_volume_db)
-
-	_previous_hour = hour
-	_previous_minute = minute
-	_previous_second = second
-	_has_previous_time = true
 
 	if tween and tween.is_running():
 		tween.kill()
@@ -71,25 +91,31 @@ func _on_time_changed(
 	tween.set_ease(Tween.EASE_IN)
 	tween.set_trans(Tween.TRANS_BACK)
 
-	tween.tween_property(self, "scale:x", 1.2, 0.2)
-	tween.parallel().tween_property(self, "scale:y", 1.2, 0.2)
-	tween.tween_property(self, "scale:x", 1.0, 0.2)
-	tween.parallel().tween_property(self, "scale:y", 1.0, 0.2)
+	tween.tween_property(
+		self,
+		"scale:x",
+		1.2,
+		0.2
+	)
+	tween.parallel().tween_property(
+		self,
+		"scale:y",
+		1.2,
+		0.2
+	)
 
-
-## Play last second juice
-func tick_second() -> void:
-	_play_clock_sound(second_change_sound, second_volume_db)
-	if tween and tween.is_running():
-		tween.kill()
-	tween = create_tween()
-	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
-	tween.set_ease(Tween.EASE_IN)
-	tween.set_trans(Tween.TRANS_BACK)
-	tween.tween_property(self, "scale:x", 1.2, 0.2)
-	tween.parallel().tween_property(self, "scale:y", 1.2, 0.2)
-	tween.tween_property(self, "scale:x", 1.0, 0.2)
-	tween.parallel().tween_property(self, "scale:y", 1.0, 0.2)
+	tween.tween_property(
+		self,
+		"scale:x",
+		1.0,
+		0.2
+	)
+	tween.parallel().tween_property(
+		self,
+		"scale:y",
+		1.0,
+		0.2
+	)
 
 
 func _update_label(hour: int, minute: int, second: int) -> void:
