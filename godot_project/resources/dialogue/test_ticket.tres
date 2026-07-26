@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="TicketData" format=3 uid="uid://dj6yasn35nxsu"]
 
-[ext_resource type="Texture2D" uid="uid://d05r7jsgne3d5" path="res://UI/ticket/icon_ticket.png" id="1_lw5hl"]
+[ext_resource type="Texture2D" uid="uid://d05r7jsgne3d5" path="res://ui/ticket/icon_ticket.png" id="1_lw5hl"]
 [ext_resource type="Script" uid="uid://cpfgjwe2lpk0k" path="res://scripts/ticket_data.gd" id="1_ticket"]
 
 [resource]
