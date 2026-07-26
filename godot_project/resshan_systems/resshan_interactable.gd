@@ -54,8 +54,9 @@ func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> vo
 
 
 func _on_mouse_entered() -> void:
-	print("foof")
-	
+	print(Notebook.player_vocab)
+	if Notebook.player_vocab.has(_string):
+		noted = true
 	_shine_cover.show()
 	if noted:
 		shader.set_shader_parameter('color', Color.WHITE)
@@ -65,7 +66,6 @@ func _on_mouse_entered() -> void:
 	shader.set_shader_parameter('time', -0.5)
 	
 	Input.set_custom_mouse_cursor(magnifying_glass_hover)
-	# Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 	_hovered = true
 	get_tree().create_timer(TIME_TO_HOVER).timeout.connect( func ():
 		SignalBus.resshan_note_requested.emit(self)

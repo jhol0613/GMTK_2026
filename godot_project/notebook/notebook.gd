@@ -68,6 +68,8 @@ func _add_entry_to_the_page(encoded:String, initial_text = "") -> void:
 	_entry_added_sound.play()
 	SignalBus.new_unique_resshan_note_added_to_notebook.emit()
 	page._new_entry(encoded, initial_text)
+	
+	player_vocab[encoded] = initial_text
 
 
 func _on_next_page_pressed() -> void:
