@@ -29,6 +29,7 @@ var _has_previous_time: bool = false
 func _ready() -> void:
 	sfx_player.bus = AudioManager.SFX_BUS
 	TimeManager.time_changed.connect(_on_time_changed)
+	TimeManager.flash_requested.connect(_flash_timer)
 	TimeManager.sync_from_ui(start_hour, start_minute, start_second)
 	_update_label(TimeManager.hour, TimeManager.minute, TimeManager.second)
 

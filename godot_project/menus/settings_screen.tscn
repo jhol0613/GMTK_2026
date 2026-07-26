@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://eq06imnrtf45"]
+
+[ext_resource type="Script" uid="uid://i3246fpwwq4a" path="res://menus/settings_screen.gd" id="1_hwcsr"]
+[ext_resource type="Texture2D" uid="uid://cw01faj1lgkwp" path="res://menus/clouds.png" id="2_g3fo3"]
+[ext_resource type="Texture2D" uid="uid://urrf4cbjda0y" path="res://menus/islands.png" id="3_6ugar"]
+[ext_resource type="Texture2D" uid="uid://c5t0anutvo5db" path="res://menus/blue.png" id="4_i5gt7"]
+[ext_resource type="Texture2D" uid="uid://dqiwqepmydmha" path="res://menus/train_button.png" id="5_g3fo3"]
+
+[node name="Control" type="Control" unique_id=190135014]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hwcsr")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=160583078]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = 72.0
+offset_right = -64.0
+offset_bottom = -56.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1308784631]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=736782603]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9764706, 0.827451, 1)
+theme_override_colors/font_outline_color = Color(0.1764706, 0.12941177, 0.21568628, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 48
+text = "Volume"
+
+[node name="Volume" type="HSlider" parent="MarginContainer/VBoxContainer" unique_id=497626783]
+custom_minimum_size = Vector2(512, 32)
+custom_maximum_size = Vector2(512, -1)
+layout_mode = 2
+
+[node name="Background" type="Node2D" parent="." unique_id=1425075099]
+
+[node name="Clouds" type="Sprite2D" parent="Background" unique_id=1220973564]
+z_index = -2
+position = Vector2(959.99994, 540.5)
+scale = Vector2(3.9999998, 4.055556)
+texture = ExtResource("2_g3fo3")
+
+[node name="Islands" type="Sprite2D" parent="Background" unique_id=93245179]
+z_index = -2
+position = Vector2(959.99994, 540.5)
+scale = Vector2(3.9999998, 4.055556)
+texture = ExtResource("3_6ugar")
+
+[node name="Blue" type="Sprite2D" parent="Background" unique_id=1145234909]
+z_index = -4
+position = Vector2(959.99994, 540.5)
+scale = Vector2(3.9999998, 4.055556)
+texture = ExtResource("4_i5gt7")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1616768829]
+layout_mode = 0
+offset_left = 1584.0
+offset_top = 912.0
+offset_right = 2126.0
+offset_bottom = 1130.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("5_g3fo3")
+
+[node name="Label" type="Label" parent="TextureButton" unique_id=406526196]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 66.0
+offset_right = 528.0
+offset_bottom = 174.0
+theme_override_colors/font_color = Color(1, 0.9764706, 0.827451, 1)
+theme_override_font_sizes/font_size = 96
+text = "Main"
+horizontal_alignment = 1
+
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/Volume" to="." method="_on_volume_value_changed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

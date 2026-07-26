@@ -44,6 +44,7 @@ stretch_mode = 5
 [node name="Slot1Icon" type="TextureRect" parent="VBoxContainer/Slots/Slot1" unique_id=1672142477]
 unique_name_in_owner = true
 visible = false
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -68,6 +69,7 @@ stretch_mode = 5
 [node name="Slot2Icon" type="TextureRect" parent="VBoxContainer/Slots/Slot2" unique_id=1463141831]
 unique_name_in_owner = true
 visible = false
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -92,6 +94,7 @@ stretch_mode = 5
 [node name="Slot3Icon" type="TextureRect" parent="VBoxContainer/Slots/Slot3" unique_id=1329048992]
 unique_name_in_owner = true
 visible = false
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -116,6 +119,7 @@ stretch_mode = 5
 [node name="Slot4Icon" type="TextureRect" parent="VBoxContainer/Slots/Slot4" unique_id=1041293691]
 unique_name_in_owner = true
 visible = false
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
