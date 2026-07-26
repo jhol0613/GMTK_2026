@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://djoepaapryv6s" path="res://level_elements/trinket_shop/trinket_shop.tscn" id="12_vjtdm"]
 [ext_resource type="Texture2D" uid="uid://c36oq0n5g8b0y" path="res://character_portraits/trinket_salesman/portrait_shopkeeper2_1.png" id="12_voubc"]
 [ext_resource type="PackedScene" uid="uid://2pwlm8itluel" path="res://level_elements/ticket_booth/ticket_booth.tscn" id="13_bgw3c"]
-[ext_resource type="Script" uid="uid://xohmb0i1enyw" path="res://level_elements/departure_board/train_timer.gd" id="13_vjtdm"]
 [ext_resource type="Texture2D" uid="uid://da67b0efu17m4" path="res://level_elements/trinket_shop/masks/pink.png" id="14_0x1rk"]
 [ext_resource type="PackedScene" uid="uid://bph5ufs84kb6f" path="res://level_elements/bathroom/bathroom.tscn" id="15_bgw3c"]
 [ext_resource type="Script" uid="uid://1bxpf358unij" path="res://scripts/item_data.gd" id="15_pnpm1"]
@@ -259,7 +258,6 @@ position = Vector2(-496, -416)
 
 [node name="ATM" parent="." index="6" unique_id=124595741 instance=ExtResource("6_btoec")]
 position = Vector2(-576, -160)
-broken = true
 
 [node name="HourglassCentral" parent="." index="7" unique_id=1191851679 instance=ExtResource("7_gwceb")]
 position = Vector2(-320, -272)
@@ -344,23 +342,6 @@ color = 0
 
 [node name="DeaprtureBoard" parent="." index="12" unique_id=994016923 instance=ExtResource("11_betor")]
 position = Vector2(-146, -416)
-
-[node name="ResshanLabel" type="Control" parent="DeaprtureBoard" index="2" unique_id=1050601357]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(63.500008, 9)
-layout_mode = 3
-anchors_preset = 0
-offset_left = -32.0
-offset_top = -71.0
-offset_right = 37.0
-offset_bottom = -58.0
-mouse_filter = 2
-script = ExtResource("13_vjtdm")
-text = "<<Train>> <<red>>      <<1>> <<6>>      <<to>> <<station.0>>"
-spacing = 0.95
-font_size = 9
-metadata/_custom_type_script = "uid://sidowamkhcrt"
 
 [node name="TrinketShop" parent="." index="13" unique_id=877031898 instance=ExtResource("12_vjtdm")]
 position = Vector2(-64, -224)
