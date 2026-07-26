@@ -1,14 +1,12 @@
 extends Node2D
 
 
-@onready var _time_label_container := $HBoxContainer/VBoxContainer
-@onready var _destination_label := $HBoxContainer/VBoxContainer/DestinationLabel
+@onready var _destination_label := $Time4
 
-var _all_labels
+@export var _all_labels: Array[ResshanLabel] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_all_labels = _time_label_container.get_children()
 	SignalBus.ticket_purchased.connect(_update_labels)
 
 	_update_labels(TimeManager.hour, TimeManager.minute)
