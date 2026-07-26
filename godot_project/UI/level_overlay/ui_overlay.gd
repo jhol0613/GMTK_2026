@@ -8,11 +8,15 @@ var pen = load("uid://c8yj5np7nrak6")
 @onready var _notebook_button := $NotebookButton
 @onready var _ticket_button := $TicketButton
 @onready var _ticket := $Ticket
+@onready var _inventory_button := $InventoryButton
+@onready var _inventory := $InventoryPanel
 @onready var _notebook_hover_sound: AudioStreamPlayer = $NotebookHoverSound
 @onready var _notebook_click_sound: AudioStreamPlayer = $NotebookClickSound
 @onready var _notebook_exit_sound: AudioStreamPlayer = $NotebookCloseSound
 @onready var _ticket_hover_sound: AudioStreamPlayer =$TicketHoverSound
 @onready var _ticket_click_sound: AudioStreamPlayer = $TicketClickSound
+@onready var _inventory_hover_sound: AudioStreamPlayer = $InventoryHoverSound
+@onready var _inventory_click_sound: AudioStreamPlayer = $InventoryClickSound
 
 @onready var _initial_notebook_button_scale = _notebook_button.scale
 
@@ -22,8 +26,10 @@ var pen = load("uid://c8yj5np7nrak6")
 func _ready() -> void:
 	_notebook.visible = false
 	_ticket.visible = false
+	_inventory.visible = false
 	_refresh_ticket()
 	Inventory.inventory_changed.connect(_refresh_ticket)
+	Inventory.inventory_changed.connect(_inventory.refresh)
 	SignalBus.new_unique_resshan_note_added_to_notebook.connect(_emphasize_notebook_icon)
 
 func _refresh_ticket() -> void:
@@ -73,15 +79,33 @@ func _on_ticket_button_pressed() -> void:
 		_close_ticket()
 	else:
 		_open_ticket()
-	
+
+func _on_inventory_button_mouse_entered() -> void:
+	_inventory_button.position += mouse_hover_offset
+	_inventory_hover_sound.play()
+
+
+func _on_inventory_button_mouse_exited() -> void:
+	_inventory_button.position -= mouse_hover_offset
+
+
+func _on_inventory_button_pressed() -> void:
+	if _inventory.visible:
+		_close_inventory()
+	else:
+		_open_inventory()
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("escape"):
 		if _ticket.visible:
 			_ticket_click_sound.play()
 		if _notebook.visible:
 			_notebook_click_sound.play()
+		if _inventory.visible:
+			_inventory_click_sound.play()
 		_ticket.visible = false
 		_notebook.visible = false
+		_inventory.visible = false
 		
 		# Enable player movement if closing the notebook
 		for player in get_tree().get_nodes_in_group("player"):
@@ -130,3 +154,19 @@ func _close_ticket() -> void:
 
 	_ticket_click_sound.play()
 	_ticket.visible = false
+
+func _open_inventory() -> void:
+	if _inventory.visible:
+		return
+
+	_inventory_click_sound.play()
+	_inventory.refresh()
+	_inventory.visible = true
+
+
+func _close_inventory() -> void:
+	if not _inventory.visible:
+		return
+
+	_inventory_click_sound.play()
+	_inventory.visible = false
