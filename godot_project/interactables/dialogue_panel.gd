@@ -60,6 +60,8 @@ func _rebuild_option_labels() -> void:
 
 
 func _update_line() -> void:
+	_lines_sfx.stop()
+
 	if _lines.is_empty():
 		_speaker.text = ""
 		_body.text = ""
@@ -70,7 +72,7 @@ func _update_line() -> void:
 	_speaker.text = line.speaker
 	_body.text = line.text
 	_speaker_icon.texture = line.speaker_icon
-	# Play the line's SFX if it exists
+
 	if line.sfx != null:
 		_lines_sfx.stream = line.sfx
 		_lines_sfx.play()

@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://scripts/dialogue_line.gd" id="3_obtcn"]
 [ext_resource type="AudioStream" uid="uid://ce6kvjn3hwsb0" path="res://ui/Schedule_Open.mp3" id="3_uuq13"]
 [ext_resource type="TileSet" uid="uid://dvxgqw1r5w5ps" path="res://levels/tileset/station_tileset.tres" id="4_owf05"]
+[ext_resource type="AudioStream" uid="uid://clvosvg2vfbfv" path="res://ui/SpeechAudio/Ticket buy West or East.mp3" id="11_osodt"]
 [ext_resource type="Texture2D" uid="uid://kayfkwypm2a" path="res://character_portraits/ticket_lady/ticket_lady_portrait_2.png" id="15_fv0x7"]
 [ext_resource type="Texture2D" uid="uid://ca8r7wcmgae0o" path="res://levels/tileset/grasstiles.png" id="17_ggct0"]
 [ext_resource type="Script" uid="uid://cpfgjwe2lpk0k" path="res://scripts/ticket_data.gd" id="17_owf05"]
@@ -528,6 +529,7 @@ sources/2 = SubResource("TileSetAtlasSource_0fg8s")
 script = ExtResource("3_obtcn")
 text = "<<ticket>> <<?>> <<west>> <<east>> <<?>> "
 speaker_icon = ExtResource("15_fv0x7")
+sfx = ExtResource("11_osodt")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_fpprv"]
@@ -632,7 +634,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/UpperTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.3030288
+frame_progress = 0.2821633
 
 [node name="LowerTrain" parent="Platform" index="7" unique_id=1370361982]
 next_scene = 2
@@ -641,7 +643,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/LowerTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.54448265
+frame_progress = 0.5236169
 
 [node name="TicketBooth" parent="." index="6" unique_id=861247956 instance=ExtResource("2_823pn")]
 position = Vector2(-1168, -368)
