@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bn2ibeuqk0rgt" path="res://player/player.tscn" id="4_3dbtp"]
 [ext_resource type="Texture2D" uid="uid://dy3h6m8das3ut" path="res://levels/tileset/brickborder.png" id="4_yglgk"]
 [ext_resource type="Texture2D" uid="uid://duuound6q3dyn" path="res://levels/parallax/sky1.png" id="7_64qpc"]
-[ext_resource type="PackedScene" uid="uid://b3uwqbmauqt0b" path="res://UI/level_overlay/ui_overlay.tscn" id="7_glpk1"]
+[ext_resource type="PackedScene" uid="uid://b3uwqbmauqt0b" path="res://ui/level_overlay/ui_overlay.tscn" id="7_glpk1"]
 [ext_resource type="Texture2D" uid="uid://bnyhe8dqegr5y" path="res://levels/parallax/sky2.png" id="8_2ip8h"]
 [ext_resource type="Texture2D" uid="uid://cxt6rc1bm3gw" path="res://levels/parallax/sky3.png" id="9_unwjj"]
 [ext_resource type="Texture2D" uid="uid://e8ko1l18knja" path="res://levels/parallax/sky4.png" id="10_u3vgj"]
@@ -610,28 +610,6 @@ dialogue_panel_scene = ExtResource("3_u3vgj")
 
 [node name="UiOverlay" parent="." unique_id=368800410 instance=ExtResource("7_glpk1")]
 
-[node name="Time" parent="UiOverlay" index="0" unique_id=1094747134]
-offset_left = 1631.0
-offset_right = 1831.0
-
-[node name="TicketButton" parent="UiOverlay" index="4" unique_id=1767702105]
-pivot_offset = Vector2(77, 81)
-
-[node name="NotebookHoverSound" parent="UiOverlay" index="5" unique_id=732685104]
-bus = &"Master"
-
-[node name="NotebookClickSound" parent="UiOverlay" index="6" unique_id=361111950]
-bus = &"Master"
-
-[node name="TicketHoverSound" parent="UiOverlay" index="7" unique_id=559112418]
-bus = &"Master"
-
-[node name="TicketClickSound" parent="UiOverlay" index="8" unique_id=1242659825]
-bus = &"Master"
-
-[node name="NotebookCloseSound" parent="UiOverlay" index="9" unique_id=798573098]
-bus = &"Master"
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1821430600]
 zoom = Vector2(4, 4)
 
@@ -680,5 +658,3 @@ repeat_times = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/CloseClouds" unique_id=542614353]
 texture = ExtResource("10_u3vgj")
-
-[editable path="UiOverlay"]
