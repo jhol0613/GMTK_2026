@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://denclmxtn1x1l"]
 
 [ext_resource type="Texture2D" uid="uid://bk0lode0vclmc" path="res://level_elements/departure_board/departure board.png" id="1_gh1tk"]
+[ext_resource type="Script" uid="uid://c1k84acxkh1w5" path="res://level_elements/departure_board/deaprture_board.gd" id="1_i2b7y"]
+[ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/resshan_label.gd" id="3_4ky8n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]
 size = Vector2(87, 14)
 
 [node name="DeaprtureBoard" type="Node2D" unique_id=994016923]
+script = ExtResource("1_i2b7y")
 
 [node name="DepartureBoard" type="Sprite2D" parent="." unique_id=723603560]
 z_index = 1
@@ -19,3 +22,153 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=150451808]
 position = Vector2(2.5, -8)
 shape = SubResource("RectangleShape2D_ujtin")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1020302908]
+offset_left = -32.0
+offset_top = -71.0
+offset_right = 37.0
+offset_bottom = -25.0
+theme_override_constants/separation = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1795292838]
+z_index = 1
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="ResshanLabel2" type="Control" parent="HBoxContainer/VBoxContainer" unique_id=1435033519]
+texture_filter = 1
+custom_minimum_size = Vector2(9, 9)
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("3_4ky8n")
+text = "<<station.0>>"
+spacing = 0.0
+font_size = 9
+metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="ResshanLabel3" type="Control" parent="HBoxContainer/VBoxContainer" unique_id=104394652]
+texture_filter = 1
+custom_minimum_size = Vector2(9, 9)
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("3_4ky8n")
+text = "<<station.1>>"
+spacing = 0.0
+font_size = 9
+metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="ResshanLabel4" type="Control" parent="HBoxContainer/VBoxContainer" unique_id=1587385301]
+texture_filter = 1
+custom_minimum_size = Vector2(9, 9)
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("3_4ky8n")
+text = "<<station.1>>"
+spacing = 0.0
+font_size = 9
+metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="DestinationLabel" type="Control" parent="HBoxContainer/VBoxContainer" unique_id=562711043]
+texture_filter = 1
+custom_minimum_size = Vector2(21, 13)
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("3_4ky8n")
+text = "<<1>> : <<2>>"
+spacing = 0.0
+font_size = 9
+metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer" unique_id=709429219]
+z_index = 1
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="ResshanLabel2" type="Control" parent="HBoxContainer/VBoxContainer2" unique_id=216770631]
+texture_filter = 1
+custom_minimum_size = Vector2(9, 9)
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("3_4ky8n")
+text = "<<station.0>>"
+font_size = 9
+metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="ResshanLabel3" type="Control" parent="HBoxContainer/VBoxContainer2" unique_id=299498093]
+texture_filter = 1
+custom_minimum_size = Vector2(9, 9)
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("3_4ky8n")
+text = "<<station.1>>"
+font_size = 9
+metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="DestinationLabel" type="Control" parent="HBoxContainer/VBoxContainer2" unique_id=269121502]
+texture_filter = 1
+custom_minimum_size = Vector2(9, 9)
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("3_4ky8n")
+text = "<<station.1>>"
+font_size = 9
+metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="DestinationLabel2" type="Control" parent="HBoxContainer/VBoxContainer2" unique_id=515772629]
+texture_filter = 1
+custom_minimum_size = Vector2(9, 9)
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("3_4ky8n")
+text = "<<station.1>>"
+font_size = 9
+metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer" unique_id=978152398]
+z_index = 1
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="ResshanLabel2" type="Control" parent="HBoxContainer/VBoxContainer3" unique_id=1992812642]
+texture_filter = 1
+custom_minimum_size = Vector2(18, 9)
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("3_4ky8n")
+text = "<<platform>> <<1>>"
+spacing = 0.0
+font_size = 9
+metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="ResshanLabel3" type="Control" parent="HBoxContainer/VBoxContainer3" unique_id=1481722951]
+texture_filter = 1
+custom_minimum_size = Vector2(18, 9)
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("3_4ky8n")
+text = "<<platform>> <<2>>"
+spacing = 0.0
+font_size = 9
+metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="DestinationLabel" type="Control" parent="HBoxContainer/VBoxContainer3" unique_id=2120755223]
+texture_filter = 1
+custom_minimum_size = Vector2(18, 9)
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("3_4ky8n")
+text = "<<platform>> <<3>>"
+spacing = 0.0
+font_size = 9
+metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="DestinationLabel2" type="Control" parent="HBoxContainer/VBoxContainer3" unique_id=1060271988]
+texture_filter = 1
+custom_minimum_size = Vector2(18, 9)
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("3_4ky8n")
+text = "<<platform>> <<4>>"
+spacing = 0.0
+font_size = 9
+metadata/_custom_type_script = "uid://sidowamkhcrt"
