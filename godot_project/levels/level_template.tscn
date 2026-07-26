@@ -2,10 +2,16 @@
 
 [ext_resource type="Script" uid="uid://duhbuefvsqifp" path="res://levels/level_template.gd" id="1_yglgk"]
 [ext_resource type="Texture2D" uid="uid://ca8r7wcmgae0o" path="res://levels/tileset/grasstiles.png" id="2_8xmsw"]
+[ext_resource type="Resource" uid="uid://cs1k0a7leguxs" path="res://resources/dialogue/wrong_train.tres" id="2_unwjj"]
 [ext_resource type="Texture2D" uid="uid://ddbgow303m2gq" path="res://levels/tileset/TX Tileset Grass.png" id="3_pqv4r"]
+[ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialogue_panel.tscn" id="3_u3vgj"]
 [ext_resource type="PackedScene" uid="uid://bn2ibeuqk0rgt" path="res://player/player.tscn" id="4_3dbtp"]
 [ext_resource type="Texture2D" uid="uid://dy3h6m8das3ut" path="res://levels/tileset/brickborder.png" id="4_yglgk"]
+[ext_resource type="Texture2D" uid="uid://duuound6q3dyn" path="res://levels/parallax/sky1.png" id="7_64qpc"]
 [ext_resource type="PackedScene" uid="uid://b3uwqbmauqt0b" path="res://ui/level_overlay/ui_overlay.tscn" id="7_glpk1"]
+[ext_resource type="Texture2D" uid="uid://bnyhe8dqegr5y" path="res://levels/parallax/sky2.png" id="8_2ip8h"]
+[ext_resource type="Texture2D" uid="uid://cxt6rc1bm3gw" path="res://levels/parallax/sky3.png" id="9_unwjj"]
+[ext_resource type="Texture2D" uid="uid://e8ko1l18knja" path="res://levels/parallax/sky4.png" id="10_u3vgj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yglgk"]
 texture = ExtResource("2_8xmsw")
@@ -597,10 +603,29 @@ sources/2 = SubResource("TileSetAtlasSource_22dcj")
 [node name="LevelTemplate" type="Node2D" unique_id=783439983]
 y_sort_enabled = true
 script = ExtResource("1_yglgk")
+wrong_train_line = ExtResource("2_unwjj")
+dialogue_panel_scene = ExtResource("3_u3vgj")
 
 [node name="UiOverlay" parent="." unique_id=368800410 instance=ExtResource("7_glpk1")]
-scale = Vector2(0.22, 0.22)
-transform = Transform2D(0.22, 0, 0, 0.22, 0, 0)
+
+[node name="Time" parent="UiOverlay" index="0" unique_id=1094747134]
+offset_left = 1631.0
+offset_right = 1831.0
+
+[node name="NotebookHoverSound" parent="UiOverlay" index="5" unique_id=732685104]
+bus = &"Master"
+
+[node name="NotebookClickSound" parent="UiOverlay" index="6" unique_id=361111950]
+bus = &"Master"
+
+[node name="TicketHoverSound" parent="UiOverlay" index="7" unique_id=559112418]
+bus = &"Master"
+
+[node name="TicketClickSound" parent="UiOverlay" index="8" unique_id=1242659825]
+bus = &"Master"
+
+[node name="NotebookCloseSound" parent="UiOverlay" index="9" unique_id=798573098]
+bus = &"Master"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1821430600]
 zoom = Vector2(4, 4)
@@ -615,5 +640,39 @@ tile_set = SubResource("TileSet_64qpc")
 
 [node name="Player" parent="." unique_id=799939449 instance=ExtResource("4_3dbtp")]
 position = Vector2(-43, -7)
+
+[node name="Background" type="Node2D" parent="." unique_id=102847613]
+z_index = -1374
+
+[node name="Blue" type="Parallax2D" parent="Background" unique_id=1690243240]
+repeat_size = Vector2(720, 405)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Blue" unique_id=1648586157]
+texture = ExtResource("7_64qpc")
+
+[node name="FarClouds" type="Parallax2D" parent="Background" unique_id=1089277525]
+repeat_size = Vector2(720, 405)
+autoscroll = Vector2(1, 1.5)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/FarClouds" unique_id=303005145]
+texture = ExtResource("8_2ip8h")
+
+[node name="FloatingIslands" type="Parallax2D" parent="Background" unique_id=168409842]
+repeat_size = Vector2(720, 405)
+autoscroll = Vector2(2, 3)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/FloatingIslands" unique_id=1405803179]
+texture = ExtResource("9_unwjj")
+
+[node name="CloseClouds" type="Parallax2D" parent="Background" unique_id=782128031]
+repeat_size = Vector2(720, 405)
+autoscroll = Vector2(4, 6)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/CloseClouds" unique_id=542614353]
+texture = ExtResource("10_u3vgj")
 
 [editable path="UiOverlay"]

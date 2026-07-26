@@ -2,15 +2,18 @@
 
 [ext_resource type="Script" uid="uid://dws2j2w3sgf60" path="res://level_elements/train_platform/platform.gd" id="1_n6ck0"]
 [ext_resource type="TileSet" uid="uid://dvxgqw1r5w5ps" path="res://levels/tileset/station_tileset.tres" id="2_617rf"]
+[ext_resource type="Texture2D" uid="uid://5pslrs1jdnbu" path="res://level_elements/train/trainfront.png" id="4_ajha7"]
 [ext_resource type="PackedScene" uid="uid://67c8xgtu7o7f" path="res://level_elements/train/train.tscn" id="5_ajha7"]
 [ext_resource type="PackedScene" uid="uid://cf017hd6cyx1m" path="res://level_elements/signs/west_sign.tscn" id="5_n6ck0"]
 [ext_resource type="PackedScene" uid="uid://dbiw0lhyerkp2" path="res://level_elements/signs/east_sign.tscn" id="6_3v7e2"]
 [ext_resource type="PackedScene" uid="uid://dpexe87ps0d7f" path="res://level_elements/hourglass/hourglass.tscn" id="6_f3ea8"]
+[ext_resource type="Texture2D" uid="uid://danrb3vfq83ag" path="res://level_elements/decorative/hoverthruster.png" id="7_3v7e2"]
+[ext_resource type="PackedScene" uid="uid://bo3pcctdon7l" path="res://level_elements/signs/station_name_sign.tscn" id="8_tem3n"]
 
-[node name="Platform" type="Node2D" unique_id=1302422271 node_paths=PackedStringArray("arrival_train", "lower_train")]
+[node name="Platform" type="Node2D" unique_id=1302422271 node_paths=PackedStringArray("upper_train", "lower_train")]
 y_sort_enabled = true
 script = ExtResource("1_n6ck0")
-arrival_train = NodePath("UpperTrain")
+upper_train = NodePath("UpperTrain")
 lower_train = NodePath("LowerTrain")
 
 [node name="FrontGround" type="TileMapLayer" parent="." unique_id=673161970]
@@ -50,12 +53,23 @@ tile_set = ExtResource("2_617rf")
 [node name="UpperTrain" parent="." unique_id=995237668 instance=ExtResource("5_ajha7")]
 z_index = -3
 position = Vector2(-128, -79)
+ticket_id = &"BLUE_east"
+
+[node name="Trainfront" type="Sprite2D" parent="UpperTrain" unique_id=97515597]
+position = Vector2(522, -40)
+texture = ExtResource("4_ajha7")
 
 [node name="LowerTrain" parent="." unique_id=1370361982 instance=ExtResource("5_ajha7")]
 z_index = 3
 position = Vector2(-128, 145)
-color = 8
 departs_on_missed_deadline = false
+ticket_id = &"BLUE_west"
+color = 8
+
+[node name="Trainfront2" type="Sprite2D" parent="LowerTrain" unique_id=1995562429]
+position = Vector2(-526, -40)
+texture = ExtResource("4_ajha7")
+flip_h = true
 
 [node name="Hourglass" parent="." unique_id=259821884 instance=ExtResource("6_f3ea8")]
 position = Vector2(-127, 12)
@@ -71,3 +85,29 @@ position = Vector2(-265, -57)
 
 [node name="EastSign2" parent="." unique_id=1379683978 instance=ExtResource("6_3v7e2")]
 position = Vector2(8, -59)
+
+[node name="Hoverthruster" type="Sprite2D" parent="." unique_id=811947803]
+position = Vector2(-360, 280)
+texture = ExtResource("7_3v7e2")
+
+[node name="Hoverthruster2" type="Sprite2D" parent="." unique_id=385920901]
+position = Vector2(88, 280)
+texture = ExtResource("7_3v7e2")
+
+[node name="Hoverthruster3" type="Sprite2D" parent="." unique_id=1066848982]
+position = Vector2(-248, 280)
+texture = ExtResource("7_3v7e2")
+
+[node name="Hoverthruster4" type="Sprite2D" parent="." unique_id=852871356]
+position = Vector2(-24, 280)
+texture = ExtResource("7_3v7e2")
+
+[node name="Hoverthruster5" type="Sprite2D" parent="." unique_id=254305853]
+position = Vector2(-136, 280)
+texture = ExtResource("7_3v7e2")
+
+[node name="Station0Sign" parent="." unique_id=98722644 instance=ExtResource("8_tem3n")]
+position = Vector2(-184, 10)
+
+[node name="Station0Sign2" parent="." unique_id=421458582 instance=ExtResource("8_tem3n")]
+position = Vector2(-71, 10)

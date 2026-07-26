@@ -5,6 +5,7 @@ var speed: int = 100
 var sprint_speed: int = 200
 var sprint_animation_multiplier := 1.5
 var distance: int = 0
+var movement_disabled: bool = false
 
 @export var distance_per_minute: int = 50
 
@@ -14,6 +15,16 @@ var _footsteps: AudioStreamPlayer
 var _step_accum: float = 0.0
 
 @export_category("Footstep Surfaces")
+
+@export_category("Footstep Volumes")
+@export_range(-40.0, 6.0, 0.5)
+var default_footstep_volume_db: float = -10.0
+@export_range(-40.0, 6.0, 0.5)
+var grass_footstep_volume_db: float = -4.0
+@export_range(-40.0, 6.0, 0.5)
+var stone_footstep_volume_db: float = -10.0
+@export_range(-40.0, 6.0, 0.5)
+var wood_footstep_volume_db: float = -10.0
 
 @export var grass_footstep_sounds: Array[AudioStream] = []
 @export var stone_footstep_sounds: Array[AudioStream] = []
@@ -30,39 +41,11 @@ var _footstep_randomizers: Dictionary[StringName, AudioStreamRandomizer] = {}
 func _ready() -> void:
 	add_to_group("player")
 	
-	_footsteps = AudioStreamPlayer.new()
-	var rng := AudioStreamRandomizer.new()
-	rng.playback_mode = AudioStreamRandomizer.PLAYBACK_RANDOM_NO_REPEATS
-	rng.random_pitch = 1.1
-	for s in footstep_sounds:
-		rng.add_stream(-1, s)
-	_footsteps.stream = rng
-	add_child(_footsteps)
-	$AudioListener2D.make_current()
-	
-	_footsteps = AudioStreamPlayer.new()
-
-	add_child(_footsteps)
-
-	_footstep_randomizers[&"default"] = (
-		_create_footstep_randomizer(footstep_sounds)
-	)
-	_footstep_randomizers[&"grass"] = (
-		_create_footstep_randomizer(grass_footstep_sounds)
-	)
-	_footstep_randomizers[&"stone"] = (
-		_create_footstep_randomizer(stone_footstep_sounds)
-	)
-	_footstep_randomizers[&"wood"] = (
-		_create_footstep_randomizer(wood_footstep_sounds)
-	)
-	
-
-	$AudioListener2D.make_current()
+	_initialize_footstep_audio()
 
 
 func _physics_process(_delta: float) -> void:
-	if _is_any_panel_open():
+	if _is_any_panel_open() or movement_disabled:
 		direction = Vector2.ZERO
 		return
 
@@ -109,9 +92,7 @@ func _animate() -> void:
 		sprite.play( "walk_down" )
 	elif direction.y < 0 :
 		sprite.play( "walk_up" )
-	# Idle animations
 	else :
-		# Plays the animation for the last direction the player was walking before they stopped
 		match sprite.animation :
 			"walk_right" :
 				sprite.play( "idle_right" )
@@ -119,6 +100,27 @@ func _animate() -> void:
 				sprite.play( "idle_up" )
 			"walk_down" :
 				sprite.play( "idle" )
+
+func _initialize_footstep_audio() -> void:
+	_footsteps = AudioStreamPlayer.new()
+	_footsteps.name = "FootstepPlayer"
+	_footsteps.bus = AudioManager.SFX_BUS
+	add_child(_footsteps)
+
+	_footstep_randomizers[&"default"] = (
+		_create_footstep_randomizer(footstep_sounds)
+	)
+	_footstep_randomizers[&"grass"] = (
+		_create_footstep_randomizer(grass_footstep_sounds)
+	)
+	_footstep_randomizers[&"stone"] = (
+		_create_footstep_randomizer(stone_footstep_sounds)
+	)
+	_footstep_randomizers[&"wood"] = (
+		_create_footstep_randomizer(wood_footstep_sounds)
+	)
+
+	$AudioListener2D.make_current()
 
 func _create_footstep_randomizer(
 	sounds: Array[AudioStream]
@@ -172,4 +174,16 @@ func _play_footstep() -> void:
 		return
 
 	_footsteps.stream = randomizer
+	_footsteps.volume_db = _get_footstep_volume(surface)
 	_footsteps.play()
+	
+func _get_footstep_volume(surface: StringName) -> float:
+	match surface:
+		&"grass":
+			return grass_footstep_volume_db
+		&"stone":
+			return stone_footstep_volume_db
+		&"wood":
+			return wood_footstep_volume_db
+		_:
+			return default_footstep_volume_db

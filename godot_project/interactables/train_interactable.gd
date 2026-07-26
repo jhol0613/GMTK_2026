@@ -1,7 +1,6 @@
 class_name TrainInteractable
 extends Interactable
 
-@export var id: StringName = "red_east"
 @export var l_or_r: String
 
 @onready var train: Train = get_parent() as Train
@@ -15,9 +14,11 @@ func interact() -> void:
 
 ## Evaluates whether the player can board the train
 func evaluate_board(ticket: TicketData) -> Enums.BoardResult:
-	if ticket == null:
+	# No ticket, or ticket is for a different train.
+	if ticket == null or not _is_correct_train(ticket):
 		return Enums.BoardResult.REJECTED
-	if not _is_correct_train(ticket):
+	# Ticket matches this train, but is on the wrong line for the level.
+	if not _is_correct_line(ticket):
 		return Enums.BoardResult.WRONG_TRAIN
 	if not _is_on_time(ticket):
 		return Enums.BoardResult.TOO_LATE
@@ -25,9 +26,26 @@ func evaluate_board(ticket: TicketData) -> Enums.BoardResult:
 
 
 func _is_on_time(ticket: TicketData) -> bool:
-	return TimeManager.has_at_least(ticket.departure_hours, ticket.departure_minutes)
+	return TimeManager.has_at_least(ticket.departure_hours, ticket.departure_minutes, ticket.departure_seconds)
 
 
 ## Checks if the ticket is for the correct train
 func _is_correct_train(ticket: TicketData) -> bool:
-	return ticket.id == id
+	return train != null and ticket.id == train.ticket_id
+
+
+## Checks if the ticket is on this level's correct line
+func _is_correct_line(ticket: TicketData) -> bool:
+	var level := _get_level()
+	if level == null or level.correct_line.is_empty():
+		return true
+	return ticket.id == level.correct_line
+
+
+func _get_level() -> LevelTemplate:
+	var node: Node = self
+	while node != null:
+		if node is LevelTemplate:
+			return node as LevelTemplate
+		node = node.get_parent()
+	return null

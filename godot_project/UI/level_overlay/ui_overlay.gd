@@ -1,6 +1,8 @@
 extends CanvasLayer
 
 @export var mouse_hover_offset := Vector2(0, -8)
+var magnifying_glass = load("uid://c8n3by2cmh20k")
+var pen = load("uid://c8yj5np7nrak6")
 
 @onready var _notebook := $Notebook
 @onready var _notebook_button := $NotebookButton
@@ -9,8 +11,10 @@ extends CanvasLayer
 @onready var _notebook_hover_sound: AudioStreamPlayer = $NotebookHoverSound
 @onready var _notebook_click_sound: AudioStreamPlayer = $NotebookClickSound
 @onready var _notebook_exit_sound: AudioStreamPlayer = $NotebookCloseSound
-@onready var _ticket_hover_sound: AudioStreamPlayer = $TicketHoverSound
+@onready var _ticket_hover_sound: AudioStreamPlayer =$TicketHoverSound
 @onready var _ticket_click_sound: AudioStreamPlayer = $TicketClickSound
+
+@onready var _initial_notebook_button_scale = _notebook_button.scale
 
 
 
@@ -20,6 +24,7 @@ func _ready() -> void:
 	_ticket.visible = false
 	_refresh_ticket()
 	Inventory.inventory_changed.connect(_refresh_ticket)
+	SignalBus.new_unique_resshan_note_added_to_notebook.connect(_emphasize_notebook_icon)
 
 func _refresh_ticket() -> void:
 	var ticket := Inventory.get_ticket()
@@ -28,6 +33,14 @@ func _refresh_ticket() -> void:
 		_ticket.visible = false
 	else:
 		_ticket.set_ticket(ticket)
+
+func _emphasize_notebook_icon():
+	var tween = create_tween()
+	tween.tween_property(_notebook_button, "scale", (_initial_notebook_button_scale * 1.1), .08)
+	await tween.finished
+	tween.kill()
+	tween = create_tween()
+	tween.tween_property(_notebook_button, "scale", (_initial_notebook_button_scale), .08)
 
 func _on_notebook_button_mouse_entered() -> void:
 	_notebook_button.position += mouse_hover_offset
@@ -38,30 +51,30 @@ func _on_notebook_button_mouse_exited() -> void:
 
 
 func _on_notebook_button_pressed() -> void:
-	_notebook_click_sound.play()
-	SignalBus.notebook_opened.emit()
-	_notebook.visible = not _notebook.visible
+	if _notebook.visible:
+		_close_notebook()
+	else:
+		_open_notebook()
 
 func _on_ticket_button_mouse_entered():
 	_ticket_button.position += mouse_hover_offset
-	_notebook_hover_sound.play()
+	_ticket_hover_sound.play()
 
 
 func _on_ticket_button_mouse_exited():
 	_ticket_button.position -= mouse_hover_offset
 
 
-func _on_ticket_button_pressed():
-	_ticket_click_sound.play()
+func _on_ticket_button_pressed() -> void:
 	if Inventory.get_ticket() == null:
 		return
-	_ticket.visible = not _ticket.visible
+
+	if _ticket.visible:
+		_close_ticket()
+	else:
+		_open_ticket()
 	
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("toggle_notebook"):
-		_on_notebook_button_pressed()
-	if event.is_action_pressed("toggle_ticket"):
-		_on_ticket_button_pressed()
 	if event.is_action_pressed("escape"):
 		if _ticket.visible:
 			_ticket_click_sound.play()
@@ -69,3 +82,51 @@ func _input(event: InputEvent) -> void:
 			_notebook_click_sound.play()
 		_ticket.visible = false
 		_notebook.visible = false
+		
+		# Enable player movement if closing the notebook
+		for player in get_tree().get_nodes_in_group("player"):
+			player.movement_disabled = false
+			
+func _open_notebook() -> void:
+	if _notebook.visible:
+		return
+	
+	Input.set_custom_mouse_cursor(pen)
+	
+	_notebook_click_sound.play()
+	_notebook.visible = true
+
+	for player in get_tree().get_nodes_in_group("player"):
+		player.movement_disabled = true
+
+	SignalBus.notebook_opened.emit()
+
+
+func _close_notebook() -> void:
+	if not _notebook.visible:
+		return
+	
+	Input.set_custom_mouse_cursor(magnifying_glass)
+	
+	_notebook_exit_sound.play()
+	_notebook.visible = false
+
+	for player in get_tree().get_nodes_in_group("player"):
+		player.movement_disabled = false
+
+	SignalBus.notebook_closed.emit()
+
+func _open_ticket() -> void:
+	if _ticket.visible:
+		return
+
+	_ticket_click_sound.play()
+	_ticket.visible = true
+
+
+func _close_ticket() -> void:
+	if not _ticket.visible:
+		return
+
+	_ticket_click_sound.play()
+	_ticket.visible = false

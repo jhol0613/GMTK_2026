@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c72jo4tde0cb4"]
 
 [ext_resource type="Script" uid="uid://c35x4it7udhry" path="res://menus/title_screen.gd" id="1_m4alt"]
+[ext_resource type="Texture2D" uid="uid://d05r7jsgne3d5" path="res://ui/ticket/icon_ticket.png" id="2_i63b8"]
 
 [node name="TitleScreen" type="Node2D" unique_id=1887702429]
 script = ExtResource("1_m4alt")
@@ -11,5 +12,10 @@ offset_top = 391.0
 offset_right = 723.0
 offset_bottom = 427.0
 text = "Play"
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1001589845]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("2_i63b8")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

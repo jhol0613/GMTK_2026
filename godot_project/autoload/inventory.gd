@@ -7,8 +7,21 @@ signal inventory_changed
 var items: Array[ItemData] = []
 
 func add_item(item: ItemData) -> void:
+	if item is TicketData:
+		_replace_ticket(item as TicketData)
+		return
 	items.append(item)
 	item_added.emit(item)
+	inventory_changed.emit()
+
+
+func _replace_ticket(ticket: TicketData) -> void:
+	var existing := get_ticket()
+	if existing != null:
+		items.erase(existing)
+		item_removed.emit(existing)
+	items.append(ticket)
+	item_added.emit(ticket)
 	inventory_changed.emit()
 
 func remove_item(item: ItemData) -> void:

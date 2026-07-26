@@ -2,63 +2,82 @@
 
 [ext_resource type="Script" uid="uid://d4bklq4j0j1ok" path="res://cutscenes/tutorial_conversation/tutorial_conversation.gd" id="1_h61wc"]
 [ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialogue_interactable.tscn" id="3_7b540"]
-[ext_resource type="Texture2D" uid="uid://c5wqmqb5wo7d7" path="res://character_portraits/friend/friend_portrait_6.png" id="4_3t1sb"]
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://scripts/dialogue_line.gd" id="4_7b540"]
-[ext_resource type="Texture2D" uid="uid://bavnumfwkgn7q" path="res://character_portraits/friend/friend_portrait_1.png" id="4_inmqh"]
-[ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://scripts/dialogue_choice.gd" id="4_yisg7"]
+[ext_resource type="Texture2D" uid="uid://c6kbovdmlav3a" path="res://character_portraits/player/mc_portrait_2.png" id="4_b0n1b"]
 [ext_resource type="Texture2D" uid="uid://dtienb1p5xsvp" path="res://cutscenes/tutorial_conversation/BFF.png" id="5_7b540"]
-[ext_resource type="Texture2D" uid="uid://ccrqgct6bn6ok" path="res://character_portraits/friend/friend_portrait_2.png" id="5_inmqh"]
 [ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialogue_panel.tscn" id="5_vtjp4"]
+[ext_resource type="Texture2D" uid="uid://chivossxat7i8" path="res://character_portraits/friend/friend_portrait_8.png" id="6_68lls"]
 [ext_resource type="Texture2D" uid="uid://drbj4g6y7pqm3" path="res://character_portraits/friend/friend_portrait_3.png" id="6_h3ycx"]
+[ext_resource type="Texture2D" uid="uid://b53hkyvvsyjsc" path="res://character_portraits/player/mc_portrait_10.png" id="7_8k02b"]
+[ext_resource type="Texture2D" uid="uid://jlxtiftww3s" path="res://character_portraits/friend/friend_portrait_5.png" id="8_01uug"]
+[ext_resource type="Texture2D" uid="uid://bjn6f5al15odg" path="res://character_portraits/player/mc_portrait_8.png" id="9_gurny"]
+[ext_resource type="Texture2D" uid="uid://wal81orx5xo6" path="res://character_portraits/friend/friend_portrait_4.png" id="10_aoaar"]
 [ext_resource type="Texture2D" uid="uid://cnx2wdgdmxkv6" path="res://character_portraits/player/mc_portrait_1.png" id="10_h3ycx"]
 
 [sub_resource type="Resource" id="Resource_h61wc"]
 script = ExtResource("4_7b540")
-text = "I'm so excited that you're here to visit!"
-speaker_icon = ExtResource("4_inmqh")
+text = "I'm so glad you're here, I can't read a word of this!"
+speaker_icon = ExtResource("4_b0n1b")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_7b540"]
 script = ExtResource("4_7b540")
-text = "Not many people around here speak English."
-speaker_icon = ExtResource("5_inmqh")
+text = "Yeah, if I wasn't, you'd never get down from here..."
+speaker_icon = ExtResource("6_h3ycx")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_yisg7"]
 script = ExtResource("4_7b540")
-text = "But don't worry! I've been studying <<resshan>> all semester."
-speaker_icon = ExtResource("4_3t1sb")
+text = "You'd miss the whole event!"
+speaker_icon = ExtResource("6_68lls")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_vtjp4"]
 script = ExtResource("4_7b540")
-text = "I'm pretty much a native at this point!"
+text = "Stuck up here forever, hopping from train to train!"
 speaker_icon = ExtResource("6_h3ycx")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
-[sub_resource type="Resource" id="Resource_ujtin"]
-script = ExtResource("4_yisg7")
-player_text = "I just hope you know where you're going"
-reply = "Just stick with me and I'll get us there."
-metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+[sub_resource type="Resource" id="Resource_1dh77"]
+script = ExtResource("4_7b540")
+text = "Hey! I did good in school, I can take notes, figure stuff out!"
+speaker_icon = ExtResource("7_8k02b")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
-[sub_resource type="Resource" id="Resource_qbyu3"]
-script = ExtResource("4_yisg7")
-player_text = "What's the Resshan word for \"cocky\"?"
-reply = "Very funny. Just stick with me and I'll get us there."
-metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+[sub_resource type="Resource" id="Resource_qw6i8"]
+script = ExtResource("4_7b540")
+text = "Yeah you were good at taking notes - MY notes!"
+speaker_icon = ExtResource("8_01uug")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_ne21d"]
+script = ExtResource("4_7b540")
+text = "..."
+speaker_icon = ExtResource("9_gurny")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_bx6io"]
+script = ExtResource("4_7b540")
+text = "Relax, I'm just messing with you!"
+speaker_icon = ExtResource("10_aoaar")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_7df1u"]
+script = ExtResource("4_7b540")
+text = "Stick with me and everything will be juuuuust fine!"
+speaker_icon = ExtResource("6_h3ycx")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [node name="TutorialConversation" type="Node2D" unique_id=1792772109]
 z_index = 4
 script = ExtResource("1_h61wc")
 
 [node name="DialogueInteractable" parent="." unique_id=1631350735 instance=ExtResource("3_7b540")]
-lines = Array[ExtResource("4_7b540")]([SubResource("Resource_h61wc"), SubResource("Resource_7b540"), SubResource("Resource_yisg7"), SubResource("Resource_vtjp4")])
-choices = Array[ExtResource("4_yisg7")]([SubResource("Resource_ujtin"), SubResource("Resource_qbyu3")])
+lines = Array[ExtResource("4_7b540")]([SubResource("Resource_h61wc"), SubResource("Resource_7b540"), SubResource("Resource_yisg7"), SubResource("Resource_vtjp4"), SubResource("Resource_1dh77"), SubResource("Resource_qw6i8"), SubResource("Resource_ne21d"), SubResource("Resource_bx6io"), SubResource("Resource_7df1u")])
 panel_path = NodePath("../CanvasLayer/DialoguePanel")
 
 [node name="Prompt" parent="DialogueInteractable" index="1" unique_id=272794898]
-texture_filter = 1
+custom_minimum_size = Vector2(75, 168)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1181970416]
 layer = 20

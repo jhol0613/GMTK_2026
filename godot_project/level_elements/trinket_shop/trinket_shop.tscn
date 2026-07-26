@@ -4,10 +4,23 @@
 [ext_resource type="Texture2D" uid="uid://dcoghm70vomqf" path="res://level_elements/trinket_shop/Trinket shop level 2.png" id="2_8tbst"]
 [ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialogue_interactable.tscn" id="3_xxwc8"]
 [ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialogue_panel.tscn" id="5_73t7r"]
+[ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="5_400x5"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vvn3i"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tbst"]
 atlas = ExtResource("1_400x5")
 region = Rect2(0, 0, 179, 107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxwc8"]
+atlas = ExtResource("1_400x5")
+region = Rect2(179, 0, 179, 107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kg6p5"]
+atlas = ExtResource("1_400x5")
+region = Rect2(358, 0, 179, 107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73t7r"]
+atlas = ExtResource("1_400x5")
+region = Rect2(537, 0, 179, 107)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7wyia"]
 atlas = ExtResource("2_8tbst")
@@ -17,11 +30,20 @@ region = Rect2(0, 0, 179, 107)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vvn3i")
+"texture": SubResource("AtlasTexture_8tbst")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxwc8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kg6p5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73t7r")
 }],
 "loop": 1,
 "name": &"level1_idle",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -38,6 +60,9 @@ size = Vector2(54, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fhk1x"]
 size = Vector2(117, 31)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]
+size = Vector2(13.5, 13)
+
 [node name="TrinketShop" type="Node2D" unique_id=877031898]
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=984962632]
@@ -45,6 +70,7 @@ z_index = 1
 position = Vector2(-14, -47)
 sprite_frames = SubResource("SpriteFrames_3uvvl")
 animation = &"level1_idle"
+autoplay = "level1_idle"
 
 [node name="DialogueInteractable" parent="." unique_id=358228256 instance=ExtResource("3_xxwc8")]
 z_index = 1
@@ -58,7 +84,7 @@ shape = SubResource("RectangleShape2D_bqp2h")
 
 [node name="Prompt" parent="DialogueInteractable" index="1" unique_id=272794898]
 z_index = 1
-custom_minimum_size = Vector2(117, 23)
+custom_minimum_size = Vector2(903, 168)
 text = "Press E to shop"
 metadata/_edit_use_anchors_ = true
 
@@ -74,5 +100,25 @@ shape = SubResource("RectangleShape2D_fhk1x")
 
 [node name="DialoguePanel" parent="." unique_id=210961773 instance=ExtResource("5_73t7r")]
 unique_name_in_owner = true
+
+[node name="ResshanInteractable" type="Area2D" parent="." unique_id=1551981602]
+z_index = 2
+position = Vector2(-32, -68)
+script = ExtResource("5_400x5")
+_string = "<<trinketmask>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ResshanInteractable" unique_id=802549769]
+shape = SubResource("RectangleShape2D_ujtin")
+
+[node name="ResshanInteractable2" type="Area2D" parent="." unique_id=1274088516]
+z_index = 2
+position = Vector2(16, -68)
+script = ExtResource("5_400x5")
+_string = "<<store>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ResshanInteractable2" unique_id=2025560916]
+shape = SubResource("RectangleShape2D_ujtin")
 
 [editable path="DialogueInteractable"]

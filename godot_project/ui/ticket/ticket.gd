@@ -1,6 +1,8 @@
 class_name Ticket
 extends Node2D
 
+signal ticket_expired
+
 @export var ticket_data: TicketData
 
 @onready var _line_label: ResshanLabel = %LineValue
@@ -9,6 +11,7 @@ extends Node2D
 
 
 func _ready() -> void:
+	TimeManager.time_changed.connect(check_ticket)
 	if ticket_data != null:
 		set_ticket(ticket_data)
 
@@ -18,3 +21,9 @@ func set_ticket(data: TicketData) -> void:
 	_line_label.text = data.train_line
 	_departure_label.text = "<<%s>> : <<%s>>" % [data.departure_hours, data.departure_minutes]
 	_destination_label.text = data.destination
+
+func check_ticket(h, m, s) -> void:
+	if not ticket_data:
+		return
+	if ticket_data._is_expired(h, m, s):
+		ticket_expired.emit()

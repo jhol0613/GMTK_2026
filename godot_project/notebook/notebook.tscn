@@ -3,7 +3,19 @@
 [ext_resource type="PackedScene" uid="uid://bfuu8moxyxa5w" path="res://notebook/notebook_page.tscn" id="1_qjmkm"]
 [ext_resource type="Script" uid="uid://d0ulsk74p60bn" path="res://notebook/notebook.gd" id="1_tvakd"]
 [ext_resource type="Texture2D" uid="uid://cmp7iukc3tyy4" path="res://notebook/notebook.png" id="3_kkelw"]
-[ext_resource type="AudioStream" uid="uid://ce16br5qebd7" path="res://UI/HoverTicket_Schedule1.mp3" id="4_y1ha3"]
+[ext_resource type="FontFile" uid="uid://byxrvfx8kprnq" path="res://resources/fonts/Embolism Spark.ttf" id="4_ft0je"]
+[ext_resource type="AudioStream" uid="uid://ce16br5qebd7" path="res://ui/HoverTicket_Schedule1.mp3" id="4_y1ha3"]
+[ext_resource type="Texture2D" uid="uid://dki35rl0kbnw4" path="res://notebook/notebook_button_icon.png" id="5_7rwif"]
+[ext_resource type="AudioStream" uid="uid://u1j8iapwbxgk" path="res://ui/Pencil1.mp3" id="5_141dl"]
+[ext_resource type="AudioStream" uid="uid://dmcj5ur7l6jb4" path="res://ui/Pencil2.mp3" id="6_7rtp4"]
+[ext_resource type="AudioStream" uid="uid://da6j41l6x4sxf" path="res://ui/Pencil3.mp3" id="7_ft0je"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ujtin"]
+random_pitch = 1.0190678
+streams_count = 3
+stream_0/stream = ExtResource("5_141dl")
+stream_1/stream = ExtResource("6_7rtp4")
+stream_2/stream = ExtResource("7_ft0je")
 
 [node name="Notebook" type="Node2D" unique_id=2020796058]
 script = ExtResource("1_tvakd")
@@ -15,6 +27,20 @@ texture = ExtResource("3_kkelw")
 
 [node name="NotebookPage" parent="Pages" unique_id=1099925378 instance=ExtResource("1_qjmkm")]
 position = Vector2(-311, -422)
+
+[node name="Holder" parent="Pages/NotebookPage" index="0" unique_id=173175333]
+offset_right = 631.0
+offset_bottom = 67.0
+
+[node name="Label" type="Label" parent="Pages/NotebookPage/Holder" index="0" unique_id=1341539632]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.19076231, 0.19076234, 0.19076231, 1)
+theme_override_fonts/font = ExtResource("4_ft0je")
+theme_override_font_sizes/font_size = 32
+text = "I can click on any word I see to put it in this notebook!
+Then I can type my best guesses for what they mean.
+I bet learning a lot of words will help me find my way."
 
 [node name="NotebookPage2" parent="Pages" unique_id=1129297689 instance=ExtResource("1_qjmkm")]
 visible = false
@@ -38,23 +64,49 @@ position = Vector2(-311, -422)
 
 [node name="NextPage" type="Button" parent="." unique_id=1734661789]
 unique_name_in_owner = true
-offset_left = 248.0
-offset_top = 402.0
-offset_right = 293.0
-offset_bottom = 433.0
+offset_left = 192.0
+offset_top = 392.0
+offset_right = 328.0
+offset_bottom = 464.0
+theme_override_colors/font_color = Color(0.1764706, 0.12941177, 0.21568628, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.039215688, 0.3882353, 0.3137255, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ft0je")
+theme_override_font_sizes/font_size = 32
 text = "Next"
+icon = ExtResource("5_7rwif")
+flat = true
+icon_alignment = 1
 
 [node name="PreviousPage" type="Button" parent="." unique_id=2095987400]
 unique_name_in_owner = true
-offset_left = -299.0
-offset_top = 402.0
-offset_right = -254.0
-offset_bottom = 433.0
+offset_left = -328.0
+offset_top = 392.0
+offset_right = -192.0
+offset_bottom = 464.0
+theme_override_colors/font_color = Color(0.1764706, 0.12941177, 0.21568628, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.039215688, 0.3882353, 0.3137255, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ft0je")
+theme_override_font_sizes/font_size = 32
 text = "Previous"
+icon = ExtResource("5_7rwif")
+flat = true
+icon_alignment = 1
 
 [node name="PageTurnSound" type="AudioStreamPlayer" parent="." unique_id=561482912]
 stream = ExtResource("4_y1ha3")
-volume_db = 19.285
+volume_db = 24.0
+bus = &"SFX"
+
+[node name="EntryAdded" type="AudioStreamPlayer" parent="." unique_id=971808126]
+stream = SubResource("AudioStreamRandomizer_ujtin")
 
 [connection signal="pressed" from="NextPage" to="." method="_on_previous_page_pressed"]
 [connection signal="pressed" from="PreviousPage" to="." method="_on_next_page_pressed"]
+
+[editable path="Pages/NotebookPage"]

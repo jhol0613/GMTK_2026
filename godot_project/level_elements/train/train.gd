@@ -5,6 +5,7 @@ extends Node2D
 class_name Train
 
 @export var next_scene: Enums.Scenes = Enums.Scenes.LEVEL_1
+@export var reload_scene: Enums.Scenes = Enums.Scenes.LEVEL_0
 
 # Animation parameters
 @export var depart_offset: Vector2 = Vector2(800, 0)
@@ -13,16 +14,15 @@ class_name Train
 @export var arrival_duration: float = 1.5
 
 @export var incorrect_penalty_minutes: int = 5
-@export var reload_scene: Enums.Scenes = Enums.Scenes.LEVEL_0
 ## The delay before the train arrives at the platform after missing the deadline
 @export var missed_rearrive_delay: float = 8.0
 ## If true, this train leaves on its own when a matching ticket's deadline passes
 @export var departs_on_missed_deadline: bool = true
+## Ticket id this train accepts (e.g. red_east / red_west).
+@export var ticket_id: StringName = &"red_east"
 
 @export var sprite: AnimatedSprite2D
 @export var color := Enums.TrainColor.BROWN:
-
-
 	# Ensure that index of animation names matches the order of the Enums
 	set(new_color):
 		color = new_color
@@ -36,7 +36,6 @@ class_name Train
 @onready var train_interactable_l: TrainInteractable = $TrainInteractableL
 @onready var train_interactable_r: TrainInteractable = $TrainInteractableR
 
-
 var _boarding: bool = false
 var _missed_departure: bool = false
 var _l_or_r: String
@@ -44,6 +43,7 @@ var _l_or_r: String
 @onready var player_disembark_marker: Marker2D = $PlayerDisembarkMarker
 
 @onready var original_position = position
+
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
@@ -53,6 +53,7 @@ func _ready() -> void:
 	_boarded_player_r.visible = false
 	TimeManager.time_changed.connect(_on_time_changed)
 	Inventory.inventory_changed.connect(_on_inventory_changed)
+	play_bobbing()
 
 
 func try_board(interactable: TrainInteractable, l_or_r: String) -> void:
@@ -61,8 +62,10 @@ func try_board(interactable: TrainInteractable, l_or_r: String) -> void:
 		return
 
 	var ticket: TicketData = Inventory.get_ticket()
+	print("board result: ", interactable.evaluate_board(ticket))
 	match interactable.evaluate_board(ticket):
 		Enums.BoardResult.REJECTED:
+			AudioManager.play_wrong_ticket_sfx()
 			await _flash_reject(_no_ticket_light)
 			return
 		Enums.BoardResult.TOO_LATE:
@@ -75,7 +78,7 @@ func try_board(interactable: TrainInteractable, l_or_r: String) -> void:
 			await _boarding_sequence()
 
 
-func _on_time_changed(_hour: int, _minute: int) -> void:
+func _on_time_changed(_hour: int, _minute: int, _second: int) -> void:
 	if not departs_on_missed_deadline:
 		return
 	if _boarding or _missed_departure:
@@ -83,7 +86,11 @@ func _on_time_changed(_hour: int, _minute: int) -> void:
 	var ticket: TicketData = Inventory.get_ticket()
 	if ticket == null or not _matches_ticket(ticket):
 		return
-	if TimeManager.has_at_least(ticket.departure_hours, ticket.departure_minutes):
+	if TimeManager.has_at_least(
+		ticket.departure_hours,
+		ticket.departure_minutes,
+		ticket.departure_seconds,
+	):
 		return
 	_missed_departure = true
 	_missed_departure_sequence()
@@ -97,7 +104,7 @@ func _boarding_sequence() -> void:
 	_boarding = true
 
 	_set_player_active(false)
-	await _run_boarding_and_departure()
+	await _run_boarding_and_departure(true)
 
 	GameManager.load_scene(next_scene)
 	_boarding = false
@@ -107,15 +114,14 @@ func _wrong_train_sequence() -> void:
 	_boarding = true
 
 	_set_player_active(false)
-	await _run_boarding_and_departure()
-	
+	await _run_boarding_and_departure(true)
+
 	TimeManager.stash_before_reload(incorrect_penalty_minutes)
 
 	GameManager.load_scene(reload_scene)
 	_boarding = false
 
 
-## Leaves without the player when the ticket deadline is missed.
 func _missed_departure_sequence() -> void:
 	if _boarding:
 		return
@@ -133,6 +139,7 @@ func _missed_departure_sequence() -> void:
 
 ## Flashes a light on and off for a given number of times
 func _flash_reject(light: Sprite2D, flashes: int = 3, interval: float = 0.5) -> void:
+	SignalBus.no_ticket.emit()
 	for i in flashes:
 		light.visible = true
 		await get_tree().create_timer(interval).timeout
@@ -141,13 +148,17 @@ func _flash_reject(light: Sprite2D, flashes: int = 3, interval: float = 0.5) -> 
 
 
 func _train_depart() -> void:
-	var tween := create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+	var tween := create_tween()
+	tween.set_ease(Tween.EASE_IN)
+	tween.set_trans(Tween.TRANS_CUBIC)
+
 	tween.tween_property(self, "position", position + depart_offset, depart_duration)
+
 	await tween.finished
 
 
-## Plays the arrival animation on scene start
 func play_arrival_animation() -> void:
+	AudioManager.play_train_pulling_in()
 	var player := get_tree().get_first_node_in_group("player")
 	player.visible = false
 	player.set_physics_process(false)
@@ -163,7 +174,6 @@ func play_arrival_animation() -> void:
 	animation_player.play("doors_open")
 	await animation_player.animation_finished
 
-	# inside train to platform
 	_boarded_player_l.visible = false
 	if player_disembark_marker:
 		player.global_position = player_disembark_marker.global_position
@@ -171,19 +181,27 @@ func play_arrival_animation() -> void:
 	animation_player.play("doors_close")
 	await animation_player.animation_finished
 	player.set_physics_process(true)
+	play_bobbing()
 
-## Play arrival animation without moving player
-func play_simple_arrival_animation() -> void:
+
+func play_simple_arrival_animation(use_level_0_first_sound: bool = false) -> void:
+	if use_level_0_first_sound:
+		AudioManager.play_level_0_first_train_in()
+	else:
+		AudioManager.play_train_pulling_in()
 	var stop_position: Vector2 = original_position
 	position = stop_position + arrival_offset
-		
+
 	var tween := create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(self, "position", stop_position, arrival_duration)
 	await tween.finished
-	
-#---------------------------------------------------------
-# Helper functions
-#---------------------------------------------------------
+	play_bobbing()
+
+
+func play_bobbing() -> void:
+	animation_player.play("bobbing")
+
+
 func _set_player_active(active: bool) -> void:
 	var player := get_tree().get_first_node_in_group("player")
 	if player == null:
@@ -193,10 +211,9 @@ func _set_player_active(active: bool) -> void:
 
 
 func _matches_ticket(ticket: TicketData) -> bool:
-	return train_interactable_l.id == ticket.id or train_interactable_r.id == ticket.id
+	return ticket_id == ticket.id
 
 
-## Sets the interactables to enabled or disabled
 func _set_interactables_enabled(enabled: bool) -> void:
 	for interactable in [train_interactable_l, train_interactable_r]:
 		if interactable == null:
@@ -216,12 +233,22 @@ func _close_doors() -> void:
 	await animation_player.animation_finished
 
 
-func _run_boarding_and_departure() -> void:
+func _run_boarding_and_departure(play_pulling_out: bool = false) -> void:
 	_set_player_active(false)
+
+	# 与开门动画同时开始播放
+	if play_pulling_out:
+		AudioManager.play_train_pulling_out()
+
 	await _open_doors()
+
 	if _l_or_r == "l":
 		_boarded_player_l.visible = true
 	else:
 		_boarded_player_r.visible = true
+
 	await _close_doors()
 	await _train_depart()
+
+	if play_pulling_out:
+		await AudioManager.wait_for_train_sfx()
