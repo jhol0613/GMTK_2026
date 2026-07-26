@@ -13,6 +13,9 @@ size = Vector2(34, 12)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qbyu3"]
 size = Vector2(62.142853, 61.03898)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nf7gk"]
+size = Vector2(62.337402, 64.93509)
+
 [node name="TrainMap" type="Node2D" unique_id=940096549]
 
 [node name="Trainmap" type="Sprite2D" parent="." unique_id=2020560551]
@@ -55,6 +58,7 @@ offset_left = -461.03876
 offset_top = -246.75327
 offset_right = -396.1037
 offset_bottom = -183.11691
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect" type="ColorRect" parent="SignPanel/Root/Popup/Map" unique_id=1083407357]
@@ -62,6 +66,7 @@ offset_left = -454.54544
 offset_top = -245.45456
 offset_right = -397.40256
 offset_bottom = -188.3117
+mouse_filter = 2
 
 [node name="Overlay" type="Sprite2D" parent="SignPanel/Root/Popup" parent_id_path=PackedInt32Array(1998267979, 2123670025) index="2" unique_id=146975511]
 position = Vector2(228, 240)
@@ -132,16 +137,6 @@ metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("RectangleShape2D_qbyu3")
 
-[node name="closed" type="Area2D" parent="SignPanel/Root/Popup/Overlay" unique_id=1380853452]
-position = Vector2(-427.27277, -216.88312)
-script = ExtResource("6_nf7gk")
-_string = "<<closed>>"
-metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Overlay/closed" unique_id=1279171524]
-scale = Vector2(0.9999998, 0.9999998)
-shape = SubResource("RectangleShape2D_qbyu3")
-
 [node name="station0" type="Area2D" parent="SignPanel/Root/Popup/Overlay" unique_id=1267312914]
 position = Vector2(-412.98706, 312.987)
 script = ExtResource("6_nf7gk")
@@ -149,6 +144,16 @@ _string = "<<station.0>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Overlay/station0" unique_id=762785112]
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_qbyu3")
+
+[node name="clsd" type="Area2D" parent="SignPanel/Root/Popup/Overlay" unique_id=963500961]
+position = Vector2(-427.27277, -215.58444)
+script = ExtResource("6_nf7gk")
+_string = "<<ticket>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Overlay/clsd" unique_id=682324446]
 scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_qbyu3")
 
@@ -240,6 +245,46 @@ metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Overlay/ResshanInteractable24" unique_id=366815777]
 scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_qbyu3")
+
+[node name="north" type="Area2D" parent="SignPanel/Root/Popup/Overlay" unique_id=740281109]
+position = Vector2(405.1948, -528.5714)
+script = ExtResource("6_nf7gk")
+_string = "<<north>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Overlay/north" unique_id=783848587]
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_nf7gk")
+
+[node name="east" type="Area2D" parent="SignPanel/Root/Popup/Overlay" unique_id=1311030831]
+position = Vector2(524.6753, -411.68832)
+script = ExtResource("6_nf7gk")
+_string = "<<east>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Overlay/east" unique_id=1981713432]
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_nf7gk")
+
+[node name="west" type="Area2D" parent="SignPanel/Root/Popup/Overlay" unique_id=150290893]
+position = Vector2(283.11688, -411.68832)
+script = ExtResource("6_nf7gk")
+_string = "<<west>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Overlay/west" unique_id=496797191]
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_nf7gk")
+
+[node name="south" type="Area2D" parent="SignPanel/Root/Popup/Overlay" unique_id=145022559]
+position = Vector2(403.8961, -292.20782)
+script = ExtResource("6_nf7gk")
+_string = "<<south>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Overlay/south" unique_id=1637038834]
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_nf7gk")
 
 [editable path="SignInteractable"]
 [editable path="SignPanel"]
