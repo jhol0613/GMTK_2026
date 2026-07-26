@@ -12,6 +12,7 @@ var _pages: Array[NotebookPage] = []
 var _first_entry := true
 
 @onready var _page_turn_sound: AudioStreamPlayer = $PageTurnSound
+@onready var _entry_added_sound: AudioStreamPlayer = $EntryAdded
 
 func _ready() -> void:
 	SignalBus.resshan_clicked.connect(_add_entry_to_the_page)
@@ -64,6 +65,8 @@ func _add_entry_to_the_page(encoded:String, initial_text = "") -> void:
 	if _first_entry:
 		initial_text = "I can take notes here!"
 		_first_entry = false
+	_entry_added_sound.play()
+	SignalBus.new_unique_resshan_note_added_to_notebook.emit()
 	page._new_entry(encoded, initial_text)
 
 

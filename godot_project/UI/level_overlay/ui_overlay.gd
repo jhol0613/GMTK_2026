@@ -12,6 +12,8 @@ extends CanvasLayer
 @onready var _ticket_hover_sound: AudioStreamPlayer = $TicketHoverSound
 @onready var _ticket_click_sound: AudioStreamPlayer = $TicketClickSound
 
+@onready var _initial_notebook_button_scale = _notebook_button.scale
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -20,6 +22,7 @@ func _ready() -> void:
 	_ticket.visible = false
 	_refresh_ticket()
 	Inventory.inventory_changed.connect(_refresh_ticket)
+	SignalBus.new_unique_resshan_note_added_to_notebook.connect(_emphasize_notebook_icon)
 
 func _refresh_ticket() -> void:
 	var ticket := Inventory.get_ticket()
@@ -28,6 +31,14 @@ func _refresh_ticket() -> void:
 		_ticket.visible = false
 	else:
 		_ticket.set_ticket(ticket)
+
+func _emphasize_notebook_icon():
+	var tween = create_tween()
+	tween.tween_property(_notebook_button, "scale", (_initial_notebook_button_scale * 1.1), .08)
+	await tween.finished
+	tween.kill()
+	tween = create_tween()
+	tween.tween_property(_notebook_button, "scale", (_initial_notebook_button_scale), .08)
 
 func _on_notebook_button_mouse_entered() -> void:
 	_notebook_button.position += mouse_hover_offset

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://ba3allrv3pni0"]
+
+[ext_resource type="Texture2D" uid="uid://bl6udymp4gmj7" path="res://level_elements/decorative/plant_1.png" id="1_jrvd1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fpcxu"]
+size = Vector2(13, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uakun"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_jrvd1")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Bench" type="StaticBody2D" unique_id=232674008]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1878472438]
+position = Vector2(-0.5, -4)
+shape = SubResource("RectangleShape2D_fpcxu")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1185998454]
+z_index = 1
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_uakun")
