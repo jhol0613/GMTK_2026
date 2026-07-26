@@ -1,21 +1,67 @@
 [gd_scene format=3 uid="uid://c72jo4tde0cb4"]
 
 [ext_resource type="Script" uid="uid://c35x4it7udhry" path="res://menus/title_screen.gd" id="1_m4alt"]
-[ext_resource type="Texture2D" uid="uid://d05r7jsgne3d5" path="res://ui/ticket/icon_ticket.png" id="2_i63b8"]
+[ext_resource type="Texture2D" uid="uid://bcvddiwm04q80" path="res://menus/Menu.png" id="2_2pwrd"]
+[ext_resource type="Texture2D" uid="uid://cw01faj1lgkwp" path="res://menus/clouds.png" id="3_2pwrd"]
+[ext_resource type="Texture2D" uid="uid://urrf4cbjda0y" path="res://menus/islands.png" id="4_kc2cy"]
+[ext_resource type="Texture2D" uid="uid://c5t0anutvo5db" path="res://menus/blue.png" id="5_823ok"]
 
 [node name="TitleScreen" type="Node2D" unique_id=1887702429]
 script = ExtResource("1_m4alt")
 
-[node name="Button" type="Button" parent="." unique_id=686099538]
-offset_left = 545.0
-offset_top = 391.0
-offset_right = 723.0
-offset_bottom = 427.0
-text = "Play"
+[node name="Buttons" type="Control" parent="." unique_id=1186367208]
+layout_mode = 3
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
 
-[node name="TextureButton" type="TextureButton" parent="." unique_id=1001589845]
-offset_right = 40.0
-offset_bottom = 40.0
-texture_normal = ExtResource("2_i63b8")
+[node name="PlayButton" type="Button" parent="Buttons" unique_id=1271435869]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 407.0
+offset_right = 532.0
+offset_bottom = 532.0
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="OptionsButton" type="Button" parent="Buttons" unique_id=1170702684]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 569.0
+offset_right = 532.0
+offset_bottom = 695.0
+
+[node name="QuitButton" type="Button" parent="Buttons" unique_id=1827988637]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 731.0
+offset_right = 532.0
+offset_bottom = 857.0
+
+[node name="Background" type="Node2D" parent="." unique_id=613649569]
+
+[node name="PC" type="Sprite2D" parent="Background" unique_id=306958869]
+z_index = -1
+position = Vector2(959.99994, 540.5)
+scale = Vector2(3.9999998, 4.055556)
+texture = ExtResource("2_2pwrd")
+
+[node name="Clouds" type="Sprite2D" parent="Background" unique_id=914303693]
+z_index = -2
+position = Vector2(959.99994, 540.5)
+scale = Vector2(3.9999998, 4.055556)
+texture = ExtResource("3_2pwrd")
+
+[node name="Islands" type="Sprite2D" parent="Background" unique_id=1358127319]
+z_index = -2
+position = Vector2(959.99994, 540.5)
+scale = Vector2(3.9999998, 4.055556)
+texture = ExtResource("4_kc2cy")
+
+[node name="Blue" type="Sprite2D" parent="Background" unique_id=27265599]
+z_index = -4
+position = Vector2(959.99994, 540.5)
+scale = Vector2(3.9999998, 4.055556)
+texture = ExtResource("5_823ok")
+
+[connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Buttons/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="Buttons/QuitButton" to="." method="_on_quit_button_pressed"]

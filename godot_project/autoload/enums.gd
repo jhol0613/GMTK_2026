@@ -13,7 +13,9 @@ enum Scenes {
 	LEVEL_2,
 	TITLE,
 	GOOD_ENDING,
-	BAD_ENDING
+	BAD_ENDING,
+	OPTIONS,
+	MAIN
 }
 
 # unfortunately alphabetical order here matters. Sorry
