@@ -7,12 +7,12 @@
 [ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://scripts/dialogue_choice.gd" id="3_jum3j"]
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://scripts/dialogue_line.gd" id="3_obtcn"]
 [ext_resource type="TileSet" uid="uid://dvxgqw1r5w5ps" path="res://levels/tileset/station_tileset.tres" id="4_owf05"]
-[ext_resource type="AudioStream" uid="uid://clvosvg2vfbfv" path="res://ui/SpeechAudio/Ticket buy West or East.mp3" id="11_osodt"]
+[ext_resource type="AudioStream" uid="uid://clvosvg2vfbfv" path="res://UI/SpeechAudio/Ticket buy West or East.mp3" id="11_osodt"]
 [ext_resource type="Texture2D" uid="uid://kayfkwypm2a" path="res://character_portraits/ticket_lady/ticket_lady_portrait_2.png" id="15_fv0x7"]
 [ext_resource type="Texture2D" uid="uid://ca8r7wcmgae0o" path="res://levels/tileset/grasstiles.png" id="17_ggct0"]
 [ext_resource type="Script" uid="uid://cpfgjwe2lpk0k" path="res://scripts/ticket_data.gd" id="17_owf05"]
 [ext_resource type="Texture2D" uid="uid://ddbgow303m2gq" path="res://levels/tileset/TX Tileset Grass.png" id="18_8mki0"]
-[ext_resource type="Texture2D" uid="uid://d2ujnxq7ovb74" path="res://ui/arrow_icon.png" id="18_juy1h"]
+[ext_resource type="Texture2D" uid="uid://d2ujnxq7ovb74" path="res://UI/arrow_icon.png" id="18_juy1h"]
 [ext_resource type="PackedScene" uid="uid://cit6uoxu58nwk" path="res://level_elements/maps/train_map.tscn" id="18_owf05"]
 [ext_resource type="PackedScene" uid="uid://baukigq6wfgs1" path="res://level_elements/ATM/atm.tscn" id="18_uuq13"]
 [ext_resource type="Texture2D" uid="uid://cnx2wdgdmxkv6" path="res://character_portraits/player/mc_portrait_1.png" id="19_ggct0"]
@@ -611,21 +611,25 @@ tile_set = SubResource("TileSet_3beyx")
 tile_set = SubResource("TileSet_3beyx")
 
 [node name="UpperTrain" parent="Platform" index="6" unique_id=995237668]
+depart_offset = Vector2(2000, 0)
+arrival_offset = Vector2(-2000, 0)
 ticket_id = &"RED_east"
 color = 7
 
 [node name="TrainSprite" parent="Platform/UpperTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.7982396
+frame_progress = 0.17399772
 
 [node name="LowerTrain" parent="Platform" index="7" unique_id=1370361982]
 next_scene = 2
+depart_offset = Vector2(-2000, 0)
+arrival_offset = Vector2(2000, 0)
 ticket_id = &"RED_west"
 color = 7
 
 [node name="TrainSprite" parent="Platform/LowerTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.039694168
+frame_progress = 0.41545025
 
 [node name="TicketBooth" parent="." index="6" unique_id=861247956 instance=ExtResource("2_823pn")]
 position = Vector2(-1168, -368)

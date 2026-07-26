@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b4f18g70lleg5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chyd6"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="WrongTrainBoardedMessage" type="PanelContainer" unique_id=234956977]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_chyd6")
+
+[node name="Label" type="Label" parent="." unique_id=1813610896]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "The train didn't pass your desired destination.
+
+Maybe this wasn't the right train?
+
+You decided to take the same train back so you 
+won't get lost even more."
