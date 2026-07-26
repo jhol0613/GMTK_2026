@@ -10,6 +10,7 @@ signal notebook_opened
 signal notebook_closed
 
 signal no_ticket
+signal missed_train
 
 signal ticket_purchased(hour: int, minute: int)
 

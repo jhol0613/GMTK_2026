@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DialogueLine" format=3 uid="uid://dgtwryt4tl61o"]
+
+[ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://scripts/dialogue_line.gd" id="1_line"]
+[ext_resource type="Texture2D" uid="uid://cnx2wdgdmxkv6" path="res://character_portraits/player/mc_portrait_1.png" id="2_icon"]
+
+[resource]
+script = ExtResource("1_line")
+speaker = "You"
+text = "Oh no, I missed my train. I should get a new ticket!"
+speaker_icon = ExtResource("2_icon")

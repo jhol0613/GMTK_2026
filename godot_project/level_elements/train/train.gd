@@ -54,6 +54,10 @@ func _ready() -> void:
 	TimeManager.time_changed.connect(_on_time_changed)
 	Inventory.inventory_changed.connect(_on_inventory_changed)
 	play_bobbing()
+	
+	for i:AnimatedSprite2D in $TrainSprite/HoverSparcles.get_children():
+		i.frame = randi() % 2
+		i.play(&"", 0.5)
 
 
 func try_board(interactable: TrainInteractable, l_or_r: String) -> void:
@@ -97,6 +101,16 @@ func _on_time_changed(_hour: int, _minute: int, _second: int) -> void:
 
 
 func _on_inventory_changed() -> void:
+	# If the player buys a still-valid matching ticket, reset the missed departure flag
+	var ticket: TicketData = Inventory.get_ticket()
+	if ticket == null or not _matches_ticket(ticket):
+		return
+	if not TimeManager.has_at_least(
+		ticket.departure_hours,
+		ticket.departure_minutes,
+		ticket.departure_seconds,
+	):
+		return
 	_missed_departure = false
 
 
@@ -128,6 +142,7 @@ func _missed_departure_sequence() -> void:
 	_boarding = true
 	_missed_departure = true
 	_set_interactables_enabled(false)
+	SignalBus.missed_train.emit()
 
 	await _train_depart()
 	await get_tree().create_timer(missed_rearrive_delay).timeout

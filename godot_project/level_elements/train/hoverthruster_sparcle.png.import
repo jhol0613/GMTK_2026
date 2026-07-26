@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dy4ed526c25en"
-path="res://.godot/imported/ticket.png-b21402f9892f79c5e8848d75b9988645.ctex"
+uid="uid://dixkuxjdnkyp"
+path="res://.godot/imported/hoverthruster_sparcle.png-d82e4b01221c7d102811cdc674c1a51c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/ticket/ticket.png"
-dest_files=["res://.godot/imported/ticket.png-b21402f9892f79c5e8848d75b9988645.ctex"]
+source_file="res://level_elements/train/hoverthruster_sparcle.png"
+dest_files=["res://.godot/imported/hoverthruster_sparcle.png-d82e4b01221c7d102811cdc674c1a51c.ctex"]
 
 [params]
 
