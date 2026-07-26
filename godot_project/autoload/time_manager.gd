@@ -13,6 +13,7 @@ var second: int = 0
 
 var _preserve_across_reload: bool = false
 var _skip_intro_on_reload: bool = false
+var _pending_wrong_train_dialogue: bool = false
 
 var _pending_flash: bool = false
 
@@ -83,6 +84,7 @@ func stash_before_reload(penalty_seconds: int) -> void:
 	_pending_flash = true
 	_preserve_across_reload = true
 	_skip_intro_on_reload = true
+	_pending_wrong_train_dialogue = true
 
 
 ## Call from the clock UI on ready. Skips reset after a penalty reload.
@@ -99,6 +101,14 @@ func consume_skip_intro() -> bool:
 	if not _skip_intro_on_reload:
 		return false
 	_skip_intro_on_reload = false
+	return true
+
+
+## True once after a wrong-train reload; consumes the flag.
+func consume_wrong_train_dialogue() -> bool:
+	if not _pending_wrong_train_dialogue:
+		return false
+	_pending_wrong_train_dialogue = false
 	return true
 
 

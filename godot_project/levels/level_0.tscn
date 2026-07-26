@@ -535,7 +535,7 @@ metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 [sub_resource type="Resource" id="Resource_fpprv"]
 script = ExtResource("17_owf05")
 destination = "<<station.0>>"
-train_line = "<<red>> <<line>>"
+train_line = "<<red>> <<west>>"
 departure_hours_offset = 5
 id = &"RED_west"
 metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
@@ -551,7 +551,7 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 [sub_resource type="Resource" id="Resource_ggct0"]
 script = ExtResource("17_owf05")
 destination = "<<station.1>>"
-train_line = "<<red>> <<line>>"
+train_line = "<<red>> <<east>>"
 departure_hours_offset = 5
 id = &"RED_east"
 metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
@@ -570,7 +570,7 @@ size = Vector2(112, 32)
 [node name="Level0" unique_id=783439983 instance=ExtResource("1_eus5j")]
 z_index = 1270
 script = ExtResource("2_as6hq")
-correct_line = &""
+correct_line = &"RED_east"
 
 [node name="Camera2D" parent="." index="1" unique_id=1821430600]
 limit_bottom = -144
@@ -784,7 +784,7 @@ repeat_times = 5
 [node name="Bench" parent="." index="14" unique_id=1146302488 instance=ExtResource("26_juy1h")]
 position = Vector2(-160, -248)
 
-[node name="StationNameSign" parent="." index="15" unique_id=98722644 instance=ExtResource("27_7di2q")]
+[node name="StationNameSign" parent="." index="14" unique_id=98722644 instance=ExtResource("27_7di2q")]
 position = Vector2(-1247, -465)
 
 [connection signal="pressed" from="SkipIntroLayer/SkipIntroButton" to="." method="_skip_intro"]

@@ -5,6 +5,7 @@ extends Node2D
 class_name Train
 
 @export var next_scene: Enums.Scenes = Enums.Scenes.LEVEL_1
+@export var reload_scene: Enums.Scenes = Enums.Scenes.LEVEL_0
 
 # Animation parameters
 @export var depart_offset: Vector2 = Vector2(800, 0)
@@ -61,6 +62,7 @@ func try_board(interactable: TrainInteractable, l_or_r: String) -> void:
 		return
 
 	var ticket: TicketData = Inventory.get_ticket()
+	print("board result: ", interactable.evaluate_board(ticket))
 	match interactable.evaluate_board(ticket):
 		Enums.BoardResult.REJECTED:
 			AudioManager.play_wrong_ticket_sfx()
@@ -113,10 +115,10 @@ func _wrong_train_sequence() -> void:
 
 	_set_player_active(false)
 	await _run_boarding_and_departure(true)
-	
+
 	TimeManager.stash_before_reload(incorrect_penalty_minutes)
 
-	GameManager.load_scene(next_scene)
+	GameManager.load_scene(reload_scene)
 	_boarding = false
 
 
@@ -150,14 +152,10 @@ func _train_depart() -> void:
 	tween.set_ease(Tween.EASE_IN)
 	tween.set_trans(Tween.TRANS_CUBIC)
 
-	tween.tween_property(
-		self,
-		"position",
-		position + depart_offset,
-		depart_duration
-	)
+	tween.tween_property(self, "position", position + depart_offset, depart_duration)
 
 	await tween.finished
+
 
 func play_arrival_animation() -> void:
 	AudioManager.play_train_pulling_in()
@@ -186,9 +184,7 @@ func play_arrival_animation() -> void:
 	play_bobbing()
 
 
-func play_simple_arrival_animation(
-	use_level_0_first_sound: bool = false
-) -> void:
+func play_simple_arrival_animation(use_level_0_first_sound: bool = false) -> void:
 	if use_level_0_first_sound:
 		AudioManager.play_level_0_first_train_in()
 	else:
@@ -217,6 +213,7 @@ func _set_player_active(active: bool) -> void:
 func _matches_ticket(ticket: TicketData) -> bool:
 	return ticket_id == ticket.id
 
+
 func _set_interactables_enabled(enabled: bool) -> void:
 	for interactable in [train_interactable_l, train_interactable_r]:
 		if interactable == null:
@@ -235,9 +232,8 @@ func _close_doors() -> void:
 	animation_player.play("doors_close")
 	await animation_player.animation_finished
 
-func _run_boarding_and_departure(
-	play_pulling_out: bool = false
-) -> void:
+
+func _run_boarding_and_departure(play_pulling_out: bool = false) -> void:
 	_set_player_active(false)
 
 	# 与开门动画同时开始播放
