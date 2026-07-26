@@ -1,0 +1,265 @@
+[gd_scene format=3 uid="uid://dfifvx3up8o3c"]
+
+[ext_resource type="Script" uid="uid://ds1c6jvn6l8dk" path="res://cutscenes/ending_cutscene/credits.gd" id="1_0levv"]
+[ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/resshan_label.gd" id="1_ciefh"]
+[ext_resource type="FontFile" uid="uid://k24n0d7oex7j" path="res://resources/fonts/ExpletusSans-Bold.ttf" id="3_0levv"]
+
+[sub_resource type="Animation" id="Animation_uxgw8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(147, 23)]
+}
+
+[sub_resource type="Animation" id="Animation_gwoc8"]
+resource_name = "scroll"
+length = 12.033334
+
+[sub_resource type="Animation" id="Animation_ciefh"]
+resource_name = "scroll_credits"
+length = 11.033334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 11),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(108, 31), Vector2(108, -1930)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0wynu"]
+_data = {
+&"RESET": SubResource("Animation_uxgw8"),
+&"scroll": SubResource("Animation_gwoc8"),
+&"scroll_credits": SubResource("Animation_ciefh")
+}
+
+[node name="Credits" type="Node2D" unique_id=86303653]
+script = ExtResource("1_0levv")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=478035356]
+position = Vector2(147, 23)
+
+[node name="Danny" type="Control" parent="Node2D" unique_id=71298794]
+texture_filter = 1
+custom_minimum_size = Vector2(255, 78)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1417.0
+offset_top = 1089.0
+offset_right = 1818.0
+offset_bottom = 1167.0
+mouse_filter = 2
+script = ExtResource("1_ciefh")
+text = "Daniel H."
+spacing = 8.0
+font = ExtResource("3_0levv")
+font_size = 60
+metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="Fulgur" type="Control" parent="Node2D" unique_id=702968388]
+texture_filter = 1
+custom_minimum_size = Vector2(182, 78)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1434.0
+offset_top = 1162.0
+offset_right = 1835.0
+offset_bottom = 1240.0
+mouse_filter = 2
+script = ExtResource("1_ciefh")
+text = "Fulgur"
+spacing = 8.0
+font = ExtResource("3_0levv")
+font_size = 60
+metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="GangsRobin" type="Control" parent="Node2D" unique_id=1633100434]
+texture_filter = 1
+custom_minimum_size = Vector2(333, 78)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1385.0
+offset_top = 1244.0
+offset_right = 1786.0
+offset_bottom = 1322.0
+mouse_filter = 2
+script = ExtResource("1_ciefh")
+text = "GangsRobin"
+spacing = 8.0
+font = ExtResource("3_0levv")
+font_size = 60
+metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="Grant" type="Control" parent="Node2D" unique_id=417478256]
+texture_filter = 1
+custom_minimum_size = Vector2(229, 78)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1421.0
+offset_top = 1326.0
+offset_right = 1822.0
+offset_bottom = 1404.0
+mouse_filter = 2
+script = ExtResource("1_ciefh")
+text = "Grant P."
+spacing = 8.0
+font = ExtResource("3_0levv")
+font_size = 60
+metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="John" type="Control" parent="Node2D" unique_id=1872418612]
+texture_filter = 1
+custom_minimum_size = Vector2(206, 78)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1434.0
+offset_top = 1408.0
+offset_right = 1835.0
+offset_bottom = 1486.0
+mouse_filter = 2
+script = ExtResource("1_ciefh")
+text = "John H."
+spacing = 8.0
+font = ExtResource("3_0levv")
+font_size = 60
+metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="Juca" type="Control" parent="Node2D" unique_id=1346036007]
+texture_filter = 1
+custom_minimum_size = Vector2(116, 78)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1449.0
+offset_top = 1490.0
+offset_right = 1850.0
+offset_bottom = 1568.0
+mouse_filter = 2
+script = ExtResource("1_ciefh")
+text = "Juca"
+spacing = 8.0
+font = ExtResource("3_0levv")
+font_size = 60
+metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="Langyi" type="Control" parent="Node2D" unique_id=305618035]
+texture_filter = 1
+custom_minimum_size = Vector2(258, 78)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1423.0
+offset_top = 1572.0
+offset_right = 1824.0
+offset_bottom = 1650.0
+mouse_filter = 2
+script = ExtResource("1_ciefh")
+text = "Langyi R."
+spacing = 8.0
+font = ExtResource("3_0levv")
+font_size = 60
+metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="Maxim" type="Control" parent="Node2D" unique_id=1723714148]
+texture_filter = 1
+custom_minimum_size = Vector2(396, 78)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1387.0
+offset_top = 1658.0
+offset_right = 1788.0
+offset_bottom = 1736.0
+mouse_filter = 2
+script = ExtResource("1_ciefh")
+text = "Maxim Suvedi"
+spacing = 8.0
+font = ExtResource("3_0levv")
+font_size = 60
+metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="scumpi" type="Control" parent="Node2D" unique_id=316230782]
+texture_filter = 1
+custom_minimum_size = Vector2(196, 78)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1438.0
+offset_top = 1736.0
+offset_right = 1839.0
+offset_bottom = 1814.0
+mouse_filter = 2
+script = ExtResource("1_ciefh")
+text = "scumpi"
+spacing = 8.0
+font = ExtResource("3_0levv")
+font_size = 60
+metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="tec" type="Control" parent="Node2D" unique_id=1271858808]
+texture_filter = 1
+custom_minimum_size = Vector2(86, 78)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1462.0
+offset_top = 1818.0
+offset_right = 1863.0
+offset_bottom = 1896.0
+mouse_filter = 2
+script = ExtResource("1_ciefh")
+text = "tec	"
+spacing = 8.0
+font = ExtResource("3_0levv")
+font_size = 60
+metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="ResshanLabel10" type="Control" parent="Node2D" unique_id=2083571503]
+texture_filter = 1
+custom_minimum_size = Vector2(15, 78)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1475.0
+offset_top = 1900.0
+offset_right = 1876.0
+offset_bottom = 1978.0
+mouse_filter = 2
+script = ExtResource("1_ciefh")
+text = " "
+font = ExtResource("3_0levv")
+font_size = 60
+metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="ResshanLabel9" type="Control" parent="Node2D" unique_id=1220184008]
+texture_filter = 1
+custom_minimum_size = Vector2(401, 78)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1365.0
+offset_top = 2158.0
+offset_right = 1766.0
+offset_bottom = 2236.0
+mouse_filter = 2
+script = ExtResource("1_ciefh")
+text = "<<thankyou>> for playing!"
+font = ExtResource("3_0levv")
+font_size = 60
+metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=623925240]
+offset_left = 1558.0
+offset_top = 1080.0
+offset_right = 1959.0001
+offset_bottom = 2060.0
+alignment = 1
+
+[node name="CreditsAnimation" type="AnimationPlayer" parent="." unique_id=936907499]
+libraries/ = SubResource("AnimationLibrary_0wynu")
