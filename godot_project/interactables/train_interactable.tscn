@@ -13,5 +13,10 @@ position = Vector2(0, -9)
 scale = Vector2(1, 4.5)
 
 [node name="Prompt" parent="." index="1" unique_id=272794898]
-custom_minimum_size = Vector2(52, 22)
+z_index = 16
+custom_minimum_size = Vector2(75, 168)
+offset_left = -37.5
+offset_top = -124.0
+offset_right = 37.5
+offset_bottom = 44.0
 metadata/_edit_use_anchors_ = true
