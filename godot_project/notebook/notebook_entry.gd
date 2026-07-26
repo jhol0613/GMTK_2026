@@ -1,9 +1,11 @@
 class_name NotebookEntry
 extends HBoxContainer
 
+signal entry_updated
+
 var _resshan_string:String
 
-@onready var player_input = $PlayerInput
+@onready var player_input: LineEdit = $PlayerInput
 
 func _draw() -> void:
 	if not _resshan_string:
@@ -24,7 +26,7 @@ func add_resshan(encoded:String) -> void:
 func get_note() -> String:
 	return player_input.text
 
-#
+
 #func _on_resshan_gui_input(event: InputEvent) -> void:
 	#if event is InputEventMouseButton:
 		#if not event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:

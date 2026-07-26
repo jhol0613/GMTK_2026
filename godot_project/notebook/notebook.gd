@@ -5,11 +5,16 @@ signal notebook_is_full
 
 const PAGE_COUNT: int = 6
 
+
+static var player_vocab: Dictionary[String,String] = {
+	"58": "The place I am trying to go",
+}
+
+
 var _current_page: int = 0
 var _free_page: int = 0
 var _pages: Array[NotebookPage] = []
 
-var _first_entry := true
 
 @onready var _page_turn_sound: AudioStreamPlayer = $PageTurnSound
 @onready var _entry_added_sound: AudioStreamPlayer = $EntryAdded
@@ -26,11 +31,9 @@ func _ready() -> void:
 		%PreviousPage.disabled = true
 	if _current_page == PAGE_COUNT:
 		%NextPage.disabled = true
-
-	# Tutorialize the notebook
-	_first_entry = false
-	_add_entry_to_the_page("58", "The place I'm trying to go")
-	_first_entry = true
+	
+	for i:String in player_vocab:
+		_add_entry_to_the_page(i, player_vocab[i])
 
 
 func _handle_entry_removed() -> void:
@@ -62,9 +65,6 @@ func _add_entry_to_the_page(encoded:String, initial_text = "") -> void:
 	if _free_page == -1:
 		notebook_is_full.emit()
 	var page: = _pages[_free_page]
-	if _first_entry:
-		initial_text = "I can take notes here!"
-		_first_entry = false
 	_entry_added_sound.play()
 	SignalBus.new_unique_resshan_note_added_to_notebook.emit()
 	page._new_entry(encoded, initial_text)

@@ -12,7 +12,7 @@ position = Vector2(970, 530)
 
 [node name="ResshanLabel" type="Control" parent="." unique_id=306997885]
 texture_filter = 1
-custom_minimum_size = Vector2(229, 110)
+custom_minimum_size = Vector2(231, 104)
 layout_mode = 3
 anchors_preset = 0
 offset_left = 712.0
@@ -28,7 +28,7 @@ metadata/_custom_type_script = "uid://sidowamkhcrt"
 
 [node name="ResshanLabel2" type="Control" parent="." unique_id=1442795618]
 texture_filter = 1
-custom_minimum_size = Vector2(229, 110)
+custom_minimum_size = Vector2(231, 104)
 layout_mode = 3
 anchors_preset = 0
 offset_left = 219.0
