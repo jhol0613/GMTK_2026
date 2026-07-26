@@ -81,6 +81,12 @@ func has_at_least(target_hour: int, target_minute: int, target_second: int) -> b
 	)
 
 
+## Apply a time penalty in-place and flash the clock.
+func apply_penalty(amount: int) -> void:
+	advance(amount)
+	flash_requested.emit()
+
+
 ## Stash the current time before reloading the game.
 func stash_before_reload(penalty_seconds: int) -> void:
 	advance(penalty_seconds)

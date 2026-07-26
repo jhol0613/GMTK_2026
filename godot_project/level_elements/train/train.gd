@@ -14,6 +14,8 @@ class_name Train
 @export var arrival_duration: float = 1.5
 
 @export var incorrect_penalty_minutes: int = 5
+## Time cost for trying to board with no ticket / wrong ticket for this train
+@export var no_ticket_penalty_minutes: int = 3
 ## The delay before the train arrives at the platform after missing the deadline
 @export var missed_rearrive_delay: float = 8.0
 ## If true, this train leaves on its own when a matching ticket's deadline passes
@@ -74,8 +76,11 @@ func try_board(interactable: TrainInteractable, l_or_r: String) -> void:
 	print("board result: ", interactable.evaluate_board(ticket))
 	match interactable.evaluate_board(ticket):
 		Enums.BoardResult.REJECTED:
+			_boarding = true
 			AudioManager.play_wrong_ticket_sfx()
+			TimeManager.apply_penalty(no_ticket_penalty_minutes)
 			await _flash_reject(_no_ticket_light)
+			_boarding = false
 			return
 		Enums.BoardResult.TOO_LATE:
 			await _missed_departure_sequence()
