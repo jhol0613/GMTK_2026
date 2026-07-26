@@ -14,4 +14,7 @@ signal missed_train
 
 signal ticket_purchased(hour: int, minute: int)
 
+signal ticket_consumed
+signal ticket_received
+
 @warning_ignore_restore("unused_signal")

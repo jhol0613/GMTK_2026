@@ -86,9 +86,11 @@ func try_board(interactable: TrainInteractable, l_or_r: String) -> void:
 			await _missed_departure_sequence()
 			return
 		Enums.BoardResult.WRONG_TRAIN:
+			SignalBus.ticket_consumed.emit()
 			await _wrong_train_sequence()
 			return
 		Enums.BoardResult.SUCCESS:
+			SignalBus.ticket_consumed.emit()
 			await _boarding_sequence()
 
 

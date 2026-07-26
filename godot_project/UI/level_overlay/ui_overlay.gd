@@ -43,6 +43,8 @@ func _ready() -> void:
 	Inventory.item_added.connect(_on_item_added)
 	SignalBus.new_unique_resshan_note_added_to_notebook.connect(_emphasize_notebook_icon)
 	TimeManager.time_up.connect(_on_time_up)
+	
+	SignalBus.ticket_consumed.connect(_on_ticket_consumed)
 
 
 func _on_time_up() -> void:
@@ -240,3 +242,6 @@ func _show_item_popup(icon: Texture2D) -> void:
 	_item_popup_tween.tween_callback(func() -> void:
 		_item_popup.visible = false
 	)
+
+func _on_ticket_consumed():
+	_animation_player.play("ticket_consumed")

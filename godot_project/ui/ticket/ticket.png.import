@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dy4ed526c25en"
-path="res://.godot/imported/ticket.png-b21402f9892f79c5e8848d75b9988645.ctex"
+path="res://.godot/imported/ticket.png-025b12ee05b3e5c8172f6904dce2dd11.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/ticket/ticket.png"
-dest_files=["res://.godot/imported/ticket.png-b21402f9892f79c5e8848d75b9988645.ctex"]
+source_file="res://UI/ticket/ticket.png"
+dest_files=["res://.godot/imported/ticket.png-025b12ee05b3e5c8172f6904dce2dd11.ctex"]
 
 [params]
 
