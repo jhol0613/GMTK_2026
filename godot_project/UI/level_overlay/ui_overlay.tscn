@@ -12,7 +12,6 @@
 [ext_resource type="AudioStream" uid="uid://ce6kvjn3hwsb0" path="res://ui/Schedule_Open.mp3" id="8_h7imb"]
 [ext_resource type="AudioStream" uid="uid://3tloiflnp58y" path="res://ui/Schedule_Close.mp3" id="9_h7imb"]
 [ext_resource type="PackedScene" uid="uid://deyhkqpvtwhsg" path="res://ui/inventory/inventory_panel.tscn" id="10_invpanel"]
-[ext_resource type="AudioStream" uid="uid://dyjirite3on8y" path="res://time/clock countdown sfx.mp3" id="11_countdown"]
 
 [sub_resource type="Animation" id="Animation_time_up_reset"]
 length = 0.001
@@ -68,40 +67,25 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 0.2, 0.2, 1), Color(1, 1, 1, 1), Color(1, 0.2, 0.2, 1), Color(1, 0.35, 0.35, 1), Color(1, 1, 1, 1)]
 }
-tracks/1/type = "audio"
+tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("TimeUpSound")
-tracks/1/interp = 1
+tracks/1/path = NodePath("Time:position")
+tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("11_countdown")
-}],
-"times": PackedFloat32Array(2.0333333)
-}
-tracks/1/use_blend = true
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Time:position")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0, 2.08),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1680, 24), Vector2(832, 384)]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Time:scale")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Time:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0, 2.04),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,

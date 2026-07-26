@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://bavx6n5qxivtt"]
+
+[ext_resource type="Script" uid="uid://iosp124mkp0o" path="res://level_elements/decorative/plants/tiny_foliage.gd" id="1_xto4f"]
+[ext_resource type="Texture2D" uid="uid://b2uo53wr22twf" path="res://level_elements/decorative/plants/tinyfoliage.png" id="2_cxj3l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptknn"]
+atlas = ExtResource("2_cxj3l")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxj3l"]
+atlas = ExtResource("2_cxj3l")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oyxrd"]
+atlas = ExtResource("2_cxj3l")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cw68i"]
+atlas = ExtResource("2_cxj3l")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdcv2"]
+atlas = ExtResource("2_cxj3l")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nt6i4"]
+atlas = ExtResource("2_cxj3l")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fpcxu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptknn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxj3l")
+}],
+"loop": 1,
+"name": &"shroom1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oyxrd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cw68i")
+}],
+"loop": 1,
+"name": &"white1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdcv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nt6i4")
+}],
+"loop": 1,
+"name": &"yellow1",
+"speed": 1.0
+}]
+
+[node name="TinyFoliage" type="Node2D" unique_id=1245074896 node_paths=PackedStringArray("sprite")]
+z_index = 1
+script = ExtResource("1_xto4f")
+sprite = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1746332699]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_fpcxu")
+animation = &"yellow1"
+frame_progress = 0.84592474

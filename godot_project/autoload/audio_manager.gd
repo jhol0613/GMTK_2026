@@ -59,6 +59,7 @@ const NOTEBOOK_FADE_OUT_DURATION: float = 2.0
 var _music_player: AudioStreamPlayer
 var _notebook_player: AudioStreamPlayer
 var _train_player: AudioStreamPlayer
+var _ui_sfx_player: AudioStreamPlayer
 
 var _music_tween: Tween
 var _crossfade_tween: Tween
@@ -84,6 +85,10 @@ func _ready() -> void:
 	)
 	_train_player = _create_player(
 		"TrainSFXPlayer",
+		SFX_BUS
+	)
+	_ui_sfx_player = _create_player(
+		"UISFXPlayer",
 		SFX_BUS
 	)
 
@@ -357,6 +362,19 @@ func play_wrong_ticket_sfx() -> void:
 	_train_player.stop()
 	_train_player.stream = WRONG_TICKET_SFX
 	_train_player.play()
+
+
+func play_ui_sfx(
+	stream: AudioStream,
+	volume_db: float = 0.0
+) -> void:
+	if stream == null:
+		return
+
+	_ui_sfx_player.stop()
+	_ui_sfx_player.stream = stream
+	_ui_sfx_player.volume_db = volume_db
+	_ui_sfx_player.play()
 
 func _ensure_audio_bus(bus_name: StringName) -> void:
 	if AudioServer.get_bus_index(bus_name) >= 0:

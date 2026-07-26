@@ -79,10 +79,10 @@ func _on_time_changed(
 				second_volume_db
 			)
 
-		_previous_hour = hour
-		_previous_minute = minute
-		_previous_second = second
-		_has_previous_time = true
+	_previous_hour = hour
+	_previous_minute = minute
+	_previous_second = second
+	_has_previous_time = true
 
 	if tween and tween.is_running():
 		tween.kill()

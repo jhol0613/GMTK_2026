@@ -58,7 +58,7 @@ shape = SubResource("RectangleShape2D_fpcxu")
 [node name="plat1" type="Area2D" parent="SignPanel/Root/Popup/Sprite2D" unique_id=1000955129]
 position = Vector2(-468.83115, 5.194805)
 script = ExtResource("5_i6pvm")
-_string = "<<station>>"
+_string = "<<platform>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Sprite2D/plat1" unique_id=69558661]
@@ -68,7 +68,7 @@ shape = SubResource("RectangleShape2D_fpcxu")
 [node name="plat2" type="Area2D" parent="SignPanel/Root/Popup/Sprite2D" unique_id=516069348]
 position = Vector2(420.77927, -497.40262)
 script = ExtResource("5_i6pvm")
-_string = "<<station>>"
+_string = "<<platform>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Sprite2D/plat2" unique_id=166816419]
@@ -78,7 +78,7 @@ shape = SubResource("RectangleShape2D_fpcxu")
 [node name="plat3" type="Area2D" parent="SignPanel/Root/Popup/Sprite2D" unique_id=1425362039]
 position = Vector2(418.18185, -161.03899)
 script = ExtResource("5_i6pvm")
-_string = "<<station>>"
+_string = "<<platform>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Sprite2D/plat3" unique_id=2036158393]
@@ -88,7 +88,7 @@ shape = SubResource("RectangleShape2D_fpcxu")
 [node name="plat4" type="Area2D" parent="SignPanel/Root/Popup/Sprite2D" unique_id=1299565424]
 position = Vector2(-180.5195, -331.16882)
 script = ExtResource("5_i6pvm")
-_string = "<<station>>"
+_string = "<<platform>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Sprite2D/plat4" unique_id=1161194464]

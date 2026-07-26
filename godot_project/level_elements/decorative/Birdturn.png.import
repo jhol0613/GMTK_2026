@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rwsmjgconr7m"
-path="res://.godot/imported/magnifying_glass_hover_icon.png-4f983219b11dbc457cebfb447ec03f96.ctex"
+uid="uid://c4raujj6twdo"
+path="res://.godot/imported/Birdturn.png-44b041a3eae6b26179475ec7f072da95.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/magnifying_glass_hover_icon.png"
-dest_files=["res://.godot/imported/magnifying_glass_hover_icon.png-4f983219b11dbc457cebfb447ec03f96.ctex"]
+source_file="res://level_elements/decorative/Birdturn.png"
+dest_files=["res://.godot/imported/Birdturn.png-44b041a3eae6b26179475ec7f072da95.ctex"]
 
 [params]
 

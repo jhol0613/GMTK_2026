@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rwsmjgconr7m"
-path="res://.godot/imported/magnifying_glass_hover_icon.png-4f983219b11dbc457cebfb447ec03f96.ctex"
+uid="uid://b2uo53wr22twf"
+path="res://.godot/imported/tinyfoliage.png-b31d54457dc5466370e326935fee730f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/magnifying_glass_hover_icon.png"
-dest_files=["res://.godot/imported/magnifying_glass_hover_icon.png-4f983219b11dbc457cebfb447ec03f96.ctex"]
+source_file="res://level_elements/decorative/plants/tinyfoliage.png"
+dest_files=["res://.godot/imported/tinyfoliage.png-b31d54457dc5466370e326935fee730f.ctex"]
 
 [params]
 

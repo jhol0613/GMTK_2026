@@ -11,6 +11,7 @@ func add_item(item: ItemData) -> void:
 		_replace_ticket(item as TicketData)
 		return
 	if owns_item(item):
+		item_added.emit(item)
 		return
 	items.append(item)
 	item_added.emit(item)

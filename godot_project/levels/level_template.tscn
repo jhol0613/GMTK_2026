@@ -3,16 +3,102 @@
 [ext_resource type="Script" uid="uid://duhbuefvsqifp" path="res://levels/level_template.gd" id="1_yglgk"]
 [ext_resource type="Texture2D" uid="uid://ca8r7wcmgae0o" path="res://levels/tileset/grasstiles.png" id="2_8xmsw"]
 [ext_resource type="Resource" uid="uid://cs1k0a7leguxs" path="res://resources/dialogue/wrong_train.tres" id="2_unwjj"]
+[ext_resource type="Resource" uid="uid://dgtwryt4tl61o" path="res://resources/dialogue/missed_train.tres" id="3_missed"]
 [ext_resource type="Texture2D" uid="uid://ddbgow303m2gq" path="res://levels/tileset/TX Tileset Grass.png" id="3_pqv4r"]
 [ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialogue_panel.tscn" id="3_u3vgj"]
-[ext_resource type="Resource" uid="uid://bmissedtrainline1" path="res://resources/dialogue/missed_train.tres" id="3_missed"]
 [ext_resource type="PackedScene" uid="uid://bn2ibeuqk0rgt" path="res://player/player.tscn" id="4_3dbtp"]
 [ext_resource type="Texture2D" uid="uid://dy3h6m8das3ut" path="res://levels/tileset/brickborder.png" id="4_yglgk"]
 [ext_resource type="Texture2D" uid="uid://duuound6q3dyn" path="res://levels/parallax/sky1.png" id="7_64qpc"]
-[ext_resource type="PackedScene" uid="uid://b3uwqbmauqt0b" path="res://ui/level_overlay/ui_overlay.tscn" id="7_glpk1"]
+[ext_resource type="PackedScene" uid="uid://b3uwqbmauqt0b" path="res://UI/level_overlay/ui_overlay.tscn" id="7_glpk1"]
 [ext_resource type="Texture2D" uid="uid://bnyhe8dqegr5y" path="res://levels/parallax/sky2.png" id="8_2ip8h"]
 [ext_resource type="Texture2D" uid="uid://cxt6rc1bm3gw" path="res://levels/parallax/sky3.png" id="9_unwjj"]
 [ext_resource type="Texture2D" uid="uid://e8ko1l18knja" path="res://levels/parallax/sky4.png" id="10_u3vgj"]
+
+[sub_resource type="Animation" id="Animation_u3vgj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TicketButton:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(210, 908)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TicketButton:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TicketButton:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_u6tk6"]
+resource_name = "ticket_consumed"
+length = 1.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TicketButton:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(210, 908), Vector2(887, 496), Vector2(887, 496)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TicketButton:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 1, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(3, 3), Vector2(3, 3), Vector2(0.5, 0.5), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TicketButton:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.7, 0.8, 0.9, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.08726646259971647, -0.06981317007977318, 0.05235987755982989, -0.03490658503988659, 0.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pqv4r"]
+_data = {
+&"RESET": SubResource("Animation_u3vgj"),
+&"ticket_consumed": SubResource("Animation_u6tk6")
+}
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yglgk"]
 texture = ExtResource("2_8xmsw")
@@ -614,6 +700,9 @@ dialogue_panel_scene = ExtResource("3_u3vgj")
 offset_left = 1631.0
 offset_right = 1831.0
 
+[node name="TicketButton" parent="UiOverlay" index="4" unique_id=1767702105]
+pivot_offset = Vector2(77, 81)
+
 [node name="NotebookHoverSound" parent="UiOverlay" index="5" unique_id=732685104]
 bus = &"Master"
 
@@ -628,6 +717,9 @@ bus = &"Master"
 
 [node name="NotebookCloseSound" parent="UiOverlay" index="9" unique_id=798573098]
 bus = &"Master"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UiOverlay" unique_id=351088032]
+libraries/ = SubResource("AnimationLibrary_pqv4r")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1821430600]
 zoom = Vector2(4, 4)
@@ -654,6 +746,7 @@ repeat_times = 4
 texture = ExtResource("7_64qpc")
 
 [node name="FarClouds" type="Parallax2D" parent="Background" unique_id=1089277525]
+scroll_offset = Vector2(0, 179)
 repeat_size = Vector2(720, 405)
 autoscroll = Vector2(1, 1.5)
 repeat_times = 4
