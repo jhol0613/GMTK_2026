@@ -16,6 +16,10 @@ const HOUR_PER_DAY: int = 8
 @export var start_minute: int = 8
 @export var start_second: int = 8
 
+@export var countdown_finished_sound: AudioStream
+@export_range(-40.0, 6.0, 0.5)
+var countdown_finished_volume_db: float = 0.0
+
 
 
 var tween: Tween
@@ -46,7 +50,24 @@ func _on_time_changed(
 	_update_label(hour, minute, second)
 
 	if _has_previous_time:
-		if minute != _previous_minute or hour != _previous_hour:
+		var countdown_just_finished := (
+			hour == 0
+			and minute == 0
+			and second == 0
+			and (
+				_previous_hour != 0
+				or _previous_minute != 0
+				or _previous_second != 0
+			)
+		)
+
+		if countdown_just_finished:
+			_play_clock_sound(
+				countdown_finished_sound,
+				countdown_finished_volume_db
+			)
+
+		elif minute != _previous_minute or hour != _previous_hour:
 			_play_clock_sound(
 				minute_change_sound,
 				minute_volume_db

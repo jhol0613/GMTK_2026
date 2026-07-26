@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/resshan_label.gd" id="2_i56kd"]
 [ext_resource type="Texture2D" uid="uid://cxcsgyq6cucb6" path="res://time/ui_clock.png" id="2_ss088"]
 [ext_resource type="AudioStream" uid="uid://dl8kihu3uofgs" path="res://time/Clock Minute.mp3" id="3_erhic"]
+[ext_resource type="AudioStream" uid="uid://dyjirite3on8y" path="res://time/clock countdown sfx.mp3" id="4_de5ah"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kgoo1"]
 texture = ExtResource("2_ss088")
@@ -18,6 +19,7 @@ pivot_offset = Vector2(117, 63)
 script = ExtResource("1_ep8tu")
 second_change_sound = ExtResource("2_de5ah")
 minute_change_sound = ExtResource("3_erhic")
+countdown_finished_sound = ExtResource("4_de5ah")
 
 [node name="Highlight" type="Panel" parent="." unique_id=882150287]
 modulate = Color(0, 0, 0, 1)
@@ -40,7 +42,7 @@ texture = ExtResource("2_ss088")
 
 [node name="Label" type="Control" parent="." unique_id=331463616]
 texture_filter = 1
-custom_minimum_size = Vector2(22, 34)
+custom_minimum_size = Vector2(21, 32)
 anchors_preset = 0
 offset_left = 76.0
 offset_top = 64.0
