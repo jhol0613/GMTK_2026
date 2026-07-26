@@ -4,7 +4,7 @@ extends Node2D
 signal limit_reached
 signal entry_removed
 
-const LIMIT: = 10
+const LIMIT: = 5
 
 var entries_count: int = 0
 var entries: Array[NotebookEntry] = []
