@@ -109,12 +109,13 @@ metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 script = ExtResource("18_ryfpa")
 destination = "<<station.1>>"
 train_line = "<<red>> <<line>>"
-id = &"red_west"
+id = &"RED_west"
 metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
 
 [sub_resource type="Resource" id="Resource_0fu15"]
 script = ExtResource("17_i6od7")
 player_text = "<<red>> <<west>>"
+reply = "<<thankyou>>"
 reward = SubResource("Resource_ntdhj")
 outcome_id = &"sold_ticket"
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"
@@ -123,12 +124,13 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 script = ExtResource("18_ryfpa")
 destination = "<<station.1>>"
 train_line = "<<red>> <<line>>"
-id = &"red_east"
+id = &"RED_east"
 metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
 
 [sub_resource type="Resource" id="Resource_voubc"]
 script = ExtResource("17_i6od7")
 player_text = "<<red>> <<east>>"
+reply = "<<thankyou>>"
 reward = SubResource("Resource_4knja")
 outcome_id = &"sold_ticket"
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"
@@ -137,12 +139,13 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 script = ExtResource("18_ryfpa")
 destination = "<<station.1>>"
 train_line = "<<blue>> <<line>>"
-id = &"blue_west"
+id = &"BLUE_west"
 metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
 
 [sub_resource type="Resource" id="Resource_pnpm1"]
 script = ExtResource("17_i6od7")
 player_text = "<<blue>> <<west>>"
+reply = "<<thankyou>>"
 reward = SubResource("Resource_w75he")
 outcome_id = &"sold_ticket"
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"
@@ -151,12 +154,13 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 script = ExtResource("18_ryfpa")
 destination = "<<station.2>>"
 train_line = "<<blue>> <<line>>"
-id = &"blue_east"
+id = &"BLUE_east"
 metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
 
 [sub_resource type="Resource" id="Resource_ohjdc"]
 script = ExtResource("17_i6od7")
 player_text = "<<blue>> <<east>>"
+reply = "<<thankyou>>"
 reward = SubResource("Resource_06ecp")
 outcome_id = &"sold_ticket"
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"
@@ -165,12 +169,13 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 script = ExtResource("18_ryfpa")
 destination = "<<station.1>>"
 train_line = "<<pink>> <<line>>"
-id = &"pink_west"
+id = &"PINK_west"
 metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
 
 [sub_resource type="Resource" id="Resource_rf48r"]
 script = ExtResource("17_i6od7")
 player_text = "<<pink>> <<west>>"
+reply = "<<thankyou>>"
 reward = SubResource("Resource_e5brb")
 outcome_id = &"sold_ticket"
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"
@@ -179,12 +184,13 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 script = ExtResource("18_ryfpa")
 destination = "<<station.1>>"
 train_line = "<<pink>> <<line>>"
-id = &"pink_east"
+id = &"PINK_east"
 metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
 
 [sub_resource type="Resource" id="Resource_dp1ib"]
 script = ExtResource("17_i6od7")
 player_text = "<<pink>> <<east>>"
+reply = "<<thankyou>>"
 reward = SubResource("Resource_toluw")
 outcome_id = &"sold_ticket"
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"
@@ -193,12 +199,13 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 script = ExtResource("18_ryfpa")
 destination = "<<station.1>>"
 train_line = "<<green>> <<line>>"
-id = &"green_west"
+id = &"GREEN_west"
 metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
 
 [sub_resource type="Resource" id="Resource_5t0se"]
 script = ExtResource("17_i6od7")
 player_text = "<<green>> <<west>>"
+reply = "<<thankyou>>"
 reward = SubResource("Resource_udfhf")
 outcome_id = &"sold_ticket"
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"
@@ -207,12 +214,13 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 script = ExtResource("18_ryfpa")
 destination = "<<station.1>>"
 train_line = "<<green>> <<line>>"
-id = &"green_east"
+id = &"GREEN_east"
 metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
 
 [sub_resource type="Resource" id="Resource_i6od7"]
 script = ExtResource("17_i6od7")
 player_text = "<<green>> <<east>>"
+reply = "<<thankyou>>"
 reward = SubResource("Resource_0x1rk")
 outcome_id = &"sold_ticket"
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"
