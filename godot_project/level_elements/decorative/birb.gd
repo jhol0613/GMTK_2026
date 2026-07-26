@@ -2,6 +2,8 @@ extends Node2D
 
 @export var sprite: AnimatedSprite2D
 @export var speed: float = 100.0
+@export var ambient_interval_min: float = 3.0
+@export var ambient_interval_max: float = 8.0
 
 @onready var _ambient_sound: AudioStreamPlayer2D = $AmbientSound
 @onready var _fly_away_sound: AudioStreamPlayer2D = $FlyAwaySound
@@ -9,6 +11,7 @@ extends Node2D
 var _flying: bool = false
 var _flip: bool = false
 var random_turn: SceneTreeTimer
+var _ambient_timer: SceneTreeTimer
 
 
 func _ready() -> void:
@@ -20,11 +23,8 @@ func _ready() -> void:
 	random_turn.timeout.connect(_turn)
 
 	if _ambient_sound.stream != null:
-		_ambient_sound.pitch_scale = randf_range(0.95, 1.05)
 		_ambient_sound.finished.connect(_on_ambient_sound_finished)
-		_ambient_sound.play(
-			randf_range(0.0, _ambient_sound.stream.get_length())
-		)
+		_schedule_ambient()
 
 
 func _process(delta: float) -> void:
@@ -48,7 +48,22 @@ func _turn() -> void:
 
 func _on_ambient_sound_finished() -> void:
 	if not _flying and _ambient_sound.stream != null:
-		_ambient_sound.play()
+		_schedule_ambient()
+
+
+func _schedule_ambient() -> void:
+	var minimum := minf(ambient_interval_min, ambient_interval_max)
+	var maximum := maxf(ambient_interval_min, ambient_interval_max)
+	_ambient_timer = get_tree().create_timer(randf_range(minimum, maximum))
+	_ambient_timer.timeout.connect(_play_ambient)
+
+
+func _play_ambient() -> void:
+	if _flying or _ambient_sound.stream == null:
+		return
+
+	_ambient_sound.pitch_scale = randf_range(0.95, 1.05)
+	_ambient_sound.play()
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

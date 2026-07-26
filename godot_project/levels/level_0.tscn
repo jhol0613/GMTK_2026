@@ -575,6 +575,16 @@ z_index = 1270
 script = ExtResource("2_as6hq")
 correct_line = &"RED_east"
 
+[node name="Time" parent="UiOverlay" parent_id_path=PackedInt32Array(368800410) index="0" unique_id=1094747134]
+offset_left = 1680.0
+offset_right = 1880.0
+
+[node name="TicketButton" parent="UiOverlay" parent_id_path=PackedInt32Array(368800410) index="6" unique_id=1767702105]
+offset_left = 210.0
+offset_top = 908.0
+offset_right = 365.0
+offset_bottom = 1069.0
+
 [node name="Camera2D" parent="." index="1" unique_id=1821430600]
 limit_bottom = -144
 
@@ -622,7 +632,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/UpperTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.97612447
+frame_progress = 0.27861646
 
 [node name="LowerTrain" parent="Platform" index="7" unique_id=1370361982]
 next_scene = 2
@@ -634,7 +644,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/LowerTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.21758164
+frame_progress = 0.5200737
 
 [node name="TicketBooth" parent="." index="6" unique_id=861247956 instance=ExtResource("2_823pn")]
 position = Vector2(-1168, -368)
