@@ -357,7 +357,7 @@ position = Vector2(-146, -416)
 [node name="ResshanLabel" type="Control" parent="DeaprtureBoard" index="2" unique_id=1050601357]
 z_index = 1
 texture_filter = 1
-custom_minimum_size = Vector2(54, 9)
+custom_minimum_size = Vector2(63.500008, 9)
 layout_mode = 3
 anchors_preset = 0
 offset_left = -32.0
@@ -366,7 +366,7 @@ offset_right = 37.0
 offset_bottom = -58.0
 mouse_filter = 2
 script = ExtResource("13_vjtdm")
-text = "<<Train>> <<red>> <<1>> <<6>> <<to>> <<station.0>>"
+text = "<<Train>> <<red>>      <<1>> <<6>>      <<to>> <<station.0>>"
 spacing = 0.95
 font_size = 9
 metadata/_custom_type_script = "uid://sidowamkhcrt"
