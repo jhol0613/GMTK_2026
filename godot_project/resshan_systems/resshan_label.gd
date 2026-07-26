@@ -5,27 +5,31 @@ extends Control
 @export_multiline() var text: String:
 	set(value):
 		text = value
+		_drawn = false
 		queue_redraw()
 
 @export var spacing: float = 15.0:
 	set(value):
 		spacing = value
+		_drawn = false
 		queue_redraw()
 
 @export var font: Font:
 	set(value):
 		font = value
+		_drawn = false
 		queue_redraw()
 
 @export var font_size: int = 16:
 	set(value):
 		font_size = value
+		_drawn = false
 		queue_redraw()
 
 var _shapes: Array[RectangleShape2D]
 var _areas: Array[ResshanInteractable]
 
-var prev_text: String
+var _drawn: bool = false
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -34,12 +38,14 @@ func _ready() -> void:
 
 func _draw() -> void:
 	
-
 	var _f: Font = font
 	if not font:
 		_f = ThemeDB.fallback_font
 	_shapes = LanguageRenderer.draw_text(text, self, spacing, "/n", _f, font_size)
-	#ThemeDB.fallback_font.get_multiline_string_size()
+	
+	if _drawn:
+		return
+	
 	for i: Node in _areas:
 		i.queue_free()
 	_areas.clear()
@@ -68,3 +74,5 @@ func _draw() -> void:
 		"/n",
 		spacing,
 	)
+	
+	_drawn = true
