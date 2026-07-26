@@ -423,6 +423,7 @@ size = Vector2(40, 23)
 
 [node name="Train" type="Node2D" unique_id=2086324427 node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_cjdsu")
+disembark_camera_offset_y = null
 sprite = NodePath("TrainSprite")
 
 [node name="TrainSprite" type="AnimatedSprite2D" parent="." unique_id=865404147]
@@ -498,7 +499,10 @@ sprite_frames = SubResource("SpriteFrames_khhxn")
 position = Vector2(375, 54)
 sprite_frames = SubResource("SpriteFrames_khhxn")
 
-[node name="PlayerDisembarkMarker" type="Marker2D" parent="." unique_id=886720525]
+[node name="PlayerEmbarkMarker" type="Marker2D" parent="." unique_id=886720525]
+position = Vector2(-64, -21)
+
+[node name="PlayerDisembarkMarker" type="Marker2D" parent="." unique_id=594824708]
 position = Vector2(-64, 18)
 
 [node name="BoardedPlayerL" type="Sprite2D" parent="." unique_id=1300163411]
