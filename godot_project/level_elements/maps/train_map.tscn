@@ -91,13 +91,13 @@ metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("RectangleShape2D_qbyu3")
 
-[node name="bluelineend" type="Area2D" parent="SignPanel/Root/Popup/Overlay" unique_id=282054952]
+[node name="endofblueline" type="Area2D" parent="SignPanel/Root/Popup/Overlay" unique_id=282054952]
 position = Vector2(70.129845, -110.38963)
 script = ExtResource("6_nf7gk")
-_string = "<<bluelineend>>"
+_string = "<<endofblueline>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Overlay/bluelineend" unique_id=17529809]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Overlay/endofblueline" unique_id=17529809]
 scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("RectangleShape2D_qbyu3")
 

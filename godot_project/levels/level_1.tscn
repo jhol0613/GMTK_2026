@@ -504,7 +504,6 @@ scale = Vector2(-1, 1)
 position = Vector2(776, -1768)
 scale = Vector2(-1, 1)
 
-[editable path="UiOverlay"]
 [editable path="Platform"]
 [editable path="Platform2"]
 [editable path="Platform3"]

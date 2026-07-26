@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cxekovsy3q368" path="res://level_elements/train_platform/platform.tscn" id="3_iss0w"]
 [ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://scripts/dialogue_choice.gd" id="3_jum3j"]
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://scripts/dialogue_line.gd" id="3_obtcn"]
-[ext_resource type="AudioStream" uid="uid://ce6kvjn3hwsb0" path="res://ui/Schedule_Open.mp3" id="3_uuq13"]
 [ext_resource type="TileSet" uid="uid://dvxgqw1r5w5ps" path="res://levels/tileset/station_tileset.tres" id="4_owf05"]
 [ext_resource type="AudioStream" uid="uid://clvosvg2vfbfv" path="res://ui/SpeechAudio/Ticket buy West or East.mp3" id="11_osodt"]
 [ext_resource type="Texture2D" uid="uid://kayfkwypm2a" path="res://character_portraits/ticket_lady/ticket_lady_portrait_2.png" id="15_fv0x7"]
@@ -25,9 +24,6 @@
 [ext_resource type="Texture2D" uid="uid://bogm6imvrrjwr" path="res://level_elements/decorative/Solardecor1.png" id="26_vfwqd"]
 [ext_resource type="PackedScene" uid="uid://cniar1emgicic" path="res://level_elements/decorative/ad_board.tscn" id="27_juy1h"]
 [ext_resource type="Texture2D" uid="uid://danrb3vfq83ag" path="res://level_elements/decorative/hoverthruster.png" id="28_7di2q"]
-
-[sub_resource type="AudioStreamMP3" id="AudioStreamMP3_qgvj7"]
-data = PackedByteArray("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qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqv/7UMTkA9FJVxfsPMyAAAA0gAAABKqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqo=")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8v7xn"]
 texture = ExtResource("17_ggct0")
@@ -542,7 +538,8 @@ metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
 
 [sub_resource type="Resource" id="Resource_snxo8"]
 script = ExtResource("3_jum3j")
-player_text = "<<west>>"
+player_text = "These are tickets, right? <<west>> I guess?"
+reply = "<<thankyou>>"
 reward = SubResource("Resource_fpprv")
 outcome_id = &"sold_ticket"
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"
@@ -557,7 +554,8 @@ metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
 
 [sub_resource type="Resource" id="Resource_2prw1"]
 script = ExtResource("3_jum3j")
-player_text = "<<east>>"
+player_text = "<<east>> maybe? I can't really understand you"
+reply = "<<thankyou>>"
 reward = SubResource("Resource_ggct0")
 outcome_id = &"sold_ticket"
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"
@@ -569,29 +567,6 @@ size = Vector2(112, 32)
 z_index = 1270
 script = ExtResource("2_as6hq")
 correct_line = &""
-
-[node name="Time" parent="UiOverlay" parent_id_path=PackedInt32Array(368800410) index="0" unique_id=1094747134]
-mouse_filter = 0
-
-[node name="Notebook" parent="UiOverlay" parent_id_path=PackedInt32Array(368800410) index="1" unique_id=2020796058]
-texture_filter = 2
-
-[node name="NotebookHoverSound" parent="UiOverlay" parent_id_path=PackedInt32Array(368800410) index="5" unique_id=732685104]
-volume_db = 18.067
-
-[node name="TicketHoverSound" type="AudioStreamPlayer" parent="UiOverlay" parent_id_path=PackedInt32Array(368800410) index="6" unique_id=1936571993]
-stream = SubResource("AudioStreamMP3_qgvj7")
-volume_db = 18.978
-
-[node name="NotebookClickSound" parent="UiOverlay" parent_id_path=PackedInt32Array(368800410) index="7" unique_id=361111950]
-volume_db = 5.323
-
-[node name="TicketClickSound" type="AudioStreamPlayer" parent="UiOverlay" parent_id_path=PackedInt32Array(368800410) index="8" unique_id=1079414562]
-stream = ExtResource("3_uuq13")
-volume_db = 5.551
-
-[node name="NotebookCloseSound" parent="UiOverlay" parent_id_path=PackedInt32Array(368800410) index="9" unique_id=798573098]
-volume_db = 5.5
 
 [node name="Ground" parent="." index="2" unique_id=405308893 groups=["footstep_surfaces"]]
 position = Vector2(-272, -272)
@@ -634,7 +609,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/UpperTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.2821633
+frame_progress = 0.51872146
 
 [node name="LowerTrain" parent="Platform" index="7" unique_id=1370361982]
 next_scene = 2
@@ -643,7 +618,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/LowerTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.5236169
+frame_progress = 0.7601733
 
 [node name="TicketBooth" parent="." index="6" unique_id=861247956 instance=ExtResource("2_823pn")]
 position = Vector2(-1168, -368)
@@ -770,7 +745,6 @@ texture = ExtResource("28_7di2q")
 
 [connection signal="pressed" from="SkipIntroLayer/SkipIntroButton" to="." method="_skip_intro"]
 
-[editable path="UiOverlay"]
 [editable path="Platform"]
 [editable path="Platform/UpperTrain"]
 [editable path="Platform/UpperTrain/TrainInteractableL"]
