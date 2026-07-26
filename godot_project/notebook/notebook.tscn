@@ -38,8 +38,9 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.19076231, 0.19076234, 0.19076231, 1)
 theme_override_fonts/font = ExtResource("4_ft0je")
 theme_override_font_sizes/font_size = 32
-text = "If I write down words I see or hear in this notebook, 
-maybe it will help me find my way!	"
+text = "I can click on any word I see to put it in this notebook!
+Then I can type my best guesses for what they mean.
+I bet learning a lot of words will help me find my way."
 
 [node name="NotebookPage2" parent="Pages" unique_id=1129297689 instance=ExtResource("1_qjmkm")]
 visible = false
