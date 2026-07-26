@@ -6,7 +6,6 @@ var _intro_active := true
 
 @onready var platform := $Platform
 @onready var ui_layer := $UiOverlay
-@onready var audio_controller := $LevelAudioController
 @onready var _skip_intro_layer: CanvasLayer = $SkipIntroLayer
 
 
@@ -45,7 +44,7 @@ func _skip_intro() -> void:
 	_free_intro_scene(_intro_falling_scene)
 	_intro_falling_scene = null
 
-	audio_controller.skip_intro_to_bgm()
+	AudioManager.restore_level_music(2.0)
 	if not ui_layer._notebook.visible:
 		ui_layer._on_notebook_button_pressed()
 	platform.arrive_upper_train()
@@ -64,7 +63,7 @@ func _free_intro_scene(scene) -> void:
 func _on_conversation_complete():
 	add_child(_intro_falling_scene)
 	await get_tree().create_timer(2).timeout
-	audio_controller.play_tripped_music()
+	AudioManager.play_tripped_music()
 
 
 func _on_falling_scene_complete():

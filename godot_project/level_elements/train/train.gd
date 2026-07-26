@@ -145,13 +145,26 @@ func _flash_reject(light: Sprite2D, flashes: int = 3, interval: float = 0.5) -> 
 
 
 func _train_depart() -> void:
-	var tween := create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property(self, "position", position + depart_offset, depart_duration)
+	AudioManager.play_train_pulling_out()
+
+	var tween := create_tween()
+	tween.set_ease(Tween.EASE_IN)
+	tween.set_trans(Tween.TRANS_CUBIC)
+
+	tween.tween_property(
+		self,
+		"position",
+		position + depart_offset,
+		depart_duration
+	)
+
 	await tween.finished
+	await AudioManager.wait_for_train_sfx()
 
 
 ## Plays the arrival animation on scene start
 func play_arrival_animation() -> void:
+	AudioManager.play_train_pulling_in()
 	var player := get_tree().get_first_node_in_group("player")
 	player.visible = false
 	player.set_physics_process(false)
@@ -179,6 +192,7 @@ func play_arrival_animation() -> void:
 
 ## Play arrival animation without moving player
 func play_simple_arrival_animation() -> void:
+	AudioManager.play_train_pulling_in()
 	var stop_position: Vector2 = original_position
 	position = stop_position + arrival_offset
 
