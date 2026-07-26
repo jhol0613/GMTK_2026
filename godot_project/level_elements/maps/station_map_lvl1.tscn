@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c7ekkaj708al"]
 
-[ext_resource type="Texture2D" uid="uid://b61cf0wp3ybkt" path="res://level_elements/maps/lvl1map.png" id="1_si57c"]
+[ext_resource type="Texture2D" uid="uid://bewm0bsk4t4i2" path="res://level_elements/maps/lvl1map_2.png" id="1_frvyr"]
 [ext_resource type="PackedScene" uid="uid://i202174cj82c" path="res://interactables/sign_interactable.tscn" id="2_frvyr"]
 [ext_resource type="PackedScene" uid="uid://0h6rwq0bq753" path="res://interactables/sign_panel.tscn" id="3_lrc8v"]
 
@@ -19,11 +19,10 @@ shape = SubResource("RectangleShape2D_ujtin")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1337781976]
 z_index = 1
-texture = ExtResource("1_si57c")
+texture = ExtResource("1_frvyr")
 
 [node name="SignInteractable" parent="." unique_id=1631350735 instance=ExtResource("2_frvyr")]
 panel_path = NodePath("../SignPanel")
-minutes_cost = 1
 
 [node name="CollisionShape2D" parent="SignInteractable" index="0" unique_id=278382881]
 position = Vector2(0, 37)

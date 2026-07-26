@@ -30,16 +30,14 @@ shape = SubResource("RectangleShape2D_ujtin")
 
 [node name="SignInteractable" parent="." unique_id=1631350735 instance=ExtResource("2_ed7fu")]
 panel_path = NodePath("../SignPanel")
-minutes_cost = 1
 
 [node name="CollisionShape2D" parent="SignInteractable" index="0" unique_id=278382881]
 position = Vector2(0, 1)
 
 [node name="Prompt" parent="SignInteractable" index="1" unique_id=272794898]
-offset_left = -25.0
-offset_top = -84.0
-offset_right = 30.0
-offset_bottom = -61.0
+custom_minimum_size = Vector2(74, 168)
+offset_top = -159.0
+offset_bottom = 9.0
 
 [node name="SignPanel" parent="." unique_id=1998267979 instance=ExtResource("3_rlmea")]
 

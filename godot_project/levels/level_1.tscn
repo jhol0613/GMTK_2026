@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://boj5ceg5pnoi3" path="res://level_elements/decorative/bench_vertical.tscn" id="24_0fu15"]
 [ext_resource type="PackedScene" uid="uid://b3rra7yj17p2b" path="res://level_elements/decorative/bench_snoozin.tscn" id="25_4knja"]
 [ext_resource type="PackedScene" uid="uid://dcsei1m2axnjk" path="res://level_elements/decorative/bench.tscn" id="26_voubc"]
+[ext_resource type="Texture2D" uid="uid://bhn6gjy4u51qd" path="res://level_elements/decorative/exit_gradient.png" id="27_4knja"]
 
 [sub_resource type="Resource" id="Resource_oqlok"]
 script = ExtResource("15_w75he")
@@ -295,6 +296,11 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelExitBarrier" index="0" unique_id=1054452651]
 position = Vector2(64, 16)
 shape = SubResource("RectangleShape2D_betor")
+
+[node name="ExitGradient" type="Sprite2D" parent="LevelExitBarrier" index="1" unique_id=1898420631]
+z_index = 5
+position = Vector2(64, -32)
+texture = ExtResource("27_4knja")
 
 [node name="Bathroom" parent="." index="17" unique_id=1865459548 instance=ExtResource("15_bgw3c")]
 position = Vector2(-416, -432)
