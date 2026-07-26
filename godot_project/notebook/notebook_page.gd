@@ -27,5 +27,5 @@ func _remove_entry(entry:NotebookEntry) -> void:
 	entries.erase(entry)
 	entry_removed.emit()
 
-func _handle_entry_update(encoded:String, new_text:String) -> void:
+func _handle_entry_update(new_text:String, encoded:String) -> void:
 	Notebook.player_vocab[encoded] = new_text
