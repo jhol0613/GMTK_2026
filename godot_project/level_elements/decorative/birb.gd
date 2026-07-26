@@ -1,45 +1,69 @@
 extends Node2D
 
+@export var sprite: AnimatedSprite2D
+@export var speed: float = 100.0
 
-@export var sprite : AnimatedSprite2D
-@export var speed : float = 100
-var _flying : bool = false
-var _flip : bool = false
-var random_turn : SceneTreeTimer
+@onready var _ambient_sound: AudioStreamPlayer2D = $AmbientSound
+@onready var _fly_away_sound: AudioStreamPlayer2D = $FlyAwaySound
+
+var _flying: bool = false
+var _flip: bool = false
+var random_turn: SceneTreeTimer
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_flip = randi() & 1
 	if _flip:
 		sprite.flip_h = true
-	
-	random_turn = get_tree().create_timer(randf_range(1,10))
+
+	random_turn = get_tree().create_timer(randf_range(1, 10))
 	random_turn.timeout.connect(_turn)
 
+	if _ambient_sound.stream != null:
+		_ambient_sound.pitch_scale = randf_range(0.95, 1.05)
+		_ambient_sound.finished.connect(_on_ambient_sound_finished)
+		_ambient_sound.play(
+			randf_range(0.0, _ambient_sound.stream.get_length())
+		)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta: float) -> void:
 	if _flying:
 		if _flip:
-			sprite.position += Vector2( -1,-1 ) * speed * delta
+			sprite.position += Vector2(-1, -1) * speed * delta
 			return
-		sprite.position += Vector2( 1,-1 ) * speed * delta
-		
-	
+		sprite.position += Vector2(1, -1) * speed * delta
 
 
-func _turn():
+func _turn() -> void:
 	match sprite.animation:
-		"look_left": sprite.play("look_right")
-		"look_right": sprite.play("look_left")
-	random_turn = get_tree().create_timer(randf_range(1,10))
+		"look_left":
+			sprite.play("look_right")
+		"look_right":
+			sprite.play("look_left")
+
+	random_turn = get_tree().create_timer(randf_range(1, 10))
 	random_turn.timeout.connect(_turn)
 
 
+func _on_ambient_sound_finished() -> void:
+	if not _flying and _ambient_sound.stream != null:
+		_ambient_sound.play()
+
+
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	if _flying or not body.is_in_group("player"):
+		return
+
 	_flying = true
-	random_turn.timeout.disconnect(_turn)
+
+	if random_turn.timeout.is_connected(_turn):
+		random_turn.timeout.disconnect(_turn)
+
+	_ambient_sound.stop()
+	if _fly_away_sound.stream != null:
+		_fly_away_sound.play()
+
 	sprite.play("fly")
-	var life_timer = get_tree().create_timer(4)
+	var life_timer := get_tree().create_timer(4.0)
 	life_timer.timeout.connect(queue_free)
