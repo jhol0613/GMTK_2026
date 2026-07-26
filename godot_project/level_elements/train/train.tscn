@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dchuwbctx2fxx" path="res://interactables/train_interactable.tscn" id="3_725i7"]
 [ext_resource type="Texture2D" uid="uid://d0p3sbfud3275" path="res://player/sprites/Main_Character.png" id="4_player"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="5_oe38n"]
+[ext_resource type="Texture2D" uid="uid://5pslrs1jdnbu" path="res://level_elements/train/trainfront.png" id="7_rvps3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5xnue"]
 atlas = ExtResource("2_725i7")
@@ -553,6 +554,15 @@ l_or_r = "r"
 [node name="CollisionShape2D" parent="TrainInteractableR" index="0" unique_id=278382881]
 position = Vector2(0, 57)
 shape = SubResource("RectangleShape2D_5xnue")
+
+[node name="Trainfront" type="Sprite2D" parent="." unique_id=315530289]
+position = Vector2(520, -40)
+texture = ExtResource("7_rvps3")
+
+[node name="Trainfront2" type="Sprite2D" parent="." unique_id=1434124692]
+position = Vector2(-520, -40)
+texture = ExtResource("7_rvps3")
+flip_h = true
 
 [editable path="TrainInteractableL"]
 [editable path="TrainInteractableR"]
