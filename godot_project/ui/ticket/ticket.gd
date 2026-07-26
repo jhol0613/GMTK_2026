@@ -23,5 +23,7 @@ func set_ticket(data: TicketData) -> void:
 	_destination_label.text = data.destination
 
 func check_ticket(h, m, s) -> void:
+	if not ticket_data:
+		return
 	if ticket_data._is_expired(h, m, s):
 		ticket_expired.emit()
