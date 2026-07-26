@@ -19,9 +19,9 @@
 [ext_resource type="Script" uid="uid://cpfgjwe2lpk0k" path="res://scripts/ticket_data.gd" id="18_ryfpa"]
 [ext_resource type="Texture2D" uid="uid://bogm6imvrrjwr" path="res://level_elements/decorative/Solardecor1.png" id="22_ryfpa"]
 [ext_resource type="PackedScene" uid="uid://cniar1emgicic" path="res://level_elements/decorative/ad_board.tscn" id="23_ntdhj"]
-[ext_resource type="PackedScene" uid="uid://boj5ceg5pnoi3" path="res://level_elements/decorative/bench_vertical.tscn" id="24_0fu15"]
-[ext_resource type="PackedScene" uid="uid://b3rra7yj17p2b" path="res://level_elements/decorative/bench_snoozin.tscn" id="25_4knja"]
-[ext_resource type="PackedScene" uid="uid://dcsei1m2axnjk" path="res://level_elements/decorative/bench.tscn" id="26_voubc"]
+[ext_resource type="PackedScene" uid="uid://boj5ceg5pnoi3" path="res://level_elements/decorative/benches/bench_vertical.tscn" id="24_0fu15"]
+[ext_resource type="PackedScene" uid="uid://b3rra7yj17p2b" path="res://level_elements/decorative/benches/bench_snoozin.tscn" id="25_4knja"]
+[ext_resource type="PackedScene" uid="uid://dcsei1m2axnjk" path="res://level_elements/decorative/benches/bench.tscn" id="26_voubc"]
 [ext_resource type="Texture2D" uid="uid://bhn6gjy4u51qd" path="res://level_elements/decorative/exit_gradient.png" id="27_4knja"]
 
 [sub_resource type="AudioStreamMP3" id="AudioStreamMP3_i6od7"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pkkbdvh3ie8q"
-path="res://.godot/imported/bench_vertical.png-ddbaa83d0d387aada17b776fedf40591.ctex"
+uid="uid://csgvh6vnlfcrk"
+path="res://.godot/imported/kid.png-b390ff75e03fbd06782ef01890055ac4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level_elements/decorative/bench_vertical.png"
-dest_files=["res://.godot/imported/bench_vertical.png-ddbaa83d0d387aada17b776fedf40591.ctex"]
+source_file="res://level_elements/NPCs/kid.png"
+dest_files=["res://.godot/imported/kid.png-b390ff75e03fbd06782ef01890055ac4.ctex"]
 
 [params]
 

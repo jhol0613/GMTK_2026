@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://boj5ceg5pnoi3"]
 
-[ext_resource type="Texture2D" uid="uid://pkkbdvh3ie8q" path="res://level_elements/decorative/bench_vertical.png" id="1_rtlqk"]
+[ext_resource type="Texture2D" uid="uid://pkkbdvh3ie8q" path="res://level_elements/decorative/benches/bench_vertical.png" id="1_rtlqk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fpcxu"]
 size = Vector2(16, 40)

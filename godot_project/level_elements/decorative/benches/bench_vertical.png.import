@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvnqkyp5mc1nq"
-path="res://.godot/imported/bench.png-8f2104500a11af77ebc44fb0987ada8f.ctex"
+uid="uid://pkkbdvh3ie8q"
+path="res://.godot/imported/bench_vertical.png-766c32e673acf87a7222be3e5def580f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level_elements/decorative/bench.png"
-dest_files=["res://.godot/imported/bench.png-8f2104500a11af77ebc44fb0987ada8f.ctex"]
+source_file="res://level_elements/decorative/benches/bench_vertical.png"
+dest_files=["res://.godot/imported/bench_vertical.png-766c32e673acf87a7222be3e5def580f.ctex"]
 
 [params]
 

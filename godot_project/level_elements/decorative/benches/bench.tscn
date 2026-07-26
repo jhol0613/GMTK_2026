@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dcsei1m2axnjk"]
 
-[ext_resource type="Texture2D" uid="uid://cvnqkyp5mc1nq" path="res://level_elements/decorative/bench.png" id="1_6bm8i"]
+[ext_resource type="Texture2D" uid="uid://cvnqkyp5mc1nq" path="res://level_elements/decorative/benches/bench.png" id="1_6bm8i"]
 [ext_resource type="Texture2D" uid="uid://df2ldgroey8mb" path="res://level_elements/decorative/snoozin.png" id="2_h4k8w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fpcxu"]
