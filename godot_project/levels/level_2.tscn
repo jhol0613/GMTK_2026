@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cxekovsy3q368" path="res://level_elements/train_platform/platform.tscn" id="2_pqqg8"]
 
 [node name="Level2" unique_id=783439983 instance=ExtResource("1_mi4ay")]
+correct_line = &"RED_east"
 
 [node name="UiOverlay" parent="." index="0" unique_id=368800410]
 visible = false

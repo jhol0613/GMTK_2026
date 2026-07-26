@@ -39,7 +39,7 @@ func _is_correct_line(ticket: TicketData) -> bool:
 	var level := _get_level()
 	if level == null or level.correct_line.is_empty():
 		return true
-	return ticket.train_line == level.correct_line
+	return ticket.id == level.correct_line
 
 
 func _get_level() -> LevelTemplate:
