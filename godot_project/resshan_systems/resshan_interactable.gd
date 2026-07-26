@@ -42,7 +42,7 @@ func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
 	if shader:
-		shader.set_shader_parameter('time', shader.get_shader_parameter('time') + .2 * delta)
+		shader.set_shader_parameter('time', shader.get_shader_parameter('time') + .05 * delta)
 
 
 func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:

@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://dcsei1m2axnjk" path="res://level_elements/decorative/benches/bench.tscn" id="26_voubc"]
 [ext_resource type="Texture2D" uid="uid://bhn6gjy4u51qd" path="res://level_elements/decorative/exit_gradient.png" id="27_4knja"]
 [ext_resource type="PackedScene" uid="uid://bo3pcctdon7l" path="res://level_elements/signs/station_name_sign.tscn" id="31_06ecp"]
+[ext_resource type="PackedScene" uid="uid://bqn5083nuxoa8" path="res://level_elements/NPCs/pee_pee_dance.tscn" id="31_ohjdc"]
 
 [sub_resource type="Resource" id="Resource_rfs8a"]
 script = ExtResource("15_w75he")
@@ -546,9 +547,24 @@ scale = Vector2(-1, 1)
 position = Vector2(776, -1768)
 scale = Vector2(-1, 1)
 
+[node name="Blue" parent="Background" parent_id_path=PackedInt32Array(102847613) index="0" unique_id=1690243240]
+repeat_times = 5
+
+[node name="FarClouds" parent="Background" parent_id_path=PackedInt32Array(102847613) index="1" unique_id=1089277525]
+repeat_times = 5
+
+[node name="FloatingIslands" parent="Background" parent_id_path=PackedInt32Array(102847613) index="2" unique_id=168409842]
+repeat_times = 5
+
+[node name="CloseClouds" parent="Background" parent_id_path=PackedInt32Array(102847613) index="3" unique_id=782128031]
+repeat_times = 5
+
 [node name="StationNameSign" parent="." index="29" unique_id=948597200 instance=ExtResource("31_06ecp")]
 position = Vector2(-463, -416)
 station_number = 1
+
+[node name="PeePeeDance" parent="." index="30" unique_id=1630953085 instance=ExtResource("31_ohjdc")]
+position = Vector2(-262, -416)
 
 [editable path="UiOverlay"]
 [editable path="Platform"]
