@@ -54,6 +54,10 @@ func _ready() -> void:
 	TimeManager.time_changed.connect(_on_time_changed)
 	Inventory.inventory_changed.connect(_on_inventory_changed)
 	play_bobbing()
+	
+	for i:AnimatedSprite2D in $TrainSprite/HoverSparcles.get_children():
+		i.frame = randi() % 2
+		i.play(&"", 0.5)
 
 
 func try_board(interactable: TrainInteractable, l_or_r: String) -> void:

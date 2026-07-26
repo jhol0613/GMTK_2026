@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bs11d6gbcpom8" path="res://level_elements/train/door_blocker.png" id="3_17x1t"]
 [ext_resource type="PackedScene" uid="uid://dchuwbctx2fxx" path="res://interactables/train_interactable.tscn" id="3_725i7"]
 [ext_resource type="Texture2D" uid="uid://d0p3sbfud3275" path="res://player/sprites/Main_Character.png" id="4_player"]
+[ext_resource type="Texture2D" uid="uid://dixkuxjdnkyp" path="res://level_elements/train/hoverthruster_sparcle.png" id="4_wb4gf"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="5_oe38n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5xnue"]
@@ -127,6 +128,35 @@ animations = [{
 }],
 "loop": 1,
 "name": &"YELLOW",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3brj"]
+atlas = ExtResource("4_wb4gf")
+region = Rect2(0, 0, 56, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1o5m3"]
+atlas = ExtResource("4_wb4gf")
+region = Rect2(56, 0, 56, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvb78"]
+atlas = ExtResource("4_wb4gf")
+region = Rect2(112, 0, 56, 9)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_khhxn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3brj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1o5m3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvb78")
+}],
+"loop": 1,
+"name": &"default",
 "speed": 5.0
 }]
 
@@ -415,6 +445,74 @@ texture = ExtResource("3_17x1t")
 [node name="DoorBlocker4" type="Sprite2D" parent="TrainSprite" unique_id=1361625764]
 position = Vector2(336, 5)
 texture = ExtResource("3_17x1t")
+
+[node name="HoverSparcles" type="Node2D" parent="TrainSprite" unique_id=1933076444]
+
+[node name="HoverSparcle" type="AnimatedSprite2D" parent="TrainSprite/HoverSparcles" unique_id=1818124135]
+position = Vector2(-510, 54)
+sprite_frames = SubResource("SpriteFrames_khhxn")
+
+[node name="HoverSparcle2" type="AnimatedSprite2D" parent="TrainSprite/HoverSparcles" unique_id=1795426036]
+position = Vector2(-432, 54)
+sprite_frames = SubResource("SpriteFrames_khhxn")
+
+[node name="HoverSparcle3" type="AnimatedSprite2D" parent="TrainSprite/HoverSparcles" unique_id=1935636803]
+position = Vector2(-373, 54)
+sprite_frames = SubResource("SpriteFrames_khhxn")
+
+[node name="HoverSparcle4" type="AnimatedSprite2D" parent="TrainSprite/HoverSparcles" unique_id=4018946]
+position = Vector2(-296, 54)
+sprite_frames = SubResource("SpriteFrames_khhxn")
+
+[node name="HoverSparcle5" type="AnimatedSprite2D" parent="TrainSprite/HoverSparcles" unique_id=1401127404]
+position = Vector2(-244, 54)
+sprite_frames = SubResource("SpriteFrames_khhxn")
+
+[node name="HoverSparcle6" type="AnimatedSprite2D" parent="TrainSprite/HoverSparcles" unique_id=1823955298]
+position = Vector2(-167, 54)
+sprite_frames = SubResource("SpriteFrames_khhxn")
+
+[node name="HoverSparcle7" type="AnimatedSprite2D" parent="TrainSprite/HoverSparcles" unique_id=1378574286]
+position = Vector2(-102, 54)
+sprite_frames = SubResource("SpriteFrames_khhxn")
+
+[node name="HoverSparcle8" type="AnimatedSprite2D" parent="TrainSprite/HoverSparcles" unique_id=1996089721]
+position = Vector2(-25, 54)
+sprite_frames = SubResource("SpriteFrames_khhxn")
+
+[node name="HoverSparcle9" type="AnimatedSprite2D" parent="TrainSprite/HoverSparcles" unique_id=349411872]
+position = Vector2(27, 54)
+sprite_frames = SubResource("SpriteFrames_khhxn")
+
+[node name="HoverSparcle10" type="AnimatedSprite2D" parent="TrainSprite/HoverSparcles" unique_id=1319442465]
+position = Vector2(104, 54)
+sprite_frames = SubResource("SpriteFrames_khhxn")
+frame = 1
+frame_progress = 0.33035225
+
+[node name="HoverSparcle11" type="AnimatedSprite2D" parent="TrainSprite/HoverSparcles" unique_id=865315591]
+position = Vector2(169, 54)
+sprite_frames = SubResource("SpriteFrames_khhxn")
+
+[node name="HoverSparcle12" type="AnimatedSprite2D" parent="TrainSprite/HoverSparcles" unique_id=281738798]
+position = Vector2(246, 54)
+sprite_frames = SubResource("SpriteFrames_khhxn")
+
+[node name="HoverSparcle13" type="AnimatedSprite2D" parent="TrainSprite/HoverSparcles" unique_id=418400464]
+position = Vector2(298, 54)
+sprite_frames = SubResource("SpriteFrames_khhxn")
+
+[node name="HoverSparcle14" type="AnimatedSprite2D" parent="TrainSprite/HoverSparcles" unique_id=1512011494]
+position = Vector2(375, 54)
+sprite_frames = SubResource("SpriteFrames_khhxn")
+
+[node name="HoverSparcle15" type="AnimatedSprite2D" parent="TrainSprite/HoverSparcles" unique_id=74695803]
+position = Vector2(434, 54)
+sprite_frames = SubResource("SpriteFrames_khhxn")
+
+[node name="HoverSparcle16" type="AnimatedSprite2D" parent="TrainSprite/HoverSparcles" unique_id=246218542]
+position = Vector2(511, 54)
+sprite_frames = SubResource("SpriteFrames_khhxn")
 
 [node name="PlayerDisembarkMarker" type="Marker2D" parent="." unique_id=886720525]
 position = Vector2(-64, 18)
