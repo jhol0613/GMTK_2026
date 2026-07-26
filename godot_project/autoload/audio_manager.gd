@@ -14,38 +14,38 @@ var _music_volume_linear: float = 1.0
 var _sfx_volume_linear: float = 1.0
 
 const LEVEL_0_BGM: AudioStream = preload(
-	"res://bgm/TRAINing with friends.mp3"
+	"uid://dg0waag44ulse"
 )
 
 const LEVEL_1_BGM: AudioStream = preload(
-	"res://levels/You TRAINed for this copy.mp3"
+	"uid://bbcbac8i6a3xm"
 )
 
 const LEVEL_0_MUSIC_DB: float = -8.0
 const LEVEL_1_MUSIC_DB: float = -8.0
 
 const TRIPPED_BGM: AudioStream = preload(
-	"res://bgm/Tripped and Lost v2.mp3"
+	"uid://bwdovww0j8m0k"
 )
 
 const NOTEBOOK_BGM: AudioStream = preload(
-	"res://notebook/Keeping TRACK of my Notes demo.mp3"
+	"uid://dlip7tol2c20x"
 )
 
 const TRAIN_PULLING_IN: AudioStream = preload(
-	"res://ui/Train/Train Pulling Into.mp3"
+	"uid://cu3ssob4apsrg"
 )
 
 const LEVEL_0_FIRST_TRAIN_IN: AudioStream = preload(
-	"res://level_elements/train/Pulling out without door opening.mp3"
+	"uid://bjj4avshu6qv3"
 )
 
 const TRAIN_PULLING_OUT: AudioStream = preload(
-	"res://ui/Train/Pulling out.mp3"
+	"uid://b511cvpm80f52"
 )
 
 const WRONG_TICKET_SFX: AudioStream = preload(
-	"res://ui/Wrong Ticket.mp3"
+	"uid://dw760ndv2ehvj"
 )
 
 
