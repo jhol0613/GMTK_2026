@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://hbbmxyvgmygl" path="res://level_elements/decorative/birb.gd" id="1_4ajn0"]
 [ext_resource type="Texture2D" uid="uid://dovhsfyvtrxa7" path="res://level_elements/decorative/Birdfly.png" id="2_mpt1l"]
 [ext_resource type="Texture2D" uid="uid://c4raujj6twdo" path="res://level_elements/decorative/Birdturn.png" id="2_o8bts"]
+[ext_resource type="AudioStream" uid="uid://d1778yj0adoqa" path="res://level_elements/decorative/PigeonAmbient.mp3" id="4_o80xf"]
+[ext_resource type="AudioStream" uid="uid://cy86xfpdi60kh" path="res://level_elements/decorative/PigeonFly.mp3" id="5_1k3iy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xpuwd"]
 atlas = ExtResource("2_mpt1l")
@@ -85,6 +87,7 @@ radius = 32.0
 z_index = 1
 script = ExtResource("1_4ajn0")
 sprite = NodePath("AnimatedSprite2D")
+ambient_interval_min = 1.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1746332699]
 position = Vector2(0, -8)
@@ -98,12 +101,17 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=929481813]
 shape = SubResource("CircleShape2D_fpcxu")
 
-[node name="AmbientSound" type="AudioStreamPlayer2D" parent="."]
-volume_db = -18.0
+[node name="AmbientSound" type="AudioStreamPlayer2D" parent="." unique_id=598025512]
+stream = ExtResource("4_o80xf")
+volume_db = 12.0
+autoplay = true
 max_distance = 300.0
+attenuation = 2.297397
 bus = &"SFX"
 
-[node name="FlyAwaySound" type="AudioStreamPlayer2D" parent="."]
+[node name="FlyAwaySound" type="AudioStreamPlayer2D" parent="." unique_id=1729641565]
+stream = ExtResource("5_1k3iy")
+volume_db = 8.0
 max_distance = 300.0
 bus = &"SFX"
 
