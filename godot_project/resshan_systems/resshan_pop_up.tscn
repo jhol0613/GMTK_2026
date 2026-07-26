@@ -1,30 +1,53 @@
 [gd_scene format=3 uid="uid://bvunhdmuxhfji"]
 
 [ext_resource type="Script" uid="uid://dsc1cq4uwmso" path="res://resshan_systems/resshan_pop_up.gd" id="1_dt5xr"]
+[ext_resource type="FontFile" uid="uid://k24n0d7oex7j" path="res://resources/fonts/ExpletusSans-Bold.ttf" id="2_1uc05"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1uc05"]
+bg_color = Color(0.90359825, 0.90359825, 0.9035982, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.45064825, 0.4506483, 0.450648, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dt5xr"]
+font = ExtResource("2_1uc05")
+font_size = 64
+font_color = Color(0.0018410678, 0.0018410682, 0.0018410678, 1)
 
 [node name="ResshanNote" type="Control" unique_id=463936935]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_dt5xr")
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1377185846]
-layout_mode = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=437998971]
+layer = 25
+scale = Vector2(0.21, 0.21)
+transform = Transform2D(0.21, 0, 0, 0.21, 0, 0)
+follow_viewport_enabled = true
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1377185846]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -15.5
-offset_top = -50.0
-offset_right = 15.5
-offset_bottom = -10.0
+offset_left = -975.5
+offset_top = -1130.0
+offset_right = -944.5
+offset_bottom = -1090.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1uc05")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1081625459]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer" unique_id=1081625459]
 layout_mode = 2
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_right = 15
 
-[node name="Note" type="Label" parent="PanelContainer/MarginContainer" unique_id=1435546551]
+[node name="Note" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer" unique_id=1435546551]
+texture_filter = 1
 layout_mode = 2
+label_settings = SubResource("LabelSettings_dt5xr")
