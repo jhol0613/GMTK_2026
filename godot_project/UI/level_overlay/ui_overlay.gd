@@ -9,7 +9,7 @@ extends CanvasLayer
 @onready var _notebook_hover_sound: AudioStreamPlayer = $NotebookHoverSound
 @onready var _notebook_click_sound: AudioStreamPlayer = $NotebookClickSound
 @onready var _notebook_exit_sound: AudioStreamPlayer = $NotebookCloseSound
-@onready var _ticket_hover_sound: AudioStreamPlayer = $TicketHoverSound
+@onready var _ticket_hover_sound: AudioStreamPlayer =$TicketHoverSound
 @onready var _ticket_click_sound: AudioStreamPlayer = $TicketClickSound
 
 @onready var _initial_notebook_button_scale = _notebook_button.scale
@@ -56,18 +56,21 @@ func _on_notebook_button_pressed() -> void:
 
 func _on_ticket_button_mouse_entered():
 	_ticket_button.position += mouse_hover_offset
-	_notebook_hover_sound.play()
+	_ticket_hover_sound.play()
 
 
 func _on_ticket_button_mouse_exited():
 	_ticket_button.position -= mouse_hover_offset
 
 
-func _on_ticket_button_pressed():
-	_ticket_click_sound.play()
+func _on_ticket_button_pressed() -> void:
 	if Inventory.get_ticket() == null:
 		return
-	_ticket.visible = not _ticket.visible
+
+	if _ticket.visible:
+		_close_ticket()
+	else:
+		_open_ticket()
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("escape"):
@@ -106,3 +109,18 @@ func _close_notebook() -> void:
 		player.movement_disabled = false
 
 	SignalBus.notebook_closed.emit()
+
+func _open_ticket() -> void:
+	if _ticket.visible:
+		return
+
+	_ticket_click_sound.play()
+	_ticket.visible = true
+
+
+func _close_ticket() -> void:
+	if not _ticket.visible:
+		return
+
+	_ticket_click_sound.play()
+	_ticket.visible = false

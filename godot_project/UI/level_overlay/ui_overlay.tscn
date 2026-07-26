@@ -58,6 +58,14 @@ volume_db = 10.102
 stream = ExtResource("8_h7imb")
 volume_db = -4.678
 
+[node name="TicketHoverSound" type="AudioStreamPlayer" parent="." unique_id=559112418]
+stream = ExtResource("7_64688")
+volume_db = 10.102
+
+[node name="TicketClickSound" type="AudioStreamPlayer" parent="." unique_id=1242659825]
+stream = ExtResource("8_h7imb")
+volume_db = -4.678
+
 [node name="NotebookCloseSound" type="AudioStreamPlayer" parent="." unique_id=798573098]
 stream = ExtResource("9_h7imb")
 
