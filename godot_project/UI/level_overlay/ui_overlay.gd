@@ -148,6 +148,7 @@ func _input(event: InputEvent) -> void:
 		_notebook.visible = false
 		_inventory.visible = false
 		
+		Input.set_custom_mouse_cursor(magnifying_glass)
 		# Enable player movement if closing the notebook
 		for player in get_tree().get_nodes_in_group("player"):
 			player.movement_disabled = false
