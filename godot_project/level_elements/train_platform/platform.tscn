@@ -7,13 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://dbiw0lhyerkp2" path="res://level_elements/signs/east_sign.tscn" id="6_3v7e2"]
 [ext_resource type="PackedScene" uid="uid://dpexe87ps0d7f" path="res://level_elements/hourglass/hourglass.tscn" id="6_f3ea8"]
 [ext_resource type="Texture2D" uid="uid://danrb3vfq83ag" path="res://level_elements/decorative/hoverthruster.png" id="7_3v7e2"]
+[ext_resource type="PackedScene" uid="uid://bo3pcctdon7l" path="res://level_elements/signs/station_name_sign.tscn" id="8_tem3n"]
 
 [node name="Platform" type="Node2D" unique_id=1302422271 node_paths=PackedStringArray("upper_train", "lower_train")]
 y_sort_enabled = true
 script = ExtResource("1_n6ck0")
 upper_train = NodePath("UpperTrain")
 lower_train = NodePath("LowerTrain")
-color = 0
 
 [node name="FrontGround" type="TileMapLayer" parent="." unique_id=673161970]
 z_index = 3
@@ -95,3 +95,9 @@ texture = ExtResource("7_3v7e2")
 [node name="Hoverthruster5" type="Sprite2D" parent="." unique_id=254305853]
 position = Vector2(-136, 280)
 texture = ExtResource("7_3v7e2")
+
+[node name="Station0Sign" parent="." unique_id=98722644 instance=ExtResource("8_tem3n")]
+position = Vector2(-184, 10)
+
+[node name="Station0Sign2" parent="." unique_id=421458582 instance=ExtResource("8_tem3n")]
+position = Vector2(-71, 10)

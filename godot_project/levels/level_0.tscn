@@ -23,7 +23,8 @@
 [ext_resource type="PackedScene" uid="uid://boj5ceg5pnoi3" path="res://level_elements/decorative/benches/bench_vertical.tscn" id="25_osodt"]
 [ext_resource type="PackedScene" uid="uid://ba3allrv3pni0" path="res://level_elements/decorative/plants/plant_1.tscn" id="25_vfwqd"]
 [ext_resource type="PackedScene" uid="uid://b8j82426dfwlf" path="res://level_elements/decorative/plants/plant_2.tscn" id="26_juy1h"]
-[ext_resource type="Texture2D" uid="uid://bogm6imvrrjwr" path="res://level_elements/decorative/Solardecor1.png" id="26_vfwqd"]
+[ext_resource type="Texture2D" uid="uid://bogm6imvrrjwr" path="res://level_elements/decorative/solar_decor/Solardecor1.png" id="26_vfwqd"]
+[ext_resource type="PackedScene" uid="uid://bo3pcctdon7l" path="res://level_elements/signs/station_name_sign.tscn" id="27_7di2q"]
 [ext_resource type="PackedScene" uid="uid://cniar1emgicic" path="res://level_elements/decorative/ad_board.tscn" id="27_juy1h"]
 [ext_resource type="Texture2D" uid="uid://danrb3vfq83ag" path="res://level_elements/decorative/hoverthruster.png" id="28_7di2q"]
 
@@ -611,7 +612,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/UpperTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.18422993
+frame_progress = 0.31178546
 
 [node name="LowerTrain" parent="Platform" index="7" unique_id=1370361982]
 next_scene = 2
@@ -620,7 +621,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/LowerTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.42568412
+frame_progress = 0.55324
 
 [node name="TicketBooth" parent="." index="6" unique_id=861247956 instance=ExtResource("2_823pn")]
 position = Vector2(-1168, -368)
@@ -628,9 +629,6 @@ position = Vector2(-1168, -368)
 [node name="DialogueInteractable" parent="TicketBooth" index="1" unique_id=358228256]
 lines = Array[ExtResource("3_obtcn")]([SubResource("Resource_d8oir")])
 choices = Array[ExtResource("3_jum3j")]([SubResource("Resource_snxo8"), SubResource("Resource_2prw1")])
-
-[node name="Prompt" parent="TicketBooth/DialogueInteractable" index="1" unique_id=272794898]
-custom_minimum_size = Vector2(75, 168)
 
 [node name="DialoguePanel" parent="TicketBooth" index="4" unique_id=210961773]
 player_icon = ExtResource("19_ggct0")
@@ -759,6 +757,9 @@ position = Vector2(-160, -280)
 
 [node name="Bench" parent="." index="14" unique_id=1146302488 instance=ExtResource("26_juy1h")]
 position = Vector2(-160, -248)
+
+[node name="StationNameSign" parent="." index="15" unique_id=98722644 instance=ExtResource("27_7di2q")]
+position = Vector2(-1247, -465)
 
 [connection signal="pressed" from="SkipIntroLayer/SkipIntroButton" to="." method="_skip_intro"]
 
