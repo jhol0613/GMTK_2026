@@ -24,7 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://danrb3vfq83ag" path="res://level_elements/decorative/hoverthruster.png" id="17_lrvbd"]
 [ext_resource type="Texture2D" uid="uid://dsaviofjnf4jt" path="res://level_elements/trinket_shop/masks/red.png" id="18_ohjdc"]
 [ext_resource type="Script" uid="uid://cpfgjwe2lpk0k" path="res://scripts/ticket_data.gd" id="18_ryfpa"]
-[ext_resource type="Texture2D" uid="uid://bogm6imvrrjwr" path="res://level_elements/decorative/Solardecor1.png" id="22_ryfpa"]
+[ext_resource type="Texture2D" path="res://level_elements/decorative/Solardecor1.png" id="22_ryfpa"]
 [ext_resource type="PackedScene" uid="uid://cniar1emgicic" path="res://level_elements/decorative/ad_board.tscn" id="23_ntdhj"]
 [ext_resource type="PackedScene" uid="uid://boj5ceg5pnoi3" path="res://level_elements/decorative/benches/bench_vertical.tscn" id="24_0fu15"]
 [ext_resource type="PackedScene" uid="uid://b3rra7yj17p2b" path="res://level_elements/decorative/benches/bench_snoozin.tscn" id="25_4knja"]
@@ -225,6 +225,7 @@ play_train_intro_before_music = true
 
 [node name="Camera2D" parent="." index="1" unique_id=1821430600]
 position = Vector2(-1056, -752)
+limit_bottom = 0
 
 [node name="Ground" parent="." index="2" unique_id=405308893 groups=["footstep_surfaces"]]
 position = Vector2(-208, -368)
