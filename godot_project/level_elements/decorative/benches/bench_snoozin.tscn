@@ -69,3 +69,4 @@ volume_db = 14.648
 autoplay = true
 max_distance = 270.0
 attenuation = 3.7321315
+bus = &"SFX"

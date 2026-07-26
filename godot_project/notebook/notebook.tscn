@@ -100,6 +100,7 @@ icon_alignment = 1
 [node name="PageTurnSound" type="AudioStreamPlayer" parent="." unique_id=561482912]
 stream = ExtResource("4_y1ha3")
 volume_db = 24.0
+bus = &"SFX"
 
 [node name="EntryAdded" type="AudioStreamPlayer" parent="." unique_id=971808126]
 stream = SubResource("AudioStreamRandomizer_ujtin")

@@ -128,11 +128,13 @@ unique_name_in_owner = true
 [node name="PurchasedTicket" type="AudioStreamPlayer" parent="." unique_id=1025218668]
 stream = ExtResource("5_8d5ud")
 volume_db = 4.0
+bus = &"SFX"
 
 [node name="BoothAmbient" type="AudioStreamPlayer2D" parent="." unique_id=986529912]
 stream = ExtResource("7_8vjcj")
 max_distance = 197.0
 attenuation = 4.0000014
+bus = &"SFX"
 
 [node name="LoopPauseTimer" type="Timer" parent="." unique_id=258006226]
 one_shot = true

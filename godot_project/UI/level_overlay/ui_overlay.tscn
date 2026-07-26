@@ -53,21 +53,26 @@ stretch_mode = 4
 [node name="NotebookHoverSound" type="AudioStreamPlayer" parent="." unique_id=732685104]
 stream = ExtResource("7_64688")
 volume_db = 10.102
+bus = &"SFX"
 
 [node name="NotebookClickSound" type="AudioStreamPlayer" parent="." unique_id=361111950]
 stream = ExtResource("8_h7imb")
 volume_db = -4.678
+bus = &"SFX"
 
 [node name="TicketHoverSound" type="AudioStreamPlayer" parent="." unique_id=559112418]
 stream = ExtResource("7_64688")
 volume_db = 10.102
+bus = &"SFX"
 
 [node name="TicketClickSound" type="AudioStreamPlayer" parent="." unique_id=1242659825]
 stream = ExtResource("8_h7imb")
 volume_db = -4.678
+bus = &"SFX"
 
 [node name="NotebookCloseSound" type="AudioStreamPlayer" parent="." unique_id=798573098]
 stream = ExtResource("9_h7imb")
+bus = &"SFX"
 
 [connection signal="mouse_entered" from="NotebookButton" to="." method="_on_notebook_button_mouse_entered"]
 [connection signal="mouse_exited" from="NotebookButton" to="." method="_on_notebook_button_mouse_exited"]

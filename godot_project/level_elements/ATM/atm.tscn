@@ -114,5 +114,6 @@ shape = SubResource("RectangleShape2D_ld73o")
 
 [node name="ATMTurnOnSound" type="AudioStreamPlayer" parent="." unique_id=1102551377]
 stream = ExtResource("5_5sl07")
+bus = &"SFX"
 
 [editable path="DialogueInteractable"]

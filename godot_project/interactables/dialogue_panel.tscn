@@ -132,3 +132,4 @@ sprite_frames = SubResource("SpriteFrames_fpcxu")
 
 [node name="LinesSFX" type="AudioStreamPlayer" parent="Root" unique_id=161182088]
 unique_name_in_owner = true
+bus = &"SFX"
