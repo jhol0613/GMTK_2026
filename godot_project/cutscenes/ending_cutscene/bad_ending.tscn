@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://xyxl2kfpsy52" path="res://interactables/sprites/dialogue_window.png" id="5_j8wbs"]
 [ext_resource type="Texture2D" uid="uid://bxby555s13ed1" path="res://character_portraits/player/mc_portrait_9.png" id="6_4hxt7"]
 [ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/resshan_label.gd" id="7_d5p1b"]
+[ext_resource type="AudioStream" uid="uid://c7qd8m7u8ruxh" path="res://cutscenes/intro_cutscene/Derailed.mp3" id="8_4hxt7"]
 
 [sub_resource type="Animation" id="Animation_s70ew"]
 length = 0.001
@@ -163,3 +164,7 @@ metadata/_custom_type_script = "uid://sidowamkhcrt"
 
 [node name="BadEndingPlayer" type="AnimationPlayer" parent="." unique_id=2003462197]
 libraries/ = SubResource("AnimationLibrary_4hxt7")
+
+[node name="EndingAudio" type="AudioStreamPlayer" parent="." unique_id=223734379]
+stream = ExtResource("8_4hxt7")
+bus = &"Music"
