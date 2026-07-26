@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/resshan_label.gd" id="2_i56kd"]
 [ext_resource type="Texture2D" uid="uid://cxcsgyq6cucb6" path="res://time/ui_clock.png" id="2_ss088"]
 [ext_resource type="AudioStream" uid="uid://dl8kihu3uofgs" path="res://time/Clock Minute.mp3" id="3_erhic"]
-[ext_resource type="AudioStream" uid="uid://dyjirite3on8y" path="res://time/clock countdown sfx.mp3" id="4_de5ah"]
+[ext_resource type="AudioStream" uid="uid://r245h8xsaw4h" path="res://time/CountDownEnds.mp3" id="4_de5ah"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kgoo1"]
 texture = ExtResource("2_ss088")
