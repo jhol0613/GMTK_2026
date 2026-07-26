@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://duhbuefvsqifp" path="res://levels/level_template.gd" id="1_yglgk"]
 [ext_resource type="Texture2D" uid="uid://ca8r7wcmgae0o" path="res://levels/tileset/grasstiles.png" id="2_8xmsw"]
 [ext_resource type="Resource" uid="uid://cs1k0a7leguxs" path="res://resources/dialogue/wrong_train.tres" id="2_unwjj"]
+[ext_resource type="Resource" uid="uid://dgtwryt4tl61o" path="res://resources/dialogue/missed_train.tres" id="3_missed"]
 [ext_resource type="Texture2D" uid="uid://ddbgow303m2gq" path="res://levels/tileset/TX Tileset Grass.png" id="3_pqv4r"]
 [ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialogue_panel.tscn" id="3_u3vgj"]
-[ext_resource type="Resource" uid="uid://bmissedtrainline1" path="res://resources/dialogue/missed_train.tres" id="3_missed"]
 [ext_resource type="PackedScene" uid="uid://bn2ibeuqk0rgt" path="res://player/player.tscn" id="4_3dbtp"]
 [ext_resource type="Texture2D" uid="uid://dy3h6m8das3ut" path="res://levels/tileset/brickborder.png" id="4_yglgk"]
 [ext_resource type="Texture2D" uid="uid://duuound6q3dyn" path="res://levels/parallax/sky1.png" id="7_64qpc"]
@@ -609,25 +609,6 @@ missed_train_line = ExtResource("3_missed")
 dialogue_panel_scene = ExtResource("3_u3vgj")
 
 [node name="UiOverlay" parent="." unique_id=368800410 instance=ExtResource("7_glpk1")]
-
-[node name="Time" parent="UiOverlay" index="0" unique_id=1094747134]
-offset_left = 1631.0
-offset_right = 1831.0
-
-[node name="NotebookHoverSound" parent="UiOverlay" index="5" unique_id=732685104]
-bus = &"Master"
-
-[node name="NotebookClickSound" parent="UiOverlay" index="6" unique_id=361111950]
-bus = &"Master"
-
-[node name="TicketHoverSound" parent="UiOverlay" index="7" unique_id=559112418]
-bus = &"Master"
-
-[node name="TicketClickSound" parent="UiOverlay" index="8" unique_id=1242659825]
-bus = &"Master"
-
-[node name="NotebookCloseSound" parent="UiOverlay" index="9" unique_id=798573098]
-bus = &"Master"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1821430600]
 zoom = Vector2(4, 4)
