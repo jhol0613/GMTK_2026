@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bqn5083nuxoa8"]
+
+[ext_resource type="Texture2D" uid="uid://xpc6phcxted8" path="res://level_elements/NPCs/pee pee dance.png" id="1_sg8ok"]
+[ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialogue_interactable.tscn" id="2_2jkr3"]
+[ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://scripts/dialogue_line.gd" id="3_g1vn7"]
+[ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialogue_panel.tscn" id="4_g1vn7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljhio"]
+atlas = ExtResource("1_sg8ok")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jkr3"]
+atlas = ExtResource("1_sg8ok")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ujtin"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljhio")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jkr3")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="Resource" id="Resource_g1vn7"]
+script = ExtResource("3_g1vn7")
+text = "<<bathroom>> <<closed>> <<angry>>"
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]
+size = Vector2(20, 8)
+
+[node name="PeePeeDance" type="Node2D" unique_id=1630953085]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2084166253]
+z_index = 1
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_ujtin")
+autoplay = "default"
+
+[node name="DialogueInteractable" parent="." unique_id=1631350735 instance=ExtResource("2_2jkr3")]
+lines = Array[ExtResource("3_g1vn7")]([SubResource("Resource_g1vn7")])
+panel_path = NodePath("../DialoguePanel")
+
+[node name="CollisionShape2D" parent="DialogueInteractable" index="0" unique_id=278382881]
+position = Vector2(0, 4)
+
+[node name="AnimatedSprite2D" parent="DialogueInteractable" index="2" unique_id=819702371]
+visible = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=40297082]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1808472453]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_ujtin")
+
+[node name="DialoguePanel" parent="." unique_id=210961773 instance=ExtResource("4_g1vn7")]
+
+[editable path="DialogueInteractable"]
