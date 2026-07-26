@@ -2,13 +2,21 @@ extends Node2D
 
 signal scene_complete
 
-@onready var _ending_audio: AudioStreamPlayer = $EndingAudio
+@onready var _intro_audio: AudioStreamPlayer = $IntroAudio
+@onready var _body_audio: AudioStreamPlayer = $BodyAudio
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	AudioManager.stop_music()
-	if _ending_audio.stream != null:
-		_ending_audio.play()
+
+	if _body_audio.stream is AudioStreamMP3:
+		(_body_audio.stream as AudioStreamMP3).loop = true
+
+	if _intro_audio.stream != null:
+		_intro_audio.finished.connect(_play_body)
+		_intro_audio.play()
+	else:
+		_play_body()
 
 	#$AnimationPlayer.animation_finished.connect(queue_free)
 	#var rec_tween = create_tween()
@@ -21,3 +29,8 @@ func _ready() -> void:
 	#await tween.finished
 	
 	#GameManager.load_scene(Enums.Scenes.TITLE)
+
+
+func _play_body() -> void:
+	if _body_audio.stream != null:
+		_body_audio.play()
