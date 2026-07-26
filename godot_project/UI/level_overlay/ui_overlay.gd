@@ -1,6 +1,8 @@
 extends CanvasLayer
 
 @export var mouse_hover_offset := Vector2(0, -8)
+var magnifying_glass = load("uid://c8n3by2cmh20k")
+var pen = load("uid://c8yj5np7nrak6")
 
 @onready var _notebook := $Notebook
 @onready var _notebook_button := $NotebookButton
@@ -88,7 +90,9 @@ func _input(event: InputEvent) -> void:
 func _open_notebook() -> void:
 	if _notebook.visible:
 		return
-
+	
+	Input.set_custom_mouse_cursor(pen)
+	
 	_notebook_click_sound.play()
 	_notebook.visible = true
 
@@ -101,7 +105,9 @@ func _open_notebook() -> void:
 func _close_notebook() -> void:
 	if not _notebook.visible:
 		return
-
+	
+	Input.set_custom_mouse_cursor(magnifying_glass)
+	
 	_notebook_exit_sound.play()
 	_notebook.visible = false
 
