@@ -52,6 +52,7 @@ func _ready() -> void:
 	_boarded_player_r.visible = false
 	TimeManager.time_changed.connect(_on_time_changed)
 	Inventory.inventory_changed.connect(_on_inventory_changed)
+	play_bobbing()
 
 
 func try_board(interactable: TrainInteractable, l_or_r: String) -> void:
@@ -182,6 +183,7 @@ func play_arrival_animation() -> void:
 	animation_player.play("doors_close")
 	await animation_player.animation_finished
 	player.set_physics_process(true)
+	play_bobbing()
 
 
 func play_simple_arrival_animation(
@@ -197,6 +199,11 @@ func play_simple_arrival_animation(
 	var tween := create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(self, "position", stop_position, arrival_duration)
 	await tween.finished
+	play_bobbing()
+
+
+func play_bobbing() -> void:
+	animation_player.play("bobbing")
 
 
 func _set_player_active(active: bool) -> void:
