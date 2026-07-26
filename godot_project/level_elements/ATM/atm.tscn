@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://baukigq6wfgs1"]
 
 [ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialogue_interactable.tscn" id="1_5sl07"]
+[ext_resource type="Script" uid="uid://cyfbf2itq77dk" path="res://level_elements/ATM/atm.gd" id="1_de0lt"]
 [ext_resource type="Texture2D" uid="uid://d3a648lgo0wqh" path="res://level_elements/ATM/ATM_broken.png" id="1_df8qj"]
 [ext_resource type="Texture2D" uid="uid://bodxnyj4yyn7c" path="res://level_elements/ATM/ATM.png" id="2_5sl07"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="4_dfvvi"]
@@ -67,22 +68,25 @@ size = Vector2(46.5, 14)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ld73o"]
 size = Vector2(8.5, 8)
 
-[node name="ATM" type="Node2D" unique_id=124595741]
+[node name="ATM" type="Node2D" unique_id=124595741 node_paths=PackedStringArray("sprite", "dialog_interactable", "resshan_interactable", "resshan_interactable2")]
 z_index = 1
+script = ExtResource("1_de0lt")
+sprite = NodePath("ATMSprite")
+dialog_interactable = NodePath("DialogueInteractable")
+resshan_interactable = NodePath("ResshanInteractable")
+resshan_interactable2 = NodePath("ResshanInteractable2")
 
 [node name="DialogueInteractable" parent="." unique_id=1631350735 node_paths=PackedStringArray("turn_on_sound") instance=ExtResource("1_5sl07")]
 turn_on_sound = NodePath("../ATMTurnOnSound")
 
 [node name="Prompt" parent="DialogueInteractable" index="1" unique_id=272794898]
-custom_minimum_size = Vector2(75, 168)
 offset_top = -207.0
 offset_bottom = -39.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1776144098]
+[node name="ATMSprite" type="AnimatedSprite2D" parent="." unique_id=1776144098]
 y_sort_enabled = true
 position = Vector2(0, -57)
 sprite_frames = SubResource("SpriteFrames_fpcxu")
-frame_progress = 0.6529543
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1122527182]
 z_index = 1
