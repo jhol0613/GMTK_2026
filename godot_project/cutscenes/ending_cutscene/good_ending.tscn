@@ -1,8 +1,112 @@
 [gd_scene format=3 uid="uid://01ml7mdg0fuh"]
 
-[node name="EndingCutscene" type="Node2D" unique_id=96105910]
+[ext_resource type="Texture2D" uid="uid://he6hco2khq5o" path="res://cutscenes/ending_cutscene/good1.png" id="1_gug6m"]
+[ext_resource type="Script" uid="uid://b6gyswgdkk7pb" path="res://cutscenes/ending_cutscene/good_ending.gd" id="1_s70ew"]
+[ext_resource type="Script" uid="uid://dlgrteq5xyd5w" path="res://cutscenes/fading_sprite.gd" id="2_s70ew"]
+[ext_resource type="Texture2D" uid="uid://68ayiinmesaa" path="res://cutscenes/ending_cutscene/good2.png" id="3_8ij2b"]
 
-[node name="Label" type="Label" parent="." unique_id=50584950]
-offset_right = 40.0
-offset_bottom = 22.0
-text = "Good Ending Placeholder"
+[sub_resource type="Animation" id="Animation_s70ew"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Node2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_c14pj"]
+resource_name = "play_scene"
+length = 19.466667
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Node2D/Comic1Picture1")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.03333336),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fade_in"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Node2D/Comic1Picture2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4.0333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fade_in"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Node2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(-0.16666667, 0, 19.433332),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.1, 1.1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_imjug"]
+_data = {
+&"RESET": SubResource("Animation_s70ew"),
+&"play_scene": SubResource("Animation_c14pj")
+}
+
+[node name="GoodEnding" type="Node2D" unique_id=96105910]
+script = ExtResource("1_s70ew")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=275467982]
+layer = 30
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=15971778]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 1926.0
+offset_bottom = 1086.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer" unique_id=1376555044]
+position = Vector2(960, 540)
+
+[node name="Comic1Picture1" type="Sprite2D" parent="CanvasLayer/Node2D" unique_id=1402340287]
+self_modulate = Color(1, 1, 1, 0)
+texture_filter = 2
+position = Vector2(-1.0000005, 0)
+scale = Vector2(0.9785714, 0.96428573)
+texture = ExtResource("1_gug6m")
+script = ExtResource("2_s70ew")
+fade_in_time = 4.0
+fade_out_time = 4.0
+metadata/_custom_type_script = "uid://dlgrteq5xyd5w"
+
+[node name="Comic1Picture2" type="Sprite2D" parent="CanvasLayer/Node2D" unique_id=1768400689]
+self_modulate = Color(1, 1, 1, 0)
+texture_filter = 2
+scale = Vector2(0.9785714, 0.96428573)
+texture = ExtResource("3_8ij2b")
+script = ExtResource("2_s70ew")
+fade_in_time = 4.0
+fade_out_time = 4.0
+metadata/_custom_type_script = "uid://dlgrteq5xyd5w"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1838997394]
+libraries/ = SubResource("AnimationLibrary_imjug")

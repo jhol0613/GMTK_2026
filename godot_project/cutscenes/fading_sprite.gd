@@ -11,7 +11,7 @@ func _ready():
 
 func fade_in():
 	print("fading in")
-	create_tween().tween_property(self, "self_modulate:a", 1.0, 1.0)
+	create_tween().tween_property(self, "self_modulate:a", 1.0, fade_in_time)
 
 func fade_out():
-	create_tween().tween_property(self, "self_modulate:a", 0.0, 1.0)
+	create_tween().tween_property(self, "self_modulate:a", 0.0, fade_out_time)

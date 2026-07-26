@@ -1,8 +1,165 @@
 [gd_scene format=3 uid="uid://ccgkw37gtihti"]
 
-[node name="EndingCutscene" type="Node2D" unique_id=96105910]
+[ext_resource type="Script" uid="uid://da3uvf7mn2u2i" path="res://cutscenes/ending_cutscene/bad_ending.gd" id="1_rvaff"]
+[ext_resource type="Texture2D" uid="uid://4qg1vj516la1" path="res://cutscenes/ending_cutscene/bad1.png" id="2_rvaff"]
+[ext_resource type="Script" uid="uid://dlgrteq5xyd5w" path="res://cutscenes/fading_sprite.gd" id="3_fs276"]
+[ext_resource type="Texture2D" uid="uid://dlrgcox80q372" path="res://cutscenes/ending_cutscene/bad2.png" id="4_yhtuj"]
+[ext_resource type="Texture2D" uid="uid://xyxl2kfpsy52" path="res://interactables/sprites/dialogue_window.png" id="5_j8wbs"]
+[ext_resource type="Texture2D" uid="uid://bxby555s13ed1" path="res://character_portraits/player/mc_portrait_9.png" id="6_4hxt7"]
+[ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/resshan_label.gd" id="7_d5p1b"]
 
-[node name="Label" type="Label" parent="." unique_id=50584950]
-offset_right = 40.0
-offset_bottom = 22.0
-text = "Bad Ending Placeholder"
+[sub_resource type="Animation" id="Animation_s70ew"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Node2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Node2D2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_c14pj"]
+resource_name = "play_scene"
+length = 19.466667
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Node2D/Comic1Picture1")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.03333336),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fade_in"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Node2D/Comic1Picture2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4.0333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fade_in"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Node2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(-0.16666667, 0, 19.433332),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.1, 1.1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Node2D2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(5.0333333, 6.8333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4hxt7"]
+_data = {
+&"RESET": SubResource("Animation_s70ew"),
+&"play_scene": SubResource("Animation_c14pj")
+}
+
+[node name="EndingCutscene" type="Node2D" unique_id=96105910]
+script = ExtResource("1_rvaff")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1357069554]
+layer = 30
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1788254380]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 1926.0
+offset_bottom = 1086.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer" unique_id=1020679280]
+position = Vector2(960, 540)
+
+[node name="Comic1Picture1" type="Sprite2D" parent="CanvasLayer/Node2D" unique_id=545036155]
+self_modulate = Color(1, 1, 1, 0)
+texture_filter = 2
+position = Vector2(-1.0000005, 0)
+scale = Vector2(0.9785714, 0.96428573)
+texture = ExtResource("2_rvaff")
+script = ExtResource("3_fs276")
+fade_in_time = 4.0
+fade_out_time = 4.0
+metadata/_custom_type_script = "uid://dlgrteq5xyd5w"
+
+[node name="Comic1Picture2" type="Sprite2D" parent="CanvasLayer/Node2D" unique_id=1655975254]
+self_modulate = Color(1, 1, 1, 0)
+texture_filter = 2
+scale = Vector2(0.9785714, 0.96428573)
+texture = ExtResource("4_yhtuj")
+script = ExtResource("3_fs276")
+fade_in_time = 4.0
+fade_out_time = 4.0
+metadata/_custom_type_script = "uid://dlgrteq5xyd5w"
+
+[node name="Node2D2" type="Node2D" parent="CanvasLayer" unique_id=869709648]
+z_index = 9
+
+[node name="DialogueWindow" type="Sprite2D" parent="CanvasLayer/Node2D2" unique_id=1918917608]
+position = Vector2(958, 204.5)
+texture = ExtResource("5_j8wbs")
+
+[node name="McPortrait9" type="Sprite2D" parent="CanvasLayer/Node2D2" unique_id=113334552]
+position = Vector2(390.4059, 203.5)
+texture = ExtResource("6_4hxt7")
+
+[node name="ResshanLabel" type="Control" parent="CanvasLayer/Node2D2" unique_id=1448686825]
+texture_filter = 1
+custom_minimum_size = Vector2(680, 65)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 529.0
+offset_top = 112.5
+offset_right = 1475.1865
+offset_bottom = 206.5
+mouse_filter = 2
+script = ExtResource("7_d5p1b")
+text = "Maybe I'll make it next year..."
+font_size = 49
+metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2003462197]
+libraries/ = SubResource("AnimationLibrary_4hxt7")
