@@ -63,6 +63,7 @@ func _add_entry_to_the_page(encoded:String, initial_text = "") -> void:
 	var page: = _pages[_free_page]
 	if _first_entry:
 		initial_text = "I can take notes here!"
+		_first_entry = false
 	page._new_entry(encoded, initial_text)
 
 
