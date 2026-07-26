@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://d2ujnxq7ovb74" path="res://ui/arrow_icon.png" id="18_juy1h"]
 [ext_resource type="PackedScene" uid="uid://cit6uoxu58nwk" path="res://level_elements/maps/train_map.tscn" id="18_owf05"]
 [ext_resource type="PackedScene" uid="uid://baukigq6wfgs1" path="res://level_elements/ATM/atm.tscn" id="18_uuq13"]
+[ext_resource type="PackedScene" uid="uid://bavx6n5qxivtt" path="res://level_elements/decorative/plants/tiny_foliage.tscn" id="18_x1db4"]
 [ext_resource type="Texture2D" uid="uid://cnx2wdgdmxkv6" path="res://character_portraits/player/mc_portrait_1.png" id="19_ggct0"]
 [ext_resource type="Texture2D" uid="uid://dy3h6m8das3ut" path="res://levels/tileset/brickborder.png" id="19_gxks1"]
 [ext_resource type="PackedScene" uid="uid://dpexe87ps0d7f" path="res://level_elements/hourglass/hourglass.tscn" id="20_uuq13"]
@@ -620,7 +621,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/UpperTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.79364336
+frame_progress = 0.15639421
 
 [node name="LowerTrain" parent="Platform" index="7" unique_id=1370361982]
 next_scene = 2
@@ -632,7 +633,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/LowerTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.035089273
+frame_progress = 0.39785117
 
 [node name="TicketBooth" parent="." index="6" unique_id=861247956 instance=ExtResource("2_823pn")]
 position = Vector2(-1168, -368)
@@ -775,6 +776,52 @@ position = Vector2(-696, -296)
 
 [node name="Bench11" parent="Decorations" index="21" unique_id=1186735631 instance=ExtResource("25_vfwqd")]
 position = Vector2(-160, -280)
+
+[node name="TinyFoliage" parent="Decorations" index="22" unique_id=1245074896 instance=ExtResource("18_x1db4")]
+position = Vector2(-640, -320)
+
+[node name="TinyFoliage2" parent="Decorations" index="23" unique_id=628061392 instance=ExtResource("18_x1db4")]
+position = Vector2(-632, -312)
+
+[node name="TinyFoliage3" parent="Decorations" index="24" unique_id=1260668724 instance=ExtResource("18_x1db4")]
+position = Vector2(-488, -272)
+anim = 1
+
+[node name="TinyFoliage4" parent="Decorations" index="25" unique_id=1328868348 instance=ExtResource("18_x1db4")]
+position = Vector2(-216, -272)
+anim = 2
+
+[node name="TinyFoliage5" parent="Decorations" index="26" unique_id=939238281 instance=ExtResource("18_x1db4")]
+position = Vector2(-208, -256)
+anim = 2
+
+[node name="TinyFoliage6" parent="Decorations" index="27" unique_id=1263631054 instance=ExtResource("18_x1db4")]
+position = Vector2(-184, -264)
+anim = 2
+
+[node name="TinyFoliage7" parent="Decorations" index="28" unique_id=1822984679 instance=ExtResource("18_x1db4")]
+position = Vector2(-824, -232)
+anim = 2
+
+[node name="TinyFoliage8" parent="Decorations" index="29" unique_id=961369174 instance=ExtResource("18_x1db4")]
+position = Vector2(-1288, -240)
+anim = 1
+
+[node name="TinyFoliage9" parent="Decorations" index="30" unique_id=1977011896 instance=ExtResource("18_x1db4")]
+position = Vector2(-1312, -248)
+anim = 1
+
+[node name="TinyFoliage10" parent="Decorations" index="31" unique_id=2070208294 instance=ExtResource("18_x1db4")]
+position = Vector2(-1104, -512)
+anim = 2
+
+[node name="TinyFoliage11" parent="Decorations" index="32" unique_id=1538031288 instance=ExtResource("18_x1db4")]
+position = Vector2(-1128, -504)
+anim = 2
+
+[node name="TinyFoliage12" parent="Decorations" index="33" unique_id=1645346933 instance=ExtResource("18_x1db4")]
+position = Vector2(-1112, -480)
+anim = 2
 
 [node name="Blue" parent="Background" parent_id_path=PackedInt32Array(102847613) index="0" unique_id=1690243240]
 repeat_times = 5
