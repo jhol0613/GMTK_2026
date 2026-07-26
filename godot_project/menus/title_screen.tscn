@@ -44,23 +44,33 @@ position = Vector2(959.99994, 540.5)
 scale = Vector2(3.9999998, 4.055556)
 texture = ExtResource("2_2pwrd")
 
-[node name="Clouds" type="Sprite2D" parent="Background" unique_id=914303693]
-z_index = -2
-position = Vector2(959.99994, 540.5)
-scale = Vector2(3.9999998, 4.055556)
-texture = ExtResource("3_2pwrd")
-
-[node name="Islands" type="Sprite2D" parent="Background" unique_id=1358127319]
-z_index = -2
-position = Vector2(959.99994, 540.5)
-scale = Vector2(3.9999998, 4.055556)
-texture = ExtResource("4_kc2cy")
-
 [node name="Blue" type="Sprite2D" parent="Background" unique_id=27265599]
 z_index = -4
 position = Vector2(959.99994, 540.5)
 scale = Vector2(3.9999998, 4.055556)
 texture = ExtResource("5_823ok")
+
+[node name="Parallax2D" type="Parallax2D" parent="Background" unique_id=2018599636]
+repeat_size = Vector2(1920, 1080)
+autoscroll = Vector2(1.5, 2)
+repeat_times = 2
+
+[node name="Clouds" type="Sprite2D" parent="Background/Parallax2D" unique_id=914303693]
+z_index = -2
+position = Vector2(959.99994, 540.5)
+scale = Vector2(3.9999998, 4.055556)
+texture = ExtResource("3_2pwrd")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Background" unique_id=186765825]
+repeat_size = Vector2(1920, 1080)
+autoscroll = Vector2(4, 5)
+repeat_times = 2
+
+[node name="Islands" type="Sprite2D" parent="Background/Parallax2D2" unique_id=1358127319]
+z_index = -2
+position = Vector2(959.99994, 540.5)
+scale = Vector2(3.9999998, 4.055556)
+texture = ExtResource("4_kc2cy")
 
 [connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Buttons/OptionsButton" to="." method="_on_options_button_pressed"]
