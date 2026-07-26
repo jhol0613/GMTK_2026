@@ -16,6 +16,7 @@ func _new_entry(encoded:String, initial_text = "") -> void:
 	entry.player_input.text = initial_text
 	entry.add_resshan(encoded)
 	entry.tree_exiting.connect(_remove_entry.bind(entry))
+	entry.player_input.text_changed.connect(_handle_entry_update.bind(encoded))
 	entries_count += 1
 	entries.append(entry)
 	if entries_count == LIMIT:
@@ -25,3 +26,6 @@ func _remove_entry(entry:NotebookEntry) -> void:
 	entries_count -= 1
 	entries.erase(entry)
 	entry_removed.emit()
+
+func _handle_entry_update(encoded:String, new_text:String) -> void:
+	Notebook.player_vocab[encoded] = new_text

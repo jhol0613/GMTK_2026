@@ -9,6 +9,9 @@ size = Vector2(14, 14)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qbyu3"]
 size = Vector2(14, 14)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fpcxu"]
+size = Vector2(32, 32)
+
 [node name="Bathroom" type="Node2D" unique_id=1865459548]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=850273726]
@@ -36,3 +39,10 @@ metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ResshanInteractable2" unique_id=724074747]
 shape = SubResource("RectangleShape2D_qbyu3")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1851161100]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=207105593]
+position = Vector2(16, -16)
+shape = SubResource("RectangleShape2D_fpcxu")
