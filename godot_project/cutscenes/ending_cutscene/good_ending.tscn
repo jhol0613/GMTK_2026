@@ -110,7 +110,7 @@ fade_in_time = 4.0
 fade_out_time = 4.0
 metadata/_custom_type_script = "uid://dlgrteq5xyd5w"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1838997394]
+[node name="GoodEndingPlayer" type="AnimationPlayer" parent="." unique_id=1838997394]
 libraries/ = SubResource("AnimationLibrary_imjug")
 
 [node name="IntroAudio" type="AudioStreamPlayer" parent="."]

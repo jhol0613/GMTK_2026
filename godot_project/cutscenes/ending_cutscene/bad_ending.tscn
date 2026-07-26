@@ -162,7 +162,7 @@ text = "Maybe I'll make it next year..."
 font_size = 49
 metadata/_custom_type_script = "uid://sidowamkhcrt"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2003462197]
+[node name="BadEndingPlayer" type="AnimationPlayer" parent="." unique_id=2003462197]
 libraries/ = SubResource("AnimationLibrary_4hxt7")
 
 [node name="EndingAudio" type="AudioStreamPlayer" parent="." unique_id=223734379]

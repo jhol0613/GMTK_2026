@@ -214,7 +214,7 @@ bus = &"SFX"
 [node name="TimeUpSound" type="AudioStreamPlayer" parent="." unique_id=980859308]
 bus = &"SFX"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=746603066]
+[node name="UIAnimationPlayer" type="AnimationPlayer" parent="." unique_id=746603066]
 libraries/ = SubResource("AnimationLibrary_time_up")
 
 [connection signal="mouse_entered" from="NotebookButton" to="." method="_on_notebook_button_mouse_entered"]

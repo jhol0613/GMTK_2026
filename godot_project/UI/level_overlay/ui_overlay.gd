@@ -5,7 +5,7 @@ var magnifying_glass = load("uid://c8n3by2cmh20k")
 var pen = load("uid://c8yj5np7nrak6")
 
 @onready var _time := $Time
-@onready var _animation_player: AnimationPlayer = $AnimationPlayer
+@onready var _animation_player: AnimationPlayer = $UIAnimationPlayer
 @onready var _notebook := $Notebook
 @onready var _notebook_button := $NotebookButton
 @onready var _ticket_button := $TicketButton
