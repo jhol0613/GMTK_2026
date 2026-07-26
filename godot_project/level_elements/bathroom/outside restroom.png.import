@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bogm6imvrrjwr"
-path="res://.godot/imported/Solardecor1.png-605c15e79e0c8dd4a5e7e93d25b41006.ctex"
+uid="uid://70v4pred1q71"
+path="res://.godot/imported/outside restroom.png-2aaee4847ad657591c9f299a4750dcb0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level_elements/decorative/Solardecor1.png"
-dest_files=["res://.godot/imported/Solardecor1.png-605c15e79e0c8dd4a5e7e93d25b41006.ctex"]
+source_file="res://level_elements/bathroom/outside restroom.png"
+dest_files=["res://.godot/imported/outside restroom.png-2aaee4847ad657591c9f299a4750dcb0.ctex"]
 
 [params]
 
