@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c8n3by2cmh20k"
-path="res://.godot/imported/magnifying_glass_icon.png-74ef9aceb29ba1cd6cd639e0b3739bdd.ctex"
+path="res://.godot/imported/magnifying_glass_icon.png-24187d5b19f247ab5befc1e3f1130695.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/magnifying_glass_icon.png"
-dest_files=["res://.godot/imported/magnifying_glass_icon.png-74ef9aceb29ba1cd6cd639e0b3739bdd.ctex"]
+source_file="res://UI/magnifying_glass_icon.png"
+dest_files=["res://.godot/imported/magnifying_glass_icon.png-24187d5b19f247ab5befc1e3f1130695.ctex"]
 
 [params]
 
