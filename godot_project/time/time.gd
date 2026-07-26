@@ -29,6 +29,7 @@ var _has_previous_time: bool = false
 func _ready() -> void:
 	sfx_player.bus = AudioManager.SFX_BUS
 	TimeManager.time_changed.connect(_on_time_changed)
+	TimeManager.flash_requested.connect(_flash_timer)
 	TimeManager.sync_from_ui(start_hour, start_minute, start_second)
 	_update_label(TimeManager.hour, TimeManager.minute, TimeManager.second)
 
@@ -44,18 +45,19 @@ func _on_time_changed(
 ) -> void:
 	_update_label(hour, minute, second)
 
+	var reached_zero := hour == 0 and minute == 0 and second == 0
+	if reached_zero:
+		_previous_hour = hour
+		_previous_minute = minute
+		_previous_second = second
+		_has_previous_time = true
+		return
+
 	if _has_previous_time:
 		if minute != _previous_minute or hour != _previous_hour:
-			_play_clock_sound(
-				minute_change_sound,
-				minute_volume_db
-			)
-
+			_play_clock_sound(minute_change_sound, minute_volume_db)
 		elif second != _previous_second:
-			_play_clock_sound(
-				second_change_sound,
-				second_volume_db
-			)
+			_play_clock_sound(second_change_sound, second_volume_db)
 
 	_previous_hour = hour
 	_previous_minute = minute
@@ -69,31 +71,25 @@ func _on_time_changed(
 	tween.set_ease(Tween.EASE_IN)
 	tween.set_trans(Tween.TRANS_BACK)
 
-	tween.tween_property(
-		self,
-		"scale:x",
-		1.2,
-		0.2
-	)
-	tween.parallel().tween_property(
-		self,
-		"scale:y",
-		1.2,
-		0.2
-	)
+	tween.tween_property(self, "scale:x", 1.2, 0.2)
+	tween.parallel().tween_property(self, "scale:y", 1.2, 0.2)
+	tween.tween_property(self, "scale:x", 1.0, 0.2)
+	tween.parallel().tween_property(self, "scale:y", 1.0, 0.2)
 
-	tween.tween_property(
-		self,
-		"scale:x",
-		1.0,
-		0.2
-	)
-	tween.parallel().tween_property(
-		self,
-		"scale:y",
-		1.0,
-		0.2
-	)
+
+## Play last second juice
+func tick_second() -> void:
+	_play_clock_sound(second_change_sound, second_volume_db)
+	if tween and tween.is_running():
+		tween.kill()
+	tween = create_tween()
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tween.set_ease(Tween.EASE_IN)
+	tween.set_trans(Tween.TRANS_BACK)
+	tween.tween_property(self, "scale:x", 1.2, 0.2)
+	tween.parallel().tween_property(self, "scale:y", 1.2, 0.2)
+	tween.tween_property(self, "scale:x", 1.0, 0.2)
+	tween.parallel().tween_property(self, "scale:y", 1.0, 0.2)
 
 
 func _update_label(hour: int, minute: int, second: int) -> void:

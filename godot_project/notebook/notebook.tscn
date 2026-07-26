@@ -105,6 +105,8 @@ bus = &"SFX"
 
 [node name="EntryAdded" type="AudioStreamPlayer" parent="." unique_id=971808126]
 stream = SubResource("AudioStreamRandomizer_ujtin")
+volume_db = 8.0
+bus = &"SFX"
 
 [connection signal="pressed" from="NextPage" to="." method="_on_previous_page_pressed"]
 [connection signal="pressed" from="PreviousPage" to="." method="_on_next_page_pressed"]

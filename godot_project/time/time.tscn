@@ -10,6 +10,7 @@
 texture = ExtResource("2_ss088")
 
 [node name="Time" type="Control" unique_id=1094747133]
+texture_filter = 2
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -40,7 +41,7 @@ texture = ExtResource("2_ss088")
 
 [node name="Label" type="Control" parent="." unique_id=331463616]
 texture_filter = 1
-custom_minimum_size = Vector2(22, 34)
+custom_minimum_size = Vector2(21, 32)
 anchors_preset = 0
 offset_left = 76.0
 offset_top = 64.0

@@ -25,6 +25,7 @@ func load_scene(
 	_transition_in_time = transition_in_time
 
 	pause_enabled = false
+	get_tree().paused = false
 
 	match transition_style:
 		Enums.TransitionStyle.FADEINOUT:

@@ -2,6 +2,7 @@ extends Node
 
 signal time_changed(hour: int, minute: int, second: int)
 signal flash_requested
+signal time_up
 
 const SECONDS_PER_MINUTE: int = 8
 const MINUTES_PER_HOUR: int = 8
@@ -16,6 +17,7 @@ var _skip_intro_on_reload: bool = false
 var _pending_wrong_train_dialogue: bool = false
 
 var _pending_flash: bool = false
+var _time_up_emitted: bool = false
 
 
 func _ready() -> void:
@@ -34,10 +36,14 @@ func reset(start_hour: int = HOURS_PER_DAY, start_minute: int = 0, start_second:
 	hour = start_hour
 	minute = start_minute
 	second = start_second
+	_time_up_emitted = total_seconds() <= 0
 	time_changed.emit(hour, minute, second)
 
 
 func advance(amount: int = 1) -> void:
+	if total_seconds() <= 0:
+		return
+
 	second -= amount
 	while second < 0:
 		minute -= 1
@@ -45,10 +51,21 @@ func advance(amount: int = 1) -> void:
 	while minute < 0:
 		hour -= 1
 		minute += MINUTES_PER_HOUR
-	if hour < 0:
+	if hour < 0 or total_seconds() <= 0:
 		hour = 0
 		minute = 0
+		second = 0
+		time_changed.emit(hour, minute, second)
+		_emit_time_up()
+		return
 	time_changed.emit(hour, minute, second)
+
+
+func _emit_time_up() -> void:
+	if _time_up_emitted:
+		return
+	_time_up_emitted = true
+	time_up.emit()
 
 
 func total_seconds() -> int:
@@ -56,14 +73,19 @@ func total_seconds() -> int:
 
 
 ## Countdown "now + offset" → remaining time after offset minutes elapse.
-func remaining_after_offset(offset_hours: int, offset_minutes: int, offset_seconds: int) -> Vector3i:
-	var total := total_seconds() - (offset_hours * MINUTES_PER_HOUR * SECONDS_PER_MINUTE + offset_minutes * SECONDS_PER_MINUTE + offset_seconds)
+func remaining_after_offset(
+	offset_hours: int,
+	offset_minutes: int,
+	offset_seconds: int,
+) -> Vector3i:
+	var total := total_seconds() - (offset_hours * MINUTES_PER_HOUR * SECONDS_PER_MINUTE
+	+ offset_minutes * SECONDS_PER_MINUTE + offset_seconds)
 	total = maxi(total, 0)
 	var seconds_per_hour := MINUTES_PER_HOUR * SECONDS_PER_MINUTE
 	return Vector3i(
 		total / seconds_per_hour,
 		(total % seconds_per_hour) / SECONDS_PER_MINUTE,
-		total % SECONDS_PER_MINUTE,
+		(total % seconds_per_hour) % SECONDS_PER_MINUTE,
 	)
 
 
@@ -72,10 +94,14 @@ func remaining_after_offset(offset_hours: int, offset_minutes: int, offset_secon
 func has_at_least(target_hour: int, target_minute: int, target_second: int) -> bool:
 	return total_seconds() >= (
 		target_hour * MINUTES_PER_HOUR * SECONDS_PER_MINUTE
-		+ target_minute * SECONDS_PER_MINUTE
-		+ target_second
+		+ target_minute * SECONDS_PER_MINUTE + target_second
 	)
 
+
+## Apply a time penalty in-place and flash the clock.
+func apply_penalty(amount: int) -> void:
+	advance(amount)
+	flash_requested.emit()
 
 
 ## Stash the current time before reloading the game.
@@ -91,6 +117,7 @@ func stash_before_reload(penalty_seconds: int) -> void:
 func sync_from_ui(start_hour: int, start_minute: int, start_second: int) -> void:
 	if _preserve_across_reload:
 		_preserve_across_reload = false
+		_time_up_emitted = total_seconds() <= 0
 		time_changed.emit(hour, minute, second)
 		return
 	reset(start_hour, start_minute, start_second)

@@ -11,6 +11,16 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_button_pressed() -> void:
+func _on_play_button_pressed() -> void:
 	GameManager.load_scene(Enums.Scenes.LEVEL_0)
+	pass # Replace with function body.
+
+
+func _on_options_button_pressed() -> void:
+	GameManager.load_scene(Enums.Scenes.OPTIONS)
+	pass # Replace with function body.
+
+
+func _on_quit_button_pressed() -> void:
+	get_tree().quit()
 	pass # Replace with function body.

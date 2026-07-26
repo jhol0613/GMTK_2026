@@ -21,6 +21,9 @@ const LEVEL_1_BGM: AudioStream = preload(
 	"res://levels/You TRAINed for this copy.mp3"
 )
 
+const LEVEL_0_MUSIC_DB: float = -8.0
+const LEVEL_1_MUSIC_DB: float = -8.0
+
 const TRIPPED_BGM: AudioStream = preload(
 	"res://bgm/Tripped and Lost v2.mp3"
 )
@@ -125,6 +128,7 @@ func start_level_music(
 	var this_sequence := _sequence_id
 
 	_level_music_track = track
+	_music_target_db = _get_level_music_volume(track)
 	_notebook_is_open = false
 
 	_stop_all_music_tweens()
@@ -409,3 +413,13 @@ func _set_bus_volume(
 			index,
 			linear_to_db(value)
 		)
+
+func _get_level_music_volume(track: int) -> float:
+	match track:
+		MusicTrack.LEVEL_0:
+			return LEVEL_0_MUSIC_DB
+
+		MusicTrack.LEVEL_1:
+			return LEVEL_1_MUSIC_DB
+
+	return DEFAULT_MUSIC_DB

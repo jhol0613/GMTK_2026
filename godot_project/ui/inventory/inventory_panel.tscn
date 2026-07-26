@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://deyhkqpvtwhsg"]
+
+[ext_resource type="Script" uid="uid://dnm5enmq0tluh" path="res://ui/inventory/inventory_panel.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://dfbg5i3l81fti" path="res://ui/inventory/inventory_slot.png" id="2_slot"]
+
+[node name="InventoryPanel" type="Control" unique_id=1624485018]
+texture_filter = 2
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -370.0
+offset_top = -160.0
+offset_right = 370.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_script")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1202533034]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 708.0
+offset_bottom = 288.0
+theme_override_constants/separation = 16
+
+[node name="Slots" type="HBoxContainer" parent="VBoxContainer" unique_id=1604016567]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="Slot1" type="TextureRect" parent="VBoxContainer/Slots" unique_id=388756598]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = ExtResource("2_slot")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Slot1Icon" type="TextureRect" parent="VBoxContainer/Slots/Slot1" unique_id=1672142477]
+unique_name_in_owner = true
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = 22.0
+offset_right = -22.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Slot2" type="TextureRect" parent="VBoxContainer/Slots" unique_id=1514983281]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = ExtResource("2_slot")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Slot2Icon" type="TextureRect" parent="VBoxContainer/Slots/Slot2" unique_id=1463141831]
+unique_name_in_owner = true
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = 22.0
+offset_right = -22.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Slot3" type="TextureRect" parent="VBoxContainer/Slots" unique_id=951460956]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = ExtResource("2_slot")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Slot3Icon" type="TextureRect" parent="VBoxContainer/Slots/Slot3" unique_id=1329048992]
+unique_name_in_owner = true
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = 22.0
+offset_right = -22.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Slot4" type="TextureRect" parent="VBoxContainer/Slots" unique_id=405363349]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = ExtResource("2_slot")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Slot4Icon" type="TextureRect" parent="VBoxContainer/Slots/Slot4" unique_id=1041293691]
+unique_name_in_owner = true
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = 22.0
+offset_right = -22.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
