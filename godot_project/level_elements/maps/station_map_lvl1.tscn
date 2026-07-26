@@ -3,9 +3,17 @@
 [ext_resource type="Texture2D" uid="uid://bewm0bsk4t4i2" path="res://level_elements/maps/lvl1map_2.png" id="1_frvyr"]
 [ext_resource type="PackedScene" uid="uid://i202174cj82c" path="res://interactables/sign_interactable.tscn" id="2_frvyr"]
 [ext_resource type="PackedScene" uid="uid://0h6rwq0bq753" path="res://interactables/sign_panel.tscn" id="3_lrc8v"]
+[ext_resource type="Texture2D" uid="uid://d1v8h2a68eh6h" path="res://level_elements/maps/lvl1_station_map.png" id="4_lrc8v"]
+[ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="5_i6pvm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]
 size = Vector2(47, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fpcxu"]
+size = Vector2(62.337402, 64.93509)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i6pvm"]
+size = Vector2(193.50656, 193.50641)
 
 [node name="StationMapLvl1" type="Node2D" unique_id=1108949590]
 
@@ -27,6 +35,236 @@ panel_path = NodePath("../SignPanel")
 [node name="CollisionShape2D" parent="SignInteractable" index="0" unique_id=278382881]
 position = Vector2(0, 37)
 
+[node name="Prompt" parent="SignInteractable" index="1" unique_id=272794898]
+custom_minimum_size = Vector2(75, 168)
+
 [node name="SignPanel" parent="." unique_id=1998267979 instance=ExtResource("3_lrc8v")]
 
+[node name="Sprite2D" type="Sprite2D" parent="SignPanel/Root/Popup" parent_id_path=PackedInt32Array(1998267979, 2123670025) index="1" unique_id=13954861]
+position = Vector2(250, 250)
+scale = Vector2(0.77, 0.77)
+texture = ExtResource("4_lrc8v")
+
+[node name="1" type="Area2D" parent="SignPanel/Root/Popup/Sprite2D" unique_id=773933255]
+position = Vector2(-405.1948, 5.194805)
+script = ExtResource("5_i6pvm")
+_string = "<<1>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Sprite2D/1" unique_id=288741517]
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_fpcxu")
+
+[node name="plat1" type="Area2D" parent="SignPanel/Root/Popup/Sprite2D" unique_id=1000955129]
+position = Vector2(-468.83115, 5.194805)
+script = ExtResource("5_i6pvm")
+_string = "<<station>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Sprite2D/plat1" unique_id=69558661]
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_fpcxu")
+
+[node name="plat2" type="Area2D" parent="SignPanel/Root/Popup/Sprite2D" unique_id=516069348]
+position = Vector2(420.77927, -497.40262)
+script = ExtResource("5_i6pvm")
+_string = "<<station>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Sprite2D/plat2" unique_id=166816419]
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_fpcxu")
+
+[node name="plat3" type="Area2D" parent="SignPanel/Root/Popup/Sprite2D" unique_id=1425362039]
+position = Vector2(418.18185, -161.03899)
+script = ExtResource("5_i6pvm")
+_string = "<<station>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Sprite2D/plat3" unique_id=2036158393]
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_fpcxu")
+
+[node name="plat4" type="Area2D" parent="SignPanel/Root/Popup/Sprite2D" unique_id=1299565424]
+position = Vector2(-180.5195, -331.16882)
+script = ExtResource("5_i6pvm")
+_string = "<<station>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Sprite2D/plat4" unique_id=1161194464]
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_fpcxu")
+
+[node name="north" type="Area2D" parent="SignPanel/Root/Popup/Sprite2D" unique_id=913632572]
+position = Vector2(-432.46756, -538.96106)
+script = ExtResource("5_i6pvm")
+_string = "<<north>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Sprite2D/north" unique_id=1398069652]
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_fpcxu")
+
+[node name="east" type="Area2D" parent="SignPanel/Root/Popup/Sprite2D" unique_id=1779994189]
+position = Vector2(-324.67535, -432.46756)
+script = ExtResource("5_i6pvm")
+_string = "<<east>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Sprite2D/east" unique_id=698744437]
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_fpcxu")
+
+[node name="west" type="Area2D" parent="SignPanel/Root/Popup/Sprite2D" unique_id=531410853]
+position = Vector2(-540.25977, -432.46756)
+script = ExtResource("5_i6pvm")
+_string = "<<west>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Sprite2D/west" unique_id=1758805517]
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_fpcxu")
+
+[node name="south" type="Area2D" parent="SignPanel/Root/Popup/Sprite2D" unique_id=577204954]
+position = Vector2(-432.46756, -325.97406)
+script = ExtResource("5_i6pvm")
+_string = "<<south>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Sprite2D/south" unique_id=15365145]
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_fpcxu")
+
+[node name="bathroom" type="Area2D" parent="SignPanel/Root/Popup/Sprite2D" unique_id=1471857691]
+position = Vector2(-54.54547, 90.90909)
+script = ExtResource("5_i6pvm")
+_string = "<<bathroom>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Sprite2D/bathroom" unique_id=872074823]
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_fpcxu")
+
+[node name="bathroom1" type="Area2D" parent="SignPanel/Root/Popup/Sprite2D" unique_id=1453070310]
+position = Vector2(63.636345, 88.31168)
+script = ExtResource("5_i6pvm")
+_string = "<<bathroom>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Sprite2D/bathroom1" unique_id=1716901952]
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_fpcxu")
+
+[node name="map" type="Area2D" parent="SignPanel/Root/Popup/Sprite2D" unique_id=623964985]
+position = Vector2(-87.01301, 220.7792)
+script = ExtResource("5_i6pvm")
+_string = "<<map>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Sprite2D/map" unique_id=139933428]
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_fpcxu")
+
+[node name="map2" type="Area2D" parent="SignPanel/Root/Popup/Sprite2D" unique_id=185718580]
+position = Vector2(2.5973816, 220.7792)
+script = ExtResource("5_i6pvm")
+_string = "<<map>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Sprite2D/map2" unique_id=978262972]
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_fpcxu")
+
+[node name="map3" type="Area2D" parent="SignPanel/Root/Popup/Sprite2D" unique_id=237438418]
+position = Vector2(93.50647, 220.7792)
+script = ExtResource("5_i6pvm")
+_string = "<<map>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Sprite2D/map3" unique_id=806972055]
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_fpcxu")
+
+[node name="store" type="Area2D" parent="SignPanel/Root/Popup/Sprite2D" unique_id=262289895]
+position = Vector2(155.84413, 355.84415)
+script = ExtResource("5_i6pvm")
+_string = "<<store>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Sprite2D/store" unique_id=940419087]
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_fpcxu")
+
+[node name="ticket" type="Area2D" parent="SignPanel/Root/Popup/Sprite2D" unique_id=416235160]
+position = Vector2(2.5973816, 385.71426)
+script = ExtResource("5_i6pvm")
+_string = "<<ticket>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Sprite2D/ticket" unique_id=1684775226]
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_fpcxu")
+
+[node name="money" type="Area2D" parent="SignPanel/Root/Popup/Sprite2D" unique_id=1738004075]
+position = Vector2(-159.74028, 435.0649)
+script = ExtResource("5_i6pvm")
+_string = "<<money>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Sprite2D/money" unique_id=1507168978]
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_fpcxu")
+
+[node name="machine" type="Area2D" parent="SignPanel/Root/Popup/Sprite2D" unique_id=1399368203]
+position = Vector2(-97.40262, 435.0649)
+script = ExtResource("5_i6pvm")
+_string = "<<machine>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Sprite2D/machine" unique_id=1408091134]
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_fpcxu")
+
+[node name="station1" type="Area2D" parent="SignPanel/Root/Popup/Sprite2D" unique_id=861550460]
+position = Vector2(-415.58444, 422.0779)
+script = ExtResource("5_i6pvm")
+_string = "<<station.1>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Sprite2D/station1" unique_id=247641659]
+position = Vector2(1.2987013, -2.5974026)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_i6pvm")
+
+[node name="2" type="Area2D" parent="SignPanel/Root/Popup/Sprite2D" unique_id=2016696571]
+position = Vector2(484.41556, -497.4026)
+script = ExtResource("5_i6pvm")
+_string = "<<2>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Sprite2D/2" unique_id=448950809]
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_fpcxu")
+
+[node name="3" type="Area2D" parent="SignPanel/Root/Popup/Sprite2D" unique_id=429770136]
+position = Vector2(481.81818, -161.03899)
+script = ExtResource("5_i6pvm")
+_string = "<<3>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Sprite2D/3" unique_id=640550435]
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_fpcxu")
+
+[node name="4" type="Area2D" parent="SignPanel/Root/Popup/Sprite2D" unique_id=1066977275]
+position = Vector2(-116.8831, -331.16885)
+script = ExtResource("5_i6pvm")
+_string = "<<4>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Sprite2D/4" unique_id=886765118]
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_fpcxu")
+
 [editable path="SignInteractable"]
+[editable path="SignPanel"]
