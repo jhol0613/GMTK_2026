@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://cnx2wdgdmxkv6" path="res://character_portraits/player/mc_portrait_1.png" id="19_ggct0"]
 [ext_resource type="Texture2D" uid="uid://dy3h6m8das3ut" path="res://levels/tileset/brickborder.png" id="19_gxks1"]
 [ext_resource type="PackedScene" uid="uid://dpexe87ps0d7f" path="res://level_elements/hourglass/hourglass.tscn" id="20_uuq13"]
+[ext_resource type="Texture2D" uid="uid://bhn6gjy4u51qd" path="res://level_elements/decorative/exit_gradient.png" id="23_2sfss"]
 [ext_resource type="AudioStream" uid="uid://dlip7tol2c20x" path="res://notebook/Keeping TRACK of my Notes demo.mp3" id="23_8mki0"]
 [ext_resource type="PackedScene" uid="uid://dcsei1m2axnjk" path="res://level_elements/decorative/bench.tscn" id="23_gxks1"]
 [ext_resource type="PackedScene" uid="uid://b3rra7yj17p2b" path="res://level_elements/decorative/bench_snoozin.tscn" id="24_gxks1"]
@@ -635,7 +636,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/UpperTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.6910889
+frame_progress = 0.93258786
 
 [node name="LowerTrain" parent="Platform" index="7" unique_id=1370361982]
 next_scene = 2
@@ -644,7 +645,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/LowerTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.93254495
+frame_progress = 0.17404382
 
 [node name="LevelAudioController" type="Node2D" parent="." index="6" unique_id=217677735]
 script = ExtResource("12_p0s0h")
@@ -702,6 +703,12 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelExitBarrier" index="0" unique_id=2026774426]
 position = Vector2(56, 16)
 shape = SubResource("RectangleShape2D_fpcxu")
+
+[node name="ExitGradient" type="Sprite2D" parent="LevelExitBarrier" index="1" unique_id=643193553]
+z_index = 5
+position = Vector2(56.000004, -32)
+scale = Vector2(0.87500006, 1)
+texture = ExtResource("23_2sfss")
 
 [node name="Decorations" type="Node2D" parent="." index="13" unique_id=192914961]
 y_sort_enabled = true

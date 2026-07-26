@@ -1,11 +1,9 @@
 [gd_scene format=3 uid="uid://baukigq6wfgs1"]
 
+[ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialogue_interactable.tscn" id="1_5sl07"]
 [ext_resource type="Texture2D" uid="uid://d3a648lgo0wqh" path="res://level_elements/ATM/ATM_broken.png" id="1_df8qj"]
 [ext_resource type="Texture2D" uid="uid://bodxnyj4yyn7c" path="res://level_elements/ATM/ATM.png" id="2_5sl07"]
-[ext_resource type="Script" uid="uid://bi61ptmirslbj" path="res://interactables/dialogue_interactable.gd" id="3_de0lt"]
-[ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/resshan_label.gd" id="4_5sl07"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="4_dfvvi"]
-[ext_resource type="AudioStream" uid="uid://depqietaoj2si" path="res://level_elements/ATM/ATMTurnOn.mp3" id="6_de0lt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ylf28"]
 atlas = ExtResource("1_df8qj")
@@ -62,9 +60,6 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cmhjf"]
-size = Vector2(29.5, 16)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1w4un"]
 size = Vector2(46.5, 14)
 
@@ -74,42 +69,17 @@ size = Vector2(8.5, 8)
 [node name="ATM" type="Node2D" unique_id=124595741]
 z_index = 1
 
+[node name="DialogueInteractable" parent="." unique_id=1631350735 instance=ExtResource("1_5sl07")]
+
+[node name="Prompt" parent="DialogueInteractable" index="1" unique_id=272794898]
+offset_top = -207.0
+offset_bottom = -39.0
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1776144098]
 y_sort_enabled = true
 position = Vector2(0, -57)
 sprite_frames = SubResource("SpriteFrames_fpcxu")
 frame_progress = 0.6529543
-
-[node name="DialogueInteractable" type="Area2D" parent="." unique_id=1894356249 node_paths=PackedStringArray("turn_on_sound")]
-position = Vector2(0, -65)
-script = ExtResource("3_de0lt")
-turn_on_sound = NodePath("ATMTurnON")
-metadata/_custom_type_script = "uid://bi61ptmirslbj"
-
-[node name="ATMTurnON" type="AudioStreamPlayer" parent="DialogueInteractable" unique_id=849463408]
-stream = ExtResource("6_de0lt")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueInteractable" unique_id=1443245986]
-z_index = 1
-position = Vector2(0, 65)
-shape = SubResource("RectangleShape2D_cmhjf")
-
-[node name="Prompt" type="Control" parent="DialogueInteractable" unique_id=754325276]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(55, 23)
-layout_mode = 3
-anchors_preset = 0
-offset_left = -37.0
-offset_top = -69.0
-offset_right = 79.0
-offset_bottom = -46.0
-size_flags_horizontal = 4
-mouse_filter = 2
-script = ExtResource("4_5sl07")
-text = "Press E"
-metadata/_custom_type_script = "uid://sidowamkhcrt"
-metadata/_edit_use_anchors_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1122527182]
 z_index = 1
@@ -138,3 +108,5 @@ metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ResshanInteractable2" unique_id=835999535]
 shape = SubResource("RectangleShape2D_ld73o")
+
+[editable path="DialogueInteractable"]

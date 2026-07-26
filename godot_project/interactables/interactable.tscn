@@ -15,22 +15,34 @@ position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_riqys")
 
 [node name="Prompt" type="Control" parent="." unique_id=272794898]
+modulate = Color(1, 0.9764706, 0.827451, 1)
 texture_filter = 1
-custom_minimum_size = Vector2(55, 23)
+custom_minimum_size = Vector2(74, 168)
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -27.5
-offset_top = -74.0
-offset_right = 27.5
-offset_bottom = -51.0
+offset_left = -37.0
+offset_top = -140.0
+offset_right = 37.0
+offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(0.125, 0.125)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+offset_transform_scale = Vector2(0.125, 0.125)
 mouse_filter = 2
 script = ExtResource("2_7t3he")
-text = "Press E"
+text = "E"
 spacing = 5.265
+font_size = 128
 metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="Polygon2D" type="Polygon2D" parent="Prompt" unique_id=917238640]
+z_index = -1
+position = Vector2(-3.0000038, 28)
+scale = Vector2(80, 112.00001)
+color = Color(0.1764706, 0.12941177, 0.21568628, 0.5019608)
+polygon = PackedVector2Array(0, 0, 1, 0, 1, 1, 0, 1)

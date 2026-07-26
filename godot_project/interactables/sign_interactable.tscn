@@ -4,6 +4,11 @@
 [ext_resource type="Script" uid="uid://bh5gbc3cadp3r" path="res://interactables/sign_interactable.gd" id="2_script"]
 
 [node name="SignInteractable" unique_id=1631350735 instance=ExtResource("1_base")]
+texture_filter = 1
 script = ExtResource("2_script")
 title = "Sign"
 panel_path = NodePath("")
+minutes_cost = 1
+
+[node name="Prompt" parent="." index="1" unique_id=272794898]
+custom_minimum_size = Vector2(52, 22)
