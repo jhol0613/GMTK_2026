@@ -136,6 +136,7 @@ func _missed_departure_sequence() -> void:
 
 ## Flashes a light on and off for a given number of times
 func _flash_reject(light: Sprite2D, flashes: int = 3, interval: float = 0.5) -> void:
+	SignalBus.no_ticket.emit()
 	for i in flashes:
 		light.visible = true
 		await get_tree().create_timer(interval).timeout
