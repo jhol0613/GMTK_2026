@@ -10,6 +10,8 @@ var _hovered: = false
 var note: ResshanPopUp = null
 var noted: = false
 
+var magnifying_glass_hover = load("uid://rwsmjgconr7m")
+var magnifying_glass = load("uid://c8n3by2cmh20k")
 var shader: ShaderMaterial = preload('uid://b6orlsmg3aep5')
 var _shine_cover: ColorRect
 
@@ -48,6 +50,7 @@ func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> vo
 
 func _on_mouse_entered() -> void:
 	print("foof")
+	
 	_shine_cover.show()
 	if noted:
 		shader.set_shader_parameter('color', Color.WHITE)
@@ -56,7 +59,8 @@ func _on_mouse_entered() -> void:
 	
 	shader.set_shader_parameter('time', -0.5)
 	
-	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+	Input.set_custom_mouse_cursor(magnifying_glass_hover)
+	# Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 	_hovered = true
 	get_tree().create_timer(TIME_TO_HOVER).timeout.connect( func ():
 		SignalBus.resshan_note_requested.emit(self)
@@ -65,7 +69,8 @@ func _on_mouse_entered() -> void:
 
 func _on_mouse_exited() -> void:
 	_shine_cover.hide()
-	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+	Input.set_custom_mouse_cursor(magnifying_glass)
+	# Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 	_hovered = false
 	if note:
 		note.queue_free()
