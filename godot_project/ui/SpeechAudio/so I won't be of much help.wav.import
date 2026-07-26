@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b1trbclfdckea"
+path="res://.godot/imported/so I won't be of much help.wav-505954a222a4526793f92be52ef4ada0.sample"
+
+[deps]
+
+source_file="res://ui/SpeechAudio/so I won't be of much help.wav"
+dest_files=["res://.godot/imported/so I won't be of much help.wav-505954a222a4526793f92be52ef4ada0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

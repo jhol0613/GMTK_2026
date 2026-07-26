@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://chm5cp1im0s0u"
+path="res://.godot/imported/Pink. green. blue. red.mp3-e66a51d85c125d0607838c8ecf8ff1f5.mp3str"
+
+[deps]
+
+source_file="res://ui/SpeechAudio/Pink. green. blue. red.mp3"
+dest_files=["res://.godot/imported/Pink. green. blue. red.mp3-e66a51d85c125d0607838c8ecf8ff1f5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

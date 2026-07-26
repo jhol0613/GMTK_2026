@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://xpc6phcxted8" path="res://level_elements/NPCs/pee pee dance.png" id="1_sg8ok"]
 [ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialogue_interactable.tscn" id="2_2jkr3"]
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://scripts/dialogue_line.gd" id="3_g1vn7"]
+[ext_resource type="AudioStream" uid="uid://fvea4jji11kr" path="res://ui/SpeechAudio/Bathroom closed.mp3" id="4_2rp2x"]
 [ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialogue_panel.tscn" id="4_g1vn7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ljhio"]
@@ -30,6 +31,7 @@ animations = [{
 [sub_resource type="Resource" id="Resource_g1vn7"]
 script = ExtResource("3_g1vn7")
 text = "<<bathroom>> <<closed>> <<angry>>"
+sfx = ExtResource("4_2rp2x")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]
