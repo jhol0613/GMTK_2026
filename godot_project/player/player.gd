@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var direction: Vector2 = Vector2(1,1)
+var direction: Vector2 = Vector2(1, 1)
 var speed: int = 100
 var sprint_speed: int = 200
 var sprint_animation_multiplier := 1.5
@@ -19,12 +19,9 @@ var _step_accum: float = 0.0
 @export_category("Footstep Volumes")
 @export_range(-40.0, 6.0, 0.5)
 var default_footstep_volume_db: float = -10.0
-@export_range(-40.0, 6.0, 0.5)
-var grass_footstep_volume_db: float = -4.0
-@export_range(-40.0, 6.0, 0.5)
-var stone_footstep_volume_db: float = -10.0
-@export_range(-40.0, 6.0, 0.5)
-var wood_footstep_volume_db: float = -10.0
+@export_range(-40.0, 6.0, 0.5) var grass_footstep_volume_db: float = -4.0
+@export_range(-40.0, 6.0, 0.5) var stone_footstep_volume_db: float = -10.0
+@export_range(-40.0, 6.0, 0.5) var wood_footstep_volume_db: float = -10.0
 
 @export var grass_footstep_sounds: Array[AudioStream] = []
 @export var stone_footstep_sounds: Array[AudioStream] = []
@@ -32,7 +29,7 @@ var wood_footstep_volume_db: float = -10.0
 
 @export var footstep_sample_offset := Vector2(0, 8)
 
-var _footstep_randomizers: Dictionary[StringName, AudioStreamRandomizer] = {}
+var _footstep_randomizers: Dictionary[StringName, AudioStreamRandomizer] = { }
 
 @onready var sprite := $PlayerSprite
 @onready var timer: Timer = $Timer
@@ -40,7 +37,7 @@ var _footstep_randomizers: Dictionary[StringName, AudioStreamRandomizer] = {}
 
 func _ready() -> void:
 	add_to_group("player")
-	
+
 	_initialize_footstep_audio()
 
 
@@ -49,13 +46,12 @@ func _physics_process(_delta: float) -> void:
 		direction = Vector2.ZERO
 		return
 
-	
 	direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	_animate()
-	
+
 	if not direction:
 		return
-	
+
 	var sprinting = Input.is_action_pressed("sprint")
 	sprite.speed_scale = sprint_animation_multiplier if sprinting else 1.0
 	velocity = direction * (sprint_speed if sprinting else speed)
@@ -63,11 +59,11 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	if position != old_position:
 		distance += 1
-	
+
 	if distance == distance_per_minute:
 		SignalBus.minutes_passed.emit(1)
 		distance = 0
-		
+
 	_step_accum += (position - old_position).length()
 	if direction != Vector2.ZERO and _step_accum >= footstep_distance:
 		_step_accum = 0.0
@@ -80,26 +76,57 @@ func _is_any_panel_open() -> bool:
 			return true
 	return false
 
+
+## Scripted walk used by cutscenes (train boarding / exit). Disables input until done.
+## `walk_up` forces the up/down walk clip (boarding vs exit) instead of direction-based selection.
+func walk_to(
+	target_global: Vector2,
+	walk_speed: float = 80.0,
+	walk_up: bool = false,
+) -> void:
+	movement_disabled = true
+	var walk_anim: StringName = &"walk_up" if walk_up else &"walk_down"
+	var idle_anim: StringName = &"idle_up" if walk_up else &"idle"
+	var delta_pos := target_global - global_position
+	var travel_distance := delta_pos.length()
+	if travel_distance < 1.0:
+		direction = Vector2.ZERO
+		sprite.play(idle_anim)
+		return
+
+	direction = delta_pos.normalized()
+	sprite.play(walk_anim)
+
+	var duration := travel_distance / walk_speed
+	var tween := create_tween()
+	tween.tween_property(self, "global_position", target_global, duration)
+	await tween.finished
+
+	direction = Vector2.ZERO
+	sprite.play(idle_anim)
+
+
 func _animate() -> void:
 	# Left/right facing
-	if direction.x != 0 :
+	if direction.x != 0:
 		sprite.flip_h = direction.x < 0
-	
+
 	# Walking animations
-	if abs( direction.x ) > 0 :
-		sprite.play( "walk_right" )
-	elif direction.y > 0 :
-		sprite.play( "walk_down" )
-	elif direction.y < 0 :
-		sprite.play( "walk_up" )
-	else :
-		match sprite.animation :
-			"walk_right" :
-				sprite.play( "idle_right" )
-			"walk_up" :
-				sprite.play( "idle_up" )
-			"walk_down" :
-				sprite.play( "idle" )
+	if abs(direction.x) > 0:
+		sprite.play("walk_right")
+	elif direction.y > 0:
+		sprite.play("walk_down")
+	elif direction.y < 0:
+		sprite.play("walk_up")
+	else:
+		match sprite.animation:
+			"walk_right":
+				sprite.play("idle_right")
+			"walk_up":
+				sprite.play("idle_up")
+			"walk_down":
+				sprite.play("idle")
+
 
 func _initialize_footstep_audio() -> void:
 	_footsteps = AudioStreamPlayer.new()
@@ -107,36 +134,26 @@ func _initialize_footstep_audio() -> void:
 	_footsteps.bus = AudioManager.SFX_BUS
 	add_child(_footsteps)
 
-	_footstep_randomizers[&"default"] = (
-		_create_footstep_randomizer(footstep_sounds)
-	)
-	_footstep_randomizers[&"grass"] = (
-		_create_footstep_randomizer(grass_footstep_sounds)
-	)
-	_footstep_randomizers[&"stone"] = (
-		_create_footstep_randomizer(stone_footstep_sounds)
-	)
-	_footstep_randomizers[&"wood"] = (
-		_create_footstep_randomizer(wood_footstep_sounds)
-	)
+	_footstep_randomizers[&"default"] = (_create_footstep_randomizer(footstep_sounds))
+	_footstep_randomizers[&"grass"] = (_create_footstep_randomizer(grass_footstep_sounds))
+	_footstep_randomizers[&"stone"] = (_create_footstep_randomizer(stone_footstep_sounds))
+	_footstep_randomizers[&"wood"] = (_create_footstep_randomizer(wood_footstep_sounds))
 
 	$AudioListener2D.make_current()
 
-func _create_footstep_randomizer(
-	sounds: Array[AudioStream]
-) -> AudioStreamRandomizer:
+
+func _create_footstep_randomizer(sounds: Array[AudioStream]) -> AudioStreamRandomizer:
 	var randomizer := AudioStreamRandomizer.new()
 
-	randomizer.playback_mode = (
-		AudioStreamRandomizer.PLAYBACK_RANDOM_NO_REPEATS
-	)
+	randomizer.playback_mode = (AudioStreamRandomizer.PLAYBACK_RANDOM_NO_REPEATS)
 	randomizer.random_pitch = 1.1
 
 	for sound in sounds:
 		randomizer.add_stream(-1, sound)
 
 	return randomizer
-	
+
+
 func _get_footstep_surface() -> StringName:
 	var foot_position := global_position + footstep_sample_offset
 
@@ -153,22 +170,18 @@ func _get_footstep_surface() -> StringName:
 		if tile_data == null:
 			continue
 
-		var surface := StringName(
-			tile_data.get_custom_data("footstep_surface")
-		)
+		var surface := StringName(tile_data.get_custom_data("footstep_surface"))
 
 		if surface != &"":
 			return surface
 
 	return &"default"
-	
+
+
 func _play_footstep() -> void:
 	var surface := _get_footstep_surface()
 
-	var randomizer := _footstep_randomizers.get(
-		surface,
-		_footstep_randomizers[&"default"]
-	) as AudioStreamRandomizer
+	var randomizer := _footstep_randomizers.get(surface, _footstep_randomizers[&"default"]) as AudioStreamRandomizer
 
 	if randomizer == null or randomizer.streams_count == 0:
 		return
@@ -176,7 +189,8 @@ func _play_footstep() -> void:
 	_footsteps.stream = randomizer
 	_footsteps.volume_db = _get_footstep_volume(surface)
 	_footsteps.play()
-	
+
+
 func _get_footstep_volume(surface: StringName) -> float:
 	match surface:
 		&"grass":

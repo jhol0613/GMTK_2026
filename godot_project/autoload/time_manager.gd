@@ -56,14 +56,19 @@ func total_seconds() -> int:
 
 
 ## Countdown "now + offset" → remaining time after offset minutes elapse.
-func remaining_after_offset(offset_hours: int, offset_minutes: int, offset_seconds: int) -> Vector3i:
-	var total := total_seconds() - (offset_hours * MINUTES_PER_HOUR * SECONDS_PER_MINUTE + offset_minutes * SECONDS_PER_MINUTE + offset_seconds)
+func remaining_after_offset(
+	offset_hours: int,
+	offset_minutes: int,
+	offset_seconds: int,
+) -> Vector3i:
+	var total := total_seconds() - (offset_hours * MINUTES_PER_HOUR * SECONDS_PER_MINUTE
+	+ offset_minutes * SECONDS_PER_MINUTE + offset_seconds)
 	total = maxi(total, 0)
 	var seconds_per_hour := MINUTES_PER_HOUR * SECONDS_PER_MINUTE
 	return Vector3i(
 		total / seconds_per_hour,
 		(total % seconds_per_hour) / SECONDS_PER_MINUTE,
-		total % SECONDS_PER_MINUTE,
+		(total % seconds_per_hour) % SECONDS_PER_MINUTE,
 	)
 
 
@@ -72,10 +77,8 @@ func remaining_after_offset(offset_hours: int, offset_minutes: int, offset_secon
 func has_at_least(target_hour: int, target_minute: int, target_second: int) -> bool:
 	return total_seconds() >= (
 		target_hour * MINUTES_PER_HOUR * SECONDS_PER_MINUTE
-		+ target_minute * SECONDS_PER_MINUTE
-		+ target_second
+		+ target_minute * SECONDS_PER_MINUTE + target_second
 	)
-
 
 
 ## Stash the current time before reloading the game.
