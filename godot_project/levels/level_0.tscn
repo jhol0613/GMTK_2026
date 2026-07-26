@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://ba3allrv3pni0" path="res://level_elements/decorative/plants/plant_1.tscn" id="25_vfwqd"]
 [ext_resource type="PackedScene" uid="uid://b8j82426dfwlf" path="res://level_elements/decorative/plants/plant_2.tscn" id="26_juy1h"]
 [ext_resource type="Texture2D" uid="uid://bogm6imvrrjwr" path="res://level_elements/decorative/solar_decor/Solardecor1.png" id="26_vfwqd"]
+[ext_resource type="PackedScene" uid="uid://bo3pcctdon7l" path="res://level_elements/signs/station_name_sign.tscn" id="27_7di2q"]
 [ext_resource type="PackedScene" uid="uid://cniar1emgicic" path="res://level_elements/decorative/ad_board.tscn" id="27_juy1h"]
 [ext_resource type="Texture2D" uid="uid://danrb3vfq83ag" path="res://level_elements/decorative/hoverthruster.png" id="28_7di2q"]
 
@@ -612,7 +613,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/UpperTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.51892143
+frame_progress = 0.48342085
 
 [node name="LowerTrain" parent="Platform" index="7" unique_id=1370361982]
 next_scene = 2
@@ -621,7 +622,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/LowerTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.7603752
+frame_progress = 0.72487557
 
 [node name="TicketBooth" parent="." index="6" unique_id=861247956 instance=ExtResource("2_823pn")]
 position = Vector2(-1168, -368)
@@ -763,6 +764,9 @@ position = Vector2(-160, -280)
 
 [node name="Bench" parent="." index="14" unique_id=1146302488 instance=ExtResource("26_juy1h")]
 position = Vector2(-160, -248)
+
+[node name="StationNameSign" parent="." index="15" unique_id=98722644 instance=ExtResource("27_7di2q")]
+position = Vector2(-1247, -465)
 
 [connection signal="pressed" from="SkipIntroLayer/SkipIntroButton" to="." method="_skip_intro"]
 
