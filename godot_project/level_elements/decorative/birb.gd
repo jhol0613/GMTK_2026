@@ -10,11 +10,13 @@ extends Node2D
 
 var _flying: bool = false
 var _flip: bool = false
+var _ambient_muted: bool = false
 var random_turn: SceneTreeTimer
 var _ambient_timer: SceneTreeTimer
 
 
 func _ready() -> void:
+	add_to_group("pigeons")
 	_flip = randi() & 1
 	if _flip:
 		sprite.flip_h = true
@@ -61,9 +63,18 @@ func _schedule_ambient() -> void:
 func _play_ambient() -> void:
 	if _flying or _ambient_sound.stream == null:
 		return
+	if _ambient_muted:
+		_schedule_ambient()
+		return
 
 	_ambient_sound.pitch_scale = randf_range(0.95, 1.05)
 	_ambient_sound.play()
+
+
+func set_ambient_muted(muted: bool) -> void:
+	_ambient_muted = muted
+	if muted:
+		_ambient_sound.stop()
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
