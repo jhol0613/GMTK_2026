@@ -36,8 +36,12 @@ position = Vector2(0, 1)
 
 [node name="Prompt" parent="SignInteractable" index="1" unique_id=272794898]
 custom_minimum_size = Vector2(75, 168)
-offset_top = -159.0
-offset_bottom = 9.0
+offset_left = -38.0
+offset_top = -174.0
+offset_bottom = -6.0
+
+[node name="AnimatedSprite2D" parent="SignInteractable" index="2" unique_id=819702371]
+position = Vector2(0, -92)
 
 [node name="SignPanel" parent="." unique_id=1998267979 instance=ExtResource("3_rlmea")]
 
