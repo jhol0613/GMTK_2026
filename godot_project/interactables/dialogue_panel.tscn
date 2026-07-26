@@ -96,8 +96,9 @@ font_size = 42
 metadata/_custom_type_script = "uid://sidowamkhcrt"
 
 [node name="Body" type="Control" parent="Root/Popup/MarginContainer/HBoxContainer/VBox" unique_id=895602396]
+modulate = Color(1, 0.9764706, 0.827451, 1)
 texture_filter = 1
-custom_minimum_size = Vector2(263, 58)
+custom_minimum_size = Vector2(255, 55)
 layout_mode = 2
 mouse_filter = 2
 script = ExtResource("2_wos7g")
