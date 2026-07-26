@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://01ml7mdg0fuh"]
+
+[node name="EndingCutscene" type="Node2D" unique_id=96105910]
+
+[node name="Label" type="Label" parent="." unique_id=50584950]
+offset_right = 40.0
+offset_bottom = 22.0
+text = "Good Ending Placeholder"
