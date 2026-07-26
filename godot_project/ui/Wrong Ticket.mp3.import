@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://dw760ndv2ehvj"
-path="res://.godot/imported/Wrong Ticket.mp3-c8d4721e200566e1dd0e050fec1a262a.mp3str"
+path="res://.godot/imported/Wrong Ticket.mp3-2b0bc75bbf8094125d7a5b45d9a3a9d7.mp3str"
 
 [deps]
 
-source_file="res://UI/Wrong Ticket.mp3"
-dest_files=["res://.godot/imported/Wrong Ticket.mp3-c8d4721e200566e1dd0e050fec1a262a.mp3str"]
+source_file="res://ui/Wrong Ticket.mp3"
+dest_files=["res://.godot/imported/Wrong Ticket.mp3-2b0bc75bbf8094125d7a5b45d9a3a9d7.mp3str"]
 
 [params]
 
