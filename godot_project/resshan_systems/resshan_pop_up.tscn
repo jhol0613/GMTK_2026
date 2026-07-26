@@ -17,10 +17,11 @@ font_size = 64
 font_color = Color(0.0018410678, 0.0018410682, 0.0018410678, 1)
 
 [node name="ResshanNote" type="Control" unique_id=463936935]
+z_index = 59
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 0
-scale = Vector2(0.39, 0.39)
+scale = Vector2(0.2, 0.2)
 script = ExtResource("1_dt5xr")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1377185846]
