@@ -535,7 +535,7 @@ script = ExtResource("17_owf05")
 destination = "<<station.0>>"
 train_line = "<<red>> <<line>>"
 departure_hours_offset = 5
-id = &"red_west"
+id = &"RED_west"
 metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
 
 [sub_resource type="Resource" id="Resource_snxo8"]
@@ -550,7 +550,7 @@ script = ExtResource("17_owf05")
 destination = "<<station.1>>"
 train_line = "<<red>> <<line>>"
 departure_hours_offset = 5
-id = &"red_east"
+id = &"RED_east"
 metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
 
 [sub_resource type="Resource" id="Resource_2prw1"]
@@ -631,7 +631,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/UpperTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.7406545
+frame_progress = 0.7764401
 
 [node name="LowerTrain" parent="Platform" index="7" unique_id=1370361982]
 next_scene = 2
@@ -640,7 +640,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/LowerTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.9821106
+frame_progress = 0.017895643
 
 [node name="TicketBooth" parent="." index="6" unique_id=861247956 instance=ExtResource("2_823pn")]
 position = Vector2(-1168, -368)
