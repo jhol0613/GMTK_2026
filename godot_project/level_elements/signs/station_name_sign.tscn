@@ -97,10 +97,11 @@ position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_ujtin")
 
 [node name="ResshanInteractable" type="Area2D" parent="." unique_id=1503352510]
+z_index = 1
+position = Vector2(0, -25)
 script = ExtResource("3_r0etv")
 _string = "<<station.0>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ResshanInteractable" unique_id=135279509]
-position = Vector2(-0.5, -23.75)
 shape = SubResource("RectangleShape2D_qbyu3")

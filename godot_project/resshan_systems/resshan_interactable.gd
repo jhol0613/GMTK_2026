@@ -3,7 +3,12 @@ extends Area2D
 
 const TIME_TO_HOVER: = .4
 
-@export var _string: String = ''
+@export var _string: String = '' :
+	set(new_value):
+		_string = new_value
+		if not _string.is_empty():
+			_encoded_string = LanguageRenderer.encode(_string)
+		
 var _encoded_string: String = ''
 
 var _hovered: = false
