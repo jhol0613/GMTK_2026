@@ -6,8 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://cit6uoxu58nwk" path="res://level_elements/maps/train_map.tscn" id="3_n46q3"]
 [ext_resource type="PackedScene" uid="uid://baukigq6wfgs1" path="res://level_elements/ATM/atm.tscn" id="6_btoec"]
 [ext_resource type="PackedScene" uid="uid://dpexe87ps0d7f" path="res://level_elements/hourglass/hourglass.tscn" id="7_gwceb"]
+[ext_resource type="AudioStream" uid="uid://3enq5iehjq21" path="res://ui/SpeechAudio/Trinket buy Color.mp3" id="10_xv8d5"]
 [ext_resource type="Texture2D" uid="uid://q2rsif8t8xqv" path="res://character_portraits/trinket_salesman/portrait_shopkeeper1_1.png" id="11_4knja"]
 [ext_resource type="PackedScene" uid="uid://denclmxtn1x1l" path="res://level_elements/departure_board/deaprture_board.tscn" id="11_betor"]
+[ext_resource type="AudioStream" uid="uid://chm5cp1im0s0u" path="res://ui/SpeechAudio/Pink. green. blue. red.mp3" id="12_0wxk8"]
 [ext_resource type="PackedScene" uid="uid://djoepaapryv6s" path="res://level_elements/trinket_shop/trinket_shop.tscn" id="12_vjtdm"]
 [ext_resource type="Texture2D" uid="uid://c36oq0n5g8b0y" path="res://character_portraits/trinket_salesman/portrait_shopkeeper2_1.png" id="12_voubc"]
 [ext_resource type="PackedScene" uid="uid://2pwlm8itluel" path="res://level_elements/ticket_booth/ticket_booth.tscn" id="13_bgw3c"]
@@ -45,12 +47,14 @@
 script = ExtResource("15_w75he")
 text = "<<trinketmask>> <<buy>> <<?>>"
 speaker_icon = ExtResource("11_4knja")
+sfx = ExtResource("10_xv8d5")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_0sa6h"]
 script = ExtResource("15_w75he")
 text = "<<pink>> <<green>> <<blue>> <<red>> <<?>>"
 speaker_icon = ExtResource("12_voubc")
+sfx = ExtResource("12_0wxk8")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_vlm06"]
@@ -246,10 +250,6 @@ size = Vector2(128, 32)
 correct_line = &"BLUE_east"
 level_music_track = 1
 play_train_intro_before_music = true
-
-[node name="Time" parent="UiOverlay" parent_id_path=PackedInt32Array(368800410) index="0" unique_id=1094747134]
-offset_left = 1680.0
-offset_right = 1880.0
 
 [node name="Camera2D" parent="." index="1" unique_id=1821430600]
 position = Vector2(-1056, -752)
@@ -1091,7 +1091,6 @@ position = Vector2(712, -1832)
 [node name="Birb32" parent="." index="55" unique_id=1181962484 instance=ExtResource("37_gtrna")]
 position = Vector2(848, -1776)
 
-[editable path="UiOverlay"]
 [editable path="Platform"]
 [editable path="Platform2"]
 [editable path="Platform3"]

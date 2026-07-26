@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/Trinket buy Number.mp3-b712a1b3e0aff2b163e14b
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

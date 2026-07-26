@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://p4w878r6j1kh"
+path="res://.godot/imported/Machine closed. Zero money.mp3-4e6d2eb0c7c00d665c872d70ef4f24b0.mp3str"
+
+[deps]
+
+source_file="res://ui/SpeechAudio/Machine closed. Zero money.mp3"
+dest_files=["res://.godot/imported/Machine closed. Zero money.mp3-4e6d2eb0c7c00d665c872d70ef4f24b0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
