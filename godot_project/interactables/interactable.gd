@@ -2,6 +2,7 @@ extends Area2D
 class_name Interactable
 
 @onready var _prompt: ResshanLabel = $Prompt
+@export var _arrow: AnimatedSprite2D
 
 var _player_in_range: bool = false
 
@@ -40,8 +41,10 @@ func interact() -> void:
 func _on_body_entered(_body: Node2D) -> void:
 	_player_in_range = true
 	_prompt.visible = true
+	_arrow.visible = false
 
 
 func _on_body_exited(_body: Node2D) -> void:
 	_player_in_range = false
 	_prompt.visible = false
+	_arrow.visible = true
