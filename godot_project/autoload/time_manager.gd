@@ -2,6 +2,7 @@ extends Node
 
 signal time_changed(hour: int, minute: int, second: int)
 signal flash_requested
+signal time_up
 
 const SECONDS_PER_MINUTE: int = 8
 const MINUTES_PER_HOUR: int = 8
@@ -16,6 +17,7 @@ var _skip_intro_on_reload: bool = false
 var _pending_wrong_train_dialogue: bool = false
 
 var _pending_flash: bool = false
+var _time_up_emitted: bool = false
 
 
 func _ready() -> void:
@@ -34,10 +36,14 @@ func reset(start_hour: int = HOURS_PER_DAY, start_minute: int = 0, start_second:
 	hour = start_hour
 	minute = start_minute
 	second = start_second
+	_time_up_emitted = total_seconds() <= 0
 	time_changed.emit(hour, minute, second)
 
 
 func advance(amount: int = 1) -> void:
+	if total_seconds() <= 0:
+		return
+
 	second -= amount
 	while second < 0:
 		minute -= 1
@@ -45,10 +51,21 @@ func advance(amount: int = 1) -> void:
 	while minute < 0:
 		hour -= 1
 		minute += MINUTES_PER_HOUR
-	if hour < 0:
+	if hour < 0 or total_seconds() <= 0:
 		hour = 0
 		minute = 0
+		second = 0
+		time_changed.emit(hour, minute, second)
+		_emit_time_up()
+		return
 	time_changed.emit(hour, minute, second)
+
+
+func _emit_time_up() -> void:
+	if _time_up_emitted:
+		return
+	_time_up_emitted = true
+	time_up.emit()
 
 
 func total_seconds() -> int:
@@ -100,6 +117,7 @@ func stash_before_reload(penalty_seconds: int) -> void:
 func sync_from_ui(start_hour: int, start_minute: int, start_second: int) -> void:
 	if _preserve_across_reload:
 		_preserve_across_reload = false
+		_time_up_emitted = total_seconds() <= 0
 		time_changed.emit(hour, minute, second)
 		return
 	reset(start_hour, start_minute, start_second)

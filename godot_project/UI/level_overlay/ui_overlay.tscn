@@ -11,6 +11,107 @@
 [ext_resource type="AudioStream" uid="uid://ce6kvjn3hwsb0" path="res://ui/Schedule_Open.mp3" id="8_h7imb"]
 [ext_resource type="AudioStream" uid="uid://3tloiflnp58y" path="res://ui/Schedule_Close.mp3" id="9_h7imb"]
 [ext_resource type="PackedScene" uid="uid://deyhkqpvtwhsg" path="res://ui/inventory/inventory_panel.tscn" id="10_invpanel"]
+[ext_resource type="AudioStream" uid="uid://dyjirite3on8y" path="res://time/clock countdown sfx.mp3" id="11_countdown"]
+
+[sub_resource type="Animation" id="Animation_time_up_reset"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Time:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Time:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1680, 24)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Time:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_time_up"]
+resource_name = "time_up"
+length = 4.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Time:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2.1333332, 2.3333333, 2.5333333, 2.733333, 2.9333332, 3.3333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.2, 0.2, 1), Color(1, 1, 1, 1), Color(1, 0.2, 0.2, 1), Color(1, 0.35, 0.35, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TimeUpSound")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("11_countdown")
+}],
+"times": PackedFloat32Array(2.0333333)
+}
+tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Time:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.08),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1680, 24), Vector2(832, 384)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Time:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.04),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(3, 3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_time_up"]
+_data = {
+&"RESET": SubResource("Animation_time_up_reset"),
+&"time_up": SubResource("Animation_time_up")
+}
 
 [node name="UiOverlay" type="CanvasLayer" unique_id=368800410]
 script = ExtResource("1_0h6y4")
@@ -20,6 +121,7 @@ offset_left = 1680.0
 offset_top = 24.0
 offset_right = 1880.0
 offset_bottom = 104.0
+pivot_offset = Vector2(100, 40)
 mouse_filter = 2
 
 [node name="Notebook" parent="." unique_id=2020796058 instance=ExtResource("2_l5of1")]
@@ -28,6 +130,7 @@ texture_filter = 1
 position = Vector2(987, 553)
 
 [node name="Ticket" parent="." unique_id=1917505248 instance=ExtResource("4_ticket")]
+visible = false
 texture_filter = 2
 position = Vector2(992, 496)
 ticket_data = null
@@ -101,6 +204,12 @@ bus = &"SFX"
 stream = ExtResource("8_h7imb")
 volume_db = -4.678
 bus = &"SFX"
+
+[node name="TimeUpSound" type="AudioStreamPlayer" parent="." unique_id=980859308]
+bus = &"SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=746603066]
+libraries/ = SubResource("AnimationLibrary_time_up")
 
 [connection signal="mouse_entered" from="NotebookButton" to="." method="_on_notebook_button_mouse_entered"]
 [connection signal="mouse_exited" from="NotebookButton" to="." method="_on_notebook_button_mouse_exited"]
