@@ -141,6 +141,26 @@ offset_top = 124.0
 offset_right = -212.0
 offset_bottom = 444.0
 
+[node name="ItemPopup" type="CenterContainer" parent="." unique_id=1015391337]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="ItemPopup" unique_id=1581880065]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="ItemPopup" unique_id=523522977]
+texture_filter = 1
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
 [node name="NotebookButton" type="TextureButton" parent="." unique_id=1767702104]
 texture_filter = 2
 offset_left = 30.0
