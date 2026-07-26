@@ -13,7 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://3tloiflnp58y" path="res://ui/Schedule_Close.mp3" id="9_h7imb"]
 [ext_resource type="PackedScene" uid="uid://deyhkqpvtwhsg" path="res://ui/inventory/inventory_panel.tscn" id="10_invpanel"]
 
-[sub_resource type="Animation" id="Animation_time_up_reset"]
+[sub_resource type="Animation" id="Animation_reset"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -50,6 +50,83 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TicketButton:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(210, 908)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TicketButton:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TicketButton:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ticket_consumed"]
+resource_name = "ticket_consumed"
+length = 1.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TicketButton:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(210, 908), Vector2(887, 496), Vector2(887, 496)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TicketButton:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 1, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(3, 3), Vector2(3, 3), Vector2(0.5, 0.5), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TicketButton:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.7, 0.8, 0.9, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.08726646259971647, -0.06981317007977318, 0.05235987755982989, -0.03490658503988659, 0.0, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_time_up"]
@@ -92,9 +169,10 @@ tracks/2/keys = {
 "values": [Vector2(1, 1), Vector2(3, 3)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_time_up"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_overlay"]
 _data = {
-&"RESET": SubResource("Animation_time_up_reset"),
+&"RESET": SubResource("Animation_reset"),
+&"ticket_consumed": SubResource("Animation_ticket_consumed"),
 &"time_up": SubResource("Animation_time_up")
 }
 
@@ -159,10 +237,10 @@ stretch_mode = 4
 
 [node name="TicketButton" type="TextureButton" parent="." unique_id=1767702105]
 texture_filter = 2
-offset_left = 400.0
-offset_top = 904.0
-offset_right = 555.0
-offset_bottom = 1065.0
+offset_left = 210.0
+offset_top = 908.0
+offset_right = 365.0
+offset_bottom = 1069.0
 texture_normal = ExtResource("6_3atem")
 ignore_texture_size = true
 stretch_mode = 4
@@ -214,8 +292,8 @@ bus = &"SFX"
 [node name="TimeUpSound" type="AudioStreamPlayer" parent="." unique_id=980859308]
 bus = &"SFX"
 
-[node name="UIAnimationPlayer" type="AnimationPlayer" parent="." unique_id=746603066]
-libraries/ = SubResource("AnimationLibrary_time_up")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=746603066]
+libraries/ = SubResource("AnimationLibrary_overlay")
 
 [connection signal="mouse_entered" from="NotebookButton" to="." method="_on_notebook_button_mouse_entered"]
 [connection signal="mouse_exited" from="NotebookButton" to="." method="_on_notebook_button_mouse_exited"]

@@ -5,7 +5,7 @@ var magnifying_glass = load("uid://c8n3by2cmh20k")
 var pen = load("uid://c8yj5np7nrak6")
 
 @onready var _time := $Time
-@onready var _animation_player: AnimationPlayer = $UIAnimationPlayer
+@onready var _animation_player: AnimationPlayer = $AnimationPlayer
 @onready var _notebook := $Notebook
 @onready var _notebook_button := $NotebookButton
 @onready var _ticket_button := $TicketButton
@@ -50,14 +50,14 @@ func _ready() -> void:
 func _on_time_up() -> void:
 	# Keep the overlay (clock tick + time_up anim) alive while the world freezes.
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	_animation_player.process_mode = Node.PROCESS_MODE_ALWAYS
 	get_tree().paused = true
 
 	if _time.has_method("tick_second"):
 		_time.tick_second()
-	if _animation_player and _animation_player.has_animation(&"time_up"):
-		_animation_player.play(&"time_up")
-		await _animation_player.animation_finished
 
+	_animation_player.play(&"time_up")
+	await _animation_player.animation_finished
 	GameManager.load_scene(Enums.Scenes.BAD_ENDING)
 
 func _refresh_ticket() -> void:
