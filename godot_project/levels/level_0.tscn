@@ -615,22 +615,24 @@ tile_set = SubResource("TileSet_3beyx")
 depart_offset = Vector2(2000, 0)
 arrival_offset = Vector2(-2000, 0)
 ticket_id = &"RED_east"
+disembark_camera_offset_y = 0.0
 color = 7
 
 [node name="TrainSprite" parent="Platform/UpperTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.40397498
+frame_progress = 0.14933532
 
 [node name="LowerTrain" parent="Platform" index="7" unique_id=1370361982]
 next_scene = 2
 depart_offset = Vector2(-2000, 0)
 arrival_offset = Vector2(2000, 0)
 ticket_id = &"RED_west"
+disembark_camera_offset_y = 0.0
 color = 7
 
 [node name="TrainSprite" parent="Platform/LowerTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.6454284
+frame_progress = 0.3907863
 
 [node name="TicketBooth" parent="." index="6" unique_id=861247956 instance=ExtResource("2_823pn")]
 position = Vector2(-1168, -368)

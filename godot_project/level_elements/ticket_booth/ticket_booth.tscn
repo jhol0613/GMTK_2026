@@ -87,7 +87,6 @@ shape = SubResource("RectangleShape2D_8d5ud")
 
 [node name="Prompt" parent="DialogueInteractable" index="1" unique_id=272794898]
 z_index = 1
-custom_minimum_size = Vector2(75, 168)
 offset_left = -41.0
 offset_top = -148.5
 offset_right = 33.0
@@ -132,6 +131,7 @@ bus = &"SFX"
 
 [node name="BoothAmbient" type="AudioStreamPlayer2D" parent="." unique_id=986529912]
 stream = ExtResource("7_8vjcj")
+volume_db = 4.0
 max_distance = 197.0
 attenuation = 4.0000014
 bus = &"SFX"
