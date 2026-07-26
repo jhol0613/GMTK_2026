@@ -12,6 +12,7 @@ enum Scenes {
 	LEVEL_1,
 	LEVEL_2,
 	TITLE,
+	ENDING
 }
 
 # unfortunately alphabetical order here matters. Sorry
