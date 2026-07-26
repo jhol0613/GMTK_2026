@@ -30,7 +30,10 @@ func _ready() -> void:
 	
 	#GameManager.load_scene(Enums.Scenes.TITLE)
 
-
 func _play_body() -> void:
 	if _body_audio.stream != null:
 		_body_audio.play()
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("escape"):
+		GameManager.load_scene(Enums.Scenes.TITLE)
