@@ -4,17 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://cxekovsy3q368" path="res://level_elements/train_platform/platform.tscn" id="2_bt44k"]
 [ext_resource type="TileSet" uid="uid://dvxgqw1r5w5ps" path="res://levels/tileset/station_tileset.tres" id="2_l53as"]
 [ext_resource type="PackedScene" uid="uid://cit6uoxu58nwk" path="res://level_elements/maps/train_map.tscn" id="3_n46q3"]
-[ext_resource type="Script" uid="uid://dxjexiy5uedbo" path="res://levels/level_1_audio.gd" id="6_betor"]
 [ext_resource type="PackedScene" uid="uid://baukigq6wfgs1" path="res://level_elements/ATM/atm.tscn" id="6_btoec"]
 [ext_resource type="PackedScene" uid="uid://dpexe87ps0d7f" path="res://level_elements/hourglass/hourglass.tscn" id="7_gwceb"]
-[ext_resource type="AudioStream" uid="uid://cu3ssob4apsrg" path="res://ui/Train/Train Pulling Into.mp3" id="10_aerfg"]
 [ext_resource type="PackedScene" uid="uid://denclmxtn1x1l" path="res://level_elements/departure_board/deaprture_board.tscn" id="11_betor"]
-[ext_resource type="AudioStream" uid="uid://bbcbac8i6a3xm" path="res://levels/You TRAINed for this copy.mp3" id="11_nmsli"]
 [ext_resource type="PackedScene" uid="uid://djoepaapryv6s" path="res://level_elements/trinket_shop/trinket_shop.tscn" id="12_vjtdm"]
 [ext_resource type="PackedScene" uid="uid://2pwlm8itluel" path="res://level_elements/ticket_booth/ticket_booth.tscn" id="13_bgw3c"]
 [ext_resource type="Script" uid="uid://xohmb0i1enyw" path="res://level_elements/departure_board/train_timer.gd" id="13_vjtdm"]
 [ext_resource type="PackedScene" uid="uid://bph5ufs84kb6f" path="res://level_elements/bathroom/bathroom.tscn" id="15_bgw3c"]
-[ext_resource type="AudioStream" uid="uid://dlip7tol2c20x" path="res://notebook/Keeping TRACK of my Notes demo.mp3" id="15_vjtdm"]
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://scripts/dialogue_line.gd" id="15_w75he"]
 [ext_resource type="PackedScene" uid="uid://c7ekkaj708al" path="res://level_elements/maps/station_map_lvl1.tscn" id="16_bgw3c"]
 [ext_resource type="Texture2D" uid="uid://kayfkwypm2a" path="res://character_portraits/ticket_lady/ticket_lady_portrait_2.png" id="16_udfhf"]
@@ -176,21 +172,7 @@ position = Vector2(-576, -160)
 [node name="HourglassCentral" parent="." index="7" unique_id=1191851679 instance=ExtResource("7_gwceb")]
 position = Vector2(-320, -272)
 
-[node name="LevelAudioController" type="Node2D" parent="." index="8" unique_id=1654810337]
-position = Vector2(-1056, -752)
-script = ExtResource("6_betor")
-
-[node name="TrainIntro" type="AudioStreamPlayer" parent="LevelAudioController" index="0" unique_id=951886548]
-stream = ExtResource("10_aerfg")
-
-[node name="BGM" type="AudioStreamPlayer" parent="LevelAudioController" index="1" unique_id=1541658038]
-stream = ExtResource("11_nmsli")
-
-[node name="NotebookBGM" type="AudioStreamPlayer" parent="LevelAudioController" index="2" unique_id=296046078]
-stream = ExtResource("15_vjtdm")
-volume_db = -4.0
-
-[node name="Platform" parent="." index="9" unique_id=1302422271 instance=ExtResource("2_bt44k")]
+[node name="Platform" parent="." index="8" unique_id=1302422271 instance=ExtResource("2_bt44k")]
 position = Vector2(-1120, -720)
 
 [node name="CentralGround" parent="Platform" index="2" unique_id=1607148194]
@@ -207,7 +189,7 @@ color = 7
 ticket_id = &"RED_west"
 color = 7
 
-[node name="Platform2" parent="." index="10" unique_id=6608098 instance=ExtResource("2_bt44k")]
+[node name="Platform2" parent="." index="9" unique_id=6608098 instance=ExtResource("2_bt44k")]
 position = Vector2(752, -1792)
 play_arrival_on_ready = false
 
@@ -225,7 +207,7 @@ color = 5
 ticket_id = &"PINK_west"
 color = 5
 
-[node name="Platform3" parent="." index="11" unique_id=1115988881 instance=ExtResource("2_bt44k")]
+[node name="Platform3" parent="." index="10" unique_id=1115988881 instance=ExtResource("2_bt44k")]
 position = Vector2(752, -1088)
 play_arrival_on_ready = false
 
@@ -243,7 +225,7 @@ color = 3
 ticket_id = &"GREEN_west"
 color = 3
 
-[node name="Platform4" parent="." index="12" unique_id=1026362249 instance=ExtResource("2_bt44k")]
+[node name="Platform4" parent="." index="11" unique_id=1026362249 instance=ExtResource("2_bt44k")]
 position = Vector2(-592, -1440)
 play_arrival_on_ready = false
 
@@ -259,7 +241,7 @@ color = 0
 [node name="LowerTrain" parent="Platform4" index="7" unique_id=1370361982]
 color = 0
 
-[node name="DeaprtureBoard" parent="." index="13" unique_id=994016923 instance=ExtResource("11_betor")]
+[node name="DeaprtureBoard" parent="." index="12" unique_id=994016923 instance=ExtResource("11_betor")]
 position = Vector2(-146, -416)
 
 [node name="ResshanLabel" type="Control" parent="DeaprtureBoard" index="2" unique_id=1050601357]
@@ -279,17 +261,20 @@ spacing = 0.95
 font_size = 9
 metadata/_custom_type_script = "uid://sidowamkhcrt"
 
-[node name="TrinketShop" parent="." index="14" unique_id=877031898 instance=ExtResource("12_vjtdm")]
+[node name="TrinketShop" parent="." index="13" unique_id=877031898 instance=ExtResource("12_vjtdm")]
 position = Vector2(-64, -224)
 
-[node name="TicketBooth" parent="." index="15" unique_id=861247956 instance=ExtResource("13_bgw3c")]
+[node name="TicketBooth" parent="." index="14" unique_id=861247956 instance=ExtResource("13_bgw3c")]
 position = Vector2(-330, -200)
 
 [node name="DialogueInteractable" parent="TicketBooth" index="1" unique_id=358228256]
 lines = Array[ExtResource("15_w75he")]([SubResource("Resource_oqlok")])
 choices = Array[ExtResource("17_i6od7")]([SubResource("Resource_0fu15"), SubResource("Resource_voubc"), SubResource("Resource_pnpm1"), SubResource("Resource_ohjdc"), SubResource("Resource_rf48r"), SubResource("Resource_dp1ib"), SubResource("Resource_5t0se"), SubResource("Resource_i6od7")])
 
-[node name="LevelExitBarrier" type="StaticBody2D" parent="." index="16" unique_id=1631214184]
+[node name="Prompt" parent="TicketBooth/DialogueInteractable" index="1" unique_id=272794898]
+custom_minimum_size = Vector2(75, 168)
+
+[node name="LevelExitBarrier" type="StaticBody2D" parent="." index="15" unique_id=1631214184]
 position = Vector2(-384, 0)
 collision_layer = 2
 
@@ -302,16 +287,16 @@ z_index = 5
 position = Vector2(64, -32)
 texture = ExtResource("27_4knja")
 
-[node name="Bathroom" parent="." index="17" unique_id=1865459548 instance=ExtResource("15_bgw3c")]
+[node name="Bathroom" parent="." index="16" unique_id=1865459548 instance=ExtResource("15_bgw3c")]
 position = Vector2(-416, -432)
 
-[node name="Bathroom2" parent="." index="18" unique_id=1689604557 instance=ExtResource("15_bgw3c")]
+[node name="Bathroom2" parent="." index="17" unique_id=1689604557 instance=ExtResource("15_bgw3c")]
 position = Vector2(-256, -432)
 
-[node name="StationMapLvl1" parent="." index="19" unique_id=1108949590 instance=ExtResource("16_bgw3c")]
+[node name="StationMapLvl1" parent="." index="18" unique_id=1108949590 instance=ExtResource("16_bgw3c")]
 position = Vector2(-496, -448)
 
-[node name="Decorations" type="Node2D" parent="." index="20" unique_id=1967516623]
+[node name="Decorations" type="Node2D" parent="." index="19" unique_id=1967516623]
 y_sort_enabled = true
 
 [node name="Hoverthruster" type="Sprite2D" parent="Decorations" index="0" unique_id=236404443]
@@ -486,31 +471,31 @@ position = Vector2(-48, -1232)
 [node name="Board7" parent="Decorations" index="41" unique_id=741087564 instance=ExtResource("23_ntdhj")]
 position = Vector2(256, -1800)
 
-[node name="BenchVertical" parent="." index="21" unique_id=232674008 instance=ExtResource("24_0fu15")]
+[node name="BenchVertical" parent="." index="20" unique_id=232674008 instance=ExtResource("24_0fu15")]
 position = Vector2(488, -1056)
 
-[node name="BenchVertical2" parent="." index="22" unique_id=9735683 instance=ExtResource("24_0fu15")]
+[node name="BenchVertical2" parent="." index="21" unique_id=9735683 instance=ExtResource("24_0fu15")]
 position = Vector2(840, -1056)
 
-[node name="BenchVertical7" parent="." index="23" unique_id=1655954103 instance=ExtResource("24_0fu15")]
+[node name="BenchVertical7" parent="." index="22" unique_id=1655954103 instance=ExtResource("24_0fu15")]
 position = Vector2(472, -1768)
 
-[node name="BenchVertical8" parent="." index="24" unique_id=1124528582 instance=ExtResource("24_0fu15")]
+[node name="BenchVertical8" parent="." index="23" unique_id=1124528582 instance=ExtResource("24_0fu15")]
 position = Vector2(744, -1768)
 
-[node name="BenchVertical3" parent="." index="25" unique_id=2030446934 instance=ExtResource("24_0fu15")]
+[node name="BenchVertical3" parent="." index="24" unique_id=2030446934 instance=ExtResource("24_0fu15")]
 position = Vector2(408, -1056)
 scale = Vector2(-1, 1)
 
-[node name="BenchVertical4" parent="." index="26" unique_id=2109670415 instance=ExtResource("24_0fu15")]
+[node name="BenchVertical4" parent="." index="25" unique_id=2109670415 instance=ExtResource("24_0fu15")]
 position = Vector2(760, -1056)
 scale = Vector2(-1, 1)
 
-[node name="BenchVertical5" parent="." index="27" unique_id=88579422 instance=ExtResource("24_0fu15")]
+[node name="BenchVertical5" parent="." index="26" unique_id=88579422 instance=ExtResource("24_0fu15")]
 position = Vector2(504, -1768)
 scale = Vector2(-1, 1)
 
-[node name="BenchVertical6" parent="." index="28" unique_id=604326937 instance=ExtResource("24_0fu15")]
+[node name="BenchVertical6" parent="." index="27" unique_id=604326937 instance=ExtResource("24_0fu15")]
 position = Vector2(776, -1768)
 scale = Vector2(-1, 1)
 

@@ -8,10 +8,6 @@
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://scripts/dialogue_line.gd" id="3_obtcn"]
 [ext_resource type="AudioStream" uid="uid://ce6kvjn3hwsb0" path="res://ui/Schedule_Open.mp3" id="3_uuq13"]
 [ext_resource type="TileSet" uid="uid://dvxgqw1r5w5ps" path="res://levels/tileset/station_tileset.tres" id="4_owf05"]
-[ext_resource type="AudioStream" uid="uid://dg0waag44ulse" path="res://bgm/TRAINing with friends.mp3" id="12_8mki0"]
-[ext_resource type="AudioStream" uid="uid://bwdovww0j8m0k" path="res://bgm/Tripped and Lost v2.mp3" id="12_58gyl"]
-[ext_resource type="Script" uid="uid://8aci422hp6qo" path="res://levels/level_0_audio.gd" id="12_p0s0h"]
-[ext_resource type="AudioStream" uid="uid://cu3ssob4apsrg" path="res://ui/Train/Train Pulling Into.mp3" id="13_axdoh"]
 [ext_resource type="Texture2D" uid="uid://kayfkwypm2a" path="res://character_portraits/ticket_lady/ticket_lady_portrait_2.png" id="15_fv0x7"]
 [ext_resource type="Texture2D" uid="uid://ca8r7wcmgae0o" path="res://levels/tileset/grasstiles.png" id="17_ggct0"]
 [ext_resource type="Script" uid="uid://cpfgjwe2lpk0k" path="res://scripts/ticket_data.gd" id="17_owf05"]
@@ -22,7 +18,6 @@
 [ext_resource type="Texture2D" uid="uid://dy3h6m8das3ut" path="res://levels/tileset/brickborder.png" id="19_gxks1"]
 [ext_resource type="PackedScene" uid="uid://dpexe87ps0d7f" path="res://level_elements/hourglass/hourglass.tscn" id="20_uuq13"]
 [ext_resource type="Texture2D" uid="uid://bhn6gjy4u51qd" path="res://level_elements/decorative/exit_gradient.png" id="23_2sfss"]
-[ext_resource type="AudioStream" uid="uid://dlip7tol2c20x" path="res://notebook/Keeping TRACK of my Notes demo.mp3" id="23_8mki0"]
 [ext_resource type="PackedScene" uid="uid://dcsei1m2axnjk" path="res://level_elements/decorative/bench.tscn" id="23_gxks1"]
 [ext_resource type="PackedScene" uid="uid://b3rra7yj17p2b" path="res://level_elements/decorative/bench_snoozin.tscn" id="24_gxks1"]
 [ext_resource type="PackedScene" uid="uid://boj5ceg5pnoi3" path="res://level_elements/decorative/bench_vertical.tscn" id="25_osodt"]
@@ -636,7 +631,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/UpperTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.93258786
+frame_progress = 0.7406545
 
 [node name="LowerTrain" parent="Platform" index="7" unique_id=1370361982]
 next_scene = 2
@@ -645,44 +640,31 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/LowerTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.17404382
+frame_progress = 0.9821106
 
-[node name="LevelAudioController" type="Node2D" parent="." index="6" unique_id=217677735]
-script = ExtResource("12_p0s0h")
-
-[node name="TrainIntro" type="AudioStreamPlayer" parent="LevelAudioController" index="0" unique_id=1713055723]
-stream = ExtResource("13_axdoh")
-
-[node name="BGM" type="AudioStreamPlayer" parent="LevelAudioController" index="1" unique_id=290439202]
-stream = ExtResource("12_8mki0")
-
-[node name="Tripped" type="AudioStreamPlayer" parent="LevelAudioController" index="2" unique_id=45072314]
-stream = ExtResource("12_58gyl")
-
-[node name="NotebookBGM" type="AudioStreamPlayer" parent="LevelAudioController" index="3" unique_id=1145455676]
-stream = ExtResource("23_8mki0")
-volume_db = -4.0
-
-[node name="TicketBooth" parent="." index="7" unique_id=861247956 instance=ExtResource("2_823pn")]
+[node name="TicketBooth" parent="." index="6" unique_id=861247956 instance=ExtResource("2_823pn")]
 position = Vector2(-1168, -368)
 
 [node name="DialogueInteractable" parent="TicketBooth" index="1" unique_id=358228256]
 lines = Array[ExtResource("3_obtcn")]([SubResource("Resource_d8oir")])
 choices = Array[ExtResource("3_jum3j")]([SubResource("Resource_snxo8"), SubResource("Resource_2prw1")])
 
+[node name="Prompt" parent="TicketBooth/DialogueInteractable" index="1" unique_id=272794898]
+custom_minimum_size = Vector2(75, 168)
+
 [node name="DialoguePanel" parent="TicketBooth" index="4" unique_id=210961773]
 player_icon = ExtResource("19_ggct0")
 
-[node name="ATM" parent="." index="8" unique_id=124595741 instance=ExtResource("18_uuq13")]
+[node name="ATM" parent="." index="7" unique_id=124595741 instance=ExtResource("18_uuq13")]
 position = Vector2(-1056, -480)
 
-[node name="TrainMap" parent="." index="9" unique_id=940096549 instance=ExtResource("18_owf05")]
+[node name="TrainMap" parent="." index="8" unique_id=940096549 instance=ExtResource("18_owf05")]
 position = Vector2(-1280, -464)
 
-[node name="Hourglass" parent="." index="10" unique_id=259821884 instance=ExtResource("20_uuq13")]
+[node name="Hourglass" parent="." index="9" unique_id=259821884 instance=ExtResource("20_uuq13")]
 position = Vector2(-1176, -474)
 
-[node name="SkipIntroLayer" type="CanvasLayer" parent="." index="11" unique_id=996840601]
+[node name="SkipIntroLayer" type="CanvasLayer" parent="." index="10" unique_id=996840601]
 layer = 31
 
 [node name="SkipIntroButton" type="Button" parent="SkipIntroLayer" index="0" unique_id=1667629156]
@@ -696,7 +678,7 @@ offset_bottom = 64.0
 grow_horizontal = 0
 text = "Skip Intro"
 
-[node name="LevelExitBarrier" type="StaticBody2D" parent="." index="12" unique_id=1462180597]
+[node name="LevelExitBarrier" type="StaticBody2D" parent="." index="11" unique_id=1462180597]
 position = Vector2(-1232, -144)
 collision_layer = 2
 
@@ -710,7 +692,7 @@ position = Vector2(56.000004, -32)
 scale = Vector2(0.87500006, 1)
 texture = ExtResource("23_2sfss")
 
-[node name="Decorations" type="Node2D" parent="." index="13" unique_id=192914961]
+[node name="Decorations" type="Node2D" parent="." index="12" unique_id=192914961]
 y_sort_enabled = true
 
 [node name="Bench" parent="Decorations" index="0" unique_id=232674008 instance=ExtResource("23_gxks1")]
