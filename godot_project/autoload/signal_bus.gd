@@ -10,5 +10,6 @@ signal notebook_opened
 signal notebook_closed
 
 signal no_ticket
+signal missed_train
 
 @warning_ignore_restore("unused_signal")

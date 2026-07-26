@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://ce6kvjn3hwsb0"
-path="res://.godot/imported/Schedule_Open.mp3-26a378608eb3d5544c9af0f3b9ca4860.mp3str"
+path="res://.godot/imported/Schedule_Open.mp3-e6338ad3d17c21ad2b19e36653624b82.mp3str"
 
 [deps]
 
-source_file="res://UI/Schedule_Open.mp3"
-dest_files=["res://.godot/imported/Schedule_Open.mp3-26a378608eb3d5544c9af0f3b9ca4860.mp3str"]
+source_file="res://ui/Schedule_Open.mp3"
+dest_files=["res://.godot/imported/Schedule_Open.mp3-e6338ad3d17c21ad2b19e36653624b82.mp3str"]
 
 [params]
 
