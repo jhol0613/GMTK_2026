@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cenr55g5p2s5b" path="res://level_elements/hourglass/hourglass_top.png" id="1_nngdn"]
 [ext_resource type="Texture2D" uid="uid://bwqwekg3psljq" path="res://level_elements/hourglass/hourglass_bottom.png" id="2_30fjg"]
 [ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/resshan_label.gd" id="3_time_lbl"]
+[ext_resource type="AudioStream" uid="uid://bun5ampgj7ace" path="res://level_elements/hourglass/Hourglass.mp3" id="5_3x0l6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i7vl5"]
 atlas = ExtResource("1_nngdn")
@@ -301,3 +302,11 @@ text = "<<8>> : <<0>>"
 spacing = 5.0
 font_size = 6
 metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=229203238]
+stream = ExtResource("5_3x0l6")
+volume_db = 16.676
+autoplay = true
+max_distance = 132.0
+attenuation = 2.828424
+bus = &"SFX"

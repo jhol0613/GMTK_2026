@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cvnqkyp5mc1nq" path="res://level_elements/decorative/benches/bench.png" id="1_6yaug"]
 [ext_resource type="Texture2D" uid="uid://df2ldgroey8mb" path="res://level_elements/decorative/snoozin.png" id="2_xx6my"]
+[ext_resource type="AudioStream" uid="uid://ckq06a046innh" path="res://level_elements/decorative/Snoring.mp3" id="3_v7vu6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fpcxu"]
 size = Vector2(48, 16)
@@ -61,3 +62,10 @@ sprite_frames = SubResource("SpriteFrames_fpcxu")
 animation = &"snoozin"
 autoplay = "snoozin"
 frame_progress = 0.2870343
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=944108000]
+stream = ExtResource("3_v7vu6")
+volume_db = 14.648
+autoplay = true
+max_distance = 270.0
+attenuation = 3.7321315

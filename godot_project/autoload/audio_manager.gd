@@ -7,6 +7,12 @@ enum MusicTrack {
 }
 
 
+const MUSIC_BUS: StringName = &"Music"
+const SFX_BUS: StringName = &"SFX"
+
+var _music_volume_linear: float = 1.0
+var _sfx_volume_linear: float = 1.0
+
 const LEVEL_0_BGM: AudioStream = preload(
 	"res://bgm/TRAINing with friends.mp3"
 )
@@ -43,7 +49,8 @@ const WRONG_TICKET_SFX: AudioStream = preload(
 const SILENT_DB: float = -40.0
 const DEFAULT_MUSIC_DB: float = -4.0
 const NOTEBOOK_MUSIC_DB: float = -4.0
-const NOTEBOOK_CROSSFADE_DURATION: float = 2.0
+const NOTEBOOK_FADE_IN_DURATION: float = 0.35
+const NOTEBOOK_FADE_OUT_DURATION: float = 2.0
 
 
 var _music_player: AudioStreamPlayer
@@ -61,9 +68,21 @@ var _sequence_id: int = 0
 
 
 func _ready() -> void:
-	_music_player = _create_player("MainMusicPlayer")
-	_notebook_player = _create_player("NotebookMusicPlayer")
-	_train_player = _create_player("TrainSFXPlayer")
+	_ensure_audio_bus(MUSIC_BUS)
+	_ensure_audio_bus(SFX_BUS)
+
+	_music_player = _create_player(
+		"MainMusicPlayer",
+		MUSIC_BUS
+	)
+	_notebook_player = _create_player(
+		"NotebookMusicPlayer",
+		MUSIC_BUS
+	)
+	_train_player = _create_player(
+		"TrainSFXPlayer",
+		SFX_BUS
+	)
 
 	_notebook_player.stream = NOTEBOOK_BGM
 	_notebook_player.volume_db = SILENT_DB
@@ -76,13 +95,15 @@ func _ready() -> void:
 	)
 
 
-func _create_player(player_name: String) -> AudioStreamPlayer:
+func _create_player(
+	player_name: String,
+	bus_name: StringName
+) -> AudioStreamPlayer:
 	var player := AudioStreamPlayer.new()
 	player.name = player_name
-	player.bus = &"Master"
+	player.bus = bus_name
 	add_child(player)
 	return player
-
 
 func _get_level_music(track: int) -> AudioStream:
 	match track:
@@ -262,9 +283,10 @@ func _on_notebook_opened() -> void:
 		_notebook_player.play()
 
 	_crossfade_music(
-		SILENT_DB,
-		NOTEBOOK_MUSIC_DB,
-		false
+	SILENT_DB,
+	NOTEBOOK_MUSIC_DB,
+	false,
+	NOTEBOOK_FADE_IN_DURATION
 	)
 
 
@@ -275,16 +297,18 @@ func _on_notebook_closed() -> void:
 	_notebook_is_open = false
 
 	_crossfade_music(
-		_music_target_db,
-		SILENT_DB,
-		true
+	_music_target_db,
+	SILENT_DB,
+	true,
+	NOTEBOOK_FADE_OUT_DURATION
 	)
 
 
 func _crossfade_music(
 	main_target_db: float,
 	notebook_target_db: float,
-	stop_notebook_after: bool
+	stop_notebook_after: bool,
+	duration: float
 ) -> void:
 	_stop_all_music_tweens()
 
@@ -297,14 +321,14 @@ func _crossfade_music(
 		_music_player,
 		"volume_db",
 		main_target_db,
-		NOTEBOOK_CROSSFADE_DURATION
+		duration
 	)
 
 	_crossfade_tween.tween_property(
 		_notebook_player,
 		"volume_db",
 		notebook_target_db,
-		NOTEBOOK_CROSSFADE_DURATION
+		duration
 	)
 
 	if stop_notebook_after:
@@ -329,3 +353,59 @@ func play_wrong_ticket_sfx() -> void:
 	_train_player.stop()
 	_train_player.stream = WRONG_TICKET_SFX
 	_train_player.play()
+
+func _ensure_audio_bus(bus_name: StringName) -> void:
+	if AudioServer.get_bus_index(bus_name) >= 0:
+		return
+
+	AudioServer.add_bus()
+
+	var bus_index := AudioServer.bus_count - 1
+	AudioServer.set_bus_name(bus_index, bus_name)
+	AudioServer.set_bus_send(bus_index, &"Master")
+
+func set_music_volume(value: float) -> void:
+	_music_volume_linear = clampf(value, 0.0, 1.0)
+	_set_bus_volume(MUSIC_BUS, _music_volume_linear)
+
+
+func set_sfx_volume(value: float) -> void:
+	_sfx_volume_linear = clampf(value, 0.0, 1.0)
+	_set_bus_volume(SFX_BUS, _sfx_volume_linear)
+
+
+func get_music_volume() -> float:
+	return _music_volume_linear
+
+
+func get_sfx_volume() -> float:
+	return _sfx_volume_linear
+
+
+func set_music_muted(muted: bool) -> void:
+	var index := AudioServer.get_bus_index(MUSIC_BUS)
+	if index >= 0:
+		AudioServer.set_bus_mute(index, muted)
+
+
+func set_sfx_muted(muted: bool) -> void:
+	var index := AudioServer.get_bus_index(SFX_BUS)
+	if index >= 0:
+		AudioServer.set_bus_mute(index, muted)
+
+
+func _set_bus_volume(
+	bus_name: StringName,
+	value: float
+) -> void:
+	var index := AudioServer.get_bus_index(bus_name)
+	if index < 0:
+		return
+
+	AudioServer.set_bus_mute(index, value <= 0.0)
+
+	if value > 0.0:
+		AudioServer.set_bus_volume_db(
+			index,
+			linear_to_db(value)
+		)

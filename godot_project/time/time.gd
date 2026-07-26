@@ -4,7 +4,7 @@ const HOUR_PER_DAY: int = 8
 
 @export_category("Clock Sounds")
 @export var second_change_sound: AudioStream
-@export_range(-40.0, 6.0, 0.5) var second_volume_db: float = -8.0
+@export_range(-40.0, 6.0, 0.5) var second_volume_db: float = -3.0
 @export var minute_change_sound: AudioStream
 @export_range(-40.0, 6.0, 0.5) var minute_volume_db: float = -0.0
 
@@ -27,6 +27,7 @@ var _has_previous_time: bool = false
 
 
 func _ready() -> void:
+	sfx_player.bus = AudioManager.SFX_BUS
 	TimeManager.time_changed.connect(_on_time_changed)
 	TimeManager.sync_from_ui(start_hour, start_minute, start_second)
 	_update_label(TimeManager.hour, TimeManager.minute, TimeManager.second)
