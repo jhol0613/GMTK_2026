@@ -13,7 +13,12 @@ func _ready() -> void:
 
 
 func refresh() -> void:
-	var items := Inventory.items
+	var items: Array[ItemData] = []
+	for item in Inventory.items:
+		if item is TicketData:
+			continue
+		items.append(item)
+
 	for i in SLOT_COUNT:
 		var icon := _slot_icons[i]
 		if i < items.size():
