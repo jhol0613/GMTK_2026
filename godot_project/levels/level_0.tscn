@@ -9,6 +9,7 @@
 [ext_resource type="TileSet" uid="uid://dvxgqw1r5w5ps" path="res://levels/tileset/station_tileset.tres" id="4_owf05"]
 [ext_resource type="AudioStream" uid="uid://clvosvg2vfbfv" path="res://ui/SpeechAudio/Ticket buy West or East.mp3" id="11_osodt"]
 [ext_resource type="Texture2D" uid="uid://kayfkwypm2a" path="res://character_portraits/ticket_lady/ticket_lady_portrait_2.png" id="15_fv0x7"]
+[ext_resource type="Texture2D" uid="uid://ccg8h3sbbhnjl" path="res://level_elements/maps/map_sign_level0.png" id="17_2sfss"]
 [ext_resource type="Texture2D" uid="uid://ca8r7wcmgae0o" path="res://levels/tileset/grasstiles.png" id="17_ggct0"]
 [ext_resource type="Script" uid="uid://cpfgjwe2lpk0k" path="res://scripts/ticket_data.gd" id="17_owf05"]
 [ext_resource type="Texture2D" uid="uid://ddbgow303m2gq" path="res://levels/tileset/TX Tileset Grass.png" id="18_8mki0"]
@@ -618,7 +619,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/UpperTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.17399772
+frame_progress = 0.40397498
 
 [node name="LowerTrain" parent="Platform" index="7" unique_id=1370361982]
 next_scene = 2
@@ -629,7 +630,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/LowerTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.41545025
+frame_progress = 0.6454284
 
 [node name="TicketBooth" parent="." index="6" unique_id=861247956 instance=ExtResource("2_823pn")]
 position = Vector2(-1168, -368)
@@ -647,6 +648,9 @@ broken = true
 
 [node name="TrainMap" parent="." index="8" unique_id=940096549 instance=ExtResource("18_owf05")]
 position = Vector2(-1280, -464)
+
+[node name="Map" parent="TrainMap/SignPanel/Root/Popup" parent_id_path=PackedInt32Array(940096549, 1998267979, 2123670025) index="1" unique_id=87657577]
+texture = ExtResource("17_2sfss")
 
 [node name="Hourglass" parent="." index="9" unique_id=259821884 instance=ExtResource("20_uuq13")]
 position = Vector2(-1176, -474)
@@ -800,3 +804,6 @@ position = Vector2(-160, -248)
 [editable path="Platform/LowerTrain/TrainInteractableR"]
 [editable path="TicketBooth"]
 [editable path="TicketBooth/DialogueInteractable"]
+[editable path="TrainMap"]
+[editable path="TrainMap/SignInteractable"]
+[editable path="TrainMap/SignPanel"]
