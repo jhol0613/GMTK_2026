@@ -618,7 +618,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/UpperTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.041619822
+frame_progress = 0.17399772
 
 [node name="LowerTrain" parent="Platform" index="7" unique_id=1370361982]
 next_scene = 2
@@ -629,7 +629,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/LowerTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.2830744
+frame_progress = 0.41545025
 
 [node name="TicketBooth" parent="." index="6" unique_id=861247956 instance=ExtResource("2_823pn")]
 position = Vector2(-1168, -368)
@@ -643,6 +643,7 @@ player_icon = ExtResource("19_ggct0")
 
 [node name="ATM" parent="." index="7" unique_id=124595741 instance=ExtResource("18_uuq13")]
 position = Vector2(-1056, -480)
+broken = true
 
 [node name="TrainMap" parent="." index="8" unique_id=940096549 instance=ExtResource("18_owf05")]
 position = Vector2(-1280, -464)

@@ -29,8 +29,12 @@
 [ext_resource type="PackedScene" uid="uid://b3rra7yj17p2b" path="res://level_elements/decorative/benches/bench_snoozin.tscn" id="25_4knja"]
 [ext_resource type="PackedScene" uid="uid://dcsei1m2axnjk" path="res://level_elements/decorative/benches/bench.tscn" id="26_voubc"]
 [ext_resource type="Texture2D" uid="uid://bhn6gjy4u51qd" path="res://level_elements/decorative/exit_gradient.png" id="27_4knja"]
+[ext_resource type="Texture2D" uid="uid://70v4pred1q71" path="res://level_elements/bathroom/outside restroom.png" id="30_rf48r"]
 [ext_resource type="PackedScene" uid="uid://bo3pcctdon7l" path="res://level_elements/signs/station_name_sign.tscn" id="31_06ecp"]
 [ext_resource type="PackedScene" uid="uid://bqn5083nuxoa8" path="res://level_elements/NPCs/pee_pee_dance.tscn" id="31_ohjdc"]
+[ext_resource type="PackedScene" uid="uid://ba3allrv3pni0" path="res://level_elements/decorative/plants/plant_1.tscn" id="31_toluw"]
+[ext_resource type="PackedScene" uid="uid://b8j82426dfwlf" path="res://level_elements/decorative/plants/plant_2.tscn" id="32_dp1ib"]
+[ext_resource type="PackedScene" uid="uid://sve0agw1p5d0" path="res://level_elements/NPCs/atm_guy.tscn" id="33_toluw"]
 
 [sub_resource type="Resource" id="Resource_rfs8a"]
 script = ExtResource("15_w75he")
@@ -255,6 +259,7 @@ position = Vector2(-496, -416)
 
 [node name="ATM" parent="." index="6" unique_id=124595741 instance=ExtResource("6_btoec")]
 position = Vector2(-576, -160)
+broken = true
 
 [node name="HourglassCentral" parent="." index="7" unique_id=1191851679 instance=ExtResource("7_gwceb")]
 position = Vector2(-320, -272)
@@ -519,33 +524,84 @@ position = Vector2(-48, -1232)
 [node name="Board7" parent="Decorations" index="30" unique_id=741087564 instance=ExtResource("23_ntdhj")]
 position = Vector2(256, -1800)
 
-[node name="BenchVertical" parent="." index="20" unique_id=232674008 instance=ExtResource("24_0fu15")]
+[node name="BenchVertical" parent="Decorations" index="31" unique_id=232674008 instance=ExtResource("24_0fu15")]
 position = Vector2(488, -1056)
 
-[node name="BenchVertical2" parent="." index="21" unique_id=9735683 instance=ExtResource("24_0fu15")]
+[node name="BenchVertical2" parent="Decorations" index="32" unique_id=9735683 instance=ExtResource("24_0fu15")]
 position = Vector2(840, -1056)
 
-[node name="BenchVertical7" parent="." index="22" unique_id=1655954103 instance=ExtResource("24_0fu15")]
+[node name="BenchVertical7" parent="Decorations" index="33" unique_id=1655954103 instance=ExtResource("24_0fu15")]
 position = Vector2(472, -1768)
 
-[node name="BenchVertical8" parent="." index="23" unique_id=1124528582 instance=ExtResource("24_0fu15")]
+[node name="BenchVertical8" parent="Decorations" index="34" unique_id=1124528582 instance=ExtResource("24_0fu15")]
 position = Vector2(744, -1768)
 
-[node name="BenchVertical3" parent="." index="24" unique_id=2030446934 instance=ExtResource("24_0fu15")]
+[node name="BenchVertical3" parent="Decorations" index="35" unique_id=2030446934 instance=ExtResource("24_0fu15")]
 position = Vector2(408, -1056)
-scale = Vector2(-1, 1)
+rotation = 3.1415927
+scale = Vector2(1, -1)
 
-[node name="BenchVertical4" parent="." index="25" unique_id=2109670415 instance=ExtResource("24_0fu15")]
+[node name="BenchVertical4" parent="Decorations" index="36" unique_id=2109670415 instance=ExtResource("24_0fu15")]
 position = Vector2(760, -1056)
-scale = Vector2(-1, 1)
+rotation = 3.1415927
+scale = Vector2(1, -1)
 
-[node name="BenchVertical5" parent="." index="26" unique_id=88579422 instance=ExtResource("24_0fu15")]
+[node name="BenchVertical5" parent="Decorations" index="37" unique_id=88579422 instance=ExtResource("24_0fu15")]
 position = Vector2(504, -1768)
+rotation = 3.1415927
+scale = Vector2(1, -1)
+
+[node name="BenchVertical6" parent="Decorations" index="38" unique_id=604326937 instance=ExtResource("24_0fu15")]
+position = Vector2(776, -1768)
+rotation = 3.1415927
+scale = Vector2(1, -1)
+
+[node name="OutsideRestroom" type="Sprite2D" parent="Decorations" index="39" unique_id=1910757834]
+z_index = 2
+position = Vector2(-480, -592)
+texture = ExtResource("30_rf48r")
+
+[node name="OutsideRestroom2" type="Sprite2D" parent="Decorations" index="40" unique_id=1998309896]
+z_index = 2
+position = Vector2(-432, -608)
+texture = ExtResource("30_rf48r")
+
+[node name="OutsideRestroom3" type="Sprite2D" parent="Decorations" index="41" unique_id=579465348]
+z_index = 2
+position = Vector2(-384, -592)
+texture = ExtResource("30_rf48r")
+
+[node name="OutsideRestroom4" type="Sprite2D" parent="Decorations" index="42" unique_id=173232100]
+z_index = 2
+position = Vector2(-256, -592)
+texture = ExtResource("30_rf48r")
+
+[node name="OutsideRestroom5" type="Sprite2D" parent="Decorations" index="43" unique_id=2087512453]
+z_index = 2
+position = Vector2(-208, -608)
+texture = ExtResource("30_rf48r")
+
+[node name="OutsideRestroom6" type="Sprite2D" parent="Decorations" index="44" unique_id=767521336]
+z_index = 2
+position = Vector2(-160, -592)
+texture = ExtResource("30_rf48r")
+
+[node name="Plant1" parent="Decorations" index="45" unique_id=1131548209 instance=ExtResource("31_toluw")]
+position = Vector2(-496, -544)
+
+[node name="Plant2" parent="Decorations" index="46" unique_id=315726404 instance=ExtResource("31_toluw")]
+z_index = 2
+position = Vector2(-368, -544)
 scale = Vector2(-1, 1)
 
-[node name="BenchVertical6" parent="." index="27" unique_id=604326937 instance=ExtResource("24_0fu15")]
-position = Vector2(776, -1768)
-scale = Vector2(-1, 1)
+[node name="Plant3" parent="Decorations" index="47" unique_id=462075369 instance=ExtResource("32_dp1ib")]
+position = Vector2(-272, -544)
+
+[node name="Plant4" parent="Decorations" index="48" unique_id=901742371 instance=ExtResource("32_dp1ib")]
+position = Vector2(-144, -544)
+
+[node name="ATMGuy" parent="Decorations" index="49" unique_id=1630953085 instance=ExtResource("33_toluw")]
+position = Vector2(-576, -160)
 
 [node name="Blue" parent="Background" parent_id_path=PackedInt32Array(102847613) index="0" unique_id=1690243240]
 repeat_times = 5
@@ -559,11 +615,11 @@ repeat_times = 5
 [node name="CloseClouds" parent="Background" parent_id_path=PackedInt32Array(102847613) index="3" unique_id=782128031]
 repeat_times = 5
 
-[node name="StationNameSign" parent="." index="29" unique_id=948597200 instance=ExtResource("31_06ecp")]
+[node name="StationNameSign" parent="." index="21" unique_id=948597200 instance=ExtResource("31_06ecp")]
 position = Vector2(-463, -416)
 station_number = 1
 
-[node name="PeePeeDance" parent="." index="30" unique_id=1630953085 instance=ExtResource("31_ohjdc")]
+[node name="PeePeeDance" parent="." index="22" unique_id=22283460 instance=ExtResource("31_ohjdc")]
 position = Vector2(-262, -416)
 
 [editable path="UiOverlay"]
