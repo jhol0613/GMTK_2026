@@ -7,7 +7,7 @@ const PAGE_COUNT: int = 6
 
 
 static var player_vocab: Dictionary[String,String] = {
-	"58": "The place I am trying to go",
+	"59": "The place I am trying to go",
 }
 
 
