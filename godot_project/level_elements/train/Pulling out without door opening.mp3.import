@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bjj4avshu6qv3"
+path="res://.godot/imported/Pulling out without door opening.mp3-512a9ea91e4e0645b391637cf9859b5f.mp3str"
+
+[deps]
+
+source_file="res://level_elements/train/Pulling out without door opening.mp3"
+dest_files=["res://.godot/imported/Pulling out without door opening.mp3-512a9ea91e4e0645b391637cf9859b5f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

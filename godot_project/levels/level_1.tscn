@@ -146,6 +146,7 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 size = Vector2(128, 32)
 
 [node name="Level1" unique_id=783439983 instance=ExtResource("1_jirdo")]
+play_train_intro_before_music = true
 
 [node name="Camera2D" parent="." index="1" unique_id=1821430600]
 position = Vector2(-1056, -752)

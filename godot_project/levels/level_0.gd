@@ -25,7 +25,7 @@ func _ready() -> void:
 func _begin_without_intro() -> void:
 	_intro_active = false
 	_remove_skip_intro_button()
-	platform.arrive_upper_train()
+	platform.arrive_upper_train(true)
 
 
 func _remove_skip_intro_button() -> void:
@@ -47,7 +47,7 @@ func _skip_intro() -> void:
 	AudioManager.restore_level_music(2.0)
 	if not ui_layer._notebook.visible:
 		ui_layer._on_notebook_button_pressed()
-	platform.arrive_upper_train()
+	platform.arrive_upper_train(true)
 
 
 func _free_intro_scene(scene) -> void:
@@ -70,6 +70,6 @@ func _on_falling_scene_complete():
 	platform.depart_upper_train()
 	ui_layer._on_notebook_button_pressed()
 	await get_tree().create_timer(10).timeout
-	platform.arrive_upper_train()
+	platform.arrive_upper_train(true)
 	_intro_active = false
 	_remove_skip_intro_button()

@@ -27,8 +27,16 @@ const TRAIN_PULLING_IN: AudioStream = preload(
 	"res://ui/Train/Train Pulling Into.mp3"
 )
 
+const LEVEL_0_FIRST_TRAIN_IN: AudioStream = preload(
+	"res://level_elements/train/Pulling out without door opening.mp3"
+)
+
 const TRAIN_PULLING_OUT: AudioStream = preload(
-	"res://ui/Train/Pulling Out.mp3"
+	"res://ui/Train/Pulling out.mp3"
+)
+
+const WRONG_TICKET_SFX: AudioStream = preload(
+	"res://ui/Wrong Ticket.mp3"
 )
 
 
@@ -311,3 +319,13 @@ func _stop_notebook_after_crossfade() -> void:
 
 	_notebook_player.stop()
 	_notebook_player.volume_db = SILENT_DB
+
+func play_level_0_first_train_in() -> void:
+	_train_player.stop()
+	_train_player.stream = LEVEL_0_FIRST_TRAIN_IN
+	_train_player.play()
+	
+func play_wrong_ticket_sfx() -> void:
+	_train_player.stop()
+	_train_player.stream = WRONG_TICKET_SFX
+	_train_player.play()

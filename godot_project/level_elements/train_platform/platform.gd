@@ -22,8 +22,12 @@ func _process(_delta: float) -> void:
 func depart_upper_train():
 	upper_train._train_depart()
 
-func arrive_upper_train():
-	upper_train.play_simple_arrival_animation()
+func arrive_upper_train(
+	use_level_0_first_sound: bool = false
+):
+	upper_train.play_simple_arrival_animation(
+		use_level_0_first_sound
+	)
 
 func depart_lower_train():
 	lower_train._train_depart()
