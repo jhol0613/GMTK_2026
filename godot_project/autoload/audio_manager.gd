@@ -207,6 +207,32 @@ func restore_level_music(
 	)
 
 
+func play_menu_music(
+	stream: AudioStream,
+	fade_duration: float = 1.0,
+	target_volume_db: float = -8.0
+) -> void:
+	if stream == null:
+		return
+
+	_sequence_id += 1
+	_music_target_db = target_volume_db
+	_notebook_is_open = false
+
+	if stream is AudioStreamMP3:
+		(stream as AudioStreamMP3).loop = true
+
+	_notebook_player.stop()
+	_notebook_player.volume_db = SILENT_DB
+
+	if _music_player.playing and _music_player.stream == stream:
+		_stop_all_music_tweens()
+		_music_player.volume_db = target_volume_db
+		return
+
+	_play_music_stream(stream, fade_duration)
+
+
 func stop_music() -> void:
 	_sequence_id += 1
 	_stop_all_music_tweens()

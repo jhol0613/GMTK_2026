@@ -251,12 +251,6 @@ play_train_intro_before_music = true
 offset_left = 1680.0
 offset_right = 1880.0
 
-[node name="TicketButton" parent="UiOverlay" parent_id_path=PackedInt32Array(368800410) index="6" unique_id=1767702105]
-offset_left = 210.0
-offset_top = 908.0
-offset_right = 365.0
-offset_bottom = 1069.0
-
 [node name="Camera2D" parent="." index="1" unique_id=1821430600]
 position = Vector2(-1056, -752)
 limit_bottom = 0
