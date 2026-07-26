@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://bo3pcctdon7l" path="res://level_elements/signs/station_name_sign.tscn" id="27_7di2q"]
 [ext_resource type="PackedScene" uid="uid://cniar1emgicic" path="res://level_elements/decorative/ad_board.tscn" id="27_juy1h"]
 [ext_resource type="Texture2D" uid="uid://danrb3vfq83ag" path="res://level_elements/decorative/hoverthruster.png" id="28_7di2q"]
+[ext_resource type="PackedScene" uid="uid://cbuohfggvk1qu" path="res://level_elements/decorative/birb.tscn" id="30_x8hdd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8v7xn"]
 texture = ExtResource("17_ggct0")
@@ -621,7 +622,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/UpperTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.15639421
+frame_progress = 0.97612447
 
 [node name="LowerTrain" parent="Platform" index="7" unique_id=1370361982]
 next_scene = 2
@@ -633,7 +634,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/LowerTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.39785117
+frame_progress = 0.21758164
 
 [node name="TicketBooth" parent="." index="6" unique_id=861247956 instance=ExtResource("2_823pn")]
 position = Vector2(-1168, -368)
@@ -822,6 +823,39 @@ anim = 2
 [node name="TinyFoliage12" parent="Decorations" index="33" unique_id=1645346933 instance=ExtResource("18_x1db4")]
 position = Vector2(-1112, -480)
 anim = 2
+
+[node name="Birb" parent="Decorations" index="34" unique_id=1816843329 instance=ExtResource("30_x8hdd")]
+position = Vector2(-1304, -240)
+
+[node name="Birb2" parent="Decorations" index="35" unique_id=2129401343 instance=ExtResource("30_x8hdd")]
+position = Vector2(-1312, -256)
+
+[node name="Birb3" parent="Decorations" index="36" unique_id=895365153 instance=ExtResource("30_x8hdd")]
+position = Vector2(-1272, -248)
+
+[node name="Birb4" parent="Decorations" index="37" unique_id=627605254 instance=ExtResource("30_x8hdd")]
+position = Vector2(-1240, -240)
+
+[node name="Birb5" parent="Decorations" index="38" unique_id=146579604 instance=ExtResource("30_x8hdd")]
+position = Vector2(-1232, -272)
+
+[node name="Birb6" parent="Decorations" index="39" unique_id=1827575565 instance=ExtResource("30_x8hdd")]
+position = Vector2(-1304, -296)
+
+[node name="Birb7" parent="Decorations" index="40" unique_id=1918485430 instance=ExtResource("30_x8hdd")]
+position = Vector2(-592, -256)
+
+[node name="Birb8" parent="Decorations" index="41" unique_id=498429208 instance=ExtResource("30_x8hdd")]
+position = Vector2(-288, -328)
+
+[node name="Birb9" parent="Decorations" index="42" unique_id=1928838121 instance=ExtResource("30_x8hdd")]
+position = Vector2(-256, -320)
+
+[node name="Birb10" parent="Decorations" index="43" unique_id=2138091871 instance=ExtResource("30_x8hdd")]
+position = Vector2(-256, -272)
+
+[node name="Birb11" parent="Decorations" index="44" unique_id=725789385 instance=ExtResource("30_x8hdd")]
+position = Vector2(-184, -240)
 
 [node name="Blue" parent="Background" parent_id_path=PackedInt32Array(102847613) index="0" unique_id=1690243240]
 repeat_times = 5
