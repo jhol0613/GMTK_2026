@@ -5,31 +5,26 @@ extends Control
 @export_multiline() var text: String:
 	set(value):
 		text = value
-		_drawn = false
 		queue_redraw()
 
 @export var spacing: float = 15.0:
 	set(value):
 		spacing = value
-		_drawn = false
 		queue_redraw()
 
 @export var font: Font:
 	set(value):
 		font = value
-		_drawn = false
 		queue_redraw()
 
 @export var font_size: int = 16:
 	set(value):
 		font_size = value
-		_drawn = false
 		queue_redraw()
 
 var _shapes: Array[RectangleShape2D]
 var _areas: Array[ResshanInteractable]
 
-var _drawn: bool = false
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -37,21 +32,20 @@ func _ready() -> void:
 
 
 func _draw() -> void:
-	
 	var _f: Font = font
 	if not font:
 		_f = ThemeDB.fallback_font
 	_shapes = LanguageRenderer.draw_text(text, self, spacing, "/n", _f, font_size)
 	
-	if _drawn:
-		return
+	var new_set: = false
 	
-	for i: Node in _areas:
-		i.queue_free()
-	_areas.clear()
-
+	if _shapes.size() != _areas.size():
+		for a:ResshanInteractable in _areas:
+			a.queue_redraw()
+		new_set = true
+	
 	for shape: RectangleShape2D in _shapes:
-		var area := ResshanInteractable.new()
+		var area: = ResshanInteractable.new() if new_set else _areas[_shapes.find(shape)]
 		var collision_shape := CollisionShape2D.new()
 		var pos: Vector2 = shape.get_meta('text_position')
 		var resshen: String = shape.get_meta('resshen_text')
@@ -62,10 +56,11 @@ func _draw() -> void:
 		#area.position.x += shape.size.x * 0.5
 		area._encoded_string = LanguageRenderer.encode(resshen)
 		collision_shape.shape = shape
-		area.add_child(collision_shape)
 
 		_areas.append(area)
-		add_child(area)
+		if new_set:
+			area.add_child(collision_shape)
+			add_child(area)
 	
 	custom_minimum_size = LanguageRenderer.get_string_size(
 		text,
@@ -74,5 +69,3 @@ func _draw() -> void:
 		"/n",
 		spacing,
 	)
-	
-	_drawn = true
