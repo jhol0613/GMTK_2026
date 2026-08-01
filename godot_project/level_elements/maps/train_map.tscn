@@ -136,7 +136,7 @@ shape = SubResource("RectangleShape2D_qbyu3")
 [node name="EndOfTealLine" type="Area2D" parent="SignPanel/Root/Popup/Overlay" unique_id=1782321184]
 position = Vector2(427.27267, 216.8831)
 script = ExtResource("6_nf7gk")
-_string = "<<endoftealline>"
+_string = "<<endoftealline>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Overlay/EndOfTealLine" unique_id=1350963925]
