@@ -74,5 +74,6 @@
   "<<endofgrayline>>": "72",
   "<<endofbrownline>>": "73",
   "<<startofyellowline>>": "74",
-  "<<middleofpinkline>>": "75"
+  "<<middleofpinkline>>": "75",
+  "<<startofpinkline>>": "76"
 }
