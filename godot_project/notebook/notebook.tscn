@@ -23,6 +23,18 @@ script = ExtResource("1_tvakd")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=944945366]
 texture = ExtResource("3_kkelw")
 
+[node name="Control" type="Control" parent="Sprite2D" unique_id=1166920272]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -352.0
+offset_top = -509.0
+offset_right = -352.0
+offset_bottom = -509.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Pages" type="Node2D" parent="." unique_id=1748261027]
 
 [node name="NotebookPage" parent="Pages" unique_id=1099925378 instance=ExtResource("1_qjmkm")]
