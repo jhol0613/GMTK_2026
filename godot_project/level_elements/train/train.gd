@@ -181,6 +181,7 @@ func _train_depart() -> void:
 
 
 func play_arrival_animation() -> void:
+	animation_player.play("RESET")
 	AudioManager.play_train_pulling_in()
 	var player := get_tree().get_first_node_in_group("player")
 	_set_player_active(false)
@@ -237,6 +238,7 @@ func play_arrival_animation() -> void:
 
 
 func play_simple_arrival_animation(use_level_0_first_sound: bool = false) -> void:
+	animation_player.play("RESET")
 	if use_level_0_first_sound:
 		AudioManager.play_level_0_first_train_in()
 	else:
