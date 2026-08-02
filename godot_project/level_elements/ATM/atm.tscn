@@ -65,9 +65,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1w4un"]
 size = Vector2(46.5, 14)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ld73o"]
-size = Vector2(8.5, 8)
-
 [node name="ATM" type="Node2D" unique_id=124595741 node_paths=PackedStringArray("sprite", "dialog_interactable", "resshan_interactable", "resshan_interactable2")]
 z_index = 1
 script = ExtResource("1_de0lt")
@@ -98,23 +95,29 @@ collision_mask = 3
 position = Vector2(2.25, 34.5)
 shape = SubResource("RectangleShape2D_1w4un")
 
-[node name="ResshanInteractable" type="Area2D" parent="." unique_id=1722091080]
-position = Vector2(-24, -39)
+[node name="ResshanInteractable" type="Control" parent="." unique_id=1072636623]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -24.0
+offset_top = -39.0
+offset_right = -24.0
+offset_bottom = -39.0
 script = ExtResource("4_dfvvi")
 _string = "<<money>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ResshanInteractable" unique_id=1706932137]
-shape = SubResource("RectangleShape2D_ld73o")
-
-[node name="ResshanInteractable2" type="Area2D" parent="." unique_id=142653958]
-position = Vector2(-24, -28)
+[node name="ResshanInteractable2" type="Control" parent="." unique_id=461788021]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -24.0
+offset_top = -28.0
+offset_right = -24.0
+offset_bottom = -28.0
 script = ExtResource("4_dfvvi")
 _string = "<<machine>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ResshanInteractable2" unique_id=835999535]
-shape = SubResource("RectangleShape2D_ld73o")
 
 [node name="ATMTurnOnSound" type="AudioStreamPlayer" parent="." unique_id=1102551377]
 stream = ExtResource("5_5sl07")

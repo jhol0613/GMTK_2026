@@ -3,12 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://gnj7a0uwbjnr" path="res://level_elements/bathroom/Bathroom.png" id="1_cdmhv"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="2_iaw7m"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]
-size = Vector2(14, 14)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbyu3"]
-size = Vector2(14, 14)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fpcxu"]
 size = Vector2(32, 32)
 
@@ -19,26 +13,31 @@ z_index = 1
 position = Vector2(24, -16)
 texture = ExtResource("1_cdmhv")
 
-[node name="ResshanInteractable" type="Area2D" parent="." unique_id=2064183586]
+[node name="ResshanInteractable" type="Control" parent="." unique_id=104534311]
+physics_interpolation_mode = 0
 z_index = 1
-position = Vector2(16, -8)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 11.0
+offset_top = -14.0
+offset_right = 21.0
+offset_bottom = -4.0
 script = ExtResource("2_iaw7m")
 _string = "<<closed>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ResshanInteractable" unique_id=842915425]
-position = Vector2(0, -1)
-shape = SubResource("RectangleShape2D_ujtin")
-
-[node name="ResshanInteractable2" type="Area2D" parent="." unique_id=1631249381]
+[node name="ResshanInteractable2" type="Control" parent="." unique_id=2108964210]
+physics_interpolation_mode = 0
 z_index = 1
-position = Vector2(40, -24)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 35.0
+offset_top = -29.0
+offset_right = 45.0
+offset_bottom = -19.0
 script = ExtResource("2_iaw7m")
 _string = "<<bathroom>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ResshanInteractable2" unique_id=724074747]
-shape = SubResource("RectangleShape2D_qbyu3")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1851161100]
 collision_layer = 2

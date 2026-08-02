@@ -76,9 +76,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]
 size = Vector2(26, 8)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbyu3"]
-size = Vector2(17, 16.5)
-
 [node name="StationNameSign" type="Node2D" unique_id=98722644]
 script = ExtResource("1_54acc")
 
@@ -96,12 +93,15 @@ collision_mask = 3
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_ujtin")
 
-[node name="ResshanInteractable" type="Area2D" parent="." unique_id=1503352510]
+[node name="ResshanInteractable" type="Control" parent="." unique_id=1624915882]
+physics_interpolation_mode = 0
 z_index = 1
-position = Vector2(0, -25)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -8.0
+offset_top = -32.0
+offset_right = 8.0
+offset_bottom = -16.0
 script = ExtResource("3_r0etv")
 _string = "<<station.0>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ResshanInteractable" unique_id=135279509]
-shape = SubResource("RectangleShape2D_qbyu3")

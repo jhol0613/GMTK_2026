@@ -293,7 +293,6 @@ reload_scene = 3
 depart_offset = Vector2(2000, 0)
 arrival_offset = Vector2(-2000, 0)
 ticket_id = &"RED_east"
-disembark_camera_offset_y = 0.0
 color = 7
 
 [node name="LowerTrain" parent="Platform" index="7" unique_id=1370361982]
@@ -301,7 +300,6 @@ reload_scene = 3
 depart_offset = Vector2(-2000, 0)
 arrival_offset = Vector2(2000, 0)
 ticket_id = &"RED_west"
-disembark_camera_offset_y = 0.0
 color = 7
 
 [node name="Station0Sign" parent="Platform" index="18" unique_id=98722644]
@@ -326,7 +324,6 @@ reload_scene = 3
 depart_offset = Vector2(2000, 0)
 arrival_offset = Vector2(-2000, 0)
 ticket_id = &"PINK_east"
-disembark_camera_offset_y = 0.0
 color = 5
 
 [node name="LowerTrain" parent="Platform2" index="7" unique_id=1370361982]
@@ -334,7 +331,6 @@ reload_scene = 3
 depart_offset = Vector2(-2000, 0)
 arrival_offset = Vector2(2000, 0)
 ticket_id = &"PINK_west"
-disembark_camera_offset_y = 0.0
 color = 5
 
 [node name="Station0Sign" parent="Platform2" index="18" unique_id=98722644]
@@ -359,7 +355,6 @@ reload_scene = 3
 depart_offset = Vector2(2000, 0)
 arrival_offset = Vector2(-2000, 0)
 ticket_id = &"GREEN_east"
-disembark_camera_offset_y = 0.0
 color = 3
 
 [node name="LowerTrain" parent="Platform3" index="7" unique_id=1370361982]
@@ -367,7 +362,6 @@ reload_scene = 3
 depart_offset = Vector2(-2000, 0)
 arrival_offset = Vector2(2000, 0)
 ticket_id = &"GREEN_west"
-disembark_camera_offset_y = 0.0
 color = 3
 
 [node name="Station0Sign" parent="Platform3" index="18" unique_id=98722644]
@@ -392,14 +386,12 @@ next_scene = 6
 reload_scene = 3
 depart_offset = Vector2(2000, 0)
 arrival_offset = Vector2(-2000, 0)
-disembark_camera_offset_y = 0.0
 color = 0
 
 [node name="LowerTrain" parent="Platform4" index="7" unique_id=1370361982]
 reload_scene = 3
 depart_offset = Vector2(-2000, 0)
 arrival_offset = Vector2(2000, 0)
-disembark_camera_offset_y = 0.0
 color = 0
 
 [node name="Station0Sign" parent="Platform4" index="18" unique_id=98722644]

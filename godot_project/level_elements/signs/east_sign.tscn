@@ -35,9 +35,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]
 size = Vector2(11, 6)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbyu3"]
-size = Vector2(11, 10)
-
 [node name="EastSign" type="Node2D" unique_id=733299724]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1452118075]
@@ -55,11 +52,14 @@ collision_mask = 3
 position = Vector2(2, -3)
 shape = SubResource("RectangleShape2D_ujtin")
 
-[node name="ResshanInteractable" type="Area2D" parent="." unique_id=863376939]
-position = Vector2(0, -39)
+[node name="ResshanInteractable" type="Control" parent="." unique_id=772314074]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -5.0
+offset_top = -44.0
+offset_right = 5.0
+offset_bottom = -33.0
 script = ExtResource("2_o25h1")
 _string = "<<east>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ResshanInteractable" unique_id=1309111021]
-shape = SubResource("RectangleShape2D_qbyu3")

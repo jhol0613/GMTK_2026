@@ -1,5 +1,5 @@
 class_name ResshanInteractable
-extends Area2D
+extends Control
 
 const TIME_TO_HOVER: = .4
 
@@ -28,10 +28,8 @@ func _ready() -> void:
 	
 	_shine_cover = ColorRect.new()
 	_shine_cover.hide()
-	var coll: CollisionShape2D = get_child(0)
 	_shine_cover.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	_shine_cover.size = coll.shape.size
-	_shine_cover.position -= coll.shape.size * 0.5
+	_shine_cover.size = size
 	_shine_cover.material = shader
 	_shine_cover.z_index = 10
 	add_child(_shine_cover)
@@ -45,7 +43,7 @@ func _process(delta: float) -> void:
 		shader.set_shader_parameter('time', shader.get_shader_parameter('time') + .05 * delta)
 
 
-func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
+func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if not event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			noted = true
@@ -54,7 +52,6 @@ func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> vo
 
 
 func _on_mouse_entered() -> void:
-	print(Notebook.player_vocab)
 	if Notebook.player_vocab.has(_string):
 		noted = true
 	_shine_cover.show()

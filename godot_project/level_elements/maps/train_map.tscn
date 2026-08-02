@@ -10,13 +10,298 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]
 size = Vector2(34, 12)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbyu3"]
-size = Vector2(62.142853, 61.03898)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nf7gk"]
-size = Vector2(62.337402, 64.93509)
-
 [node name="TrainMap" type="Node2D" unique_id=940096549]
+
+[node name="SignPanel" parent="." unique_id=1998267979 instance=ExtResource("3_rlmea")]
+
+[node name="Map" type="Sprite2D" parent="SignPanel/Root/Popup" parent_id_path=PackedInt32Array(1998267979, 2123670025) index="1" unique_id=87657577]
+position = Vector2(228, 240)
+scale = Vector2(0.77, 0.77)
+texture = ExtResource("4_rlmea")
+
+[node name="ColorRect2" type="ColorRect" parent="SignPanel/Root/Popup/Map" unique_id=1111831422]
+offset_left = -461.03876
+offset_top = -246.75327
+offset_right = -396.1037
+offset_bottom = -183.11691
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="SignPanel/Root/Popup/Map" unique_id=1083407357]
+offset_left = -454.54544
+offset_top = -245.45456
+offset_right = -397.40256
+offset_bottom = -188.3117
+mouse_filter = 2
+
+[node name="Overlay" type="Sprite2D" parent="SignPanel/Root/Popup" parent_id_path=PackedInt32Array(1998267979, 2123670025) index="2" unique_id=146975511]
+position = Vector2(228, 240)
+scale = Vector2(0.77, 0.77)
+texture = ExtResource("5_jm6e6")
+
+[node name="EndOfBrownLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=1162920577]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = 223.37659
+offset_top = 306.49347
+offset_right = 289.61035
+offset_bottom = 359.74017
+script = ExtResource("6_nf7gk")
+_string = "<<endofbrownline>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="EndOfRedLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=815718767]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = 301.29865
+offset_top = 485.7143
+offset_right = 367.5324
+offset_bottom = 538.96106
+script = ExtResource("6_nf7gk")
+_string = "<<endofredline>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="EndOfPinkLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=1378205086]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = 159.74022
+offset_top = -277.92206
+offset_right = 225.97398
+offset_bottom = -224.67535
+script = ExtResource("6_nf7gk")
+_string = "<<endofpinkline>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="EndOfBlueLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=1491655319]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = 41.55842
+offset_top = -141.55849
+offset_right = 107.79218
+offset_bottom = -84.4156
+script = ExtResource("6_nf7gk")
+_string = "<<endofblueline>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="StartOfYellowLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=2060930016]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = 55.84412
+offset_top = -392.20786
+offset_right = 122.07788
+offset_bottom = -338.96115
+script = ExtResource("6_nf7gk")
+_string = "<<startofyellowline>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="MiddleOfPinkLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=1783399837]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -261.039
+offset_top = -32.46755
+offset_right = -194.80524
+offset_bottom = 20.779156
+script = ExtResource("6_nf7gk")
+_string = "<<middleofpinkline>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="EndOfTealLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=1068910969]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = 393.50644
+offset_top = 185.71423
+offset_right = 459.7402
+offset_bottom = 238.96095
+script = ExtResource("6_nf7gk")
+_string = "<<endoftealline>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="station0" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=337114235]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -446.7533
+offset_top = 281.8181
+offset_right = -380.51953
+offset_bottom = 335.06482
+script = ExtResource("6_nf7gk")
+_string = "<<station.0>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="clsd" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=2107252903]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -461.039
+offset_top = -246.75331
+offset_right = -394.80524
+offset_bottom = -185.71425
+script = ExtResource("6_nf7gk")
+_string = "<<closed>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="station1" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=191321993]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -111.6883
+offset_top = 172.72731
+offset_right = -61.03901
+offset_bottom = 227.27278
+script = ExtResource("6_nf7gk")
+_string = "<<station.1>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="station2" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=1567662776]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = 101.29875
+offset_top = -10.389583
+offset_right = 162.33769
+offset_bottom = 42.85712
+script = ExtResource("6_nf7gk")
+_string = "<<station.2>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="EndOfGrayLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=769690753]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = 393.50644
+offset_top = 77.922104
+offset_right = 459.7402
+offset_bottom = 131.16881
+script = ExtResource("6_nf7gk")
+_string = "<<endofgrayline>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="EndOfGreenLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=465219179]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = 142.85709
+offset_top = 441.55847
+offset_right = 209.09085
+offset_bottom = 494.80518
+script = ExtResource("6_nf7gk")
+_string = "<<endofgreenline>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="EndOfYellowLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=1548955366]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = 374.02594
+offset_top = -176.62338
+offset_right = 440.2597
+offset_bottom = -123.37668
+script = ExtResource("6_nf7gk")
+_string = "<<endofyellowline>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="EndOfMaroonLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=1123076639]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = 315.5844
+offset_top = -259.74026
+offset_right = 358.44147
+offset_bottom = -206.49356
+script = ExtResource("6_nf7gk")
+_string = "<<endofmaroonline>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="EndOfPurpleLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=621705647]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = 502.59747
+offset_top = 333.76614
+offset_right = 568.83124
+offset_bottom = 387.01285
+script = ExtResource("6_nf7gk")
+_string = "<<endofpurpleline>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="resshancentralsquare" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=550058470]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -58.44155
+offset_top = -296.10388
+offset_right = -2.597435
+offset_bottom = -244.15582
+script = ExtResource("6_nf7gk")
+_string = "<<resshancentralsquare>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="StartOfPinkLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=711403735]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = 135.06491
+offset_top = 175.32463
+offset_right = 185.7142
+offset_bottom = 228.57133
+script = ExtResource("6_nf7gk")
+_string = "<<startofpinkline>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="north" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=492400746]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = 371.42856
+offset_top = -559.7403
+offset_right = 437.66232
+offset_bottom = -506.4936
+script = ExtResource("6_nf7gk")
+_string = "<<north>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="east" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=1161092808]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = 490.90906
+offset_top = -442.8572
+offset_right = 557.1428
+offset_bottom = -381.8182
+script = ExtResource("6_nf7gk")
+_string = "<<east>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="west" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=372488495]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = 249.35065
+offset_top = -442.8572
+offset_right = 315.5844
+offset_bottom = -380.5195
+script = ExtResource("6_nf7gk")
+_string = "<<west>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="south" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=379963249]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = 370.12985
+offset_top = -323.3767
+offset_right = 436.36362
+offset_bottom = -261.03894
+script = ExtResource("6_nf7gk")
+_string = "<<south>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="Trainmap" type="Sprite2D" parent="." unique_id=2020560551]
 z_index = 1
@@ -46,252 +331,5 @@ offset_bottom = -6.0
 [node name="AnimatedSprite2D" parent="SignInteractable" index="2" unique_id=819702371]
 position = Vector2(0, -92)
 
-[node name="SignPanel" parent="." unique_id=1998267979 instance=ExtResource("3_rlmea")]
-
-[node name="Map" type="Sprite2D" parent="SignPanel/Root/Popup" parent_id_path=PackedInt32Array(1998267979, 2123670025) index="1" unique_id=87657577]
-position = Vector2(228, 240)
-scale = Vector2(0.77, 0.77)
-texture = ExtResource("4_rlmea")
-
-[node name="ColorRect2" type="ColorRect" parent="SignPanel/Root/Popup/Map" unique_id=1111831422]
-offset_left = -461.03876
-offset_top = -246.75327
-offset_right = -396.1037
-offset_bottom = -183.11691
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
-
-[node name="ColorRect" type="ColorRect" parent="SignPanel/Root/Popup/Map" unique_id=1083407357]
-offset_left = -454.54544
-offset_top = -245.45456
-offset_right = -397.40256
-offset_bottom = -188.3117
-mouse_filter = 2
-
-[node name="Overlay" type="Sprite2D" parent="SignPanel/Root/Popup" parent_id_path=PackedInt32Array(1998267979, 2123670025) index="2" unique_id=146975511]
-position = Vector2(228, 240)
-scale = Vector2(0.77, 0.77)
-texture = ExtResource("5_jm6e6")
-
-[node name="EndOfBrownLine" type="Area2D" parent="SignPanel/Root/Popup/Overlay" unique_id=1945421422]
-position = Vector2(257.14282, 331.16882)
-script = ExtResource("6_nf7gk")
-_string = "<<endofbrownline>>"
-metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Overlay/EndOfBrownLine" unique_id=621484184]
-scale = Vector2(0.9999999, 0.9999999)
-shape = SubResource("RectangleShape2D_qbyu3")
-
-[node name="EndOfRedLine" type="Area2D" parent="SignPanel/Root/Popup/Overlay" unique_id=1480973895]
-position = Vector2(331.16876, 509.0909)
-script = ExtResource("6_nf7gk")
-_string = "<<endofredline>>"
-metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Overlay/EndOfRedLine" unique_id=982240440]
-scale = Vector2(0.9999999, 0.9999999)
-shape = SubResource("RectangleShape2D_qbyu3")
-
-[node name="EndOfPinkLine" type="Area2D" parent="SignPanel/Root/Popup/Overlay" unique_id=220933584]
-position = Vector2(196.10385, -253.24677)
-script = ExtResource("6_nf7gk")
-_string = "<<endofpinkline>>"
-metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Overlay/EndOfPinkLine" unique_id=232441167]
-scale = Vector2(0.9999999, 0.9999999)
-shape = SubResource("RectangleShape2D_qbyu3")
-
-[node name="EndOfBlueLine" type="Area2D" parent="SignPanel/Root/Popup/Overlay" unique_id=282054952]
-position = Vector2(70.129845, -110.38963)
-script = ExtResource("6_nf7gk")
-_string = "<<endofblueline>>"
-metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Overlay/EndOfBlueLine" unique_id=17529809]
-scale = Vector2(0.9999999, 0.9999999)
-shape = SubResource("RectangleShape2D_qbyu3")
-
-[node name="StartOfYellowLine" type="Area2D" parent="SignPanel/Root/Popup/Overlay" unique_id=2021439694]
-position = Vector2(89.61035, -361.03897)
-script = ExtResource("6_nf7gk")
-_string = "<<startofyellowline>>"
-metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Overlay/StartOfYellowLine" unique_id=59332043]
-scale = Vector2(0.9999999, 0.9999999)
-shape = SubResource("RectangleShape2D_qbyu3")
-
-[node name="MiddleOfPinkLine" type="Area2D" parent="SignPanel/Root/Popup/Overlay" unique_id=1735584648]
-position = Vector2(-228.57147, -5.194824)
-script = ExtResource("6_nf7gk")
-_string = "<<middleofpinkline>>"
-metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Overlay/MiddleOfPinkLine" unique_id=686467622]
-scale = Vector2(0.9999999, 0.9999999)
-shape = SubResource("RectangleShape2D_qbyu3")
-
-[node name="EndOfTealLine" type="Area2D" parent="SignPanel/Root/Popup/Overlay" unique_id=1782321184]
-position = Vector2(427.27267, 216.8831)
-script = ExtResource("6_nf7gk")
-_string = "<<endoftealline>>"
-metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Overlay/EndOfTealLine" unique_id=1350963925]
-scale = Vector2(0.9999999, 0.9999999)
-shape = SubResource("RectangleShape2D_qbyu3")
-
-[node name="station0" type="Area2D" parent="SignPanel/Root/Popup/Overlay" unique_id=1267312914]
-position = Vector2(-412.98706, 312.987)
-script = ExtResource("6_nf7gk")
-_string = "<<station.0>>"
-metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Overlay/station0" unique_id=762785112]
-scale = Vector2(0.9999998, 0.9999998)
-shape = SubResource("RectangleShape2D_qbyu3")
-
-[node name="clsd" type="Area2D" parent="SignPanel/Root/Popup/Overlay" unique_id=963500961]
-position = Vector2(-427.27277, -215.58444)
-script = ExtResource("6_nf7gk")
-_string = "<<closed>>"
-metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Overlay/clsd" unique_id=682324446]
-scale = Vector2(0.9999998, 0.9999998)
-shape = SubResource("RectangleShape2D_qbyu3")
-
-[node name="station1" type="Area2D" parent="SignPanel/Root/Popup/Overlay" unique_id=1343092661]
-position = Vector2(-93.50653, 197.40259)
-script = ExtResource("6_nf7gk")
-_string = "<<station.1>>"
-metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Overlay/station1" unique_id=279221572]
-scale = Vector2(0.9999998, 0.9999998)
-shape = SubResource("RectangleShape2D_qbyu3")
-
-[node name="station2" type="Area2D" parent="SignPanel/Root/Popup/Overlay" unique_id=865071221]
-position = Vector2(129.87009, 12.9869995)
-script = ExtResource("6_nf7gk")
-_string = "<<station.2>>"
-metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Overlay/station2" unique_id=2102728544]
-scale = Vector2(0.9999998, 0.9999998)
-shape = SubResource("RectangleShape2D_qbyu3")
-
-[node name="EndOfGrayLine" type="Area2D" parent="SignPanel/Root/Popup/Overlay" unique_id=1420095934]
-position = Vector2(429.8701, 103.89609)
-script = ExtResource("6_nf7gk")
-_string = "<<endofgrayline>>"
-metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Overlay/EndOfGrayLine" unique_id=977626664]
-scale = Vector2(0.9999998, 0.9999998)
-shape = SubResource("RectangleShape2D_qbyu3")
-
-[node name="EndOfGreenLine" type="Area2D" parent="SignPanel/Root/Popup/Overlay" unique_id=1699015884]
-position = Vector2(177.92203, 464.93506)
-script = ExtResource("6_nf7gk")
-_string = "<<endofgreenline>>"
-metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Overlay/EndOfGreenLine" unique_id=2102610375]
-scale = Vector2(0.9999998, 0.9999998)
-shape = SubResource("RectangleShape2D_qbyu3")
-
-[node name="EndOfYellowLine" type="Area2D" parent="SignPanel/Root/Popup/Overlay" unique_id=386410144]
-position = Vector2(406.49347, -150.64935)
-script = ExtResource("6_nf7gk")
-_string = "<<endofyellowline>>"
-metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Overlay/EndOfYellowLine" unique_id=1897528662]
-scale = Vector2(0.9999998, 0.9999998)
-shape = SubResource("RectangleShape2D_qbyu3")
-
-[node name="EndOfMaroonLine" type="Area2D" parent="SignPanel/Root/Popup/Overlay" unique_id=1933949400]
-position = Vector2(341.5584, -236.36363)
-script = ExtResource("6_nf7gk")
-_string = "<<endofmaroonline>>"
-metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Overlay/EndOfMaroonLine" unique_id=463863332]
-scale = Vector2(0.9999998, 0.9999998)
-shape = SubResource("RectangleShape2D_qbyu3")
-
-[node name="EndOfPurpleLine" type="Area2D" parent="SignPanel/Root/Popup/Overlay" unique_id=196754087]
-position = Vector2(536.3637, 364.93503)
-script = ExtResource("6_nf7gk")
-_string = "<<endofpurpleline>>"
-metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Overlay/EndOfPurpleLine" unique_id=1030853404]
-scale = Vector2(0.9999998, 0.9999998)
-shape = SubResource("RectangleShape2D_qbyu3")
-
-[node name="resshancentralsquare" type="Area2D" parent="SignPanel/Root/Popup/Overlay" unique_id=990729171]
-position = Vector2(-36.36367, -270.12988)
-script = ExtResource("6_nf7gk")
-_string = "<<resshancentralsquare>>"
-metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Overlay/resshancentralsquare" unique_id=1703578572]
-scale = Vector2(0.9999998, 0.9999998)
-shape = SubResource("RectangleShape2D_qbyu3")
-
-[node name="StartOfPinkLine" type="Area2D" parent="SignPanel/Root/Popup/Overlay" unique_id=1240980929]
-position = Vector2(161.03891, 206.4935)
-script = ExtResource("6_nf7gk")
-_string = "<<startofpinkline>>"
-metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Overlay/StartOfPinkLine" unique_id=366815777]
-scale = Vector2(0.9999998, 0.9999998)
-shape = SubResource("RectangleShape2D_qbyu3")
-
-[node name="north" type="Area2D" parent="SignPanel/Root/Popup/Overlay" unique_id=740281109]
-position = Vector2(405.1948, -528.5714)
-script = ExtResource("6_nf7gk")
-_string = "<<north>>"
-metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Overlay/north" unique_id=783848587]
-scale = Vector2(0.9999998, 0.9999998)
-shape = SubResource("RectangleShape2D_nf7gk")
-
-[node name="east" type="Area2D" parent="SignPanel/Root/Popup/Overlay" unique_id=1311030831]
-position = Vector2(524.6753, -411.68832)
-script = ExtResource("6_nf7gk")
-_string = "<<east>>"
-metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Overlay/east" unique_id=1981713432]
-scale = Vector2(0.9999998, 0.9999998)
-shape = SubResource("RectangleShape2D_nf7gk")
-
-[node name="west" type="Area2D" parent="SignPanel/Root/Popup/Overlay" unique_id=150290893]
-position = Vector2(283.11688, -411.68832)
-script = ExtResource("6_nf7gk")
-_string = "<<west>>"
-metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Overlay/west" unique_id=496797191]
-scale = Vector2(0.9999998, 0.9999998)
-shape = SubResource("RectangleShape2D_nf7gk")
-
-[node name="south" type="Area2D" parent="SignPanel/Root/Popup/Overlay" unique_id=145022559]
-position = Vector2(403.8961, -292.20782)
-script = ExtResource("6_nf7gk")
-_string = "<<south>>"
-metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SignPanel/Root/Popup/Overlay/south" unique_id=1637038834]
-scale = Vector2(0.9999998, 0.9999998)
-shape = SubResource("RectangleShape2D_nf7gk")
-
-[editable path="SignInteractable"]
 [editable path="SignPanel"]
+[editable path="SignInteractable"]

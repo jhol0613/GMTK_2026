@@ -80,7 +80,7 @@ static func draw_resshan_text(
 	var shape: = RectangleShape2D.new()
 	shape.size.y = font_size
 	shape.size.x = arr.size() * font_size
-	shape.set_meta('text_position', shape.size * Vector2(0.5,1) + pos - Vector2(font_size,0))
+	shape.set_meta('text_position', pos - Vector2(font_size,0))
 	return shape
 
 ## Turns <<***>> Resshen format into *.*.*.*... encoded format

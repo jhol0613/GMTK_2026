@@ -52,17 +52,14 @@ func _draw() -> void:
 
 	for shape: RectangleShape2D in _shapes:
 		var area := ResshanInteractable.new()
-		var collision_shape := CollisionShape2D.new()
 		var pos: Vector2 = shape.get_meta('text_position')
 		var resshen: String = shape.get_meta('resshen_text')
 
 		area.position = pos
-		area.position.y -= pos.y / 2
 		#area.position.x = 0
 		#area.position.x += shape.size.x * 0.5
 		area._encoded_string = LanguageRenderer.encode(resshen)
-		collision_shape.shape = shape
-		area.add_child(collision_shape)
+		area.size = shape.size
 
 		_areas.append(area)
 		add_child(area)

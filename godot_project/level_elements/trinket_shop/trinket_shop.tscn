@@ -60,9 +60,6 @@ size = Vector2(54, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fhk1x"]
 size = Vector2(117, 31)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]
-size = Vector2(13.5, 13)
-
 [node name="TrinketShop" type="Node2D" unique_id=877031898]
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=984962632]
@@ -101,24 +98,30 @@ shape = SubResource("RectangleShape2D_fhk1x")
 [node name="DialoguePanel" parent="." unique_id=210961773 instance=ExtResource("5_73t7r")]
 unique_name_in_owner = true
 
-[node name="ResshanInteractable" type="Area2D" parent="." unique_id=1551981602]
+[node name="ResshanInteractable" type="Control" parent="." unique_id=2144437478]
+physics_interpolation_mode = 0
 z_index = 2
-position = Vector2(-32, -68)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -39.0
+offset_top = -75.0
+offset_right = -26.0
+offset_bottom = -62.0
 script = ExtResource("5_400x5")
 _string = "<<trinketmask>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ResshanInteractable" unique_id=802549769]
-shape = SubResource("RectangleShape2D_ujtin")
-
-[node name="ResshanInteractable2" type="Area2D" parent="." unique_id=1274088516]
+[node name="ResshanInteractable2" type="Control" parent="." unique_id=2016737962]
+physics_interpolation_mode = 0
 z_index = 2
-position = Vector2(16, -68)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 11.0
+offset_top = -73.0
+offset_right = 20.0
+offset_bottom = -62.0
 script = ExtResource("5_400x5")
 _string = "<<store>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ResshanInteractable2" unique_id=2025560916]
-shape = SubResource("RectangleShape2D_ujtin")
 
 [editable path="DialogueInteractable"]
