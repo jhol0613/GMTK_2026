@@ -6,6 +6,7 @@ signal option_confirmed(outcome_id: StringName)
 
 @export var player_name: String = "You"
 @export var player_icon: Texture2D
+@export var choice_nav_icons: Control
 
 @onready var _speaker: ResshanLabel = $Root/Popup/MarginContainer/HBoxContainer/VBox/Speaker
 @onready var _body: ResshanLabel = $Root/Popup/MarginContainer/HBoxContainer/VBox/Body
@@ -69,6 +70,7 @@ func _update_line() -> void:
 		return
 
 	var line: DialogueLine = _lines[_index]
+	choice_nav_icons.visible = false
 	_speaker.text = line.speaker
 	_body.text = line.text
 	_speaker_icon.texture = line.speaker_icon
@@ -107,6 +109,7 @@ func _enter_options_mode() -> void:
 	_speaker.text = player_name
 	_speaker_icon.texture = player_icon
 	_options.visible = true
+	choice_nav_icons.visible = true
 	_refresh_options_visual()
 
 
