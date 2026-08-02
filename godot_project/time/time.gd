@@ -1,6 +1,6 @@
 extends Control
 
-const HOUR_PER_DAY: int = 8
+const HOUR_PER_DAY: int = 7
 
 @export_category("Clock Sounds")
 @export var second_change_sound: AudioStream
@@ -13,8 +13,8 @@ const HOUR_PER_DAY: int = 8
 @onready var sfx_player: AudioStreamPlayer = $SFXPlayer
 
 @export var start_hour: int = HOUR_PER_DAY
-@export var start_minute: int = 8
-@export var start_second: int = 8
+@export var start_minute: int = 7
+@export var start_second: int = 7
 
 @export var countdown_finished_sound: AudioStream
 @export_range(-40.0, 6.0, 0.5)
