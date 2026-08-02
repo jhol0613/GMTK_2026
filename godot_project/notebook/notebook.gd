@@ -10,7 +10,7 @@ static var player_vocab: Dictionary[String,String] = {
 	"59": "The place I am trying to go",
 }
 
-
+var pen = load("uid://c8yj5np7nrak6")
 var _current_page: int = 0
 var _free_page: int = 0
 var _pages: Array[NotebookPage] = []
@@ -103,3 +103,7 @@ func _on_previous_page_pressed() -> void:
 	if _current_page == PAGE_COUNT - 1:
 		%NextPage.disabled = true
 		return
+
+
+func _on_notebook_mouse_entered() -> void:
+	Input.set_custom_mouse_cursor(pen)

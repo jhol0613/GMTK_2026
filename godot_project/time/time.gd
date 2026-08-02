@@ -7,6 +7,8 @@ const HOUR_PER_DAY: int = 7
 @export_range(-40.0, 6.0, 0.5) var second_volume_db: float = -3.0
 @export var minute_change_sound: AudioStream
 @export_range(-40.0, 6.0, 0.5) var minute_volume_db: float = -0.0
+@export var countdown_finished_sound: AudioStream
+@export_range(-40.0, 6.0, 0.5) var countdown_finished_volume_db: float = 0.0
 
 @onready var label: ResshanLabel = $Label
 @onready var highlight: Panel = $Highlight
@@ -16,9 +18,7 @@ const HOUR_PER_DAY: int = 7
 @export var start_minute: int = 7
 @export var start_second: int = 7
 
-@export var countdown_finished_sound: AudioStream
-@export_range(-40.0, 6.0, 0.5)
-var countdown_finished_volume_db: float = 0.0
+
 
 
 
