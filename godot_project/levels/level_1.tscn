@@ -273,6 +273,7 @@ position = Vector2(-496, -416)
 
 [node name="ATM" parent="." index="6" unique_id=124595741 instance=ExtResource("6_btoec")]
 position = Vector2(-576, -160)
+broken = true
 
 [node name="HourglassCentral" parent="." index="7" unique_id=1191851679 instance=ExtResource("7_gwceb")]
 position = Vector2(-320, -272)
