@@ -966,6 +966,102 @@ position = Vector2(-48, -736)
 position = Vector2(-80, -1472)
 anim = 1
 
+[node name="Birb" parent="Decorations" index="132" unique_id=218145144 instance=ExtResource("37_gtrna")]
+position = Vector2(-1336, -736)
+
+[node name="Birb3" parent="Decorations" index="133" unique_id=256394402 instance=ExtResource("37_gtrna")]
+position = Vector2(-1312, -744)
+
+[node name="Birb4" parent="Decorations" index="134" unique_id=594114438 instance=ExtResource("37_gtrna")]
+position = Vector2(-1280, -744)
+
+[node name="Birb5" parent="Decorations" index="135" unique_id=369816595 instance=ExtResource("37_gtrna")]
+position = Vector2(-1256, -736)
+
+[node name="Birb6" parent="Decorations" index="136" unique_id=1775601579 instance=ExtResource("37_gtrna")]
+position = Vector2(-1232, -744)
+
+[node name="Birb7" parent="Decorations" index="137" unique_id=311438673 instance=ExtResource("37_gtrna")]
+position = Vector2(-1216, -752)
+
+[node name="Birb8" parent="Decorations" index="138" unique_id=405354904 instance=ExtResource("37_gtrna")]
+position = Vector2(-1184, -744)
+
+[node name="Birb2" parent="Decorations" index="139" unique_id=1257316208 instance=ExtResource("37_gtrna")]
+position = Vector2(-1328, -704)
+
+[node name="Birb9" parent="Decorations" index="140" unique_id=911694035 instance=ExtResource("37_gtrna")]
+position = Vector2(-136, -336)
+
+[node name="Birb10" parent="Decorations" index="141" unique_id=225125334 instance=ExtResource("37_gtrna")]
+position = Vector2(-112, -352)
+
+[node name="Birb11" parent="Decorations" index="142" unique_id=654338642 instance=ExtResource("37_gtrna")]
+position = Vector2(-104, -336)
+
+[node name="Birb12" parent="Decorations" index="143" unique_id=60323910 instance=ExtResource("37_gtrna")]
+position = Vector2(-120, -304)
+
+[node name="Birb13" parent="Decorations" index="144" unique_id=2105317354 instance=ExtResource("37_gtrna")]
+position = Vector2(-56, -352)
+
+[node name="Birb14" parent="Decorations" index="145" unique_id=1694527400 instance=ExtResource("37_gtrna")]
+position = Vector2(-24, -112)
+
+[node name="Birb15" parent="Decorations" index="146" unique_id=223923151 instance=ExtResource("37_gtrna")]
+position = Vector2(-56, -128)
+
+[node name="Birb16" parent="Decorations" index="147" unique_id=1575660569 instance=ExtResource("37_gtrna")]
+position = Vector2(-80, -784)
+
+[node name="Birb17" parent="Decorations" index="148" unique_id=742183494 instance=ExtResource("37_gtrna")]
+position = Vector2(-48, -1512)
+
+[node name="Birb18" parent="Decorations" index="149" unique_id=933932631 instance=ExtResource("37_gtrna")]
+position = Vector2(-968, -1392)
+
+[node name="Birb19" parent="Decorations" index="150" unique_id=1869948728 instance=ExtResource("37_gtrna")]
+position = Vector2(-968, -1416)
+
+[node name="Birb20" parent="Decorations" index="151" unique_id=1214163695 instance=ExtResource("37_gtrna")]
+position = Vector2(-928, -1400)
+
+[node name="Birb21" parent="Decorations" index="152" unique_id=1422137832 instance=ExtResource("37_gtrna")]
+position = Vector2(-936, -1432)
+
+[node name="Birb22" parent="Decorations" index="153" unique_id=992682249 instance=ExtResource("37_gtrna")]
+position = Vector2(-960, -1456)
+
+[node name="Birb23" parent="Decorations" index="154" unique_id=967419266 instance=ExtResource("37_gtrna")]
+position = Vector2(-920, -1464)
+
+[node name="Birb24" parent="Decorations" index="155" unique_id=1821334819 instance=ExtResource("37_gtrna")]
+position = Vector2(-896, -1400)
+
+[node name="Birb25" parent="Decorations" index="156" unique_id=1660683402 instance=ExtResource("37_gtrna")]
+position = Vector2(-952, -1480)
+
+[node name="Birb26" parent="Decorations" index="157" unique_id=784926065 instance=ExtResource("37_gtrna")]
+position = Vector2(-944, -1416)
+
+[node name="Birb27" parent="Decorations" index="158" unique_id=1785394733 instance=ExtResource("37_gtrna")]
+position = Vector2(-976, -1440)
+
+[node name="Birb28" parent="Decorations" index="159" unique_id=425966684 instance=ExtResource("37_gtrna")]
+position = Vector2(296, -1760)
+
+[node name="Birb29" parent="Decorations" index="160" unique_id=345524361 instance=ExtResource("37_gtrna")]
+position = Vector2(440, -1824)
+
+[node name="Birb30" parent="Decorations" index="161" unique_id=952510631 instance=ExtResource("37_gtrna")]
+position = Vector2(528, -1752)
+
+[node name="Birb31" parent="Decorations" index="162" unique_id=1934078755 instance=ExtResource("37_gtrna")]
+position = Vector2(712, -1832)
+
+[node name="Birb32" parent="Decorations" index="163" unique_id=1181962484 instance=ExtResource("37_gtrna")]
+position = Vector2(848, -1776)
+
 [node name="Blue" parent="Background" parent_id_path=PackedInt32Array(102847613) index="0" unique_id=1690243240]
 repeat_times = 5
 
@@ -987,102 +1083,6 @@ position = Vector2(-262, -416)
 
 [node name="Preston" parent="." index="23" unique_id=504841927 instance=ExtResource("34_preston")]
 position = Vector2(448, -1094)
-
-[node name="Birb" parent="." index="24" unique_id=218145144 instance=ExtResource("37_gtrna")]
-position = Vector2(-1336, -736)
-
-[node name="Birb3" parent="." index="25" unique_id=256394402 instance=ExtResource("37_gtrna")]
-position = Vector2(-1312, -744)
-
-[node name="Birb4" parent="." index="26" unique_id=594114438 instance=ExtResource("37_gtrna")]
-position = Vector2(-1280, -744)
-
-[node name="Birb5" parent="." index="27" unique_id=369816595 instance=ExtResource("37_gtrna")]
-position = Vector2(-1256, -736)
-
-[node name="Birb6" parent="." index="28" unique_id=1775601579 instance=ExtResource("37_gtrna")]
-position = Vector2(-1232, -744)
-
-[node name="Birb7" parent="." index="29" unique_id=311438673 instance=ExtResource("37_gtrna")]
-position = Vector2(-1216, -752)
-
-[node name="Birb8" parent="." index="30" unique_id=405354904 instance=ExtResource("37_gtrna")]
-position = Vector2(-1184, -744)
-
-[node name="Birb2" parent="." index="31" unique_id=1257316208 instance=ExtResource("37_gtrna")]
-position = Vector2(-1328, -704)
-
-[node name="Birb9" parent="." index="32" unique_id=911694035 instance=ExtResource("37_gtrna")]
-position = Vector2(-136, -336)
-
-[node name="Birb10" parent="." index="33" unique_id=225125334 instance=ExtResource("37_gtrna")]
-position = Vector2(-112, -352)
-
-[node name="Birb11" parent="." index="34" unique_id=654338642 instance=ExtResource("37_gtrna")]
-position = Vector2(-104, -336)
-
-[node name="Birb12" parent="." index="35" unique_id=60323910 instance=ExtResource("37_gtrna")]
-position = Vector2(-120, -304)
-
-[node name="Birb13" parent="." index="36" unique_id=2105317354 instance=ExtResource("37_gtrna")]
-position = Vector2(-56, -352)
-
-[node name="Birb14" parent="." index="37" unique_id=1694527400 instance=ExtResource("37_gtrna")]
-position = Vector2(-24, -112)
-
-[node name="Birb15" parent="." index="38" unique_id=223923151 instance=ExtResource("37_gtrna")]
-position = Vector2(-56, -128)
-
-[node name="Birb16" parent="." index="39" unique_id=1575660569 instance=ExtResource("37_gtrna")]
-position = Vector2(-80, -784)
-
-[node name="Birb17" parent="." index="40" unique_id=742183494 instance=ExtResource("37_gtrna")]
-position = Vector2(-48, -1512)
-
-[node name="Birb18" parent="." index="41" unique_id=933932631 instance=ExtResource("37_gtrna")]
-position = Vector2(-968, -1392)
-
-[node name="Birb19" parent="." index="42" unique_id=1869948728 instance=ExtResource("37_gtrna")]
-position = Vector2(-968, -1416)
-
-[node name="Birb20" parent="." index="43" unique_id=1214163695 instance=ExtResource("37_gtrna")]
-position = Vector2(-928, -1400)
-
-[node name="Birb21" parent="." index="44" unique_id=1422137832 instance=ExtResource("37_gtrna")]
-position = Vector2(-936, -1432)
-
-[node name="Birb22" parent="." index="45" unique_id=992682249 instance=ExtResource("37_gtrna")]
-position = Vector2(-960, -1456)
-
-[node name="Birb23" parent="." index="46" unique_id=967419266 instance=ExtResource("37_gtrna")]
-position = Vector2(-920, -1464)
-
-[node name="Birb24" parent="." index="47" unique_id=1821334819 instance=ExtResource("37_gtrna")]
-position = Vector2(-896, -1400)
-
-[node name="Birb25" parent="." index="48" unique_id=1660683402 instance=ExtResource("37_gtrna")]
-position = Vector2(-952, -1480)
-
-[node name="Birb26" parent="." index="49" unique_id=784926065 instance=ExtResource("37_gtrna")]
-position = Vector2(-944, -1416)
-
-[node name="Birb27" parent="." index="50" unique_id=1785394733 instance=ExtResource("37_gtrna")]
-position = Vector2(-976, -1440)
-
-[node name="Birb28" parent="." index="51" unique_id=425966684 instance=ExtResource("37_gtrna")]
-position = Vector2(296, -1760)
-
-[node name="Birb29" parent="." index="52" unique_id=345524361 instance=ExtResource("37_gtrna")]
-position = Vector2(440, -1824)
-
-[node name="Birb30" parent="." index="53" unique_id=952510631 instance=ExtResource("37_gtrna")]
-position = Vector2(528, -1752)
-
-[node name="Birb31" parent="." index="54" unique_id=1934078755 instance=ExtResource("37_gtrna")]
-position = Vector2(712, -1832)
-
-[node name="Birb32" parent="." index="55" unique_id=1181962484 instance=ExtResource("37_gtrna")]
-position = Vector2(848, -1776)
 
 [editable path="Platform"]
 [editable path="Platform2"]

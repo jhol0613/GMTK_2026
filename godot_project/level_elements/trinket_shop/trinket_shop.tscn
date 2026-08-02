@@ -81,8 +81,6 @@ shape = SubResource("RectangleShape2D_bqp2h")
 
 [node name="Prompt" parent="DialogueInteractable" index="1" unique_id=272794898]
 z_index = 1
-custom_minimum_size = Vector2(903, 168)
-text = "Press E to shop"
 metadata/_edit_use_anchors_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=806731683]

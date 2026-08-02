@@ -22,7 +22,8 @@ var pen = load("uid://c8yj5np7nrak6")
 @onready var _item_popup: Control = $ItemPopup
 @onready var _item_popup_icon: TextureRect = $ItemPopup/Icon
 
-@onready var _initial_notebook_button_scale = _notebook_button.scale
+@onready var _initial_notebook_button_scale: Vector2 = _notebook_button.scale
+@onready var _initial_inventory_button_scale: Vector2 = _inventory_button.scale
 
 const TICKET_BUTTON_SHOW_DELAY := 2.0
 
@@ -60,6 +61,7 @@ func _on_time_up() -> void:
 	await _animation_player.animation_finished
 	GameManager.load_scene(Enums.Scenes.BAD_ENDING)
 
+
 func _refresh_ticket() -> void:
 	var ticket := Inventory.get_ticket()
 	if _ticket_button_show_tween != null and _ticket_button_show_tween.is_valid():
@@ -81,6 +83,7 @@ func _refresh_ticket() -> void:
 		_ticket_button.visible = true
 	)
 
+
 func _emphasize_notebook_icon():
 	var tween = create_tween()
 	tween.tween_property(_notebook_button, "scale", (_initial_notebook_button_scale * 1.1), .08)
@@ -89,9 +92,20 @@ func _emphasize_notebook_icon():
 	tween = create_tween()
 	tween.tween_property(_notebook_button, "scale", (_initial_notebook_button_scale), .08)
 
+
+func _emphasize_inventory_icon():
+	var tween = create_tween()
+	tween.tween_property(_inventory_button, "scale", (_initial_inventory_button_scale * 1.1), .08)
+	await tween.finished
+	tween.kill()
+	tween = create_tween()
+	tween.tween_property(_inventory_button, "scale", _initial_inventory_button_scale, .08)
+
+
 func _on_notebook_button_mouse_entered() -> void:
 	_notebook_button.position += mouse_hover_offset
 	_notebook_hover_sound.play()
+
 
 func _on_notebook_button_mouse_exited() -> void:
 	_notebook_button.position -= mouse_hover_offset
@@ -102,6 +116,7 @@ func _on_notebook_button_pressed() -> void:
 		_close_notebook()
 	else:
 		_open_notebook()
+
 
 func _on_ticket_button_mouse_entered():
 	_ticket_button.position += mouse_hover_offset
@@ -121,6 +136,7 @@ func _on_ticket_button_pressed() -> void:
 	else:
 		_open_ticket()
 
+
 func _on_inventory_button_mouse_entered() -> void:
 	_inventory_button.position += mouse_hover_offset
 	_inventory_hover_sound.play()
@@ -135,6 +151,7 @@ func _on_inventory_button_pressed() -> void:
 		_close_inventory()
 	else:
 		_open_inventory()
+
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("escape"):
@@ -152,7 +169,8 @@ func _input(event: InputEvent) -> void:
 		# Enable player movement if closing the notebook
 		for player in get_tree().get_nodes_in_group("player"):
 			player.movement_disabled = false
-			
+
+
 func _open_notebook() -> void:
 	if _notebook.visible:
 		return
@@ -182,6 +200,7 @@ func _close_notebook() -> void:
 
 	SignalBus.notebook_closed.emit()
 
+
 func _open_ticket() -> void:
 	if _ticket.visible:
 		return
@@ -196,6 +215,7 @@ func _close_ticket() -> void:
 
 	_ticket_click_sound.play()
 	_ticket.visible = false
+
 
 func _open_inventory() -> void:
 	if _inventory.visible:
@@ -242,6 +262,7 @@ func _show_item_popup(icon: Texture2D) -> void:
 	_item_popup_tween.tween_property(_item_popup_icon, "modulate:a", 0.0, 0.35)
 	_item_popup_tween.tween_callback(func() -> void:
 		_item_popup.visible = false
+		_emphasize_inventory_icon()
 	)
 
 func _on_ticket_consumed():
