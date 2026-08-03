@@ -1,0 +1,16 @@
+{
+  "types": {
+    "aliases": "aliases",
+    "cssclasses": "multitext",
+    "tags": "tags",
+    "required_words": "multitext",
+    "required_knowledge": "multitext",
+    "required_puzzles": "multitext",
+    "required": "checkbox",
+    "sources": "multitext",
+    "puzzles_gating": "multitext",
+    "id": "number",
+    "strength": "number",
+    "location": "multitext"
+  }
+}

@@ -1,0 +1,965 @@
+/* Field indicator (ARCHITECTURE.md §19.4). Icon-only, unobtrusive. */
+.fileclass-indicator {
+	display: inline-flex;
+	align-items: center;
+	margin-left: 4px;
+	cursor: pointer;
+	opacity: 0.55;
+	vertical-align: middle;
+}
+
+.fileclass-indicator:hover {
+	opacity: 1;
+}
+
+.fileclass-indicator svg {
+	width: 14px;
+	height: 14px;
+}
+
+/* Field value shown in the note-fields modal. A flex row so text/links
+ * truncate while a trailing indicator stays pinned (like the table cell). */
+.fileclass-field-value {
+	color: var(--text-muted);
+	margin-right: 8px;
+	display: flex;
+	align-items: center;
+	gap: 3px;
+	/* Truncate a long value instead of squeezing the field name. */
+	flex: 0 1 auto;
+	min-width: 0;
+	overflow: hidden;
+}
+.fileclass-field-value > .fc-seg,
+.fileclass-field-value > a.internal-link {
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.fileclass-field-value > .fileclass-indicator {
+	flex-shrink: 0;
+}
+/* Keep the field name fully visible; the value column absorbs the shrink. */
+.fileclass-field-row .setting-item-info {
+	flex-shrink: 0;
+	margin-right: 12px;
+}
+.fileclass-field-row .setting-item-control {
+	min-width: 0;
+	flex-wrap: nowrap;
+}
+/* Compact rows: tighter padding, type shown as a leading icon. */
+.fileclass-field-row {
+	padding-top: var(--size-2-3);
+	padding-bottom: var(--size-2-3);
+	position: relative;
+}
+/* Hovering a fileClass in the footer marks the rows it declares: a vertical
+ * bar in the modal's left margin (kept off the type icon). */
+.fileclass-field-row.is-fc-highlight {
+	background: var(--background-modifier-hover);
+}
+.fileclass-field-row.is-fc-highlight::before {
+	content: "";
+	position: absolute;
+	left: -9px;
+	top: 3px;
+	bottom: 3px;
+	width: 3px;
+	border-radius: 2px;
+	background: var(--interactive-accent);
+}
+.fileclass-field-row .setting-item-name {
+	display: flex;
+	align-items: center;
+	font-size: var(--font-ui-small);
+}
+.fileclass-type-icon {
+	display: inline-flex;
+	align-items: center;
+	margin-right: 6px;
+	color: var(--text-muted);
+}
+.fileclass-type-icon svg {
+	width: 16px;
+	height: 16px;
+}
+/* Action icons: match the 16px type icon (Obsidian's default is larger). */
+.fileclass-field-row .setting-item-control .clickable-icon {
+	padding: 4px;
+}
+.fileclass-field-row .setting-item-control .clickable-icon svg {
+	width: 16px;
+	height: 16px;
+}
+
+/* Edit button injected between key and value in the Properties editor. */
+.metadata-property > .fileclass-prop-edit {
+	flex: 0 0 auto;
+	align-self: center; /* center in the row, aligned with key/value text */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: var(--input-height, 26px);
+	margin: 0 2px;
+	padding: 0 3px;
+	color: var(--text-muted);
+	cursor: pointer;
+}
+.metadata-property > .fileclass-prop-edit:hover {
+	color: var(--text-normal);
+}
+/*
+ * "Open <class> schema" on the fileClass row (#23). Sized for a multi-select
+ * pill, which is where it usually lands — Obsidian renders that property as a
+ * list in most vaults — and used as-is when the value is plain text.
+ */
+.metadata-property .fileclass-prop-class {
+	flex: 0 0 auto;
+	align-self: center;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--text-muted);
+	cursor: pointer;
+}
+.metadata-property .fileclass-prop-class:hover {
+	color: var(--text-normal);
+}
+/* In the icon column: same box as the field buttons next to it. */
+.metadata-property > .fileclass-prop-class {
+	height: var(--input-height, 26px);
+	margin: 0 2px;
+	padding: 0 3px;
+}
+.metadata-property > .fileclass-prop-class svg {
+	width: 15px;
+	height: 15px;
+}
+/* Inside a pill: compact, right after the class name. */
+.multi-select-pill > .fileclass-prop-class {
+	margin: 0 1px 0 4px;
+	padding: 0 2px;
+}
+.multi-select-pill > .fileclass-prop-class svg {
+	width: 13px;
+	height: 13px;
+}
+/* Type preview (color swatch / icon glyph) beside a property value. */
+.metadata-property > .fileclass-prop-preview {
+	flex: 0 0 auto;
+	align-self: center;
+	display: inline-flex;
+	align-items: center;
+	margin: 0 2px;
+}
+.metadata-property > .fileclass-prop-edit svg {
+	width: 15px;
+	height: 15px;
+}
+
+/*
+ * Section actions beside the native "Add property". That button is inline-flex
+ * with a top margin of its own, so the wrapper matches it and the row reads as
+ * one line of buttons; it wraps on a narrow pane instead of overflowing.
+ */
+/*
+ * Mirrors what Obsidian declares on .metadata-add-button — metadata label font
+ * (`.text-icon-button` alone would give --font-ui-small, a size smaller) and the
+ * same 0.5em top margin, which resolves against that font. Variables, not the
+ * numbers they currently evaluate to, so the row stays on one baseline when a
+ * theme or the user changes the metadata font.
+ */
+.metadata-content > .fileclass-prop-actions {
+	display: inline-flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--size-4-1);
+	font-size: var(--metadata-label-font-size);
+	font-family: var(--metadata-label-font);
+	margin: 0.5em 0 0 var(--size-4-2);
+	vertical-align: top;
+}
+.metadata-container .fileclass-prop-action {
+	font-size: var(--metadata-label-font-size);
+	font-family: var(--metadata-label-font);
+	padding-inline-start: var(--size-2-3);
+	cursor: pointer;
+	color: var(--text-muted);
+}
+.metadata-container .fileclass-prop-action:hover {
+	color: var(--text-normal);
+}
+
+/*
+ * A multi-select row toggles wherever you click it. The switch is a small target
+ * in a column of them, and the label is where the eye already is; the cursor says
+ * the whole row is live.
+ */
+.fileclass-toggle-row {
+	cursor: pointer;
+	/*
+	 * Native windowing for a long list. A picker over a few hundred allowed values
+	 * builds thousands of nodes (500 values ≈ 3500 nodes, 27000px of content), and
+	 * the cost showed up where it is most felt: a style recalc of the picker took
+	 * 24-43ms — every hover — and scrolling hit a 90ms frame.
+	 *
+	 * `content-visibility: auto` lets the engine skip style, layout and paint for
+	 * off-screen rows, and the explicit `contain` applies to the on-screen ones too.
+	 * Measured on that 500-value list: recalc 24-43ms → 8-13ms, worst scroll frame
+	 * 90ms → 9ms, no frame over 32ms. No virtual list of our own, so selection,
+	 * pre-ticked state and find-in-page keep working on real DOM.
+	 *
+	 * 21px is the row's *content* box (padding adds 32px). It only seeds the
+	 * scrollbar estimate — `auto` corrects it once a row has been rendered — and at
+	 * 21px the total is within 1% of thetrue height, against 15% at 37px.
+	 */
+	content-visibility: auto;
+	contain-intrinsic-size: auto 21px;
+	contain: layout style paint;
+}
+.fileclass-toggle-row .setting-item-name {
+	user-select: none;
+}
+/*
+ * The hovered row gets a band, so the label and its switch read as one target.
+ *
+ * `!important` is not decoration: the theme sets a row's background with
+ * !important of its own, and a modal-scoped selector measured transparent while
+ * this paints — specificity cannot win against it. Same token Obsidian uses for
+ * its own list hovers. A border-radius was tried and dropped: the theme wins that
+ * one too, and a full-width band lines up with the row separators anyway.
+ */
+.fileclass-toggle-row:hover {
+	background-color: var(--background-modifier-hover) !important;
+}
+
+/*
+ * Lists of like rows — a values list, duration presets — read as one block, not
+ * as a stack of unrelated settings: no separator between rows, a tight rhythm,
+ * and a single cushion closing the group.
+ *
+ * This also repairs a spacing bug. Obsidian collapses the padding of a
+ * `.setting-item` that is first or last *in its parent* (app.css, guarded by
+ * `:where(:not(.setting-group *))`). Rows rendered inside a wrapper div are last
+ * in that wrapper, not in the modal, so the final input ended up glued to the
+ * separator below it. The `.setting-group` escape hatch fixes the collapse but
+ * pulls in the theme's group padding and radius, which indents the rows — hence
+ * these rules, whose selectors mirror the specificity of the ones they counter.
+ */
+.modal:not(.mod-settings) .fileclass-setting-list > .setting-item:not(.setting-item-heading) {
+	border-top: none;
+	padding: var(--size-4-1) 0;
+	margin-bottom: 0;
+}
+.fileclass-setting-list {
+	padding-bottom: var(--size-4-4);
+}
+/* The "Add …" row closes the block, so it carries no separator either. */
+.modal:not(.mod-settings) .setting-item.fileclass-list-add:not(.setting-item-heading) {
+	border-top: none;
+	padding-top: 0;
+	padding-bottom: var(--size-4-4);
+}
+/* Same collapse, one level up: the last of a field's type options sat against the
+ * separator that starts the next row. */
+.modal:not(.mod-settings)
+	.fileclass-field-options
+	> .setting-item:not(.setting-item-heading):last-child {
+	padding-bottom: var(--size-4-4);
+}
+
+/* Canvas field filters: color/side chips + label chip list. */
+.fileclass-color-chip,
+.fileclass-side-chip {
+	width: 22px;
+	height: 22px;
+	margin-left: 4px;
+	padding: 0;
+	border: 2px solid var(--background-modifier-border);
+	border-radius: 4px;
+	cursor: pointer;
+	opacity: 0.45;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+.fileclass-color-chip.is-selected,
+.fileclass-side-chip.is-selected {
+	opacity: 1;
+	border-color: var(--interactive-accent);
+}
+.fileclass-color-none {
+	background: repeating-linear-gradient(
+		45deg,
+		var(--background-secondary),
+		var(--background-secondary) 3px,
+		var(--background-modifier-border) 3px,
+		var(--background-modifier-border) 6px
+	);
+}
+.fileclass-side-chip svg {
+	width: 14px;
+	height: 14px;
+}
+.fileclass-chip-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+	margin: 0 0 8px 0;
+}
+.fileclass-text-chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	padding: 2px 6px;
+	border-radius: 4px;
+	background: var(--background-secondary);
+	font-size: var(--font-ui-smaller);
+}
+.fileclass-text-chip-x {
+	display: inline-flex;
+	cursor: pointer;
+	opacity: 0.6;
+}
+.fileclass-text-chip-x:hover {
+	opacity: 1;
+}
+.fileclass-text-chip-x svg {
+	width: 12px;
+	height: 12px;
+}
+
+/* Icon field: live preview next to the input + glyphs in the suggester. */
+.fileclass-icon-preview {
+	display: inline-flex;
+	align-items: center;
+	margin-right: 8px;
+}
+.fileclass-icon-preview svg {
+	width: 18px;
+	height: 18px;
+}
+.fileclass-icon-missing {
+	color: var(--text-error);
+}
+.fileclass-icon-suggestion {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+.fileclass-icon-suggestion-pic {
+	display: inline-flex;
+	align-items: center;
+}
+.fileclass-icon-suggestion-pic svg {
+	width: 16px;
+	height: 16px;
+}
+
+/* Note-fields modal footer: applied fileClass(es) as inheritance breadcrumbs. */
+.fileclass-modal-footer {
+	margin-top: 12px;
+	padding-top: 8px;
+	border-top: 1px solid var(--background-modifier-border);
+}
+.fileclass-breadcrumb {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 4px;
+	font-size: var(--font-ui-smaller);
+	color: var(--text-muted);
+	line-height: 1.6;
+}
+.fileclass-breadcrumb-item {
+	cursor: pointer;
+	color: var(--text-accent);
+	text-decoration: none;
+}
+.fileclass-breadcrumb-item:hover {
+	text-decoration: underline;
+}
+.fileclass-breadcrumb-sep {
+	color: var(--text-faint);
+}
+
+/* Editable fileclass-table Bases view. */
+.fileclass-table {
+	border-collapse: collapse;
+	width: 100%;
+	font-size: var(--font-ui-small);
+}
+.fileclass-table th,
+.fileclass-table td {
+	border: 1px solid var(--background-modifier-border);
+	padding: 4px 8px;
+	text-align: left;
+	vertical-align: top;
+	white-space: nowrap; /* no line breaks in cells */
+}
+.fileclass-table th {
+	background: var(--background-secondary);
+	font-weight: var(--font-semibold);
+	max-width: 20em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+/*
+ * A flex wrapper per cell: text/links shrink and truncate with an ellipsis,
+ * while a trailing indicator stays pinned and visible (full value on hover).
+ */
+.fileclass-table .fc-cell {
+	display: flex;
+	align-items: center;
+	gap: 3px;
+	max-width: 20em;
+}
+.fileclass-table .fc-cell > .fc-seg,
+.fileclass-table .fc-cell > a.internal-link {
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.fileclass-table .fc-cell > .fileclass-indicator {
+	flex-shrink: 0;
+}
+/* Computed valid/errors columns (data quality). */
+.fileclass-table th.fc-valid-col,
+.fileclass-table td.fc-valid-col {
+	text-align: center;
+	font-weight: var(--font-bold);
+}
+.fileclass-table td.fc-valid-col.fc-ok {
+	color: var(--color-green);
+}
+.fileclass-table td.fc-valid-col.fc-invalid {
+	color: var(--color-red);
+}
+.fileclass-table td.fc-errors-col {
+	max-width: 24em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	color: var(--text-error);
+	font-size: var(--font-ui-smaller);
+}
+
+.fileclass-table td.fileclass-editable {
+	cursor: pointer;
+}
+.fileclass-table td.fileclass-editable:hover {
+	background: var(--background-modifier-hover);
+}
+
+/* Template field option (Input / MultiInput): stack the textarea full-width
+   below its label — the default Setting layout squeezes it into the narrow
+   right-hand control column. */
+.fileclass-template-setting {
+	display: block;
+}
+.fileclass-template-setting .setting-item-control {
+	margin-top: var(--size-4-2);
+	justify-content: flex-start;
+}
+.fileclass-template-input {
+	width: 100%;
+	min-height: 4.5em;
+	resize: vertical;
+	font-family: var(--font-monospace);
+	font-size: var(--font-ui-smaller);
+	white-space: pre-wrap;
+}
+
+/* Icon picker grid (#32) — real previews via setIcon. */
+.fileclass-icon-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(2.4em, 1fr));
+	gap: var(--size-4-1);
+	max-height: 50vh;
+	overflow-y: auto;
+	padding: var(--size-4-2) 0;
+}
+.fileclass-icon-cell {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	aspect-ratio: 1;
+	padding: 0;
+	cursor: pointer;
+	background: transparent;
+	border: 1px solid transparent;
+	border-radius: var(--radius-s);
+	box-shadow: none;
+}
+.fileclass-icon-cell:hover {
+	background: var(--background-modifier-hover);
+}
+.fileclass-icon-cell.is-selected {
+	border-color: var(--interactive-accent);
+}
+
+/* Color picker (#33) — canvas-style row of circular swatches + rainbow custom. */
+.fileclass-color-circles {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--size-4-2);
+	padding: var(--size-4-2) 0;
+}
+.fileclass-color-circle {
+	width: 30px;
+	height: 30px;
+	padding: 0;
+	border-radius: 50%;
+	/* Theme/Chromium apply a squircle corner-shape; force true round → a circle. */
+	corner-shape: round;
+	border: 2px solid var(--background-modifier-border);
+	box-shadow: none;
+	cursor: pointer;
+	flex: 0 0 auto;
+	background-clip: padding-box;
+}
+.fileclass-color-circle:hover {
+	border-color: var(--interactive-accent-hover);
+}
+.fileclass-color-circle.is-selected {
+	border-color: var(--interactive-accent);
+	box-shadow: 0 0 0 2px var(--interactive-accent);
+}
+.fileclass-color-circle.is-clear {
+	background: var(--background-modifier-border);
+}
+.fileclass-color-circle.is-custom {
+	background: conic-gradient(
+		from 0deg,
+		#fb464c,
+		#ec7500,
+		#e0ac00,
+		#08b94e,
+		#00b7d3,
+		#7852ee,
+		#fb464c
+	);
+}
+.fileclass-color-circle.is-add {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background: transparent;
+	border-style: dashed;
+	color: var(--text-muted);
+}
+.fileclass-color-circle.is-add svg {
+	width: 16px;
+	height: 16px;
+}
+/* The colour inputs are real, visible <input type="color"> elements, shaped into
+   our circles — the same thing Obsidian's accent-colour setting uses, and the
+   reason its popover behaves where a hidden input inside a <label> did not. */
+.fileclass-color-slot {
+	position: relative;
+	display: inline-flex;
+	flex: 0 0 auto;
+}
+
+input.fileclass-color-circle {
+	appearance: none;
+	-webkit-appearance: none;
+	background: transparent;
+	/* element+class, because Obsidian styles input[type="color"] itself and its
+	   26x22 would otherwise sit in a row of 30px circles — and a swatch with a 50%
+	   radius on a non-square box is an ellipse, which is exactly what showed up. */
+	box-sizing: border-box;
+	width: 30px;
+	height: 30px;
+	padding: 0;
+}
+
+input.fileclass-color-circle::-webkit-color-swatch-wrapper {
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}
+
+input.fileclass-color-circle::-webkit-color-swatch {
+	width: 100%;
+	height: 100%;
+	border: none;
+	border-radius: 50%;
+	corner-shape: round;
+}
+
+/* The two pickers in a field's palette do different things, so they must not look
+   alike: "add" keeps its dashed ring and plus, "custom" keeps its rainbow ring.
+   Both inset their swatch so the ring stays visible around the chosen colour. */
+input.fileclass-color-circle.is-add::-webkit-color-swatch-wrapper,
+input.fileclass-color-circle.is-custom::-webkit-color-swatch-wrapper {
+	/* Just enough to keep the ring visible: 5px read as a dot lost inside a circle. */
+	padding: 2px;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+}
+
+/* A corner mark for "add", over the swatch but never in the way of the click. */
+.fileclass-color-slot-badge {
+	position: absolute;
+	right: -2px;
+	bottom: -2px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	corner-shape: round;
+	background: var(--background-primary);
+	color: var(--text-normal);
+	box-shadow: 0 0 0 1px var(--background-modifier-border);
+	pointer-events: none;
+}
+
+.fileclass-color-slot-badge svg {
+	width: 10px;
+	height: 10px;
+}
+
+/* Value previews in the note-fields modal (#33/#32): color dot + icon glyph. */
+.fileclass-color-dot {
+	display: inline-block;
+	width: 0.9em;
+	height: 0.9em;
+	margin-right: 0.4em;
+	border-radius: 50%;
+	corner-shape: round;
+	border: 1px solid var(--background-modifier-border);
+	vertical-align: -0.1em;
+	flex: 0 0 auto;
+}
+.fileclass-value-icon {
+	display: inline-flex;
+	align-items: center;
+	margin-right: 0.4em;
+	flex: 0 0 auto;
+}
+.fileclass-value-icon svg {
+	width: 1em;
+	height: 1em;
+}
+
+/* Custom-colors palette editor (Settings, #43). */
+.fileclass-settings-palette {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--size-4-2);
+	margin: var(--size-4-2) 0;
+}
+.fileclass-swatch-static {
+	position: relative;
+}
+.fileclass-swatch-remove {
+	position: absolute;
+	top: -6px;
+	right: -6px;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	corner-shape: round;
+	background: var(--background-secondary);
+	border: 1px solid var(--background-modifier-border);
+	color: var(--text-muted);
+	cursor: pointer;
+}
+.fileclass-swatch-static:hover .fileclass-swatch-remove {
+	display: inline-flex;
+}
+.fileclass-swatch-remove:hover {
+	color: var(--text-error);
+}
+.fileclass-swatch-remove svg {
+	width: 11px;
+	height: 11px;
+}
+
+/* Sticky modal footer (#49): keep the primary action visible when the fields
+   overflow. The content scrolls; the footer stays pinned to the bottom. */
+.modal-content.fileclass-scroll-body {
+	max-height: min(70vh, 100%);
+	overflow-y: auto;
+}
+
+/* Sticky modal title (#47): pin the heading to the top while the body scrolls. */
+.modal-content.fileclass-scroll-body > .fileclass-modal-title {
+	position: sticky;
+	top: 0;
+	z-index: 3;
+	margin: 0;
+	padding: var(--size-4-1) 0 var(--size-4-2);
+	background: var(--modal-background, var(--background-primary));
+}
+
+/* Group headers in base-sourced value/candidate pickers (#47). */
+.fileclass-group-header {
+	color: var(--text-muted);
+	font-size: var(--font-ui-smaller);
+	font-weight: var(--font-semibold);
+	text-transform: uppercase;
+	letter-spacing: 0.03em;
+	margin: var(--size-4-2) 0 var(--size-2-1);
+}
+/*
+ * Room for a focus ring. Our modal bodies scroll (`overflow-y: auto`), which clips
+ * horizontally as well, and the switches and inputs sit flush against the right
+ * edge: a keyboard-focused toggle measured 0px from the scroll box with a 2px
+ * outline, so the ring was cut off. 8px clears any theme's ring and keeps the
+ * content off the modal's inner wall.
+ *
+ * Scoped to `.fileclass-scroll-body` — the class modalTitle() puts on our own modal
+ * content — so Obsidian's own modals and other plugins' are left alone.
+ */
+.modal-content.fileclass-scroll-body {
+	padding-left: var(--size-4-2, 8px);
+	padding-right: var(--size-4-2, 8px);
+}
+
+/*
+ * The type icon in a note-fields row is a label until Alt is held, when it becomes a
+ * way into the field's settings — so it only claims to be clickable then.
+ */
+.fileclass-type-icon:hover {
+	color: var(--text-normal);
+}
+.fileclass-field-row .fileclass-type-icon svg.lucide-wrench {
+	cursor: pointer;
+	color: var(--text-accent);
+}
+
+/*
+ * The generated predicate, previewed under the dependency controls (#19): the view
+ * name that will be created, then the formula in the base's own language.
+ */
+.fileclass-formula {
+	display: block;
+	margin-top: var(--size-2-1, 2px);
+	font-size: var(--font-ui-smaller);
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+/* A control that has nothing to act on yet, dimmed rather than removed so the
+ * form doesn't jump as the dropdown above it is set. */
+.fileclass-setting-off {
+	opacity: 0.5;
+}
+
+/*
+ * Media thumbnails (#44 follow-up). One size everywhere a media value or candidate
+ * appears — picker row, note-fields modal, properties row, table cell — because
+ * the point is recognising the picture, not admiring it. `contain` keeps a large
+ * image from forcing layout work on a long list.
+ */
+.fileclass-thumb {
+	height: 28px;
+	width: auto;
+	max-width: 44px;
+	object-fit: cover;
+	border-radius: 3px;
+	flex: 0 0 auto;
+	vertical-align: middle;
+	/* `layout paint`, never `size`: size containment zeroes the intrinsic
+	 * dimensions, so `width: auto` resolved to 0 and the image loaded, measured
+	 * 28px tall, and painted nothing. */
+	contain: layout paint;
+}
+/* Several thumbnails for a list value, side by side. */
+.fileclass-thumb-strip {
+	display: inline-flex;
+	align-items: center;
+	gap: 3px;
+	vertical-align: middle;
+}
+/* A row that leads with a thumbnail: keep image and text on one baseline. */
+.fileclass-suggestion-row {
+	display: flex;
+	align-items: center;
+	gap: var(--size-4-2, 8px);
+	min-width: 0;
+}
+
+/*
+ * The multi-select filter box: sticky under the title, because a filter that
+ * scrolls away is useless on the list that needs it most.
+ */
+.fileclass-filter-row {
+	position: sticky;
+	top: var(--fc-title-h, 0);
+	z-index: 3;
+	display: flex;
+	align-items: center;
+	gap: var(--size-4-1, 4px);
+	padding: var(--size-2-3) 0;
+	background: var(--modal-background, var(--background-primary));
+}
+.fileclass-filter-input {
+	flex: 1;
+	min-width: 0;
+}
+/* "Only ticked", at the end of the filter row: same list, narrower. */
+.fileclass-filter-only {
+	flex: 0 0 auto;
+	color: var(--text-muted);
+}
+.fileclass-filter-only.is-active {
+	color: var(--text-on-accent);
+	background-color: var(--interactive-accent);
+}
+/* Unselect all sits left, Save right — the destructive one away from the default. */
+.fileclass-multi-footer {
+	display: flex;
+	justify-content: flex-end;
+}
+.fileclass-multi-footer .setting-item-control {
+	width: 100%;
+	justify-content: space-between;
+}
+.fileclass-filter-hidden {
+	display: none;
+}
+.fileclass-filter-empty {
+	padding: var(--size-4-4) 0;
+}
+/* Sticky variant (multi-select list): the current group stays under the title. */
+.fileclass-group-sticky {
+	position: sticky;
+	top: calc(var(--fc-title-h, 0px) + var(--fc-filter-h, 0px));
+	z-index: 2;
+	margin: 0;
+	padding: var(--size-2-3) 0 var(--size-2-1);
+	background: var(--modal-background, var(--background-primary));
+}
+/* Bulk edit modal (#56): indented sub-settings + dry-run preview box. */
+.fileclass-bulk-sub {
+	padding-left: var(--size-4-4);
+	border-top: none;
+}
+.fileclass-bulk-summary {
+	font-weight: var(--font-semibold);
+	margin-bottom: var(--size-2-1);
+}
+/* Step-2 preview: the full change list with per-note toggles. */
+.fileclass-bulk-list {
+	margin: var(--size-4-2) 0;
+	border: 1px solid var(--background-modifier-border);
+	border-radius: var(--radius-s);
+	background: var(--background-secondary);
+	padding: var(--size-2-2) var(--size-4-2);
+}
+.fileclass-bulk-row {
+	display: flex;
+	align-items: center;
+	gap: var(--size-4-2);
+	padding: var(--size-2-1) 0;
+	cursor: pointer;
+	font-size: var(--font-ui-smaller);
+}
+.fileclass-bulk-row input {
+	flex: 0 0 auto;
+}
+.fileclass-bulk-rowtext {
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-family: var(--font-monospace);
+	color: var(--text-muted);
+}
+.fileclass-bulk-error {
+	color: var(--text-error);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* Positioning context for the suggester's overlaid group bar (#47). */
+.fileclass-suggest-prompt {
+	position: relative;
+}
+/* Sticky "current group" bar overlaid on the top of the suggester results (#47).
+   pointer-events:none so the row beneath it stays clickable. */
+.fileclass-suggest-groupbar {
+	position: absolute;
+	left: 0;
+	right: 0;
+	z-index: 2;
+	padding: var(--size-2-3) var(--size-4-2);
+	color: var(--text-muted);
+	font-size: var(--font-ui-smaller);
+	font-weight: var(--font-semibold);
+	text-transform: uppercase;
+	letter-spacing: 0.03em;
+	background: var(--background-primary);
+	border-bottom: 1px solid var(--background-modifier-border);
+	pointer-events: none;
+}
+.fileclass-sticky-footer {
+	position: sticky;
+	bottom: 0;
+	margin-top: var(--size-4-2);
+	padding-top: var(--size-4-2);
+	background: var(--modal-background, var(--background-primary));
+	border-top: 1px solid var(--background-modifier-border);
+}
+.fileclass-sticky-footer > .setting-item {
+	border-top: none;
+	padding-top: 0;
+	padding-bottom: var(--size-2-2);
+}
+
+/* Live feedback under a date-format input: what today's date looks like through
+   it, and what moment can't read in it (src/ui/dateFormatPreview.ts). */
+.fileclass-format-preview {
+	margin-top: var(--size-2-2);
+	font-size: var(--font-ui-smaller);
+}
+.fileclass-format-sample {
+	font-family: var(--font-monospace);
+	color: var(--text-normal);
+	background: var(--background-modifier-form-field);
+	padding: 0 var(--size-2-2);
+	border-radius: var(--radius-s);
+}
+.fileclass-format-problem {
+	margin-top: var(--size-2-1);
+	color: var(--text-error);
+}
+
+/* The stored value, above a templated Input's controls. Selectable and never
+   rewritten: the Result preview shows what you are building, this shows what is
+   there now — the two must not look like the same line. */
+.fileclass-current-value {
+	margin-bottom: var(--size-4-3);
+	font-size: var(--font-ui-small);
+	user-select: text;
+	overflow-wrap: anywhere;
+}
+
+.fileclass-current-value-label {
+	color: var(--text-muted);
+}
+
+/* The glyph beside "Current icon:" — same line as its id, aligned with the text. */
+.fileclass-current-icon {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	margin-right: var(--size-2-2);
+}
+
+.fileclass-current-icon .svg-icon {
+	width: var(--icon-s);
+	height: var(--icon-s);
+}
