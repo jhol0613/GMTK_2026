@@ -21,6 +21,7 @@ var _pages: Array[NotebookPage] = []
 @onready var _entry_added_sound: AudioStreamPlayer = $EntryAdded
 
 func _ready() -> void:
+	add_to_group("world_interaction_blocker")
 	SignalBus.resshan_clicked.connect(_add_entry_to_the_page)
 	SignalBus.resshan_note_requested.connect(_handle_note_requested)
 	for i:Node2D in $Pages.get_children():

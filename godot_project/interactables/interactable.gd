@@ -17,6 +17,8 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if not _player_in_range:
 		return
+	if _is_world_interaction_blocked():
+		return
 	if _is_any_panel_open():
 		return
 
@@ -30,6 +32,18 @@ func _is_any_panel_open() -> bool:
 	for panel in get_tree().get_nodes_in_group("interaction_panel"):
 		if panel.has_method("is_open") and panel.is_open():
 			return true
+	return false
+
+
+func _is_world_interaction_blocked() -> bool:
+	var focused_control := get_viewport().gui_get_focus_owner()
+	if focused_control is LineEdit or focused_control is TextEdit:
+		return true
+
+	for blocker in get_tree().get_nodes_in_group("world_interaction_blocker"):
+		if blocker is CanvasItem and blocker.is_visible_in_tree():
+			return true
+
 	return false
 
 

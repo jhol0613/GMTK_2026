@@ -27,6 +27,11 @@ func get_note() -> String:
 	return player_input.text
 
 
+func _on_player_input_gui_input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		get_viewport().set_input_as_handled()
+
+
 #func _on_resshan_gui_input(event: InputEvent) -> void:
 	#if event is InputEventMouseButton:
 		#if not event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
