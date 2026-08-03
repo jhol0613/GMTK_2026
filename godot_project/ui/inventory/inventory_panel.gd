@@ -1,6 +1,8 @@
 class_name InventoryPanel
 extends Control
 
+signal close_requested
+
 const SLOT_COUNT: int = 4
 
 @onready var _slot_icons: Array[TextureRect] = [
@@ -35,3 +37,7 @@ func refresh() -> void:
 			icon.visible = false
 			name_label.text = ""
 			name_label.visible = false
+
+
+func _on_close_button_pressed() -> void:
+	close_requested.emit()

@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://u1j8iapwbxgk" path="res://ui/sfx/Pencil1.mp3" id="5_141dl"]
 [ext_resource type="AudioStream" uid="uid://dmcj5ur7l6jb4" path="res://ui/sfx/Pencil2.mp3" id="6_7rtp4"]
 [ext_resource type="AudioStream" uid="uid://da6j41l6x4sxf" path="res://ui/sfx/Pencil3.mp3" id="7_ft0je"]
+[ext_resource type="Texture2D" uid="uid://cd287u1l626dg" path="res://ui/CloseButton.png" id="8_close"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ujtin"]
 random_pitch = 1.0190678
@@ -115,6 +116,17 @@ stream = ExtResource("4_y1ha3")
 volume_db = 24.0
 bus = &"SFX"
 
+[node name="CloseButton" type="TextureButton" parent="."]
+texture_filter = 1
+offset_left = 280.0
+offset_top = -480.0
+offset_right = 344.0
+offset_bottom = -416.0
+focus_mode = 0
+texture_normal = ExtResource("8_close")
+ignore_texture_size = true
+stretch_mode = 5
+
 [node name="EntryAdded" type="AudioStreamPlayer" parent="." unique_id=971808126]
 stream = SubResource("AudioStreamRandomizer_ujtin")
 volume_db = 8.0
@@ -123,5 +135,6 @@ bus = &"SFX"
 [connection signal="mouse_entered" from="Sprite2D/Control" to="." method="_on_notebook_mouse_entered"]
 [connection signal="pressed" from="NextPage" to="." method="_on_previous_page_pressed"]
 [connection signal="pressed" from="PreviousPage" to="." method="_on_next_page_pressed"]
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
 
 [editable path="Pages/NotebookPage"]

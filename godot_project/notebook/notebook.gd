@@ -2,6 +2,7 @@ class_name Notebook
 extends Node2D
 
 signal notebook_is_full
+signal close_requested
 
 const PAGE_COUNT: int = 6
 
@@ -107,3 +108,7 @@ func _on_previous_page_pressed() -> void:
 
 func _on_notebook_mouse_entered() -> void:
 	Input.set_custom_mouse_cursor(pen)
+
+
+func _on_close_button_pressed() -> void:
+	close_requested.emit()

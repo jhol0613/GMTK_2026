@@ -2,6 +2,7 @@ class_name Ticket
 extends Node2D
 
 signal ticket_expired
+signal close_requested
 
 @export var ticket_data: TicketData
 
@@ -27,3 +28,7 @@ func check_ticket(h, m, s) -> void:
 		return
 	if ticket_data._is_expired(h, m, s):
 		ticket_expired.emit()
+
+
+func _on_close_button_pressed() -> void:
+	close_requested.emit()

@@ -4,6 +4,7 @@
 [ext_resource type="Resource" uid="uid://dj6yasn35nxsu" path="res://resources/dialogue/test_ticket.tres" id="2_mynkr"]
 [ext_resource type="Texture2D" uid="uid://dy4ed526c25en" path="res://ui/ticket/ticket.png" id="3_bxong"]
 [ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/resshan_label.gd" id="4_resshan"]
+[ext_resource type="Texture2D" uid="uid://cd287u1l626dg" path="res://ui/CloseButton.png" id="5_close"]
 
 [node name="Ticket" type="Node2D" unique_id=1930504366]
 script = ExtResource("1_script")
@@ -25,6 +26,17 @@ mouse_filter = 2
 script = ExtResource("4_resshan")
 font_size = 64
 metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="CloseButton" type="TextureButton" parent="."]
+texture_filter = 1
+offset_left = 610.0
+offset_top = -325.0
+offset_right = 674.0
+offset_bottom = -261.0
+focus_mode = 0
+texture_normal = ExtResource("5_close")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="DepartureValue" type="Control" parent="." unique_id=1100000002]
 unique_name_in_owner = true
@@ -53,3 +65,5 @@ mouse_filter = 2
 script = ExtResource("4_resshan")
 font_size = 65
 metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]

@@ -6,12 +6,13 @@ var pen = load("uid://c8yj5np7nrak6")
 
 @onready var _time := $Time
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
-@onready var _notebook := $Notebook
+@onready var _notebook: Notebook = $Notebook
 @onready var _notebook_button : TextureButton = $NotebookButton
 @onready var _ticket_button : TextureButton = $TicketButton
-@onready var _ticket := $Ticket
+@onready var _ticket: Ticket = $Ticket
 @onready var _inventory_button : TextureButton = $InventoryButton
-@onready var _inventory := $InventoryPanel
+@onready var _inventory: InventoryPanel = $InventoryPanel
+@onready var _options_button: Button = $OptionsButton
 @onready var _notebook_hover_sound: AudioStreamPlayer = $NotebookHoverSound
 @onready var _notebook_click_sound: AudioStreamPlayer = $NotebookClickSound
 @onready var _notebook_exit_sound: AudioStreamPlayer = $NotebookCloseSound
@@ -50,6 +51,9 @@ func _ready() -> void:
 	TimeManager.time_up.connect(_on_time_up)
 	
 	SignalBus.ticket_consumed.connect(_on_ticket_consumed)
+	_notebook.close_requested.connect(close_notebook)
+	_ticket.close_requested.connect(_close_ticket)
+	_inventory.close_requested.connect(_close_inventory)
 
 
 func _on_time_up() -> void:
@@ -149,23 +153,44 @@ func _on_inventory_button_pressed() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if not event.is_action_pressed("escape"):
+	if event.is_action_pressed("escape"):
+		if _has_open_panel():
+			_close_all_panels()
+			get_viewport().set_input_as_handled()
 		return
 
-	if _ticket.visible:
-		_close_ticket()
+	var pointer_position := _get_pressed_pointer_position(event)
+	if pointer_position == Vector2.INF:
+		return
 
-	if _notebook.visible:
+	if _is_over_launcher_button(pointer_position):
+		return
+
+	var closed_something := false
+
+	if _notebook.visible and not _sprite_contains_point($Notebook/Sprite2D, pointer_position):
 		close_notebook()
+		closed_something = true
 
-	if _inventory.visible:
+	if _ticket.visible and not _sprite_contains_point($Ticket/Background, pointer_position):
+		_close_ticket()
+		closed_something = true
+
+	if _inventory.visible and not _control_contains_point(_inventory, pointer_position):
 		_close_inventory()
+		closed_something = true
+
+	if closed_something:
+		get_viewport().set_input_as_handled()
 		
 
 
 func open_notebook() -> void:
 	if _notebook.visible:
 		return
+
+	_close_ticket()
+	_close_inventory()
 	
 	Input.set_custom_mouse_cursor(pen)
 	
@@ -181,9 +206,9 @@ func open_notebook() -> void:
 func close_notebook() -> void:
 	if not _notebook.visible:
 		return
-	
+
 	Input.set_custom_mouse_cursor(magnifying_glass)
-	
+
 	_notebook_exit_sound.play()
 	_notebook.visible = false
 
@@ -196,6 +221,9 @@ func close_notebook() -> void:
 func _open_ticket() -> void:
 	if _ticket.visible:
 		return
+
+	close_notebook()
+	_close_inventory()
 
 	_ticket_click_sound.play()
 	_ticket.visible = true
@@ -213,6 +241,9 @@ func _open_inventory() -> void:
 	if _inventory.visible:
 		return
 
+	close_notebook()
+	_close_ticket()
+
 	_inventory_click_sound.play()
 	_inventory.refresh()
 	_inventory.visible = true
@@ -224,6 +255,59 @@ func _close_inventory() -> void:
 
 	_inventory_close_sound.play()
 	_inventory.visible = false
+
+
+func _close_all_panels() -> void:
+	close_notebook()
+	_close_ticket()
+	_close_inventory()
+
+
+func _has_open_panel() -> bool:
+	return _notebook.visible or _ticket.visible or _inventory.visible
+
+
+func _get_pressed_pointer_position(event: InputEvent) -> Vector2:
+	if (
+		event is InputEventMouseButton
+		and event.button_index == MOUSE_BUTTON_LEFT
+		and event.pressed
+	):
+		return event.position
+
+	if event is InputEventScreenTouch and event.pressed:
+		return event.position
+
+	return Vector2.INF
+
+
+func _is_over_launcher_button(point: Vector2) -> bool:
+	for button: Control in [
+		_notebook_button,
+		_ticket_button,
+		_inventory_button,
+		_options_button,
+	]:
+		if button.visible and _control_contains_point(button, point):
+			return true
+
+	return false
+
+
+func _control_contains_point(control: Control, point: Vector2) -> bool:
+	var local_point := (
+		control.get_global_transform_with_canvas().affine_inverse()
+		* point
+	)
+	return Rect2(Vector2.ZERO, control.size).has_point(local_point)
+
+
+func _sprite_contains_point(sprite: Sprite2D, point: Vector2) -> bool:
+	var local_point := (
+		sprite.get_global_transform_with_canvas().affine_inverse()
+		* point
+	)
+	return sprite.get_rect().has_point(local_point)
 
 
 func _on_item_added(item: ItemData) -> void:
