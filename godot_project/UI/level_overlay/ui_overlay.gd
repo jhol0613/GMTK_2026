@@ -17,6 +17,7 @@ var pen = load("uid://c8yj5np7nrak6")
 @onready var _notebook_exit_sound: AudioStreamPlayer = $NotebookCloseSound
 @onready var _ticket_hover_sound: AudioStreamPlayer =$TicketHoverSound
 @onready var _ticket_click_sound: AudioStreamPlayer = $TicketClickSound
+@onready var _ticket_close_sound: AudioStreamPlayer = $TicketCloseSound
 @onready var _inventory_hover_sound: AudioStreamPlayer = $InventoryHoverSound
 @onready var _inventory_click_sound: AudioStreamPlayer = $InventoryClickSound
 @onready var _inventory_close_sound: AudioStreamPlayer = $InventoryCloseSound
@@ -203,7 +204,7 @@ func _close_ticket() -> void:
 	if not _ticket.visible:
 		return
 
-	_ticket_click_sound.play()
+	_ticket_close_sound.play()
 	_ticket.visible = false
 
 
