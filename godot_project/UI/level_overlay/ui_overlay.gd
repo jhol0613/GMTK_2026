@@ -19,6 +19,7 @@ var pen = load("uid://c8yj5np7nrak6")
 @onready var _ticket_click_sound: AudioStreamPlayer = $TicketClickSound
 @onready var _inventory_hover_sound: AudioStreamPlayer = $InventoryHoverSound
 @onready var _inventory_click_sound: AudioStreamPlayer = $InventoryClickSound
+@onready var _inventory_close_sound: AudioStreamPlayer = $InventoryCloseSound
 @onready var _item_popup: Control = $ItemPopup
 @onready var _item_popup_icon: TextureRect = $ItemPopup/Icon
 
@@ -219,7 +220,7 @@ func _close_inventory() -> void:
 	if not _inventory.visible:
 		return
 
-	_inventory_click_sound.play()
+	_inventory_close_sound.play()
 	_inventory.visible = false
 
 
