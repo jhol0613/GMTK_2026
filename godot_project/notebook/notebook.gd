@@ -9,6 +9,7 @@ const PAGE_COUNT: int = 6
 static var player_vocab: Dictionary[String,String] = {
 	"59": "The place I am trying to go",
 }
+static var resshan_collection: Array[String] = ["59"]
 
 var pen = load("uid://c8yj5np7nrak6")
 var _current_page: int = 0
@@ -22,9 +23,7 @@ var _pages: Array[NotebookPage] = []
 func _ready() -> void:
 	SignalBus.resshan_clicked.connect(_add_entry_to_the_page)
 	SignalBus.resshan_note_requested.connect(_handle_note_requested)
-	for i:Node2D in $Pages.get_children():
-		(i as NotebookPage).limit_reached.connect(_handle_limit_reached)
-		(i as NotebookPage).entry_removed.connect(_handle_entry_removed)
+	for i:Control in $Pages.get_children():
 		_pages.append(i)
 	
 	if _current_page == 0:
@@ -36,32 +35,14 @@ func _ready() -> void:
 		_add_entry_to_the_page(i, player_vocab[i])
 
 
-func _handle_entry_removed() -> void:
-	for i:NotebookPage in _pages:
-		if i.entries_count < NotebookPage.LIMIT:
-			_free_page = _pages.find(i)
-			return
-
-
-func _handle_limit_reached() -> void:
-	for i:NotebookPage in _pages:
-		if i.entries_count < NotebookPage.LIMIT:
-			_free_page = _pages.find(i)
-			return
-
-
 func _handle_note_requested(resshan:ResshanInteractable) -> void:
 	for page:NotebookPage in _pages:
-		for entry:NotebookEntry in page.entries:
-			if entry._resshan_string == resshan._encoded_string:
-				resshan.display_note(entry.get_note())
+		pass
 
 
 func _add_entry_to_the_page(encoded:String, initial_text = "") -> void:
 	for page:NotebookPage in _pages:
-		for entry:NotebookEntry in page.entries:
-			if entry._resshan_string == encoded:
-				return
+		return
 	if _free_page == -1:
 		notebook_is_full.emit()
 	var page: = _pages[_free_page]
@@ -69,6 +50,7 @@ func _add_entry_to_the_page(encoded:String, initial_text = "") -> void:
 	SignalBus.new_unique_resshan_note_added_to_notebook.emit()
 	page._new_entry(encoded, initial_text)
 	
+	resshan_collection.append(encoded)
 	player_vocab[encoded] = initial_text
 
 

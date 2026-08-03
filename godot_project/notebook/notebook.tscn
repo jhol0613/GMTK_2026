@@ -38,41 +38,45 @@ grow_vertical = 2
 [node name="Pages" type="Node2D" parent="." unique_id=1748261027]
 
 [node name="NotebookPage" parent="Pages" unique_id=1099925378 instance=ExtResource("1_qjmkm")]
-position = Vector2(-311, -422)
-
-[node name="Holder" parent="Pages/NotebookPage" index="0" unique_id=173175333]
-offset_right = 631.0
-offset_bottom = 67.0
-
-[node name="Label" type="Label" parent="Pages/NotebookPage/Holder" index="0" unique_id=1341539632]
-texture_filter = 1
-layout_mode = 2
-theme_override_colors/font_color = Color(0.19076231, 0.19076234, 0.19076231, 1)
-theme_override_fonts/font = ExtResource("4_ft0je")
-theme_override_font_sizes/font_size = 32
-text = "I can click on any word I see to put it in this notebook!
-Then I can type my best guesses for what they mean.
-I bet learning a lot of words will help me find my way."
+offset_left = -318.0
+offset_top = -422.0
+offset_right = 319.0
+offset_bottom = 386.0
 
 [node name="NotebookPage2" parent="Pages" unique_id=1129297689 instance=ExtResource("1_qjmkm")]
 visible = false
-position = Vector2(-311, -422)
+offset_left = -311.0
+offset_top = -422.0
+offset_right = -311.0
+offset_bottom = -422.0
 
 [node name="NotebookPage3" parent="Pages" unique_id=229438952 instance=ExtResource("1_qjmkm")]
 visible = false
-position = Vector2(-311, -422)
+offset_left = -311.0
+offset_top = -422.0
+offset_right = -311.0
+offset_bottom = -422.0
 
 [node name="NotebookPage4" parent="Pages" unique_id=1781370792 instance=ExtResource("1_qjmkm")]
 visible = false
-position = Vector2(-311, -422)
+offset_left = -311.0
+offset_top = -422.0
+offset_right = -311.0
+offset_bottom = -422.0
 
 [node name="NotebookPage5" parent="Pages" unique_id=2129026908 instance=ExtResource("1_qjmkm")]
 visible = false
-position = Vector2(-311, -422)
+offset_left = -311.0
+offset_top = -422.0
+offset_right = -311.0
+offset_bottom = -422.0
 
 [node name="NotebookPage6" parent="Pages" unique_id=18371070 instance=ExtResource("1_qjmkm")]
 visible = false
-position = Vector2(-311, -422)
+offset_left = -311.0
+offset_top = -422.0
+offset_right = -311.0
+offset_bottom = -422.0
 
 [node name="NextPage" type="Button" parent="." unique_id=1734661789]
 unique_name_in_owner = true
