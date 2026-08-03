@@ -358,6 +358,14 @@ bus = &"SFX"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=746603066]
 libraries/ = SubResource("AnimationLibrary_overlay")
 
+[node name="OptionsButton" type="Button" parent="." unique_id=1377375588]
+offset_left = 47.0
+offset_top = 33.0
+offset_right = 169.0
+offset_bottom = 108.0
+text = "Options
+"
+
 [connection signal="mouse_entered" from="NotebookButton" to="." method="_on_notebook_button_mouse_entered"]
 [connection signal="mouse_exited" from="NotebookButton" to="." method="_on_notebook_button_mouse_exited"]
 [connection signal="pressed" from="NotebookButton" to="." method="_on_notebook_button_pressed"]
@@ -367,3 +375,4 @@ libraries/ = SubResource("AnimationLibrary_overlay")
 [connection signal="mouse_entered" from="InventoryButton" to="." method="_on_inventory_button_mouse_entered"]
 [connection signal="mouse_exited" from="InventoryButton" to="." method="_on_inventory_button_mouse_exited"]
 [connection signal="pressed" from="InventoryButton" to="." method="_on_inventory_button_pressed"]
+[connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]

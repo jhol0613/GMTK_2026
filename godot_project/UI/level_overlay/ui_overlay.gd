@@ -36,6 +36,7 @@ var _ticket_button_show_tween: Tween
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GameManager.pause_enabled = true
 	_notebook.visible = false
 	_ticket.visible = false
 	_inventory.visible = false
@@ -263,3 +264,15 @@ func _hide_item_popup(item : ItemData):
 
 func _on_ticket_consumed():
 	_animation_player.play("ticket_consumed")
+
+func _on_options_button_pressed() -> void:
+	if _notebook.visible:
+		close_notebook()
+
+	if _ticket.visible:
+		_close_ticket()
+
+	if _inventory.visible:
+		_close_inventory()
+
+	GameManager.pause_game()

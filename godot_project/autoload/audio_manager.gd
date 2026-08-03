@@ -70,8 +70,14 @@ var _notebook_is_open: bool = false
 
 var _sequence_id: int = 0
 
+var _pause_return_stream: AudioStream
+var _pause_return_position: float = 0.0
+var _pause_return_target_db: float = DEFAULT_MUSIC_DB
+var _pause_return_was_playing: bool = false
+var _pause_menu_music_active: bool = false
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	_ensure_audio_bus(MUSIC_BUS)
 	_ensure_audio_bus(SFX_BUS)
 
@@ -129,6 +135,10 @@ func start_level_music(
 	play_train_intro: bool,
 	fade_duration: float = 2.0
 ) -> void:
+	_pause_menu_music_active = false
+	_pause_return_stream = null
+	_pause_return_position = 0.0
+	_pause_return_was_playing = false
 	_sequence_id += 1
 	var this_sequence := _sequence_id
 
@@ -214,6 +224,11 @@ func play_menu_music(
 ) -> void:
 	if stream == null:
 		return
+	
+	_pause_menu_music_active = false
+	_pause_return_stream = null
+	_pause_return_position = 0.0
+	_pause_return_was_playing = false
 
 	_sequence_id += 1
 	_music_target_db = target_volume_db
@@ -478,3 +493,57 @@ func _get_level_music_volume(track: int) -> float:
 			return LEVEL_1_MUSIC_DB
 
 	return DEFAULT_MUSIC_DB
+
+func play_pause_menu_music(
+	stream: AudioStream,
+	fade_duration: float = 0.5,
+	target_volume_db: float = -8.0
+) -> void:
+	if stream == null or _pause_menu_music_active:
+		return
+
+	_pause_return_stream = _music_player.stream
+	_pause_return_position = _music_player.get_playback_position()
+	_pause_return_target_db = _music_target_db
+	_pause_return_was_playing = _music_player.playing
+	_pause_menu_music_active = true
+
+	_sequence_id += 1
+	_music_target_db = target_volume_db
+
+	if stream is AudioStreamMP3:
+		(stream as AudioStreamMP3).loop = true
+
+	_play_music_stream(stream, fade_duration)
+
+func resume_music_after_pause(
+	fade_duration: float = 0.5
+) -> void:
+	if not _pause_menu_music_active:
+		return
+
+	_pause_menu_music_active = false
+	_sequence_id += 1
+	_stop_all_music_tweens()
+
+	_music_player.stop()
+	_music_player.stream = _pause_return_stream
+	_music_target_db = _pause_return_target_db
+
+	if not _pause_return_was_playing or _pause_return_stream == null:
+		return
+
+	_music_player.volume_db = SILENT_DB
+	_music_player.play(_pause_return_position)
+
+	if fade_duration <= 0.0:
+		_music_player.volume_db = _music_target_db
+		return
+
+	_music_tween = create_tween()
+	_music_tween.tween_property(
+		_music_player,
+		"volume_db",
+		_music_target_db,
+		fade_duration
+	)
