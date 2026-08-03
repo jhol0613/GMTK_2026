@@ -331,11 +331,22 @@ func _on_notebook_closed() -> void:
 
 	_notebook_is_open = false
 
+	var level_music := _get_level_music(_level_music_track)
+
+	if (
+		_music_player.stream != level_music
+		or not _music_player.playing
+	):
+		_music_player.stop()
+		_music_player.stream = level_music
+		_music_player.volume_db = SILENT_DB
+		_music_player.play()
+
 	_crossfade_music(
-	_music_target_db,
-	SILENT_DB,
-	true,
-	NOTEBOOK_FADE_OUT_DURATION
+		_music_target_db,
+		SILENT_DB,
+		true,
+		NOTEBOOK_FADE_OUT_DURATION
 	)
 
 

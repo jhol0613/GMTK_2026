@@ -123,9 +123,9 @@ func _on_notebook_button_mouse_exited() -> void:
 
 func _on_notebook_button_pressed() -> void:
 	if _notebook.visible:
-		_close_notebook()
+		close_notebook()
 	else:
-		_open_notebook()
+		open_notebook()
 
 
 func _on_ticket_button_mouse_entered():
@@ -164,24 +164,21 @@ func _on_inventory_button_pressed() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("escape"):
-		if _ticket.visible:
-			_ticket_click_sound.play()
-		if _notebook.visible:
-			_notebook_click_sound.play()
-		if _inventory.visible:
-			_inventory_click_sound.play()
-		_ticket.visible = false
-		_notebook.visible = false
-		_inventory.visible = false
+	if not event.is_action_pressed("escape"):
+		return
+
+	if _ticket.visible:
+		_close_ticket()
+
+	if _notebook.visible:
+		close_notebook()
+
+	if _inventory.visible:
+		_close_inventory()
 		
-		Input.set_custom_mouse_cursor(magnifying_glass)
-		# Enable player movement if closing the notebook
-		for player in get_tree().get_nodes_in_group("player"):
-			player.movement_disabled = false
 
 
-func _open_notebook() -> void:
+func open_notebook() -> void:
 	if _notebook.visible:
 		return
 	
@@ -196,7 +193,7 @@ func _open_notebook() -> void:
 	SignalBus.notebook_opened.emit()
 
 
-func _close_notebook() -> void:
+func close_notebook() -> void:
 	if not _notebook.visible:
 		return
 	
