@@ -8,8 +8,8 @@ extends Node2D
 @export_category("Button Sounds")
 @export var button_hover_sound: AudioStream
 @export var button_click_sound: AudioStream
-@export_range(-40.0, 6.0, 0.5) var hover_volume_db: float = 0.0
-@export_range(-40.0, 6.0, 0.5) var click_volume_db: float = 0.0
+@export_range(-40.0, 6.0, 0.5) var hover_volume_db: float = 6.0
+@export_range(-40.0, 6.0, 0.5) var click_volume_db: float = 4.0
 
 func _ready() -> void:
 	AudioManager.play_menu_music(

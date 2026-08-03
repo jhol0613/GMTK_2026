@@ -62,15 +62,18 @@ func _rebuild_option_labels() -> void:
 
 func _update_line() -> void:
 	_lines_sfx.stop()
-
+	
+	
 	if _lines.is_empty():
 		_speaker.text = ""
 		_body.text = ""
 		_speaker_icon.texture = null
 		return
+	
+	_show_line(_lines[_index])
 
-	var line: DialogueLine = _lines[_index]
-	choice_nav_icons.visible = false
+
+func _show_line(line: DialogueLine) -> void:
 	_speaker.text = line.speaker
 	_body.text = line.text
 	_speaker_icon.texture = line.speaker_icon
@@ -79,15 +82,12 @@ func _update_line() -> void:
 		_lines_sfx.stream = line.sfx
 		_lines_sfx.play()
 
-
 func _on_interact_while_open() -> void:
 	if _awaiting_close:
 		if _awaiting_reward:
 			_give_reward()
-		_awaiting_reward = false
-		_awaiting_close = false
-		hide_popup()
-		dialogue_complete.emit()
+			_awaiting_reward = false
+		_close_dialog()
 		return
 
 	if _showing_options:
@@ -98,7 +98,7 @@ func _on_interact_while_open() -> void:
 		_index += 1
 		_update_line()
 	elif _choices.is_empty():
-		_awaiting_close = true
+		_close_dialog()
 	else:
 		_enter_options_mode()
 
@@ -112,6 +112,12 @@ func _enter_options_mode() -> void:
 	choice_nav_icons.visible = true
 	_refresh_options_visual()
 
+func _exit_options_mode() -> void:
+	_showing_options = false
+	_body.text = ""
+	_options.visible = false
+	choice_nav_icons.visible = false
+	_refresh_options_visual()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not _is_open:
@@ -138,14 +144,16 @@ func _confirm_option() -> void:
 	_reward = choice.reward
 	option_confirmed.emit(choice.outcome_id)
 	if _reward != null:
-		_give_reward()
-		_awaiting_close = false
-		_awaiting_reward = false
-		hide_popup()
-		dialogue_complete.emit()
+		_awaiting_close = true
+		_awaiting_reward = true
 	else:
 		_awaiting_close = true
 		_awaiting_reward = false
+	
+	_exit_options_mode()
+	
+	if choice.reply != null:
+		_show_line(choice.reply)
 
 
 func _refresh_options_visual() -> void:
@@ -153,7 +161,7 @@ func _refresh_options_visual() -> void:
 		var label := _options.get_child(i) as ResshanLabel
 		if label == null:
 			continue
-		var prefix := "> " if i == _selected_option else "  "
+		var prefix : String = "> " if i == _selected_option else "  "
 		label.text = prefix + _choices[i].player_text
 		label.modulate = Color.WHITE if i == _selected_option else Color.GRAY
 
@@ -167,3 +175,10 @@ func _give_reward() -> void:
 		(item as TicketData).resolve_departure()
 		SignalBus.ticket_purchased.emit(item.departure_hours, item.departure_minutes, item.departure_seconds)
 	Inventory.add_item(item)
+
+
+func _close_dialog() -> void:
+	_awaiting_close = false
+	_awaiting_reward = false
+	hide_popup()
+	dialogue_complete.emit()

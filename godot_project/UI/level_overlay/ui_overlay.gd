@@ -7,18 +7,20 @@ var pen = load("uid://c8yj5np7nrak6")
 @onready var _time := $Time
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
 @onready var _notebook := $Notebook
-@onready var _notebook_button := $NotebookButton
-@onready var _ticket_button := $TicketButton
+@onready var _notebook_button : TextureButton = $NotebookButton
+@onready var _ticket_button : TextureButton = $TicketButton
 @onready var _ticket := $Ticket
-@onready var _inventory_button := $InventoryButton
+@onready var _inventory_button : TextureButton = $InventoryButton
 @onready var _inventory := $InventoryPanel
 @onready var _notebook_hover_sound: AudioStreamPlayer = $NotebookHoverSound
 @onready var _notebook_click_sound: AudioStreamPlayer = $NotebookClickSound
 @onready var _notebook_exit_sound: AudioStreamPlayer = $NotebookCloseSound
 @onready var _ticket_hover_sound: AudioStreamPlayer =$TicketHoverSound
 @onready var _ticket_click_sound: AudioStreamPlayer = $TicketClickSound
+@onready var _ticket_close_sound: AudioStreamPlayer = $TicketCloseSound
 @onready var _inventory_hover_sound: AudioStreamPlayer = $InventoryHoverSound
 @onready var _inventory_click_sound: AudioStreamPlayer = $InventoryClickSound
+@onready var _inventory_close_sound: AudioStreamPlayer = $InventoryCloseSound
 @onready var _item_popup: Control = $ItemPopup
 @onready var _item_popup_icon: TextureRect = $ItemPopup/Icon
 
@@ -34,6 +36,7 @@ var _ticket_button_show_tween: Tween
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GameManager.pause_enabled = true
 	_notebook.visible = false
 	_ticket.visible = false
 	_inventory.visible = false
@@ -43,7 +46,7 @@ func _ready() -> void:
 	Inventory.inventory_changed.connect(_refresh_ticket)
 	Inventory.inventory_changed.connect(_inventory.refresh)
 	Inventory.item_added.connect(_on_item_added)
-	SignalBus.new_unique_resshan_note_added_to_notebook.connect(_emphasize_notebook_icon)
+	SignalBus.new_unique_resshan_note_added_to_notebook.connect( _emphasize_icon.bind(_notebook_button,_initial_notebook_button_scale) )
 	TimeManager.time_up.connect(_on_time_up)
 	
 	SignalBus.ticket_consumed.connect(_on_ticket_consumed)
@@ -85,31 +88,13 @@ func _refresh_ticket() -> void:
 	)
 
 
-func _emphasize_notebook_icon():
+func _emphasize_icon( button:TextureButton, initial_scale:Vector2 ):
 	var tween = create_tween()
-	tween.tween_property(_notebook_button, "scale", (_initial_notebook_button_scale * 1.1), .08)
+	tween.tween_property(button, "scale", (initial_scale * 1.5), .08)
 	await tween.finished
 	tween.kill()
 	tween = create_tween()
-	tween.tween_property(_notebook_button, "scale", (_initial_notebook_button_scale), .08)
-
-
-func _emphasize_inventory_icon():
-	var tween = create_tween()
-	tween.tween_property(_inventory_button, "scale", (_initial_inventory_button_scale * 1.1), .08)
-	await tween.finished
-	tween.kill()
-	tween = create_tween()
-	tween.tween_property(_inventory_button, "scale", _initial_inventory_button_scale, .08)
-
-
-func _emphasize_ticket_icon():
-	var tween = create_tween()
-	tween.tween_property(_ticket_button, "scale", (_initial_ticket_button_scale * 1.2), .08)
-	await tween.finished
-	tween.kill()
-	tween = create_tween()
-	tween.tween_property(_ticket_button, "scale", _initial_ticket_button_scale, .08)
+	tween.tween_property(button, "scale", initial_scale, .08)
 
 
 func _on_notebook_button_mouse_entered() -> void:
@@ -123,9 +108,9 @@ func _on_notebook_button_mouse_exited() -> void:
 
 func _on_notebook_button_pressed() -> void:
 	if _notebook.visible:
-		_close_notebook()
+		close_notebook()
 	else:
-		_open_notebook()
+		open_notebook()
 
 
 func _on_ticket_button_mouse_entered():
@@ -164,24 +149,21 @@ func _on_inventory_button_pressed() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("escape"):
-		if _ticket.visible:
-			_ticket_click_sound.play()
-		if _notebook.visible:
-			_notebook_click_sound.play()
-		if _inventory.visible:
-			_inventory_click_sound.play()
-		_ticket.visible = false
-		_notebook.visible = false
-		_inventory.visible = false
+	if not event.is_action_pressed("escape"):
+		return
+
+	if _ticket.visible:
+		_close_ticket()
+
+	if _notebook.visible:
+		close_notebook()
+
+	if _inventory.visible:
+		_close_inventory()
 		
-		Input.set_custom_mouse_cursor(magnifying_glass)
-		# Enable player movement if closing the notebook
-		for player in get_tree().get_nodes_in_group("player"):
-			player.movement_disabled = false
 
 
-func _open_notebook() -> void:
+func open_notebook() -> void:
 	if _notebook.visible:
 		return
 	
@@ -196,7 +178,7 @@ func _open_notebook() -> void:
 	SignalBus.notebook_opened.emit()
 
 
-func _close_notebook() -> void:
+func close_notebook() -> void:
 	if not _notebook.visible:
 		return
 	
@@ -223,7 +205,7 @@ func _close_ticket() -> void:
 	if not _ticket.visible:
 		return
 
-	_ticket_click_sound.play()
+	_ticket_close_sound.play()
 	_ticket.visible = false
 
 
@@ -240,7 +222,7 @@ func _close_inventory() -> void:
 	if not _inventory.visible:
 		return
 
-	_inventory_click_sound.play()
+	_inventory_close_sound.play()
 	_inventory.visible = false
 
 
@@ -249,15 +231,12 @@ func _on_item_added(item: ItemData) -> void:
 	if item is TicketData:
 	# if icon == null and item is TicketData:
 		icon = _ticket_button.texture_normal
-		_emphasize_ticket_icon()
-	else:
-		_emphasize_inventory_icon()
 	if icon == null:
 		return
-	_show_item_popup(icon)
+	_show_item_popup(icon, item)
 
 
-func _show_item_popup(icon: Texture2D) -> void:
+func _show_item_popup(icon: Texture2D, item: ItemData) -> void:
 	if _item_popup_tween != null and _item_popup_tween.is_valid():
 		_item_popup_tween.kill()
 
@@ -274,10 +253,26 @@ func _show_item_popup(icon: Texture2D) -> void:
 	_item_popup_tween.set_parallel(false)
 	_item_popup_tween.tween_interval(1.2)
 	_item_popup_tween.tween_property(_item_popup_icon, "modulate:a", 0.0, 0.35)
-	_item_popup_tween.tween_callback(func() -> void:
-		_item_popup.visible = false
-	)
+	_item_popup_tween.tween_callback(_hide_item_popup.bind(item))
 
+
+func _hide_item_popup(item : ItemData):
+	_item_popup.visible = false
+	if item is TicketData: _emphasize_icon(_ticket_button, _initial_ticket_button_scale)
+	else: _emphasize_icon(_inventory_button, _initial_inventory_button_scale)
+	
 
 func _on_ticket_consumed():
 	_animation_player.play("ticket_consumed")
+
+func _on_options_button_pressed() -> void:
+	if _notebook.visible:
+		close_notebook()
+
+	if _ticket.visible:
+		_close_ticket()
+
+	if _inventory.visible:
+		_close_inventory()
+
+	GameManager.pause_game()

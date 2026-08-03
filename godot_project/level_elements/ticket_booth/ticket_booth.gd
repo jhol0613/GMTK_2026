@@ -93,7 +93,8 @@ func _on_dialogue_closed() -> void:
 
 func _on_resume_timer_finished() -> void:
 	_play_ambient()
-	
+
+
 func _set_music_bus_db(value: float) -> void:
 	if _music_bus_index < 0:
 		return
@@ -139,10 +140,10 @@ func _on_option_confirmed(outcome_id: StringName) -> void:
 		return
 
 	# 暂时禁止玩家继续操作对话，面板保持打开。
-	_dialogue_panel.set_process_unhandled_input(false)
+	# _dialogue_panel.set_process_unhandled_input(false)
 
 	purchased_ticket.play()
-	await purchased_ticket.finished
+	# await purchased_ticket.finished
 
-	if is_instance_valid(_dialogue_panel):
-		_dialogue_panel.set_process_unhandled_input(true)
+	# if is_instance_valid(_dialogue_panel):
+		# _dialogue_panel.set_process_unhandled_input(true)
