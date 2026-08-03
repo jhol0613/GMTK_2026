@@ -231,6 +231,7 @@ _data = {
 }
 
 [node name="UiOverlay" type="CanvasLayer" unique_id=368800410]
+layer = 2000
 script = ExtResource("1_0h6y4")
 
 [node name="Time" parent="." unique_id=1094747134 instance=ExtResource("6_time")]
