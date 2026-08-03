@@ -535,6 +535,19 @@ speaker_icon = ExtResource("15_fv0x7")
 sfx = ExtResource("11_osodt")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
+[sub_resource type="AudioStreamMP3" id="AudioStreamMP3_x8hdd"]
+data = PackedByteArray("SUQzBAAAAAAAIlRTU0UAAAAOAAADTGF2ZjYxLjEuMTAwAAAAAAAAAAAAAAD/+0DAAAAAAAAAAAAAAAAAAAAAAABJbmZvAAAADwAAAA0AAAtSACIiIiIiIiI0NDQ0NDQ0NEdHR0dHR0dHWVlZWVlZWWxsbGxsbGxsfn5+fn5+fn6RkZGRkZGRo6Ojo6Ojo6O2tra2tra2tsjIyMjIyMjb29vb29vb2+3t7e3t7e3t/////////wAAAABMYXZjNjEuMy4AAAAAAAAAAAAAAAAkBJQAAAAAAAALUhSB2cUAAAAAAP/7UMQAAAaIEUU0YYAh6pcrPx7AAQAMEEAEghByZMmTTBw45gIA+D4fWUBAEAQOROD4Pg5/o8H3+oEHf+XB8P/y5//lAQOf6gQAAhEV2hDlVZn2911kljcSL7dtmTsRXEhYl9yoejYnUQ2Lps+O4LHwpOCeWcaW9VtQtV7lXHG01Iule4691oFjJ1rVN75y8b7DPWYnY/ftaGP5maO3Z94sbm5QYowCGxk3S8LXVrnXNefr3ONoVFtn7phfzO+v+7tv67phWywgMyIIdVLVWVf/+1LEBgALpGtJnYQAAX6TaO6wYADj/uqySB5tv4/BEPOxt2PhQuEd1YuhxUrXs0owqYeKLT73TdjEg2EQSLhMCkSghVUFRdwo697wOIyxmIwoRZSxWmrahcd97mF7OKI3hOnXezRAnIoU14AwQsNBsiA8sIirXnHsxmAZVGsMIxAotEnR6CSbLggfZd5Lry7e/n+M1dmyv2Z23tFffc+Xo0wlraQYEa48KlTB0FhAdWAfcDDHIV77HPTqxTooVaLyvNtiiaopfb/fT/////7/f//7UsQFgAu5K2m4k4ABerSrF4wgAbigRCeIU2H0RlGEQkQz1wXNuXMJg7FDM5psJTS5iLPWedJocqnz9D3UvWrfPMZN5j/TndNGGpI3bTOZ7fFjseT0H909l//LCNyDSf/+ME5xZBpKrPUDUMSS94cSwzk0SxC1IIAzOrCnbJaj9Zu6um3/+2r92RO29nVUbQ8WHQrmK7Vsd0X3necziTi0IYKPkvV02aRDkMR1Uhf3IhkV10Z2qxHnoEKZmBqdGPUhUyDPoZVWeWMxIkllYQKG//tSxAUAC6EDX+YMVQF8IOw89Ij0I5DgMwaGAMjyofpDhBERcSz9IqgTwOwraI22+ufaGXKgSOhmXqZN7f87nSOGqkQ8naX/984wpnBlZ/v/7VKYKFgF0O/UPoKu24d8qRXiUrfehJ1mlzQCE0tkZRSIalELjGmhxlFOMioRCsodCIqHiZyJyESLZItlymx1BFiEIcj26qWzMxSOh2vvepWqR6t99dL2o6gQciom+hb6r+epHGNEfw0FhIcDbGBOhbKfemjp6oRWQwMCSS5pJJP/+1LEBQAK/M1j7BhPIYWZ6vGCmqjFtacUIdjOrLoIciLXZW/j+SiHIi/f0ECFLLJ2A6aOzZtlDIiMfWGgkehD1MjuzP97Hc3I3rSfnOfch1H3LI6M+QgYjSsZbqSeZ6Yfd9mAAAAAW0gEYZ7MkQHppNs8AgatpNs2kbNOusO9URpXaXEmbuMrHeTWcARX6HZRgQ3A4KUaKHo3Xus7CjnY9Y/UN0O2lbrQ6Mo8ew9aQyklJLR/7GzltvbTRTR/1NtX+p97VcRzQwAQSTaNyMWS+P/7UsQGAAv1CW/sJE8hchmtvYYIvPUCDOZdg8CvserLfLlePsS79HXeaHzFB/P99XG5vJV73BTUNmM9U0KxyBkVAlUEuyN/3GDMIDqLMDYDCiwsZf/+iV1TOKIoJfFZYk1QZHtF7v2Q/iwjCIAKN7VSSkVd4pHI+T7IBhfrYSi1gkgeK+tnrOHtaXUtb8mLMZSiRKsjwolq//lKhr3oBHRJJi/w0sh2ZGIpgoKnhnPd7yqwrf/CLTIFsdyHJFWPFTCtt6rXKsgiAEEhGkWkBxCG//tSxAWACdS9V6ewrIF7GSophiEgHKTErTkTSQOo/9pkXEZQGkbh0UR2Ss8ueehAokbJylzGNNFmO73IUtKNaazpVjVK1tpvRmdHGrDZdv/1MlZ3/zft/0QAye5Ggkg3jrS1QxS+AnpVVDrxMdhMRHo6DQy+ynVavK7VrHU9UKveMNOsYb6D2WrMSkl7SKiXlkeL+PtfmL05zI0FlmRCWJA4p7S6FotvWmlVvTMPJKlTi9n//7V9VUAGA7M0i7VAphAHrzYNfC2TIbcs5mKwtpL/+1LEDIAKTMlh55is4UoY7Dz2ChDhCNMWOdwN/AJRS6nNcUU8jJI6KEaxuuqNNEuTrfpqfuWUaZSqRQ6ICyKf2tUm/07wGWChVRKNKMIQAEB3MO++1KsAIhCNkAQXhBiEVLkzhYEaPwJMLQy3DMR8VoKDfW3utbdetVgBkCFhL5gimkeSjX2C0/XoXVs63CGdAB5ABxf/3Ur7SEM0w/IUVkAgJbVUeX5iWhoOag0DyvINgxq3LmvHkHWO+l7BrY0a+rHpVVEapVcvZquGEO7mS//7UsQYAAnwzWHnpE6BToluNPSZzq0VLiv/9abdlIzqRnATgaHqEeii5ldEkNeHt4ZOrsmWY7fJrZIwEg4q/pJZT+wc4o0meZsEWyjlOq1SBOK4YFZwbCk/pB6rXGjxYTAJAoi2OWUEsXUZKsPjouwaKGwEZLhkz/1wzQtpBNV4wRgICNS6twvVAirIqMtdSonOnBLYbNewN5xnccVvpfDAeTLjAfw7aiOB8wbBBy7dNc49Ps6ETv/NbzBizrCRjFgqloNC7FNEsFY5L2rvcKJ0//tSxCQACjyFTswkbMFEFiu89I3UV24Y8mij/2/6VsCCoDICU1saJAzR8QRIScn4VYYQpp/kwxbmGoTkGQL702bstKkBvJevXcZUBn0Gfg+3hluRlhQ9wapaVcbsP4cYGgGrp8TUMruW29sbR9uP3EAKGCA3ECiRAsEVS5j3cpQkkdCbVcyY8K4pas+1WXJhuuHjG2Ch9qB9kQu5ZE4W97t5DbNMf18byP77ro5he+x8IuK020RafvnPs7V10yX//+rAgCmyybJEgLN3ZSebTOD/+1LEMIAKQIVTrLEQQUuXa7WDCpyAaZvKnFpObgytr2fU3kw8KRO6zO2X/U/T1He38EjzeP1t5RdUh8dpd5y0e9AZlJ6trzywUxhfEUa2z12rfei2mnt/12AAKABdDLNdct6VNiIDs2CY1mxCYQ4tlc53CYXDMkAzn2DAtRWJubIGiKboGaFMwqWpnTPaBvqdVe/Ua0223FInZCVy04F1+yy//0V0SX0X3el1GoAAAAAAAbPVVtFpJJEGTCWWQIVpph0ztRZRvym0KUS3TmTNW//7UsQ8AAqIhVWVloACaKaqtzDwAArBmtQeQ41gXBWG64rK2WSeTZ3kCQtaZWRxbmFUMKPQhwsrygi304OTJa1Jpt+VaziE8s321EgxcR55t+1Z7brrHzJjcbTDE3iS97a3rWLVpTOP8avq3zmu/6ar97zfH/3m/vn6/8W2JFmWjpS5qW4c1ThBSk0qpAMUJAKkmtpWEaEcRBAiB0GoNTIfi6SRJJpZgMiDAQEBATPLA0DQNYNA0DQK+CoKgrU/UDQNfyoKuwVBUFQWDvEQd/Bo//tSxCKDykwzT7zBgAAAADSAAAAEFQV+JQV+WBoGga4NAzVMQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVU=")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jwc5o"]
+load_path = "res://.godot/imported/ticket_lady_portrait_2.png-fcf3b5aa6447be850b6884dbc2f1ca62.ctex"
+
+[sub_resource type="Resource" id="Resource_1hnym"]
+script = ExtResource("3_obtcn")
+text = "<<thankyou>>"
+speaker_icon = SubResource("CompressedTexture2D_jwc5o")
+sfx = SubResource("AudioStreamMP3_x8hdd")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
 [sub_resource type="Resource" id="Resource_fpprv"]
 script = ExtResource("17_owf05")
 destination = "<<station.0>>"
@@ -546,10 +559,17 @@ metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
 [sub_resource type="Resource" id="Resource_snxo8"]
 script = ExtResource("3_jum3j")
 player_text = "These are tickets, right? <<west>> I guess?"
-reply = "<<thankyou>>"
+reply = SubResource("Resource_1hnym")
 reward = SubResource("Resource_fpprv")
 outcome_id = &"sold_ticket"
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_w633q"]
+script = ExtResource("3_obtcn")
+text = "<<thankyou>>"
+speaker_icon = SubResource("CompressedTexture2D_jwc5o")
+sfx = SubResource("AudioStreamMP3_x8hdd")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_ggct0"]
 script = ExtResource("17_owf05")
@@ -562,7 +582,7 @@ metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
 [sub_resource type="Resource" id="Resource_2prw1"]
 script = ExtResource("3_jum3j")
 player_text = "<<east>> maybe? I can't really understand you"
-reply = "<<thankyou>>"
+reply = SubResource("Resource_w633q")
 reward = SubResource("Resource_ggct0")
 outcome_id = &"sold_ticket"
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"
@@ -621,7 +641,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/UpperTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.80007297
+frame_progress = 0.8190108
 
 [node name="LowerTrain" parent="Platform" index="7" unique_id=1370361982]
 next_scene = 2
@@ -632,7 +652,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/LowerTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.041531157
+frame_progress = 0.060468525
 
 [node name="TicketBooth" parent="." index="6" unique_id=861247956 instance=ExtResource("2_823pn")]
 position = Vector2(-1168, -368)
