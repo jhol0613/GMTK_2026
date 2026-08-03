@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8n3by2cmh20k"
-path="res://.godot/imported/magnifying_glass_icon.png-74ef9aceb29ba1cd6cd639e0b3739bdd.ctex"
+uid="uid://d2ujnxq7ovb74"
+path="res://.godot/imported/arrow_icon.png-cb3e7eb80ecc1afb4b142a9fcc268f44.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/magnifying_glass_icon.png"
-dest_files=["res://.godot/imported/magnifying_glass_icon.png-74ef9aceb29ba1cd6cd639e0b3739bdd.ctex"]
+source_file="res://ui/sprites/arrow_icon.png"
+dest_files=["res://.godot/imported/arrow_icon.png-cb3e7eb80ecc1afb4b142a9fcc268f44.ctex"]
 
 [params]
 

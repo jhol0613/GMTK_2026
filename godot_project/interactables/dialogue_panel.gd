@@ -165,5 +165,5 @@ func _give_reward() -> void:
 	var item := _reward.duplicate() as ItemData
 	if item is TicketData:
 		(item as TicketData).resolve_departure()
-		SignalBus.ticket_purchased.emit(item.departure_hours, item.departure_minutes)
+		SignalBus.ticket_purchased.emit(item.departure_hours, item.departure_minutes, item.departure_seconds)
 	Inventory.add_item(item)

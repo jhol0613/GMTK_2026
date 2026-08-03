@@ -24,6 +24,7 @@ var pen = load("uid://c8yj5np7nrak6")
 
 @onready var _initial_notebook_button_scale: Vector2 = _notebook_button.scale
 @onready var _initial_inventory_button_scale: Vector2 = _inventory_button.scale
+@onready var _initial_ticket_button_scale: Vector2 = _ticket_button.scale
 
 const TICKET_BUTTON_SHOW_DELAY := 2.0
 
@@ -100,6 +101,15 @@ func _emphasize_inventory_icon():
 	tween.kill()
 	tween = create_tween()
 	tween.tween_property(_inventory_button, "scale", _initial_inventory_button_scale, .08)
+
+
+func _emphasize_ticket_icon():
+	var tween = create_tween()
+	tween.tween_property(_ticket_button, "scale", (_initial_ticket_button_scale * 1.2), .08)
+	await tween.finished
+	tween.kill()
+	tween = create_tween()
+	tween.tween_property(_ticket_button, "scale", _initial_ticket_button_scale, .08)
 
 
 func _on_notebook_button_mouse_entered() -> void:
@@ -236,8 +246,12 @@ func _close_inventory() -> void:
 
 func _on_item_added(item: ItemData) -> void:
 	var icon: Texture2D = item.item_icon
-	if icon == null and item is TicketData:
+	if item is TicketData:
+	# if icon == null and item is TicketData:
 		icon = _ticket_button.texture_normal
+		_emphasize_ticket_icon()
+	else:
+		_emphasize_inventory_icon()
 	if icon == null:
 		return
 	_show_item_popup(icon)
@@ -262,8 +276,8 @@ func _show_item_popup(icon: Texture2D) -> void:
 	_item_popup_tween.tween_property(_item_popup_icon, "modulate:a", 0.0, 0.35)
 	_item_popup_tween.tween_callback(func() -> void:
 		_item_popup.visible = false
-		_emphasize_inventory_icon()
 	)
+
 
 func _on_ticket_consumed():
 	_animation_player.play("ticket_consumed")

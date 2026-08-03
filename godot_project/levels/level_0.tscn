@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://ca8r7wcmgae0o" path="res://levels/tileset/grasstiles.png" id="17_ggct0"]
 [ext_resource type="Script" uid="uid://cpfgjwe2lpk0k" path="res://scripts/ticket_data.gd" id="17_owf05"]
 [ext_resource type="Texture2D" uid="uid://ddbgow303m2gq" path="res://levels/tileset/TX Tileset Grass.png" id="18_8mki0"]
-[ext_resource type="Texture2D" uid="uid://d2ujnxq7ovb74" path="res://ui/arrow_icon.png" id="18_juy1h"]
+[ext_resource type="Texture2D" uid="uid://d2ujnxq7ovb74" path="res://ui/sprites/arrow_icon.png" id="18_juy1h"]
 [ext_resource type="PackedScene" uid="uid://cit6uoxu58nwk" path="res://level_elements/maps/train_map.tscn" id="18_owf05"]
 [ext_resource type="PackedScene" uid="uid://baukigq6wfgs1" path="res://level_elements/ATM/atm.tscn" id="18_uuq13"]
 [ext_resource type="PackedScene" uid="uid://bavx6n5qxivtt" path="res://level_elements/decorative/plants/tiny_foliage.tscn" id="18_x1db4"]
@@ -617,24 +617,22 @@ tile_set = SubResource("TileSet_3beyx")
 depart_offset = Vector2(2000, 0)
 arrival_offset = Vector2(-2000, 0)
 ticket_id = &"RED_east"
-disembark_camera_offset_y = 0.0
 color = 7
 
 [node name="TrainSprite" parent="Platform/UpperTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.21848567
+frame_progress = 0.65659034
 
 [node name="LowerTrain" parent="Platform" index="7" unique_id=1370361982]
 next_scene = 2
 depart_offset = Vector2(-2000, 0)
 arrival_offset = Vector2(2000, 0)
 ticket_id = &"RED_west"
-disembark_camera_offset_y = 0.0
 color = 7
 
 [node name="TrainSprite" parent="Platform/LowerTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.4599425
+frame_progress = 0.89805204
 
 [node name="TicketBooth" parent="." index="6" unique_id=861247956 instance=ExtResource("2_823pn")]
 position = Vector2(-1168, -368)
@@ -888,5 +886,5 @@ position = Vector2(-160, -248)
 [editable path="TicketBooth"]
 [editable path="TicketBooth/DialogueInteractable"]
 [editable path="TrainMap"]
-[editable path="TrainMap/SignInteractable"]
 [editable path="TrainMap/SignPanel"]
+[editable path="TrainMap/SignInteractable"]

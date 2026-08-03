@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://bdx06b4wet51l"]
 
 [ext_resource type="Script" uid="uid://byquvvrlqrlgj" path="res://time/time.gd" id="1_ep8tu"]
-[ext_resource type="AudioStream" uid="uid://bktaj88n48qdp" path="res://time/Clock Second.mp3" id="2_de5ah"]
+[ext_resource type="AudioStream" uid="uid://bktaj88n48qdp" path="res://time/sfx/Clock Second.mp3" id="2_de5ah"]
 [ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/resshan_label.gd" id="2_i56kd"]
 [ext_resource type="Texture2D" uid="uid://cxcsgyq6cucb6" path="res://time/ui_clock.png" id="2_ss088"]
-[ext_resource type="AudioStream" uid="uid://dl8kihu3uofgs" path="res://time/Clock Minute.mp3" id="3_erhic"]
-[ext_resource type="AudioStream" uid="uid://r245h8xsaw4h" path="res://time/CountDownEnds.mp3" id="4_de5ah"]
+[ext_resource type="AudioStream" uid="uid://dl8kihu3uofgs" path="res://time/sfx/Clock Minute.mp3" id="3_erhic"]
+[ext_resource type="AudioStream" uid="uid://r245h8xsaw4h" path="res://time/sfx/CountDownEnds.mp3" id="4_de5ah"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kgoo1"]
 texture = ExtResource("2_ss088")

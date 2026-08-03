@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="DialogueLine" format=3 uid="uid://cs1k0a7leguxs"]
 
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://scripts/dialogue_line.gd" id="1_line"]
-[ext_resource type="Texture2D" uid="uid://cnx2wdgdmxkv6" path="res://character_portraits/player/mc_portrait_1.png" id="2_icon"]
+[ext_resource type="Texture2D" uid="uid://b53hkyvvsyjsc" path="res://character_portraits/player/mc_portrait_10.png" id="2_0comx"]
 
 [resource]
 script = ExtResource("1_line")
 speaker = "You"
-text = "Wrong train."
-speaker_icon = ExtResource("2_icon")
+text = "Oh, no - wrong train! I've wasted so much time!"
+speaker_icon = ExtResource("2_0comx")

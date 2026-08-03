@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rwsmjgconr7m"
-path="res://.godot/imported/magnifying_glass_hover_icon.png-1ecf40658531af2e5099ded9a325c911.ctex"
+uid="uid://bj88cvml0vs4h"
+path="res://.godot/imported/item_popup.png-caf34dec79ba57c2cdaea805917032e7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/magnifying_glass_hover_icon.png"
-dest_files=["res://.godot/imported/magnifying_glass_hover_icon.png-1ecf40658531af2e5099ded9a325c911.ctex"]
+source_file="res://ui/sprites/item_popup.png"
+dest_files=["res://.godot/imported/item_popup.png-caf34dec79ba57c2cdaea805917032e7.ctex"]
 
 [params]
 

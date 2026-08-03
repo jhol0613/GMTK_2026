@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dl8kihu3uofgs"
+path="res://.godot/imported/Clock Minute.mp3-761c9693dcee364a72ef1c128fe514ce.mp3str"
+
+[deps]
+
+source_file="res://time/sfx/Clock Minute.mp3"
+dest_files=["res://.godot/imported/Clock Minute.mp3-761c9693dcee364a72ef1c128fe514ce.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

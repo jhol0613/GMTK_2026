@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dw760ndv2ehvj"
+path="res://.godot/imported/Wrong Ticket.mp3-bd95bbec4f86c82022eaf2eda6fed464.mp3str"
+
+[deps]
+
+source_file="res://ui/sfx/Wrong Ticket.mp3"
+dest_files=["res://.godot/imported/Wrong Ticket.mp3-bd95bbec4f86c82022eaf2eda6fed464.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
