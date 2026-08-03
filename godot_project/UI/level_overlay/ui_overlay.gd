@@ -7,10 +7,10 @@ var pen = load("uid://c8yj5np7nrak6")
 @onready var _time := $Time
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
 @onready var _notebook := $Notebook
-@onready var _notebook_button := $NotebookButton
-@onready var _ticket_button := $TicketButton
+@onready var _notebook_button : TextureButton = $NotebookButton
+@onready var _ticket_button : TextureButton = $TicketButton
 @onready var _ticket := $Ticket
-@onready var _inventory_button := $InventoryButton
+@onready var _inventory_button : TextureButton = $InventoryButton
 @onready var _inventory := $InventoryPanel
 @onready var _notebook_hover_sound: AudioStreamPlayer = $NotebookHoverSound
 @onready var _notebook_click_sound: AudioStreamPlayer = $NotebookClickSound
@@ -43,7 +43,7 @@ func _ready() -> void:
 	Inventory.inventory_changed.connect(_refresh_ticket)
 	Inventory.inventory_changed.connect(_inventory.refresh)
 	Inventory.item_added.connect(_on_item_added)
-	SignalBus.new_unique_resshan_note_added_to_notebook.connect(_emphasize_notebook_icon)
+	SignalBus.new_unique_resshan_note_added_to_notebook.connect( _emphasize_icon.bind(_notebook_button,_initial_notebook_button_scale) )
 	TimeManager.time_up.connect(_on_time_up)
 	
 	SignalBus.ticket_consumed.connect(_on_ticket_consumed)
@@ -85,31 +85,13 @@ func _refresh_ticket() -> void:
 	)
 
 
-func _emphasize_notebook_icon():
+func _emphasize_icon( button:TextureButton, initial_scale:Vector2 ):
 	var tween = create_tween()
-	tween.tween_property(_notebook_button, "scale", (_initial_notebook_button_scale * 1.1), .08)
+	tween.tween_property(button, "scale", (initial_scale * 1.5), .08)
 	await tween.finished
 	tween.kill()
 	tween = create_tween()
-	tween.tween_property(_notebook_button, "scale", (_initial_notebook_button_scale), .08)
-
-
-func _emphasize_inventory_icon():
-	var tween = create_tween()
-	tween.tween_property(_inventory_button, "scale", (_initial_inventory_button_scale * 1.1), .08)
-	await tween.finished
-	tween.kill()
-	tween = create_tween()
-	tween.tween_property(_inventory_button, "scale", _initial_inventory_button_scale, .08)
-
-
-func _emphasize_ticket_icon():
-	var tween = create_tween()
-	tween.tween_property(_ticket_button, "scale", (_initial_ticket_button_scale * 1.2), .08)
-	await tween.finished
-	tween.kill()
-	tween = create_tween()
-	tween.tween_property(_ticket_button, "scale", _initial_ticket_button_scale, .08)
+	tween.tween_property(button, "scale", initial_scale, .08)
 
 
 func _on_notebook_button_mouse_entered() -> void:
@@ -246,15 +228,12 @@ func _on_item_added(item: ItemData) -> void:
 	if item is TicketData:
 	# if icon == null and item is TicketData:
 		icon = _ticket_button.texture_normal
-		_emphasize_ticket_icon()
-	else:
-		_emphasize_inventory_icon()
 	if icon == null:
 		return
-	_show_item_popup(icon)
+	_show_item_popup(icon, item)
 
 
-func _show_item_popup(icon: Texture2D) -> void:
+func _show_item_popup(icon: Texture2D, item: ItemData) -> void:
 	if _item_popup_tween != null and _item_popup_tween.is_valid():
 		_item_popup_tween.kill()
 
@@ -271,10 +250,14 @@ func _show_item_popup(icon: Texture2D) -> void:
 	_item_popup_tween.set_parallel(false)
 	_item_popup_tween.tween_interval(1.2)
 	_item_popup_tween.tween_property(_item_popup_icon, "modulate:a", 0.0, 0.35)
-	_item_popup_tween.tween_callback(func() -> void:
-		_item_popup.visible = false
-	)
+	_item_popup_tween.tween_callback(_hide_item_popup.bind(item))
 
+
+func _hide_item_popup(item : ItemData):
+	_item_popup.visible = false
+	if item is TicketData: _emphasize_icon(_ticket_button, _initial_ticket_button_scale)
+	else: _emphasize_icon(_inventory_button, _initial_inventory_button_scale)
+	
 
 func _on_ticket_consumed():
 	_animation_player.play("ticket_consumed")
