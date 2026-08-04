@@ -40,8 +40,9 @@
 [ext_resource type="PackedScene" uid="uid://cltjgiddt3m3y" path="res://level_elements/NPCs/preston.tscn" id="34_preston"]
 [ext_resource type="Texture2D" uid="uid://cs5l21wrqu5gc" path="res://level_elements/decorative/solar_decor/Solardecor3.png" id="34_tqj1w"]
 [ext_resource type="Texture2D" uid="uid://bogm6imvrrjwr" path="res://level_elements/decorative/solar_decor/Solardecor1.png" id="35_gtrna"]
-[ext_resource type="PackedScene" uid="uid://cbuohfggvk1qu" path="res://level_elements/decorative/birb.tscn" id="37_gtrna"]
+[ext_resource type="PackedScene" path="res://level_elements/decorative/birb.tscn" id="37_gtrna"]
 [ext_resource type="Texture2D" uid="uid://cqgbm5k8spyro" path="res://level_elements/decorative/solar_decor/solardecor2.png" id="38_xapae"]
+[ext_resource type="PackedScene" uid="uid://bb11t6nvj8g13" path="res://level_elements/decorative/recycle_bin/recycle_bin.tscn" id="40_0wxk8"]
 
 [sub_resource type="Resource" id="Resource_rfs8a"]
 script = ExtResource("15_w75he")
@@ -1141,6 +1142,9 @@ position = Vector2(712, -1832)
 
 [node name="Birb32" parent="Decorations" index="163" unique_id=1181962484 instance=ExtResource("37_gtrna")]
 position = Vector2(848, -1776)
+
+[node name="RecycleBin" parent="Decorations" index="164" unique_id=981033953 instance=ExtResource("40_0wxk8")]
+position = Vector2(-931, -718)
 
 [node name="Blue" parent="Background" parent_id_path=PackedInt32Array(102847613) index="0" unique_id=1690243240]
 repeat_times = 5

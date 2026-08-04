@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dovhsfyvtrxa7"
-path="res://.godot/imported/Birdfly.png-657a1e003fc00a3694e161026be86eab.ctex"
+uid="uid://c12ooog5cg04c"
+path="res://.godot/imported/open.png-c1f215558b5a8b6d1697889127913074.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level_elements/decorative/Birdfly.png"
-dest_files=["res://.godot/imported/Birdfly.png-657a1e003fc00a3694e161026be86eab.ctex"]
+source_file="res://level_elements/decorative/recycle_bin/open.png"
+dest_files=["res://.godot/imported/open.png-c1f215558b5a8b6d1697889127913074.ctex"]
 
 [params]
 
