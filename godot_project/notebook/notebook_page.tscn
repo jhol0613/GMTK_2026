@@ -2,11 +2,20 @@
 
 [ext_resource type="Script" uid="uid://fn3nxsh2c61h" path="res://notebook/notebook_page.gd" id="1_qf3y3"]
 
-[node name="NotebookPage" type="Node2D" unique_id=1099925378]
+[node name="NotebookPage" type="Control" unique_id=1241555215]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_qf3y3")
 
 [node name="Holder" type="VBoxContainer" parent="." unique_id=173175333]
 unique_name_in_owner = true
-offset_right = 745.0
-offset_bottom = 48.0
+process_mode = 3
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
 mouse_filter = 2

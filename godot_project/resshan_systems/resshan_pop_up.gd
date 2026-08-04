@@ -3,3 +3,6 @@ extends Control
 
 func add_note(note:String) -> void:
 	$PanelContainer/MarginContainer/Note.text = note
+
+func get_note() -> String:
+	return $PanelContainer/MarginContainer/Note.text
