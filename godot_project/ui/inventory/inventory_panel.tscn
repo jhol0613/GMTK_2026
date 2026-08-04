@@ -65,7 +65,6 @@ stretch_mode = 5
 [node name="Slot1Name" type="Control" parent="VBoxContainer/Slots/Slot1/Slot1Bg/VBox" unique_id=1672142478]
 unique_name_in_owner = true
 texture_filter = 1
-custom_minimum_size = Vector2(106, 53)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -73,18 +72,6 @@ mouse_filter = 2
 script = ExtResource("3_resshan")
 font_size = 28
 metadata/_custom_type_script = "uid://sidowamkhcrt"
-
-[node name="CloseButton" type="TextureButton" parent="."]
-texture_filter = 1
-layout_mode = 0
-offset_left = 660.0
-offset_top = 16.0
-offset_right = 724.0
-offset_bottom = 80.0
-focus_mode = 0
-texture_normal = ExtResource("4_close")
-ignore_texture_size = true
-stretch_mode = 5
 
 [node name="Slot2" type="VBoxContainer" parent="VBoxContainer/Slots" unique_id=1514983281]
 layout_mode = 2
@@ -196,5 +183,17 @@ mouse_filter = 2
 script = ExtResource("3_resshan")
 font_size = 28
 metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="CloseButton" type="TextureButton" parent="." unique_id=1402412403]
+texture_filter = 1
+layout_mode = 0
+offset_left = 660.0
+offset_top = 16.0
+offset_right = 724.0
+offset_bottom = 80.0
+focus_mode = 0
+texture_normal = ExtResource("4_close")
+ignore_texture_size = true
+stretch_mode = 5
 
 [connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]

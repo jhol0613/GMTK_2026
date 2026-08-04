@@ -116,12 +116,12 @@ stream = ExtResource("4_y1ha3")
 volume_db = 24.0
 bus = &"SFX"
 
-[node name="CloseButton" type="TextureButton" parent="."]
+[node name="CloseButton" type="TextureButton" parent="." unique_id=1122025902]
 texture_filter = 1
-offset_left = 280.0
-offset_top = -480.0
-offset_right = 344.0
-offset_bottom = -416.0
+offset_left = 284.0
+offset_top = -508.0
+offset_right = 348.0
+offset_bottom = -444.0
 focus_mode = 0
 texture_normal = ExtResource("8_close")
 ignore_texture_size = true

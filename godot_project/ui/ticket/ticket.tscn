@@ -27,12 +27,12 @@ script = ExtResource("4_resshan")
 font_size = 64
 metadata/_custom_type_script = "uid://sidowamkhcrt"
 
-[node name="CloseButton" type="TextureButton" parent="."]
+[node name="CloseButton" type="TextureButton" parent="." unique_id=95101247]
 texture_filter = 1
-offset_left = 610.0
-offset_top = -325.0
-offset_right = 674.0
-offset_bottom = -261.0
+offset_left = 615.0
+offset_top = -343.0
+offset_right = 679.0
+offset_bottom = -279.0
 focus_mode = 0
 texture_normal = ExtResource("5_close")
 ignore_texture_size = true
