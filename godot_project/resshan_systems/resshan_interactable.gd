@@ -52,8 +52,14 @@ func _gui_input(event: InputEvent) -> void:
 
 
 func _on_mouse_entered() -> void:
-	if Notebook.player_vocab.has(_string):
+	var pop: = Notebook.get_note(_encoded_string)
+	if pop:
 		noted = true
+		if note:
+			note.add_note(pop.get_note())
+			pop.queue_free()
+		else:
+			note = pop
 	_shine_cover.show()
 	if noted:
 		shader.set_shader_parameter('color', Color.WHITE)
@@ -64,25 +70,19 @@ func _on_mouse_entered() -> void:
 	
 	Input.set_custom_mouse_cursor(magnifying_glass_hover)
 	_hovered = true
-	get_tree().create_timer(TIME_TO_HOVER).timeout.connect( func ():
-		SignalBus.resshan_note_requested.emit(self)
-	)
+	display_note()
 
 
 func _on_mouse_exited() -> void:
 	_shine_cover.hide()
 	Input.set_custom_mouse_cursor(magnifying_glass)
-	# Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 	_hovered = false
 	if note:
-		note.queue_free()
-	note = null
+		note.hide()
 
 
-func display_note(text:String) -> void:
-	if note or not _hovered:
-		return
-	var pop_up: ResshanPopUp = preload("uid://bvunhdmuxhfji").instantiate()
-	pop_up.add_note(text)
-	note = pop_up
-	add_child(pop_up)
+func display_note() -> void:
+	if note: 
+		if not note.get_parent():
+			add_child(note)
+		note.show()

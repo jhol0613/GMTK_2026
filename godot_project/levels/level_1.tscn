@@ -40,7 +40,7 @@
 [ext_resource type="PackedScene" uid="uid://cltjgiddt3m3y" path="res://level_elements/NPCs/preston.tscn" id="34_preston"]
 [ext_resource type="Texture2D" uid="uid://cs5l21wrqu5gc" path="res://level_elements/decorative/solar_decor/Solardecor3.png" id="34_tqj1w"]
 [ext_resource type="Texture2D" uid="uid://bogm6imvrrjwr" path="res://level_elements/decorative/solar_decor/Solardecor1.png" id="35_gtrna"]
-[ext_resource type="PackedScene" path="res://level_elements/decorative/birb.tscn" id="37_gtrna"]
+[ext_resource type="PackedScene" uid="uid://cbuohfggvk1qu" path="res://level_elements/decorative/birb.tscn" id="37_gtrna"]
 [ext_resource type="Texture2D" uid="uid://cqgbm5k8spyro" path="res://level_elements/decorative/solar_decor/solardecor2.png" id="38_xapae"]
 [ext_resource type="PackedScene" uid="uid://bb11t6nvj8g13" path="res://level_elements/decorative/recycle_bin/recycle_bin.tscn" id="40_0wxk8"]
 

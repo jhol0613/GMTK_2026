@@ -1,13 +1,16 @@
 class_name NotebookPage
-extends Node2D
+extends Control
 
 signal limit_reached
 signal entry_removed
+signal entry_updated(encoded:String, new_text:String)
 
 const LIMIT: = 5
 
+
 var entries_count: int = 0
 var entries: Array[NotebookEntry] = []
+
 
 func _new_entry(encoded:String, initial_text = "") -> void:
 	var entry:NotebookEntry = preload('uid://s4gdpvpyayn0').instantiate()
@@ -28,4 +31,4 @@ func _remove_entry(entry:NotebookEntry) -> void:
 	entry_removed.emit()
 
 func _handle_entry_update(new_text:String, encoded:String) -> void:
-	Notebook.player_vocab[encoded] = new_text
+	entry_updated.emit(encoded, new_text)
