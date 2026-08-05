@@ -27,4 +27,3 @@ placeholder_text = "..."
 flat = true
 
 [connection signal="gui_input" from="Resshan" to="." method="_on_resshan_gui_input"]
-[connection signal="gui_input" from="PlayerInput" to="." method="_on_player_input_gui_input"]
