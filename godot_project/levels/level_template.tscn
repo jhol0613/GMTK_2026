@@ -629,11 +629,12 @@ position = Vector2(-43, -7)
 z_index = -1374
 script = ExtResource("11_daynight")
 
-[node name="Blue" type="Parallax2D" parent="Background" unique_id=1690243240]
-repeat_size = Vector2(720, 405)
-repeat_times = 4
+[node name="Blue" type="CanvasLayer" parent="Background" unique_id=1690243240]
+layer = -100
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/Blue" unique_id=1648586157]
+position = Vector2(960, 540)
+scale = Vector2(2.6667, 2.6667)
 texture = ExtResource("7_64qpc")
 
 [node name="FarClouds" type="Parallax2D" parent="Background" unique_id=1089277525]

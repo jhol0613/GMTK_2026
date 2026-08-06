@@ -59,7 +59,7 @@ func _collect_world_items() -> void:
 
 func _create_background_sets() -> void:
 	for index in LAYER_PATHS.size():
-		var layer := get_node(LAYER_PATHS[index]) as Parallax2D
+		var layer := get_node(LAYER_PATHS[index])
 		var day_sprite := layer.get_node("Sprite2D") as Sprite2D
 		var dusk_sprite := day_sprite.duplicate() as Sprite2D
 		var night_sprite := day_sprite.duplicate() as Sprite2D
