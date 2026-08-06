@@ -168,7 +168,11 @@ func _input(event: InputEvent) -> void:
 
 	var closed_something := false
 
-	if _notebook.visible and not _sprite_contains_point($Notebook/Sprite2D, pointer_position):
+	var over_notebook := (
+		_sprite_contains_point($Notebook/Sprite2D, pointer_position)
+		or _control_contains_point($Notebook/SectionSelector/Holder, pointer_position)
+	)
+	if _notebook.visible and not over_notebook:
 		close_notebook()
 		closed_something = true
 
