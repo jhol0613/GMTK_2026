@@ -6,6 +6,7 @@ class_name Train
 
 @export var next_scene: Enums.Scenes = Enums.Scenes.LEVEL_1
 @export var reload_scene: Enums.Scenes = Enums.Scenes.LEVEL_0
+@export var level_clear_time_cost_minutes: int = 5
 
 # Animation parameters
 @export var depart_offset: Vector2 = Vector2(800, 0)
@@ -130,6 +131,7 @@ func _boarding_sequence() -> void:
 	_boarding = true
 	await _run_boarding_and_departure(true)
 
+	TimeManager.advance_minutes(level_clear_time_cost_minutes)
 	GameManager.load_scene(next_scene)
 	_boarding = false
 

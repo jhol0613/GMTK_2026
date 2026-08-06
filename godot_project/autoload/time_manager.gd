@@ -18,6 +18,7 @@ var _pending_wrong_train_dialogue: bool = false
 
 var _pending_flash: bool = false
 var _time_up_emitted: bool = false
+var _run_active: bool = false
 
 
 func _ready() -> void:
@@ -40,6 +41,15 @@ func reset(start_hour: int = HOURS_PER_DAY, start_minute: int = 0, start_second:
 	time_changed.emit(hour, minute, second)
 
 
+func begin_new_run() -> void:
+	_preserve_across_reload = false
+	_skip_intro_on_reload = false
+	_pending_wrong_train_dialogue = false
+	_pending_flash = false
+	_run_active = true
+	reset(HOURS_PER_DAY - 1, MINUTES_PER_HOUR - 1, SECONDS_PER_MINUTE - 1)
+
+
 func advance(amount: int = 1) -> void:
 	if total_seconds() <= 0:
 		return
@@ -59,6 +69,10 @@ func advance(amount: int = 1) -> void:
 		_emit_time_up()
 		return
 	time_changed.emit(hour, minute, second)
+
+
+func advance_minutes(amount: int = 1) -> void:
+	advance(amount * SECONDS_PER_MINUTE)
 
 
 func _emit_time_up() -> void:
@@ -120,7 +134,12 @@ func sync_from_ui(start_hour: int, start_minute: int, start_second: int) -> void
 		_time_up_emitted = total_seconds() <= 0
 		time_changed.emit(hour, minute, second)
 		return
-	reset(start_hour, start_minute, start_second)
+	if not _run_active:
+		_run_active = true
+		reset(start_hour, start_minute, start_second)
+		return
+	_time_up_emitted = total_seconds() <= 0
+	time_changed.emit(hour, minute, second)
 
 
 ## True once after a wrong-train reload; consumes the flag.

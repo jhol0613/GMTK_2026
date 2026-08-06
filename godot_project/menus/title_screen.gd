@@ -25,6 +25,7 @@ func _ready() -> void:
 
 func _on_play_button_pressed() -> void:
 	_play_button_click()
+	TimeManager.begin_new_run()
 	GameManager.load_scene(Enums.Scenes.LEVEL_0)
 
 

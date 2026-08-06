@@ -13,7 +13,7 @@ var entries: Array[NotebookEntry] = []
 
 
 func _new_entry(encoded:String, initial_text = "") -> void:
-	var entry:NotebookEntry = preload('uid://s4gdpvpyayn0').instantiate()
+	var entry: NotebookEntry = preload("res://notebook/notebook_entry.tscn").instantiate()
 	
 	$Holder.add_child(entry)
 	entry.player_input.text = initial_text

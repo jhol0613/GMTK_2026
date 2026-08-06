@@ -4,6 +4,12 @@
 [ext_resource type="Script" uid="uid://c1k84acxkh1w5" path="res://level_elements/departure_board/deaprture_board.gd" id="1_i2b7y"]
 [ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/resshan_label.gd" id="3_4ky8n"]
 [ext_resource type="AudioStream" uid="uid://c5fycxplhe2fh" path="res://level_elements/departure_board/DepartBoardUpdateSFX.mp3" id="4_4ky8n"]
+[ext_resource type="Texture2D" path="res://level_elements/departure_board/departure_board_glow.png" id="5_glow"]
+[ext_resource type="Texture2D" path="res://visual_effects/day_night/light_radial.png" id="6_light"]
+[ext_resource type="Script" path="res://visual_effects/day_night/night_light_2d.gd" id="7_nightlight"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glow"]
+blend_mode = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]
 size = Vector2(87, 14)
@@ -16,6 +22,23 @@ _all_labels = [NodePath("Time"), NodePath("Time2"), NodePath("Time3"), NodePath(
 z_index = 1
 position = Vector2(0, -55)
 texture = ExtResource("1_gh1tk")
+
+[node name="NightLight" type="Node2D" parent="." groups=["night_lights"]]
+script = ExtResource("7_nightlight")
+
+[node name="GlowOverlay" type="Sprite2D" parent="NightLight"]
+modulate = Color(1, 1, 1, 0)
+material = SubResource("CanvasItemMaterial_glow")
+z_index = 1
+position = Vector2(0, -55)
+texture = ExtResource("5_glow")
+
+[node name="PointLight2D" type="PointLight2D" parent="NightLight"]
+position = Vector2(0, -55)
+color = Color(0.392157, 0.866667, 0.890196, 1)
+energy = 0.0
+texture = ExtResource("6_light")
+texture_scale = 1.5
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1810997999]
 collision_layer = 2

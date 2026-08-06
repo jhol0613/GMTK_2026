@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bnyhe8dqegr5y" path="res://levels/parallax/sky2.png" id="8_2ip8h"]
 [ext_resource type="Texture2D" uid="uid://cxt6rc1bm3gw" path="res://levels/parallax/sky3.png" id="9_unwjj"]
 [ext_resource type="Texture2D" uid="uid://e8ko1l18knja" path="res://levels/parallax/sky4.png" id="10_u3vgj"]
+[ext_resource type="Script" path="res://levels/parallax/day_night_background.gd" id="11_daynight"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yglgk"]
 texture = ExtResource("2_8xmsw")
@@ -626,6 +627,7 @@ position = Vector2(-43, -7)
 
 [node name="Background" type="Node2D" parent="." unique_id=102847613]
 z_index = -1374
+script = ExtResource("11_daynight")
 
 [node name="Blue" type="Parallax2D" parent="Background" unique_id=1690243240]
 repeat_size = Vector2(720, 405)
