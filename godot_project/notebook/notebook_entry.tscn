@@ -26,4 +26,18 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_rsnfv")
 placeholder_text = "..."
 flat = true
 
+[node name="MenuBar" type="MenuBar" parent="." unique_id=1199536512]
+z_index = 2001
+layout_mode = 2
+
+[node name="MoveTo" type="PopupMenu" parent="MenuBar" unique_id=606654603]
+title = "Move to"
+item_count = 2
+item_0/text = "Unsorted"
+item_0/id = 0
+item_1/text = "Section 1"
+item_1/id = 1
+
 [connection signal="gui_input" from="Resshan" to="." method="_on_resshan_gui_input"]
+[connection signal="gui_input" from="PlayerInput" to="." method="_on_player_input_gui_input"]
+[connection signal="id_pressed" from="MenuBar/MoveTo" to="." method="_on_move_entry_pressed"]

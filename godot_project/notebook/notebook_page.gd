@@ -9,26 +9,34 @@ const LIMIT: = 5
 
 
 var entries_count: int = 0
-var entries: Array[NotebookEntry] = []
 
 
-func _new_entry(encoded:String, initial_text = "") -> void:
-	var entry: NotebookEntry = preload("res://notebook/notebook_entry.tscn").instantiate()
+func _new_entry(encoded:String, initial_text = "") -> NotebookEntry:
+	var entry:NotebookEntry = preload('uid://s4gdpvpyayn0').instantiate()
 	
 	$Holder.add_child(entry)
 	entry.player_input.text = initial_text
 	entry.add_resshan(encoded)
-	entry.tree_exiting.connect(_remove_entry.bind(entry))
 	entry.player_input.text_changed.connect(_handle_entry_update.bind(encoded))
 	entries_count += 1
-	entries.append(entry)
 	if entries_count == LIMIT:
 		limit_reached.emit()
+	
+	return entry
 
-func _remove_entry(entry:NotebookEntry) -> void:
+# This WILL cause memory leak, if entry isn't properly handled 
+func remove_entry(entry:NotebookEntry) -> void:
+	$Holder.remove_child(entry)
 	entries_count -= 1
-	entries.erase(entry)
 	entry_removed.emit()
+
 
 func _handle_entry_update(new_text:String, encoded:String) -> void:
 	entry_updated.emit(encoded, new_text)
+
+
+func get_entries() -> Array[NotebookEntry]:
+	var arr: Array[NotebookEntry] = []
+	arr.append_array($Holder.get_children())
+	return arr
+	
