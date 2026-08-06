@@ -26,6 +26,8 @@ func _new_page() -> void:
 	
 	$Pages.add_child(page)
 	page.hide()
+	if get_pages().size() == 1:
+		page.show()
 
 
 # It always be the last one

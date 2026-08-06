@@ -33,20 +33,34 @@ func _handle_limit_reached() -> void:
 	pass
 
 
+func _handle_moving_entry(to_section:int, entry:NotebookEntry) -> void:
+	for section: NotebookSection in _sections:
+		for page: NotebookPage in section.get_pages():
+			if page.get_entries().has(entry):
+				page.remove_entry(entry)
+				_add_entry_to_the_section(
+					entry.resshan_string,entry.get_note(), _sections[to_section].section_name
+				)
+				entry.queue_free()
+
+
 func _add_entry_to_the_section(encoded:String, initial_text = "", section:String = "Unsorted") -> void:
 	var indx: int = -1
 	for _section: NotebookSection in _sections:
 		if _section.section_name == section:
 			indx = _sections.find(_section)
 		for page:NotebookPage in _section.get_pages():
-			for entry:NotebookEntry in page.entries:
-				if entry._resshan_string == encoded:
+			for entry:NotebookEntry in page.get_entries():
+				if entry.resshan_string == encoded:
 					return
-	assert(indx >= 0, 'Section %s is not located' % [section])
+	assert(indx >= 0, 'Section %s does not exist' % [section])
+	if _sections[indx].get_pages().is_empty():
+		_sections[indx]._new_page()
 	var page: = _sections[indx].get_pages()[-1]
 	_entry_added_sound.play()
 	SignalBus.new_unique_resshan_note_added_to_notebook.emit()
-	page._new_entry(encoded, initial_text)
+	var entry: = page._new_entry(encoded, initial_text)
+	entry.move_requested.connect(_handle_moving_entry.bind(entry))
 	
 	player_vocab.data[section][encoded] = initial_text
 
@@ -77,3 +91,9 @@ func _on_notebook_mouse_entered() -> void:
 
 func _on_close_button_pressed() -> void:
 	close_requested.emit()
+
+
+func _on_section_switch_pressed(section_indx: int) -> void:
+	_sections[_current_section].hide()
+	_current_section = section_indx
+	_sections[_current_section].show()

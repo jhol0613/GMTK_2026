@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://gskcbdshu54h"]
 
-[ext_resource type="PackedScene" uid="uid://bfuu8moxyxa5w" path="res://notebook/notebook_page.tscn" id="1_qjmkm"]
 [ext_resource type="Script" uid="uid://d0ulsk74p60bn" path="res://notebook/notebook.gd" id="1_tvakd"]
-[ext_resource type="Script" uid="uid://dw50etyrf26ll" path="res://notebook/notebook_section.gd" id="3_7rwif"]
+[ext_resource type="PackedScene" uid="uid://cg7lcfqothrd2" path="res://notebook/notebook_section.tscn" id="3_7rwif"]
 [ext_resource type="Texture2D" uid="uid://cmp7iukc3tyy4" path="res://notebook/notebook.png" id="3_kkelw"]
 [ext_resource type="FontFile" uid="uid://byxrvfx8kprnq" path="res://resources/fonts/Embolism Spark.ttf" id="4_ft0je"]
 [ext_resource type="AudioStream" uid="uid://ce16br5qebd7" path="res://ui/sfx/HoverTicket_Schedule1.mp3" id="4_y1ha3"]
@@ -11,11 +10,6 @@
 [ext_resource type="AudioStream" uid="uid://dmcj5ur7l6jb4" path="res://ui/sfx/Pencil2.mp3" id="6_7rtp4"]
 [ext_resource type="AudioStream" uid="uid://da6j41l6x4sxf" path="res://ui/sfx/Pencil3.mp3" id="7_ft0je"]
 [ext_resource type="Texture2D" uid="uid://cd287u1l626dg" path="res://ui/CloseButton.png" id="8_close"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_s1fef"]
-font = ExtResource("4_ft0je")
-font_size = 45
-font_color = Color(0.19215687, 0.19215687, 0.19215687, 1)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ujtin"]
 random_pitch = 1.0190678
@@ -44,34 +38,16 @@ grow_vertical = 2
 
 [node name="Sections" type="Node2D" parent="." unique_id=1748261027]
 
-[node name="NotebookSection" type="Control" parent="Sections" unique_id=1753764082]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -312.0
-offset_top = -423.0
-offset_right = 313.0
-offset_bottom = 381.0
-script = ExtResource("3_7rwif")
+[node name="NotebookSection" parent="Sections" unique_id=813484627 instance=ExtResource("3_7rwif")]
+visible = true
 section_name = "Unsorted"
 
-[node name="Pages" type="Control" parent="Sections/NotebookSection" unique_id=2023607336]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 65.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="NotebookPage" parent="Sections/NotebookSection/Pages" unique_id=1099925378 instance=ExtResource("1_qjmkm")]
-layout_mode = 1
-
-[node name="Holder" parent="Sections/NotebookSection/Pages/NotebookPage" index="0" unique_id=173175333]
-theme_override_constants/separation = 6
-
-[node name="Label" type="Label" parent="Sections/NotebookSection/Pages/NotebookPage/Holder" index="0" unique_id=1341539632]
+[node name="Label2" type="Label" parent="Sections/NotebookSection" unique_id=1341539632]
 texture_filter = 1
-layout_mode = 2
+layout_mode = 0
+offset_top = 65.0
+offset_right = 625.0
+offset_bottom = 170.0
 theme_override_colors/font_color = Color(0.19215687, 0.19215687, 0.19215687, 1)
 theme_override_fonts/font = ExtResource("4_ft0je")
 theme_override_font_sizes/font_size = 32
@@ -79,17 +55,10 @@ text = "I can click on any word I see to put it in this notebook!
 Then I can type my best guesses for what they mean.
 I bet learning a lot of words will help me find my way."
 
-[node name="Label" type="Label" parent="Sections/NotebookSection" unique_id=1537828943]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 22.0
-grow_horizontal = 2
-text = "Unsorted"
-label_settings = SubResource("LabelSettings_s1fef")
+[node name="Pages" parent="Sections/NotebookSection" index="1" unique_id=1298499381]
+offset_top = 184.0
+
+[node name="NotebookSection2" parent="Sections" unique_id=1800562114 instance=ExtResource("3_7rwif")]
 
 [node name="NextPage" type="Button" parent="." unique_id=1734661789]
 unique_name_in_owner = true
@@ -148,9 +117,33 @@ stream = SubResource("AudioStreamRandomizer_ujtin")
 volume_db = 8.0
 bus = &"SFX"
 
+[node name="SectionSelector" type="Control" parent="." unique_id=862698154]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 341.0
+offset_top = -401.0
+offset_right = 341.0
+offset_bottom = -401.0
+
+[node name="Holder" type="VBoxContainer" parent="SectionSelector" unique_id=1434875601]
+layout_mode = 1
+offset_right = 78.0
+offset_bottom = 30.0
+
+[node name="Button" type="Button" parent="SectionSelector/Holder" unique_id=127761495]
+layout_mode = 2
+text = "Unsorted"
+
+[node name="Button2" type="Button" parent="SectionSelector/Holder" unique_id=2004093584]
+layout_mode = 2
+text = "Section 1"
+
 [connection signal="mouse_entered" from="Sprite2D/Control" to="." method="_on_notebook_mouse_entered"]
 [connection signal="pressed" from="NextPage" to="." method="_on_previous_page_pressed"]
 [connection signal="pressed" from="PreviousPage" to="." method="_on_next_page_pressed"]
 [connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="SectionSelector/Holder/Button" to="." method="_on_section_switch_pressed" binds= [0]]
+[connection signal="pressed" from="SectionSelector/Holder/Button2" to="." method="_on_section_switch_pressed" binds= [1]]
 
+[editable path="Sections/NotebookSection"]
 [editable path="Sections/NotebookSection/Pages/NotebookPage"]

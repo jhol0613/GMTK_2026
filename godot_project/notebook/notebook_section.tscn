@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cg7lcfqothrd2"]
+
+[ext_resource type="Script" uid="uid://dw50etyrf26ll" path="res://notebook/notebook_section.gd" id="1_e75hj"]
+[ext_resource type="PackedScene" uid="uid://bfuu8moxyxa5w" path="res://notebook/notebook_page.tscn" id="2_dohu8"]
+[ext_resource type="FontFile" uid="uid://byxrvfx8kprnq" path="res://resources/fonts/Embolism Spark.ttf" id="3_8irv7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_s1fef"]
+font = ExtResource("3_8irv7")
+font_size = 45
+font_color = Color(0.19215687, 0.19215687, 0.19215687, 1)
+
+[node name="NotebookSection2" type="Control" unique_id=813484627]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -312.0
+offset_top = -423.0
+offset_right = 313.0
+offset_bottom = 381.0
+script = ExtResource("1_e75hj")
+section_name = "Section 1"
+
+[node name="Pages" type="Control" parent="." unique_id=1298499381]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NotebookPage" parent="Pages" unique_id=1241555215 instance=ExtResource("2_dohu8")]
+layout_mode = 1
+
+[node name="Label" type="Label" parent="." unique_id=967464862]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 22.0
+grow_horizontal = 2
+text = "Unsorted"
+label_settings = SubResource("LabelSettings_s1fef")
