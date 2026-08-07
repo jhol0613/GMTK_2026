@@ -39,7 +39,7 @@
 [ext_resource type="Texture2D" uid="uid://bogm6imvrrjwr" path="res://level_elements/decorative/solar_decor/Solardecor1.png" id="37_dy5lu"]
 [ext_resource type="Texture2D" uid="uid://cqgbm5k8spyro" path="res://level_elements/decorative/solar_decor/solardecor2.png" id="38_g2wda"]
 [ext_resource type="PackedScene" uid="uid://cbuohfggvk1qu" path="res://level_elements/decorative/birb.tscn" id="39_ton1c"]
-[ext_resource type="PackedScene" uid="uid://bb11t6nvj8g13" path="res://level_elements/decorative/recycle_bin/recycle_bin.tscn" id="40_m78yj"]
+[ext_resource type="PackedScene" uid="uid://c5jvn4a3mfhj" path="res://level_elements/decorative/recycle_bin/recycle_bin.tscn" id="40_m78yj"]
 [ext_resource type="PackedScene" uid="uid://bo3pcctdon7l" path="res://level_elements/signs/station_name_sign.tscn" id="41_r4js7"]
 [ext_resource type="PackedScene" uid="uid://bqn5083nuxoa8" path="res://level_elements/NPCs/pee_pee_dance.tscn" id="42_jg3i0"]
 [ext_resource type="PackedScene" uid="uid://cltjgiddt3m3y" path="res://level_elements/NPCs/preston.tscn" id="43_y7g21"]
@@ -76,6 +76,7 @@ script = ExtResource("13_h8kgu")
 player_text = "uh... <<pink>>"
 reply = SubResource("Resource_r0nt2")
 reward = SubResource("Resource_vlm06")
+outcome_id = &"sold_trinket"
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 
 [sub_resource type="Resource" id="Resource_xv8d5"]
@@ -96,6 +97,7 @@ script = ExtResource("13_h8kgu")
 player_text = "<<green>> please!"
 reply = SubResource("Resource_xv8d5")
 reward = SubResource("Resource_pn4ta")
+outcome_id = &"sold_trinket"
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 
 [sub_resource type="Resource" id="Resource_0wxk8"]
@@ -116,6 +118,7 @@ script = ExtResource("13_h8kgu")
 player_text = "<<blue>> I guess?"
 reply = SubResource("Resource_0wxk8")
 reward = SubResource("Resource_i0qum")
+outcome_id = &"sold_trinket"
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 
 [sub_resource type="Resource" id="Resource_stsco"]
@@ -136,6 +139,7 @@ script = ExtResource("13_h8kgu")
 player_text = "<<red>>"
 reply = SubResource("Resource_stsco")
 reward = SubResource("Resource_yrao0")
+outcome_id = &"sold_trinket"
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 
 [sub_resource type="AudioStreamMP3" id="AudioStreamMP3_i6od7"]
@@ -483,12 +487,18 @@ position = Vector2(-64, -224)
 lines = Array[ExtResource("9_4idv8")]([SubResource("Resource_rfs8a"), SubResource("Resource_0sa6h")])
 choices = Array[ExtResource("13_h8kgu")]([SubResource("Resource_3yobk"), SubResource("Resource_ja4xt"), SubResource("Resource_x4vot"), SubResource("Resource_dam5x")])
 
+[node name="Prompt" parent="TrinketShop/DialogueInteractable" index="1" unique_id=272794898]
+custom_minimum_size = Vector2(71, 175)
+
 [node name="TicketBooth" parent="." index="14" unique_id=861247956 instance=ExtResource("19_uptk2")]
 position = Vector2(-267, -170)
 
 [node name="DialogueInteractable" parent="TicketBooth" index="1" unique_id=358228256]
 lines = Array[ExtResource("9_4idv8")]([SubResource("Resource_oqlok")])
 choices = Array[ExtResource("13_h8kgu")]([SubResource("Resource_0fu15"), SubResource("Resource_voubc"), SubResource("Resource_pnpm1"), SubResource("Resource_ohjdc"), SubResource("Resource_rf48r"), SubResource("Resource_dp1ib"), SubResource("Resource_5t0se"), SubResource("Resource_i6od7")])
+
+[node name="Prompt" parent="TicketBooth/DialogueInteractable" index="1" unique_id=272794898]
+custom_minimum_size = Vector2(71, 175)
 
 [node name="LevelExitBarrier" type="StaticBody2D" parent="." index="15" unique_id=1631214184]
 position = Vector2(-384, 0)

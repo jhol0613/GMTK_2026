@@ -244,11 +244,12 @@ pivot_offset = Vector2(100, 40)
 mouse_filter = 2
 
 [node name="TokenDisplay" parent="." unique_id=1614850616 instance=ExtResource("6_tokens")]
-offset_left = 1464.0
-offset_top = 73.0
-offset_right = 1664.0
-offset_bottom = 113.0
-mouse_filter = 2
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1374.0
+offset_top = 61.0
+offset_right = 1554.0
+offset_bottom = 145.0
 
 [node name="Notebook" parent="." unique_id=2020796058 instance=ExtResource("2_l5of1")]
 visible = false

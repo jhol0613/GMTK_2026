@@ -1,28 +1,21 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource type="Script" path="res://ui/token_display/token_display.gd" id="1_token"]
+[ext_resource type="Texture2D" path="res://ui/Battery/Battery_shell.png" id="2_shell"]
+[ext_resource type="Texture2D" path="res://ui/Battery/Baterry_full.png" id="3_full"]
+[ext_resource type="Texture2D" path="res://ui/Battery/battery_empty.png" id="4_empty"]
+[ext_resource type="Texture2D" path="res://ui/Battery/battery_low.png" id="5_low"]
+[ext_resource type="Texture2D" path="res://ui/Battery/battery_charging.png" id="6_charging"]
 
-[node name="TokenDisplay" type="HBoxContainer"]
-offset_right = 160.0
-offset_bottom = 40.0
-theme_override_constants/separation = 8
+[node name="TokenDisplay" type="Control"]
+custom_minimum_size = Vector2(180, 84)
+offset_right = 180.0
+offset_bottom = 84.0
+mouse_filter = 2
 script = ExtResource("1_token")
-
-[node name="Placeholder" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-size_flags_vertical = 4
-color = Color(0.95, 0.78, 0.3, 1)
-
-[node name="Icon" type="TextureRect" parent="."]
-visible = false
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-size_flags_vertical = 4
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Count" type="Label" parent="."]
-layout_mode = 2
-size_flags_vertical = 4
-text = "16 / 16"
+shell_texture = ExtResource("2_shell")
+cell_full = ExtResource("3_full")
+cell_empty = ExtResource("4_empty")
+cell_low = ExtResource("5_low")
+cell_charging = ExtResource("6_charging")
+pixel_scale = 4
