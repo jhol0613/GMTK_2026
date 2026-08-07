@@ -135,6 +135,8 @@ func _on_option_confirmed(outcome_id: StringName) -> void:
 	if outcome_id != &"sold_ticket":
 		return
 
+	Wallet.spend(Wallet.TICKET_COST)
+
 	if purchased_ticket.stream == null:
 		push_warning("FirstChoiceSound has no audio stream.")
 		return

@@ -28,6 +28,7 @@ GameManager="*res://autoload/game_manager.tscn"
 SaveManager="*res://autoload/save_manager.gd"
 AudioManager="*res://autoload/audio_manager.gd"
 TimeManager="*uid://wffuhbxk08eh"
+Wallet="*res://autoload/wallet.gd"
 
 [display]
 

@@ -1,6 +1,8 @@
 extends Area2D
 class_name Interactable
 
+signal interacted
+
 @onready var _prompt: ResshanLabel = $Prompt
 @export var _arrow: AnimatedSprite2D
 
@@ -24,6 +26,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	if event.is_action_pressed("interact"):
 		interact()
+		interacted.emit()
 		get_viewport().set_input_as_handled()
 
 

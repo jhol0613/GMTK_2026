@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialogue_interactable.tscn" id="3_xxwc8"]
 [ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialogue_panel.tscn" id="5_73t7r"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="5_400x5"]
+[ext_resource type="Script" path="res://level_elements/trinket_shop/trinket_shop.gd" id="6_trinket"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8tbst"]
 atlas = ExtResource("1_400x5")
@@ -61,6 +62,7 @@ size = Vector2(54, 16)
 size = Vector2(117, 31)
 
 [node name="TrinketShop" type="Node2D" unique_id=877031898]
+script = ExtResource("6_trinket")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=984962632]
 z_index = 1

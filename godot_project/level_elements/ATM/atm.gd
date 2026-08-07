@@ -14,3 +14,9 @@ func _ready() -> void:
 		resshan_interactable2.queue_free()
 	else:
 		sprite.play( "default" )
+		if dialog_interactable != null:
+			dialog_interactable.interacted.connect( _on_interacted )
+
+
+func _on_interacted() -> void:
+	Wallet.refill()
