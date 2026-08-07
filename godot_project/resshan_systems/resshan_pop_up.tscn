@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bvunhdmuxhfji"]
 
 [ext_resource type="Script" uid="uid://dsc1cq4uwmso" path="res://resshan_systems/resshan_pop_up.gd" id="1_dt5xr"]
-[ext_resource type="FontFile" uid="uid://k24n0d7oex7j" path="res://resources/fonts/ExpletusSans-Bold.ttf" id="2_1uc05"]
+[ext_resource type="FontFile" uid="uid://k24n0d7oex7j" path="res://ui/fonts/ExpletusSans-Bold.ttf" id="2_1uc05"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1uc05"]
 bg_color = Color(0.90359825, 0.90359825, 0.9035982, 1)

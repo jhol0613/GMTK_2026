@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://blepwufe0phuw" path="res://level_elements/trinket_shop/Trinket shop level 1.png" id="1_400x5"]
 [ext_resource type="Texture2D" uid="uid://dcoghm70vomqf" path="res://level_elements/trinket_shop/Trinket shop level 2.png" id="2_8tbst"]
-[ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialogue_interactable.tscn" id="3_xxwc8"]
-[ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialogue_panel.tscn" id="5_73t7r"]
+[ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialog_system/dialogue_interactable.tscn" id="3_xxwc8"]
+[ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialog_system/dialogue_panel.tscn" id="5_73t7r"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="5_400x5"]
 [ext_resource type="Script" path="res://level_elements/trinket_shop/trinket_shop.gd" id="6_trinket"]
 

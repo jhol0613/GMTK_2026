@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://btq7els1ofy3i" path="res://interactables/interactable.gd" id="1_7t3he"]
 [ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/resshan_label.gd" id="2_7t3he"]
-[ext_resource type="Texture2D" uid="uid://bmgexc1t26tyl" path="res://interactables/sprites/spin_arrow_icon.png" id="3_lbwal"]
+[ext_resource type="Texture2D" uid="uid://bmgexc1t26tyl" path="res://interactables/dialog_system/ui_sprites/spin_arrow_icon.png" id="3_lbwal"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_riqys"]
 size = Vector2(50, 19)

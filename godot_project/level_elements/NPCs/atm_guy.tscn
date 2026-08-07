@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://sve0agw1p5d0"]
 
 [ext_resource type="Texture2D" uid="uid://bbrh2j31wvjgd" path="res://level_elements/NPCs/ATM guy.png" id="1_dfn31"]
-[ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialogue_interactable.tscn" id="2_1k5ln"]
-[ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://scripts/dialogue_line.gd" id="3_t36nf"]
+[ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialog_system/dialogue_interactable.tscn" id="2_1k5ln"]
+[ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="3_t36nf"]
 [ext_resource type="AudioStream" uid="uid://p4w878r6j1kh" path="res://ui/SpeechAudio/Machine closed. Zero money.mp3" id="4_1k5ln"]
-[ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialogue_panel.tscn" id="4_an07i"]
+[ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialog_system/dialogue_panel.tscn" id="4_an07i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1k5ln"]
 atlas = ExtResource("1_dfn31")

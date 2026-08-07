@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://bof6fneov4vmn" path="res://level_elements/ticket_booth/Ticketbooth.png" id="1_8vy6h"]
 [ext_resource type="Script" uid="uid://dtxt0cu3nyw4g" path="res://level_elements/ticket_booth/ticket_booth.gd" id="1_e2qtd"]
-[ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialogue_interactable.tscn" id="2_ui1pi"]
+[ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialog_system/dialogue_interactable.tscn" id="2_ui1pi"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="3_ui1pi"]
-[ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialogue_panel.tscn" id="4_2vr77"]
+[ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialog_system/dialogue_panel.tscn" id="4_2vr77"]
 [ext_resource type="AudioStream" uid="uid://6llsv27ckbd2" path="res://ui/sfx/Purchased Ticket.mp3" id="5_8d5ud"]
 [ext_resource type="AudioStream" uid="uid://dtf5vr8s8qloo" path="res://level_elements/ticket_booth/Ticket_Booth_Noise.mp3" id="7_8vjcj"]
 

@@ -32,6 +32,13 @@ enum TrainColor {
 	YELLOW = 9,
 }
 
+enum TrainDirection {
+	NORTH,
+	SOUTH,
+	EAST,
+	WEST
+}
+
 enum BoardResult {
 	REJECTED, ## No ticket, or ticket does not match this train
 	TOO_LATE, ## Matching ticket, but the departure deadline has passed

@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://b00veulruyir3"]
+
+[ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://interactables/dialog_system/dialogue_choice.gd" id="1_e140w"]
+[ext_resource type="Resource" uid="uid://bd00bah7q7ltl" path="res://levels/level_0/ticket_lady_thankyou.tres" id="2_l7wrj"]
+[ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="2_mhbdw"]
+[ext_resource type="Script" uid="uid://cpfgjwe2lpk0k" path="res://ui/ticket/ticket_data.gd" id="3_xaymj"]
+[ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="3_y6jeb"]
+[ext_resource type="AudioStream" uid="uid://clvosvg2vfbfv" path="res://ui/SpeechAudio/Ticket buy West or East.mp3" id="5_g31f1"]
+[ext_resource type="Texture2D" uid="uid://dkameqx3adr3l" path="res://interactables/dialog_system/character_portraits/ticket_lady/ticket_lady_portrait_1.png" id="6_lm76g"]
+
+[sub_resource type="Resource" id="Resource_g31f1"]
+script = ExtResource("3_xaymj")
+train_line = "<<red>> <<line>>"
+direction = "<<west>>"
+departure_hours_offset = 5
+id = &"RED_west"
+metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
+
+[sub_resource type="Resource" id="Resource_l7wrj"]
+script = ExtResource("1_e140w")
+player_text = "These are tickets, right? <<west>> I guess?"
+reply = ExtResource("2_l7wrj")
+reward = SubResource("Resource_g31f1")
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_ibtqv"]
+script = ExtResource("3_xaymj")
+metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
+
+[sub_resource type="Resource" id="Resource_uoyk7"]
+script = ExtResource("1_e140w")
+player_text = "I can't really understand you. <<east>> I guess?"
+reply = ExtResource("2_l7wrj")
+reward = SubResource("Resource_ibtqv")
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_anw35"]
+script = ExtResource("2_mhbdw")
+text = "<<ticket>> <<?>> <<west>> <<east>> <<?>> "
+speaker_icon = ExtResource("6_lm76g")
+sfx = ExtResource("5_g31f1")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[resource]
+script = ExtResource("3_y6jeb")
+lines = Array[ExtResource("2_mhbdw")]([SubResource("Resource_anw35")])
+choices = Array[ExtResource("1_e140w")]([SubResource("Resource_l7wrj"), SubResource("Resource_uoyk7")])
+metadata/_custom_type_script = "uid://dvkforrusa0nj"

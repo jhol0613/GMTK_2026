@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://d0ulsk74p60bn" path="res://notebook/notebook.gd" id="1_tvakd"]
 [ext_resource type="PackedScene" uid="uid://cg7lcfqothrd2" path="res://notebook/notebook_section.tscn" id="3_7rwif"]
 [ext_resource type="Texture2D" uid="uid://cmp7iukc3tyy4" path="res://notebook/notebook.png" id="3_kkelw"]
-[ext_resource type="FontFile" uid="uid://byxrvfx8kprnq" path="res://resources/fonts/Embolism Spark.ttf" id="4_ft0je"]
+[ext_resource type="FontFile" uid="uid://byxrvfx8kprnq" path="res://ui/fonts/Embolism Spark.ttf" id="4_ft0je"]
 [ext_resource type="AudioStream" uid="uid://ce16br5qebd7" path="res://ui/sfx/HoverTicket_Schedule1.mp3" id="4_y1ha3"]
 [ext_resource type="Texture2D" uid="uid://dki35rl0kbnw4" path="res://notebook/notebook_button_icon.png" id="5_7rwif"]
 [ext_resource type="AudioStream" uid="uid://u1j8iapwbxgk" path="res://ui/sfx/Pencil1.mp3" id="5_141dl"]
@@ -42,6 +42,9 @@ grow_vertical = 2
 visible = true
 section_name = "Unsorted"
 
+[node name="Pages" parent="Sections/NotebookSection" index="0" unique_id=1298499381]
+offset_top = 184.0
+
 [node name="Label2" type="Label" parent="Sections/NotebookSection" unique_id=1341539632]
 texture_filter = 1
 layout_mode = 0
@@ -54,9 +57,6 @@ theme_override_font_sizes/font_size = 32
 text = "I can click on any word I see to put it in this notebook!
 Then I can type my best guesses for what they mean.
 I bet learning a lot of words will help me find my way."
-
-[node name="Pages" parent="Sections/NotebookSection" index="1" unique_id=1298499381]
-offset_top = 184.0
 
 [node name="NotebookSection2" parent="Sections" unique_id=1800562114 instance=ExtResource("3_7rwif")]
 

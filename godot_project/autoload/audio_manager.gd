@@ -18,7 +18,7 @@ const LEVEL_0_BGM: AudioStream = preload(
 )
 
 const LEVEL_1_BGM: AudioStream = preload(
-	"uid://bbcbac8i6a3xm"
+	"uid://c12ly8vl2parx"
 )
 
 const LEVEL_0_MUSIC_DB: float = -8.0
@@ -29,7 +29,7 @@ const TRIPPED_BGM: AudioStream = preload(
 )
 
 const NOTEBOOK_BGM: AudioStream = preload(
-	"uid://dlip7tol2c20x"
+	"uid://b4i1hxorrwm14"
 )
 
 const TRAIN_PULLING_IN: AudioStream = preload(

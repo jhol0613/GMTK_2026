@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://s4gdpvpyayn0"]
 
 [ext_resource type="Script" uid="uid://cmnojh7wiitk5" path="res://notebook/notebook_entry.gd" id="1_pf7jf"]
-[ext_resource type="FontFile" uid="uid://byxrvfx8kprnq" path="res://resources/fonts/Embolism Spark.ttf" id="2_wivgj"]
+[ext_resource type="FontFile" uid="uid://byxrvfx8kprnq" path="res://ui/fonts/Embolism Spark.ttf" id="2_wivgj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rsnfv"]
 

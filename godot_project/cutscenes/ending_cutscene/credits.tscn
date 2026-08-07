@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ds1c6jvn6l8dk" path="res://cutscenes/ending_cutscene/credits.gd" id="1_0levv"]
 [ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/resshan_label.gd" id="1_ciefh"]
-[ext_resource type="FontFile" uid="uid://k24n0d7oex7j" path="res://resources/fonts/ExpletusSans-Bold.ttf" id="3_0levv"]
+[ext_resource type="FontFile" uid="uid://k24n0d7oex7j" path="res://ui/fonts/ExpletusSans-Bold.ttf" id="3_0levv"]
 
 [sub_resource type="Animation" id="Animation_uxgw8"]
 length = 0.001

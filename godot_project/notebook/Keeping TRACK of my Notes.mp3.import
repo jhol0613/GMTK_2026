@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b4i1hxorrwm14"
+path="res://.godot/imported/Keeping TRACK of my Notes.mp3-518cd4955a2e258b0aa3485824cffb71.mp3str"
+
+[deps]
+
+source_file="res://notebook/Keeping TRACK of my Notes.mp3"
+dest_files=["res://.godot/imported/Keeping TRACK of my Notes.mp3-518cd4955a2e258b0aa3485824cffb71.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

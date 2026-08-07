@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://cxekovsy3q368"]
 
 [ext_resource type="Script" uid="uid://dws2j2w3sgf60" path="res://level_elements/train_platform/platform.gd" id="1_n6ck0"]
-[ext_resource type="TileSet" uid="uid://dvxgqw1r5w5ps" path="res://levels/tileset/station_tileset.tres" id="2_617rf"]
+[ext_resource type="TileSet" uid="uid://dvxgqw1r5w5ps" path="res://level_elements/tileset/station_tileset.tres" id="2_617rf"]
 [ext_resource type="Texture2D" uid="uid://5pslrs1jdnbu" path="res://level_elements/train/trainfront.png" id="4_ajha7"]
 [ext_resource type="PackedScene" uid="uid://67c8xgtu7o7f" path="res://level_elements/train/train.tscn" id="5_ajha7"]
 [ext_resource type="PackedScene" uid="uid://cf017hd6cyx1m" path="res://level_elements/signs/west_sign.tscn" id="5_n6ck0"]

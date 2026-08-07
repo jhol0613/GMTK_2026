@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://baukigq6wfgs1"]
 
-[ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialogue_interactable.tscn" id="1_5sl07"]
+[ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialog_system/dialogue_interactable.tscn" id="1_5sl07"]
 [ext_resource type="Script" uid="uid://cyfbf2itq77dk" path="res://level_elements/ATM/atm.gd" id="1_de0lt"]
 [ext_resource type="Texture2D" uid="uid://d3a648lgo0wqh" path="res://level_elements/ATM/ATM_broken.png" id="1_df8qj"]
 [ext_resource type="Texture2D" uid="uid://bodxnyj4yyn7c" path="res://level_elements/ATM/ATM.png" id="2_5sl07"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dw50etyrf26ll" path="res://notebook/notebook_section.gd" id="1_e75hj"]
 [ext_resource type="PackedScene" uid="uid://bfuu8moxyxa5w" path="res://notebook/notebook_page.tscn" id="2_dohu8"]
-[ext_resource type="FontFile" uid="uid://byxrvfx8kprnq" path="res://resources/fonts/Embolism Spark.ttf" id="3_8irv7"]
+[ext_resource type="FontFile" uid="uid://byxrvfx8kprnq" path="res://ui/fonts/Embolism Spark.ttf" id="3_8irv7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_s1fef"]
 font = ExtResource("3_8irv7")

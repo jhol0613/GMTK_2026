@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bwdovww0j8m0k"
+path="res://.godot/imported/Tripped and Lost v2.mp3-bfe41647d35c81ed7e9e86d63f75133f.mp3str"
+
+[deps]
+
+source_file="res://cutscenes/intro_cutscene/Tripped and Lost v2.mp3"
+dest_files=["res://.godot/imported/Tripped and Lost v2.mp3-bfe41647d35c81ed7e9e86d63f75133f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
