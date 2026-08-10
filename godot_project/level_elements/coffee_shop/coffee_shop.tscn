@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://level_elements/coffee_shop/coffee_shop.gd" id="1_coffee"]
+[ext_resource type="Texture2D" path="res://level_elements/coffee_shop/CoffeeShop.png" id="2_sprite"]
+[ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialog_system/dialogue_interactable.tscn" id="3_interact"]
+[ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialog_system/dialogue_panel.tscn" id="4_panel"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interact"]
+size = Vector2(54, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
+size = Vector2(120, 32)
+
+[node name="CoffeeShop" type="Node2D"]
+script = ExtResource("1_coffee")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(0, -50)
+texture = ExtResource("2_sprite")
+
+[node name="DialogueInteractable" parent="." instance=ExtResource("3_interact")]
+z_index = 1
+position = Vector2(0, -20)
+panel_path = NodePath("../DialoguePanel")
+
+[node name="CollisionShape2D" parent="DialogueInteractable" index="0"]
+position = Vector2(0, 30)
+shape = SubResource("RectangleShape2D_interact")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+z_index = 1
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_body")
+
+[node name="DialoguePanel" parent="." instance=ExtResource("4_panel")]
+unique_name_in_owner = true
+
+[editable path="DialogueInteractable"]

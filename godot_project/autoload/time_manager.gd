@@ -3,6 +3,7 @@ extends Node
 signal time_changed(hour: int, minute: int, second: int)
 signal flash_requested
 signal time_up
+signal time_scale_changed(scale: float)
 
 const SECONDS_PER_MINUTE: int = 8
 const MINUTES_PER_HOUR: int = 8
@@ -20,6 +21,12 @@ var _pending_flash: bool = false
 var _time_up_emitted: bool = false
 var _run_active: bool = false
 
+## Multiplier applied to time spent by walking and interacting. 1.0 is normal,
+## 0.5 makes everything cost half as much time. Penalties ignore it.
+var time_scale: float = 1.0
+var _scale_accumulator: float = 0.0
+var _scaled_units_left: int = 0
+
 
 func _ready() -> void:
 	SignalBus.minutes_passed.connect(advance)
@@ -31,6 +38,12 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:
 		if event.physical_keycode == KEY_T:
 			advance(MINUTES_PER_HOUR)
+		elif event.physical_keycode == KEY_1:
+			# Debug: jump to dusk (halfway through the day).
+			reset(HOURS_PER_DAY / 2, 0, 0)
+		elif event.physical_keycode == KEY_2:
+			# Debug: jump to night, stopping just short of running out of time.
+			reset(0, 1, 0)
 
 
 func reset(start_hour: int = HOURS_PER_DAY, start_minute: int = 0, start_second: int = 0) -> void:
@@ -47,12 +60,28 @@ func begin_new_run() -> void:
 	_pending_wrong_train_dialogue = false
 	_pending_flash = false
 	_run_active = true
+	clear_time_scale()
 	reset(HOURS_PER_DAY - 1, MINUTES_PER_HOUR - 1, SECONDS_PER_MINUTE - 1)
 
 
-func advance(amount: int = 1) -> void:
+## `scaled` is false for penalties, which always cost their full amount.
+func advance(amount: int = 1, scaled: bool = true) -> void:
 	if total_seconds() <= 0:
 		return
+
+	if scaled and time_scale != 1.0:
+		# Fractional costs are accumulated so that halving a cost of 1 still
+		# advances the clock every other step instead of rounding away.
+		_scale_accumulator += amount * time_scale
+		amount = int(floor(_scale_accumulator))
+		_scale_accumulator -= amount
+		if amount <= 0:
+			return
+
+	if _scaled_units_left > 0:
+		_scaled_units_left -= amount
+		if _scaled_units_left <= 0:
+			clear_time_scale()
 
 	second -= amount
 	while second < 0:
@@ -112,10 +141,28 @@ func has_at_least(target_hour: int, target_minute: int, target_second: int) -> b
 	)
 
 
-## Apply a time penalty in-place and flash the clock.
+## Apply a time penalty in-place and flash the clock. Penalties are never scaled.
 func apply_penalty(amount: int) -> void:
-	advance(amount)
+	advance(amount, false)
 	flash_requested.emit()
+
+
+## Slow time down for `duration_minutes` of clock time. Re-applying refreshes
+## the duration instead of stacking the effect.
+func set_time_scale(scale: float, duration_minutes: int) -> void:
+	time_scale = scale
+	_scaled_units_left = duration_minutes * SECONDS_PER_MINUTE
+	_scale_accumulator = 0.0
+	time_scale_changed.emit(time_scale)
+
+
+func clear_time_scale() -> void:
+	if time_scale == 1.0 and _scaled_units_left == 0:
+		return
+	time_scale = 1.0
+	_scaled_units_left = 0
+	_scale_accumulator = 0.0
+	time_scale_changed.emit(time_scale)
 
 
 ## Stash the current time before reloading the game.

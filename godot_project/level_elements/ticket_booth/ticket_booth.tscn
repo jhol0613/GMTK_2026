@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialog_system/dialogue_panel.tscn" id="4_2vr77"]
 [ext_resource type="AudioStream" uid="uid://6llsv27ckbd2" path="res://ui/sfx/Purchased Ticket.mp3" id="5_8d5ud"]
 [ext_resource type="AudioStream" uid="uid://dtf5vr8s8qloo" path="res://level_elements/ticket_booth/Ticket_Booth_Noise.mp3" id="7_8vjcj"]
+[ext_resource type="Texture2D" path="res://level_elements/ticket_booth/Ticketbooth_glow.png" id="8_glow"]
+[ext_resource type="Script" path="res://level_elements/ticket_booth/ticket_booth_night_light.gd" id="9_night_light"]
+[ext_resource type="Texture2D" path="res://visual_effects/day_night/light_radial.png" id="10_radial"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2vr77"]
 atlas = ExtResource("1_8vy6h")
@@ -63,6 +66,48 @@ size = Vector2(57, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qbyu3"]
 size = Vector2(15, 14)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_glow_0"]
+atlas = ExtResource("8_glow")
+region = Rect2(0, 0, 94, 87)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glow_1"]
+atlas = ExtResource("8_glow")
+region = Rect2(94, 0, 94, 87)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glow_2"]
+atlas = ExtResource("8_glow")
+region = Rect2(188, 0, 94, 87)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glow_3"]
+atlas = ExtResource("8_glow")
+region = Rect2(282, 0, 94, 87)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_glow"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glow_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glow_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glow_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glow_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glow_3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glow"]
+blend_mode = 1
+
 [node name="TicketBooth" type="Node2D" unique_id=861247956]
 script = ExtResource("1_e2qtd")
 
@@ -71,6 +116,33 @@ z_index = 1
 position = Vector2(-12, -44.5)
 sprite_frames = SubResource("SpriteFrames_ujtin")
 autoplay = "default"
+
+[node name="NightLight" type="Node2D" parent="." groups=["night_lights"]]
+script = ExtResource("9_night_light")
+source_sprite_path = NodePath("../Sprite2D")
+
+[node name="GlowOverlay" type="AnimatedSprite2D" parent="NightLight"]
+material = SubResource("CanvasItemMaterial_glow")
+modulate = Color(1, 1, 1, 0)
+z_index = 2
+position = Vector2(-12, -44.5)
+sprite_frames = SubResource("SpriteFrames_glow")
+animation = &"default"
+
+[node name="AreaGlow" type="Sprite2D" parent="NightLight"]
+material = SubResource("CanvasItemMaterial_glow")
+modulate = Color(1, 0.72, 0.3, 0)
+z_index = 3
+position = Vector2(1, -79)
+scale = Vector2(4, 4)
+texture = ExtResource("10_radial")
+
+[node name="PointLight2D" type="PointLight2D" parent="NightLight"]
+position = Vector2(1, -79)
+color = Color(1, 0.78, 0.3, 1)
+energy = 0.0
+texture = ExtResource("10_radial")
+texture_scale = 3.5
 
 [node name="DialogueInteractable" parent="." unique_id=358228256 instance=ExtResource("2_ui1pi")]
 z_index = 1

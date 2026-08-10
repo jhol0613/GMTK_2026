@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bj88cvml0vs4h" path="res://ui/sprites/item_popup.png" id="6_ak43t"]
 [ext_resource type="PackedScene" uid="uid://bdx06b4wet51l" path="res://time/time.tscn" id="6_time"]
 [ext_resource type="PackedScene" path="res://ui/token_display/token_display.tscn" id="6_tokens"]
+[ext_resource type="PackedScene" path="res://ui/coffee_indicator/coffee_indicator.tscn" id="6_coffee"]
 [ext_resource type="AudioStream" uid="uid://dxds6wjegh3pq" path="res://ui/sfx/HoverTicket_Schedule3.mp3" id="7_64688"]
 [ext_resource type="Texture2D" uid="uid://cssyjjpwocc64" path="res://ui/inventory/icon_backpack.png" id="7_kjn1x"]
 [ext_resource type="AudioStream" uid="uid://ce6kvjn3hwsb0" path="res://ui/sfx/Schedule_Open.mp3" id="8_h7imb"]
@@ -250,6 +251,14 @@ offset_left = 1374.0
 offset_top = 61.0
 offset_right = 1554.0
 offset_bottom = 145.0
+
+[node name="CoffeeIndicator" parent="." instance=ExtResource("6_coffee")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1374.0
+offset_top = 153.0
+offset_right = 1554.0
+offset_bottom = 193.0
 
 [node name="Notebook" parent="." unique_id=2020796058 instance=ExtResource("2_l5of1")]
 visible = false
