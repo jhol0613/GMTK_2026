@@ -27,6 +27,9 @@ var time_scale: float = 1.0
 var _scale_accumulator: float = 0.0
 var _scaled_units_left: int = 0
 
+## Debug only: while true the clock ignores every attempt to advance.
+var _debug_time_frozen: bool = false
+
 
 func _ready() -> void:
 	SignalBus.minutes_passed.connect(advance)
@@ -37,13 +40,19 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	if event is InputEventKey and event.pressed and not event.echo:
 		if event.physical_keycode == KEY_T:
+			_debug_time_frozen = false
 			advance(MINUTES_PER_HOUR)
 		elif event.physical_keycode == KEY_1:
-			# Debug: jump to dusk (halfway through the day).
+			# Debug: jump to dusk (halfway through the day) and hold it there.
 			reset(HOURS_PER_DAY / 2, 0, 0)
+			_debug_time_frozen = true
 		elif event.physical_keycode == KEY_2:
 			# Debug: jump to night, stopping just short of running out of time.
 			reset(0, 1, 0)
+			_debug_time_frozen = true
+		elif event.physical_keycode == KEY_3:
+			# Debug: let the clock run again.
+			_debug_time_frozen = false
 
 
 func reset(start_hour: int = HOURS_PER_DAY, start_minute: int = 0, start_second: int = 0) -> void:
@@ -66,6 +75,8 @@ func begin_new_run() -> void:
 
 ## `scaled` is false for penalties, which always cost their full amount.
 func advance(amount: int = 1, scaled: bool = true) -> void:
+	if _debug_time_frozen:
+		return
 	if total_seconds() <= 0:
 		return
 
