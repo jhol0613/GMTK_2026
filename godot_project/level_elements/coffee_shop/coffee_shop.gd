@@ -1,12 +1,5 @@
 extends Node2D
 
-## Sells coffee: drinking it halves the time spent walking and interacting for
-## a couple of in-game minutes. The dialogue choice that sells a coffee must
-## have its outcome_id set to PURCHASE_OUTCOME.
-##
-## When the player cannot afford a coffee the purchase options are withheld, so
-## the shopkeeper simply says their piece and the panel closes.
-
 const PURCHASE_OUTCOME: StringName = &"bought_coffee"
 
 @export var slow_duration_minutes: int = 2

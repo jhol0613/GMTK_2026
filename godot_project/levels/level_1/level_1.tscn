@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cicclo21xo02d" path="res://level_elements/trinket_shop/masks/blue.png" id="17_u7q62"]
 [ext_resource type="Texture2D" uid="uid://dsaviofjnf4jt" path="res://level_elements/trinket_shop/masks/red.png" id="18_033ub"]
 [ext_resource type="PackedScene" uid="uid://2pwlm8itluel" path="res://level_elements/ticket_booth/ticket_booth.tscn" id="19_uptk2"]
+[ext_resource type="PackedScene" path="res://level_elements/coffee_shop/coffee_shop.tscn" id="19_wx43u"]
 [ext_resource type="Texture2D" uid="uid://kayfkwypm2a" path="res://interactables/dialog_system/character_portraits/ticket_lady/ticket_lady_portrait_2.png" id="20_onjut"]
 [ext_resource type="AudioStream" uid="uid://dpnmacxamctuf" path="res://ui/SpeechAudio/Thank you.mp3" id="21_2t2ib"]
 [ext_resource type="Script" uid="uid://cpfgjwe2lpk0k" path="res://ui/ticket/ticket_data.gd" id="22_plcgd"]
@@ -487,20 +488,18 @@ position = Vector2(-64, -224)
 lines = Array[ExtResource("9_4idv8")]([SubResource("Resource_rfs8a"), SubResource("Resource_0sa6h")])
 choices = Array[ExtResource("13_h8kgu")]([SubResource("Resource_3yobk"), SubResource("Resource_ja4xt"), SubResource("Resource_x4vot"), SubResource("Resource_dam5x")])
 
-[node name="Prompt" parent="TrinketShop/DialogueInteractable" index="1" unique_id=272794898]
-custom_minimum_size = Vector2(71, 175)
+[node name="CoffeeShop" parent="." index="14" unique_id=1288725174 instance=ExtResource("19_wx43u")]
+position = Vector2(-570, -297)
+scale = Vector2(0.6, 0.6)
 
-[node name="TicketBooth" parent="." index="14" unique_id=861247956 instance=ExtResource("19_uptk2")]
+[node name="TicketBooth" parent="." index="15" unique_id=861247956 instance=ExtResource("19_uptk2")]
 position = Vector2(-267, -170)
 
-[node name="DialogueInteractable" parent="TicketBooth" index="1" unique_id=358228256]
+[node name="DialogueInteractable" parent="TicketBooth" index="2" unique_id=358228256]
 lines = Array[ExtResource("9_4idv8")]([SubResource("Resource_oqlok")])
 choices = Array[ExtResource("13_h8kgu")]([SubResource("Resource_0fu15"), SubResource("Resource_voubc"), SubResource("Resource_pnpm1"), SubResource("Resource_ohjdc"), SubResource("Resource_rf48r"), SubResource("Resource_dp1ib"), SubResource("Resource_5t0se"), SubResource("Resource_i6od7")])
 
-[node name="Prompt" parent="TicketBooth/DialogueInteractable" index="1" unique_id=272794898]
-custom_minimum_size = Vector2(71, 175)
-
-[node name="LevelExitBarrier" type="StaticBody2D" parent="." index="15" unique_id=1631214184]
+[node name="LevelExitBarrier" type="StaticBody2D" parent="." index="16" unique_id=1631214184]
 position = Vector2(-384, 0)
 collision_layer = 2
 
@@ -513,16 +512,16 @@ z_index = 5
 position = Vector2(64, -32)
 texture = ExtResource("23_v3xwt")
 
-[node name="Bathroom" parent="." index="16" unique_id=1865459548 instance=ExtResource("24_gukcl")]
+[node name="Bathroom" parent="." index="17" unique_id=1865459548 instance=ExtResource("24_gukcl")]
 position = Vector2(-416, -432)
 
-[node name="Bathroom2" parent="." index="17" unique_id=1689604557 instance=ExtResource("24_gukcl")]
+[node name="Bathroom2" parent="." index="18" unique_id=1689604557 instance=ExtResource("24_gukcl")]
 position = Vector2(-256, -432)
 
-[node name="StationMapLvl1" parent="." index="18" unique_id=1108949590 instance=ExtResource("25_13ste")]
+[node name="StationMapLvl1" parent="." index="19" unique_id=1108949590 instance=ExtResource("25_13ste")]
 position = Vector2(-318, -445)
 
-[node name="Decorations" type="Node2D" parent="." index="19" unique_id=1967516623]
+[node name="Decorations" type="Node2D" parent="." index="20" unique_id=1967516623]
 y_sort_enabled = true
 
 [node name="Hoverthruster" type="Sprite2D" parent="Decorations" index="0" unique_id=236404443]
@@ -1157,14 +1156,14 @@ repeat_times = 5
 [node name="CloseClouds" parent="Background" parent_id_path=PackedInt32Array(102847613) index="3" unique_id=782128031]
 repeat_times = 5
 
-[node name="StationNameSign" parent="." index="21" unique_id=948597200 instance=ExtResource("41_r4js7")]
+[node name="StationNameSign" parent="." index="22" unique_id=948597200 instance=ExtResource("41_r4js7")]
 position = Vector2(-463, -416)
 station_number = 1
 
-[node name="PeePeeDance" parent="." index="22" unique_id=22283460 instance=ExtResource("42_jg3i0")]
+[node name="PeePeeDance" parent="." index="23" unique_id=22283460 instance=ExtResource("42_jg3i0")]
 position = Vector2(-262, -416)
 
-[node name="Preston" parent="." index="23" unique_id=504841927 instance=ExtResource("43_y7g21")]
+[node name="Preston" parent="." index="24" unique_id=504841927 instance=ExtResource("43_y7g21")]
 position = Vector2(448, -1094)
 
 [editable path="Platform"]
