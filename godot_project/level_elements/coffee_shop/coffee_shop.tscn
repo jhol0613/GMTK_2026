@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bni8iwfqac6ap"]
 
 [ext_resource type="Script" uid="uid://dya82x1l0owwt" path="res://level_elements/coffee_shop/coffee_shop.gd" id="1_coffee"]
-[ext_resource type="Texture2D" uid="uid://bna0pnunsof53" path="res://level_elements/coffee_shop/CoffeeShop.png" id="2_sprite"]
+[ext_resource type="Texture2D" path="res://level_elements/coffee_shop/Coffee_Shop.png" id="2_sprite"]
 [ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialog_system/dialogue_interactable.tscn" id="3_interact"]
 [ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialog_system/dialogue_panel.tscn" id="4_panel"]
 [ext_resource type="Texture2D" uid="uid://lnr02lvgvpqt" path="res://level_elements/coffee_shop/CoffeeShop_glow.png" id="5_glow"]
