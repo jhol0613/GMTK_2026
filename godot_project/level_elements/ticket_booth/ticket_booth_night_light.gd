@@ -3,9 +3,9 @@ extends Node2D
 @export var source_sprite_path: NodePath
 @export_range(0.0, 1.0, 0.01) var start_progress := 0.25
 @export_range(0.0, 1.0, 0.01) var full_strength_progress := 0.75
-@export_range(0.0, 4.0, 0.05) var max_energy := 1.15
-@export_range(0.0, 1.0, 0.05) var max_glow_alpha := 0.6
-@export_range(0.0, 1.0, 0.05) var max_area_alpha := 0.55
+@export_range(0.0, 4.0, 0.05) var max_energy := 0.64
+@export_range(0.0, 1.0, 0.05) var max_glow_alpha := 0.43
+@export_range(0.0, 1.0, 0.05) var max_area_alpha := 0.38
 
 @onready var source_sprite := get_node(source_sprite_path) as AnimatedSprite2D
 @onready var glow_overlay: AnimatedSprite2D = $GlowOverlay

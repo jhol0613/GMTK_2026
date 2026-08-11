@@ -9,12 +9,17 @@
 [ext_resource type="PackedScene" uid="uid://dpexe87ps0d7f" path="res://level_elements/hourglass/hourglass.tscn" id="6_f3ea8"]
 [ext_resource type="Texture2D" uid="uid://danrb3vfq83ag" path="res://level_elements/decorative/hoverthruster.png" id="7_3v7e2"]
 [ext_resource type="PackedScene" uid="uid://bo3pcctdon7l" path="res://level_elements/signs/station_name_sign.tscn" id="8_tem3n"]
+[ext_resource type="Script" path="res://visual_effects/day_night/hoverthruster_lighting.gd" id="9_thruster_light"]
 
 [node name="Platform" type="Node2D" unique_id=1302422271 node_paths=PackedStringArray("upper_train", "lower_train")]
 y_sort_enabled = true
 script = ExtResource("1_n6ck0")
 upper_train = NodePath("UpperTrain")
 lower_train = NodePath("LowerTrain")
+
+[node name="HoverthrusterLighting" type="Node" parent="."]
+script = ExtResource("9_thruster_light")
+target_root_path = NodePath("..")
 
 [node name="FrontGround" type="TileMapLayer" parent="." unique_id=673161970]
 z_index = 3

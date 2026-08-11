@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://visual_effects/fireflies/firefly_field.gd" id="1_field"]
+[ext_resource type="Texture2D" path="res://visual_effects/day_night/light_radial.png" id="2_light"]
+
+[node name="FireflyField" type="Node2D" groups=["night_lights"]]
+script = ExtResource("1_field")
+texture = ExtResource("2_light")

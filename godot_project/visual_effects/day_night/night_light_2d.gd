@@ -4,6 +4,12 @@ extends Node2D
 @export_range(0.0, 1.0, 0.01) var full_strength_progress := 0.75
 @export_range(0.0, 4.0, 0.05) var max_energy := 0.85
 @export_range(0.0, 1.0, 0.05) var max_glow_alpha := 1.0
+## Lamps that switch on in perfect unison read as machinery. Each light shifts
+## its own turn-on point by up to this much, derived from its position so the
+## offset stays the same every run.
+@export_range(0.0, 0.2, 0.01) var stagger_range := 0.07
+
+var _stagger := 0.0
 
 @onready var _glow_overlay: Sprite2D = $GlowOverlay
 @onready var _point_light: PointLight2D = $PointLight2D
@@ -12,6 +18,10 @@ var _tween: Tween
 
 
 func _ready() -> void:
+	if stagger_range > 0.0:
+		var hash_source := int(global_position.x) * 73856093 ^ int(global_position.y) * 19349663
+		_stagger = (float(absi(hash_source) % 1000) / 1000.0) * stagger_range
+
 	var total := (
 		TimeManager.HOURS_PER_DAY
 		* TimeManager.MINUTES_PER_HOUR
@@ -25,7 +35,11 @@ func set_day_progress(progress: float, duration: float) -> void:
 	if _glow_overlay == null or _point_light == null:
 		return
 
-	var strength := clampf(inverse_lerp(start_progress, full_strength_progress, progress), 0.0, 1.0)
+	var strength := clampf(
+		inverse_lerp(start_progress + _stagger, full_strength_progress + _stagger, progress),
+		0.0,
+		1.0
+	)
 	var glow_alpha := strength * max_glow_alpha
 	var light_energy := strength * max_energy
 

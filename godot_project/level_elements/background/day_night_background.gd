@@ -23,7 +23,7 @@ const NIGHT_TEXTURES := [
 	preload("uid://bu4essosi3i0d"),
 ]
 
-const TINT_POSITIONS := [0.0, 0.25, 0.65, 0.85, 1.0]
+const TINT_POSITIONS := [0.0, 0.25, 0.65, 0.85, 0.90]
 const WORLD_TINTS := [
 	Color("ffffff"),
 	Color("ffe8ce"),
@@ -50,6 +50,10 @@ func _ready() -> void:
 func _collect_world_items() -> void:
 	for child in get_parent().get_children():
 		if child == self or child is CanvasLayer or child is Camera2D:
+			continue
+		# Light sources keep their own colour instead of being dyed by the
+		# night tint, otherwise warm lamps turn cold and grey after dark.
+		if child.is_in_group("night_lights"):
 			continue
 		if child is CanvasItem:
 			var item := child as CanvasItem
@@ -105,7 +109,9 @@ func _update_background(hour: int, minute: int, second: int, animate: bool) -> v
 		day_alpha = 1.0 - dusk_progress
 		dusk_alpha = dusk_progress
 	else:
-		var night_progress := inverse_lerp(0.35, 0.0, ratio)
+		# Full night lands with time still on the clock, so the player actually
+		# gets to see it instead of it only arriving as the run ends.
+		var night_progress := clampf(inverse_lerp(0.35, 0.10, ratio), 0.0, 1.0)
 		dusk_alpha = 1.0 - night_progress
 		night_alpha = night_progress
 
@@ -154,6 +160,7 @@ func _set_visual_state(
 		for index in _world_items.size():
 			_world_items[index].modulate = _world_base_modulates[index] * world_tint
 			_world_items[index].modulate.a = _world_base_modulates[index].a
+		_counteract_tint_on_lights(world_tint)
 		return
 
 	_fade_tween = create_tween().set_parallel(true)
@@ -185,3 +192,25 @@ func _set_visual_state(
 			target,
 			transition_duration,
 		)
+	_counteract_tint_on_lights(world_tint)
+
+
+## Light sources nested inside tinted objects (shop signs, lamps) inherit their
+## parent's night tint. Multiplying them by the inverse cancels it out so they
+## stay as warm as they were authored.
+func _counteract_tint_on_lights(world_tint: Color) -> void:
+	var inverse := Color(
+		1.0 / maxf(world_tint.r, 0.01),
+		1.0 / maxf(world_tint.g, 0.01),
+		1.0 / maxf(world_tint.b, 0.01),
+		1.0
+	)
+	var level_root := get_parent()
+	for node in get_tree().get_nodes_in_group("night_lights"):
+		var item := node as CanvasItem
+		if item == null:
+			continue
+		# Direct children of the level were never tinted in the first place.
+		if item.get_parent() == level_root:
+			continue
+		item.modulate = inverse
