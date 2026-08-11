@@ -4,14 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://2pwlm8itluel" path="res://level_elements/ticket_booth/ticket_booth.tscn" id="2_823pn"]
 [ext_resource type="Script" uid="uid://nxfc4h6u5iq6" path="res://levels/level_0/level_0.gd" id="2_as6hq"]
 [ext_resource type="PackedScene" uid="uid://cxekovsy3q368" path="res://level_elements/train_platform/platform.tscn" id="3_iss0w"]
-[ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://interactables/dialog_system/dialogue_choice.gd" id="3_jum3j"]
-[ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="3_obtcn"]
 [ext_resource type="TileSet" uid="uid://dvxgqw1r5w5ps" path="res://level_elements/tileset/station_tileset.tres" id="4_owf05"]
-[ext_resource type="AudioStream" uid="uid://clvosvg2vfbfv" path="res://ui/SpeechAudio/Ticket buy West or East.mp3" id="11_osodt"]
-[ext_resource type="Texture2D" uid="uid://kayfkwypm2a" path="res://interactables/dialog_system/character_portraits/ticket_lady/ticket_lady_portrait_2.png" id="15_fv0x7"]
+[ext_resource type="Resource" uid="uid://b00veulruyir3" path="res://levels/level_0/dialogues/ticket_dialogue_level0.tres" id="9_dp5o0"]
 [ext_resource type="Texture2D" uid="uid://ccg8h3sbbhnjl" path="res://level_elements/maps/map_sign_level0.png" id="17_2sfss"]
 [ext_resource type="Texture2D" uid="uid://ca8r7wcmgae0o" path="res://level_elements/tileset/grasstiles.png" id="17_ggct0"]
-[ext_resource type="Script" uid="uid://cpfgjwe2lpk0k" path="res://ui/ticket/ticket_data.gd" id="17_owf05"]
 [ext_resource type="Texture2D" uid="uid://ddbgow303m2gq" path="res://level_elements/tileset/TX Tileset Grass.png" id="18_8mki0"]
 [ext_resource type="Texture2D" uid="uid://d2ujnxq7ovb74" path="res://ui/sprites/arrow_icon.png" id="18_juy1h"]
 [ext_resource type="PackedScene" uid="uid://cit6uoxu58nwk" path="res://level_elements/maps/train_map.tscn" id="18_owf05"]
@@ -20,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cnx2wdgdmxkv6" path="res://interactables/dialog_system/character_portraits/player/mc_portrait_1.png" id="19_ggct0"]
 [ext_resource type="Texture2D" uid="uid://dy3h6m8das3ut" path="res://level_elements/tileset/brickborder.png" id="19_gxks1"]
 [ext_resource type="PackedScene" uid="uid://dpexe87ps0d7f" path="res://level_elements/hourglass/hourglass.tscn" id="20_uuq13"]
-[ext_resource type="PackedScene" uid="uid://c5jvn4a3mfhj" path="res://level_elements/decorative/recycle_bin/recycle_bin.tscn" id="21_jwc5o"]
+[ext_resource type="PackedScene" uid="uid://bb11t6nvj8g13" path="res://level_elements/decorative/recycle_bin/recycle_bin.tscn" id="21_jwc5o"]
 [ext_resource type="Texture2D" uid="uid://bhn6gjy4u51qd" path="res://level_elements/decorative/exit_gradient.png" id="23_2sfss"]
 [ext_resource type="PackedScene" uid="uid://dcsei1m2axnjk" path="res://level_elements/decorative/benches/bench.tscn" id="23_gxks1"]
 [ext_resource type="PackedScene" uid="uid://b3rra7yj17p2b" path="res://level_elements/decorative/benches/bench_snoozin.tscn" id="24_gxks1"]
@@ -532,64 +528,6 @@ sources/1 = SubResource("TileSetAtlasSource_mpakt")
 sources/0 = SubResource("TileSetAtlasSource_8v7xn")
 sources/2 = SubResource("TileSetAtlasSource_0fg8s")
 
-[sub_resource type="Resource" id="Resource_d8oir"]
-script = ExtResource("3_obtcn")
-text = "<<ticket>> <<buy>> <<?>> <<west>> <<east>> <<?>> "
-speaker_icon = ExtResource("15_fv0x7")
-sfx = ExtResource("11_osodt")
-metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
-
-[sub_resource type="AudioStreamMP3" id="AudioStreamMP3_x8hdd"]
-data = PackedByteArray("SUQzBAAAAAAAIlRTU0UAAAAOAAADTGF2ZjYxLjEuMTAwAAAAAAAAAAAAAAD/+0DAAAAAAAAAAAAAAAAAAAAAAABJbmZvAAAADwAAAA0AAAtSACIiIiIiIiI0NDQ0NDQ0NEdHR0dHR0dHWVlZWVlZWWxsbGxsbGxsfn5+fn5+fn6RkZGRkZGRo6Ojo6Ojo6O2tra2tra2tsjIyMjIyMjb29vb29vb2+3t7e3t7e3t/////////wAAAABMYXZjNjEuMy4AAAAAAAAAAAAAAAAkBJQAAAAAAAALUhSB2cUAAAAAAP/7UMQAAAaIEUU0YYAh6pcrPx7AAQAMEEAEghByZMmTTBw45gIA+D4fWUBAEAQOROD4Pg5/o8H3+oEHf+XB8P/y5//lAQOf6gQAAhEV2hDlVZn2911kljcSL7dtmTsRXEhYl9yoejYnUQ2Lps+O4LHwpOCeWcaW9VtQtV7lXHG01Iule4691oFjJ1rVN75y8b7DPWYnY/ftaGP5maO3Z94sbm5QYowCGxk3S8LXVrnXNefr3ONoVFtn7phfzO+v+7tv67phWywgMyIIdVLVWVf/+1LEBgALpGtJnYQAAX6TaO6wYADj/uqySB5tv4/BEPOxt2PhQuEd1YuhxUrXs0owqYeKLT73TdjEg2EQSLhMCkSghVUFRdwo697wOIyxmIwoRZSxWmrahcd97mF7OKI3hOnXezRAnIoU14AwQsNBsiA8sIirXnHsxmAZVGsMIxAotEnR6CSbLggfZd5Lry7e/n+M1dmyv2Z23tFffc+Xo0wlraQYEa48KlTB0FhAdWAfcDDHIV77HPTqxTooVaLyvNtiiaopfb/fT/////7/f//7UsQFgAu5K2m4k4ABerSrF4wgAbigRCeIU2H0RlGEQkQz1wXNuXMJg7FDM5psJTS5iLPWedJocqnz9D3UvWrfPMZN5j/TndNGGpI3bTOZ7fFjseT0H909l//LCNyDSf/+ME5xZBpKrPUDUMSS94cSwzk0SxC1IIAzOrCnbJaj9Zu6um3/+2r92RO29nVUbQ8WHQrmK7Vsd0X3necziTi0IYKPkvV02aRDkMR1Uhf3IhkV10Z2qxHnoEKZmBqdGPUhUyDPoZVWeWMxIkllYQKG//tSxAUAC6EDX+YMVQF8IOw89Ij0I5DgMwaGAMjyofpDhBERcSz9IqgTwOwraI22+ufaGXKgSOhmXqZN7f87nSOGqkQ8naX/984wpnBlZ/v/7VKYKFgF0O/UPoKu24d8qRXiUrfehJ1mlzQCE0tkZRSIalELjGmhxlFOMioRCsodCIqHiZyJyESLZItlymx1BFiEIcj26qWzMxSOh2vvepWqR6t99dL2o6gQciom+hb6r+epHGNEfw0FhIcDbGBOhbKfemjp6oRWQwMCSS5pJJP/+1LEBQAK/M1j7BhPIYWZ6vGCmqjFtacUIdjOrLoIciLXZW/j+SiHIi/f0ECFLLJ2A6aOzZtlDIiMfWGgkehD1MjuzP97Hc3I3rSfnOfch1H3LI6M+QgYjSsZbqSeZ6Yfd9mAAAAAW0gEYZ7MkQHppNs8AgatpNs2kbNOusO9URpXaXEmbuMrHeTWcARX6HZRgQ3A4KUaKHo3Xus7CjnY9Y/UN0O2lbrQ6Mo8ew9aQyklJLR/7GzltvbTRTR/1NtX+p97VcRzQwAQSTaNyMWS+P/7UsQGAAv1CW/sJE8hchmtvYYIvPUCDOZdg8CvserLfLlePsS79HXeaHzFB/P99XG5vJV73BTUNmM9U0KxyBkVAlUEuyN/3GDMIDqLMDYDCiwsZf/+iV1TOKIoJfFZYk1QZHtF7v2Q/iwjCIAKN7VSSkVd4pHI+T7IBhfrYSi1gkgeK+tnrOHtaXUtb8mLMZSiRKsjwolq//lKhr3oBHRJJi/w0sh2ZGIpgoKnhnPd7yqwrf/CLTIFsdyHJFWPFTCtt6rXKsgiAEEhGkWkBxCG//tSxAWACdS9V6ewrIF7GSophiEgHKTErTkTSQOo/9pkXEZQGkbh0UR2Ss8ueehAokbJylzGNNFmO73IUtKNaazpVjVK1tpvRmdHGrDZdv/1MlZ3/zft/0QAye5Ggkg3jrS1QxS+AnpVVDrxMdhMRHo6DQy+ynVavK7VrHU9UKveMNOsYb6D2WrMSkl7SKiXlkeL+PtfmL05zI0FlmRCWJA4p7S6FotvWmlVvTMPJKlTi9n//7V9VUAGA7M0i7VAphAHrzYNfC2TIbcs5mKwtpL/+1LEDIAKTMlh55is4UoY7Dz2ChDhCNMWOdwN/AJRS6nNcUU8jJI6KEaxuuqNNEuTrfpqfuWUaZSqRQ6ICyKf2tUm/07wGWChVRKNKMIQAEB3MO++1KsAIhCNkAQXhBiEVLkzhYEaPwJMLQy3DMR8VoKDfW3utbdetVgBkCFhL5gimkeSjX2C0/XoXVs63CGdAB5ABxf/3Ur7SEM0w/IUVkAgJbVUeX5iWhoOag0DyvINgxq3LmvHkHWO+l7BrY0a+rHpVVEapVcvZquGEO7mS//7UsQYAAnwzWHnpE6BToluNPSZzq0VLiv/9abdlIzqRnATgaHqEeii5ldEkNeHt4ZOrsmWY7fJrZIwEg4q/pJZT+wc4o0meZsEWyjlOq1SBOK4YFZwbCk/pB6rXGjxYTAJAoi2OWUEsXUZKsPjouwaKGwEZLhkz/1wzQtpBNV4wRgICNS6twvVAirIqMtdSonOnBLYbNewN5xnccVvpfDAeTLjAfw7aiOB8wbBBy7dNc49Ps6ETv/NbzBizrCRjFgqloNC7FNEsFY5L2rvcKJ0//tSxCQACjyFTswkbMFEFiu89I3UV24Y8mij/2/6VsCCoDICU1saJAzR8QRIScn4VYYQpp/kwxbmGoTkGQL702bstKkBvJevXcZUBn0Gfg+3hluRlhQ9wapaVcbsP4cYGgGrp8TUMruW29sbR9uP3EAKGCA3ECiRAsEVS5j3cpQkkdCbVcyY8K4pas+1WXJhuuHjG2Ch9qB9kQu5ZE4W97t5DbNMf18byP77ro5he+x8IuK020RafvnPs7V10yX//+rAgCmyybJEgLN3ZSebTOD/+1LEMIAKQIVTrLEQQUuXa7WDCpyAaZvKnFpObgytr2fU3kw8KRO6zO2X/U/T1He38EjzeP1t5RdUh8dpd5y0e9AZlJ6trzywUxhfEUa2z12rfei2mnt/12AAKABdDLNdct6VNiIDs2CY1mxCYQ4tlc53CYXDMkAzn2DAtRWJubIGiKboGaFMwqWpnTPaBvqdVe/Ua0223FInZCVy04F1+yy//0V0SX0X3el1GoAAAAAAAbPVVtFpJJEGTCWWQIVpph0ztRZRvym0KUS3TmTNW//7UsQ8AAqIhVWVloACaKaqtzDwAArBmtQeQ41gXBWG64rK2WSeTZ3kCQtaZWRxbmFUMKPQhwsrygi304OTJa1Jpt+VaziE8s321EgxcR55t+1Z7brrHzJjcbTDE3iS97a3rWLVpTOP8avq3zmu/6ar97zfH/3m/vn6/8W2JFmWjpS5qW4c1ThBSk0qpAMUJAKkmtpWEaEcRBAiB0GoNTIfi6SRJJpZgMiDAQEBATPLA0DQNYNA0DQK+CoKgrU/UDQNfyoKuwVBUFQWDvEQd/Bo//tSxCKDykwzT7zBgAAAADSAAAAEFQV+JQV+WBoGga4NAzVMQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVU=")
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jwc5o"]
-load_path = "res://.godot/imported/ticket_lady_portrait_2.png-fcf3b5aa6447be850b6884dbc2f1ca62.ctex"
-
-[sub_resource type="Resource" id="Resource_1hnym"]
-script = ExtResource("3_obtcn")
-text = "<<thankyou>>"
-speaker_icon = SubResource("CompressedTexture2D_jwc5o")
-sfx = SubResource("AudioStreamMP3_x8hdd")
-metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
-
-[sub_resource type="Resource" id="Resource_fpprv"]
-script = ExtResource("17_owf05")
-train_line = "<<red>> <<west>>"
-departure_hours_offset = 5
-id = &"RED_west"
-metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
-
-[sub_resource type="Resource" id="Resource_snxo8"]
-script = ExtResource("3_jum3j")
-player_text = "These are tickets, right? <<west>> I guess?"
-reply = SubResource("Resource_1hnym")
-reward = SubResource("Resource_fpprv")
-outcome_id = &"sold_ticket"
-metadata/_custom_type_script = "uid://dcq16ybg1hhts"
-
-[sub_resource type="Resource" id="Resource_w633q"]
-script = ExtResource("3_obtcn")
-text = "<<thankyou>>"
-speaker_icon = SubResource("CompressedTexture2D_jwc5o")
-sfx = SubResource("AudioStreamMP3_x8hdd")
-metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
-
-[sub_resource type="Resource" id="Resource_ggct0"]
-script = ExtResource("17_owf05")
-train_line = "<<red>> <<line>>"
-direction = "<<east>>"
-departure_hours_offset = 5
-id = &"RED_east"
-metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
-
-[sub_resource type="Resource" id="Resource_2prw1"]
-script = ExtResource("3_jum3j")
-player_text = "<<east>> maybe? I can't really understand you"
-reply = SubResource("Resource_w633q")
-reward = SubResource("Resource_ggct0")
-outcome_id = &"sold_ticket"
-metadata/_custom_type_script = "uid://dcq16ybg1hhts"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fpcxu"]
 size = Vector2(112, 32)
 
@@ -644,7 +582,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/UpperTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.45519742
+frame_progress = 0.112533934
 
 [node name="LowerTrain" parent="Platform" index="8" unique_id=1370361982]
 next_scene = 2
@@ -655,14 +593,13 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/LowerTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.69663763
+frame_progress = 0.35395285
 
 [node name="TicketBooth" parent="." index="6" unique_id=861247956 instance=ExtResource("2_823pn")]
 position = Vector2(-1168, -368)
 
 [node name="DialogueInteractable" parent="TicketBooth" index="2" unique_id=358228256]
-lines = Array[ExtResource("3_obtcn")]([SubResource("Resource_d8oir")])
-choices = Array[ExtResource("3_jum3j")]([SubResource("Resource_snxo8"), SubResource("Resource_2prw1")])
+dialogue = ExtResource("9_dp5o0")
 
 [node name="DialoguePanel" parent="TicketBooth" index="5" unique_id=210961773]
 player_icon = ExtResource("19_ggct0")

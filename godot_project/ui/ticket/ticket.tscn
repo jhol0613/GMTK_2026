@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dy4ed526c25en" path="res://ui/ticket/ticket.png" id="3_bxong"]
 [ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/resshan_label.gd" id="4_resshan"]
 [ext_resource type="Texture2D" uid="uid://cd287u1l626dg" path="res://ui/CloseButton.png" id="5_close"]
+[ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="6_pp5t4"]
 
 [node name="Ticket" type="Node2D" unique_id=1930504366]
 script = ExtResource("1_script")
@@ -52,7 +53,7 @@ script = ExtResource("4_resshan")
 font_size = 83
 metadata/_custom_type_script = "uid://sidowamkhcrt"
 
-[node name="DestinationValue" type="Control" parent="." unique_id=1100000003]
+[node name="DirectionValue" type="Control" parent="." unique_id=1100000003]
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 3
@@ -65,5 +66,27 @@ mouse_filter = 2
 script = ExtResource("4_resshan")
 font_size = 65
 metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="ResshanInteractable" type="Control" parent="." unique_id=1675608060]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -507.0
+offset_top = -291.0
+offset_right = -392.0
+offset_bottom = -186.0
+script = ExtResource("6_pp5t4")
+_string = "<<train>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="ResshanInteractable2" type="Control" parent="." unique_id=1711755153]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -381.0
+offset_top = -288.0
+offset_right = -266.0
+offset_bottom = -183.0
+script = ExtResource("6_pp5t4")
+_string = "<<ticket>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]

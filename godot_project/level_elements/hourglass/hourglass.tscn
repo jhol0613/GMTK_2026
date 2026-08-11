@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bwqwekg3psljq" path="res://level_elements/hourglass/hourglass_bottom.png" id="2_30fjg"]
 [ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/resshan_label.gd" id="3_time_lbl"]
 [ext_resource type="AudioStream" uid="uid://bun5ampgj7ace" path="res://level_elements/hourglass/Hourglass.mp3" id="5_3x0l6"]
+[ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="6_x32e2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i7vl5"]
 atlas = ExtResource("1_nngdn")
@@ -310,3 +311,25 @@ autoplay = true
 max_distance = 132.0
 attenuation = 2.828424
 bus = &"SFX"
+
+[node name="ResshanInteractable" type="Control" parent="." unique_id=297517304]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -35.0
+offset_top = -77.0
+offset_right = -23.0
+offset_bottom = -62.0
+script = ExtResource("6_x32e2")
+_string = "<<holiday>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="ResshanInteractable2" type="Control" parent="." unique_id=985489335]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 23.0
+offset_top = -77.0
+offset_right = 35.0
+offset_bottom = -62.0
+script = ExtResource("6_x32e2")
+_string = "<<holiday>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"

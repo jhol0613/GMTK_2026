@@ -1,0 +1,71 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://dr3vntgs8fy32"]
+
+[ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://interactables/dialog_system/dialogue_choice.gd" id="1_iwp8k"]
+[ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="2_hl41d"]
+[ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="3_5g1o7"]
+[ext_resource type="Texture2D" uid="uid://c6kbovdmlav3a" path="res://interactables/dialog_system/character_portraits/player/mc_portrait_2.png" id="3_sb42r"]
+[ext_resource type="Texture2D" uid="uid://drbj4g6y7pqm3" path="res://interactables/dialog_system/character_portraits/friend/friend_portrait_3.png" id="4_nmkwl"]
+[ext_resource type="Texture2D" uid="uid://chivossxat7i8" path="res://interactables/dialog_system/character_portraits/friend/friend_portrait_8.png" id="5_lquqp"]
+[ext_resource type="Texture2D" uid="uid://b53hkyvvsyjsc" path="res://interactables/dialog_system/character_portraits/player/mc_portrait_10.png" id="6_uj78c"]
+[ext_resource type="Texture2D" uid="uid://jlxtiftww3s" path="res://interactables/dialog_system/character_portraits/friend/friend_portrait_5.png" id="7_1igb0"]
+[ext_resource type="Texture2D" uid="uid://bjn6f5al15odg" path="res://interactables/dialog_system/character_portraits/player/mc_portrait_8.png" id="8_uhkej"]
+[ext_resource type="Texture2D" uid="uid://wal81orx5xo6" path="res://interactables/dialog_system/character_portraits/friend/friend_portrait_4.png" id="9_hgrw5"]
+
+[sub_resource type="Resource" id="Resource_w11hi"]
+script = ExtResource("2_hl41d")
+text = "I'm so glad you're here, I can't read a word of this!"
+speaker_icon = ExtResource("3_sb42r")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_s81r5"]
+script = ExtResource("2_hl41d")
+text = "Yeah, if I wasn't, you'd never get down from here..."
+speaker_icon = ExtResource("4_nmkwl")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_d1dci"]
+script = ExtResource("2_hl41d")
+text = "You'd miss the whole event!"
+speaker_icon = ExtResource("5_lquqp")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_ty8k3"]
+script = ExtResource("2_hl41d")
+text = "Stuck up here forever, hopping from train to train!"
+speaker_icon = ExtResource("4_nmkwl")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_6mhbs"]
+script = ExtResource("2_hl41d")
+text = "Hey! I did good in school, I can take notes, figure stuff out!"
+speaker_icon = ExtResource("6_uj78c")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_hiktp"]
+script = ExtResource("2_hl41d")
+text = "Yeah you were good at taking notes - MY notes!"
+speaker_icon = ExtResource("7_1igb0")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_scskd"]
+script = ExtResource("2_hl41d")
+text = "..."
+speaker_icon = ExtResource("8_uhkej")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_yy6oh"]
+script = ExtResource("2_hl41d")
+text = "Relax, I'm just messing with you!"
+speaker_icon = ExtResource("9_hgrw5")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_63f8k"]
+script = ExtResource("2_hl41d")
+text = "Stick with me and everything will be juuuuust fine!"
+speaker_icon = ExtResource("4_nmkwl")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[resource]
+script = ExtResource("3_5g1o7")
+lines = Array[ExtResource("2_hl41d")]([SubResource("Resource_w11hi"), SubResource("Resource_s81r5"), SubResource("Resource_d1dci"), SubResource("Resource_ty8k3"), SubResource("Resource_6mhbs"), SubResource("Resource_hiktp"), SubResource("Resource_scskd"), SubResource("Resource_yy6oh"), SubResource("Resource_63f8k")])
+metadata/_custom_type_script = "uid://dvkforrusa0nj"

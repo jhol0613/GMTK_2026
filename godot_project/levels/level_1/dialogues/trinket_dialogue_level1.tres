@@ -1,0 +1,117 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://ct10126tfbxb3"]
+
+[ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://interactables/dialog_system/dialogue_choice.gd" id="1_vvqtr"]
+[ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="2_1rppi"]
+[ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="3_6jj0n"]
+[ext_resource type="Texture2D" uid="uid://q2rsif8t8xqv" path="res://interactables/dialog_system/character_portraits/trinket_salesman/portrait_shopkeeper1_1.png" id="3_638h5"]
+[ext_resource type="Texture2D" uid="uid://da67b0efu17m4" path="res://level_elements/trinket_shop/masks/pink.png" id="4_4cuw3"]
+[ext_resource type="Script" uid="uid://1bxpf358unij" path="res://scripts/item_data.gd" id="5_bh7nf"]
+[ext_resource type="Texture2D" uid="uid://diqiiusxlru6i" path="res://level_elements/trinket_shop/masks/green.png" id="6_2nfay"]
+[ext_resource type="Texture2D" uid="uid://cicclo21xo02d" path="res://level_elements/trinket_shop/masks/blue.png" id="7_2e8g8"]
+[ext_resource type="Texture2D" uid="uid://dsaviofjnf4jt" path="res://level_elements/trinket_shop/masks/red.png" id="8_s2s8a"]
+[ext_resource type="AudioStream" uid="uid://3enq5iehjq21" path="res://ui/SpeechAudio/Trinket buy Color.mp3" id="9_nqn3j"]
+[ext_resource type="AudioStream" uid="uid://chm5cp1im0s0u" path="res://ui/SpeechAudio/Pink. green. blue. red.mp3" id="10_yvwmy"]
+
+[sub_resource type="Resource" id="Resource_r0nt2"]
+script = ExtResource("2_1rppi")
+text = "<<thankyou>>"
+speaker_icon = ExtResource("3_638h5")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_vlm06"]
+script = ExtResource("5_bh7nf")
+id = &"mask_pink"
+item_name = "<<pink>> Thing"
+item_icon = ExtResource("4_4cuw3")
+metadata/_custom_type_script = "uid://1bxpf358unij"
+
+[sub_resource type="Resource" id="Resource_j03om"]
+script = ExtResource("1_vvqtr")
+player_text = "uh... <<pink>>"
+reply = SubResource("Resource_r0nt2")
+reward = SubResource("Resource_vlm06")
+outcome_id = &"sold_trinket"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_xv8d5"]
+script = ExtResource("2_1rppi")
+text = "<<thankyou>>"
+speaker_icon = ExtResource("3_638h5")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_pn4ta"]
+script = ExtResource("5_bh7nf")
+id = &"mask_green"
+item_name = "<<green>> Thing"
+item_icon = ExtResource("6_2nfay")
+metadata/_custom_type_script = "uid://1bxpf358unij"
+
+[sub_resource type="Resource" id="Resource_qrsgf"]
+script = ExtResource("1_vvqtr")
+player_text = "<<green>> please!"
+reply = SubResource("Resource_xv8d5")
+reward = SubResource("Resource_pn4ta")
+outcome_id = &"sold_trinket"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_0wxk8"]
+script = ExtResource("2_1rppi")
+text = "<<thankyou>>"
+speaker_icon = ExtResource("3_638h5")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_i0qum"]
+script = ExtResource("5_bh7nf")
+id = &"mask_blue"
+item_name = "<<blue>> Thing"
+item_icon = ExtResource("7_2e8g8")
+metadata/_custom_type_script = "uid://1bxpf358unij"
+
+[sub_resource type="Resource" id="Resource_oijiq"]
+script = ExtResource("1_vvqtr")
+player_text = "<<blue>> I guess?"
+reply = SubResource("Resource_0wxk8")
+reward = SubResource("Resource_i0qum")
+outcome_id = &"sold_trinket"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_stsco"]
+script = ExtResource("2_1rppi")
+text = "<<thankyou>>"
+speaker_icon = ExtResource("3_638h5")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_yrao0"]
+script = ExtResource("5_bh7nf")
+id = &"mask_red"
+item_name = "<<red>> Thing"
+item_icon = ExtResource("8_s2s8a")
+metadata/_custom_type_script = "uid://1bxpf358unij"
+
+[sub_resource type="Resource" id="Resource_wfs54"]
+script = ExtResource("1_vvqtr")
+player_text = "<<red>>"
+reply = SubResource("Resource_stsco")
+reward = SubResource("Resource_yrao0")
+outcome_id = &"sold_trinket"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_ae2uy"]
+script = ExtResource("2_1rppi")
+text = "<<trinketmask>> <<buy>> <<?>>"
+speaker_icon = ExtResource("3_638h5")
+sfx = ExtResource("9_nqn3j")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_2aig5"]
+script = ExtResource("2_1rppi")
+text = "<<pink>> <<green>> <<blue>> <<red>> <<?>>"
+speaker_icon = ExtResource("3_638h5")
+sfx = ExtResource("10_yvwmy")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[resource]
+script = ExtResource("3_6jj0n")
+lines = Array[ExtResource("2_1rppi")]([SubResource("Resource_ae2uy"), SubResource("Resource_2aig5")])
+choices = Array[ExtResource("1_vvqtr")]([SubResource("Resource_j03om"), SubResource("Resource_qrsgf"), SubResource("Resource_oijiq"), SubResource("Resource_wfs54")])
+metadata/_custom_type_script = "uid://dvkforrusa0nj"

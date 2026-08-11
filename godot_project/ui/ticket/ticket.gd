@@ -8,7 +8,7 @@ signal close_requested
 
 @onready var _line_label: ResshanLabel = %LineValue
 @onready var _departure_label: ResshanLabel = %DepartureValue
-@onready var _direction_label: ResshanLabel = %DestinationValue
+@onready var _direction_label: ResshanLabel = %DirectionValue
 
 
 func _ready() -> void:

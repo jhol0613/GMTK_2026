@@ -268,7 +268,7 @@ func _set_player_active(active: bool) -> void:
 
 
 func _matches_ticket(ticket: TicketData) -> bool:
-	return ticket_id == ticket.id
+	return ticket_id.to_lower() == ticket.id.to_lower()
 
 
 func _set_interactables_enabled(enabled: bool) -> void:

@@ -2,8 +2,7 @@ class_name DialogueInteractable
 extends Interactable
 
 @export var speaker: String = "NPC"
-@export var lines: Array[DialogueLine] = []
-@export var choices: Array[DialogueChoice] = []
+@export var dialogue: Dialogue
 @export var panel_path: NodePath
 @export var minutes_cost: int = 1
 @export var turn_on_sound: AudioStreamPlayer
@@ -18,5 +17,5 @@ func interact() -> void:
 	if panel == null:
 		return
 	panel.show_dialogue(
-		speaker, lines, choices, minutes_cost
+		dialogue.speaker, dialogue.lines, dialogue.choices, minutes_cost
 	)

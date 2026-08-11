@@ -1,14 +1,37 @@
 [gd_scene format=3 uid="uid://bni8iwfqac6ap"]
 
 [ext_resource type="Script" uid="uid://dya82x1l0owwt" path="res://level_elements/coffee_shop/coffee_shop.gd" id="1_coffee"]
-[ext_resource type="Texture2D" path="res://level_elements/coffee_shop/Coffee_Shop.png" id="2_sprite"]
+[ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://interactables/dialog_system/dialogue_choice.gd" id="2_4x3ae"]
+[ext_resource type="Texture2D" uid="uid://b7jqw3hjabu1s" path="res://level_elements/coffee_shop/Coffee_Shop.png" id="2_sprite"]
 [ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialog_system/dialogue_interactable.tscn" id="3_interact"]
+[ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="3_m5xxu"]
+[ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="4_4qbo7"]
 [ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialog_system/dialogue_panel.tscn" id="4_panel"]
 [ext_resource type="Texture2D" uid="uid://lnr02lvgvpqt" path="res://level_elements/coffee_shop/CoffeeShop_glow.png" id="5_glow"]
 [ext_resource type="Texture2D" uid="uid://b7k1rwda5wu1p" path="res://visual_effects/day_night/light_radial.png" id="6_light"]
 [ext_resource type="Script" uid="uid://b3sxo70i1r07u" path="res://level_elements/coffee_shop/coffee_shop_night_light.gd" id="7_nightlight"]
 [ext_resource type="Shader" uid="uid://cledinetwy2el" path="res://level_elements/coffee_shop/coffee_shop_glow.gdshader" id="8_glow_shader"]
 [ext_resource type="Shader" uid="uid://x010b1ugulx5" path="res://level_elements/coffee_shop/coffee_machine_untinted.gdshader" id="9_machine_shader"]
+
+[sub_resource type="Resource" id="Resource_4yofi"]
+script = ExtResource("3_m5xxu")
+text = "[placeholder] you have enough money for coffee"
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_kgvxc"]
+script = ExtResource("4_4qbo7")
+lines = Array[ExtResource("3_m5xxu")]([SubResource("Resource_4yofi")])
+metadata/_custom_type_script = "uid://dvkforrusa0nj"
+
+[sub_resource type="Resource" id="Resource_m5xxu"]
+script = ExtResource("3_m5xxu")
+text = "[placeholder] you do not have enough money for a coffee"
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_4x3ae"]
+script = ExtResource("4_4qbo7")
+lines = Array[ExtResource("3_m5xxu")]([SubResource("Resource_m5xxu")])
+metadata/_custom_type_script = "uid://dvkforrusa0nj"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_glow"]
 shader = ExtResource("8_glow_shader")
@@ -31,6 +54,8 @@ size = Vector2(120, 32)
 
 [node name="CoffeeShop" type="Node2D" unique_id=780382610]
 script = ExtResource("1_coffee")
+normal_dialogue = SubResource("Resource_kgvxc")
+broke_dialogue = SubResource("Resource_4x3ae")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=458582389]
 z_index = 1
