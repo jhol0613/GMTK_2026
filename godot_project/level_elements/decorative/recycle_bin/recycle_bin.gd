@@ -1,26 +1,26 @@
 extends Node2D
 
 @export var sprite: AnimatedSprite2D
+## Drop range around the bin.
+@export var drop_radius: float = 120.0
+@export var reward_battery: int = 4
 
 
 func _ready() -> void:
+	add_to_group("recycle_bin")
 	sprite.animation = &"open"
 	sprite.frame = 0
 	sprite.stop()
 
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if not body.is_in_group("player"):
-		return
-
-	sprite.play(&"open")
-
-
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	if not body.is_in_group("player"):
-		return
-
-	if sprite.is_playing():
-		sprite.play(&"open", -1.0)
+func set_lid_open(open: bool) -> void:
+	if open:
+		sprite.play(&"open")
 	else:
 		sprite.play_backwards(&"open")
+
+
+func recycle(item: ItemData) -> void:
+	Inventory.remove_item(item)
+	Wallet.add(reward_battery)
+	set_lid_open(false)

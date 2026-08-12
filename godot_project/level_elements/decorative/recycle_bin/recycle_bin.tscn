@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bb11t6nvj8g13"]
+[gd_scene format=3 uid="uid://c5jvn4a3mfhj"]
 
 [ext_resource type="Texture2D" uid="uid://c12ooog5cg04c" path="res://level_elements/decorative/recycle_bin/open.png" id="1_03jd3"]
 [ext_resource type="Script" uid="uid://b06a8qnyvxbet" path="res://level_elements/decorative/recycle_bin/recycle_bin.gd" id="1_bg1vw"]
@@ -53,9 +53,6 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_5sp28"]
-radius = 32.0
-
 [node name="RecycleBin" type="Node2D" unique_id=981033953 node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_bg1vw")
 sprite = NodePath("AnimatedSprite2D")
@@ -66,12 +63,3 @@ position = Vector2(0, -12.5)
 scale = Vector2(0.075, 0.075)
 sprite_frames = SubResource("SpriteFrames_6cojq")
 animation = &"open"
-
-[node name="Area2D" type="Area2D" parent="." unique_id=1364417129]
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1960729016]
-shape = SubResource("CircleShape2D_5sp28")
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
