@@ -76,5 +76,7 @@
   "<<startofyellowline>>": "74",
   "<<middleofpinkline>>": "75",
   "<<recycle>>": "76",
-  "<<startofpinkline>>": "77"
+  "<<startofpinkline>>": "77",
+  "<<coffee>>": "78",
+  "<<technician.fix.repair>>": "79"
 }

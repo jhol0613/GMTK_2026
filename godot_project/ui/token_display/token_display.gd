@@ -1,8 +1,5 @@
 extends Control
 
-## Battery-style charge meter. Cells are laid out inside the shell's carved
-## slots, using source-pixel coordinates scaled by `pixel_scale`.
-## Cells fill in reading order, so spending drains from the bottom-right back.
 
 @export_group("Textures")
 @export var shell_texture: Texture2D
@@ -17,13 +14,10 @@ extends Control
 		pixel_scale = maxi(1, value)
 		_rebuild()
 @export var columns: int = 8
-## Top-left corner of the first slot inside the shell.
 @export var cell_origin := Vector2(4, 4)
-## Distance between slot corners (cell size + gap).
 @export var cell_step := Vector2(4, 7)
 
 @export_group("Behaviour")
-## At or below this many tokens every lit cell switches to the low texture.
 @export var low_threshold: int = 4
 @export var charge_step_delay: float = 0.05
 
@@ -90,7 +84,6 @@ func _refresh() -> void:
 		_cells[index].texture = lit_texture if index < Wallet.tokens else cell_empty
 
 
-## Light the cells up one by one when the wallet is topped up at an ATM.
 func _on_refilled() -> void:
 	if cell_charging == null or _cells.is_empty():
 		return

@@ -77,6 +77,7 @@ func _on_time_changed(
 
 	if tween and tween.is_running():
 		tween.kill()
+	scale = Vector2.ONE
 
 	tween = create_tween()
 	tween.set_ease(Tween.EASE_IN)
@@ -112,6 +113,7 @@ func _on_time_changed(
 func tick_second() -> void:
 	if tween and tween.is_running():
 		tween.kill()
+	scale = Vector2.ONE
 	_play_clock_sound(countdown_finished_sound, countdown_finished_volume_db)
 
 

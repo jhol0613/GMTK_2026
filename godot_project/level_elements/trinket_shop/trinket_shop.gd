@@ -1,7 +1,5 @@
 extends Node2D
 
-## Charges the player when a trinket is bought. The dialogue choice that sells
-## a trinket must have its outcome_id set to PURCHASE_OUTCOME.
 
 const PURCHASE_OUTCOME: StringName = &"sold_trinket"
 

@@ -1,33 +1,21 @@
 extends Node2D
 class_name FireflyField
 
-## Spawns slow drifting fireflies over grass tiles after dusk.
-##
-## The grass area is read from the TileMapLayers in the "footstep_surfaces"
-## group, using the same `footstep_surface` custom data the player uses for
-## footstep sounds, so no region has to be painted by hand.
-##
-## Add this node to a level and put it in the "night_lights" group: the day/night
-## background calls `set_day_progress` on that group every time the clock moves.
 
 @export_group("Look")
 @export var texture: Texture2D
 @export var color := Color("a8ff60")
-## Multiplies the tint. Above 1.0 the additive blend pushes the glow brighter.
 @export_range(0.5, 3.0, 0.05) var brightness := 1.5
 @export var scale_range := Vector2(0.08, 0.16)
 @export var sprite_z_index: int = 2
 
 @export_group("Population")
 @export var max_count: int = 12
-## Fireflies start showing up at this point of the day and peak at the next one.
 @export_range(0.0, 1.0, 0.01) var appear_start_progress := 0.55
 @export_range(0.0, 1.0, 0.01) var full_strength_progress := 0.85
 @export var spawn_check_interval := 1.2
 @export var lifetime_range := Vector2(10.0, 22.0)
 @export var fade_duration := 1.2
-## Chance for a new firefly to appear next to an existing one instead of
-## anywhere in the grass, which makes them gather in loose clusters.
 @export_range(0.0, 1.0, 0.05) var cluster_chance := 0.3
 @export var cluster_radius := 60.0
 @export var min_distance_from_player := 60.0
@@ -40,7 +28,6 @@ class_name FireflyField
 @export var edge_lookahead := 16.0
 @export var player_push_radius := 40.0
 @export var player_push_strength := 18.0
-## Fireflies keep away from lamps and shop windows, dimming as they get close.
 @export var light_avoid_radius := 90.0
 @export_range(0.0, 1.0, 0.05) var light_min_brightness := 0.15
 
@@ -95,7 +82,6 @@ func _ready() -> void:
 	_night_strength = _target_strength
 
 
-## Called by the day/night background through the "night_lights" group.
 func set_day_progress(progress: float, _duration: float) -> void:
 	_target_strength = clampf(
 		inverse_lerp(appear_start_progress, full_strength_progress, progress),
@@ -136,7 +122,6 @@ func _collect_lights() -> void:
 			_light_sources.append(light)
 
 
-## 1.0 out in the dark, dropping towards `light_min_brightness` near a lamp.
 func _light_factor(point: Vector2) -> float:
 	if light_avoid_radius <= 0.0:
 		return 1.0
@@ -217,7 +202,6 @@ func _try_spawn() -> void:
 func _pick_spawn_point() -> Vector2:
 	var player := get_tree().get_first_node_in_group("player") as Node2D
 
-	# Prefer sitting next to a firefly that is already out.
 	if _rng.randf() < cluster_chance:
 		var neighbours: Array[Firefly] = []
 		for firefly in _pool:
@@ -300,14 +284,12 @@ func _update_firefly(firefly: Firefly, delta: float) -> void:
 		firefly.sprite.visible = false
 		return
 
-	# Smooth wandering: noise nudges the heading instead of picking new targets.
 	firefly.noise_t += delta
 	firefly.heading += firefly.noise.get_noise_1d(firefly.noise_t) * turn_rate * delta
 
 	var direction := Vector2.RIGHT.rotated(firefly.heading)
 	var ahead := firefly.pos + direction * edge_lookahead
 	if not _is_grass(ahead):
-		# Steer back towards where it started rather than leaving the grass.
 		firefly.heading = firefly.pos.direction_to(firefly.home).angle()
 		direction = Vector2.RIGHT.rotated(firefly.heading)
 
@@ -350,8 +332,6 @@ func _current_alpha(firefly: Firefly, delta: float) -> float:
 	return blink * clampf(fade, 0.0, 1.0) * _night_strength * _light_factor(firefly.pos)
 
 
-## Asymmetric flash: snaps on, lingers, then decays. Reads far more organic
-## than a sine wave, and the dark stretch hides spawning and despawning.
 func _blink_envelope(x: float) -> float:
 	const RISE := 0.06
 	const HOLD := 0.06

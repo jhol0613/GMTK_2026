@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://bavx6n5qxivtt" path="res://level_elements/decorative/plants/tiny_foliage.tscn" id="35_ya8pr"]
 [ext_resource type="Texture2D" uid="uid://cs5l21wrqu5gc" path="res://level_elements/decorative/solar_decor/Solardecor3.png" id="36_t3e5a"]
 [ext_resource type="Texture2D" uid="uid://bogm6imvrrjwr" path="res://level_elements/decorative/solar_decor/Solardecor1.png" id="37_dy5lu"]
+[ext_resource type="PackedScene" uid="uid://dj6pi30ngfhch" path="res://level_elements/decorative/benches/rest_chair.tscn" id="37_ya87f"]
 [ext_resource type="Texture2D" uid="uid://cqgbm5k8spyro" path="res://level_elements/decorative/solar_decor/solardecor2.png" id="38_g2wda"]
 [ext_resource type="PackedScene" uid="uid://cbuohfggvk1qu" path="res://level_elements/decorative/birb.tscn" id="39_ton1c"]
 [ext_resource type="PackedScene" uid="uid://c5jvn4a3mfhj" path="res://level_elements/decorative/recycle_bin/recycle_bin.tscn" id="40_m78yj"]
@@ -206,8 +207,6 @@ dialogue = ExtResource("9_jq5vq")
 [node name="CoffeeShop" parent="." index="14" unique_id=1288725174 instance=ExtResource("19_wx43u")]
 position = Vector2(-570, -297)
 scale = Vector2(0.6, 0.6)
-normal_dialogue = null
-broke_dialogue = null
 
 [node name="TicketBooth" parent="." index="15" unique_id=861247956 instance=ExtResource("19_uptk2")]
 position = Vector2(-267, -170)
@@ -945,6 +944,9 @@ position = Vector2(448, -1094)
 
 [node name="FireflyField" parent="." index="25" unique_id=37705798 instance=ExtResource("45_fireflies")]
 brightness = 1.6
+
+[node name="RestChair" parent="." index="26" unique_id=1373876507 instance=ExtResource("37_ya87f")]
+position = Vector2(-1082, -709)
 
 [editable path="Platform"]
 [editable path="Platform2"]

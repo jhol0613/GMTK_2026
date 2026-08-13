@@ -1,16 +1,11 @@
 extends PointLight2D
 
-## The charge cell the player carries lights their way at night. It burns
-## brightest on a full battery, dims as tokens are spent, and flickers when the
-## cell is nearly empty.
 
 @export_range(0.0, 4.0, 0.05) var max_energy := 0.9
-## Charge fraction below which the light starts to stutter.
 @export_range(0.0, 1.0, 0.05) var flicker_threshold := 0.25
 @export var flicker_speed := 9.0
 @export var full_color := Color("ffc46b")
 @export var empty_color := Color("d1663a")
-## Matches night_light_2d so the lamp fades in over the same part of the day.
 @export_range(0.0, 1.0, 0.01) var start_progress := 0.25
 @export_range(0.0, 1.0, 0.01) var full_strength_progress := 0.75
 
@@ -38,7 +33,6 @@ func _on_tokens_changed(current: int, maximum: int) -> void:
 	color = empty_color.lerp(full_color, _charge)
 
 
-## Called through the "night_lights" group by the day/night background.
 func set_day_progress(progress: float, duration: float) -> void:
 	var target := clampf(
 		inverse_lerp(start_progress, full_strength_progress, progress),

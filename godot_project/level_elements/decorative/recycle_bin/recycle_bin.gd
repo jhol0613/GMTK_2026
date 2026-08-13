@@ -1,7 +1,6 @@
 extends Node2D
 
 @export var sprite: AnimatedSprite2D
-## Drop range around the bin.
 @export var drop_radius: float = 120.0
 @export var reward_battery: int = 4
 

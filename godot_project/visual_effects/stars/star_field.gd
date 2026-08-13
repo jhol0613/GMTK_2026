@@ -1,20 +1,14 @@
 extends Node2D
 
-## Scatters faint twinkling stars across the sky layer. Lives inside the sky
-## CanvasLayer, so the stars stay put while the world scrolls beneath them.
 
 @export var texture: Texture2D
 @export var star_count: int = 70
-## Screen-space area the stars occupy. The sky layer sits behind the level, so
-## stars that land behind buildings are simply hidden by them.
 @export var area := Rect2(0.0, 0.0, 1920.0, 1080.0)
-## The radial texture is only 64px, so small scales vanish entirely.
 @export var scale_range := Vector2(0.09, 0.2)
 @export var color := Color("dff1ff")
 @export var brightness_range := Vector2(0.55, 1.0)
 @export var twinkle_period_range := Vector2(2.0, 6.0)
 @export_range(0.0, 1.0, 0.05) var twinkle_depth := 0.5
-## Stars fade in over this stretch of the day, matching the night sky.
 @export_range(0.0, 1.0, 0.01) var start_progress := 0.45
 @export_range(0.0, 1.0, 0.01) var full_strength_progress := 0.85
 
@@ -61,7 +55,6 @@ func _ready() -> void:
 	_night_strength = _target_strength()
 
 
-## Called through the "night_lights" group by the day/night background.
 func set_day_progress(progress: float, _duration: float) -> void:
 	_progress = progress
 

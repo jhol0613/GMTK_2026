@@ -1,9 +1,6 @@
 extends Control
 
-## Placeholder readout for the "time is running slow" coffee buff. Swap the
-## ColorRect for real art once it exists.
-
-@onready var _label: Label = $Label
+@onready var _bar: ProgressBar = $Bar
 
 
 func _ready() -> void:
@@ -13,5 +10,8 @@ func _ready() -> void:
 
 func _on_time_scale_changed(scale: float) -> void:
 	visible = not is_equal_approx(scale, 1.0)
-	if visible:
-		_label.text = "COFFEE x%.1f" % scale
+	set_process(visible)
+
+
+func _process(_delta: float) -> void:
+	_bar.value = TimeManager.time_scale_progress()
