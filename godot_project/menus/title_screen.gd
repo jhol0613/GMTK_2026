@@ -12,6 +12,8 @@ extends Node2D
 @export_range(-40.0, 6.0, 0.5) var click_volume_db: float = 4.0
 
 func _ready() -> void:
+	Input.set_custom_mouse_cursor(null)
+
 	AudioManager.play_menu_music(
 		main_menu_bgm,
 		main_menu_bgm_fade_in,

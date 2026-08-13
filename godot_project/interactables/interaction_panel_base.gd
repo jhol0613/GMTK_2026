@@ -40,6 +40,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	if not _is_open:
 		return
 
+	var focused := get_viewport().gui_get_focus_owner()
+	if focused is LineEdit or focused is TextEdit:
+		return
+
 	if event.is_action_pressed("interact"):
 		_on_interact_while_open()
 		get_viewport().set_input_as_handled()

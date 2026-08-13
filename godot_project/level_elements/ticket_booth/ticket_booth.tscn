@@ -202,7 +202,7 @@ bus = &"SFX"
 
 [node name="BoothAmbient" type="AudioStreamPlayer2D" parent="." unique_id=986529912]
 stream = ExtResource("7_8vjcj")
-volume_db = 4.0
+volume_db = -2.0
 max_distance = 197.0
 attenuation = 4.0000014
 bus = &"SFX"

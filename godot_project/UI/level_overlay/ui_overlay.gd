@@ -1,8 +1,16 @@
 extends CanvasLayer
 
 @export var mouse_hover_offset := Vector2(0, -8)
+@export var notebook_dock_x := 1568.0
+@export var notebook_offscreen_x := 2272.0
+@export var notebook_slide_time := 0.3
+
 var magnifying_glass = load("uid://c8n3by2cmh20k")
 var pen = load("uid://c8yj5np7nrak6")
+
+var _notebook_home := Vector2.ZERO
+var _notebook_docked := false
+var _notebook_tween: Tween
 
 @onready var _time := $Time
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
@@ -38,6 +46,7 @@ var _ticket_button_show_tween: Tween
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GameManager.pause_enabled = true
+	_notebook_home = _notebook.position
 	_notebook.visible = false
 	_ticket.visible = false
 	_inventory.visible = false
@@ -197,14 +206,41 @@ func open_notebook() -> void:
 	_close_inventory()
 	
 	Input.set_custom_mouse_cursor(pen)
-	
+
 	_notebook_click_sound.play()
-	_notebook.visible = true
+
+	_notebook_docked = _is_dialogue_open()
+	if _notebook_docked:
+		_notebook.position = Vector2(notebook_offscreen_x, _notebook_home.y)
+		_notebook.visible = true
+		_slide_notebook(notebook_dock_x)
+	else:
+		_notebook.position = _notebook_home
+		_notebook.visible = true
 
 	for player in get_tree().get_nodes_in_group("player"):
 		player.movement_disabled = true
 
 	SignalBus.notebook_opened.emit()
+
+
+func _is_dialogue_open() -> bool:
+	for panel in get_tree().get_nodes_in_group("interaction_panel"):
+		if panel.has_method("is_open") and panel.is_open():
+			return true
+	return false
+
+
+func _slide_notebook(target_x: float) -> Tween:
+	if _notebook_tween != null and _notebook_tween.is_valid():
+		_notebook_tween.kill()
+	_notebook_tween = create_tween()
+	_notebook_tween.set_ease(Tween.EASE_OUT)
+	_notebook_tween.set_trans(Tween.TRANS_CUBIC)
+	_notebook_tween.tween_property(
+		_notebook, "position:x", target_x, notebook_slide_time
+	)
+	return _notebook_tween
 
 
 func close_notebook() -> void:
@@ -214,10 +250,17 @@ func close_notebook() -> void:
 	Input.set_custom_mouse_cursor(magnifying_glass)
 
 	_notebook_exit_sound.play()
-	_notebook.visible = false
 
-	for player in get_tree().get_nodes_in_group("player"):
-		player.movement_disabled = false
+	if _notebook_docked:
+		_notebook_docked = false
+		var tween := _slide_notebook(notebook_offscreen_x)
+		tween.tween_callback(func() -> void: _notebook.visible = false)
+	else:
+		_notebook.visible = false
+
+	if not _is_dialogue_open():
+		for player in get_tree().get_nodes_in_group("player"):
+			player.movement_disabled = false
 
 	SignalBus.notebook_closed.emit()
 
