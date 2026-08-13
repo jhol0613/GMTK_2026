@@ -3,9 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://5jf280je61mn" path="res://level_elements/NPCs/character_preston.png" id="1_preston"]
 [ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialog_system/dialogue_interactable.tscn" id="2_dialog"]
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="3_line"]
+[ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://interactables/dialog_system/dialogue_choice.gd" id="3_siqd2"]
 [ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialog_system/dialogue_panel.tscn" id="4_panel"]
 [ext_resource type="Texture2D" uid="uid://c3m8p6k0jnpnh" path="res://interactables/dialog_system/character_portraits/preston/preston.png" id="4_s7y3j"]
 [ext_resource type="AudioStream" uid="uid://ghsw1ra7jddi" path="res://ui/SpeechAudio/Sorry. miss. I've heard your problem.wav" id="4_tmfde"]
+[ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="5_f5e6o"]
 [ext_resource type="AudioStream" uid="uid://dt1dy4gsm0106" path="res://ui/SpeechAudio/but my translation machine is currently malfunctioning.wav" id="6_xty6k"]
 [ext_resource type="AudioStream" uid="uid://b1trbclfdckea" path="res://ui/SpeechAudio/so I won't be of much help.wav" id="7_rgsox"]
 
@@ -24,29 +26,31 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Resource" id="Resource_line"]
+[sub_resource type="Resource" id="Resource_ddb6o"]
 script = ExtResource("3_line")
-speaker = "Preston"
-text = "Sorry, miss, I've heard your problem, "
+text = "Sorry, Miss, I've heard your problem,"
 speaker_icon = ExtResource("4_s7y3j")
 sfx = ExtResource("4_tmfde")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
-[sub_resource type="Resource" id="Resource_gtrna"]
+[sub_resource type="Resource" id="Resource_4eows"]
 script = ExtResource("3_line")
-speaker = "Preston"
-text = "but my translation machine is currently malfunctioning, "
+text = "but my translation machine is currently malfunctioning,"
 speaker_icon = ExtResource("4_s7y3j")
 sfx = ExtResource("6_xty6k")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
-[sub_resource type="Resource" id="Resource_s7y3j"]
+[sub_resource type="Resource" id="Resource_x5ybh"]
 script = ExtResource("3_line")
-speaker = "Preston"
-text = "so I won't be of much help."
+text = "so I won't be of much help"
 speaker_icon = ExtResource("4_s7y3j")
 sfx = ExtResource("7_rgsox")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_fslih"]
+script = ExtResource("5_f5e6o")
+lines = Array[ExtResource("3_line")]([SubResource("Resource_ddb6o"), SubResource("Resource_4eows"), SubResource("Resource_x5ybh")])
+metadata/_custom_type_script = "uid://dvkforrusa0nj"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
 size = Vector2(20, 8)
@@ -61,7 +65,7 @@ autoplay = "default"
 
 [node name="DialogueInteractable" parent="." unique_id=1296865922 instance=ExtResource("2_dialog")]
 speaker = "Preston"
-lines = Array[ExtResource("3_line")]([SubResource("Resource_line"), SubResource("Resource_gtrna"), SubResource("Resource_s7y3j")])
+dialogue = SubResource("Resource_fslih")
 panel_path = NodePath("../DialoguePanel")
 
 [node name="CollisionShape2D" parent="DialogueInteractable" index="0" unique_id=278382881]
