@@ -49,10 +49,10 @@ choices = Array[ExtResource("2_4x3ae")]([SubResource("Resource_wl75l"), SubResou
 metadata/_custom_type_script = "uid://dvkforrusa0nj"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_interact"]
-size = Vector2(54, 16)
+size = Vector2(111, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
-size = Vector2(120, 32)
+size = Vector2(161, 42)
 
 [node name="CoffeeShop" type="Node2D" unique_id=780382610]
 script = ExtResource("1_coffee")
@@ -110,8 +110,11 @@ dialogue = SubResource("Resource_ya87f")
 panel_path = NodePath("../DialoguePanel")
 
 [node name="CollisionShape2D" parent="DialogueInteractable" index="0" unique_id=278382881]
-position = Vector2(0, 30)
+position = Vector2(-1, 54)
 shape = SubResource("RectangleShape2D_interact")
+
+[node name="AnimatedSprite2D" parent="DialogueInteractable" index="2" unique_id=819702371]
+position = Vector2(-1, -38)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=560896929]
 z_index = 1
@@ -119,7 +122,7 @@ collision_layer = 2
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=957672512]
-position = Vector2(0, -8)
+position = Vector2(1, -7)
 shape = SubResource("RectangleShape2D_body")
 
 [node name="DialoguePanel" parent="." unique_id=112215550 instance=ExtResource("4_panel")]

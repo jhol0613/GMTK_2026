@@ -182,3 +182,39 @@ func _close_dialog() -> void:
 	_awaiting_reward = false
 	hide_popup()
 	dialogue_complete.emit()
+
+
+var _full_offset_left := 0.0
+var _full_offset_right := 0.0
+var _full_min_width := 0.0
+var _full_saved := false
+var _compact_tween: Tween
+
+
+func set_compact(enabled: bool, right_edge: float, duration := 0.0) -> void:
+	var popup: PanelContainer = $Root/Popup
+	if not _full_saved:
+		_full_saved = true
+		_full_offset_left = popup.offset_left
+		_full_offset_right = popup.offset_right
+		_full_min_width = popup.custom_minimum_size.x
+
+	var target_left := 0.0 if enabled else _full_offset_left
+	var target_right := right_edge if enabled else _full_offset_right
+	var target_width := maxf(right_edge, 0.0) if enabled else _full_min_width
+
+	if _compact_tween != null and _compact_tween.is_valid():
+		_compact_tween.kill()
+
+	if duration <= 0.0:
+		popup.offset_left = target_left
+		popup.offset_right = target_right
+		popup.custom_minimum_size.x = target_width
+		return
+
+	_compact_tween = create_tween().set_parallel(true)
+	_compact_tween.set_ease(Tween.EASE_OUT)
+	_compact_tween.set_trans(Tween.TRANS_CUBIC)
+	_compact_tween.tween_property(popup, "offset_left", target_left, duration)
+	_compact_tween.tween_property(popup, "offset_right", target_right, duration)
+	_compact_tween.tween_property(popup, "custom_minimum_size:x", target_width, duration)

@@ -4,6 +4,7 @@ extends CanvasLayer
 @export var notebook_dock_x := 1568.0
 @export var notebook_offscreen_x := 2272.0
 @export var notebook_slide_time := 0.3
+@export var dialogue_compact_right := 1176.0
 
 var magnifying_glass = load("uid://c8n3by2cmh20k")
 var pen = load("uid://c8yj5np7nrak6")
@@ -11,6 +12,7 @@ var pen = load("uid://c8yj5np7nrak6")
 var _notebook_home := Vector2.ZERO
 var _notebook_docked := false
 var _notebook_tween: Tween
+var _compacted_panel: Node
 
 @onready var _time := $Time
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
@@ -209,8 +211,12 @@ func open_notebook() -> void:
 
 	_notebook_click_sound.play()
 
-	_notebook_docked = _is_dialogue_open()
+	var dialogue := _get_open_dialogue()
+	_notebook_docked = dialogue != null
 	if _notebook_docked:
+		if dialogue.has_method("set_compact"):
+			dialogue.set_compact(true, dialogue_compact_right, notebook_slide_time)
+			_compacted_panel = dialogue
 		_notebook.position = Vector2(notebook_offscreen_x, _notebook_home.y)
 		_notebook.visible = true
 		_slide_notebook(notebook_dock_x)
@@ -224,11 +230,11 @@ func open_notebook() -> void:
 	SignalBus.notebook_opened.emit()
 
 
-func _is_dialogue_open() -> bool:
+func _get_open_dialogue() -> Node:
 	for panel in get_tree().get_nodes_in_group("interaction_panel"):
 		if panel.has_method("is_open") and panel.is_open():
-			return true
-	return false
+			return panel
+	return null
 
 
 func _slide_notebook(target_x: float) -> Tween:
@@ -253,12 +259,15 @@ func close_notebook() -> void:
 
 	if _notebook_docked:
 		_notebook_docked = false
+		if _compacted_panel != null and is_instance_valid(_compacted_panel):
+			_compacted_panel.set_compact(false, 0.0, notebook_slide_time)
+		_compacted_panel = null
 		var tween := _slide_notebook(notebook_offscreen_x)
 		tween.tween_callback(func() -> void: _notebook.visible = false)
 	else:
 		_notebook.visible = false
 
-	if not _is_dialogue_open():
+	if _get_open_dialogue() == null:
 		for player in get_tree().get_nodes_in_group("player"):
 			player.movement_disabled = false
 

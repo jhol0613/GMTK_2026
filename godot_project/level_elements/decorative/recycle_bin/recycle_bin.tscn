@@ -53,6 +53,9 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
+size = Vector2(17, 25)
+
 [node name="RecycleBin" type="Node2D" unique_id=981033953 node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_bg1vw")
 sprite = NodePath("AnimatedSprite2D")
@@ -63,3 +66,10 @@ position = Vector2(0, -12.5)
 scale = Vector2(0.075, 0.075)
 sprite_frames = SubResource("SpriteFrames_6cojq")
 animation = &"open"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=344003920]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=660280388]
+position = Vector2(0.5, -12.5)
+shape = SubResource("RectangleShape2D_body")
