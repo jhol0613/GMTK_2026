@@ -847,7 +847,7 @@ position = Vector2(712, -1832)
 position = Vector2(848, -1776)
 
 [node name="RecycleBin" parent="Decorations" index="162" unique_id=981033953 instance=ExtResource("40_m78yj")]
-position = Vector2(-931, -718)
+position = Vector2(-931, -728)
 
 [node name="StreetLamp" parent="Decorations" index="163" unique_id=1013452097 instance=ExtResource("47_n5t7a")]
 position = Vector2(-1052, -771)

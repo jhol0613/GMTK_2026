@@ -132,6 +132,9 @@ func _tween_music_bus(
 	)
 	
 func _on_option_confirmed(outcome_id: StringName) -> void:
+	if outcome_id == &"cancel":
+		_dialogue_panel.hide_popup.call_deferred()
+		return
 	if outcome_id != &"sold_ticket":
 		return
 

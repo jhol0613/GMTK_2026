@@ -11,6 +11,9 @@ func _ready() -> void:
 
 
 func _on_option_confirmed(outcome_id: StringName) -> void:
+	if outcome_id == &"cancel":
+		_dialogue_panel.hide_popup.call_deferred()
+		return
 	if outcome_id != PURCHASE_OUTCOME:
 		return
 	Wallet.spend(Wallet.TRINKET_COST)
