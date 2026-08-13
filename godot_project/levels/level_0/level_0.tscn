@@ -583,7 +583,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/UpperTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.3028179
+frame_progress = 0.32523167
 
 [node name="LowerTrain" parent="Platform" index="8" unique_id=1370361982]
 next_scene = 2
@@ -594,7 +594,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/LowerTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.54423517
+frame_progress = 0.56664824
 
 [node name="TicketBooth" parent="." index="6" unique_id=861247956 instance=ExtResource("2_823pn")]
 position = Vector2(-1168, -368)
@@ -711,7 +711,7 @@ texture = ExtResource("28_7di2q")
 position = Vector2(-1040, -240)
 
 [node name="Bench4" parent="Decorations" index="13" unique_id=256670485 instance=ExtResource("26_juy1h")]
-position = Vector2(-1312, -448)
+position = Vector2(-1312, -449)
 
 [node name="Bench5" parent="Decorations" index="14" unique_id=701264899 instance=ExtResource("26_juy1h")]
 position = Vector2(-696, -296)
@@ -719,101 +719,119 @@ position = Vector2(-696, -296)
 [node name="Bench11" parent="Decorations" index="15" unique_id=1186735631 instance=ExtResource("25_vfwqd")]
 position = Vector2(-160, -280)
 
-[node name="TinyFoliage" parent="Decorations" index="16" unique_id=1245074896 instance=ExtResource("18_x1db4")]
+[node name="RestChair" parent="Decorations" index="16" unique_id=232674008 instance=ExtResource("32_oxxmn")]
+position = Vector2(-1272, -274)
+
+[node name="RestChairVerticalLeft" parent="Decorations" index="17" unique_id=1206111667 instance=ExtResource("31_oxxmn")]
+position = Vector2(-237, -257)
+
+[node name="RestChairVerticalRight" parent="Decorations" index="18" unique_id=1469805154 instance=ExtResource("32_u460r")]
+position = Vector2(-281, -257)
+
+[node name="RestChairVerticalLeft2" parent="Decorations" index="19" unique_id=511518336 instance=ExtResource("31_oxxmn")]
+position = Vector2(-521, -256)
+
+[node name="RestChairVerticalRight2" parent="Decorations" index="20" unique_id=1694246708 instance=ExtResource("32_u460r")]
+position = Vector2(-566, -256)
+
+[node name="RestChair2" parent="Decorations" index="21" unique_id=1100370396 instance=ExtResource("32_oxxmn")]
+position = Vector2(-787, -291)
+
+[node name="TinyFoliage" parent="Decorations" index="22" unique_id=1245074896 instance=ExtResource("18_x1db4")]
 position = Vector2(-640, -320)
 
-[node name="TinyFoliage2" parent="Decorations" index="17" unique_id=628061392 instance=ExtResource("18_x1db4")]
+[node name="TinyFoliage2" parent="Decorations" index="23" unique_id=628061392 instance=ExtResource("18_x1db4")]
 position = Vector2(-632, -312)
 
-[node name="TinyFoliage3" parent="Decorations" index="18" unique_id=1260668724 instance=ExtResource("18_x1db4")]
+[node name="TinyFoliage3" parent="Decorations" index="24" unique_id=1260668724 instance=ExtResource("18_x1db4")]
 position = Vector2(-488, -272)
 anim = 1
 
-[node name="TinyFoliage4" parent="Decorations" index="19" unique_id=1328868348 instance=ExtResource("18_x1db4")]
+[node name="TinyFoliage4" parent="Decorations" index="25" unique_id=1328868348 instance=ExtResource("18_x1db4")]
 position = Vector2(-216, -272)
 anim = 2
 
-[node name="TinyFoliage5" parent="Decorations" index="20" unique_id=939238281 instance=ExtResource("18_x1db4")]
+[node name="TinyFoliage5" parent="Decorations" index="26" unique_id=939238281 instance=ExtResource("18_x1db4")]
 position = Vector2(-208, -256)
 anim = 2
 
-[node name="TinyFoliage6" parent="Decorations" index="21" unique_id=1263631054 instance=ExtResource("18_x1db4")]
+[node name="TinyFoliage6" parent="Decorations" index="27" unique_id=1263631054 instance=ExtResource("18_x1db4")]
 position = Vector2(-184, -264)
 anim = 2
 
-[node name="TinyFoliage7" parent="Decorations" index="22" unique_id=1822984679 instance=ExtResource("18_x1db4")]
+[node name="TinyFoliage7" parent="Decorations" index="28" unique_id=1822984679 instance=ExtResource("18_x1db4")]
 position = Vector2(-824, -232)
 anim = 2
 
-[node name="TinyFoliage8" parent="Decorations" index="23" unique_id=961369174 instance=ExtResource("18_x1db4")]
+[node name="TinyFoliage8" parent="Decorations" index="29" unique_id=961369174 instance=ExtResource("18_x1db4")]
 position = Vector2(-1288, -240)
 anim = 1
 
-[node name="TinyFoliage9" parent="Decorations" index="24" unique_id=1977011896 instance=ExtResource("18_x1db4")]
+[node name="TinyFoliage9" parent="Decorations" index="30" unique_id=1977011896 instance=ExtResource("18_x1db4")]
 position = Vector2(-1312, -248)
 anim = 1
 
-[node name="TinyFoliage10" parent="Decorations" index="25" unique_id=2070208294 instance=ExtResource("18_x1db4")]
+[node name="TinyFoliage10" parent="Decorations" index="31" unique_id=2070208294 instance=ExtResource("18_x1db4")]
 position = Vector2(-1104, -512)
 anim = 2
 
-[node name="TinyFoliage11" parent="Decorations" index="26" unique_id=1538031288 instance=ExtResource("18_x1db4")]
+[node name="TinyFoliage11" parent="Decorations" index="32" unique_id=1538031288 instance=ExtResource("18_x1db4")]
 position = Vector2(-1128, -504)
 anim = 2
 
-[node name="TinyFoliage12" parent="Decorations" index="27" unique_id=1645346933 instance=ExtResource("18_x1db4")]
+[node name="TinyFoliage12" parent="Decorations" index="33" unique_id=1645346933 instance=ExtResource("18_x1db4")]
 position = Vector2(-1112, -480)
 anim = 2
 
-[node name="Birb" parent="Decorations" index="28" unique_id=1816843329 instance=ExtResource("30_x8hdd")]
+[node name="Birb" parent="Decorations" index="34" unique_id=1816843329 instance=ExtResource("30_x8hdd")]
 position = Vector2(-1304, -240)
 
-[node name="Birb2" parent="Decorations" index="29" unique_id=2129401343 instance=ExtResource("30_x8hdd")]
+[node name="Birb2" parent="Decorations" index="35" unique_id=2129401343 instance=ExtResource("30_x8hdd")]
 position = Vector2(-1312, -256)
 
-[node name="Birb3" parent="Decorations" index="30" unique_id=895365153 instance=ExtResource("30_x8hdd")]
+[node name="Birb3" parent="Decorations" index="36" unique_id=895365153 instance=ExtResource("30_x8hdd")]
 position = Vector2(-1272, -248)
 
-[node name="Birb4" parent="Decorations" index="31" unique_id=627605254 instance=ExtResource("30_x8hdd")]
+[node name="Birb4" parent="Decorations" index="37" unique_id=627605254 instance=ExtResource("30_x8hdd")]
 position = Vector2(-1240, -240)
 
-[node name="Birb5" parent="Decorations" index="32" unique_id=146579604 instance=ExtResource("30_x8hdd")]
+[node name="Birb5" parent="Decorations" index="38" unique_id=146579604 instance=ExtResource("30_x8hdd")]
 position = Vector2(-1232, -272)
 
-[node name="Birb6" parent="Decorations" index="33" unique_id=1827575565 instance=ExtResource("30_x8hdd")]
+[node name="Birb6" parent="Decorations" index="39" unique_id=1827575565 instance=ExtResource("30_x8hdd")]
 position = Vector2(-1304, -296)
 
-[node name="Birb7" parent="Decorations" index="34" unique_id=1918485430 instance=ExtResource("30_x8hdd")]
+[node name="Birb7" parent="Decorations" index="40" unique_id=1918485430 instance=ExtResource("30_x8hdd")]
 position = Vector2(-592, -256)
 
-[node name="Birb8" parent="Decorations" index="35" unique_id=498429208 instance=ExtResource("30_x8hdd")]
+[node name="Birb8" parent="Decorations" index="41" unique_id=498429208 instance=ExtResource("30_x8hdd")]
 position = Vector2(-288, -328)
 
-[node name="Birb9" parent="Decorations" index="36" unique_id=1928838121 instance=ExtResource("30_x8hdd")]
+[node name="Birb9" parent="Decorations" index="42" unique_id=1928838121 instance=ExtResource("30_x8hdd")]
 position = Vector2(-256, -320)
 
-[node name="Birb10" parent="Decorations" index="37" unique_id=2138091871 instance=ExtResource("30_x8hdd")]
+[node name="Birb10" parent="Decorations" index="43" unique_id=2138091871 instance=ExtResource("30_x8hdd")]
 position = Vector2(-256, -272)
 
-[node name="Birb11" parent="Decorations" index="38" unique_id=725789385 instance=ExtResource("30_x8hdd")]
+[node name="Birb11" parent="Decorations" index="44" unique_id=725789385 instance=ExtResource("30_x8hdd")]
 position = Vector2(-184, -240)
 
-[node name="StreetLamp" parent="Decorations" index="39" unique_id=1189780236 instance=ExtResource("33_2dnbt")]
+[node name="StreetLamp" parent="Decorations" index="45" unique_id=1189780236 instance=ExtResource("33_2dnbt")]
 position = Vector2(-625, -328)
 
-[node name="StreetLamp2" parent="Decorations" index="40" unique_id=1988615990 instance=ExtResource("33_2dnbt")]
+[node name="StreetLamp2" parent="Decorations" index="46" unique_id=1988615990 instance=ExtResource("33_2dnbt")]
 position = Vector2(-200, -326)
 
-[node name="StreetLamp3" parent="Decorations" index="41" unique_id=1247470903 instance=ExtResource("33_2dnbt")]
+[node name="StreetLamp3" parent="Decorations" index="47" unique_id=1247470903 instance=ExtResource("33_2dnbt")]
 position = Vector2(-834, -294)
 
-[node name="StreetLamp4" parent="Decorations" index="42" unique_id=1847497040 instance=ExtResource("33_2dnbt")]
+[node name="StreetLamp4" parent="Decorations" index="48" unique_id=1847497040 instance=ExtResource("33_2dnbt")]
 position = Vector2(-1056, -334)
 
-[node name="StreetLamp5" parent="Decorations" index="43" unique_id=1709620658 instance=ExtResource("33_2dnbt")]
+[node name="StreetLamp5" parent="Decorations" index="49" unique_id=1709620658 instance=ExtResource("33_2dnbt")]
 position = Vector2(-1239, -275)
 
-[node name="StreetLamp6" parent="Decorations" index="44" unique_id=1541650536 instance=ExtResource("33_2dnbt")]
+[node name="StreetLamp6" parent="Decorations" index="50" unique_id=1541650536 instance=ExtResource("33_2dnbt")]
 position = Vector2(-1313, -471)
 
 [node name="Background" parent="." index="13" unique_id=102847613]
@@ -836,24 +854,6 @@ position = Vector2(-160, -248)
 
 [node name="FireflyField" parent="." index="16" unique_id=1674045412 instance=ExtResource("32_fireflies")]
 brightness = 1.6
-
-[node name="RestChair" parent="." index="17" unique_id=232674008 instance=ExtResource("32_oxxmn")]
-position = Vector2(-1272, -274)
-
-[node name="RestChairVerticalLeft" parent="." index="18" unique_id=1206111667 instance=ExtResource("31_oxxmn")]
-position = Vector2(-237, -257)
-
-[node name="RestChairVerticalRight" parent="." index="19" unique_id=1469805154 instance=ExtResource("32_u460r")]
-position = Vector2(-281, -257)
-
-[node name="RestChairVerticalLeft2" parent="." index="20" unique_id=511518336 instance=ExtResource("31_oxxmn")]
-position = Vector2(-521, -256)
-
-[node name="RestChairVerticalRight2" parent="." index="21" unique_id=1694246708 instance=ExtResource("32_u460r")]
-position = Vector2(-566, -256)
-
-[node name="RestChair2" parent="." index="22" unique_id=1100370396 instance=ExtResource("32_oxxmn")]
-position = Vector2(-787, -291)
 
 [connection signal="pressed" from="SkipIntroLayer/SkipIntroButton" to="." method="_skip_intro"]
 

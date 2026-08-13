@@ -343,7 +343,7 @@ self_modulate = Color(1, 1, 1, 0)
 position = Vector2(-1110, -715)
 
 [node name="RestChairVerticalRight" parent="Decorations" index="24" unique_id=1442036108 instance=ExtResource("38_lu7vs")]
-position = Vector2(-1472, -752)
+position = Vector2(-1497, -755)
 
 [node name="RestChairVerticalLeft" parent="Decorations" index="25" unique_id=363741417 instance=ExtResource("39_wl75l")]
 position = Vector2(-1015, -756)
