@@ -20,7 +20,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="BenchVertical" type="StaticBody2D" unique_id=232674008]
+[node name="RestChairVertical" type="StaticBody2D" unique_id=232674008]
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1878472438]
