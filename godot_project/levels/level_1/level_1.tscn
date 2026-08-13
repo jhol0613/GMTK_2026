@@ -343,10 +343,10 @@ self_modulate = Color(1, 1, 1, 0)
 position = Vector2(-1110, -715)
 
 [node name="RestChairVerticalRight" parent="Decorations" index="24" unique_id=1442036108 instance=ExtResource("38_lu7vs")]
-position = Vector2(-1497, -755)
+position = Vector2(-1498, -748)
 
 [node name="RestChairVerticalLeft" parent="Decorations" index="25" unique_id=363741417 instance=ExtResource("39_wl75l")]
-position = Vector2(-1015, -756)
+position = Vector2(-1014, -748)
 
 [node name="RestChair2" parent="Decorations" index="26" unique_id=232674008 instance=ExtResource("37_ya87f")]
 position = Vector2(-592, -1432)
@@ -379,7 +379,7 @@ position = Vector2(409, -1065)
 position = Vector2(761, -1062)
 
 [node name="RestChairVerticalRight5" parent="Decorations" index="36" unique_id=692370263 instance=ExtResource("38_lu7vs")]
-position = Vector2(776, -1776)
+position = Vector2(772, -1775)
 
 [node name="OutsideRestroom" type="Sprite2D" parent="Decorations" index="37" unique_id=1910757834]
 z_index = 2
@@ -850,7 +850,7 @@ position = Vector2(848, -1776)
 position = Vector2(-931, -728)
 
 [node name="StreetLamp" parent="Decorations" index="163" unique_id=1013452097 instance=ExtResource("47_n5t7a")]
-position = Vector2(-1052, -771)
+position = Vector2(-1052, -772)
 
 [node name="StreetLamp2" parent="Decorations" index="164" unique_id=1016945674 instance=ExtResource("47_n5t7a")]
 position = Vector2(-1454, -777)

@@ -19,3 +19,4 @@ func _on_option_confirmed(outcome_id: StringName) -> void:
 	if not Wallet.spend(Wallet.COFFEE_COST):
 		return
 	TimeManager.set_time_scale(time_scale_while_active, slow_duration_minutes)
+	

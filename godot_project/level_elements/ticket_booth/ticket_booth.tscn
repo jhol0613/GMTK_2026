@@ -205,7 +205,7 @@ stream = ExtResource("7_8vjcj")
 volume_db = -2.0
 max_distance = 197.0
 attenuation = 4.0000014
-bus = &"SFX"
+bus = &"Ambient"
 
 [node name="LoopPauseTimer" type="Timer" parent="." unique_id=258006226]
 one_shot = true

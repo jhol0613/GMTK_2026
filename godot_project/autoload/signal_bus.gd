@@ -7,6 +7,8 @@ signal new_unique_resshan_note_added_to_notebook
 
 signal notebook_opened
 signal notebook_closed
+signal rest_started
+signal rest_ended
 
 signal no_ticket
 signal missed_train

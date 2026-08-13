@@ -1,13 +1,17 @@
 [gd_scene format=3 uid="uid://biebaxao2klw3"]
 
 [ext_resource type="Script" uid="uid://cc7ngque0dksu" path="res://level_elements/decorative/benches/rest_chair.gd" id="1_lmjf5"]
-[ext_resource type="Texture2D" uid="uid://pkkbdvh3ie8q" path="res://level_elements/decorative/benches/bench_vertical.png" id="2_cmhwi"]
+[ext_resource type="Texture2D" uid="uid://cho57hheua0xj" path="res://level_elements/decorative/benches/bench_vertical_new.png" id="2_cmhwi"]
 [ext_resource type="Texture2D" uid="uid://df2ldgroey8mb" path="res://level_elements/decorative/snoozin.png" id="3_q70f2"]
 [ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialog_system/dialogue_interactable.tscn" id="4_6alwt"]
 [ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://interactables/dialog_system/dialogue_choice.gd" id="5_rcybh"]
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="6_tlyh3"]
 [ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="7_tn34w"]
 [ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialog_system/dialogue_panel.tscn" id="8_1bt4t"]
+[ext_resource type="Texture2D" uid="uid://bhjt06hjwyxgt" path="res://level_elements/decorative/benches/bench_vertical_new_glow.png" id="9_glow"]
+[ext_resource type="Texture2D" uid="uid://b7k1rwda5wu1p" path="res://visual_effects/day_night/light_radial.png" id="10_light"]
+[ext_resource type="Script" uid="uid://cqe28fftgjtbc" path="res://visual_effects/day_night/night_light_2d.gd" id="11_night"]
+[ext_resource type="Texture2D" uid="uid://c2ncf42cx2trq" path="res://level_elements/decorative/benches/bench_sitting_vertical.png" id="12_sitting"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fpcxu"]
 size = Vector2(15.75, 41.5)
@@ -49,6 +53,9 @@ animations = [{
 "speed": 2.0
 }]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glow"]
+blend_mode = 1
+
 [sub_resource type="Resource" id="Resource_lxykm"]
 script = ExtResource("5_rcybh")
 player_text = "Rest"
@@ -84,9 +91,36 @@ shape = SubResource("RectangleShape2D_fpcxu")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1185998454]
 z_index = 1
-position = Vector2(0, -16)
+position = Vector2(0, -24.5)
 sprite_frames = SubResource("SpriteFrames_fpcxu")
 autoplay = "default"
+
+[node name="SeatedSprite" type="Sprite2D" parent="." unique_id=267901733]
+visible = false
+z_index = 1
+position = Vector2(0, -24.5)
+texture = ExtResource("12_sitting")
+
+[node name="NightLight" type="Node2D" parent="." unique_id=1782784319 groups=["night_lights"]]
+script = ExtResource("11_night")
+max_energy = 0.12
+max_glow_alpha = 0.9
+stagger_range = 0.04
+
+[node name="GlowOverlay" type="Sprite2D" parent="NightLight" unique_id=807955440]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+material = SubResource("CanvasItemMaterial_glow")
+position = Vector2(0, -24.5)
+texture = ExtResource("9_glow")
+
+[node name="PointLight2D" type="PointLight2D" parent="NightLight" unique_id=1212332245]
+position = Vector2(0, -3)
+scale = Vector2(0.62, 0.38)
+color = Color(0.20784314, 0.9019608, 0.8980392, 1)
+energy = 0.0
+texture = ExtResource("10_light")
+texture_scale = 0.38
 
 [node name="DialogueInteractable" parent="." unique_id=1631350735 instance=ExtResource("4_6alwt")]
 dialogue = SubResource("Resource_6cojq")
@@ -98,9 +132,9 @@ shape = SubResource("RectangleShape2D_o8pop")
 
 [node name="Prompt" parent="DialogueInteractable" index="1" unique_id=272794898]
 offset_left = -39.0
-offset_top = -127.0
+offset_top = -136.0
 offset_right = 36.0
-offset_bottom = 41.0
+offset_bottom = 32.0
 
 [node name="AnimatedSprite2D" parent="DialogueInteractable" index="2" unique_id=819702371]
 visible = false

@@ -9,6 +9,10 @@ enum MusicTrack {
 
 const MUSIC_BUS: StringName = &"Music"
 const SFX_BUS: StringName = &"SFX"
+const AMBIENT_BUS: StringName = &"Ambient"
+const REST_OPEN_CUTOFF_HZ: float = 20000.0
+const REST_CUTOFF_HZ: float = 1100.0
+const REST_FILTER_DURATION: float = 0.6
 
 var _music_volume_linear: float = 1.0
 var _sfx_volume_linear: float = 1.0
@@ -63,6 +67,9 @@ var _ui_sfx_player: AudioStreamPlayer
 
 var _music_tween: Tween
 var _crossfade_tween: Tween
+var _rest_filter_tween: Tween
+var _music_low_pass: AudioEffectLowPassFilter
+var _ambient_low_pass: AudioEffectLowPassFilter
 
 var _level_music_track: int = MusicTrack.LEVEL_0
 var _music_target_db: float = DEFAULT_MUSIC_DB
@@ -80,6 +87,9 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	_ensure_audio_bus(MUSIC_BUS)
 	_ensure_audio_bus(SFX_BUS)
+	_ensure_audio_bus(AMBIENT_BUS, SFX_BUS)
+	_music_low_pass = _ensure_low_pass(MUSIC_BUS)
+	_ambient_low_pass = _ensure_low_pass(AMBIENT_BUS)
 
 	_music_player = _create_player(
 		"MainMusicPlayer",
@@ -107,6 +117,8 @@ func _ready() -> void:
 	SignalBus.notebook_closed.connect(
 		_on_notebook_closed
 	)
+	SignalBus.rest_started.connect(_on_rest_started)
+	SignalBus.rest_ended.connect(_on_rest_ended)
 
 
 func _create_player(
@@ -428,15 +440,81 @@ func play_ui_sfx(
 	_ui_sfx_player.volume_db = volume_db
 	_ui_sfx_player.play()
 
-func _ensure_audio_bus(bus_name: StringName) -> void:
+func _ensure_audio_bus(
+	bus_name: StringName,
+	send_to: StringName = &"Master"
+) -> void:
 	if AudioServer.get_bus_index(bus_name) >= 0:
+		AudioServer.set_bus_send(
+			AudioServer.get_bus_index(bus_name),
+			send_to
+		)
 		return
 
 	AudioServer.add_bus()
 
 	var bus_index := AudioServer.bus_count - 1
 	AudioServer.set_bus_name(bus_index, bus_name)
-	AudioServer.set_bus_send(bus_index, &"Master")
+	AudioServer.set_bus_send(bus_index, send_to)
+
+
+func _ensure_low_pass(
+	bus_name: StringName
+) -> AudioEffectLowPassFilter:
+	var bus_index := AudioServer.get_bus_index(bus_name)
+	for effect_index in AudioServer.get_bus_effect_count(bus_index):
+		var effect := AudioServer.get_bus_effect(
+			bus_index,
+			effect_index
+		)
+		if effect is AudioEffectLowPassFilter:
+			return effect as AudioEffectLowPassFilter
+
+	var low_pass := AudioEffectLowPassFilter.new()
+	low_pass.cutoff_hz = REST_OPEN_CUTOFF_HZ
+	AudioServer.add_bus_effect(bus_index, low_pass)
+	return low_pass
+
+
+func _on_rest_started() -> void:
+	_set_rest_filter(true)
+
+
+func _on_rest_ended() -> void:
+	_set_rest_filter(false)
+
+
+func _set_rest_filter(enabled: bool) -> void:
+	if _music_low_pass == null or _ambient_low_pass == null:
+		return
+	if _rest_filter_tween != null and _rest_filter_tween.is_valid():
+		_rest_filter_tween.kill()
+
+	var target := REST_CUTOFF_HZ if enabled else REST_OPEN_CUTOFF_HZ
+	_rest_filter_tween = create_tween()
+	_rest_filter_tween.set_parallel(true)
+	_rest_filter_tween.set_trans(Tween.TRANS_SINE)
+	_rest_filter_tween.set_ease(Tween.EASE_IN_OUT)
+	_rest_filter_tween.tween_method(
+		_set_music_rest_cutoff,
+		_music_low_pass.cutoff_hz,
+		target,
+		REST_FILTER_DURATION
+	)
+	_rest_filter_tween.tween_method(
+		_set_ambient_rest_cutoff,
+		_ambient_low_pass.cutoff_hz,
+		target,
+		REST_FILTER_DURATION
+	)
+
+
+func _set_music_rest_cutoff(value: float) -> void:
+	_music_low_pass.cutoff_hz = value
+
+
+func _set_ambient_rest_cutoff(value: float) -> void:
+	_ambient_low_pass.cutoff_hz = value
 
 func set_music_volume(value: float) -> void:
 	_music_volume_linear = clampf(value, 0.0, 1.0)

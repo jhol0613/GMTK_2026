@@ -1,14 +1,20 @@
 [gd_scene format=3 uid="uid://dcsei1m2axnjk"]
 
-[ext_resource type="Texture2D" uid="uid://cvnqkyp5mc1nq" path="res://level_elements/decorative/benches/bench.png" id="1_6bm8i"]
+[ext_resource type="Texture2D" path="res://level_elements/decorative/benches/bench_new.png" id="1_6bm8i"]
 [ext_resource type="Texture2D" uid="uid://df2ldgroey8mb" path="res://level_elements/decorative/snoozin.png" id="2_h4k8w"]
+[ext_resource type="Texture2D" path="res://level_elements/decorative/benches/bench_new_glow.png" id="3_glow"]
+[ext_resource type="Texture2D" path="res://visual_effects/day_night/light_radial.png" id="4_light"]
+[ext_resource type="Script" path="res://visual_effects/day_night/night_light_2d.gd" id="5_night"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glow"]
+blend_mode = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fpcxu"]
 size = Vector2(48, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h4k8w"]
 atlas = ExtResource("1_6bm8i")
-region = Rect2(0, 0, 48, 32)
+region = Rect2(0, 0, 48, 25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w78y7"]
 atlas = ExtResource("2_h4k8w")
@@ -56,7 +62,28 @@ shape = SubResource("RectangleShape2D_fpcxu")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1185998454]
 z_index = 1
-position = Vector2(0, -16)
+position = Vector2(0, -12.5)
 sprite_frames = SubResource("SpriteFrames_fpcxu")
 autoplay = "default"
 frame_progress = 0.0259226
+
+[node name="NightLight" type="Node2D" parent="." groups=["night_lights"]]
+script = ExtResource("5_night")
+max_energy = 0.16
+max_glow_alpha = 0.9
+stagger_range = 0.04
+
+[node name="GlowOverlay" type="Sprite2D" parent="NightLight"]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+material = SubResource("CanvasItemMaterial_glow")
+position = Vector2(0, -12.5)
+texture = ExtResource("3_glow")
+
+[node name="PointLight2D" type="PointLight2D" parent="NightLight"]
+position = Vector2(0, -3)
+scale = Vector2(1.2, 0.42)
+color = Color(0.20784314, 0.9019608, 0.8980392, 1)
+energy = 0.0
+texture = ExtResource("4_light")
+texture_scale = 0.42

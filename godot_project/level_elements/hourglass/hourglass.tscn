@@ -310,7 +310,7 @@ volume_db = 16.676
 autoplay = true
 max_distance = 132.0
 attenuation = 2.828424
-bus = &"SFX"
+bus = &"Ambient"
 
 [node name="ResshanInteractable" type="Control" parent="." unique_id=297517304]
 layout_mode = 3

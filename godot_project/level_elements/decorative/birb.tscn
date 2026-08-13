@@ -106,7 +106,7 @@ stream = ExtResource("4_o80xf")
 volume_db = 12.0
 max_distance = 300.0
 attenuation = 2.297397
-bus = &"SFX"
+bus = &"Ambient"
 
 [node name="FlyAwaySound" type="AudioStreamPlayer2D" parent="." unique_id=1729641565]
 stream = ExtResource("5_1k3iy")

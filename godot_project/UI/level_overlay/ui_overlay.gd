@@ -34,6 +34,7 @@ var _compacted_panel: Node
 @onready var _inventory_close_sound: AudioStreamPlayer = $InventoryCloseSound
 @onready var _item_popup: Control = $ItemPopup
 @onready var _item_popup_icon: TextureRect = $ItemPopup/Icon
+@onready var _rest_vignette: ColorRect = $RestVignette
 
 @onready var _initial_notebook_button_scale: Vector2 = _notebook_button.scale
 @onready var _initial_inventory_button_scale: Vector2 = _inventory_button.scale
@@ -43,6 +44,7 @@ const TICKET_BUTTON_SHOW_DELAY := 2.0
 
 var _item_popup_tween: Tween
 var _ticket_button_show_tween: Tween
+var _rest_vignette_tween: Tween
 
 
 # Called when the node enters the scene tree for the first time.
@@ -62,9 +64,33 @@ func _ready() -> void:
 	TimeManager.time_up.connect(_on_time_up)
 	
 	SignalBus.ticket_consumed.connect(_on_ticket_consumed)
+	SignalBus.rest_started.connect(_on_rest_started)
+	SignalBus.rest_ended.connect(_on_rest_ended)
 	_notebook.close_requested.connect(close_notebook)
 	_ticket.close_requested.connect(_close_ticket)
 	_inventory.close_requested.connect(_close_inventory)
+
+
+func _on_rest_started() -> void:
+	_set_rest_vignette(1.0)
+
+
+func _on_rest_ended() -> void:
+	_set_rest_vignette(0.0)
+
+
+func _set_rest_vignette(target: float) -> void:
+	if _rest_vignette_tween != null and _rest_vignette_tween.is_valid():
+		_rest_vignette_tween.kill()
+	_rest_vignette_tween = create_tween()
+	_rest_vignette_tween.set_trans(Tween.TRANS_SINE)
+	_rest_vignette_tween.set_ease(Tween.EASE_IN_OUT)
+	_rest_vignette_tween.tween_property(
+		_rest_vignette.material,
+		"shader_parameter/strength",
+		target,
+		0.6
+	)
 
 
 func _on_time_up() -> void:

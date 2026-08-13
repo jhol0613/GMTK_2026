@@ -232,9 +232,25 @@ _data = {
 &"time_up": SubResource("Animation_time_up")
 }
 
+[sub_resource type="Shader" id="Shader_rest_vignette"]
+code = "shader_type canvas_item;\n\nuniform float strength : hint_range(0.0, 1.0) = 0.0;\n\nvoid fragment() {\n\tvec2 centered = UV * 2.0 - 1.0;\n\tcentered.x *= 0.5625;\n\tfloat distance_from_center = length(centered);\n\tfloat edge = smoothstep(0.38, 0.9, distance_from_center);\n\tfloat alpha = edge * 0.48 * strength;\n\tCOLOR = vec4(0.035, 0.025, 0.07, alpha);\n}\n"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rest_vignette"]
+shader = SubResource("Shader_rest_vignette")
+shader_parameter/strength = 0.0
+
 [node name="UiOverlay" type="CanvasLayer" unique_id=368800410]
 layer = 2000
 script = ExtResource("1_0h6y4")
+
+[node name="RestVignette" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_rest_vignette")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="Time" parent="." unique_id=1094747134 instance=ExtResource("6_time")]
 offset_left = 1601.0
