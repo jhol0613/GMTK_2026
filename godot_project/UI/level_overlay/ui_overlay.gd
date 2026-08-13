@@ -13,6 +13,7 @@ var _notebook_home := Vector2.ZERO
 var _notebook_docked := false
 var _notebook_tween: Tween
 var _compacted_panel: Node
+var _notebook_player_movement_states: Dictionary = {}
 
 @onready var _time := $Time
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
@@ -250,7 +251,9 @@ func open_notebook() -> void:
 		_notebook.position = _notebook_home
 		_notebook.visible = true
 
+	_notebook_player_movement_states.clear()
 	for player in get_tree().get_nodes_in_group("player"):
+		_notebook_player_movement_states[player] = player.movement_disabled
 		player.movement_disabled = true
 
 	SignalBus.notebook_opened.emit()
@@ -293,9 +296,10 @@ func close_notebook() -> void:
 	else:
 		_notebook.visible = false
 
-	if _get_open_dialogue() == null:
-		for player in get_tree().get_nodes_in_group("player"):
-			player.movement_disabled = false
+	for player in _notebook_player_movement_states:
+		if is_instance_valid(player):
+			player.movement_disabled = _notebook_player_movement_states[player]
+	_notebook_player_movement_states.clear()
 
 	SignalBus.notebook_closed.emit()
 
