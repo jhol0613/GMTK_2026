@@ -7,6 +7,7 @@ signal option_confirmed(outcome_id: StringName)
 @export var player_name: String = "You"
 @export var player_icon: Texture2D
 @export var choice_nav_icons: Control
+@export_range(5.0, 120.0, 1.0) var characters_per_second := 45.0
 
 @onready var _speaker: ResshanLabel = $Root/Popup/MarginContainer/HBoxContainer/VBox/Speaker
 @onready var _body: ResshanLabel = $Root/Popup/MarginContainer/HBoxContainer/VBox/Body
@@ -23,8 +24,26 @@ var _selected_option: int
 var _reward: ItemData
 var _awaiting_close: bool
 var _awaiting_reward: bool
+var _typewriter_units: Array[String] = []
+var _typewriter_index := 0
+var _typewriter_accumulator := 0.0
+var _typewriter_active := false
 
 signal dialogue_complete
+
+
+func _process(delta: float) -> void:
+	if not _typewriter_active:
+		return
+	_typewriter_accumulator += delta * characters_per_second
+	var count := int(_typewriter_accumulator)
+	if count <= 0:
+		return
+	_typewriter_accumulator -= count
+	_typewriter_index = mini(_typewriter_index + count, _typewriter_units.size())
+	_body.text = _get_typewriter_text(_typewriter_index)
+	if _typewriter_index >= _typewriter_units.size():
+		_typewriter_active = false
 
 
 ## Initialize the dialogue panel
@@ -65,6 +84,7 @@ func _update_line() -> void:
 	
 	
 	if _lines.is_empty():
+		_typewriter_active = false
 		_speaker.text = ""
 		_body.text = ""
 		_speaker_icon.texture = null
@@ -75,14 +95,18 @@ func _update_line() -> void:
 
 func _show_line(line: DialogueLine) -> void:
 	_speaker.text = line.speaker
-	_body.text = line.text
 	_speaker_icon.texture = line.speaker_icon
+	_start_typewriter(line.text)
 
 	if line.sfx != null:
 		_lines_sfx.stream = line.sfx
 		_lines_sfx.play()
 
 func _on_interact_while_open() -> void:
+	if _typewriter_active:
+		_finish_typewriter()
+		return
+
 	if _awaiting_close:
 		if _awaiting_reward:
 			_give_reward()
@@ -104,6 +128,7 @@ func _on_interact_while_open() -> void:
 
 
 func _enter_options_mode() -> void:
+	_typewriter_active = false
 	_showing_options = true
 	_body.text = ""
 	_speaker.text = player_name
@@ -178,10 +203,52 @@ func _give_reward() -> void:
 
 
 func _close_dialog() -> void:
+	_typewriter_active = false
 	_awaiting_close = false
 	_awaiting_reward = false
 	hide_popup()
 	dialogue_complete.emit()
+
+
+func _start_typewriter(value: String) -> void:
+	_typewriter_units = _split_typewriter_units(value)
+	_typewriter_index = 0
+	_typewriter_accumulator = 0.0
+	_typewriter_active = not _typewriter_units.is_empty()
+	_body.text = ""
+
+
+func _finish_typewriter() -> void:
+	_typewriter_index = _typewriter_units.size()
+	_body.text = _get_typewriter_text(_typewriter_index)
+	_typewriter_active = false
+	_typewriter_accumulator = 0.0
+
+
+func _split_typewriter_units(value: String) -> Array[String]:
+	var units: Array[String] = []
+	var index := 0
+	while index < value.length():
+		if value.substr(index, 2) == "<<":
+			var closing := value.find(">>", index + 2)
+			if closing != -1:
+				units.append(value.substr(index, closing + 2 - index))
+				index = closing + 2
+				continue
+		if value.substr(index, 2) == "/n":
+			units.append("/n")
+			index += 2
+			continue
+		units.append(value.substr(index, 1))
+		index += 1
+	return units
+
+
+func _get_typewriter_text(count: int) -> String:
+	var result := ""
+	for index in mini(count, _typewriter_units.size()):
+		result += _typewriter_units[index]
+	return result
 
 
 var _full_offset_left := 0.0
