@@ -89,6 +89,7 @@ tile_map_data = PackedByteArray("AAAHAAQAAgADAAAAAAAHAP3/AgADAAIAAAAHAPz/AgADAAA
 reload_scene = 3
 depart_offset = Vector2(2000, 0)
 arrival_offset = Vector2(-2000, 0)
+schedule = null
 ticket_id = &"RED_east"
 color = 7
 
@@ -96,6 +97,7 @@ color = 7
 reload_scene = 3
 depart_offset = Vector2(-2000, 0)
 arrival_offset = Vector2(2000, 0)
+schedule = null
 ticket_id = &"RED_west"
 color = 7
 
@@ -120,6 +122,7 @@ tile_map_data = PackedByteArray("AAAHAAQAAgADAAAAAAAHAP3/AgADAAIAAAAHAPz/AgADAAA
 reload_scene = 3
 depart_offset = Vector2(2000, 0)
 arrival_offset = Vector2(-2000, 0)
+schedule = null
 ticket_id = &"PINK_east"
 color = 5
 
@@ -127,6 +130,7 @@ color = 5
 reload_scene = 3
 depart_offset = Vector2(-2000, 0)
 arrival_offset = Vector2(2000, 0)
+schedule = null
 ticket_id = &"PINK_west"
 color = 5
 
@@ -151,6 +155,7 @@ tile_map_data = PackedByteArray("AAAHAAQAAgADAAAAAAAHAP3/AgADAAIAAAAHAPz/AgADAAA
 reload_scene = 3
 depart_offset = Vector2(2000, 0)
 arrival_offset = Vector2(-2000, 0)
+schedule = null
 ticket_id = &"GREEN_east"
 color = 3
 
@@ -158,6 +163,7 @@ color = 3
 reload_scene = 3
 depart_offset = Vector2(-2000, 0)
 arrival_offset = Vector2(2000, 0)
+schedule = null
 ticket_id = &"GREEN_west"
 color = 3
 
@@ -183,12 +189,14 @@ next_scene = 6
 reload_scene = 3
 depart_offset = Vector2(2000, 0)
 arrival_offset = Vector2(-2000, 0)
+schedule = null
 color = 0
 
 [node name="LowerTrain" parent="Platform4" index="8" unique_id=1370361982]
 reload_scene = 3
 depart_offset = Vector2(-2000, 0)
 arrival_offset = Vector2(2000, 0)
+schedule = null
 color = 0
 
 [node name="Station0Sign" parent="Platform4" index="19" unique_id=98722644]

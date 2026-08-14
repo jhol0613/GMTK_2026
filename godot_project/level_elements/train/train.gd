@@ -20,6 +20,11 @@ class_name Train
 @export var disembark_camera_offset_y: float = 0.0
 
 @export_group('Gameplay')
+
+## Schedule this train follows.
+## x, y, z represents hours, minutes, seconds respectively 🚩
+@export var schedule: Array[Vector3i] = []
+
 @export var incorrect_penalty_minutes: int = 5
 ## Time cost for trying to board with no ticket / wrong ticket for this train
 @export var no_ticket_penalty_minutes: int = 3
@@ -29,6 +34,7 @@ class_name Train
 @export var departs_on_missed_deadline: bool = true
 ## Ticket id this train accepts (e.g. red_east / red_west).
 @export var ticket_id: StringName = &"red_east"
+
 
 @export_group('Visual')
 @export var sprite: AnimatedSprite2D
@@ -45,6 +51,9 @@ class_name Train
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var train_interactable_l: TrainInteractable = $TrainInteractableL
 @onready var train_interactable_r: TrainInteractable = $TrainInteractableR
+
+## Index of departure time from schedule 🚩
+var next_departure: int = 0
 
 var _boarding: bool = false
 var _missed_departure: bool = false
@@ -106,6 +115,14 @@ func _on_time_changed(_hour: int, _minute: int, _second: int) -> void:
 	var ticket: TicketData = Inventory.get_ticket()
 	if ticket == null or not _matches_ticket(ticket):
 		return
+	
+	# How it should be when switching to schedule system. 🚩
+	#if TimeManager.has_at_least(
+		#schedule[next_departure].x,
+		#schedule[next_departure].y,
+		#schedule[next_departure].z,
+	#):
+		#return
 	if TimeManager.has_at_least(
 		ticket.departure_hours,
 		ticket.departure_minutes,
@@ -113,8 +130,14 @@ func _on_time_changed(_hour: int, _minute: int, _second: int) -> void:
 	):
 		return
 	_missed_departure = true
+	# Should probably be renamed into just "departure_sequence" with schedule system 🚩
 	_missed_departure_sequence()
 
+# Also I think it would be better to have this function 🚩
+# It will return a ticket for a train that will not depart 
+# before player even has a chance to reach it.
+#func create_fair_ticket() -> TicketData:
+	#pass
 
 func _on_inventory_changed() -> void:
 	# If the player buys a still-valid matching ticket, reset the missed departure flag
@@ -153,7 +176,7 @@ func _missed_departure_sequence() -> void:
 	if _boarding:
 		return
 	_boarding = true
-	_missed_departure = true
+	_missed_departure = true # Maybe remove when switching to schedule 🚩
 	_set_interactables_enabled(false)
 	SignalBus.missed_train.emit()
 
