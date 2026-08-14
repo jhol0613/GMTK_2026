@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://ba3allrv3pni0" path="res://level_elements/decorative/plants/plant_1.tscn" id="32_82lf4"]
 [ext_resource type="PackedScene" uid="uid://b8j82426dfwlf" path="res://level_elements/decorative/plants/plant_2.tscn" id="33_e0qbr"]
 [ext_resource type="PackedScene" uid="uid://sve0agw1p5d0" path="res://level_elements/NPCs/atm_guy.tscn" id="34_7fqnt"]
+[ext_resource type="PackedScene" uid="uid://bcltguxgmfo2w" path="res://level_elements/decorative/sprinkler.tscn" id="35_wl75l"]
 [ext_resource type="PackedScene" uid="uid://bavx6n5qxivtt" path="res://level_elements/decorative/plants/tiny_foliage.tscn" id="35_ya8pr"]
 [ext_resource type="Texture2D" uid="uid://cs5l21wrqu5gc" path="res://level_elements/decorative/solar_decor/Solardecor3.png" id="36_t3e5a"]
 [ext_resource type="Texture2D" uid="uid://bogm6imvrrjwr" path="res://level_elements/decorative/solar_decor/Solardecor1.png" id="37_dy5lu"]
@@ -908,6 +909,66 @@ position = Vector2(387, -1845)
 
 [node name="RestChairVerticalRight2" parent="Decorations" index="182" unique_id=1678239908 instance=ExtResource("38_lu7vs")]
 position = Vector2(501, -1776)
+
+[node name="Sprinkler" parent="Decorations" index="183" unique_id=245555874 instance=ExtResource("35_wl75l")]
+position = Vector2(-1484, -691)
+
+[node name="Sprinkler2" parent="Decorations" index="184" unique_id=402207223 instance=ExtResource("35_wl75l")]
+position = Vector2(-1041, -682)
+
+[node name="Sprinkler3" parent="Decorations" index="185" unique_id=50668991 instance=ExtResource("35_wl75l")]
+position = Vector2(-1462, -691)
+
+[node name="Sprinkler4" parent="Decorations" index="186" unique_id=2066610491 instance=ExtResource("35_wl75l")]
+position = Vector2(-871, -687)
+
+[node name="Sprinkler5" parent="Decorations" index="187" unique_id=864587085 instance=ExtResource("35_wl75l")]
+position = Vector2(-602, -405)
+
+[node name="Sprinkler6" parent="Decorations" index="188" unique_id=14094495 instance=ExtResource("35_wl75l")]
+position = Vector2(-509, -248)
+
+[node name="Sprinkler7" parent="Decorations" index="189" unique_id=956985899 instance=ExtResource("35_wl75l")]
+position = Vector2(-366, -246)
+
+[node name="Sprinkler8" parent="Decorations" index="190" unique_id=1810518893 instance=ExtResource("35_wl75l")]
+position = Vector2(-227, -295)
+
+[node name="Sprinkler9" parent="Decorations" index="191" unique_id=1842498795 instance=ExtResource("35_wl75l")]
+position = Vector2(-199, -161)
+
+[node name="Sprinkler10" parent="Decorations" index="192" unique_id=1242714437 instance=ExtResource("35_wl75l")]
+position = Vector2(-217, -239)
+
+[node name="Sprinkler11" parent="Decorations" index="193" unique_id=965113650 instance=ExtResource("35_wl75l")]
+position = Vector2(-73, -341)
+
+[node name="Sprinkler12" parent="Decorations" index="194" unique_id=41001159 instance=ExtResource("35_wl75l")]
+position = Vector2(-56, -144)
+
+[node name="Sprinkler13" parent="Decorations" index="195" unique_id=645521632 instance=ExtResource("35_wl75l")]
+position = Vector2(-432, -554)
+
+[node name="Sprinkler14" parent="Decorations" index="196" unique_id=1049610554 instance=ExtResource("35_wl75l")]
+position = Vector2(-208, -560)
+
+[node name="Sprinkler15" parent="Decorations" index="197" unique_id=45061636 instance=ExtResource("35_wl75l")]
+position = Vector2(276, -1051)
+
+[node name="Sprinkler16" parent="Decorations" index="198" unique_id=1044004931 instance=ExtResource("35_wl75l")]
+position = Vector2(621, -1056)
+
+[node name="Sprinkler17" parent="Decorations" index="199" unique_id=357576705 instance=ExtResource("35_wl75l")]
+position = Vector2(-467, -1396)
+
+[node name="Sprinkler18" parent="Decorations" index="200" unique_id=1728403506 instance=ExtResource("35_wl75l")]
+position = Vector2(-724, -1410)
+
+[node name="Sprinkler19" parent="Decorations" index="201" unique_id=756005061 instance=ExtResource("35_wl75l")]
+position = Vector2(240, -1757)
+
+[node name="Sprinkler20" parent="Decorations" index="202" unique_id=2052844751 instance=ExtResource("35_wl75l")]
+position = Vector2(621, -1763)
 
 [node name="Background" parent="." index="21" unique_id=102847613]
 transition_duration = 0.6

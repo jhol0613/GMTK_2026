@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://cbuohfggvk1qu" path="res://level_elements/decorative/birb.tscn" id="30_x8hdd"]
 [ext_resource type="PackedScene" uid="uid://biebaxao2klw3" path="res://level_elements/decorative/benches/rest_chair_vertical_left.tscn" id="31_oxxmn"]
 [ext_resource type="Script" uid="uid://dcanbg433hb0v" path="res://visual_effects/day_night/hoverthruster_lighting.gd" id="31_thruster_light"]
+[ext_resource type="PackedScene" path="res://level_elements/decorative/sprinkler.tscn" id="31_u460r"]
 [ext_resource type="PackedScene" path="res://visual_effects/fireflies/firefly_field.tscn" id="32_fireflies"]
 [ext_resource type="PackedScene" uid="uid://dj6pi30ngfhch" path="res://level_elements/decorative/benches/rest_chair.tscn" id="32_oxxmn"]
 [ext_resource type="PackedScene" uid="uid://digydaor1ukv0" path="res://level_elements/decorative/benches/rest_chair_vertical_right.tscn" id="32_u460r"]
@@ -583,7 +584,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/UpperTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.32523167
+frame_progress = 0.053938944
 
 [node name="LowerTrain" parent="Platform" index="8" unique_id=1370361982]
 next_scene = 2
@@ -594,7 +595,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/LowerTrain" index="0" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.56664824
+frame_progress = 0.2953541
 
 [node name="TicketBooth" parent="." index="6" unique_id=861247956 instance=ExtResource("2_823pn")]
 position = Vector2(-1168, -368)
@@ -833,6 +834,15 @@ position = Vector2(-1239, -275)
 
 [node name="StreetLamp6" parent="Decorations" index="50" unique_id=1541650536 instance=ExtResource("33_2dnbt")]
 position = Vector2(-1313, -471)
+
+[node name="Sprinkler" parent="Decorations" index="51" unique_id=1276048349 instance=ExtResource("31_u460r")]
+position = Vector2(-1256, -405)
+
+[node name="Sprinkler2" parent="Decorations" index="52" unique_id=1525897675 instance=ExtResource("31_u460r")]
+position = Vector2(-1119, -459)
+
+[node name="Sprinkler3" parent="Decorations" index="53" unique_id=1367537945 instance=ExtResource("31_u460r")]
+position = Vector2(-1099, -319)
 
 [node name="Background" parent="." index="13" unique_id=102847613]
 transition_duration = 0.6

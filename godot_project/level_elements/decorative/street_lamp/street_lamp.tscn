@@ -24,9 +24,11 @@ texture = ExtResource("1_base")
 
 [node name="NightLight" type="Node2D" parent="." groups=["night_lights"]]
 script = ExtResource("4_night")
+start_progress = 0.5
+full_strength_progress = 0.505
 max_energy = 0.55
 max_glow_alpha = 0.8
-stagger_range = 0.07
+stagger_range = 0.005
 max_cone_alpha = 0.3
 
 [node name="LightCone" type="ColorRect" parent="NightLight"]
