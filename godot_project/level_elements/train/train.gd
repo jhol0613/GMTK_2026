@@ -9,11 +9,17 @@ class_name Train
 @export var level_clear_time_cost_minutes: int = 5
 
 # Animation parameters
+@export_group("Animation")
 @export var depart_offset: Vector2 = Vector2(800, 0)
 @export var depart_duration: float = 1.5
 @export var arrival_offset: Vector2 = Vector2(-800, 0)
 @export var arrival_duration: float = 1.5
+## Player walk speed while boarding or exiting the train.
+@export var board_walk_speed: float = 80.0
+## Extra downward camera nudge while the player walks out of the train.
+@export var disembark_camera_offset_y: float = 0.0
 
+@export_group('Gameplay')
 @export var incorrect_penalty_minutes: int = 5
 ## Time cost for trying to board with no ticket / wrong ticket for this train
 @export var no_ticket_penalty_minutes: int = 3
@@ -23,11 +29,8 @@ class_name Train
 @export var departs_on_missed_deadline: bool = true
 ## Ticket id this train accepts (e.g. red_east / red_west).
 @export var ticket_id: StringName = &"red_east"
-## Player walk speed while boarding or exiting the train.
-@export var board_walk_speed: float = 80.0
-## Extra downward camera nudge while the player walks out of the train.
-@export var disembark_camera_offset_y: float = 0.0
 
+@export_group('Visual')
 @export var sprite: AnimatedSprite2D
 @export var color := Enums.TrainColor.BROWN:
 	# Ensure that index of animation names matches the order of the Enums
