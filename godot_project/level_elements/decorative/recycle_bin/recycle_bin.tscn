@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c12ooog5cg04c" path="res://level_elements/decorative/recycle_bin/open.png" id="1_03jd3"]
 [ext_resource type="Script" uid="uid://b06a8qnyvxbet" path="res://level_elements/decorative/recycle_bin/recycle_bin.gd" id="1_bg1vw"]
+[ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="3_0mfuq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bg1vw"]
 atlas = ExtResource("1_03jd3")
@@ -73,3 +74,13 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=660280388]
 position = Vector2(0.5, -6.5)
 shape = SubResource("RectangleShape2D_body")
+
+[node name="ResshanInteractable" type="Control" parent="." unique_id=998953575]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -4.0
+offset_top = -12.0
+offset_right = 4.0
+offset_bottom = -4.0
+script = ExtResource("3_0mfuq")
+_string = "<<recycle>>"
