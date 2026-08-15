@@ -16,5 +16,8 @@ extends Node
 func get_fair_ticket(for_train: Train) -> TicketData:
 	return
 
+func get_next_train_time(for_color: Enums.TrainColor) -> Vector3i:
+	return Vector3i()
+
 func _handle_aproaching_train(data: ScheduleData) -> void:
 	pass
