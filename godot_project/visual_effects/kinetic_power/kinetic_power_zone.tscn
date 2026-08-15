@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://visual_effects/kinetic_power/kinetic_power_zone.gd" id="1_script"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_unshaded"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_range"]
+radius = 12.0
+
+[node name="KineticPowerZone" type="Area2D" groups=["kinetic_power_zones"]]
+z_index = 1
+material = SubResource("CanvasItemMaterial_unshaded")
+collision_layer = 0
+collision_mask = 1
+monitorable = false
+script = ExtResource("1_script")
+
+[node name="Circuit" type="Line2D" parent="."]
+show_behind_parent = true
+use_parent_material = true
+width = 1.0
+default_color = Color(0.25, 0.82, 1, 1)
+joint_mode = 1
+antialiased = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_range")

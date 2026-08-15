@@ -1,10 +1,10 @@
 extends CanvasLayer
 
 @export var mouse_hover_offset := Vector2(0, -8)
-@export var notebook_dock_x := 1568.0
-@export var notebook_offscreen_x := 2272.0
+@export var notebook_dock_x := 352.0
+@export var notebook_offscreen_x := -352.0
 @export var notebook_slide_time := 0.3
-@export var dialogue_compact_right := 1176.0
+@export var dialogue_compact_left := 744.0
 
 var magnifying_glass = load("uid://c8n3by2cmh20k")
 var pen = load("uid://c8yj5np7nrak6")
@@ -13,6 +13,7 @@ var _notebook_home := Vector2.ZERO
 var _notebook_docked := false
 var _notebook_tween: Tween
 var _compacted_panel: Node
+var _compacted_close_signal := &""
 var _notebook_player_movement_states: Dictionary = {}
 
 @onready var _time := $Time
@@ -242,8 +243,23 @@ func open_notebook() -> void:
 	_notebook_docked = dialogue != null
 	if _notebook_docked:
 		if dialogue.has_method("set_compact"):
-			dialogue.set_compact(true, dialogue_compact_right, notebook_slide_time)
+			dialogue.set_compact(
+				true,
+				dialogue_compact_left,
+				notebook_slide_time,
+				true,
+			)
 			_compacted_panel = dialogue
+			if dialogue.has_signal(&"closed"):
+				_compacted_close_signal = &"closed"
+			elif dialogue.has_signal(&"dialogue_complete"):
+				_compacted_close_signal = &"dialogue_complete"
+			if _compacted_close_signal != &"":
+				dialogue.connect(
+					_compacted_close_signal,
+					_on_compacted_panel_closed,
+					CONNECT_ONE_SHOT,
+				)
 		_notebook.position = Vector2(notebook_offscreen_x, _notebook_home.y)
 		_notebook.visible = true
 		_slide_notebook(notebook_dock_x)
@@ -278,6 +294,19 @@ func _slide_notebook(target_x: float) -> Tween:
 	return _notebook_tween
 
 
+func _on_compacted_panel_closed() -> void:
+	if not _notebook_docked:
+		return
+	_notebook_docked = false
+	if _compacted_panel != null and is_instance_valid(_compacted_panel):
+		if _compacted_panel.has_method("set_compact"):
+			_compacted_panel.set_compact(false, 0.0, notebook_slide_time)
+	_compacted_panel = null
+	_compacted_close_signal = &""
+	if _notebook.visible:
+		_slide_notebook(_notebook_home.x)
+
+
 func close_notebook() -> void:
 	if not _notebook.visible:
 		return
@@ -289,8 +318,16 @@ func close_notebook() -> void:
 	if _notebook_docked:
 		_notebook_docked = false
 		if _compacted_panel != null and is_instance_valid(_compacted_panel):
+			if (
+				_compacted_close_signal != &""
+				and _compacted_panel.has_signal(_compacted_close_signal)
+			):
+				var callback := Callable(self, "_on_compacted_panel_closed")
+				if _compacted_panel.is_connected(_compacted_close_signal, callback):
+					_compacted_panel.disconnect(_compacted_close_signal, callback)
 			_compacted_panel.set_compact(false, 0.0, notebook_slide_time)
 		_compacted_panel = null
+		_compacted_close_signal = &""
 		var tween := _slide_notebook(notebook_offscreen_x)
 		tween.tween_callback(func() -> void: _notebook.visible = false)
 	else:

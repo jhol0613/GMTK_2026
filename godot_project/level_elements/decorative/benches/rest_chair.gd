@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-@export var rest_units_per_second := 10.0
+@export var rest_units_per_second := 7.0
 
 @onready var _panel: DialoguePanel = $DialoguePanel
 @onready var _chair_sprite: CanvasItem = get_node_or_null("Sprite")

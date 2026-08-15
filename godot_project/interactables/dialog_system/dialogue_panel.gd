@@ -258,7 +258,12 @@ var _full_saved := false
 var _compact_tween: Tween
 
 
-func set_compact(enabled: bool, right_edge: float, duration := 0.0) -> void:
+func set_compact(
+	enabled: bool,
+	edge: float,
+	duration := 0.0,
+	align_right := false,
+) -> void:
 	var popup: PanelContainer = $Root/Popup
 	if not _full_saved:
 		_full_saved = true
@@ -266,9 +271,18 @@ func set_compact(enabled: bool, right_edge: float, duration := 0.0) -> void:
 		_full_offset_right = popup.offset_right
 		_full_min_width = popup.custom_minimum_size.x
 
-	var target_left := 0.0 if enabled else _full_offset_left
-	var target_right := right_edge if enabled else _full_offset_right
-	var target_width := maxf(right_edge, 0.0) if enabled else _full_min_width
+	var target_left := _full_offset_left
+	var target_right := _full_offset_right
+	var target_width := _full_min_width
+	if enabled:
+		if align_right:
+			target_left = edge
+			target_right = ($Root as Control).size.x
+			target_width = maxf(target_right - target_left, 0.0)
+		else:
+			target_left = 0.0
+			target_right = edge
+			target_width = maxf(edge, 0.0)
 
 	if _compact_tween != null and _compact_tween.is_valid():
 		_compact_tween.kill()

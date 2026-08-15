@@ -32,19 +32,60 @@ const WORLD_TINTS := [
 	Color("52658e"),
 ]
 
+const REST_SCROLL_MULTIPLIER := 7.0
+const REST_SCROLL_TRANSITION := 0.35
+
 var _day_sprites: Array[Sprite2D] = []
 var _dusk_sprites: Array[Sprite2D] = []
 var _night_sprites: Array[Sprite2D] = []
 var _world_items: Array[CanvasItem] = []
 var _world_base_modulates: Array[Color] = []
+var _parallax_layers: Array[Parallax2D] = []
+var _base_autoscrolls: Array[Vector2] = []
 var _fade_tween: Tween
+var _scroll_tween: Tween
 
 
 func _ready() -> void:
 	_collect_world_items()
 	_create_background_sets()
+	_collect_parallax_layers()
 	TimeManager.time_changed.connect(_on_time_changed)
+	SignalBus.rest_started.connect(_on_rest_started)
+	SignalBus.rest_ended.connect(_on_rest_ended)
 	_update_background(TimeManager.hour, TimeManager.minute, TimeManager.second, false)
+
+
+func _collect_parallax_layers() -> void:
+	for path in LAYER_PATHS:
+		var layer := get_node(path) as Parallax2D
+		if layer == null:
+			continue
+		_parallax_layers.append(layer)
+		_base_autoscrolls.append(layer.autoscroll)
+
+
+func _on_rest_started() -> void:
+	_set_scroll_multiplier(REST_SCROLL_MULTIPLIER)
+
+
+func _on_rest_ended() -> void:
+	_set_scroll_multiplier(1.0)
+
+
+func _set_scroll_multiplier(multiplier: float) -> void:
+	if _scroll_tween != null and _scroll_tween.is_valid():
+		_scroll_tween.kill()
+	_scroll_tween = create_tween().set_parallel(true)
+	_scroll_tween.set_trans(Tween.TRANS_SINE)
+	_scroll_tween.set_ease(Tween.EASE_IN_OUT)
+	for index in _parallax_layers.size():
+		_scroll_tween.tween_property(
+			_parallax_layers[index],
+			"autoscroll",
+			_base_autoscrolls[index] * multiplier,
+			REST_SCROLL_TRANSITION,
+		)
 
 
 func _collect_world_items() -> void:
