@@ -4,13 +4,6 @@ const PURCHASE_OUTCOME: StringName = &"bought_coffee"
 
 @export var slow_duration_minutes: int = 5
 @export var time_scale_while_active: float = 0.5
-@export var purchase_icon: Texture2D
-
-@export_group("Audio")
-@export var purchase_sound: AudioStream
-@export var effect_sound: AudioStream
-@export_range(-80.0, 6.0, 0.5) var purchase_volume_db := -4.0
-@export_range(-80.0, 6.0, 0.5) var effect_volume_db := -10.0
 
 @onready var _dialogue_panel: DialoguePanel = $DialoguePanel
 
@@ -25,14 +18,5 @@ func _on_option_confirmed(outcome_id: StringName) -> void:
 		return
 	if not Wallet.spend(Wallet.COFFEE_COST):
 		return
-	if purchase_sound != null:
-		AudioManager.play_ui_sfx(purchase_sound, purchase_volume_db)
-	if purchase_icon != null:
-		SignalBus.item_popup_requested.emit(purchase_icon)
-		await SignalBus.item_popup_finished
-	elif purchase_sound != null:
-		await get_tree().create_timer(purchase_sound.get_length()).timeout
-	if effect_sound != null:
-		AudioManager.play_ui_sfx(effect_sound, effect_volume_db)
 	TimeManager.set_time_scale(time_scale_while_active, slow_duration_minutes)
 	

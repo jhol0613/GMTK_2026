@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource type="Script" path="res://ui/token_display/token_display.gd" id="1_token"]
 [ext_resource type="Texture2D" path="res://ui/Battery/Battery_shell.png" id="2_shell"]
@@ -6,8 +6,6 @@
 [ext_resource type="Texture2D" path="res://ui/Battery/battery_empty.png" id="4_empty"]
 [ext_resource type="Texture2D" path="res://ui/Battery/battery_low.png" id="5_low"]
 [ext_resource type="Texture2D" path="res://ui/Battery/battery_charging.png" id="6_charging"]
-[ext_resource type="AudioStream" path="res://ui/token_display/sfx/battery_gain.wav" id="7_gain"]
-[ext_resource type="AudioStream" path="res://ui/token_display/sfx/battery_spend.wav" id="8_spend"]
 
 [node name="TokenDisplay" type="Control"]
 custom_minimum_size = Vector2(180, 84)
@@ -21,5 +19,3 @@ cell_empty = ExtResource("4_empty")
 cell_low = ExtResource("5_low")
 cell_charging = ExtResource("6_charging")
 pixel_scale = 4
-gain_sound = ExtResource("7_gain")
-drain_sound = ExtResource("8_spend")

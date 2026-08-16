@@ -389,14 +389,6 @@ stream = ExtResource("15_57od6")
 volume_db = 4.0
 bus = &"SFX"
 
-[node name="TrinketPurchaseSound" type="AudioStreamPlayer" parent="."]
-volume_db = -4.0
-bus = &"SFX"
-
-[node name="ItemToInventorySound" type="AudioStreamPlayer" parent="."]
-volume_db = -4.0
-bus = &"SFX"
-
 [node name="TimeUpSound" type="AudioStreamPlayer" parent="." unique_id=980859308]
 bus = &"SFX"
 

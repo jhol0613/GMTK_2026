@@ -12,8 +12,6 @@
 [ext_resource type="Script" uid="uid://b3sxo70i1r07u" path="res://level_elements/coffee_shop/coffee_shop_night_light.gd" id="7_nightlight"]
 [ext_resource type="Shader" uid="uid://cledinetwy2el" path="res://level_elements/coffee_shop/coffee_shop_glow.gdshader" id="8_glow_shader"]
 [ext_resource type="Shader" uid="uid://x010b1ugulx5" path="res://level_elements/coffee_shop/coffee_machine_untinted.gdshader" id="9_machine_shader"]
-[ext_resource type="AudioStream" path="res://ui/sfx/Coffee_Effect_Bell.wav" id="10_effect_bell"]
-[ext_resource type="Texture2D" path="res://ui/ticket/icon_ticket.png" id="11_temp_purchase_icon"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_glow"]
 shader = ExtResource("8_glow_shader")
@@ -58,8 +56,6 @@ size = Vector2(161, 42)
 
 [node name="CoffeeShop" type="Node2D" unique_id=780382610]
 script = ExtResource("1_coffee")
-purchase_icon = ExtResource("11_temp_purchase_icon")
-effect_sound = ExtResource("10_effect_bell")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=458582389]
 z_index = 1
