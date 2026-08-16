@@ -3,7 +3,8 @@ extends Resource
 
 signal train_aproaching 
 
-@export var direction: String # from what direction it's coming from
+##the direction the train is going
+@export var direction: Enums.TrainDirection
 @export var hour: int
 @export var minute: int
 @export var seconds: int

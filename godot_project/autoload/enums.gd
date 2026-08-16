@@ -32,12 +32,50 @@ enum TrainColor {
 	YELLOW = 9,
 }
 
+func train_color_to_resshan(color: TrainColor) -> String:
+	match color:
+		TrainColor.BLUE:
+			return "<<blue>>"
+		TrainColor.BROWN:
+			return "<<brown>>"
+		TrainColor.GRAY:
+			return "<<gray>>"
+		TrainColor.GREEN:
+			return "<<green>>"
+		TrainColor.MAROON:
+			return "<<maroon>>"
+		TrainColor.PINK:
+			return "<<pink>>"
+		TrainColor.PURPLE:
+			return "<<purple>>"
+		TrainColor.RED:
+			return "<<red>>"
+		TrainColor.TEAL:
+			return "<<teal>>"
+		TrainColor.YELLOW:
+			return "<<yellow>>"
+		_:
+			return ""
+
 enum TrainDirection {
 	NORTH,
 	SOUTH,
 	EAST,
 	WEST
 }
+
+func train_direction_to_resshan(direction: TrainDirection) -> String:
+	match direction:
+		TrainDirection.NORTH:
+			return "<<north>>"
+		TrainDirection.SOUTH:
+			return "<<south>>"
+		TrainDirection.EAST:
+			return "<<east>>"
+		TrainDirection.WEST:
+			return "<<west>>"
+		_:
+			return ""
 
 enum BoardResult {
 	REJECTED, ## No ticket, or ticket does not match this train

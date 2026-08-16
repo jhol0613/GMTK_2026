@@ -2,7 +2,8 @@ extends Node2D
 
 class_name LevelTemplate
 
-@export var correct_line: StringName = &"red_east"
+@export var correct_train_line: Enums.TrainColor
+@export var correct_train_direction: Enums.TrainDirection
 @export var wrong_train_line: DialogueLine
 @export var missed_train_line: DialogueLine
 @export var dialogue_panel_scene: PackedScene

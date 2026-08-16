@@ -16,8 +16,8 @@ metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_ntdhj"]
 script = ExtResource("5_y4sxr")
-train_line = "<<red>> <<line>>"
-id = &"RED_west"
+train_line = 7
+direction = 3
 metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
 
 [sub_resource type="Resource" id="Resource_cnn7p"]
@@ -37,8 +37,8 @@ metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_4knja"]
 script = ExtResource("5_y4sxr")
-train_line = "<<red>> <<line>>"
-id = &"RED_east"
+train_line = 7
+direction = 2
 metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
 
 [sub_resource type="Resource" id="Resource_flgpe"]
@@ -58,8 +58,7 @@ metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_w75he"]
 script = ExtResource("5_y4sxr")
-train_line = "<<blue>> <<line>>"
-id = &"BLUE_west"
+direction = 3
 metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
 
 [sub_resource type="Resource" id="Resource_oc15f"]
@@ -79,8 +78,7 @@ metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_06ecp"]
 script = ExtResource("5_y4sxr")
-train_line = "<<blue>> <<line>>"
-id = &"BLUE_east"
+direction = 2
 metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
 
 [sub_resource type="Resource" id="Resource_vmmyj"]
@@ -100,8 +98,8 @@ metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_e5brb"]
 script = ExtResource("5_y4sxr")
-train_line = "<<pink>> <<line>>"
-id = &"PINK_west"
+train_line = 5
+direction = 3
 metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
 
 [sub_resource type="Resource" id="Resource_54gw1"]
@@ -121,8 +119,8 @@ metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_toluw"]
 script = ExtResource("5_y4sxr")
-train_line = "<<pink>> <<line>>"
-id = &"PINK_east"
+train_line = 5
+direction = 2
 metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
 
 [sub_resource type="Resource" id="Resource_mcb8q"]
@@ -142,8 +140,8 @@ metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_udfhf"]
 script = ExtResource("5_y4sxr")
-train_line = "<<green>> <<line>>"
-id = &"GREEN_west"
+train_line = 3
+direction = 3
 metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
 
 [sub_resource type="Resource" id="Resource_88jmc"]
@@ -163,8 +161,8 @@ metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_0x1rk"]
 script = ExtResource("5_y4sxr")
-train_line = "<<green>> <<line>>"
-id = &"GREEN_east"
+train_line = 3
+direction = 2
 metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
 
 [sub_resource type="Resource" id="Resource_noxkf"]

@@ -24,3 +24,4 @@ scene_dict = Dictionary[int, PackedScene]({
 8: ExtResource("8_4gcu2"),
 9: ExtResource("9_075p0")
 })
+start_scene = 5

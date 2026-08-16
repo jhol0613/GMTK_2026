@@ -160,6 +160,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ticket"]
+atlas = ExtResource("2_725i7")
+region = Rect2(89, 1504, 93, 11)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_boarded"]
 atlas = ExtResource("4_player")
 region = Rect2(0, 0, 32, 32)
@@ -171,10 +175,6 @@ region = Rect2(55, 1333, 16, 54)
 [sub_resource type="AtlasTexture" id="AtlasTexture_door_r"]
 atlas = ExtResource("2_725i7")
 region = Rect2(200, 1333, 16, 54)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ticket"]
-atlas = ExtResource("2_725i7")
-region = Rect2(89, 1504, 93, 11)
 
 [sub_resource type="Animation" id="Animation_5xnue"]
 length = 0.001
@@ -420,6 +420,7 @@ size = Vector2(40, 23)
 
 [node name="Train" type="Node2D" unique_id=2086324427 node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_cjdsu")
+reload_scene = null
 sprite = NodePath("TrainSprite")
 
 [node name="TrainSprite" type="AnimatedSprite2D" parent="." unique_id=865404147]
@@ -495,6 +496,107 @@ sprite_frames = SubResource("SpriteFrames_khhxn")
 position = Vector2(375, 54)
 sprite_frames = SubResource("SpriteFrames_khhxn")
 
+[node name="NoTicketLight" type="Sprite2D" parent="TrainSprite" unique_id=994817530]
+z_index = 4
+position = Vector2(0, 26)
+texture = SubResource("AtlasTexture_ticket")
+
+[node name="ResshanInteractable" type="Control" parent="TrainSprite/NoTicketLight" unique_id=1628340350]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -44.0
+offset_top = -4.0
+offset_right = -35.405
+offset_bottom = 5.875
+script = ExtResource("5_oe38n")
+_string = "<<ticket>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="ResshanInteractable2" type="Control" parent="TrainSprite/NoTicketLight" unique_id=2016852377]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -21.0
+offset_top = -4.0
+offset_right = -12.405
+offset_bottom = 5.875
+script = ExtResource("5_oe38n")
+_string = "<<ticket>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="ResshanInteractable3" type="Control" parent="TrainSprite/NoTicketLight" unique_id=398739071]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = 3.0
+offset_top = -4.0
+offset_right = 11.595
+offset_bottom = 5.875
+script = ExtResource("5_oe38n")
+_string = "<<ticket>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="ResshanInteractable4" type="Control" parent="TrainSprite/NoTicketLight" unique_id=1821943322]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = 27.0
+offset_top = -4.0
+offset_right = 35.595
+offset_bottom = 5.875
+script = ExtResource("5_oe38n")
+_string = "<<ticket>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="ResshanInteractable5" type="Control" parent="TrainSprite/NoTicketLight" unique_id=105611801]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -35.0
+offset_top = -4.0
+offset_right = -26.404999
+offset_bottom = 5.875
+script = ExtResource("5_oe38n")
+_string = "<<0>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="ResshanInteractable6" type="Control" parent="TrainSprite/NoTicketLight" unique_id=498018592]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -11.0
+offset_top = -4.0
+offset_right = -2.4049997
+offset_bottom = 5.875
+script = ExtResource("5_oe38n")
+_string = "<<0>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="ResshanInteractable7" type="Control" parent="TrainSprite/NoTicketLight" unique_id=1871029942]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = 14.0
+offset_top = -4.0
+offset_right = 22.595001
+offset_bottom = 5.875
+script = ExtResource("5_oe38n")
+_string = "<<0>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="ResshanInteractable8" type="Control" parent="TrainSprite/NoTicketLight" unique_id=72618033]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = 37.0
+offset_top = -4.0
+offset_right = 45.595
+offset_bottom = 5.875
+script = ExtResource("5_oe38n")
+_string = "<<0>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
 [node name="PlayerEmbarkMarker" type="Marker2D" parent="." unique_id=886720525]
 position = Vector2(-64, -21)
 
@@ -538,107 +640,6 @@ position = Vector2(64, -61.5)
 scale = Vector2(0.9, 1)
 texture = SubResource("AtlasTexture_door_r")
 offset = Vector2(8.222221, 27)
-
-[node name="NoTicketLight" type="Sprite2D" parent="." unique_id=994817530]
-z_index = 4
-position = Vector2(0, -12)
-texture = SubResource("AtlasTexture_ticket")
-
-[node name="ResshanInteractable" type="Control" parent="NoTicketLight" unique_id=1628340350]
-physics_interpolation_mode = 0
-layout_mode = 3
-anchors_preset = 0
-offset_left = -44.0
-offset_top = -4.0
-offset_right = -35.405
-offset_bottom = 5.875
-script = ExtResource("5_oe38n")
-_string = "<<ticket>>"
-metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="ResshanInteractable2" type="Control" parent="NoTicketLight" unique_id=2016852377]
-physics_interpolation_mode = 0
-layout_mode = 3
-anchors_preset = 0
-offset_left = -21.0
-offset_top = -4.0
-offset_right = -12.405
-offset_bottom = 5.875
-script = ExtResource("5_oe38n")
-_string = "<<ticket>>"
-metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="ResshanInteractable3" type="Control" parent="NoTicketLight" unique_id=398739071]
-physics_interpolation_mode = 0
-layout_mode = 3
-anchors_preset = 0
-offset_left = 3.0
-offset_top = -4.0
-offset_right = 11.595
-offset_bottom = 5.875
-script = ExtResource("5_oe38n")
-_string = "<<ticket>>"
-metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="ResshanInteractable4" type="Control" parent="NoTicketLight" unique_id=1821943322]
-physics_interpolation_mode = 0
-layout_mode = 3
-anchors_preset = 0
-offset_left = 27.0
-offset_top = -4.0
-offset_right = 35.595
-offset_bottom = 5.875
-script = ExtResource("5_oe38n")
-_string = "<<ticket>>"
-metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="ResshanInteractable5" type="Control" parent="NoTicketLight" unique_id=105611801]
-physics_interpolation_mode = 0
-layout_mode = 3
-anchors_preset = 0
-offset_left = -35.0
-offset_top = -4.0
-offset_right = -26.404999
-offset_bottom = 5.875
-script = ExtResource("5_oe38n")
-_string = "<<0>>"
-metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="ResshanInteractable6" type="Control" parent="NoTicketLight" unique_id=498018592]
-physics_interpolation_mode = 0
-layout_mode = 3
-anchors_preset = 0
-offset_left = -11.0
-offset_top = -4.0
-offset_right = -2.4049997
-offset_bottom = 5.875
-script = ExtResource("5_oe38n")
-_string = "<<0>>"
-metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="ResshanInteractable7" type="Control" parent="NoTicketLight" unique_id=1871029942]
-physics_interpolation_mode = 0
-layout_mode = 3
-anchors_preset = 0
-offset_left = 14.0
-offset_top = -4.0
-offset_right = 22.595001
-offset_bottom = 5.875
-script = ExtResource("5_oe38n")
-_string = "<<0>>"
-metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="ResshanInteractable8" type="Control" parent="NoTicketLight" unique_id=72618033]
-physics_interpolation_mode = 0
-layout_mode = 3
-anchors_preset = 0
-offset_left = 37.0
-offset_top = -4.0
-offset_right = 45.595
-offset_bottom = 5.875
-script = ExtResource("5_oe38n")
-_string = "<<0>>"
-metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1218134382]
 libraries/ = SubResource("AnimationLibrary_oe38n")

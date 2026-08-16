@@ -19,9 +19,9 @@ func _ready() -> void:
 
 func set_ticket(data: TicketData) -> void:
 	ticket_data = data
-	_line_label.text = data.train_line
+	_line_label.text = Enums.train_color_to_resshan(data.train_line)
 	_departure_label.text = "<<%s>> : <<%s>> : <<%s>>" % [data.departure_hours, data.departure_minutes, data.departure_seconds]
-	_direction_label.text = data.direction
+	_direction_label.text = Enums.train_direction_to_resshan(data.direction)
 
 func check_ticket(h, m, s) -> void:
 	if not ticket_data:

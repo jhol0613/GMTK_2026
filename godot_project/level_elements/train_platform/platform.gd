@@ -1,5 +1,5 @@
 @tool
-
+class_name TrainPlatform
 extends Node2D
 
 @export var upper_train: Train
@@ -10,6 +10,7 @@ extends Node2D
 		station_number = value
 		if is_inside_tree():
 			_apply_station_number_to_signs()
+@export var platform_number: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _enter_tree() -> void:
@@ -30,19 +31,3 @@ func _apply_station_number_to_signs() -> void:
 	for child in get_children():
 		if "station_number" in child:
 			child.station_number = station_number
-	
-func depart_upper_train():
-	upper_train._train_depart()
-
-func arrive_upper_train(
-	use_level_0_first_sound: bool = false
-):
-	upper_train.play_simple_arrival_animation(
-		use_level_0_first_sound
-	)
-
-func depart_lower_train():
-	lower_train._train_depart()
-
-func arrive_lower_train():
-	lower_train.play_simple_arrival_animation()

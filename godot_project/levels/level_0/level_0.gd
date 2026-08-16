@@ -4,7 +4,7 @@ var _intro_conversation_scene
 var _intro_falling_scene
 var _intro_active := true
 
-@onready var platform := $Platform
+@onready var platform :TrainPlatform = $Platform
 @onready var ui_layer := $UiOverlay
 @onready var _skip_intro_layer: CanvasLayer = $SkipIntroLayer
 
@@ -27,7 +27,7 @@ func _begin_without_intro() -> void:
 	_intro_active = false
 	_set_pigeon_ambient_muted(false)
 	_remove_skip_intro_button()
-	platform.arrive_upper_train(true)
+	platform.upper_train.call_train()
 
 
 func _remove_skip_intro_button() -> void:
@@ -49,8 +49,7 @@ func _skip_intro() -> void:
 
 	AudioManager.restore_level_music(2.0)
 	ui_layer.open_notebook()
-	platform.arrive_upper_train(true)
-
+	platform.upper_train.call_train()
 
 func _free_intro_scene(scene) -> void:
 	if scene == null or not is_instance_valid(scene):
@@ -73,10 +72,10 @@ func _on_conversation_complete():
 
 
 func _on_falling_scene_complete():
-	platform.depart_upper_train()
+	platform.upper_train.train_depart()
 	ui_layer.open_notebook()
 	await get_tree().create_timer(10).timeout
-	platform.arrive_upper_train(true)
+	platform.upper_train.call_train()
 	_intro_active = false
 	_set_pigeon_ambient_muted(false)
 	_remove_skip_intro_button()
