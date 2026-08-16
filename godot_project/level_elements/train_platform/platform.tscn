@@ -58,8 +58,8 @@ tile_set = ExtResource("2_617rf")
 [node name="UpperTrain" parent="." unique_id=995237668 instance=ExtResource("5_ajha7")]
 z_index = -3
 position = Vector2(-128, -79)
+reload_scene = 2
 direction = 2
-ticket_id = &"BLUE_east"
 
 [node name="Trainfront" type="Sprite2D" parent="UpperTrain" unique_id=97515597]
 position = Vector2(522, -40)
@@ -68,9 +68,9 @@ texture = ExtResource("4_ajha7")
 [node name="LowerTrain" parent="." unique_id=1370361982 instance=ExtResource("5_ajha7")]
 z_index = 3
 position = Vector2(-128, 145)
+reload_scene = 2
 direction = 3
 departs_on_missed_deadline = false
-ticket_id = &"BLUE_west"
 color = 8
 
 [node name="Trainfront2" type="Sprite2D" parent="LowerTrain" unique_id=1995562429]

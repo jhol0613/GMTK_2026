@@ -10,6 +10,7 @@ extends Node2D
 		station_number = value
 		if is_inside_tree():
 			_apply_station_number_to_signs()
+@export var platform_number: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _enter_tree() -> void:
