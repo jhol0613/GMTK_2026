@@ -42,6 +42,7 @@ theme_override_constants/separation = 8
 alignment = 1
 
 [node name="Slot1Bg" type="TextureRect" parent="VBoxContainer/Slots/Slot1" unique_id=388756599]
+clip_contents = true
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 texture = ExtResource("2_slot")
@@ -49,9 +50,13 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="VBox" type="VBoxContainer" parent="VBoxContainer/Slots/Slot1/Slot1Bg" unique_id=714602350]
-layout_mode = 0
-offset_right = 152.0
-offset_bottom = 146.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
 
 [node name="Slot1Icon" type="TextureRect" parent="VBoxContainer/Slots/Slot1/Slot1Bg/VBox" unique_id=1672142477]
 unique_name_in_owner = true
@@ -69,7 +74,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
 script = ExtResource("3_resshan")
-font_size = 28
+font_size = 16
 metadata/_custom_type_script = "uid://sidowamkhcrt"
 
 [node name="Slot2" type="VBoxContainer" parent="VBoxContainer/Slots" unique_id=1514983281]
@@ -78,6 +83,7 @@ theme_override_constants/separation = 8
 alignment = 1
 
 [node name="Slot2Bg" type="TextureRect" parent="VBoxContainer/Slots/Slot2" unique_id=1514983282]
+clip_contents = true
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 texture = ExtResource("2_slot")
@@ -85,9 +91,13 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="VBox" type="VBoxContainer" parent="VBoxContainer/Slots/Slot2/Slot2Bg" unique_id=1876456496]
-layout_mode = 0
-offset_right = 154.0
-offset_bottom = 154.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
 
 [node name="Slot2Icon" type="TextureRect" parent="VBoxContainer/Slots/Slot2/Slot2Bg/VBox" unique_id=1463141831]
 unique_name_in_owner = true
@@ -105,7 +115,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
 script = ExtResource("3_resshan")
-font_size = 28
+font_size = 16
 metadata/_custom_type_script = "uid://sidowamkhcrt"
 
 [node name="Slot3" type="VBoxContainer" parent="VBoxContainer/Slots" unique_id=951460956]
@@ -114,6 +124,7 @@ theme_override_constants/separation = 8
 alignment = 1
 
 [node name="Slot3Bg" type="TextureRect" parent="VBoxContainer/Slots/Slot3" unique_id=951460957]
+clip_contents = true
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 texture = ExtResource("2_slot")
@@ -121,9 +132,13 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="VBox" type="VBoxContainer" parent="VBoxContainer/Slots/Slot3/Slot3Bg" unique_id=299194746]
-layout_mode = 0
-offset_right = 148.0
-offset_bottom = 154.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
 
 [node name="Slot3Icon" type="TextureRect" parent="VBoxContainer/Slots/Slot3/Slot3Bg/VBox" unique_id=1329048992]
 unique_name_in_owner = true
@@ -141,7 +156,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
 script = ExtResource("3_resshan")
-font_size = 28
+font_size = 16
 metadata/_custom_type_script = "uid://sidowamkhcrt"
 
 [node name="Slot4" type="VBoxContainer" parent="VBoxContainer/Slots" unique_id=405363349]
@@ -150,6 +165,7 @@ theme_override_constants/separation = 8
 alignment = 1
 
 [node name="Slot4Bg" type="TextureRect" parent="VBoxContainer/Slots/Slot4" unique_id=405363350]
+clip_contents = true
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 texture = ExtResource("2_slot")
@@ -157,9 +173,13 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="VBox" type="VBoxContainer" parent="VBoxContainer/Slots/Slot4/Slot4Bg" unique_id=701792621]
-layout_mode = 0
-offset_right = 150.0
-offset_bottom = 154.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
 
 [node name="Slot4Icon" type="TextureRect" parent="VBoxContainer/Slots/Slot4/Slot4Bg/VBox" unique_id=1041293691]
 unique_name_in_owner = true
@@ -177,7 +197,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
 script = ExtResource("3_resshan")
-font_size = 28
+font_size = 16
 metadata/_custom_type_script = "uid://sidowamkhcrt"
 
 [node name="CloseButton" type="TextureButton" parent="." unique_id=1402412403]

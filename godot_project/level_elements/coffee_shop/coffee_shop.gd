@@ -4,7 +4,10 @@ const PURCHASE_OUTCOME: StringName = &"bought_coffee"
 
 @export var slow_duration_minutes: int = 5
 @export var time_scale_while_active: float = 0.5
-@export var purchase_icon: Texture2D
+@export var purchase_animation: Texture2D
+@export var purchase_animation_frames: int = 4
+@export var purchase_animation_fps: float = 6.0
+@export var empty_cup_item: ItemData
 
 @export_group("Audio")
 @export var purchase_sound: AudioStream
@@ -27,11 +30,17 @@ func _on_option_confirmed(outcome_id: StringName) -> void:
 		return
 	if purchase_sound != null:
 		AudioManager.play_ui_sfx(purchase_sound, purchase_volume_db)
-	if purchase_icon != null:
-		SignalBus.item_popup_requested.emit(purchase_icon)
+	if purchase_animation != null:
+		SignalBus.animated_item_popup_requested.emit(
+			purchase_animation,
+			purchase_animation_frames,
+			purchase_animation_fps,
+		)
 		await SignalBus.item_popup_finished
 	elif purchase_sound != null:
 		await get_tree().create_timer(purchase_sound.get_length()).timeout
+	if empty_cup_item != null:
+		Inventory.add_item(empty_cup_item.duplicate() as ItemData)
 	if effect_sound != null:
 		AudioManager.play_ui_sfx(effect_sound, effect_volume_db)
 	TimeManager.set_time_scale(time_scale_while_active, slow_duration_minutes)

@@ -47,6 +47,7 @@ var _notebook_player_movement_states: Dictionary = {}
 const TICKET_BUTTON_SHOW_DELAY := 2.0
 
 var _item_popup_tween: Tween
+var _item_popup_animation_tween: Tween
 var _ticket_button_show_tween: Tween
 var _rest_vignette_tween: Tween
 
@@ -65,6 +66,7 @@ func _ready() -> void:
 	Inventory.inventory_changed.connect(_inventory.refresh)
 	Inventory.item_added.connect(_on_item_added)
 	SignalBus.item_popup_requested.connect(_on_item_popup_requested)
+	SignalBus.animated_item_popup_requested.connect(_on_animated_item_popup_requested)
 	SignalBus.new_unique_resshan_note_added_to_notebook.connect( _emphasize_icon.bind(_notebook_button,_initial_notebook_button_scale) )
 	TimeManager.time_up.connect(_on_time_up)
 	
@@ -437,6 +439,11 @@ func _sprite_contains_point(sprite: Sprite2D, point: Vector2) -> bool:
 
 
 func _on_item_added(item: ItemData) -> void:
+	if item.id == &"empty_coffee_cup":
+		if _item_to_inventory_sound.stream != null:
+			_item_to_inventory_sound.play()
+		_emphasize_icon(_inventory_button, _initial_inventory_button_scale)
+		return
 	var icon: Texture2D = item.item_icon
 	if item is TicketData:
 	# if icon == null and item is TicketData:
@@ -452,9 +459,38 @@ func _on_item_popup_requested(icon: Texture2D) -> void:
 	_show_item_popup(icon)
 
 
+func _on_animated_item_popup_requested(
+	sprite_sheet: Texture2D,
+	frame_count: int,
+	fps: float,
+) -> void:
+	if sprite_sheet == null or frame_count <= 0 or fps <= 0.0:
+		SignalBus.item_popup_finished.emit()
+		return
+	var frame_width := int(sprite_sheet.get_width() / frame_count)
+	var frame_texture := AtlasTexture.new()
+	frame_texture.atlas = sprite_sheet
+	frame_texture.region = Rect2(0, 0, frame_width, sprite_sheet.get_height())
+	_show_item_popup(frame_texture)
+	_item_popup_animation_tween = create_tween()
+	for frame in range(1, frame_count):
+		_item_popup_animation_tween.tween_interval(1.0 / fps)
+		_item_popup_animation_tween.tween_callback(
+			_set_item_popup_frame.bind(frame_texture, frame, frame_width)
+		)
+
+
+func _set_item_popup_frame(texture: AtlasTexture, frame: int, frame_width: int) -> void:
+	var region := texture.region
+	region.position.x = frame * frame_width
+	texture.region = region
+
+
 func _show_item_popup(icon: Texture2D, item: ItemData = null) -> void:
 	if _item_popup_tween != null and _item_popup_tween.is_valid():
 		_item_popup_tween.kill()
+	if _item_popup_animation_tween != null and _item_popup_animation_tween.is_valid():
+		_item_popup_animation_tween.kill()
 
 	_item_popup_icon.texture = icon
 	_item_popup.visible = true

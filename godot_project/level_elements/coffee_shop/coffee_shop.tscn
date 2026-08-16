@@ -13,7 +13,9 @@
 [ext_resource type="Shader" uid="uid://cledinetwy2el" path="res://level_elements/coffee_shop/coffee_shop_glow.gdshader" id="8_glow_shader"]
 [ext_resource type="Shader" uid="uid://x010b1ugulx5" path="res://level_elements/coffee_shop/coffee_machine_untinted.gdshader" id="9_machine_shader"]
 [ext_resource type="AudioStream" path="res://ui/sfx/Coffee_Effect_Bell.wav" id="10_effect_bell"]
-[ext_resource type="Texture2D" path="res://ui/ticket/icon_ticket.png" id="11_temp_purchase_icon"]
+[ext_resource type="Texture2D" path="res://level_elements/coffee_shop/coffee_drink.png" id="11_coffee_drink"]
+[ext_resource type="Texture2D" path="res://level_elements/coffee_shop/coffee_cup_empty.png" id="12_empty_cup"]
+[ext_resource type="Script" uid="uid://1bxpf358unij" path="res://scripts/item_data.gd" id="13_item_data"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_glow"]
 shader = ExtResource("8_glow_shader")
@@ -56,9 +58,18 @@ size = Vector2(111, 30)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
 size = Vector2(161, 42)
 
+[sub_resource type="Resource" id="Resource_empty_cup"]
+script = ExtResource("13_item_data")
+id = &"empty_coffee_cup"
+item_name = "Empty Cup"
+item_description = "An empty recyclable coffee cup."
+item_icon = ExtResource("12_empty_cup")
+metadata/_custom_type_script = "uid://1bxpf358unij"
+
 [node name="CoffeeShop" type="Node2D" unique_id=780382610]
 script = ExtResource("1_coffee")
-purchase_icon = ExtResource("11_temp_purchase_icon")
+purchase_animation = ExtResource("11_coffee_drink")
+empty_cup_item = SubResource("Resource_empty_cup")
 effect_sound = ExtResource("10_effect_bell")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=458582389]
