@@ -232,34 +232,31 @@ position = Vector2(-1952, -1264)
 [node name="ATM" parent="." index="18" unique_id=124595741 instance=ExtResource("8_5ts7o")]
 position = Vector2(-1984, -1104)
 
-[node name="StationMapLvl2" parent="." index="19" unique_id=321009252 instance=ExtResource("6_cp47v")]
-position = Vector2(-1376, -2000)
+[node name="TrainMap" parent="." index="19" unique_id=940096549 instance=ExtResource("9_dj0pt")]
+position = Vector2(-1280, -1984)
 
-[node name="TrainMap" parent="." index="20" unique_id=940096549 instance=ExtResource("9_dj0pt")]
-position = Vector2(-1376, -2080)
-
-[node name="CoffeeShop" parent="." index="21" unique_id=780382610 instance=ExtResource("10_1vf62")]
+[node name="CoffeeShop" parent="." index="20" unique_id=780382610 instance=ExtResource("10_1vf62")]
 position = Vector2(-1280, -2160)
 
-[node name="CoffeeShop2" parent="." index="22" unique_id=1986393938 instance=ExtResource("10_1vf62")]
+[node name="CoffeeShop2" parent="." index="21" unique_id=1986393938 instance=ExtResource("10_1vf62")]
 position = Vector2(-1824, -656)
 
-[node name="RecycleBin" parent="." index="23" unique_id=981033953 instance=ExtResource("11_yiikh")]
+[node name="RecycleBin" parent="." index="22" unique_id=981033953 instance=ExtResource("11_yiikh")]
 position = Vector2(-1184, -2144)
 
-[node name="RecycleBin2" parent="." index="24" unique_id=1992548694 instance=ExtResource("11_yiikh")]
+[node name="RecycleBin2" parent="." index="23" unique_id=1992548694 instance=ExtResource("11_yiikh")]
 position = Vector2(-912, -2352)
 
-[node name="RecycleBin3" parent="." index="25" unique_id=67699898 instance=ExtResource("11_yiikh")]
+[node name="RecycleBin3" parent="." index="24" unique_id=67699898 instance=ExtResource("11_yiikh")]
 position = Vector2(-816, -2352)
 
-[node name="RecycleBin4" parent="." index="26" unique_id=1647806399 instance=ExtResource("11_yiikh")]
+[node name="RecycleBin4" parent="." index="25" unique_id=1647806399 instance=ExtResource("11_yiikh")]
 position = Vector2(-1968, -640)
 
-[node name="RecycleBin5" parent="." index="27" unique_id=1973554782 instance=ExtResource("11_yiikh")]
+[node name="RecycleBin5" parent="." index="26" unique_id=1973554782 instance=ExtResource("11_yiikh")]
 position = Vector2(-2224, -1936)
 
-[node name="Decorations" type="Node2D" parent="." index="28" unique_id=270941818]
+[node name="Decorations" type="Node2D" parent="." index="27" unique_id=270941818]
 
 [node name="OutsideRestroom" type="Sprite2D" parent="Decorations" index="0" unique_id=1552373409]
 z_index = 1
@@ -291,7 +288,7 @@ z_index = 1
 position = Vector2(-704, -2400)
 texture = ExtResource("12_fq0us")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="29" unique_id=1618856631]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="28" unique_id=1618856631]
 z_index = 1
 position = Vector2(-2016, -1376)
 sprite_frames = SubResource("SpriteFrames_fpcxu")
