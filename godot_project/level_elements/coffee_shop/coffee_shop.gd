@@ -11,8 +11,10 @@ const PURCHASE_OUTCOME: StringName = &"bought_coffee"
 
 @export_group("Audio")
 @export var purchase_sound: AudioStream
+@export var drinking_sound: AudioStream
 @export var effect_sound: AudioStream
 @export_range(-80.0, 6.0, 0.5) var purchase_volume_db := -4.0
+@export_range(-80.0, 6.0, 0.5) var drinking_volume_db := 0.0
 @export_range(-80.0, 6.0, 0.5) var effect_volume_db := -10.0
 
 @onready var _dialogue_panel: DialoguePanel = $DialoguePanel
@@ -36,6 +38,8 @@ func _on_option_confirmed(outcome_id: StringName) -> void:
 			purchase_animation_frames,
 			purchase_animation_fps,
 		)
+		if drinking_sound != null:
+			AudioManager.play_ui_sfx(drinking_sound, drinking_volume_db)
 		await SignalBus.item_popup_finished
 	elif purchase_sound != null:
 		await get_tree().create_timer(purchase_sound.get_length()).timeout
