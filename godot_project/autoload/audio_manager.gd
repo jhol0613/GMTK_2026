@@ -40,12 +40,16 @@ const TRAIN_PULLING_IN: AudioStream = preload(
 	"uid://cu3ssob4apsrg"
 )
 
-const LEVEL_0_FIRST_TRAIN_IN: AudioStream = preload(
+const TRAIN_PULLING_IN_NO_DOORS: AudioStream = preload(
 	"uid://bjj4avshu6qv3"
 )
 
 const TRAIN_PULLING_OUT: AudioStream = preload(
 	"uid://b511cvpm80f52"
+)
+
+const TRAIN_PULLING_OUT_NO_DOORS: AudioStream = preload(
+	"uid://bjj4avshu6qv3"
 )
 
 const WRONG_TICKET_SFX: AudioStream = preload(
@@ -323,6 +327,16 @@ func play_train_pulling_out() -> void:
 	_train_player.stream = TRAIN_PULLING_OUT
 	_train_player.play()
 
+func play_train_pulling_out_no_doors() -> void:
+	if (
+		_train_player.playing
+		and _train_player.stream == TRAIN_PULLING_OUT_NO_DOORS
+	):
+		return
+
+	_train_player.stop()
+	_train_player.stream = TRAIN_PULLING_OUT_NO_DOORS
+	_train_player.play()
 
 func stop_train_sfx() -> void:
 	_train_player.stop()
@@ -417,9 +431,9 @@ func _stop_notebook_after_crossfade() -> void:
 	_notebook_player.stop()
 	_notebook_player.volume_db = SILENT_DB
 
-func play_level_0_first_train_in() -> void:
+func play_train_pulling_in_no_doors() -> void:
 	_train_player.stop()
-	_train_player.stream = LEVEL_0_FIRST_TRAIN_IN
+	_train_player.stream = TRAIN_PULLING_IN_NO_DOORS
 	_train_player.play()
 	
 func play_wrong_ticket_sfx() -> void:

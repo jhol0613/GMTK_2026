@@ -1,8 +1,8 @@
 class_name TicketData
 extends ItemData
 
-@export var train_line: String = ""
-@export var direction: String = ""
+@export var train_line: Enums.TrainColor
+@export var direction: Enums.TrainDirection
 
 ## How far ahead the train departs from the current time.
 @export var departure_hours_offset: int = 1

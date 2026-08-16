@@ -14,8 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://cxt6rc1bm3gw" path="res://level_elements/background/sky3.png" id="9_unwjj"]
 [ext_resource type="Texture2D" uid="uid://e8ko1l18knja" path="res://level_elements/background/sky4.png" id="10_u3vgj"]
 [ext_resource type="Script" uid="uid://7gvc0vds6k6g" path="res://level_elements/background/day_night_background.gd" id="11_daynight"]
-[ext_resource type="Script" path="res://visual_effects/stars/star_field.gd" id="12_stars"]
-[ext_resource type="Texture2D" path="res://visual_effects/day_night/light_radial.png" id="13_starlight"]
+[ext_resource type="Script" uid="uid://dype06xkw1udm" path="res://visual_effects/stars/star_field.gd" id="12_stars"]
+[ext_resource type="Texture2D" uid="uid://b7k1rwda5wu1p" path="res://visual_effects/day_night/light_radial.png" id="13_starlight"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yglgk"]
 texture = ExtResource("2_8xmsw")
@@ -640,7 +640,7 @@ position = Vector2(960, 540)
 scale = Vector2(2.6667, 2.6667)
 texture = ExtResource("7_64qpc")
 
-[node name="StarField" type="Node2D" parent="Background/Blue" groups=["night_lights"]]
+[node name="StarField" type="Node2D" parent="Background/Blue" unique_id=1370911981 groups=["night_lights"]]
 z_index = 1
 script = ExtResource("12_stars")
 texture = ExtResource("13_starlight")

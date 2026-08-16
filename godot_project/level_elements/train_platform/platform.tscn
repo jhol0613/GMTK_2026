@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dpexe87ps0d7f" path="res://level_elements/hourglass/hourglass.tscn" id="6_f3ea8"]
 [ext_resource type="Texture2D" uid="uid://danrb3vfq83ag" path="res://level_elements/decorative/hoverthruster.png" id="7_3v7e2"]
 [ext_resource type="PackedScene" uid="uid://bo3pcctdon7l" path="res://level_elements/signs/station_name_sign.tscn" id="8_tem3n"]
-[ext_resource type="Script" path="res://visual_effects/day_night/hoverthruster_lighting.gd" id="9_thruster_light"]
+[ext_resource type="Script" uid="uid://dcanbg433hb0v" path="res://visual_effects/day_night/hoverthruster_lighting.gd" id="9_thruster_light"]
 
 [node name="Platform" type="Node2D" unique_id=1302422271 node_paths=PackedStringArray("upper_train", "lower_train")]
 y_sort_enabled = true
@@ -17,7 +17,7 @@ script = ExtResource("1_n6ck0")
 upper_train = NodePath("UpperTrain")
 lower_train = NodePath("LowerTrain")
 
-[node name="HoverthrusterLighting" type="Node" parent="."]
+[node name="HoverthrusterLighting" type="Node" parent="." unique_id=1158262431]
 script = ExtResource("9_thruster_light")
 target_root_path = NodePath("..")
 
@@ -58,6 +58,7 @@ tile_set = ExtResource("2_617rf")
 [node name="UpperTrain" parent="." unique_id=995237668 instance=ExtResource("5_ajha7")]
 z_index = -3
 position = Vector2(-128, -79)
+direction = 2
 ticket_id = &"BLUE_east"
 
 [node name="Trainfront" type="Sprite2D" parent="UpperTrain" unique_id=97515597]
@@ -67,6 +68,7 @@ texture = ExtResource("4_ajha7")
 [node name="LowerTrain" parent="." unique_id=1370361982 instance=ExtResource("5_ajha7")]
 z_index = 3
 position = Vector2(-128, 145)
+direction = 3
 departs_on_missed_deadline = false
 ticket_id = &"BLUE_west"
 color = 8

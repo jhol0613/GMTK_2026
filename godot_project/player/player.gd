@@ -1,3 +1,4 @@
+class_name PlayerCharacter
 extends CharacterBody2D
 
 var direction: Vector2 = Vector2(1, 1)
@@ -69,6 +70,10 @@ func _physics_process(_delta: float) -> void:
 		_step_accum = 0.0
 		_play_footstep()
 
+func set_active(active: bool):
+	visible = active
+	movement_disabled = not active
+	set_physics_process(active)
 
 func _is_any_panel_open() -> bool:
 	for panel in get_tree().get_nodes_in_group("interaction_panel"):

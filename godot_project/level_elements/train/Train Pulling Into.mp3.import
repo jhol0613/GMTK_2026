@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cu3ssob4apsrg"
+path="res://.godot/imported/Train Pulling Into.mp3-a2540f935fcb4d96d0735bc222b9cb92.mp3str"
+
+[deps]
+
+source_file="res://level_elements/train/Train Pulling Into.mp3"
+dest_files=["res://.godot/imported/Train Pulling Into.mp3-a2540f935fcb4d96d0735bc222b9cb92.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
