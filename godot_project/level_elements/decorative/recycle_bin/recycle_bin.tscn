@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://c12ooog5cg04c" path="res://level_elements/decorative/recycle_bin/open.png" id="1_03jd3"]
 [ext_resource type="Script" uid="uid://b06a8qnyvxbet" path="res://level_elements/decorative/recycle_bin/recycle_bin.gd" id="1_bg1vw"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="3_0mfuq"]
+[ext_resource type="AudioStream" path="res://level_elements/decorative/recycle_bin/sfx/recycle_bin_open.wav" id="4_open"]
+[ext_resource type="AudioStream" path="res://level_elements/decorative/recycle_bin/sfx/recycle_bin_close.wav" id="5_close"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bg1vw"]
 atlas = ExtResource("1_03jd3")
@@ -60,6 +62,8 @@ size = Vector2(17, 13)
 [node name="RecycleBin" type="Node2D" unique_id=981033953 node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_bg1vw")
 sprite = NodePath("AnimatedSprite2D")
+open_sound = ExtResource("4_open")
+close_sound = ExtResource("5_close")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=932330891]
 texture_filter = 1

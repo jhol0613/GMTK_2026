@@ -17,5 +17,7 @@ signal ticket_purchased(hour: int, minute: int, second:int)
 
 signal ticket_consumed
 signal ticket_received
+signal item_popup_requested(icon: Texture2D)
+signal item_popup_finished
 
 @warning_ignore_restore("unused_signal")

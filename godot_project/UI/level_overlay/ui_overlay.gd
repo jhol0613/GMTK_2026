@@ -36,6 +36,8 @@ var _notebook_player_movement_states: Dictionary = {}
 @onready var _inventory_close_sound: AudioStreamPlayer = $InventoryCloseSound
 @onready var _item_popup: Control = $ItemPopup
 @onready var _item_popup_icon: TextureRect = $ItemPopup/Icon
+@onready var _trinket_purchase_sound: AudioStreamPlayer = $TrinketPurchaseSound
+@onready var _item_to_inventory_sound: AudioStreamPlayer = $ItemToInventorySound
 @onready var _rest_vignette: ColorRect = $RestVignette
 
 @onready var _initial_notebook_button_scale: Vector2 = _notebook_button.scale
@@ -62,6 +64,7 @@ func _ready() -> void:
 	Inventory.inventory_changed.connect(_refresh_ticket)
 	Inventory.inventory_changed.connect(_inventory.refresh)
 	Inventory.item_added.connect(_on_item_added)
+	SignalBus.item_popup_requested.connect(_on_item_popup_requested)
 	SignalBus.new_unique_resshan_note_added_to_notebook.connect( _emphasize_icon.bind(_notebook_button,_initial_notebook_button_scale) )
 	TimeManager.time_up.connect(_on_time_up)
 	
@@ -443,7 +446,13 @@ func _on_item_added(item: ItemData) -> void:
 	_show_item_popup(icon, item)
 
 
-func _show_item_popup(icon: Texture2D, item: ItemData) -> void:
+func _on_item_popup_requested(icon: Texture2D) -> void:
+	if icon == null:
+		return
+	_show_item_popup(icon)
+
+
+func _show_item_popup(icon: Texture2D, item: ItemData = null) -> void:
 	if _item_popup_tween != null and _item_popup_tween.is_valid():
 		_item_popup_tween.kill()
 
@@ -451,6 +460,8 @@ func _show_item_popup(icon: Texture2D, item: ItemData) -> void:
 	_item_popup.visible = true
 	_item_popup_icon.modulate = Color(1, 1, 1, 0)
 	_item_popup_icon.scale = Vector2(0.6, 0.6)
+	if item != null and String(item.id).begins_with("mask_") and _trinket_purchase_sound.stream != null:
+		_trinket_purchase_sound.play()
 
 	_item_popup_tween = create_tween()
 	_item_popup_tween.set_parallel(true)
@@ -463,10 +474,17 @@ func _show_item_popup(icon: Texture2D, item: ItemData) -> void:
 	_item_popup_tween.tween_callback(_hide_item_popup.bind(item))
 
 
-func _hide_item_popup(item : ItemData):
+func _hide_item_popup(item: ItemData = null) -> void:
 	_item_popup.visible = false
-	if item is TicketData: _emphasize_icon(_ticket_button, _initial_ticket_button_scale)
-	else: _emphasize_icon(_inventory_button, _initial_inventory_button_scale)
+	if item == null:
+		SignalBus.item_popup_finished.emit()
+		return
+	if item is TicketData:
+		_emphasize_icon(_ticket_button, _initial_ticket_button_scale)
+	else:
+		if _item_to_inventory_sound.stream != null:
+			_item_to_inventory_sound.play()
+		_emphasize_icon(_inventory_button, _initial_inventory_button_scale)
 	
 
 func _on_ticket_consumed():
