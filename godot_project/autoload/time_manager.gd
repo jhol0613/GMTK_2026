@@ -41,6 +41,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			_debug_time_frozen = false
 			advance(MINUTES_PER_HOUR)
 		elif event.physical_keycode == KEY_1:
+			@warning_ignore("integer_division")
 			reset(HOURS_PER_DAY / 2, 0, 0)
 			_debug_time_frozen = true
 		elif event.physical_keycode == KEY_2:
@@ -127,6 +128,43 @@ func remaining_after_offset(
 	+ offset_minutes * SECONDS_PER_MINUTE + offset_seconds)
 	total = maxi(total, 0)
 	var seconds_per_hour := MINUTES_PER_HOUR * SECONDS_PER_MINUTE
+	@warning_ignore("integer_division")
+	return Vector3i(
+		total / seconds_per_hour,
+		(total % seconds_per_hour) / SECONDS_PER_MINUTE,
+		(total % seconds_per_hour) % SECONDS_PER_MINUTE,
+	)
+
+static func time_to_seconds_remaining(
+	start_hours: int,
+	start_minutes: int,
+	start_seconds: int,
+) -> int:
+	return (
+		start_hours * MINUTES_PER_HOUR * SECONDS_PER_MINUTE + 
+		start_minutes * SECONDS_PER_MINUTE + 
+		start_seconds
+	)
+
+
+static func subtract_offset_from_time(
+	start_hours: int,
+	start_minutes: int,
+	start_seconds: int,
+	offset_hours: int,
+	offset_minutes: int,
+	offset_seconds: int
+) -> Vector3i:
+	var start_time_total_seconds := time_to_seconds_remaining(
+		start_hours, start_minutes, start_seconds
+	)
+	var offset := (
+		offset_hours * MINUTES_PER_HOUR * SECONDS_PER_MINUTE + offset_minutes * SECONDS_PER_MINUTE + offset_seconds
+	)
+	var total := start_time_total_seconds - offset
+	total = maxi(total, 0)
+	var seconds_per_hour := MINUTES_PER_HOUR * SECONDS_PER_MINUTE
+	@warning_ignore("integer_division")
 	return Vector3i(
 		total / seconds_per_hour,
 		(total % seconds_per_hour) / SECONDS_PER_MINUTE,

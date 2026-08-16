@@ -17,6 +17,10 @@ func _enter_tree() -> void:
 	_apply_station_number_to_signs()
 
 func _ready() -> void:
+	if upper_train:
+		upper_train.platform_number = platform_number
+	if lower_train:
+		lower_train.platform_number = platform_number
 	if Engine.is_editor_hint():
 		return
 	if upper_train and play_arrival_on_ready:

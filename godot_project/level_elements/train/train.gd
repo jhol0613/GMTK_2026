@@ -10,6 +10,8 @@ class_name Train
 @export var direction: Enums.TrainDirection
 ##this is just the string to display on the departure board and has no game impact
 @export var destination := "??"
+##The platform script will override this at runtime
+var platform_number := 0
 
 @export_group("Audio")
 @export var pulling_in_sound: AudioStream
@@ -74,6 +76,7 @@ var _l_or_r: String
 
 
 func _ready() -> void:
+	add_to_group("trains")
 	if Engine.is_editor_hint():
 		return
 	_no_ticket_light.visible = false
