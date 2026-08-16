@@ -5,7 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialog_system/dialogue_interactable.tscn" id="3_xxwc8"]
 [ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialog_system/dialogue_panel.tscn" id="5_73t7r"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="5_400x5"]
-[ext_resource type="Script" path="res://level_elements/trinket_shop/trinket_shop.gd" id="6_trinket"]
+[ext_resource type="Script" uid="uid://xc4w5cfbic0d" path="res://level_elements/trinket_shop/trinket_shop.gd" id="6_trinket"]
+[ext_resource type="Texture2D" uid="uid://0fat232mqu7p" path="res://level_elements/trinket_shop/trinket_shop_glowpng.png" id="7_glow"]
+[ext_resource type="Script" uid="uid://drq0avlr51tqy" path="res://level_elements/trinket_shop/trinket_shop_night_light.gd" id="8_night"]
+[ext_resource type="Texture2D" uid="uid://b7k1rwda5wu1p" path="res://visual_effects/day_night/light_radial.png" id="9_light"]
+[ext_resource type="Texture2D" uid="uid://8fjrji8ipc4f" path="res://visual_effects/day_night/light_downward.png" id="10_down"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8tbst"]
 atlas = ExtResource("1_400x5")
@@ -55,6 +59,45 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glow"]
+light_mode = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glow_0"]
+atlas = ExtResource("7_glow")
+region = Rect2(0, 0, 179, 107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glow_1"]
+atlas = ExtResource("7_glow")
+region = Rect2(179, 0, 179, 107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glow_2"]
+atlas = ExtResource("7_glow")
+region = Rect2(0, 107, 179, 107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glow_3"]
+atlas = ExtResource("7_glow")
+region = Rect2(179, 107, 179, 107)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_glow"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glow_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glow_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glow_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glow_3")
+}],
+"loop": 1,
+"name": &"level1_idle",
+"speed": 6.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bqp2h"]
 size = Vector2(54, 16)
 
@@ -70,6 +113,40 @@ position = Vector2(-14, -47)
 sprite_frames = SubResource("SpriteFrames_3uvvl")
 animation = &"level1_idle"
 autoplay = "level1_idle"
+
+[node name="NightLight" type="Node2D" parent="." unique_id=1446894394 groups=["night_lights"]]
+script = ExtResource("8_night")
+
+[node name="GlowOverlay" type="AnimatedSprite2D" parent="NightLight" unique_id=1301023996]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+material = SubResource("CanvasItemMaterial_glow")
+position = Vector2(-14, -47)
+sprite_frames = SubResource("SpriteFrames_glow")
+animation = &"level1_idle"
+
+[node name="WarmDisplayLight" type="PointLight2D" parent="NightLight" unique_id=1901038595]
+position = Vector2(-33, -56)
+scale = Vector2(1.640625, 2.140625)
+color = Color(0.8331245, 0.44918954, 0.15880418, 1)
+energy = 2.42
+texture = ExtResource("10_down")
+
+[node name="WarmDisplayLight2" type="PointLight2D" parent="NightLight" unique_id=2036372027]
+position = Vector2(17.999996, -54)
+scale = Vector2(1.640625, 2.140625)
+color = Color(0.8331245, 0.44918954, 0.15880418, 1)
+energy = 3.01
+texture = ExtResource("10_down")
+
+[node name="TerminalLight" type="PointLight2D" parent="NightLight" unique_id=886125922]
+visible = false
+position = Vector2(-4, -12)
+scale = Vector2(1, 0.6)
+color = Color(0.20784314, 0.8666667, 0.89411765, 1)
+energy = 0.0
+texture = ExtResource("9_light")
+texture_scale = 0.6
 
 [node name="DialogueInteractable" parent="." unique_id=358228256 instance=ExtResource("3_xxwc8")]
 z_index = 1

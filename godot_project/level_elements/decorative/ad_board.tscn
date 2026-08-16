@@ -1,12 +1,9 @@
 [gd_scene format=3 uid="uid://cniar1emgicic"]
 
 [ext_resource type="Texture2D" uid="uid://rwmj8nau5w51" path="res://level_elements/decorative/ad.png" id="1_r42dx"]
-[ext_resource type="Texture2D" path="res://level_elements/decorative/ad_overlay.png" id="2_overlay"]
-[ext_resource type="Texture2D" path="res://visual_effects/day_night/light_radial.png" id="3_light"]
-[ext_resource type="Script" path="res://visual_effects/day_night/night_light_2d.gd" id="4_night"]
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glow"]
-blend_mode = 1
+[ext_resource type="Texture2D" uid="uid://cuelkqxh1gatt" path="res://level_elements/decorative/ad_overlay.png" id="2_overlay"]
+[ext_resource type="Texture2D" uid="uid://b7k1rwda5wu1p" path="res://visual_effects/day_night/light_radial.png" id="3_light"]
+[ext_resource type="Script" uid="uid://cqe28fftgjtbc" path="res://visual_effects/day_night/night_light_2d.gd" id="4_night"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fpcxu"]
 size = Vector2(32, 7)
@@ -26,6 +23,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glow"]
+blend_mode = 1
+
 [node name="StaticBody" type="StaticBody2D" unique_id=232674008]
 collision_layer = 2
 
@@ -39,20 +39,19 @@ position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_foxih")
 autoplay = "default"
 
-[node name="NightLight" type="Node2D" parent="." groups=["night_lights"]]
+[node name="NightLight" type="Node2D" parent="." unique_id=2071726499 groups=["night_lights"]]
 script = ExtResource("4_night")
 max_energy = 0.12
-max_glow_alpha = 0.9
 stagger_range = 0.04
 
-[node name="GlowOverlay" type="Sprite2D" parent="NightLight"]
+[node name="GlowOverlay" type="Sprite2D" parent="NightLight" unique_id=344365579]
 modulate = Color(1, 1, 1, 0)
 z_index = 1
 material = SubResource("CanvasItemMaterial_glow")
 position = Vector2(0, -32)
 texture = ExtResource("2_overlay")
 
-[node name="PointLight2D" type="PointLight2D" parent="NightLight"]
+[node name="PointLight2D" type="PointLight2D" parent="NightLight" unique_id=565976209]
 position = Vector2(0, -32)
 scale = Vector2(0.6, 0.8)
 color = Color(0.20784314, 0.9019608, 0.8980392, 1)

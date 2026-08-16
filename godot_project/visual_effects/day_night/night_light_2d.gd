@@ -3,7 +3,7 @@ extends Node2D
 @export_range(0.0, 1.0, 0.01) var start_progress := 0.25
 @export_range(0.0, 1.0, 0.01) var full_strength_progress := 0.75
 @export_range(0.0, 4.0, 0.05) var max_energy := 0.85
-@export_range(0.0, 1.0, 0.05) var max_glow_alpha := 1.0
+@export_range(0.0, 1.0, 0.05) var max_glow_alpha := 0.6
 @export_range(0.0, 0.2, 0.01) var stagger_range := 0.07
 
 var _stagger := 0.0
