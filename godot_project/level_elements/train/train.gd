@@ -11,6 +11,12 @@ class_name Train
 ##this is just the string to display on the departure board and has no game impact
 @export var destination := "??"
 
+@export_group("Audio")
+@export var pulling_in_sound: AudioStream
+@export var pulling_in_no_doors_sound: AudioStream
+@export var pulling_out_sound: AudioStream
+@export var pulling_out_no_doors_sound: AudioStream
+
 # Animation parameters
 @export_group("Animation")
 ##The offset distance of the train from the platform on arrival and departure
@@ -54,6 +60,8 @@ var arrival_offset: Vector2
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var train_interactable_l: TrainInteractable = $TrainInteractableL
 @onready var train_interactable_r: TrainInteractable = $TrainInteractableR
+@onready var _pulling_in_player: AudioStreamPlayer2D = $PullingInPlayer2D
+@onready var _pulling_out_player: AudioStreamPlayer2D = $PullingOutPlayer2D
 
 var _boarding: bool = false
 var _missed_departure: bool = false
@@ -224,7 +232,7 @@ func train_depart(play_pulling_out_sfx = false) -> void:
 	tween.set_trans(Tween.TRANS_CUBIC)
 	
 	if play_pulling_out_sfx:
-		AudioManager.play_train_pulling_out_no_doors()
+		play_pulling_out(true)
 
 	tween.tween_property(self, "position", position + depart_offset, depart_duration)
 
@@ -237,16 +245,16 @@ func call_train() -> void:
 func play_arrival_animation(include_player = true) -> void:
 	print("playing arrival animation")
 	animation_player.play("RESET")
-	
-	var player := get_tree().get_first_node_in_group("player") as PlayerCharacter
-	if include_player and player:
-		AudioManager.play_train_pulling_in()
-		player.set_active(false)
-	else:
-		AudioManager.play_train_pulling_in_no_doors()
 
 	var stop_position: Vector2 = original_position
 	position = stop_position + arrival_offset
+
+	var player := get_tree().get_first_node_in_group("player") as PlayerCharacter
+	if include_player and player:
+		play_pulling_in()
+		player.set_active(false)
+	else:
+		play_pulling_in(true)
 
 	var tween := create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(self, "position", stop_position, arrival_duration)
@@ -328,7 +336,7 @@ func _embark_global_position() -> Vector2:
 	return to_global(local)
 
 
-func _run_boarding_and_departure(play_pulling_out: bool = false) -> void:
+func _run_boarding_and_departure(should_play_pulling_out: bool = false) -> void:
 	var player := get_tree().get_first_node_in_group("player")
 	if player:
 		player.movement_disabled = true
@@ -336,8 +344,8 @@ func _run_boarding_and_departure(play_pulling_out: bool = false) -> void:
 		player.visible = true
 
 	# 与开门动画同时开始播放
-	if play_pulling_out:
-		AudioManager.play_train_pulling_out()
+	if should_play_pulling_out:
+		play_pulling_out()
 
 	await _open_doors()
 
@@ -352,8 +360,43 @@ func _run_boarding_and_departure(play_pulling_out: bool = false) -> void:
 	await _close_doors()
 	await train_depart()
 
-	if play_pulling_out:
-		await AudioManager.wait_for_train_sfx()
+	if should_play_pulling_out:
+		await wait_for_pulling_out()
+
+
+func play_pulling_in(no_doors: bool = false) -> void:
+	var stream := pulling_in_no_doors_sound if no_doors else pulling_in_sound
+	_play_train_sound(_pulling_in_player, stream)
+
+
+func play_pulling_out(no_doors: bool = false) -> void:
+	var stream := pulling_out_no_doors_sound if no_doors else pulling_out_sound
+	_play_train_sound(_pulling_out_player, stream)
+
+
+func wait_for_pulling_in() -> void:
+	while _pulling_in_player.playing:
+		await get_tree().process_frame
+
+
+func wait_for_pulling_out() -> void:
+	while _pulling_out_player.playing:
+		await get_tree().process_frame
+
+
+func stop_train_audio() -> void:
+	_pulling_in_player.stop()
+	_pulling_out_player.stop()
+
+
+func _play_train_sound(player: AudioStreamPlayer2D, stream: AudioStream) -> void:
+	if stream == null:
+		return
+	if player.playing and player.stream == stream:
+		return
+	player.stop()
+	player.stream = stream
+	player.play()
 
 func _get_arrival_offset_vector() -> Vector2:
 	match direction:

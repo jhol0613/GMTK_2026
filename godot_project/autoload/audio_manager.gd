@@ -36,22 +36,6 @@ const NOTEBOOK_BGM: AudioStream = preload(
 	"uid://b4i1hxorrwm14"
 )
 
-const TRAIN_PULLING_IN: AudioStream = preload(
-	"res://level_elements/train/Train Pulling Into.mp3"
-)
-
-const TRAIN_PULLING_IN_NO_DOORS: AudioStream = preload(
-	"res://level_elements/train/Pulling out without door opening.mp3"
-)
-
-const TRAIN_PULLING_OUT: AudioStream = preload(
-	"res://level_elements/train/Pulling Out.mp3"
-)
-
-const TRAIN_PULLING_OUT_NO_DOORS: AudioStream = preload(
-	"res://level_elements/train/Pulling out without door opening.mp3"
-)
-
 const WRONG_TICKET_SFX: AudioStream = preload(
 	"uid://dw760ndv2ehvj"
 )
@@ -66,7 +50,7 @@ const NOTEBOOK_FADE_OUT_DURATION: float = 2.0
 
 var _music_player: AudioStreamPlayer
 var _notebook_player: AudioStreamPlayer
-var _train_player: AudioStreamPlayer
+var _wrong_ticket_player: AudioStreamPlayer
 var _ui_sfx_player: AudioStreamPlayer
 
 var _music_tween: Tween
@@ -103,8 +87,8 @@ func _ready() -> void:
 		"NotebookMusicPlayer",
 		MUSIC_BUS
 	)
-	_train_player = _create_player(
-		"TrainSFXPlayer",
+	_wrong_ticket_player = _create_player(
+		"WrongTicketSFXPlayer",
 		SFX_BUS
 	)
 	_ui_sfx_player = _create_player(
@@ -148,15 +132,18 @@ func _get_level_music(track: int) -> AudioStream:
 
 func start_level_music(
 	track: int,
-	play_train_intro: bool,
 	fade_duration: float = 2.0
 ) -> void:
+	var sequence := prepare_level_music(track)
+	finish_level_music_start(sequence, fade_duration)
+
+
+func prepare_level_music(track: int) -> int:
 	_pause_menu_music_active = false
 	_pause_return_stream = null
 	_pause_return_position = 0.0
 	_pause_return_was_playing = false
 	_sequence_id += 1
-	var this_sequence := _sequence_id
 
 	_level_music_track = track
 	_music_target_db = _get_level_music_volume(track)
@@ -167,18 +154,15 @@ func start_level_music(
 	_music_player.stop()
 	_notebook_player.stop()
 	_notebook_player.volume_db = SILENT_DB
+	return _sequence_id
 
-	_train_player.stop()
 
-	if play_train_intro:
-		play_train_pulling_in()
-		await wait_for_train_sfx()
-
-		if this_sequence != _sequence_id:
-			return
+func finish_level_music_start(sequence: int, fade_duration: float = 2.0) -> void:
+	if sequence != _sequence_id:
+		return
 
 	_play_music_stream(
-		_get_level_music(track),
+		_get_level_music(_level_music_track),
 		fade_duration
 	)
 
@@ -304,49 +288,6 @@ func _stop_all_music_tweens() -> void:
 
 
 
-func play_train_pulling_in() -> void:
-	if (
-		_train_player.playing
-		and _train_player.stream == TRAIN_PULLING_IN
-	):
-		return
-
-	_train_player.stop()
-	_train_player.stream = TRAIN_PULLING_IN
-	_train_player.play()
-
-
-func play_train_pulling_out() -> void:
-	if (
-		_train_player.playing
-		and _train_player.stream == TRAIN_PULLING_OUT
-	):
-		return
-
-	_train_player.stop()
-	_train_player.stream = TRAIN_PULLING_OUT
-	_train_player.play()
-
-func play_train_pulling_out_no_doors() -> void:
-	if (
-		_train_player.playing
-		and _train_player.stream == TRAIN_PULLING_OUT_NO_DOORS
-	):
-		return
-
-	_train_player.stop()
-	_train_player.stream = TRAIN_PULLING_OUT_NO_DOORS
-	_train_player.play()
-
-func stop_train_sfx() -> void:
-	_train_player.stop()
-
-
-func wait_for_train_sfx() -> void:
-	while _train_player.playing:
-		await get_tree().process_frame
-
-
 func _on_notebook_opened() -> void:
 	if _notebook_is_open:
 		return
@@ -431,15 +372,10 @@ func _stop_notebook_after_crossfade() -> void:
 	_notebook_player.stop()
 	_notebook_player.volume_db = SILENT_DB
 
-func play_train_pulling_in_no_doors() -> void:
-	_train_player.stop()
-	_train_player.stream = TRAIN_PULLING_IN_NO_DOORS
-	_train_player.play()
-	
 func play_wrong_ticket_sfx() -> void:
-	_train_player.stop()
-	_train_player.stream = WRONG_TICKET_SFX
-	_train_player.play()
+	_wrong_ticket_player.stop()
+	_wrong_ticket_player.stream = WRONG_TICKET_SFX
+	_wrong_ticket_player.play()
 
 
 func play_ui_sfx(

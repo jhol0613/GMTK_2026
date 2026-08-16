@@ -26,16 +26,30 @@ func _ready() -> void:
 	var remote_transform: RemoteTransform2D = player.get_node("RemoteTransform2D")
 	remote_transform.remote_path = remote_transform.get_path_to(camera)
 	
-	AudioManager.start_level_music(
-		level_music_track,
-		play_train_intro_before_music,
-		music_fade_in_duration
-	)
+	_start_level_audio()
 
 	SignalBus.missed_train.connect(_on_missed_train)
 
 	if TimeManager.consume_wrong_train_dialogue():
 		call_deferred("_play_wrong_train_dialogue")
+
+
+func _start_level_audio() -> void:
+	var sequence := AudioManager.prepare_level_music(level_music_track)
+	if play_train_intro_before_music:
+		var opening_train := _find_opening_train()
+		if opening_train != null:
+			await opening_train.wait_for_pulling_in()
+	AudioManager.finish_level_music_start(sequence, music_fade_in_duration)
+
+
+func _find_opening_train() -> Train:
+	for child in get_children():
+		if child is TrainPlatform:
+			var platform := child as TrainPlatform
+			if platform.play_arrival_on_ready and platform.upper_train != null:
+				return platform.upper_train
+	return null
 
 
 func _on_missed_train() -> void:

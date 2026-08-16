@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://d0p3sbfud3275" path="res://player/sprites/Main_Character.png" id="4_player"]
 [ext_resource type="Texture2D" uid="uid://dixkuxjdnkyp" path="res://level_elements/train/hoverthruster_sparcle.png" id="4_wb4gf"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="5_oe38n"]
+[ext_resource type="AudioStream" uid="uid://cu3ssob4apsrg" path="res://level_elements/train/Train Pulling Into.mp3" id="6_pulling_in"]
+[ext_resource type="AudioStream" uid="uid://b511cvpm80f52" path="res://level_elements/train/Pulling Out.mp3" id="7_pulling_out"]
+[ext_resource type="AudioStream" uid="uid://bjj4avshu6qv3" path="res://level_elements/train/Pulling Into without door opening.mp3" id="8_no_doors"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5xnue"]
 atlas = ExtResource("2_725i7")
@@ -420,8 +423,25 @@ size = Vector2(40, 23)
 
 [node name="Train" type="Node2D" unique_id=2086324427 node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_cjdsu")
-reload_scene = null
+pulling_in_sound = ExtResource("6_pulling_in")
+pulling_in_no_doors_sound = ExtResource("8_no_doors")
+pulling_out_sound = ExtResource("7_pulling_out")
+pulling_out_no_doors_sound = ExtResource("7_pulling_out")
 sprite = NodePath("TrainSprite")
+
+[node name="PullingInPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=620830900]
+volume_db = 4.0
+max_distance = 1400.0
+attenuation = 0.6597539
+panning_strength = 0.5
+bus = &"SFX"
+
+[node name="PullingOutPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1254845133]
+volume_db = 4.0
+max_distance = 1400.0
+attenuation = 0.65
+panning_strength = 0.5
+bus = &"SFX"
 
 [node name="TrainSprite" type="AnimatedSprite2D" parent="." unique_id=865404147]
 position = Vector2(0, -40)

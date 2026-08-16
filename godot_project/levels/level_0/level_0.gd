@@ -72,7 +72,7 @@ func _on_conversation_complete():
 
 
 func _on_falling_scene_complete():
-	platform.upper_train.train_depart()
+	platform.upper_train.train_depart(true)
 	ui_layer.open_notebook()
 	await get_tree().create_timer(10).timeout
 	platform.upper_train.call_train()

@@ -22,7 +22,7 @@ func _ready() -> void:
 	for section:String in player_vocab.data:
 		for encoded:String in player_vocab.data[section]:
 			_add_entry_to_the_section(
-				encoded, player_vocab.data[section][encoded], section)
+				encoded, player_vocab.data[section][encoded], section, false)
 
 
 func _handle_entry_removed() -> void:
@@ -44,7 +44,12 @@ func _handle_moving_entry(to_section:int, entry:NotebookEntry) -> void:
 				entry.queue_free()
 
 
-func _add_entry_to_the_section(encoded:String, initial_text = "", section:String = "Unsorted") -> void:
+func _add_entry_to_the_section(
+	encoded: String,
+	initial_text = "",
+	section: String = "Unsorted",
+	play_feedback: bool = true,
+) -> void:
 	var indx: int = -1
 	for _section: NotebookSection in _sections:
 		if _section.section_name == section:
@@ -57,8 +62,9 @@ func _add_entry_to_the_section(encoded:String, initial_text = "", section:String
 	if _sections[indx].get_pages().is_empty():
 		_sections[indx]._new_page()
 	var page: = _sections[indx].get_pages()[-1]
-	_entry_added_sound.play()
-	SignalBus.new_unique_resshan_note_added_to_notebook.emit()
+	if play_feedback:
+		_entry_added_sound.play()
+		SignalBus.new_unique_resshan_note_added_to_notebook.emit()
 	var entry: = page._new_entry(encoded, initial_text)
 	entry.move_requested.connect(_handle_moving_entry.bind(entry))
 	
