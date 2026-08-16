@@ -37,19 +37,19 @@ const NOTEBOOK_BGM: AudioStream = preload(
 )
 
 const TRAIN_PULLING_IN: AudioStream = preload(
-	"uid://cu3ssob4apsrg"
+	"res://level_elements/train/Train Pulling Into.mp3"
 )
 
 const TRAIN_PULLING_IN_NO_DOORS: AudioStream = preload(
-	"uid://bjj4avshu6qv3"
+	"res://level_elements/train/Pulling out without door opening.mp3"
 )
 
 const TRAIN_PULLING_OUT: AudioStream = preload(
-	"uid://b511cvpm80f52"
+	"res://level_elements/train/Pulling Out.mp3"
 )
 
 const TRAIN_PULLING_OUT_NO_DOORS: AudioStream = preload(
-	"uid://bjj4avshu6qv3"
+	"res://level_elements/train/Pulling out without door opening.mp3"
 )
 
 const WRONG_TICKET_SFX: AudioStream = preload(
