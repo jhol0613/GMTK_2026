@@ -3,7 +3,7 @@ class_name Hourglass
 
 @onready var hourglass_top: AnimatedSprite2D = $HourglassTop
 @onready var hourglass_bottom: AnimatedSprite2D = $HourglassBottom
-@onready var _time_label: ResshanLabel = $TimeLabel
+@onready var _time_label: ResshanLabel = $TimeDisplay/TimeLabel
 
 var _start_total: int = 0
 
