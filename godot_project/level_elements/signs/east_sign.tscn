@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://b48qp3csk2gks" path="res://level_elements/signs/eastsign.png" id="1_l2epn"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="2_o25h1"]
+[ext_resource type="Texture2D" path="res://level_elements/signs/eastsign_screen_overlay.png" id="3_screen"]
+[ext_resource type="Script" path="res://level_elements/signs/sign_screen_glow.gd" id="4_glow"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o25h1"]
 atlas = ExtResource("1_l2epn")
@@ -32,6 +34,35 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_screen_0"]
+atlas = ExtResource("3_screen")
+region = Rect2(0, 0, 40, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_screen_1"]
+atlas = ExtResource("3_screen")
+region = Rect2(40, 0, 40, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_screen_2"]
+atlas = ExtResource("3_screen")
+region = Rect2(80, 0, 40, 49)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_screen"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_screen_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_screen_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_screen_2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]
 size = Vector2(11, 6)
 
@@ -41,6 +72,16 @@ size = Vector2(11, 6)
 z_index = 1
 position = Vector2(5, -23)
 sprite_frames = SubResource("SpriteFrames_l2epn")
+autoplay = "default"
+
+[node name="ScreenGlow" type="Node2D" parent="." groups=["night_lights"]]
+script = ExtResource("4_glow")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScreenGlow"]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+position = Vector2(5, -23)
+sprite_frames = SubResource("SpriteFrames_screen")
 autoplay = "default"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=500868513]
