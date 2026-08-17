@@ -1,33 +1,31 @@
 extends Node2D
 
-
-@onready var _destination_label := $Time4
+const MAX_ENTRIES: = 6
 
 @onready var _update_sound: AudioStreamPlayer2D = $UpdateSound
 
-@export var _all_labels: Array[ResshanLabel] = []
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	SignalBus.ticket_purchased.connect(_on_ticket_purchased)
-
-	_update_labels(TimeManager.hour, TimeManager.minute, TimeManager.second)
-
-func _on_ticket_purchased(
-	hour: int,
-	minute: int,
-	second: int
-) -> void:
-	_update_labels(hour, minute, second)
-
+# Destination is in <<***>> format
+# Could be called directly or via signal. 
+# It's up to who is gonna connect board to the trains (or trains to the board)
+func add_entry(data: ScheduleData, destination: String, platform: int) -> bool:
+	if $EntryHolder.get_children().size() >= MAX_ENTRIES:
+		print("Max amount of board entries")
+		return false
+	
+	var entry: BoardEntry = preload("uid://bpwbcd1m6uugt").instantiate()
+	entry.set_data(Vector3i(data.hour, data.minute, data.seconds), destination, platform)
+	data.train_aproaching.connect(remove_entry.bind(entry))
+	$EntryHolder.add_child(entry)
+	
 	if _update_sound.stream != null:
 		_update_sound.play()
+	
+	return true
 
-func _update_labels(hour: int, minute: int, second: int) -> void:
-	var offset = int(randf() * 3.0 + 1.0)
-	for label in _all_labels:
-		if randf() > 0.5:
-			label.text = "<<%s>> : <<%s>> : <<%s>>" % [hour, minute, second]
-		else:
-			label.text = "<<%s>> : <<%s>> : <<%s>>" % [hour, posmod(minute + offset, 8), posmod(second + offset, 8)]
-	_destination_label.text = "<<%s>> : <<%s>> : <<%s>>" % [hour, minute, second]
+# Right now, entries will be removed when ScheduleData "rings"
+# But probably should be tweaked to be removed later
+func remove_entry(entry: BoardEntry) -> void:
+	entry.queue_free()
+	
+	if _update_sound.stream != null:
+		_update_sound.play()

@@ -2,11 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://bk0lode0vclmc" path="res://level_elements/departure_board/departure board.png" id="1_gh1tk"]
 [ext_resource type="Script" uid="uid://c1k84acxkh1w5" path="res://level_elements/departure_board/deaprture_board.gd" id="1_i2b7y"]
-[ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/resshan_label.gd" id="3_4ky8n"]
 [ext_resource type="AudioStream" uid="uid://c5fycxplhe2fh" path="res://level_elements/departure_board/DepartBoardUpdateSFX.mp3" id="4_4ky8n"]
-[ext_resource type="Texture2D" path="res://level_elements/departure_board/departure_board_glow.png" id="5_glow"]
-[ext_resource type="Texture2D" path="res://visual_effects/day_night/light_radial.png" id="6_light"]
-[ext_resource type="Script" path="res://visual_effects/day_night/night_light_2d.gd" id="7_nightlight"]
+[ext_resource type="Texture2D" uid="uid://csgrgsejqomv4" path="res://level_elements/departure_board/departure_board_glow.png" id="5_glow"]
+[ext_resource type="Texture2D" uid="uid://b7k1rwda5wu1p" path="res://visual_effects/day_night/light_radial.png" id="6_light"]
+[ext_resource type="Script" uid="uid://cqe28fftgjtbc" path="res://visual_effects/day_night/night_light_2d.gd" id="7_nightlight"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glow"]
 blend_mode = 1
@@ -14,26 +13,25 @@ blend_mode = 1
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]
 size = Vector2(87, 14)
 
-[node name="DeaprtureBoard" type="Node2D" unique_id=994016923 node_paths=PackedStringArray("_all_labels")]
+[node name="DeaprtureBoard" type="Node2D" unique_id=994016923]
 script = ExtResource("1_i2b7y")
-_all_labels = [NodePath("Time"), NodePath("Time2"), NodePath("Time3"), NodePath("Time4")]
 
 [node name="DepartureBoard" type="Sprite2D" parent="." unique_id=723603560]
 z_index = 1
 position = Vector2(0, -55)
 texture = ExtResource("1_gh1tk")
 
-[node name="NightLight" type="Node2D" parent="." groups=["night_lights"]]
+[node name="NightLight" type="Node2D" parent="." unique_id=2025155483 groups=["night_lights"]]
 script = ExtResource("7_nightlight")
 
-[node name="GlowOverlay" type="Sprite2D" parent="NightLight"]
+[node name="GlowOverlay" type="Sprite2D" parent="NightLight" unique_id=798856056]
 modulate = Color(1, 1, 1, 0)
-material = SubResource("CanvasItemMaterial_glow")
 z_index = 1
+material = SubResource("CanvasItemMaterial_glow")
 position = Vector2(0, -55)
 texture = ExtResource("5_glow")
 
-[node name="PointLight2D" type="PointLight2D" parent="NightLight"]
+[node name="PointLight2D" type="PointLight2D" parent="NightLight" unique_id=1357824879]
 position = Vector2(0, -55)
 color = Color(0.392157, 0.866667, 0.890196, 1)
 energy = 0.0
@@ -48,220 +46,12 @@ collision_mask = 3
 position = Vector2(2.5, -8)
 shape = SubResource("RectangleShape2D_ujtin")
 
-[node name="Time" type="Control" parent="." unique_id=1435033519]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(9, 9)
-custom_maximum_size = Vector2(-1, 9)
-layout_mode = 3
-anchors_preset = 0
+[node name="EntryHolder" type="VBoxContainer" parent="." unique_id=500838810]
 offset_left = -33.0
 offset_top = -71.0
-offset_right = -12.0
-offset_bottom = -62.0
-mouse_filter = 2
-script = ExtResource("3_4ky8n")
-text = "<<station.0>>"
-spacing = 0.0
-font_size = 9
-metadata/_custom_type_script = "uid://sidowamkhcrt"
-
-[node name="Time2" type="Control" parent="." unique_id=104394652]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(9, 9)
-custom_maximum_size = Vector2(-1, 9)
-layout_mode = 3
-anchors_preset = 0
-offset_left = -33.0
-offset_top = -60.0
-offset_right = -12.0
-offset_bottom = -51.0
-mouse_filter = 2
-script = ExtResource("3_4ky8n")
-text = "<<station.1>>"
-spacing = 0.0
-font_size = 9
-metadata/_custom_type_script = "uid://sidowamkhcrt"
-
-[node name="Time3" type="Control" parent="." unique_id=1587385301]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(9, 9)
-custom_maximum_size = Vector2(-1, 9)
-layout_mode = 3
-anchors_preset = 0
-offset_left = -33.0
-offset_top = -49.0
-offset_right = -12.0
-offset_bottom = -40.0
-mouse_filter = 2
-script = ExtResource("3_4ky8n")
-text = "<<station.1>>"
-spacing = 0.0
-font_size = 9
-metadata/_custom_type_script = "uid://sidowamkhcrt"
-
-[node name="Time4" type="Control" parent="." unique_id=562711043]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(33, 13)
-custom_maximum_size = Vector2(-1, 9)
-layout_mode = 3
-anchors_preset = 0
-offset_left = -33.0
-offset_top = -38.0
-offset_bottom = -29.0
-mouse_filter = 2
-script = ExtResource("3_4ky8n")
-text = "<<1>> : <<2>> : <<3>>"
-spacing = 0.0
-font_size = 9
-metadata/_custom_type_script = "uid://sidowamkhcrt"
-
-[node name="Station" type="Control" parent="." unique_id=216770631]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(18, 9)
-custom_maximum_size = Vector2(-1, 9)
-layout_mode = 3
-anchors_preset = 0
-offset_left = -2.0
-offset_top = -71.0
-offset_right = 16.0
-offset_bottom = -62.0
-mouse_filter = 2
-script = ExtResource("3_4ky8n")
-text = "<<to>> <<endofredline>>"
-spacing = 0.0
-font_size = 9
-metadata/_custom_type_script = "uid://sidowamkhcrt"
-
-[node name="Station2" type="Control" parent="." unique_id=299498093]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(18, 9)
-custom_maximum_size = Vector2(-1, 9)
-layout_mode = 3
-anchors_preset = 0
-offset_left = -2.0
-offset_top = -60.0
-offset_right = 16.0
-offset_bottom = -51.0
-mouse_filter = 2
-script = ExtResource("3_4ky8n")
-text = "<<to>> <<endofpinkline>>"
-spacing = 0.0
-font_size = 9
-metadata/_custom_type_script = "uid://sidowamkhcrt"
-
-[node name="Station3" type="Control" parent="." unique_id=269121502]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(18, 9)
-custom_maximum_size = Vector2(-1, 9)
-layout_mode = 3
-anchors_preset = 0
-offset_left = -2.0
-offset_top = -49.0
-offset_right = 16.0
-offset_bottom = -40.0
-mouse_filter = 2
-script = ExtResource("3_4ky8n")
-text = "<<to>> <<endofgreenline>>"
-spacing = 0.0
-font_size = 9
-metadata/_custom_type_script = "uid://sidowamkhcrt"
-
-[node name="Station4" type="Control" parent="." unique_id=515772629]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(18, 9)
-custom_maximum_size = Vector2(-1, 9)
-layout_mode = 3
-anchors_preset = 0
-offset_left = -2.0
-offset_top = -38.0
-offset_right = 16.0
-offset_bottom = -29.0
-mouse_filter = 2
-script = ExtResource("3_4ky8n")
-text = "<<to>> <<endofblueline>>"
-spacing = 0.0
-font_size = 9
-metadata/_custom_type_script = "uid://sidowamkhcrt"
-
-[node name="Platform" type="Control" parent="." unique_id=1992812642]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(18, 9)
-custom_maximum_size = Vector2(-1, 9)
-layout_mode = 3
-anchors_preset = 0
-offset_left = 19.0
-offset_top = -71.0
 offset_right = 37.0
-offset_bottom = -62.0
-mouse_filter = 2
-script = ExtResource("3_4ky8n")
-text = "<<platform>> <<1>>"
-spacing = 0.0
-font_size = 9
-metadata/_custom_type_script = "uid://sidowamkhcrt"
-
-[node name="Platform2" type="Control" parent="." unique_id=1481722951]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(18, 9)
-custom_maximum_size = Vector2(-1, 9)
-layout_mode = 3
-anchors_preset = 0
-offset_left = 19.0
-offset_top = -60.0
-offset_right = 37.0
-offset_bottom = -51.0
-mouse_filter = 2
-script = ExtResource("3_4ky8n")
-text = "<<platform>> <<2>>"
-spacing = 0.0
-font_size = 9
-metadata/_custom_type_script = "uid://sidowamkhcrt"
-
-[node name="Platform3" type="Control" parent="." unique_id=2120755223]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(18, 9)
-custom_maximum_size = Vector2(-1, 9)
-layout_mode = 3
-anchors_preset = 0
-offset_left = 19.0
-offset_top = -49.0
-offset_right = 37.0
-offset_bottom = -40.0
-mouse_filter = 2
-script = ExtResource("3_4ky8n")
-text = "<<platform>> <<3>>"
-spacing = 0.0
-font_size = 9
-metadata/_custom_type_script = "uid://sidowamkhcrt"
-
-[node name="Platform4" type="Control" parent="." unique_id=1060271988]
-z_index = 1
-texture_filter = 1
-custom_minimum_size = Vector2(18, 9)
-custom_maximum_size = Vector2(-1, 9)
-layout_mode = 3
-anchors_preset = 0
-offset_left = 19.0
-offset_top = -38.0
-offset_right = 37.0
-offset_bottom = -29.0
-mouse_filter = 2
-script = ExtResource("3_4ky8n")
-text = "<<platform>> <<4>>"
-spacing = 0.0
-font_size = 9
-metadata/_custom_type_script = "uid://sidowamkhcrt"
+offset_bottom = -7.0
+theme_override_constants/separation = 2
 
 [node name="UpdateSound" type="AudioStreamPlayer2D" parent="." unique_id=1076410545]
 stream = ExtResource("4_4ky8n")

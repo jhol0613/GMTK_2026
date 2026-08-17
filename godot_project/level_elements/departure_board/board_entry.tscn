@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://bpwbcd1m6uugt"]
+
+[ext_resource type="Script" uid="uid://dvsuns3v6tmbm" path="res://level_elements/departure_board/board_entry.gd" id="1_du5p0"]
+[ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/resshan_label.gd" id="1_m6vna"]
+
+[node name="BoardEntry" type="HBoxContainer" unique_id=411754432]
+theme_override_constants/separation = 0
+script = ExtResource("1_du5p0")
+
+[node name="Time" type="Control" parent="." unique_id=1064875100]
+z_index = 1
+texture_filter = 1
+custom_minimum_size = Vector2(33, 13)
+custom_maximum_size = Vector2(-1, 9)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+script = ExtResource("1_m6vna")
+text = "<<1>> : <<2>> : <<3>>"
+spacing = 0.0
+font_size = 9
+metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="Station" type="Control" parent="." unique_id=327565709]
+z_index = 1
+texture_filter = 1
+custom_minimum_size = Vector2(18, 9)
+custom_maximum_size = Vector2(-1, 9)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+script = ExtResource("1_m6vna")
+text = "<<to>> <<endofredline>>"
+spacing = 0.0
+font_size = 9
+metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="Platform" type="Control" parent="." unique_id=1060932699]
+z_index = 1
+texture_filter = 1
+custom_minimum_size = Vector2(18, 9)
+custom_maximum_size = Vector2(-1, 9)
+layout_mode = 2
+size_flags_horizontal = 10
+mouse_filter = 2
+script = ExtResource("1_m6vna")
+text = "<<platform>> <<1>>"
+spacing = 0.0
+font_size = 9
+metadata/_custom_type_script = "uid://sidowamkhcrt"
