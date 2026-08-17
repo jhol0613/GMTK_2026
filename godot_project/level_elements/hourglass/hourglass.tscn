@@ -8,6 +8,10 @@
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="6_x32e2"]
 [ext_resource type="Script" path="res://level_elements/hourglass/hourglass_time_display.gd" id="7_time_display"]
 [ext_resource type="Texture2D" uid="uid://b7k1rwda5wu1p" path="res://visual_effects/day_night/light_radial.png" id="8_light"]
+[ext_resource type="Script" path="res://level_elements/hourglass/hourglass_bottom_glow.gd" id="9_bottom_glow"]
+[ext_resource type="Texture2D" uid="uid://cvofpyblyt58" path="res://level_elements/hourglass/hourglass_botton_glow.png" id="10_bottom_glow"]
+[ext_resource type="Script" path="res://level_elements/hourglass/hourglass_static_glow.gd" id="11_static_glow"]
+[ext_resource type="Texture2D" uid="uid://bmns2krxsvtu0" path="res://level_elements/hourglass/hourglass_top_glow.png" id="12_top_glow"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i7vl5"]
 atlas = ExtResource("1_nngdn")
@@ -263,6 +267,67 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bottom_glow"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bottom_glow_0"]
+atlas = ExtResource("10_bottom_glow")
+region = Rect2(0, 0, 80, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bottom_glow_1"]
+atlas = ExtResource("10_bottom_glow")
+region = Rect2(80, 0, 80, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bottom_glow_2"]
+atlas = ExtResource("10_bottom_glow")
+region = Rect2(160, 0, 80, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bottom_glow_3"]
+atlas = ExtResource("10_bottom_glow")
+region = Rect2(240, 0, 80, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bottom_glow_4"]
+atlas = ExtResource("10_bottom_glow")
+region = Rect2(320, 0, 80, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bottom_glow_5"]
+atlas = ExtResource("10_bottom_glow")
+region = Rect2(400, 0, 80, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bottom_glow_6"]
+atlas = ExtResource("10_bottom_glow")
+region = Rect2(480, 0, 80, 69)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bottom_glow"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bottom_glow_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bottom_glow_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bottom_glow_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bottom_glow_3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bottom_glow_4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bottom_glow_5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bottom_glow_6")
+}],
+"loop": false,
+"name": &"time_tick",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]
 size = Vector2(78, 16)
 
@@ -275,10 +340,31 @@ position = Vector2(0, -99)
 sprite_frames = SubResource("SpriteFrames_ujtin")
 animation = &"time_tick"
 
+[node name="TopNightGlow" type="Node2D" parent="." groups=["night_lights"]]
+script = ExtResource("11_static_glow")
+
+[node name="Overlay" type="Sprite2D" parent="TopNightGlow"]
+modulate = Color(1, 1, 1, 0)
+z_index = 2
+material = SubResource("CanvasItemMaterial_bottom_glow")
+position = Vector2(0, -99)
+texture = ExtResource("12_top_glow")
+
 [node name="HourglassBottom" type="AnimatedSprite2D" parent="." unique_id=250575528]
 z_index = 1
 position = Vector2(0, -35)
 sprite_frames = SubResource("SpriteFrames_i8oxj")
+animation = &"time_tick"
+
+[node name="BottomNightGlow" type="Node2D" parent="." groups=["night_lights"]]
+script = ExtResource("9_bottom_glow")
+
+[node name="Overlay" type="AnimatedSprite2D" parent="BottomNightGlow"]
+modulate = Color(1, 1, 1, 0)
+z_index = 2
+material = SubResource("CanvasItemMaterial_bottom_glow")
+position = Vector2(0, -35)
+sprite_frames = SubResource("SpriteFrames_bottom_glow")
 animation = &"time_tick"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=99889502]

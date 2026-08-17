@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://bodxnyj4yyn7c" path="res://level_elements/ATM/ATM.png" id="2_5sl07"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="4_dfvvi"]
 [ext_resource type="AudioStream" uid="uid://depqietaoj2si" path="res://level_elements/ATM/ATMTurnOn.mp3" id="5_5sl07"]
+[ext_resource type="Script" path="res://level_elements/ATM/atm_night_glow.gd" id="6_glow_script"]
+[ext_resource type="Texture2D" uid="uid://dutgmr1vyofwv" path="res://level_elements/ATM/atm_glow.png" id="7_normal_glow"]
+[ext_resource type="Texture2D" uid="uid://bdk1p3vfen6aa" path="res://level_elements/ATM/atm_broken_glow.png" id="8_broken_glow"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ylf28"]
 atlas = ExtResource("1_df8qj")
@@ -62,6 +65,65 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glow"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glow_broken_0"]
+atlas = ExtResource("8_broken_glow")
+region = Rect2(0, 0, 67, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glow_broken_1"]
+atlas = ExtResource("8_broken_glow")
+region = Rect2(67, 0, 67, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glow_broken_2"]
+atlas = ExtResource("8_broken_glow")
+region = Rect2(134, 0, 67, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glow_default_0"]
+atlas = ExtResource("7_normal_glow")
+region = Rect2(0, 0, 67, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glow_default_1"]
+atlas = ExtResource("7_normal_glow")
+region = Rect2(67, 0, 67, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glow_default_2"]
+atlas = ExtResource("7_normal_glow")
+region = Rect2(134, 0, 67, 112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_glow"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glow_broken_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glow_broken_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glow_broken_2")
+}],
+"loop": true,
+"name": &"broken",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glow_default_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glow_default_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glow_default_2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1w4un"]
 size = Vector2(46.5, 14)
 
@@ -84,6 +146,15 @@ offset_bottom = -39.0
 y_sort_enabled = true
 position = Vector2(0, -57)
 sprite_frames = SubResource("SpriteFrames_fpcxu")
+
+[node name="NightGlow" type="Node2D" parent="ATMSprite" groups=["night_lights"]]
+script = ExtResource("6_glow_script")
+
+[node name="Overlay" type="AnimatedSprite2D" parent="ATMSprite/NightGlow"]
+modulate = Color(1, 1, 1, 0)
+material = SubResource("CanvasItemMaterial_glow")
+sprite_frames = SubResource("SpriteFrames_glow")
+animation = &"default"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1122527182]
 z_index = 1
