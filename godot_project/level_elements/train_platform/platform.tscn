@@ -10,6 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://danrb3vfq83ag" path="res://level_elements/decorative/hoverthruster.png" id="7_3v7e2"]
 [ext_resource type="PackedScene" uid="uid://bo3pcctdon7l" path="res://level_elements/signs/station_name_sign.tscn" id="8_tem3n"]
 [ext_resource type="Script" uid="uid://dcanbg433hb0v" path="res://visual_effects/day_night/hoverthruster_lighting.gd" id="9_thruster_light"]
+[ext_resource type="Script" path="res://level_elements/train/train_night_glow.gd" id="10_train_night_glow"]
+[ext_resource type="Texture2D" uid="uid://duudg8ecdajql" path="res://level_elements/train/train_front_glow.png" id="11_train_front_glow"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_train_front_glow"]
+blend_mode = 1
+light_mode = 1
 
 [node name="Platform" type="Node2D" unique_id=1302422271 node_paths=PackedStringArray("upper_train", "lower_train")]
 y_sort_enabled = true
@@ -64,6 +70,15 @@ direction = 2
 position = Vector2(522, -40)
 texture = ExtResource("4_ajha7")
 
+[node name="FrontNightGlow" type="Node2D" parent="UpperTrain/Trainfront" groups=["night_lights"]]
+script = ExtResource("10_train_night_glow")
+
+[node name="Overlay" type="Sprite2D" parent="UpperTrain/Trainfront/FrontNightGlow"]
+modulate = Color(1, 1, 1, 0)
+z_index = 0
+material = SubResource("CanvasItemMaterial_train_front_glow")
+texture = ExtResource("11_train_front_glow")
+
 [node name="LowerTrain" parent="." unique_id=1370361982 instance=ExtResource("5_ajha7")]
 z_index = 3
 position = Vector2(-128, 145)
@@ -75,6 +90,15 @@ color = 8
 position = Vector2(-526, -40)
 texture = ExtResource("4_ajha7")
 flip_h = true
+
+[node name="FrontNightGlow" type="Node2D" parent="LowerTrain/Trainfront2" groups=["night_lights"]]
+script = ExtResource("10_train_night_glow")
+
+[node name="Overlay" type="Sprite2D" parent="LowerTrain/Trainfront2/FrontNightGlow"]
+modulate = Color(1, 1, 1, 0)
+z_index = 0
+material = SubResource("CanvasItemMaterial_train_front_glow")
+texture = ExtResource("11_train_front_glow")
 
 [node name="Hourglass" parent="." unique_id=259821884 instance=ExtResource("6_f3ea8")]
 position = Vector2(-127, 12)

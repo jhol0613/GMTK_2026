@@ -345,7 +345,7 @@ script = ExtResource("11_static_glow")
 
 [node name="Overlay" type="Sprite2D" parent="TopNightGlow"]
 modulate = Color(1, 1, 1, 0)
-z_index = 2
+z_index = 1
 material = SubResource("CanvasItemMaterial_bottom_glow")
 position = Vector2(0, -99)
 texture = ExtResource("12_top_glow")
@@ -361,7 +361,7 @@ script = ExtResource("9_bottom_glow")
 
 [node name="Overlay" type="AnimatedSprite2D" parent="BottomNightGlow"]
 modulate = Color(1, 1, 1, 0)
-z_index = 2
+z_index = 1
 material = SubResource("CanvasItemMaterial_bottom_glow")
 position = Vector2(0, -35)
 sprite_frames = SubResource("SpriteFrames_bottom_glow")
