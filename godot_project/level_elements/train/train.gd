@@ -112,11 +112,9 @@ func try_board(interactable: TrainInteractable, l_or_r: String) -> void:
 			await _missed_departure_sequence()
 			return
 		Enums.BoardResult.WRONG_TRAIN:
-			SignalBus.ticket_consumed.emit()
 			await _wrong_train_sequence()
 			return
 		Enums.BoardResult.SUCCESS:
-			SignalBus.ticket_consumed.emit()
 			await _boarding_sequence()
 
 ## Evaluates whether the player can board the train
@@ -359,12 +357,17 @@ func _run_boarding_and_departure(should_play_pulling_out: bool = false) -> void:
 	if player:
 		player.visible = false
 	board_marker.visible = true
+	SignalBus.ticket_consumed.emit()
 
 	await _close_doors()
 	await train_depart()
 
 	if should_play_pulling_out:
 		await wait_for_pulling_out()
+
+	var ticket := Inventory.get_ticket()
+	if ticket != null:
+		Inventory.remove_item(ticket)
 
 
 func play_pulling_in(no_doors: bool = false) -> void:
