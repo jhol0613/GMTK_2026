@@ -15,7 +15,6 @@ extends Node
 var departure_list: Array[DepartureData]
 ##indices should match those for the departure list
 var departure_assignments: Array[Train]
-var arrival_times: Array[int]
 ##sets of available trains for building the schedule grouped by direction
 var train_pool: Dictionary[Enums.TrainDirection, TrainSet]
 ##All the trains that are currently in the station with their departure time
@@ -42,7 +41,8 @@ func build_schedule():
 	var current_time = TimeManager.total_seconds() - pull_in_seconds_before_departure - 1
 	
 	for schedule_item: ScheduleData in schedule:
-		var time = 0 + randi_range(0, schedule_item.arrival_variation_minutes * TimeManager.SECONDS_PER_MINUTE)
+		var time = schedule_item.initial_offset + \
+			randi_range(0, schedule_item.arrival_variation_minutes * TimeManager.SECONDS_PER_MINUTE)
 		while time < current_time:
 			#copy basic schedule data to departures
 			var departure_data = DepartureData.new()
@@ -79,6 +79,8 @@ func _pair_departures_with_trains():
 	##A train that was reserved and its reservation limit.
 	##reservation limit is the time that the train will no longer be reserved
 	var unavailable_trains: Dictionary[Train, int]
+	var canceled_departures : Array[DepartureData]
+	
 	#departure list is sorted soonest to latest (i.e. high times to low times)
 	for departure in departure_list:
 		
@@ -86,15 +88,23 @@ func _pair_departures_with_trains():
 		for train: Train in unavailable_trains.keys():
 			if unavailable_trains[train] > departure.arrival_time_seconds:
 				train_pool[train.direction].push_unique(train)
-			unavailable_trains.erase(train)
+				unavailable_trains.erase(train)
 
 		#randomly reserve a new train
 		var assigned_train = train_pool[departure.direction].pop_rand()
 		if assigned_train:
 			unavailable_trains.get_or_add(assigned_train, 
-				departure.arrival_time_seconds + post_departure_buffer_seconds)
-		#a departure assignment can be null if no train was available
-		departure_assignments.append(assigned_train)
+				departure.departure_time_seconds - post_departure_buffer_seconds)
+			#a departure assignment can be null if no train was available
+			departure_assignments.append(assigned_train)
+		else:
+			canceled_departures.append(departure)
+
+	#Remove any departures that were canceled due to platform conflicts.
+	#If the number of lines equals the number of platforms, cancelations should be rare
+	for departure in canceled_departures:
+		departure_list.erase(departure)
+	print(canceled_departures.size(), " departures canceled for platform conflicts")
 
 func _refresh_train_pool():
 	train_pool = {

@@ -23,14 +23,14 @@ var platform_number := 0
 @export_group("Animation")
 ##The offset distance of the train from the platform on arrival and departure
 ##for North/South trains
-@export var arrival_distance_vertical := 600.0
+@export var arrival_distance_vertical := 4800.0
 ##The offset distance of the train from the platform on arrival and departure
 ##for East/West trains
-@export var arrival_distance_horizontal := 800.0
+@export var arrival_distance_horizontal := 4800.0
 var depart_offset: Vector2
-@export var depart_duration: float = 1.5
+@export var depart_duration: float = 3.0
 var arrival_offset: Vector2
-@export var arrival_duration: float = 1.5
+@export var arrival_duration: float = 3.0
 ## Player walk speed while boarding or exiting the train.
 @export var board_walk_speed: float = 80.0
 ## Extra downward camera nudge while the player walks out of the train.

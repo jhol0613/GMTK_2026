@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://danrb3vfq83ag" path="res://level_elements/decorative/hoverthruster.png" id="7_3v7e2"]
 [ext_resource type="PackedScene" uid="uid://bo3pcctdon7l" path="res://level_elements/signs/station_name_sign.tscn" id="8_tem3n"]
 [ext_resource type="Script" uid="uid://dcanbg433hb0v" path="res://visual_effects/day_night/hoverthruster_lighting.gd" id="9_thruster_light"]
-[ext_resource type="Script" path="res://level_elements/train/train_night_glow.gd" id="10_train_night_glow"]
+[ext_resource type="Script" uid="uid://iqsa7knvxpkd" path="res://level_elements/train/train_night_glow.gd" id="10_train_night_glow"]
 [ext_resource type="Texture2D" uid="uid://duudg8ecdajql" path="res://level_elements/train/train_front_glow.png" id="11_train_front_glow"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_train_front_glow"]
@@ -70,12 +70,11 @@ direction = 2
 position = Vector2(522, -40)
 texture = ExtResource("4_ajha7")
 
-[node name="FrontNightGlow" type="Node2D" parent="UpperTrain/Trainfront" groups=["night_lights"]]
+[node name="FrontNightGlow" type="Node2D" parent="UpperTrain/Trainfront" unique_id=1042547398 groups=["night_lights"]]
 script = ExtResource("10_train_night_glow")
 
-[node name="Overlay" type="Sprite2D" parent="UpperTrain/Trainfront/FrontNightGlow"]
+[node name="Overlay" type="Sprite2D" parent="UpperTrain/Trainfront/FrontNightGlow" unique_id=818514475]
 modulate = Color(1, 1, 1, 0)
-z_index = 0
 material = SubResource("CanvasItemMaterial_train_front_glow")
 texture = ExtResource("11_train_front_glow")
 
@@ -91,12 +90,11 @@ position = Vector2(-526, -40)
 texture = ExtResource("4_ajha7")
 flip_h = true
 
-[node name="FrontNightGlow" type="Node2D" parent="LowerTrain/Trainfront2" groups=["night_lights"]]
+[node name="FrontNightGlow" type="Node2D" parent="LowerTrain/Trainfront2" unique_id=1378392762 groups=["night_lights"]]
 script = ExtResource("10_train_night_glow")
 
-[node name="Overlay" type="Sprite2D" parent="LowerTrain/Trainfront2/FrontNightGlow"]
+[node name="Overlay" type="Sprite2D" parent="LowerTrain/Trainfront2/FrontNightGlow" unique_id=1008726137]
 modulate = Color(1, 1, 1, 0)
-z_index = 0
 material = SubResource("CanvasItemMaterial_train_front_glow")
 texture = ExtResource("11_train_front_glow")
 

@@ -10,17 +10,13 @@
 [ext_resource type="AudioStream" uid="uid://cu3ssob4apsrg" path="res://level_elements/train/Train Pulling Into.mp3" id="6_pulling_in"]
 [ext_resource type="AudioStream" uid="uid://b511cvpm80f52" path="res://level_elements/train/Pulling Out.mp3" id="7_pulling_out"]
 [ext_resource type="AudioStream" uid="uid://bjj4avshu6qv3" path="res://level_elements/train/Pulling Into without door opening.mp3" id="8_no_doors"]
-[ext_resource type="AudioStream" path="res://level_elements/train/Train_Pulling_Out_without_door.mp3" id="9_pulling_out_no_doors"]
-[ext_resource type="Script" path="res://level_elements/train/no_ticket_night_light.gd" id="10_no_ticket_night"]
+[ext_resource type="AudioStream" uid="uid://b3n6k2kwd05jh" path="res://level_elements/train/Train_Pulling_Out_without_door.mp3" id="9_pulling_out_no_doors"]
+[ext_resource type="Script" uid="uid://xxne2e5lqbq1" path="res://level_elements/train/no_ticket_night_light.gd" id="10_no_ticket_night"]
 [ext_resource type="Texture2D" uid="uid://b7k1rwda5wu1p" path="res://visual_effects/day_night/light_radial.png" id="11_no_ticket_light"]
-[ext_resource type="Script" path="res://level_elements/train/train_night_glow.gd" id="12_train_night_glow"]
+[ext_resource type="Script" uid="uid://iqsa7knvxpkd" path="res://level_elements/train/train_night_glow.gd" id="12_train_night_glow"]
 [ext_resource type="Texture2D" uid="uid://brf15e0nly738" path="res://level_elements/train/train_body_glow.png" id="13_body_glow"]
 [ext_resource type="Texture2D" uid="uid://ckse578l7fu5i" path="res://level_elements/train/train_door_left_glow.png" id="14_door_left_glow"]
 [ext_resource type="Texture2D" uid="uid://jlyj28m40he" path="res://level_elements/train/train_door_right_glow.png" id="15_door_right_glow"]
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_train_glow"]
-blend_mode = 1
-light_mode = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5xnue"]
 atlas = ExtResource("2_725i7")
@@ -144,6 +140,10 @@ animations = [{
 "name": &"YELLOW",
 "speed": 5.0
 }]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_train_glow"]
+blend_mode = 1
+light_mode = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l3brj"]
 atlas = ExtResource("4_wb4gf")
@@ -442,14 +442,14 @@ sprite = NodePath("TrainSprite")
 
 [node name="PullingInPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=620830900]
 volume_db = 4.0
-max_distance = 1400.0
+max_distance = 4600.0
 attenuation = 0.6597539
 panning_strength = 0.5
 bus = &"SFX"
 
 [node name="PullingOutPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1254845133]
 volume_db = 4.0
-max_distance = 1400.0
+max_distance = 4600.0
 attenuation = 0.65
 panning_strength = 0.5
 bus = &"SFX"
@@ -459,12 +459,11 @@ position = Vector2(0, -40)
 sprite_frames = SubResource("SpriteFrames_ujtin")
 animation = &"BROWN"
 
-[node name="BodyNightGlow" type="Node2D" parent="TrainSprite" groups=["night_lights"]]
+[node name="BodyNightGlow" type="Node2D" parent="TrainSprite" unique_id=638013023 groups=["night_lights"]]
 script = ExtResource("12_train_night_glow")
 
-[node name="Overlay" type="Sprite2D" parent="TrainSprite/BodyNightGlow"]
+[node name="Overlay" type="Sprite2D" parent="TrainSprite/BodyNightGlow" unique_id=2033507625]
 modulate = Color(1, 1, 1, 0)
-z_index = 0
 material = SubResource("CanvasItemMaterial_train_glow")
 texture = ExtResource("13_body_glow")
 
@@ -542,7 +541,7 @@ position = Vector2(0, 26)
 texture = SubResource("AtlasTexture_ticket")
 script = ExtResource("10_no_ticket_night")
 
-[node name="PointLight2D" type="PointLight2D" parent="TrainSprite/NoTicketLight"]
+[node name="PointLight2D" type="PointLight2D" parent="TrainSprite/NoTicketLight" unique_id=1482948071]
 scale = Vector2(1.5, 0.35)
 color = Color(0.278431, 0.937255, 1, 1)
 energy = 0.0
@@ -667,12 +666,11 @@ scale = Vector2(0.9, 1)
 texture = SubResource("AtlasTexture_door_l")
 offset = Vector2(8, 27)
 
-[node name="DoorNightGlow" type="Node2D" parent="DoorL" groups=["night_lights"]]
+[node name="DoorNightGlow" type="Node2D" parent="DoorL" unique_id=127020615 groups=["night_lights"]]
 script = ExtResource("12_train_night_glow")
 
-[node name="Overlay" type="Sprite2D" parent="DoorL/DoorNightGlow"]
+[node name="Overlay" type="Sprite2D" parent="DoorL/DoorNightGlow" unique_id=1728266529]
 modulate = Color(1, 1, 1, 0)
-z_index = 0
 material = SubResource("CanvasItemMaterial_train_glow")
 texture = ExtResource("14_door_left_glow")
 
@@ -683,12 +681,11 @@ scale = Vector2(0.9, 1)
 texture = SubResource("AtlasTexture_door_r")
 offset = Vector2(8.222221, 27)
 
-[node name="DoorNightGlow" type="Node2D" parent="DoorR" groups=["night_lights"]]
+[node name="DoorNightGlow" type="Node2D" parent="DoorR" unique_id=1287521217 groups=["night_lights"]]
 script = ExtResource("12_train_night_glow")
 
-[node name="Overlay" type="Sprite2D" parent="DoorR/DoorNightGlow"]
+[node name="Overlay" type="Sprite2D" parent="DoorR/DoorNightGlow" unique_id=471330764]
 modulate = Color(1, 1, 1, 0)
-z_index = 0
 material = SubResource("CanvasItemMaterial_train_glow")
 texture = ExtResource("15_door_right_glow")
 
@@ -699,12 +696,11 @@ scale = Vector2(0.9, 1)
 texture = SubResource("AtlasTexture_door_l")
 offset = Vector2(8, 27)
 
-[node name="DoorNightGlow" type="Node2D" parent="DoorL2" groups=["night_lights"]]
+[node name="DoorNightGlow" type="Node2D" parent="DoorL2" unique_id=441407588 groups=["night_lights"]]
 script = ExtResource("12_train_night_glow")
 
-[node name="Overlay" type="Sprite2D" parent="DoorL2/DoorNightGlow"]
+[node name="Overlay" type="Sprite2D" parent="DoorL2/DoorNightGlow" unique_id=2046695361]
 modulate = Color(1, 1, 1, 0)
-z_index = 0
 material = SubResource("CanvasItemMaterial_train_glow")
 texture = ExtResource("14_door_left_glow")
 
@@ -715,12 +711,11 @@ scale = Vector2(0.9, 1)
 texture = SubResource("AtlasTexture_door_r")
 offset = Vector2(8.222221, 27)
 
-[node name="DoorNightGlow" type="Node2D" parent="DoorR2" groups=["night_lights"]]
+[node name="DoorNightGlow" type="Node2D" parent="DoorR2" unique_id=862720677 groups=["night_lights"]]
 script = ExtResource("12_train_night_glow")
 
-[node name="Overlay" type="Sprite2D" parent="DoorR2/DoorNightGlow"]
+[node name="Overlay" type="Sprite2D" parent="DoorR2/DoorNightGlow" unique_id=15469485]
 modulate = Color(1, 1, 1, 0)
-z_index = 0
 material = SubResource("CanvasItemMaterial_train_glow")
 texture = ExtResource("15_door_right_glow")
 
