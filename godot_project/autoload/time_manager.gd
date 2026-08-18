@@ -135,7 +135,7 @@ func remaining_after_offset(
 		(total % seconds_per_hour) % SECONDS_PER_MINUTE,
 	)
 
-static func time_to_seconds_remaining(
+func time_to_seconds_remaining(
 	start_hours: int,
 	start_minutes: int,
 	start_seconds: int,
@@ -146,8 +146,17 @@ static func time_to_seconds_remaining(
 		start_seconds
 	)
 
+func seconds_to_hms(time_seconds: int) -> Vector3i:
+	var seconds_per_hour := MINUTES_PER_HOUR * SECONDS_PER_MINUTE
+	@warning_ignore("integer_division")
+	return Vector3i(
+		time_seconds / seconds_per_hour,
+		(time_seconds % seconds_per_hour) / SECONDS_PER_MINUTE,
+		(time_seconds % seconds_per_hour) % SECONDS_PER_MINUTE,
+	)
 
-static func subtract_offset_from_time(
+
+func subtract_offset_from_time(
 	start_hours: int,
 	start_minutes: int,
 	start_seconds: int,
@@ -163,13 +172,7 @@ static func subtract_offset_from_time(
 	)
 	var total := start_time_total_seconds - offset
 	total = maxi(total, 0)
-	var seconds_per_hour := MINUTES_PER_HOUR * SECONDS_PER_MINUTE
-	@warning_ignore("integer_division")
-	return Vector3i(
-		total / seconds_per_hour,
-		(total % seconds_per_hour) / SECONDS_PER_MINUTE,
-		(total % seconds_per_hour) % SECONDS_PER_MINUTE,
-	)
+	return seconds_to_hms(total)
 
 
 ## Countdown comparison: true while remaining time is still at/above the target.

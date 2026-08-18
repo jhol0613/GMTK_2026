@@ -13,7 +13,7 @@ blend_mode = 1
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]
 size = Vector2(87, 14)
 
-[node name="DeaprtureBoard" type="Node2D" unique_id=994016923]
+[node name="DepartureBoard" type="Node2D" unique_id=994016923]
 script = ExtResource("1_xrxqy")
 
 [node name="DepartureBoard" type="Sprite2D" parent="." unique_id=723603560]

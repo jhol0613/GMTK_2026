@@ -18,22 +18,22 @@ var departure_assignments: Array[Train]
 ##sets of available trains for building the schedule grouped by direction
 var train_pool: Dictionary[Enums.TrainDirection, TrainSet]
 ##All the trains that are currently in the station with their departure time
-var trains_in_station: Dictionary[Train, int]
-#@export var schedule: Dictionary[Enums.TrainColor, ScheduleData] = {} :
-	#set(value):
-		## This thing is called when loaded. No _ready needed
-		#var new_data: Array[ScheduleData] = value.values().filter(func(item):
-			#return not schedule.values().has(item)
-		#)
-		#for data: ScheduleData in new_data:
-			#data.connect_to_time()
-			#data.train_aproaching.connect(_handle_aproaching_train.bind(data))
-		#schedule = value
+var trains_in_station := 0
+
+##All departure boards in the level. These are grabbed automatically during initialization
+var departure_boards: Array[DepartureBoard]
 
 func _ready() -> void:
-	#need to wait for trains to initialize
+	#need to wait for trains and departure boards to initialize
+	call_deferred("_connect_to_departure_boards")
 	call_deferred("build_schedule")
 	TimeManager.time_changed.connect(_on_time_changed)
+
+func _connect_to_departure_boards():
+	var nodes = get_tree().get_nodes_in_group("departure_boards")
+	for node in nodes:
+		if node is DepartureBoard:
+			departure_boards.append(node)
 
 #region build schdule
 func build_schedule():
@@ -71,6 +71,7 @@ func build_schedule():
 	)
 
 	_pair_departures_with_trains()
+	_initialize_boards()
 
 #if there are no available platforms for a train at a given time,
 #that particular departure will be null and should not happen
@@ -96,6 +97,7 @@ func _pair_departures_with_trains():
 			unavailable_trains.get_or_add(assigned_train, 
 				departure.departure_time_seconds - post_departure_buffer_seconds)
 			#a departure assignment can be null if no train was available
+			departure.platform = assigned_train.platform_number
 			departure_assignments.append(assigned_train)
 		else:
 			canceled_departures.append(departure)
@@ -115,36 +117,38 @@ func _refresh_train_pool():
 	}
 	for train: Train in get_tree().get_nodes_in_group("trains"):
 		train_pool[train.direction].push_unique(train)
+
+func _initialize_boards():
+	for board in departure_boards:
+		for i in range(board.MAX_ENTRIES):
+			if departure_list.size() >= i-1:
+				board.add(departure_list[i])
+			else:
+				board.add(null)
 #endregion
 
+#region execute schedule
 func _on_time_changed(hour, minute, second):
 	var time = TimeManager.time_to_seconds_remaining(hour, minute, second)
 	
-	print("current time ", time)
-	print("next train arriving at ", departure_list[0].arrival_time_seconds)
-	#old trains depart
-	for train: Train in trains_in_station.keys():
-		if time <= trains_in_station[train]:
-			print("departing train")
-			train.train_depart()
-			trains_in_station.erase(train)
+	#Old trains depart
+	while not departure_list.is_empty() and time <= departure_list[0].departure_time_seconds:
+		departure_assignments[0].train_depart()
+		for board in departure_boards:
+			if departure_list.size() >= board.MAX_ENTRIES:
+				board.pop_and_add(departure_list[board.MAX_ENTRIES])
+			else:
+				board.pop_and_add(null)
+		#inefficient. could change the sorting order and work from the back but probably not worth it
+		departure_list.pop_front()
+		departure_assignments.pop_front()
+		trains_in_station -= 1
 
 	#new trains arrive
-	if departure_list.is_empty():
-		return
-	if time <= departure_list[0].arrival_time_seconds:
-		print("arriving train")
-		var departure = departure_list.pop_front()
-		var train = departure_assignments.pop_front()
+	while departure_list.size() > trains_in_station and time <= departure_list[trains_in_station].arrival_time_seconds:
+		var departure := departure_list[trains_in_station]
+		var train := departure_assignments[trains_in_station]
 		train.color = departure.color_line
 		train.call_train()
-		trains_in_station.get_or_add(train, departure.departure_time_seconds)
-
-#func get_fair_ticket(for_train: Train) -> TicketData:
-	#return
-#
-#func get_next_train_time(for_color: Enums.TrainColor) -> Vector3i:
-	#return Vector3i()
-#
-#func _handle_aproaching_train(data: ScheduleData) -> void:
-	#pass
+		trains_in_station += 1
+#endregion
