@@ -2,17 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://hhrseelwguig" path="res://levels/level_template/level_template.tscn" id="1_2jmd8"]
 [ext_resource type="Script" uid="uid://ckmg2kdqbxsyq" path="res://level_elements/train_scheduler/station_handler.gd" id="2_xf1kb"]
-[ext_resource type="Script" uid="uid://kipmht1y7efq" path="res://level_elements/train_scheduler/schedule_data.gd" id="3_q3akp"]
 [ext_resource type="PackedScene" uid="uid://cit6uoxu58nwk" path="res://level_elements/maps/train_map.tscn" id="3_tr4hg"]
 [ext_resource type="PackedScene" uid="uid://baukigq6wfgs1" path="res://level_elements/ATM/atm.tscn" id="4_s81jn"]
 [ext_resource type="PackedScene" uid="uid://dpexe87ps0d7f" path="res://level_elements/hourglass/hourglass.tscn" id="5_n5t7a"]
 [ext_resource type="PackedScene" uid="uid://cxekovsy3q368" path="res://level_elements/train_platform/platform.tscn" id="6_rflqb"]
 [ext_resource type="PackedScene" uid="uid://denclmxtn1x1l" path="res://level_elements/departure_board/deaprture_board.tscn" id="7_jq5vq"]
 [ext_resource type="PackedScene" uid="uid://djoepaapryv6s" path="res://level_elements/trinket_shop/trinket_shop.tscn" id="8_daoe1"]
-[ext_resource type="Resource" uid="uid://ct10126tfbxb3" path="res://levels/level_1/dialogues/trinket_dialogue_level1.tres" id="9_jq5vq"]
+[ext_resource type="Resource" uid="uid://ct10126tfbxb3" path="res://levels/level_1/level_specific_resources/trinket_dialogue_level1.tres" id="9_jq5vq"]
 [ext_resource type="PackedScene" uid="uid://2pwlm8itluel" path="res://level_elements/ticket_booth/ticket_booth.tscn" id="19_uptk2"]
 [ext_resource type="PackedScene" uid="uid://bni8iwfqac6ap" path="res://level_elements/coffee_shop/coffee_shop.tscn" id="19_wx43u"]
-[ext_resource type="Resource" uid="uid://cnbhuvmr2ufjd" path="res://levels/level_1/dialogues/ticket_dialogue_level1.tres" id="21_rflqb"]
+[ext_resource type="Resource" uid="uid://cnbhuvmr2ufjd" path="res://levels/level_1/level_specific_resources/ticket_dialogue_level1.tres" id="21_rflqb"]
 [ext_resource type="Texture2D" uid="uid://bhn6gjy4u51qd" path="res://level_elements/decorative/exit_gradient.png" id="23_v3xwt"]
 [ext_resource type="PackedScene" uid="uid://bph5ufs84kb6f" path="res://level_elements/bathroom/bathroom.tscn" id="24_gukcl"]
 [ext_resource type="PackedScene" uid="uid://c7ekkaj708al" path="res://level_elements/maps/station_map_lvl1.tscn" id="25_13ste"]
@@ -41,22 +40,6 @@
 [ext_resource type="PackedScene" path="res://visual_effects/fireflies/firefly_field.tscn" id="45_fireflies"]
 [ext_resource type="PackedScene" path="res://level_elements/decorative/street_lamp/street_lamp.tscn" id="47_n5t7a"]
 
-[sub_resource type="Resource" id="Resource_t10y0"]
-script = ExtResource("3_q3akp")
-direction = 2
-destination = "??"
-arrival_interval_minutes = 8
-arrival_variation_minutes = 2
-metadata/_custom_type_script = "uid://kipmht1y7efq"
-
-[sub_resource type="Resource" id="Resource_cxsxi"]
-script = ExtResource("3_q3akp")
-direction = 3
-destination = "??"
-arrival_interval_minutes = 8
-arrival_variation_minutes = 2
-metadata/_custom_type_script = "uid://kipmht1y7efq"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_betor"]
 size = Vector2(128, 32)
 
@@ -67,7 +50,6 @@ play_train_intro_before_music = true
 
 [node name="StationHandler" type="Node" parent="." index="0" unique_id=539075147]
 script = ExtResource("2_xf1kb")
-schedule = Array[ExtResource("3_q3akp")]([SubResource("Resource_t10y0"), SubResource("Resource_cxsxi")])
 
 [node name="Camera2D" parent="." index="2" unique_id=1821430600]
 position = Vector2(-1056, -752)
@@ -212,7 +194,7 @@ position = Vector2(-146, -416)
 [node name="TrinketShop" parent="." index="14" unique_id=877031898 instance=ExtResource("8_daoe1")]
 position = Vector2(-64, -224)
 
-[node name="DialogueInteractable" parent="TrinketShop" index="1" unique_id=358228256]
+[node name="DialogueInteractable" parent="TrinketShop" index="2" unique_id=358228256]
 dialogue = ExtResource("9_jq5vq")
 
 [node name="CoffeeShop" parent="." index="15" unique_id=1288725174 instance=ExtResource("19_wx43u")]

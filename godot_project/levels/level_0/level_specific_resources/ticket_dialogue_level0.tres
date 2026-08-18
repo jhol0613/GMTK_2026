@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://b00veulruyir3"]
 
 [ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://interactables/dialog_system/dialogue_choice.gd" id="1_e140w"]
-[ext_resource type="Resource" uid="uid://bd00bah7q7ltl" path="res://levels/level_0/dialogues/ticket_lady_thankyou.tres" id="2_l7wrj"]
+[ext_resource type="Resource" uid="uid://bd00bah7q7ltl" path="res://levels/level_0/level_specific_resources/ticket_lady_thankyou.tres" id="2_l7wrj"]
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="2_mhbdw"]
 [ext_resource type="Script" uid="uid://cpfgjwe2lpk0k" path="res://ui/ticket/ticket_data.gd" id="3_xaymj"]
 [ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="3_y6jeb"]

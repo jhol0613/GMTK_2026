@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://b40aq7wt2wqcs"]
+
+[ext_resource type="Script" uid="uid://d4bklq4j0j1ok" path="res://levels/level_0/level_specific_resources/tutorial_conversation/tutorial_conversation.gd" id="1_7hjq0"]
+[ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialog_system/dialogue_interactable.tscn" id="2_01jsl"]
+[ext_resource type="Resource" uid="uid://dr3vntgs8fy32" path="res://levels/level_0/level_specific_resources/tutorial_conversation/tutorial_conversation_dialogue.tres" id="3_bg5je"]
+[ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialog_system/dialogue_panel.tscn" id="12_xlt43"]
+[ext_resource type="Texture2D" uid="uid://cnx2wdgdmxkv6" path="res://interactables/dialog_system/character_portraits/player/mc_portrait_1.png" id="13_7gk55"]
+[ext_resource type="Texture2D" uid="uid://dtienb1p5xsvp" path="res://levels/level_0/level_specific_resources/tutorial_conversation/BFF.png" id="14_knngv"]
+
+[node name="TutorialConversation" type="Node2D" unique_id=1792772109]
+z_index = 4
+script = ExtResource("1_7hjq0")
+
+[node name="DialogueInteractable" parent="." unique_id=1631350735 instance=ExtResource("2_01jsl")]
+dialogue = ExtResource("3_bg5je")
+panel_path = NodePath("../CanvasLayer/DialoguePanel")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1181970416]
+layer = 20
+
+[node name="DialoguePanel" parent="CanvasLayer" unique_id=210961773 instance=ExtResource("12_xlt43")]
+player_icon = ExtResource("13_7gk55")
+
+[node name="Bff" type="Sprite2D" parent="CanvasLayer" unique_id=1632636105]
+position = Vector2(1088, 597)
+scale = Vector2(4, 4)
+texture = ExtResource("14_knngv")
+
+[editable path="DialogueInteractable"]

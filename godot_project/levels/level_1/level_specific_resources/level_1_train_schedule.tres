@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="TrainSchedule" format=3 uid="uid://ccb0ue2yufxhw"]
+
+[ext_resource type="Script" uid="uid://dped1kocrdwq8" path="res://level_elements/train_scheduler/train_schedule.gd" id="1_0imtj"]
+
+[resource]
+script = ExtResource("1_0imtj")
+schedule = null
+metadata/_custom_type_script = "uid://dped1kocrdwq8"
