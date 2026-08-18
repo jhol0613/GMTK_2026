@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://baukigq6wfgs1" path="res://level_elements/ATM/atm.tscn" id="4_s81jn"]
 [ext_resource type="PackedScene" uid="uid://dpexe87ps0d7f" path="res://level_elements/hourglass/hourglass.tscn" id="5_n5t7a"]
 [ext_resource type="PackedScene" uid="uid://cxekovsy3q368" path="res://level_elements/train_platform/platform.tscn" id="6_rflqb"]
-[ext_resource type="PackedScene" uid="uid://denclmxtn1x1l" path="res://level_elements/departure_board/deaprture_board.tscn" id="7_jq5vq"]
+[ext_resource type="PackedScene" uid="uid://denclmxtn1x1l" path="res://level_elements/departure_board/departure_board.tscn" id="7_jq5vq"]
 [ext_resource type="PackedScene" uid="uid://djoepaapryv6s" path="res://level_elements/trinket_shop/trinket_shop.tscn" id="8_daoe1"]
 [ext_resource type="Resource" uid="uid://ct10126tfbxb3" path="res://levels/level_1/level_specific_resources/trinket_dialogue_level1.tres" id="9_jq5vq"]
 [ext_resource type="PackedScene" uid="uid://2pwlm8itluel" path="res://level_elements/ticket_booth/ticket_booth.tscn" id="19_uptk2"]

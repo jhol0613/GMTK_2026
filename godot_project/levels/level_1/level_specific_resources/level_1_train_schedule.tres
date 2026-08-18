@@ -64,34 +64,7 @@ direction = 3
 scene_destination = 3
 metadata/_custom_type_script = "uid://kipmht1y7efq"
 
-[sub_resource type="Resource" id="Resource_fk5bj"]
-script = ExtResource("1_3wyqc")
-color = 6
-direction = 3
-arrival_interval_minutes = 2
-arrival_variation_minutes = 1
-scene_destination = 3
-metadata/_custom_type_script = "uid://kipmht1y7efq"
-
-[sub_resource type="Resource" id="Resource_hsj2e"]
-script = ExtResource("1_3wyqc")
-color = 8
-direction = 3
-arrival_interval_minutes = 2
-arrival_variation_minutes = 1
-scene_destination = 3
-metadata/_custom_type_script = "uid://kipmht1y7efq"
-
-[sub_resource type="Resource" id="Resource_aynwe"]
-script = ExtResource("1_3wyqc")
-color = 1
-direction = 3
-arrival_interval_minutes = 2
-arrival_variation_minutes = 1
-scene_destination = 3
-metadata/_custom_type_script = "uid://kipmht1y7efq"
-
 [resource]
 script = ExtResource("1_0imtj")
-schedule = Array[ExtResource("1_3wyqc")]([SubResource("Resource_wl75l"), SubResource("Resource_gq3wq"), SubResource("Resource_loj4c"), SubResource("Resource_3wyqc"), SubResource("Resource_xf1kb"), SubResource("Resource_q3akp"), SubResource("Resource_60i3m"), SubResource("Resource_2jmd8"), SubResource("Resource_fk5bj"), SubResource("Resource_hsj2e"), SubResource("Resource_aynwe")])
+schedule = Array[ExtResource("1_3wyqc")]([SubResource("Resource_wl75l"), SubResource("Resource_gq3wq"), SubResource("Resource_loj4c"), SubResource("Resource_3wyqc"), SubResource("Resource_xf1kb"), SubResource("Resource_q3akp"), SubResource("Resource_60i3m"), SubResource("Resource_2jmd8")])
 metadata/_custom_type_script = "uid://dped1kocrdwq8"
