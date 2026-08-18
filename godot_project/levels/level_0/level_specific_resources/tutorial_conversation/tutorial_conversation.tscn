@@ -16,7 +16,7 @@ dialogue = ExtResource("3_bg5je")
 panel_path = NodePath("../CanvasLayer/DialoguePanel")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1181970416]
-layer = 20
+layer = 2100
 
 [node name="DialoguePanel" parent="CanvasLayer" unique_id=210961773 instance=ExtResource("12_xlt43")]
 player_icon = ExtResource("13_7gk55")

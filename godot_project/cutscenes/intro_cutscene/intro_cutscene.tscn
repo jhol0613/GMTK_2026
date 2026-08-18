@@ -111,7 +111,7 @@ libraries/ = SubResource("AnimationLibrary_p0bb6")
 speed_scale = 1.2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1313267312]
-layer = 30
+layer = 2100
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=689421373]
 self_modulate = Color(1, 1, 1, 0)

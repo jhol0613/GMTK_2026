@@ -612,7 +612,7 @@ texture = ExtResource("17_2sfss")
 position = Vector2(-1176, -474)
 
 [node name="SkipIntroLayer" type="CanvasLayer" parent="." index="10" unique_id=996840601]
-layer = 31
+layer = 2101
 
 [node name="SkipIntroButton" type="Button" parent="SkipIntroLayer" index="0" unique_id=1667629156]
 visible = false
