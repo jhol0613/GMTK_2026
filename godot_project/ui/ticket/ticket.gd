@@ -1,7 +1,7 @@
 class_name Ticket
 extends Node2D
 
-signal ticket_expired
+#signal ticket_expired
 signal close_requested
 
 @export var ticket_data: TicketData
@@ -12,7 +12,7 @@ signal close_requested
 
 
 func _ready() -> void:
-	TimeManager.time_changed.connect(check_ticket)
+	#TimeManager.time_changed.connect(check_ticket)
 	if ticket_data != null:
 		set_ticket(ticket_data)
 
@@ -20,14 +20,14 @@ func _ready() -> void:
 func set_ticket(data: TicketData) -> void:
 	ticket_data = data
 	_line_label.text = Enums.train_color_to_resshan(data.train_line)
-	_departure_label.text = "<<%s>> : <<%s>> : <<%s>>" % [data.departure_hours, data.departure_minutes, data.departure_seconds]
+	#_departure_label.text = "<<%s>> : <<%s>> : <<%s>>" % [data.departure_hours, data.departure_minutes, data.departure_seconds]
 	_direction_label.text = Enums.train_direction_to_resshan(data.direction)
 
-func check_ticket(h, m, s) -> void:
-	if not ticket_data:
-		return
-	if ticket_data._is_expired(h, m, s):
-		ticket_expired.emit()
+#func check_ticket(h, m, s) -> void:
+	#if not ticket_data:
+		#return
+	#if ticket_data._is_expired(h, m, s):
+		#ticket_expired.emit()
 
 
 func _on_close_button_pressed() -> void:

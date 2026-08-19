@@ -11,7 +11,7 @@ signal rest_started
 signal rest_ended
 
 signal no_ticket
-signal missed_train
+#signal missed_train
 
 signal ticket_purchased(hour: int, minute: int, second:int)
 

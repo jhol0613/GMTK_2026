@@ -44,7 +44,7 @@ var arrival_offset: Vector2
 ## The delay before the train arrives at the platform after missing the deadline
 @export var missed_rearrive_delay: float = 8.0
 ## If true, this train leaves on its own when a matching ticket's deadline passes
-@export var departs_on_missed_deadline: bool = true
+#@export var departs_on_missed_deadline: bool = true
 
 
 @export_group('Visual')
@@ -66,7 +66,7 @@ var arrival_offset: Vector2
 @onready var _pulling_out_player: AudioStreamPlayer2D = $PullingOutPlayer2D
 
 var _boarding: bool = false
-var _missed_departure: bool = false
+#var _missed_departure: bool = false
 var _l_or_r: String
 
 @onready var player_disembark_marker: Marker2D = $PlayerDisembarkMarker
@@ -82,8 +82,8 @@ func _ready() -> void:
 	_no_ticket_light.visible = false
 	_boarded_player_l.visible = false
 	_boarded_player_r.visible = false
-	TimeManager.time_changed.connect(_on_time_changed)
-	Inventory.inventory_changed.connect(_on_inventory_changed)
+	#TimeManager.time_changed.connect(_on_time_changed)
+	#Inventory.inventory_changed.connect(_on_inventory_changed)
 	play_bobbing()
 
 	for i: AnimatedSprite2D in $TrainSprite/HoverSparcles.get_children():
@@ -93,7 +93,7 @@ func _ready() -> void:
 	arrival_offset = _get_arrival_offset_vector()
 	depart_offset = _get_departure_offset_vector()
 
-func try_board(interactable: TrainInteractable, l_or_r: String) -> void:
+func try_board(l_or_r: String) -> void:
 	_l_or_r = l_or_r
 	if _boarding:
 		return
@@ -108,9 +108,9 @@ func try_board(interactable: TrainInteractable, l_or_r: String) -> void:
 			await _flash_reject(_no_ticket_light)
 			_boarding = false
 			return
-		Enums.BoardResult.TOO_LATE:
-			await _missed_departure_sequence()
-			return
+		#Enums.BoardResult.TOO_LATE:
+			#await _missed_departure_sequence()
+			#return
 		Enums.BoardResult.WRONG_TRAIN:
 			await _wrong_train_sequence()
 			return
@@ -125,28 +125,28 @@ func evaluate_board(ticket: TicketData) -> Enums.BoardResult:
 	# Ticket matches this train, but is on the wrong line for the level.
 	if not _is_correct_line(ticket):
 		return Enums.BoardResult.WRONG_TRAIN
-	if not _is_on_time(ticket):
-		return Enums.BoardResult.TOO_LATE
+	#if not _is_on_time(ticket):
+		#return Enums.BoardResult.TOO_LATE
 	return Enums.BoardResult.SUCCESS
 
-func _on_time_changed(_hour: int, _minute: int, _second: int) -> void:
-	if not departs_on_missed_deadline:
-		return
-	if _boarding or _missed_departure:
-		return
-	var ticket: TicketData = Inventory.get_ticket()
-	if ticket == null or not _matches_ticket(ticket):
-		return
-	
-	if TimeManager.has_at_least(
-		ticket.departure_hours,
-		ticket.departure_minutes,
-		ticket.departure_seconds,
-	):
-		return
-	_missed_departure = true
-	# Should probably be renamed into just "departure_sequence" with schedule system 🚩
-	_missed_departure_sequence()
+#func _on_time_changed(_hour: int, _minute: int, _second: int) -> void:
+	#if not departs_on_missed_deadline:
+		#return
+	#if _boarding or _missed_departure:
+		#return
+	#var ticket: TicketData = Inventory.get_ticket()
+	#if ticket == null or not _matches_ticket(ticket):
+		#return
+	#
+	#if TimeManager.has_at_least(
+		#ticket.departure_hours,
+		#ticket.departure_minutes,
+		#ticket.departure_seconds,
+	#):
+		#return
+	#_missed_departure = true
+	## Should probably be renamed into just "departure_sequence" with schedule system 🚩
+	#_missed_departure_sequence()
 
 func _matches_ticket(ticket: TicketData) -> bool:
 	return (
@@ -164,22 +164,22 @@ func _is_correct_line(ticket: TicketData) -> bool:
 		ticket.direction == level.correct_train_direction
 	)
 
-func _is_on_time(ticket: TicketData) -> bool:
-	return TimeManager.has_at_least(ticket.departure_hours, 
-		ticket.departure_minutes, ticket.departure_seconds)
+#func _is_on_time(ticket: TicketData) -> bool:
+	#return TimeManager.has_at_least(ticket.departure_hours, 
+		#ticket.departure_minutes, ticket.departure_seconds)
 
-func _on_inventory_changed() -> void:
-	# If the player buys a still-valid matching ticket, reset the missed departure flag
-	var ticket: TicketData = Inventory.get_ticket()
-	if ticket == null or not _matches_ticket(ticket):
-		return
-	if not TimeManager.has_at_least(
-		ticket.departure_hours,
-		ticket.departure_minutes,
-		ticket.departure_seconds,
-	):
-		return
-	_missed_departure = false
+#func _on_inventory_changed() -> void:
+	## If the player buys a still-valid matching ticket, reset the missed departure flag
+	#var ticket: TicketData = Inventory.get_ticket()
+	#if ticket == null or not _matches_ticket(ticket):
+		#return
+	#if not TimeManager.has_at_least(
+		#ticket.departure_hours,
+		#ticket.departure_minutes,
+		#ticket.departure_seconds,
+	#):
+		#return
+	#_missed_departure = false
 
 
 func _boarding_sequence() -> void:
@@ -201,20 +201,20 @@ func _wrong_train_sequence() -> void:
 	_boarding = false
 
 
-func _missed_departure_sequence() -> void:
-	if _boarding:
-		return
-	_boarding = true
-	_missed_departure = true # Maybe remove when switching to schedule 🚩
-	_set_interactables_enabled(false)
-	SignalBus.missed_train.emit()
-
-	# await train_depart() # Currently removed since schedule will handle this
-	await get_tree().create_timer(missed_rearrive_delay).timeout
-	await play_arrival_animation(false)
-
-	_set_interactables_enabled(true)
-	_boarding = false
+#func _missed_departure_sequence() -> void:
+	#if _boarding:
+		#return
+	#_boarding = true
+	#_missed_departure = true # Maybe remove when switching to schedule 🚩
+	#_set_interactables_enabled(false)
+	#SignalBus.missed_train.emit()
+#
+	## await train_depart() # Currently removed since schedule will handle this
+	#await get_tree().create_timer(missed_rearrive_delay).timeout
+	#await play_arrival_animation(false)
+#
+	#_set_interactables_enabled(true)
+	#_boarding = false
 
 
 ## Flashes a light on and off for a given number of times

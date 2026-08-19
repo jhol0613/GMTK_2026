@@ -9,4 +9,4 @@ extends Interactable
 func interact() -> void:
 	if train == null:
 		return
-	train.try_board(self, l_or_r)
+	train.try_board(l_or_r)

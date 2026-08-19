@@ -5,7 +5,7 @@ class_name LevelTemplate
 @export var correct_train_line: Enums.TrainColor
 @export var correct_train_direction: Enums.TrainDirection
 @export var wrong_train_line: DialogueLine
-@export var missed_train_line: DialogueLine
+#@export var missed_train_line: DialogueLine
 @export var dialogue_panel_scene: PackedScene
 
 @export_category("Level Music")
@@ -28,7 +28,7 @@ func _ready() -> void:
 	
 	_start_level_audio()
 
-	SignalBus.missed_train.connect(_on_missed_train)
+	#SignalBus.missed_train.connect(_on_missed_train)
 
 	if TimeManager.consume_wrong_train_dialogue():
 		call_deferred("_play_wrong_train_dialogue")
@@ -52,8 +52,8 @@ func _find_opening_train() -> Train:
 	return null
 
 
-func _on_missed_train() -> void:
-	_play_character_dialogue(missed_train_line)
+#func _on_missed_train() -> void:
+	#_play_character_dialogue(missed_train_line)
 
 
 func _play_wrong_train_dialogue() -> void:
