@@ -10,7 +10,7 @@ const PULSE_SPEED := 150.0
 const PULSE_COUNT := 3
 const MOVEMENT_THRESHOLD_SQUARED := 0.04
 
-@export var range_radius := 12.0
+@export var range_radius := 24.0
 @export var receiver_offset := Vector2(0, -4)
 
 @onready var circuit: Line2D = $Circuit
