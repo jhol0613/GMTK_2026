@@ -203,7 +203,7 @@ func _wrong_train_sequence() -> void:
 	_boarding = true
 	await _run_boarding_and_departure(true)
 	GameManager.play_scene_concurrently(Enums.Scenes.WRONG_TRAIN)
-	await get_tree().create_timer(5).timeout
+	await GameManager.concurrent_scene_complete
 
 	TimeManager.stash_before_reload(incorrect_penalty_minutes)
 
