@@ -3,6 +3,7 @@ extends Node
 @warning_ignore_start("unused_signal")
 signal minutes_passed(minutes: int)
 signal resshan_clicked(encoded_resshan: String)
+signal show_resshan_entry(encoded_resshan: String)
 signal new_unique_resshan_note_added_to_notebook
 
 signal notebook_opened

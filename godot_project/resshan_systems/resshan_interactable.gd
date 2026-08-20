@@ -49,6 +49,8 @@ func _gui_input(event: InputEvent) -> void:
 			noted = true
 			shader.set_shader_parameter('color', Color.WHITE)
 			SignalBus.resshan_clicked.emit(_encoded_string)
+		if not event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
+			SignalBus.show_resshan_entry.emit(_encoded_string)
 
 
 func _on_mouse_entered() -> void:

@@ -18,12 +18,22 @@ func _ready() -> void:
 	for i in $Sections.get_children():
 		_sections.append(i)
 	SignalBus.resshan_clicked.connect(_add_entry_to_the_section)
+	SignalBus.show_resshan_entry.connect(_handle_show_resshan)
 	
 	for section:String in player_vocab.data:
 		for encoded:String in player_vocab.data[section]:
 			_add_entry_to_the_section(
 				encoded, player_vocab.data[section][encoded], section, false)
 
+func _handle_show_resshan(encoded: String) -> void:
+	self.show()
+	var pages: = _sections[0].get_pages()
+	for page: NotebookPage in pages:
+		for entry: NotebookEntry in page.get_entries():
+			if entry.resshan_string == encoded:
+				pages[_sections[0].current_page].hide()
+				_sections[0].current_page = pages.find(page)
+				pages[_sections[0].current_page].show()
 
 func _handle_entry_removed() -> void:
 	pass
