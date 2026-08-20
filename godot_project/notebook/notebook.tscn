@@ -43,14 +43,17 @@ visible = true
 section_name = "Unsorted"
 
 [node name="Pages" parent="Sections/NotebookSection" index="0" unique_id=1298499381]
-offset_top = 184.0
+offset_top = 124.0
+
+[node name="Label" parent="Sections/NotebookSection" index="1" unique_id=967464862]
+visible = false
 
 [node name="Label2" type="Label" parent="Sections/NotebookSection" unique_id=1341539632]
 texture_filter = 1
 layout_mode = 0
-offset_top = 65.0
+offset_top = 7.0
 offset_right = 625.0
-offset_bottom = 170.0
+offset_bottom = 112.0
 theme_override_colors/font_color = Color(0.19215687, 0.19215687, 0.19215687, 1)
 theme_override_fonts/font = ExtResource("4_ft0je")
 theme_override_font_sizes/font_size = 32
@@ -118,6 +121,7 @@ volume_db = 8.0
 bus = &"SFX"
 
 [node name="SectionSelector" type="Control" parent="." unique_id=862698154]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 341.0

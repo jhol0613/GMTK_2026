@@ -27,6 +27,7 @@ placeholder_text = "..."
 flat = true
 
 [node name="MenuBar" type="MenuBar" parent="." unique_id=1199536512]
+visible = false
 z_index = 2001
 layout_mode = 2
 
