@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://h831v8j3jxlc" path="res://level_elements/coffee_shop/coffee_cup_empty.png" id="12_empty_cup"]
 [ext_resource type="Script" uid="uid://1bxpf358unij" path="res://scripts/item_data.gd" id="13_item_data"]
 [ext_resource type="AudioStream" uid="uid://bu46rrnyifjaf" path="res://level_elements/coffee_shop/Slurping.mp3" id="14_slurping"]
+[ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="18_abad0"]
 
 [sub_resource type="Resource" id="Resource_empty_cup"]
 script = ExtResource("13_item_data")
@@ -152,5 +153,27 @@ shape = SubResource("RectangleShape2D_body")
 
 [node name="DialoguePanel" parent="." unique_id=112215550 instance=ExtResource("4_panel")]
 unique_name_in_owner = true
+
+[node name="ResshanInteractable" type="Control" parent="." unique_id=1608915256]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -21.0
+offset_top = -2.0
+offset_right = -5.0
+offset_bottom = 13.0
+script = ExtResource("18_abad0")
+_string = "<<coffee>> "
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="ResshanInteractable2" type="Control" parent="." unique_id=569445288]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -4.0
+offset_top = -2.0
+offset_right = 12.0
+offset_bottom = 13.0
+script = ExtResource("18_abad0")
+_string = "<<store>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [editable path="DialogueInteractable"]

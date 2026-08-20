@@ -40,6 +40,7 @@
 [ext_resource type="Script" uid="uid://dcanbg433hb0v" path="res://visual_effects/day_night/hoverthruster_lighting.gd" id="44_thruster_light"]
 [ext_resource type="PackedScene" path="res://visual_effects/fireflies/firefly_field.tscn" id="45_fireflies"]
 [ext_resource type="PackedScene" path="res://level_elements/decorative/street_lamp/street_lamp.tscn" id="47_n5t7a"]
+[ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="48_rshan"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_betor"]
 size = Vector2(128, 32)
@@ -402,30 +403,162 @@ z_index = 2
 position = Vector2(-480, -592)
 texture = ExtResource("31_530me")
 
+[node name="ResshanInteractable" type="Control" parent="Decorations/OutsideRestroom" index="0" unique_id=1024662213]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -5.0
+offset_top = -10.0
+offset_right = 5.0
+offset_bottom = 1.0
+script = ExtResource("48_rshan")
+_string = "<<bathroom>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="ResshanInteractable2" type="Control" parent="Decorations/OutsideRestroom" index="1" unique_id=1292836021]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -7.0
+offset_top = 8.0
+offset_right = 7.0
+offset_bottom = 22.0
+script = ExtResource("48_rshan")
+_string = "<<closed>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
 [node name="OutsideRestroom2" type="Sprite2D" parent="Decorations" index="38" unique_id=1998309896]
 z_index = 2
 position = Vector2(-432, -608)
 texture = ExtResource("31_530me")
+
+[node name="ResshanInteractable" type="Control" parent="Decorations/OutsideRestroom2" index="0" unique_id=1528515897]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -5.0
+offset_top = -10.0
+offset_right = 5.0
+offset_bottom = 1.0
+script = ExtResource("48_rshan")
+_string = "<<bathroom>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="ResshanInteractable2" type="Control" parent="Decorations/OutsideRestroom2" index="1" unique_id=526045797]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -7.0
+offset_top = 8.0
+offset_right = 7.0
+offset_bottom = 22.0
+script = ExtResource("48_rshan")
+_string = "<<closed>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="OutsideRestroom3" type="Sprite2D" parent="Decorations" index="39" unique_id=579465348]
 z_index = 2
 position = Vector2(-384, -592)
 texture = ExtResource("31_530me")
 
+[node name="ResshanInteractable" type="Control" parent="Decorations/OutsideRestroom3" index="0" unique_id=147445349]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -5.0
+offset_top = -10.0
+offset_right = 5.0
+offset_bottom = 1.0
+script = ExtResource("48_rshan")
+_string = "<<bathroom>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="ResshanInteractable2" type="Control" parent="Decorations/OutsideRestroom3" index="1" unique_id=349644911]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -7.0
+offset_top = 8.0
+offset_right = 7.0
+offset_bottom = 22.0
+script = ExtResource("48_rshan")
+_string = "<<closed>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
 [node name="OutsideRestroom4" type="Sprite2D" parent="Decorations" index="40" unique_id=173232100]
 z_index = 2
 position = Vector2(-256, -592)
 texture = ExtResource("31_530me")
+
+[node name="ResshanInteractable" type="Control" parent="Decorations/OutsideRestroom4" index="0" unique_id=1098825819]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -5.0
+offset_top = -10.0
+offset_right = 5.0
+offset_bottom = 1.0
+script = ExtResource("48_rshan")
+_string = "<<bathroom>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="ResshanInteractable2" type="Control" parent="Decorations/OutsideRestroom4" index="1" unique_id=1658326974]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -7.0
+offset_top = 8.0
+offset_right = 7.0
+offset_bottom = 22.0
+script = ExtResource("48_rshan")
+_string = "<<closed>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="OutsideRestroom5" type="Sprite2D" parent="Decorations" index="41" unique_id=2087512453]
 z_index = 2
 position = Vector2(-208, -608)
 texture = ExtResource("31_530me")
 
+[node name="ResshanInteractable" type="Control" parent="Decorations/OutsideRestroom5" index="0" unique_id=2092749756]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -5.0
+offset_top = -10.0
+offset_right = 5.0
+offset_bottom = 1.0
+script = ExtResource("48_rshan")
+_string = "<<bathroom>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="ResshanInteractable2" type="Control" parent="Decorations/OutsideRestroom5" index="1" unique_id=2094155253]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -7.0
+offset_top = 8.0
+offset_right = 7.0
+offset_bottom = 22.0
+script = ExtResource("48_rshan")
+_string = "<<closed>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
 [node name="OutsideRestroom6" type="Sprite2D" parent="Decorations" index="42" unique_id=767521336]
 z_index = 2
 position = Vector2(-160, -592)
 texture = ExtResource("31_530me")
+
+[node name="ResshanInteractable" type="Control" parent="Decorations/OutsideRestroom6" index="0" unique_id=731205228]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -5.0
+offset_top = -10.0
+offset_right = 5.0
+offset_bottom = 1.0
+script = ExtResource("48_rshan")
+_string = "<<bathroom>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="ResshanInteractable2" type="Control" parent="Decorations/OutsideRestroom6" index="1" unique_id=746773183]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -7.0
+offset_top = 8.0
+offset_right = 7.0
+offset_bottom = 22.0
+script = ExtResource("48_rshan")
+_string = "<<closed>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="Plant1" parent="Decorations" index="43" unique_id=1131548209 instance=ExtResource("32_82lf4")]
 position = Vector2(-496, -544)
