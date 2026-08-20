@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://duhbuefvsqifp" path="res://levels/level_template/level_template.gd" id="1_yglgk"]
 [ext_resource type="Resource" uid="uid://cs1k0a7leguxs" path="res://levels/level_template/wrong_train.tres" id="2_unwjj"]
-[ext_resource type="Resource" uid="uid://dgtwryt4tl61o" path="res://levels/level_template/missed_train.tres" id="3_missed"]
 [ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialog_system/dialogue_panel.tscn" id="3_u3vgj"]
 [ext_resource type="PackedScene" uid="uid://bn2ibeuqk0rgt" path="res://player/player.tscn" id="4_3dbtp"]
 [ext_resource type="TileSet" uid="uid://dvxgqw1r5w5ps" path="res://level_elements/tileset/station_tileset.tres" id="6_7nq05"]
@@ -19,7 +18,6 @@
 y_sort_enabled = true
 script = ExtResource("1_yglgk")
 wrong_train_line = ExtResource("2_unwjj")
-missed_train_line = ExtResource("3_missed")
 dialogue_panel_scene = ExtResource("3_u3vgj")
 
 [node name="UiOverlay" parent="." unique_id=368800410 instance=ExtResource("7_glpk1")]

@@ -35,6 +35,8 @@ var arrival_offset: Vector2
 @export var board_walk_speed: float = 80.0
 ## Extra downward camera nudge while the player walks out of the train.
 @export var disembark_camera_offset_y: float = 0.0
+@export var player_start_offset_horizontal := Vector2(0,0)
+@export var player_start_offset_vertaical := Vector2(0,0)
 
 @export_group('Gameplay')
 
@@ -55,6 +57,10 @@ var arrival_offset: Vector2
 		color = new_color
 		if sprite:
 			sprite.play(Enums.TrainColor.find_key(color))
+
+@export_group('Debug')
+##If true, always evaluates to wrong train
+@export var bypass_ticket_requirement := true
 
 @onready var _no_ticket_light: Sprite2D = $TrainSprite/NoTicketLight
 @onready var _boarded_player_l: Sprite2D = $BoardedPlayerL
@@ -119,8 +125,10 @@ func try_board(l_or_r: String) -> void:
 
 ## Evaluates whether the player can board the train
 func evaluate_board(ticket: TicketData) -> Enums.BoardResult:
+	if bypass_ticket_requirement:
+		return Enums.BoardResult.WRONG_TRAIN
 	# No ticket, or ticket is for a different train.
-	if ticket == null or not _matches_ticket(ticket):
+	if (ticket == null or not _matches_ticket(ticket)):
 		return Enums.BoardResult.REJECTED
 	# Ticket matches this train, but is on the wrong line for the level.
 	if not _is_correct_line(ticket):
@@ -194,6 +202,8 @@ func _boarding_sequence() -> void:
 func _wrong_train_sequence() -> void:
 	_boarding = true
 	await _run_boarding_and_departure(true)
+	GameManager.play_scene_concurrently(Enums.Scenes.WRONG_TRAIN)
+	await get_tree().create_timer(5).timeout
 
 	TimeManager.stash_before_reload(incorrect_penalty_minutes)
 
@@ -252,6 +262,7 @@ func play_arrival_animation(include_player = true) -> void:
 
 	var player := get_tree().get_first_node_in_group("player") as PlayerCharacter
 	if include_player and player:
+		player.global_position = player_disembark_marker.global_position - arrival_offset
 		play_pulling_in()
 		player.set_active(false)
 	else:
@@ -306,7 +317,9 @@ func play_arrival_animation(include_player = true) -> void:
 	await _close_doors()
 	
 	player.set_active(true)
-	play_bobbing()
+	
+	train_depart()
+	#play_bobbing()
 
 func play_bobbing() -> void:
 	animation_player.play("bobbing")

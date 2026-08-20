@@ -4,6 +4,7 @@ class_name LevelTemplate
 
 @export var correct_train_line: Enums.TrainColor
 @export var correct_train_direction: Enums.TrainDirection
+@export var arrival_train: Train
 @export var wrong_train_line: DialogueLine
 #@export var missed_train_line: DialogueLine
 @export var dialogue_panel_scene: PackedScene
@@ -27,34 +28,36 @@ func _ready() -> void:
 	remote_transform.remote_path = remote_transform.get_path_to(camera)
 	
 	_start_level_audio()
+	
+	arrival_train.play_arrival_animation(true)
 
 	#SignalBus.missed_train.connect(_on_missed_train)
 
 	if TimeManager.consume_wrong_train_dialogue():
 		call_deferred("_play_wrong_train_dialogue")
 
-
 func _start_level_audio() -> void:
 	var sequence := AudioManager.prepare_level_music(level_music_track)
 	if play_train_intro_before_music:
-		var opening_train := _find_opening_train()
-		if opening_train != null:
-			await opening_train.wait_for_pulling_in()
+		#var opening_train := _find_opening_train()
+		#if opening_train != null:
+		await arrival_train.wait_for_pulling_in()
 	AudioManager.finish_level_music_start(sequence, music_fade_in_duration)
 
 
-func _find_opening_train() -> Train:
-	for child in get_children():
-		if child is TrainPlatform:
-			var platform := child as TrainPlatform
-			if platform.play_arrival_on_ready and platform.upper_train != null:
-				return platform.upper_train
-	return null
+#func _find_opening_train() -> Train:
+	#for child in get_children():
+		#if child is TrainPlatform:
+			#var platform := child as TrainPlatform
+			#if platform.play_arrival_on_ready and platform.upper_train != null:
+				#return platform.upper_train
+	#return null
 
 
 #func _on_missed_train() -> void:
 	#_play_character_dialogue(missed_train_line)
-
+#func _play_wrong_train_cutscene() -> void:
+	#add_child(wrong_train_cutscene.instantiate())
 
 func _play_wrong_train_dialogue() -> void:
 	await get_tree().create_timer(1.5).timeout

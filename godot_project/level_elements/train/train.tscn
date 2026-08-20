@@ -438,7 +438,10 @@ pulling_in_sound = ExtResource("6_pulling_in")
 pulling_in_no_doors_sound = ExtResource("8_no_doors")
 pulling_out_sound = ExtResource("7_pulling_out")
 pulling_out_no_doors_sound = ExtResource("9_pulling_out_no_doors")
+player_start_offset_horizontal = null
+player_start_offset_vertaical = null
 sprite = NodePath("TrainSprite")
+bypass_ticket_requirement = null
 
 [node name="PullingInPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=620830900]
 volume_db = 4.0
@@ -644,19 +647,19 @@ _string = "<<0>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="PlayerEmbarkMarker" type="Marker2D" parent="." unique_id=886720525]
-position = Vector2(-64, -21)
+position = Vector2(-64, -14)
 
 [node name="PlayerDisembarkMarker" type="Marker2D" parent="." unique_id=594824708]
 position = Vector2(-64, 18)
 
 [node name="BoardedPlayerL" type="Sprite2D" parent="." unique_id=1300163411]
 z_index = 2
-position = Vector2(-64.5, -27)
+position = Vector2(-64.5, -30)
 texture = SubResource("AtlasTexture_boarded")
 
 [node name="BoardedPlayerR" type="Sprite2D" parent="." unique_id=1382221662]
 z_index = 2
-position = Vector2(64.5, -27)
+position = Vector2(64.5, -30)
 texture = SubResource("AtlasTexture_boarded")
 
 [node name="DoorL" type="Sprite2D" parent="." unique_id=371770877]

@@ -9,11 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://ccgkw37gtihti" path="res://cutscenes/ending_cutscene/bad_ending.tscn" id="7_badend"]
 [ext_resource type="PackedScene" uid="uid://eq06imnrtf45" path="res://menus/settings_screen.tscn" id="8_4gcu2"]
 [ext_resource type="PackedScene" uid="uid://c72jo4tde0cb4" path="res://menus/title_screen.tscn" id="9_075p0"]
+[ext_resource type="PackedScene" uid="uid://b4f18g70lleg5" path="res://levels/wrong_train_boarded_message.tscn" id="10_a0cyl"]
 
 [node name="GameManager" type="Node2D" unique_id=482173798]
 script = ExtResource("1_7xclw")
 scene_dict = Dictionary[int, PackedScene]({
-0: ExtResource("8_4gcu2"),
+0: null,
 1: ExtResource("2_lb6xn"),
 2: ExtResource("2_fjyxg"),
 3: ExtResource("4_0rjyf"),
@@ -22,5 +23,6 @@ scene_dict = Dictionary[int, PackedScene]({
 6: ExtResource("6_3r1iq"),
 7: ExtResource("7_badend"),
 8: ExtResource("8_4gcu2"),
-9: ExtResource("9_075p0")
+9: ExtResource("9_075p0"),
+10: ExtResource("10_a0cyl")
 })

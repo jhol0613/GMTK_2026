@@ -47,6 +47,8 @@ func unpause_game():
 	get_tree().paused = false
 	_pause_layer.queue_free()
 
+func play_scene_concurrently(scene: Enums.Scenes):
+	get_tree().current_scene.add_child(scene_dict.get(Enums.Scenes.WRONG_TRAIN).instantiate())
 
 func _load_scene(scene_to_load: Enums.Scenes):
 	get_tree().call_deferred("change_scene_to_packed", scene_dict.get(scene_to_load))

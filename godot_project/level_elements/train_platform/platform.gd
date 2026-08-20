@@ -3,7 +3,7 @@ class_name TrainPlatform
 extends Node2D
 
 @export var upper_train: Train
-@export var play_arrival_on_ready: bool = true
+#@export var play_arrival_on_ready: bool = true
 @export var lower_train: Train
 @export var station_number: int = 0:
 	set(value):
@@ -21,10 +21,10 @@ func _ready() -> void:
 		upper_train.platform_number = platform_number
 	if lower_train:
 		lower_train.platform_number = platform_number
-	if Engine.is_editor_hint():
-		return
-	if upper_train and play_arrival_on_ready:
-		upper_train.play_arrival_animation()
+	#if Engine.is_editor_hint():
+		#return
+	#if upper_train and play_arrival_on_ready:
+		#upper_train.play_arrival_animation()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

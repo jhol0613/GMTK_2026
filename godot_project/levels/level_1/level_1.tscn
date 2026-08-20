@@ -44,8 +44,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_betor"]
 size = Vector2(128, 32)
 
-[node name="Level1" unique_id=783439983 instance=ExtResource("1_2jmd8")]
+[node name="Level1" unique_id=783439983 node_paths=PackedStringArray("arrival_train") instance=ExtResource("1_2jmd8")]
 correct_train_direction = 2
+arrival_train = NodePath("Platform1/UpperTrain")
 level_music_track = 1
 play_train_intro_before_music = true
 
@@ -92,12 +93,18 @@ tile_map_data = PackedByteArray("AAAHAAQAAgADAAAAAAAHAP3/AgADAAIAAAAHAPz/AgADAAA
 [node name="UpperTrain" parent="Platform1" index="7" unique_id=995237668]
 reload_scene = 3
 pulling_in_no_doors_sound = null
+player_start_offset_horizontal = Vector2(0, 0)
+player_start_offset_vertaical = Vector2(0, 0)
 color = 7
+bypass_ticket_requirement = true
 
 [node name="LowerTrain" parent="Platform1" index="8" unique_id=1370361982]
 reload_scene = 3
 pulling_in_no_doors_sound = null
+player_start_offset_horizontal = Vector2(0, 0)
+player_start_offset_vertaical = Vector2(0, 0)
 color = 7
+bypass_ticket_requirement = true
 
 [node name="Station0Sign" parent="Platform1" index="19" unique_id=98722644]
 station_number = 1
@@ -107,7 +114,6 @@ station_number = 1
 
 [node name="Platform2" parent="." index="10" unique_id=6608098 instance=ExtResource("6_rflqb")]
 position = Vector2(752, -1792)
-play_arrival_on_ready = false
 station_number = 1
 platform_number = 2
 
@@ -120,12 +126,18 @@ tile_map_data = PackedByteArray("AAAHAAQAAgADAAAAAAAHAP3/AgADAAIAAAAHAPz/AgADAAA
 [node name="UpperTrain" parent="Platform2" index="7" unique_id=995237668]
 reload_scene = 3
 pulling_in_no_doors_sound = null
+player_start_offset_horizontal = Vector2(0, 0)
+player_start_offset_vertaical = Vector2(0, 0)
 color = 5
+bypass_ticket_requirement = true
 
 [node name="LowerTrain" parent="Platform2" index="8" unique_id=1370361982]
 reload_scene = 3
 pulling_in_no_doors_sound = null
+player_start_offset_horizontal = Vector2(0, 0)
+player_start_offset_vertaical = Vector2(0, 0)
 color = 5
+bypass_ticket_requirement = true
 
 [node name="Station0Sign" parent="Platform2" index="19" unique_id=98722644]
 station_number = 1
@@ -135,7 +147,6 @@ station_number = 1
 
 [node name="Platform3" parent="." index="11" unique_id=1115988881 instance=ExtResource("6_rflqb")]
 position = Vector2(752, -1088)
-play_arrival_on_ready = false
 station_number = 1
 platform_number = 3
 
@@ -148,12 +159,18 @@ tile_map_data = PackedByteArray("AAAHAAQAAgADAAAAAAAHAP3/AgADAAIAAAAHAPz/AgADAAA
 [node name="UpperTrain" parent="Platform3" index="7" unique_id=995237668]
 reload_scene = 3
 pulling_in_no_doors_sound = null
+player_start_offset_horizontal = Vector2(0, 0)
+player_start_offset_vertaical = Vector2(0, 0)
 color = 3
+bypass_ticket_requirement = true
 
 [node name="LowerTrain" parent="Platform3" index="8" unique_id=1370361982]
 reload_scene = 3
 pulling_in_no_doors_sound = null
+player_start_offset_horizontal = Vector2(0, 0)
+player_start_offset_vertaical = Vector2(0, 0)
 color = 3
+bypass_ticket_requirement = true
 
 [node name="Station0Sign" parent="Platform3" index="19" unique_id=98722644]
 station_number = 1
@@ -163,7 +180,6 @@ station_number = 1
 
 [node name="Platform4" parent="." index="12" unique_id=1026362249 instance=ExtResource("6_rflqb")]
 position = Vector2(-592, -1440)
-play_arrival_on_ready = false
 station_number = 1
 platform_number = 4
 
@@ -177,12 +193,18 @@ tile_map_data = PackedByteArray("AAAHAAQAAgADAAAAAAAHAP3/AgADAAIAAAAHAPz/AgADAAA
 next_scene = 6
 reload_scene = 3
 pulling_in_no_doors_sound = null
+player_start_offset_horizontal = Vector2(0, 0)
+player_start_offset_vertaical = Vector2(0, 0)
 color = 0
+bypass_ticket_requirement = true
 
 [node name="LowerTrain" parent="Platform4" index="8" unique_id=1370361982]
 reload_scene = 3
 pulling_in_no_doors_sound = null
+player_start_offset_horizontal = Vector2(0, 0)
+player_start_offset_vertaical = Vector2(0, 0)
 color = 0
+bypass_ticket_requirement = true
 
 [node name="Station0Sign" parent="Platform4" index="19" unique_id=98722644]
 station_number = 1

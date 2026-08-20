@@ -1,15 +1,27 @@
 [gd_scene format=3 uid="uid://b4f18g70lleg5"]
 
+[ext_resource type="Script" uid="uid://dytju0csoafm7" path="res://levels/wrong_train_boarded_message.gd" id="1_obndt"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chyd6"]
 bg_color = Color(0, 0, 0, 1)
 
 [node name="WrongTrainBoardedMessage" type="PanelContainer" unique_id=234956977]
+z_index = 2968
 custom_minimum_size = Vector2(1920, 1080)
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_chyd6")
+script = ExtResource("1_obndt")
 
-[node name="Label" type="Label" parent="." unique_id=1813610896]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=886102264]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=661202135]
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer" unique_id=1813610896]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 40
