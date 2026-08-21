@@ -17,10 +17,13 @@ func _enter_tree() -> void:
 	_apply_station_number_to_signs()
 
 func _ready() -> void:
-	if upper_train:
+	if upper_train and lower_train:
 		upper_train.platform_number = platform_number
-	if lower_train:
+		upper_train.return_train = lower_train
 		lower_train.platform_number = platform_number
+		lower_train.return_train = upper_train
+	else:
+		printerr("Upper and lower train not assigned at platform ", platform_number)
 	#if Engine.is_editor_hint():
 		#return
 	#if upper_train and play_arrival_on_ready:

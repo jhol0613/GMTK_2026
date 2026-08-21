@@ -2,7 +2,7 @@ class_name WrongTrainBoardedMessage
 extends PanelContainer
 
 @export var fade_time := 1.5
-@export var life_time := 4.0
+@export var life_time := 5.0
 
 signal scene_complete
 

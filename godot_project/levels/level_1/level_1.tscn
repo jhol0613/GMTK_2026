@@ -94,18 +94,14 @@ tile_map_data = PackedByteArray("AAAHAAQAAgADAAAAAAAHAP3/AgADAAIAAAAHAPz/AgADAAA
 [node name="UpperTrain" parent="Platform1" index="7" unique_id=995237668]
 reload_scene = 3
 pulling_in_no_doors_sound = null
-player_start_offset_horizontal = Vector2(0, 0)
-player_start_offset_vertaical = Vector2(0, 0)
+rest_arrival_duration_multiplier = 0.25
 color = 7
-bypass_ticket_requirement = true
 
 [node name="LowerTrain" parent="Platform1" index="8" unique_id=1370361982]
 reload_scene = 3
 pulling_in_no_doors_sound = null
-player_start_offset_horizontal = Vector2(0, 0)
-player_start_offset_vertaical = Vector2(0, 0)
+rest_arrival_duration_multiplier = 0.25
 color = 7
-bypass_ticket_requirement = true
 
 [node name="Station0Sign" parent="Platform1" index="19" unique_id=98722644]
 station_number = 1
@@ -127,18 +123,14 @@ tile_map_data = PackedByteArray("AAAHAAQAAgADAAAAAAAHAP3/AgADAAIAAAAHAPz/AgADAAA
 [node name="UpperTrain" parent="Platform2" index="7" unique_id=995237668]
 reload_scene = 3
 pulling_in_no_doors_sound = null
-player_start_offset_horizontal = Vector2(0, 0)
-player_start_offset_vertaical = Vector2(0, 0)
+rest_arrival_duration_multiplier = 0.25
 color = 5
-bypass_ticket_requirement = true
 
 [node name="LowerTrain" parent="Platform2" index="8" unique_id=1370361982]
 reload_scene = 3
 pulling_in_no_doors_sound = null
-player_start_offset_horizontal = Vector2(0, 0)
-player_start_offset_vertaical = Vector2(0, 0)
+rest_arrival_duration_multiplier = 0.25
 color = 5
-bypass_ticket_requirement = true
 
 [node name="Station0Sign" parent="Platform2" index="19" unique_id=98722644]
 station_number = 1
@@ -160,18 +152,14 @@ tile_map_data = PackedByteArray("AAAHAAQAAgADAAAAAAAHAP3/AgADAAIAAAAHAPz/AgADAAA
 [node name="UpperTrain" parent="Platform3" index="7" unique_id=995237668]
 reload_scene = 3
 pulling_in_no_doors_sound = null
-player_start_offset_horizontal = Vector2(0, 0)
-player_start_offset_vertaical = Vector2(0, 0)
+rest_arrival_duration_multiplier = 0.25
 color = 3
-bypass_ticket_requirement = true
 
 [node name="LowerTrain" parent="Platform3" index="8" unique_id=1370361982]
 reload_scene = 3
 pulling_in_no_doors_sound = null
-player_start_offset_horizontal = Vector2(0, 0)
-player_start_offset_vertaical = Vector2(0, 0)
+rest_arrival_duration_multiplier = 0.25
 color = 3
-bypass_ticket_requirement = true
 
 [node name="Station0Sign" parent="Platform3" index="19" unique_id=98722644]
 station_number = 1
@@ -194,18 +182,14 @@ tile_map_data = PackedByteArray("AAAHAAQAAgADAAAAAAAHAP3/AgADAAIAAAAHAPz/AgADAAA
 next_scene = 6
 reload_scene = 3
 pulling_in_no_doors_sound = null
-player_start_offset_horizontal = Vector2(0, 0)
-player_start_offset_vertaical = Vector2(0, 0)
+rest_arrival_duration_multiplier = 0.25
 color = 0
-bypass_ticket_requirement = true
 
 [node name="LowerTrain" parent="Platform4" index="8" unique_id=1370361982]
 reload_scene = 3
 pulling_in_no_doors_sound = null
-player_start_offset_horizontal = Vector2(0, 0)
-player_start_offset_vertaical = Vector2(0, 0)
+rest_arrival_duration_multiplier = 0.25
 color = 0
-bypass_ticket_requirement = true
 
 [node name="Station0Sign" parent="Platform4" index="19" unique_id=98722644]
 station_number = 1

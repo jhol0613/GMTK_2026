@@ -5,6 +5,18 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chyd6"]
 bg_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_obndt"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.85882354)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [node name="WrongTrainBoardedMessage" type="PanelContainer" unique_id=234956977]
 z_index = 2968
 custom_minimum_size = Vector2(1920, 1080)
@@ -21,6 +33,7 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_obndt")
 
 [node name="Label" type="Label" parent="CanvasLayer/PanelContainer" unique_id=1813610896]
 layout_mode = 2

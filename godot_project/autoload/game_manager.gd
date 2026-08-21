@@ -14,6 +14,8 @@ extends Node2D
 
 @onready var _pause_layer: CanvasLayer
 
+var stashed_data
+
 signal concurrent_scene_complete
 
 func load_scene(
@@ -53,6 +55,21 @@ func play_scene_concurrently(scene: Enums.Scenes):
 	if concurrent_scene.has_signal("scene_complete"):
 		concurrent_scene.connect("scene_complete", _on_concurrent_scene_complete)
 	get_tree().current_scene.add_child(concurrent_scene)
+
+func stash_data_before_scene_change(data):
+	stashed_data = data
+
+##Returns -1 if scene isn't in the scene dict
+func get_current_scene() -> Enums.Scenes:
+	var path = get_tree().current_scene.scene_file_path
+	for key in scene_dict.keys():
+		if scene_dict.get(key) == null:
+			continue
+		if scene_dict.get(key).resource_path == path:
+			return key
+	@warning_ignore("int_as_enum_without_cast", "int_as_enum_without_match")
+	return -1
+		
 
 func _on_concurrent_scene_complete():
 	concurrent_scene_complete.emit()

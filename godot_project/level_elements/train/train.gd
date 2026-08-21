@@ -10,8 +10,9 @@ class_name Train
 @export var direction: Enums.TrainDirection
 ##this is just the string to display on the departure board and has no game impact
 @export var destination := "??"
-##The platform script will override this at runtime
+##The platform script will override these at runtime
 var platform_number := 0
+var return_train : Train
 
 @export_group("Audio")
 @export var pulling_in_sound: AudioStream
@@ -31,12 +32,13 @@ var depart_offset: Vector2
 @export var depart_duration: float = 3.0
 var arrival_offset: Vector2
 @export var arrival_duration: float = 3.0
+##If resting, multiply arrival time by this
+@export var rest_arrival_duration_multiplier: float = 0.25
 ## Player walk speed while boarding or exiting the train.
 @export var board_walk_speed: float = 80.0
 ## Extra downward camera nudge while the player walks out of the train.
 @export var disembark_camera_offset_y: float = 0.0
-@export var player_start_offset_horizontal := Vector2(0,0)
-@export var player_start_offset_vertaical := Vector2(0,0)
+
 
 @export_group('Gameplay')
 
@@ -44,7 +46,7 @@ var arrival_offset: Vector2
 ## Time cost for trying to board with no ticket / wrong ticket for this train
 @export var no_ticket_penalty_minutes: int = 3
 ## The delay before the train arrives at the platform after missing the deadline
-@export var missed_rearrive_delay: float = 8.0
+#@export var missed_rearrive_delay: float = 8.0
 ## If true, this train leaves on its own when a matching ticket's deadline passes
 #@export var departs_on_missed_deadline: bool = true
 
@@ -75,11 +77,12 @@ var _boarding: bool = false
 #var _missed_departure: bool = false
 var _l_or_r: String
 
-@onready var player_disembark_marker: Marker2D = $PlayerDisembarkMarker
+@onready var player_disembark_marker: Marker2D
 @onready var player_embark_marker: Marker2D = $PlayerEmbarkMarker
 
 @onready var original_position = position
 
+@onready var _resting = false
 
 func _ready() -> void:
 	add_to_group("trains")
@@ -90,6 +93,19 @@ func _ready() -> void:
 	_boarded_player_r.visible = false
 	#TimeManager.time_changed.connect(_on_time_changed)
 	#Inventory.inventory_changed.connect(_on_inventory_changed)
+	match direction:
+		Enums.TrainDirection.NORTH:
+			player_disembark_marker = $PlayerDisembarkMarkerNorth
+		Enums.TrainDirection.SOUTH:
+			player_disembark_marker = $PlayerDisembarkMarkerSouth
+		Enums.TrainDirection.EAST:
+			player_disembark_marker = $PlayerDisembarkMarkerEast
+		Enums.TrainDirection.WEST:
+			player_disembark_marker = $PlayerDisembarkMarkerWest
+	
+	SignalBus.rest_started.connect(func(): _resting = true)
+	SignalBus.rest_ended.connect(func(): _resting = false)
+	
 	play_bobbing()
 
 	for i: AnimatedSprite2D in $TrainSprite/HoverSparcles.get_children():
@@ -98,6 +114,7 @@ func _ready() -> void:
 		
 	arrival_offset = _get_arrival_offset_vector()
 	depart_offset = _get_departure_offset_vector()
+	
 
 func try_board(l_or_r: String) -> void:
 	_l_or_r = l_or_r
@@ -206,8 +223,13 @@ func _wrong_train_sequence() -> void:
 	await GameManager.concurrent_scene_complete
 
 	TimeManager.stash_before_reload(incorrect_penalty_minutes)
-
-	GameManager.load_scene(reload_scene)
+	
+	return_train.play_arrival_animation()
+	#GameManager.stash_data_before_scene_change(return_train)
+	#var current_scene = GameManager.get_current_scene()
+	#if GameManager.scene_dict[current_scene] is LevelTemplate:
+		#GameManager.scene_dict[current_scene].
+	#GameManager.load_scene(GameManager.get_current_scene())
 	_boarding = false
 
 
@@ -268,8 +290,14 @@ func play_arrival_animation(include_player = true) -> void:
 	else:
 		play_pulling_in(true)
 
+	##Make arrival duration faster if resting
+	var adjusted_arrival_duration: float
+	if _resting:
+		adjusted_arrival_duration = arrival_duration * rest_arrival_duration_multiplier
+	else:
+		adjusted_arrival_duration = arrival_duration
 	var tween := create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property(self, "position", stop_position, arrival_duration)
+	tween.tween_property(self, "position", stop_position, adjusted_arrival_duration)
 	await tween.finished
 
 	if not include_player or not player:
@@ -373,6 +401,8 @@ func _run_boarding_and_departure(should_play_pulling_out: bool = false) -> void:
 	SignalBus.ticket_consumed.emit()
 
 	await _close_doors()
+	_boarded_player_l.visible = false
+	_boarded_player_r.visible = false
 	await train_depart()
 
 	if should_play_pulling_out:
