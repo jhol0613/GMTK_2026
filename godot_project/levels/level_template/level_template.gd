@@ -27,7 +27,8 @@ func _ready() -> void:
 	var remote_transform: RemoteTransform2D = player.get_node("RemoteTransform2D")
 	remote_transform.remote_path = remote_transform.get_path_to(camera)
 	
-	arrival_train.play_arrival_animation(true)
+	if arrival_train != null: 
+		arrival_train.play_arrival_animation(true)
 	_start_level_audio()
 
 	#SignalBus.missed_train.connect(_on_missed_train)

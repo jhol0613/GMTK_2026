@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://c7ekkaj708al"]
 
-[ext_resource type="Texture2D" uid="uid://bewm0bsk4t4i2" path="res://level_elements/maps/lvl1map_2.png" id="1_frvyr"]
+[ext_resource type="Texture2D" uid="uid://bewm0bsk4t4i2" path="res://level_elements/maps/station/lvl1map_2.png" id="1_frvyr"]
 [ext_resource type="PackedScene" uid="uid://i202174cj82c" path="res://interactables/sign_interactable.tscn" id="2_frvyr"]
 [ext_resource type="PackedScene" uid="uid://0h6rwq0bq753" path="res://interactables/sign_panel.tscn" id="3_lrc8v"]
-[ext_resource type="Texture2D" uid="uid://d1v8h2a68eh6h" path="res://level_elements/maps/lvl1_station_map.png" id="4_lrc8v"]
+[ext_resource type="Texture2D" uid="uid://d1v8h2a68eh6h" path="res://level_elements/maps/station/lvl1_station_map.png" id="4_lrc8v"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="5_i6pvm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]

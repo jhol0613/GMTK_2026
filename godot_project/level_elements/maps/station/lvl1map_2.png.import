@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dci6gxplwgbkj"
-path="res://.godot/imported/transit_map_resshan_overlay.png-6aefd63002daa2e87ae4f908320bd6c1.ctex"
+uid="uid://bewm0bsk4t4i2"
+path="res://.godot/imported/lvl1map_2.png-59fee48caefff98a45c8ca49385832a6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level_elements/maps/transit_map_resshan_overlay.png"
-dest_files=["res://.godot/imported/transit_map_resshan_overlay.png-6aefd63002daa2e87ae4f908320bd6c1.ctex"]
+source_file="res://level_elements/maps/station/lvl1map_2.png"
+dest_files=["res://.godot/imported/lvl1map_2.png-59fee48caefff98a45c8ca49385832a6.ctex"]
 
 [params]
 
