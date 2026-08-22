@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cit6uoxu58nwk"]
 
-[ext_resource type="Texture2D" uid="uid://cnf5hjo1lj1xu" path="res://level_elements/maps/trainmap.png" id="1_f63an"]
+[ext_resource type="Texture2D" uid="uid://cnf5hjo1lj1xu" path="res://level_elements/maps/transit/trainmap.png" id="1_f63an"]
 [ext_resource type="PackedScene" uid="uid://i202174cj82c" path="res://interactables/sign_interactable.tscn" id="2_ed7fu"]
-[ext_resource type="Texture2D" uid="uid://cxftno5ffy14d" path="res://level_elements/maps/transit_map.png" id="2_nf7gk"]
-[ext_resource type="Texture2D" uid="uid://dci6gxplwgbkj" path="res://level_elements/maps/transit_map_resshan_overlay.png" id="3_gawvt"]
+[ext_resource type="Texture2D" uid="uid://cxftno5ffy14d" path="res://level_elements/maps/transit/transit_map.png" id="2_nf7gk"]
+[ext_resource type="Texture2D" uid="uid://dci6gxplwgbkj" path="res://level_elements/maps/transit/transit_map_resshan_overlay.png" id="3_gawvt"]
 [ext_resource type="PackedScene" uid="uid://0h6rwq0bq753" path="res://interactables/sign_panel.tscn" id="3_rlmea"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="6_nf7gk"]
 

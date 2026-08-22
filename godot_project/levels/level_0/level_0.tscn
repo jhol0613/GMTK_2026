@@ -5,10 +5,12 @@
 [ext_resource type="Script" uid="uid://nxfc4h6u5iq6" path="res://levels/level_0/level_0.gd" id="2_as6hq"]
 [ext_resource type="PackedScene" uid="uid://cxekovsy3q368" path="res://level_elements/train_platform/platform.tscn" id="3_iss0w"]
 [ext_resource type="Resource" uid="uid://b00veulruyir3" path="res://levels/level_0/level_specific_resources/ticket_dialogue_level0.tres" id="9_dp5o0"]
+[ext_resource type="Texture2D" uid="uid://4ktjedml7yly" path="res://level_elements/maps/transit/transit_map_lvl0_u_r_here.png" id="12_oxxmn"]
+[ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="13_u460r"]
 [ext_resource type="Texture2D" uid="uid://ca8r7wcmgae0o" path="res://level_elements/tileset/grasstiles.png" id="17_ggct0"]
 [ext_resource type="Texture2D" uid="uid://ddbgow303m2gq" path="res://level_elements/tileset/TX Tileset Grass.png" id="18_8mki0"]
 [ext_resource type="Texture2D" uid="uid://d2ujnxq7ovb74" path="res://ui/sprites/arrow_icon.png" id="18_juy1h"]
-[ext_resource type="PackedScene" uid="uid://cit6uoxu58nwk" path="res://level_elements/maps/train_map.tscn" id="18_owf05"]
+[ext_resource type="PackedScene" uid="uid://cit6uoxu58nwk" path="res://level_elements/maps/transit/train_map.tscn" id="18_owf05"]
 [ext_resource type="PackedScene" uid="uid://baukigq6wfgs1" path="res://level_elements/ATM/atm.tscn" id="18_uuq13"]
 [ext_resource type="PackedScene" uid="uid://bavx6n5qxivtt" path="res://level_elements/decorative/plants/tiny_foliage.tscn" id="18_x1db4"]
 [ext_resource type="Texture2D" uid="uid://cnx2wdgdmxkv6" path="res://interactables/dialog_system/character_portraits/player/mc_portrait_1.png" id="19_ggct0"]
@@ -553,7 +555,6 @@ position = Vector2(-574, -307)
 
 [node name="Platform" parent="." index="5" unique_id=1302422271 instance=ExtResource("3_iss0w")]
 position = Vector2(-272, -272)
-play_arrival_on_ready = false
 
 [node name="FrontGround" parent="Platform" index="1" unique_id=673161970]
 tile_set = SubResource("TileSet_3beyx")
@@ -578,7 +579,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/UpperTrain" index="2" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.51226693
+frame_progress = 0.5038446
 
 [node name="LowerTrain" parent="Platform" index="8" unique_id=1370361982]
 next_scene = 2
@@ -586,7 +587,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/LowerTrain" index="2" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.75369704
+frame_progress = 0.74527866
 
 [node name="TicketBooth" parent="." index="6" unique_id=861247956 instance=ExtResource("2_823pn")]
 position = Vector2(-1168, -368)
@@ -603,6 +604,39 @@ broken = true
 
 [node name="TrainMap" parent="." index="8" unique_id=940096549 instance=ExtResource("18_owf05")]
 position = Vector2(-1280, -464)
+
+[node name="Sprite2D" type="Sprite2D" parent="TrainMap/SignPanel/Root/Popup/Map" parent_id_path=PackedInt32Array(940096549, 87657577) index="2" unique_id=1083837460]
+position = Vector2(-427.2727, 202.59741)
+texture = ExtResource("12_oxxmn")
+
+[node name="I" type="Control" parent="TrainMap/SignPanel/Root/Popup/Map/Sprite2D" index="0" unique_id=1521231276]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -54.54541
+offset_top = -33.766235
+offset_right = 11.6883545
+offset_bottom = 27.272827
+scale = Vector2(0.84415585, 0.8961039)
+script = ExtResource("13_u460r")
+_string = "<<I>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="station" type="Control" parent="TrainMap/SignPanel/Root/Popup/Map/Sprite2D" index="1" unique_id=1377955918]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.298706
+offset_top = -33.766235
+offset_right = 67.53247
+offset_bottom = 27.272827
+scale = Vector2(0.84416217, 0.8961039)
+script = ExtResource("13_u460r")
+_string = "<<station>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="Overlay" parent="TrainMap/SignPanel/Root/Popup" parent_id_path=PackedInt32Array(940096549, 1998267979, 2123670025) index="2" unique_id=146975511]
+position = Vector2(234, 238)
 
 [node name="Hourglass" parent="." index="9" unique_id=259821884 instance=ExtResource("20_uuq13")]
 position = Vector2(-1176, -474)

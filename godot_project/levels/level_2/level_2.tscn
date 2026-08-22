@@ -2,13 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://hhrseelwguig" path="res://levels/level_template/level_template.tscn" id="1_mi4ay"]
 [ext_resource type="PackedScene" uid="uid://cxekovsy3q368" path="res://level_elements/train_platform/platform.tscn" id="2_pqqg8"]
-[ext_resource type="PackedScene" uid="uid://denclmxtn1x1l" path="res://level_elements/departure_board/deaprture_board.tscn" id="3_lnqnw"]
+[ext_resource type="PackedScene" uid="uid://denclmxtn1x1l" path="res://level_elements/departure_board/departure_board.tscn" id="3_lnqnw"]
 [ext_resource type="PackedScene" uid="uid://djoepaapryv6s" path="res://level_elements/trinket_shop/trinket_shop.tscn" id="4_5ptf1"]
 [ext_resource type="PackedScene" uid="uid://dpexe87ps0d7f" path="res://level_elements/hourglass/hourglass.tscn" id="5_2smvo"]
-[ext_resource type="PackedScene" uid="uid://c7ekkaj708al" path="res://level_elements/maps/station_map_lvl1.tscn" id="6_cp47v"]
+[ext_resource type="PackedScene" uid="uid://c7ekkaj708al" path="res://level_elements/maps/station/station_map_lvl1.tscn" id="6_cp47v"]
 [ext_resource type="PackedScene" uid="uid://2pwlm8itluel" path="res://level_elements/ticket_booth/ticket_booth.tscn" id="7_aq41y"]
 [ext_resource type="PackedScene" uid="uid://baukigq6wfgs1" path="res://level_elements/ATM/atm.tscn" id="8_5ts7o"]
-[ext_resource type="PackedScene" uid="uid://cit6uoxu58nwk" path="res://level_elements/maps/train_map.tscn" id="9_dj0pt"]
+[ext_resource type="PackedScene" uid="uid://cit6uoxu58nwk" path="res://level_elements/maps/transit/train_map.tscn" id="9_dj0pt"]
 [ext_resource type="PackedScene" uid="uid://bni8iwfqac6ap" path="res://level_elements/coffee_shop/coffee_shop.tscn" id="10_1vf62"]
 [ext_resource type="PackedScene" uid="uid://c5jvn4a3mfhj" path="res://level_elements/decorative/recycle_bin/recycle_bin.tscn" id="11_yiikh"]
 [ext_resource type="Texture2D" uid="uid://70v4pred1q71" path="res://level_elements/bathroom/outside restroom.png" id="12_fq0us"]
@@ -53,7 +53,6 @@ position = Vector2(-1824, -2720)
 
 [node name="Platform1" parent="." index="6" unique_id=1302422271 instance=ExtResource("2_pqqg8")]
 position = Vector2(-2880, -1856)
-play_arrival_on_ready = false
 station_number = 2
 platform_number = 1
 
@@ -99,7 +98,6 @@ station_number = 2
 
 [node name="Platform3" parent="." index="8" unique_id=662428683 instance=ExtResource("2_pqqg8")]
 position = Vector2(16, -2256)
-play_arrival_on_ready = false
 station_number = 2
 platform_number = 3
 
@@ -121,17 +119,14 @@ station_number = 2
 
 [node name="Platform4" parent="." index="9" unique_id=978393930 instance=ExtResource("2_pqqg8")]
 position = Vector2(-624, -1456)
-play_arrival_on_ready = false
 station_number = 2
 platform_number = 4
 
 [node name="UpperTrain" parent="Platform4" index="7" unique_id=995237668]
-visible = false
 next_scene = 4
 reload_scene = 4
 
 [node name="LowerTrain" parent="Platform4" index="8" unique_id=1370361982]
-visible = false
 next_scene = 4
 reload_scene = 4
 color = 1
@@ -145,7 +140,6 @@ station_number = 2
 [node name="Platform5" parent="." index="10" unique_id=2026114477 instance=ExtResource("2_pqqg8")]
 position = Vector2(-1184, 144)
 rotation = 1.5707964
-play_arrival_on_ready = false
 station_number = 2
 platform_number = 5
 
@@ -170,7 +164,6 @@ station_number = 2
 [node name="Platform6" parent="." index="11" unique_id=1560803943 instance=ExtResource("2_pqqg8")]
 position = Vector2(-2576, -432)
 rotation = 1.5707964
-play_arrival_on_ready = false
 station_number = 2
 platform_number = 6
 
@@ -194,7 +187,6 @@ station_number = 2
 
 [node name="Platform7" parent="." index="12" unique_id=261612207 instance=ExtResource("2_pqqg8")]
 position = Vector2(-176, -816)
-play_arrival_on_ready = false
 station_number = 2
 platform_number = 7
 

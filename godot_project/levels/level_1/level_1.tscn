@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://hhrseelwguig" path="res://levels/level_template/level_template.tscn" id="1_2jmd8"]
 [ext_resource type="Script" uid="uid://ckmg2kdqbxsyq" path="res://level_elements/train_scheduler/station_handler.gd" id="2_xf1kb"]
-[ext_resource type="PackedScene" uid="uid://cit6uoxu58nwk" path="res://level_elements/maps/train_map.tscn" id="3_tr4hg"]
+[ext_resource type="PackedScene" uid="uid://cit6uoxu58nwk" path="res://level_elements/maps/transit/train_map.tscn" id="3_tr4hg"]
 [ext_resource type="Resource" uid="uid://ccb0ue2yufxhw" path="res://levels/level_1/level_specific_resources/level_1_train_schedule.tres" id="3_xf1kb"]
 [ext_resource type="PackedScene" uid="uid://baukigq6wfgs1" path="res://level_elements/ATM/atm.tscn" id="4_s81jn"]
 [ext_resource type="PackedScene" uid="uid://dpexe87ps0d7f" path="res://level_elements/hourglass/hourglass.tscn" id="5_n5t7a"]
@@ -15,7 +15,7 @@
 [ext_resource type="Resource" uid="uid://cnbhuvmr2ufjd" path="res://levels/level_1/level_specific_resources/ticket_dialogue_level1.tres" id="21_rflqb"]
 [ext_resource type="Texture2D" uid="uid://bhn6gjy4u51qd" path="res://level_elements/decorative/exit_gradient.png" id="23_v3xwt"]
 [ext_resource type="PackedScene" uid="uid://bph5ufs84kb6f" path="res://level_elements/bathroom/bathroom.tscn" id="24_gukcl"]
-[ext_resource type="PackedScene" uid="uid://c7ekkaj708al" path="res://level_elements/maps/station_map_lvl1.tscn" id="25_13ste"]
+[ext_resource type="PackedScene" uid="uid://c7ekkaj708al" path="res://level_elements/maps/station/station_map_lvl1.tscn" id="25_13ste"]
 [ext_resource type="Texture2D" uid="uid://danrb3vfq83ag" path="res://level_elements/decorative/hoverthruster.png" id="26_db00x"]
 [ext_resource type="PackedScene" uid="uid://cniar1emgicic" path="res://level_elements/decorative/ad_board.tscn" id="27_wn8pp"]
 [ext_resource type="PackedScene" uid="uid://b3rra7yj17p2b" path="res://level_elements/decorative/benches/bench_snoozin.tscn" id="29_4acx1"]
