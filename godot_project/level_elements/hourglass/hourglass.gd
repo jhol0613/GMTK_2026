@@ -21,7 +21,8 @@ func _ready() -> void:
 	_update_label(TimeManager.hour, TimeManager.minute, TimeManager.second)
 
 func _on_time_changed(hour: int, minute: int, second: int) -> void:
-	_sync_frames(hour, minute, second)
+	_advance_frame(hourglass_top)
+	_advance_frame(hourglass_bottom)
 	_update_label(hour, minute, second)
 
 ## Sync the frames of the hourglass to the current time
@@ -31,19 +32,20 @@ func _sync_frames(hour: int, minute: int, second: int) -> void:
 		+ minute * TimeManager.SECONDS_PER_MINUTE
 		+ second
 	)
-	var progress := 1.0 - float(remaining_seconds) / float(_start_total) # 1.0 is empty top / full bottom
-	progress = clampf(progress, 0.0, 1.0)
+	var top_count := hourglass_top.sprite_frames.get_frame_count(hourglass_top.animation)
+	var bottom_count := hourglass_bottom.sprite_frames.get_frame_count(hourglass_bottom.animation)
+	if top_count <= 0 or bottom_count <= 0:
+		return
 
-	_set_frame_from_progress(hourglass_top, progress)
-	_set_frame_from_progress(hourglass_bottom, progress)
+	var elapsed_seconds := maxi(_start_total - 1 - remaining_seconds, 0)
+	hourglass_top.frame = elapsed_seconds % top_count
+	hourglass_bottom.frame = elapsed_seconds % bottom_count
 
-func _update_label(hour: int, minute: int, second: int) -> void:
-	_time_label.text = "<<%s>> : <<%s>> : <<%s>>" % [hour, minute, second]
-
-## Set the frame of an animated sprite based on a progress value
-func _set_frame_from_progress(sprite: AnimatedSprite2D, progress: float) -> void:
+func _advance_frame(sprite: AnimatedSprite2D) -> void:
 	var count := sprite.sprite_frames.get_frame_count(sprite.animation)
 	if count <= 0:
 		return
+	sprite.frame = (sprite.frame + 1) % count
 
-	sprite.frame = mini(int(progress * count), count - 1) # Clamp to the last frame
+func _update_label(hour: int, minute: int, second: int) -> void:
+	_time_label.text = "<<%s>> : <<%s>> : <<%s>>" % [hour, minute, second]
