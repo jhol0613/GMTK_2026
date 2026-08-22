@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://nxfc4h6u5iq6" path="res://levels/level_0/level_0.gd" id="2_as6hq"]
 [ext_resource type="PackedScene" uid="uid://cxekovsy3q368" path="res://level_elements/train_platform/platform.tscn" id="3_iss0w"]
 [ext_resource type="Resource" uid="uid://b00veulruyir3" path="res://levels/level_0/level_specific_resources/ticket_dialogue_level0.tres" id="9_dp5o0"]
-[ext_resource type="Texture2D" uid="uid://ccg8h3sbbhnjl" path="res://level_elements/maps/map_sign_level0.png" id="17_2sfss"]
 [ext_resource type="Texture2D" uid="uid://ca8r7wcmgae0o" path="res://level_elements/tileset/grasstiles.png" id="17_ggct0"]
 [ext_resource type="Texture2D" uid="uid://ddbgow303m2gq" path="res://level_elements/tileset/TX Tileset Grass.png" id="18_8mki0"]
 [ext_resource type="Texture2D" uid="uid://d2ujnxq7ovb74" path="res://ui/sprites/arrow_icon.png" id="18_juy1h"]
@@ -579,7 +578,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/UpperTrain" index="2" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.65193903
+frame_progress = 0.51226693
 
 [node name="LowerTrain" parent="Platform" index="8" unique_id=1370361982]
 next_scene = 2
@@ -587,7 +586,7 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/LowerTrain" index="2" unique_id=865404147]
 animation = &"RED"
-frame_progress = 0.8933694
+frame_progress = 0.75369704
 
 [node name="TicketBooth" parent="." index="6" unique_id=861247956 instance=ExtResource("2_823pn")]
 position = Vector2(-1168, -368)
@@ -604,9 +603,6 @@ broken = true
 
 [node name="TrainMap" parent="." index="8" unique_id=940096549 instance=ExtResource("18_owf05")]
 position = Vector2(-1280, -464)
-
-[node name="Map" parent="TrainMap/SignPanel/Root/Popup" parent_id_path=PackedInt32Array(940096549, 1998267979, 2123670025) index="1" unique_id=87657577]
-texture = ExtResource("17_2sfss")
 
 [node name="Hourglass" parent="." index="9" unique_id=259821884 instance=ExtResource("20_uuq13")]
 position = Vector2(-1176, -474)
