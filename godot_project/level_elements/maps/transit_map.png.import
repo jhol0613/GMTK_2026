@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccg8h3sbbhnjl"
-path="res://.godot/imported/map_sign_level0.png-75db4b1698dfeb384eee382da941021e.ctex"
+uid="uid://cxftno5ffy14d"
+path="res://.godot/imported/transit_map.png-4586f9aef78f78c37f7515dc76eefa01.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level_elements/maps/map_sign_level0.png"
-dest_files=["res://.godot/imported/map_sign_level0.png-75db4b1698dfeb384eee382da941021e.ctex"]
+source_file="res://level_elements/maps/transit_map.png"
+dest_files=["res://.godot/imported/transit_map.png-4586f9aef78f78c37f7515dc76eefa01.ctex"]
 
 [params]
 
