@@ -74,9 +74,17 @@
   "<<endofgrayline>>": "72",
   "<<endofbrownline>>": "73",
   "<<startofyellowline>>": "74",
-  "<<middleofpinkline>>": "75",
-  "<<recycle>>": "76",
-  "<<startofpinkline>>": "77",
-  "<<coffee>>": "78",
-  "<<technician.fix.repair>>": "79"
+  "<<startofredline>>": "75",
+  "<<startofblueline>>": "76",
+  "<<startofpurpleline>>": "77",
+  "<<startofgreenline>>": "78",
+  "<<startoftealline>>": "79",
+  "<<startofgrayline>>": "80",
+  "<<startofmaroonline>>": "81",
+  "<<startofbrownline>>": "82",
+  "<<middleofpinkline>>": "83",
+  "<<recycle>>": "84",
+  "<<startofpinkline>>": "85",
+  "<<coffee>>": "86",
+  "<<technician.fix.repair>>": "87"
 }
