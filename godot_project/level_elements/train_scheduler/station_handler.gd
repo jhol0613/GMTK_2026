@@ -34,6 +34,7 @@ func _connect_to_departure_boards():
 	for node in nodes:
 		if node is DepartureBoard:
 			departure_boards.append(node)
+			node.highlight_seconds_before_departure = pull_in_seconds_before_departure
 
 #region build schdule
 func build_schedule():
@@ -136,9 +137,9 @@ func _on_time_changed(hour, minute, second):
 		departure_assignments[0].train_depart()
 		for board in departure_boards:
 			if departure_list.size() >= board.MAX_ENTRIES:
-				board.pop_and_add(departure_list[board.MAX_ENTRIES])
+				await board.pop_and_add(departure_list[board.MAX_ENTRIES])
 			else:
-				board.pop_and_add(null)
+				await board.pop_and_add(null)
 		#inefficient. could change the sorting order and work from the back but probably not worth it
 		departure_list.pop_front()
 		departure_assignments.pop_front()
