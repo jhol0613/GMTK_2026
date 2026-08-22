@@ -5,9 +5,15 @@ extends Node2D
 class_name Train
 
 @export var next_scene: Enums.Scenes = Enums.Scenes.LEVEL_1
-@export var reload_scene: Enums.Scenes = Enums.Scenes.LEVEL_0
 @export var level_clear_time_cost_minutes: int = 5
-@export var direction: Enums.TrainDirection
+@export var direction: Enums.TrainDirection:
+	set(new_direction):
+		direction = new_direction
+		var is_vertical = direction == Enums.TrainDirection.NORTH or direction == Enums.TrainDirection.SOUTH
+		for node in hide_if_vertical:
+			node.visible = not is_vertical
+		color = color #to force setter
+@export var hide_if_vertical : Array[Node2D]
 ##this is just the string to display on the departure board and has no game impact
 @export var destination := "??"
 ##The platform script will override these at runtime
@@ -57,12 +63,16 @@ var arrival_offset: Vector2
 	# Ensure that index of animation names matches the order of the Enums
 	set(new_color):
 		color = new_color
-		if sprite:
+		if not sprite:
+			return
+		if direction == Enums.TrainDirection.NORTH or direction == Enums.TrainDirection.SOUTH:
+			sprite.play("VERTICAL_" + Enums.TrainColor.find_key(color))
+		else:
 			sprite.play(Enums.TrainColor.find_key(color))
 
 @export_group('Debug')
 ##If true, always evaluates to wrong train
-@export var bypass_ticket_requirement := true
+@export var bypass_ticket_requirement := false
 
 @onready var _no_ticket_light: Sprite2D = $TrainSprite/NoTicketLight
 @onready var _boarded_player_l: Sprite2D = $BoardedPlayerL

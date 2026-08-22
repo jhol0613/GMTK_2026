@@ -7,10 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://d0p3sbfud3275" path="res://player/sprites/Main_Character.png" id="4_player"]
 [ext_resource type="Texture2D" uid="uid://dixkuxjdnkyp" path="res://level_elements/train/hoverthruster_sparcle.png" id="4_wb4gf"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="5_oe38n"]
-[ext_resource type="AudioStream" uid="uid://dwigb4phdw4ik" path="res://level_elements/train/updated_sfx/Train_Pulling_Into_with_doors.mp3" id="6_pulling_in"]
-[ext_resource type="AudioStream" uid="uid://5c1e5coucolc" path="res://level_elements/train/updated_sfx/Train_Pulling_Out_with_doors.mp3" id="7_pulling_out"]
-[ext_resource type="AudioStream" uid="uid://bvouajgkbq3o5" path="res://level_elements/train/updated_sfx/Train_Pulling_Into.mp3" id="8_no_doors"]
-[ext_resource type="AudioStream" uid="uid://t63ujqoprrca" path="res://level_elements/train/updated_sfx/Train_Pulling_Out.mp3" id="9_pulling_out_no_doors"]
+[ext_resource type="AudioStream" uid="uid://cu3ssob4apsrg" path="res://level_elements/train/Train Pulling Into.mp3" id="6_pulling_in"]
+[ext_resource type="Texture2D" uid="uid://bhqjsfr70bd0i" path="res://level_elements/train/vertical_train_placeholder.png" id="7_f6fyi"]
+[ext_resource type="AudioStream" uid="uid://b511cvpm80f52" path="res://level_elements/train/Pulling Out.mp3" id="7_pulling_out"]
+[ext_resource type="AudioStream" uid="uid://bjj4avshu6qv3" path="res://level_elements/train/Pulling Into without door opening.mp3" id="8_no_doors"]
+[ext_resource type="AudioStream" uid="uid://b3n6k2kwd05jh" path="res://level_elements/train/Train_Pulling_Out_without_door.mp3" id="9_pulling_out_no_doors"]
 [ext_resource type="Script" uid="uid://xxne2e5lqbq1" path="res://level_elements/train/no_ticket_night_light.gd" id="10_no_ticket_night"]
 [ext_resource type="Texture2D" uid="uid://b7k1rwda5wu1p" path="res://visual_effects/day_night/light_radial.png" id="11_no_ticket_light"]
 [ext_resource type="Script" uid="uid://iqsa7knvxpkd" path="res://level_elements/train/train_night_glow.gd" id="12_train_night_glow"]
@@ -54,6 +55,22 @@ region = Rect2(0, 1032, 813, 129)
 atlas = ExtResource("2_725i7")
 region = Rect2(0, 129, 813, 129)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6fyi"]
+atlas = ExtResource("7_f6fyi")
+region = Rect2(240, 0, 80, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tfg2"]
+atlas = ExtResource("7_f6fyi")
+region = Rect2(0, 0, 80, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ox5ll"]
+atlas = ExtResource("7_f6fyi")
+region = Rect2(80, 0, 80, 600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxn5h"]
+atlas = ExtResource("7_f6fyi")
+region = Rect2(160, 0, 80, 600)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_gfhyf"]
 atlas = ExtResource("2_725i7")
 region = Rect2(0, 1161, 813, 129)
@@ -64,7 +81,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5xnue")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"BLUE",
 "speed": 5.0
 }, {
@@ -72,7 +89,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_17x1t")
 }],
-"loop": 2,
+"loop": 0,
 "name": &"BROWN",
 "speed": 5.0
 }, {
@@ -88,7 +105,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pkva7")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"GREEN",
 "speed": 5.0
 }, {
@@ -104,7 +121,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wb4gf")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"PINK",
 "speed": 5.0
 }, {
@@ -112,7 +129,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ee42e")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"PURPLE",
 "speed": 5.0
 }, {
@@ -120,7 +137,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4fu51")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"RED",
 "speed": 5.0
 }, {
@@ -128,8 +145,40 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1vmqs")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"TEAL",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6fyi")
+}],
+"loop": 0,
+"name": &"VERTICAL_BLUE",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tfg2")
+}],
+"loop": 0,
+"name": &"VERTICAL_PINK",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ox5ll")
+}],
+"loop": 0,
+"name": &"VERTICAL_PURPLE",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxn5h")
+}],
+"loop": 0,
+"name": &"VERTICAL_YELLOW",
 "speed": 5.0
 }, {
 "frames": [{
@@ -432,14 +481,18 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5xnue"]
 size = Vector2(40, 23)
 
-[node name="Train" type="Node2D" unique_id=2086324427 node_paths=PackedStringArray("sprite")]
-visible = false
+[node name="Train" type="Node2D" unique_id=2086324427 node_paths=PackedStringArray("hide_if_vertical", "sprite")]
 script = ExtResource("1_cjdsu")
+reload_scene = 2
+direction = 1
+hide_if_vertical = [NodePath("DoorL"), NodePath("DoorR"), NodePath("DoorL2"), NodePath("DoorR2"), NodePath("TrainSprite/DoorBlocker"), NodePath("TrainSprite/DoorBlocker2"), NodePath("TrainSprite/DoorBlocker3"), NodePath("TrainSprite/DoorBlocker4"), NodePath("TrainSprite/HoverSparcles"), NodePath("TrainSprite/NoTicketLight")]
 pulling_in_sound = ExtResource("6_pulling_in")
 pulling_in_no_doors_sound = ExtResource("8_no_doors")
 pulling_out_sound = ExtResource("7_pulling_out")
 pulling_out_no_doors_sound = ExtResource("9_pulling_out_no_doors")
 sprite = NodePath("TrainSprite")
+color = 0
+bypass_ticket_requirement = true
 
 [node name="PullingInPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=620830900]
 volume_db = 4.0
@@ -458,7 +511,8 @@ bus = &"SFX"
 [node name="TrainSprite" type="AnimatedSprite2D" parent="." unique_id=865404147]
 position = Vector2(0, -40)
 sprite_frames = SubResource("SpriteFrames_ujtin")
-animation = &"BROWN"
+animation = &"VERTICAL_BLUE"
+frame_progress = 1.0
 
 [node name="BodyNightGlow" type="Node2D" parent="TrainSprite" unique_id=638013023 groups=["night_lights"]]
 script = ExtResource("12_train_night_glow")
@@ -469,22 +523,27 @@ material = SubResource("CanvasItemMaterial_train_glow")
 texture = ExtResource("13_body_glow")
 
 [node name="DoorBlocker" type="Sprite2D" parent="TrainSprite" unique_id=1733779265]
+visible = false
 position = Vector2(-335, 5)
 texture = ExtResource("3_17x1t")
 
 [node name="DoorBlocker2" type="Sprite2D" parent="TrainSprite" unique_id=566216451]
+visible = false
 position = Vector2(-206, 5)
 texture = ExtResource("3_17x1t")
 
 [node name="DoorBlocker3" type="Sprite2D" parent="TrainSprite" unique_id=1551714510]
+visible = false
 position = Vector2(207, 5)
 texture = ExtResource("3_17x1t")
 
 [node name="DoorBlocker4" type="Sprite2D" parent="TrainSprite" unique_id=1361625764]
+visible = false
 position = Vector2(336, 5)
 texture = ExtResource("3_17x1t")
 
 [node name="HoverSparcles" type="Node2D" parent="TrainSprite" unique_id=1933076444]
+visible = false
 
 [node name="HoverSparcle3" type="AnimatedSprite2D" parent="TrainSprite/HoverSparcles" unique_id=1935636803]
 position = Vector2(-373, 54)
@@ -537,6 +596,7 @@ position = Vector2(375, 54)
 sprite_frames = SubResource("SpriteFrames_khhxn")
 
 [node name="NoTicketLight" type="Sprite2D" parent="TrainSprite" unique_id=994817530 groups=["night_lights"]]
+visible = false
 z_index = 4
 position = Vector2(0, 26)
 texture = SubResource("AtlasTexture_ticket")
@@ -670,6 +730,7 @@ position = Vector2(64.5, -30)
 texture = SubResource("AtlasTexture_boarded")
 
 [node name="DoorL" type="Sprite2D" parent="." unique_id=371770877]
+visible = false
 z_index = 2
 position = Vector2(-78.5, -61.5)
 scale = Vector2(0.9, 1)
@@ -685,6 +746,7 @@ material = SubResource("CanvasItemMaterial_train_glow")
 texture = ExtResource("14_door_left_glow")
 
 [node name="DoorR" type="Sprite2D" parent="." unique_id=621257440]
+visible = false
 z_index = 2
 position = Vector2(-65, -61.5)
 scale = Vector2(0.9, 1)
@@ -700,6 +762,7 @@ material = SubResource("CanvasItemMaterial_train_glow")
 texture = ExtResource("15_door_right_glow")
 
 [node name="DoorL2" type="Sprite2D" parent="." unique_id=1692903795]
+visible = false
 z_index = 2
 position = Vector2(50.5, -61.5)
 scale = Vector2(0.9, 1)
@@ -715,6 +778,7 @@ material = SubResource("CanvasItemMaterial_train_glow")
 texture = ExtResource("14_door_left_glow")
 
 [node name="DoorR2" type="Sprite2D" parent="." unique_id=71265228]
+visible = false
 z_index = 2
 position = Vector2(64, -61.5)
 scale = Vector2(0.9, 1)
