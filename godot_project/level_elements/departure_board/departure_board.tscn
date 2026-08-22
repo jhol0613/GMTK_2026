@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://csgrgsejqomv4" path="res://level_elements/departure_board/departure_board_glow.png" id="4_smoun"]
 [ext_resource type="Texture2D" uid="uid://b7k1rwda5wu1p" path="res://visual_effects/day_night/light_radial.png" id="5_rtgo6"]
 [ext_resource type="AudioStream" uid="uid://c5fycxplhe2fh" path="res://level_elements/departure_board/DepartBoardUpdateSFX.mp3" id="6_41f6e"]
+[ext_resource type="AudioStream" uid="uid://0m40rq43uqvu" path="res://menus/TitleButtonHover.mp3" id="7_q2oph"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glow"]
 blend_mode = 1
@@ -48,13 +49,20 @@ shape = SubResource("RectangleShape2D_ujtin")
 
 [node name="EntryHolder" type="VBoxContainer" parent="." unique_id=500838810]
 offset_left = -33.0
-offset_top = -71.0
+offset_top = -82.0
 offset_right = 37.0
-offset_bottom = -7.0
+offset_bottom = -18.0
 theme_override_constants/separation = 2
 
-[node name="UpdateSound" type="AudioStreamPlayer2D" parent="." unique_id=1076410545]
+[node name="TrainAtPlatformSound" type="AudioStreamPlayer2D" parent="." unique_id=1076410545]
 stream = ExtResource("6_41f6e")
+volume_db = 12.451
+max_distance = 483.0
+attenuation = 0.61557204
+bus = &"SFX"
+
+[node name="BoardUpdateSound" type="AudioStreamPlayer2D" parent="." unique_id=1303657289]
+stream = ExtResource("7_q2oph")
 volume_db = 12.451
 max_distance = 483.0
 attenuation = 0.61557204

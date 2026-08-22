@@ -6,14 +6,15 @@
 [sub_resource type="Resource" id="Resource_wl75l"]
 script = ExtResource("1_3wyqc")
 direction = 2
-initial_offset = 1
+destination = "<<endofblueline>>"
 scene_destination = 6
 metadata/_custom_type_script = "uid://kipmht1y7efq"
 
 [sub_resource type="Resource" id="Resource_gq3wq"]
 script = ExtResource("1_3wyqc")
 direction = 3
-initial_offset = 2
+destination = "??"
+initial_offset = 1
 scene_destination = 3
 metadata/_custom_type_script = "uid://kipmht1y7efq"
 
@@ -21,7 +22,8 @@ metadata/_custom_type_script = "uid://kipmht1y7efq"
 script = ExtResource("1_3wyqc")
 color = 5
 direction = 2
-initial_offset = 3
+destination = "<<endofpinkline>>"
+initial_offset = 2
 scene_destination = 3
 metadata/_custom_type_script = "uid://kipmht1y7efq"
 
@@ -29,6 +31,7 @@ metadata/_custom_type_script = "uid://kipmht1y7efq"
 script = ExtResource("1_3wyqc")
 color = 5
 direction = 3
+destination = "??"
 initial_offset = 4
 scene_destination = 3
 metadata/_custom_type_script = "uid://kipmht1y7efq"
@@ -37,6 +40,7 @@ metadata/_custom_type_script = "uid://kipmht1y7efq"
 script = ExtResource("1_3wyqc")
 color = 3
 direction = 2
+destination = "<<endofgreenline>>"
 initial_offset = 5
 scene_destination = 3
 metadata/_custom_type_script = "uid://kipmht1y7efq"
@@ -45,6 +49,7 @@ metadata/_custom_type_script = "uid://kipmht1y7efq"
 script = ExtResource("1_3wyqc")
 color = 3
 direction = 3
+destination = "??"
 initial_offset = 6
 scene_destination = 3
 metadata/_custom_type_script = "uid://kipmht1y7efq"
@@ -53,6 +58,7 @@ metadata/_custom_type_script = "uid://kipmht1y7efq"
 script = ExtResource("1_3wyqc")
 color = 7
 direction = 2
+destination = "<<endofredline>>"
 initial_offset = 7
 scene_destination = 3
 metadata/_custom_type_script = "uid://kipmht1y7efq"
@@ -61,6 +67,7 @@ metadata/_custom_type_script = "uid://kipmht1y7efq"
 script = ExtResource("1_3wyqc")
 color = 7
 direction = 3
+destination = "??"
 scene_destination = 3
 metadata/_custom_type_script = "uid://kipmht1y7efq"
 

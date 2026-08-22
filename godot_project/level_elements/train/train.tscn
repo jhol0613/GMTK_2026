@@ -433,12 +433,12 @@ _data = {
 size = Vector2(40, 23)
 
 [node name="Train" type="Node2D" unique_id=2086324427 node_paths=PackedStringArray("sprite")]
+visible = false
 script = ExtResource("1_cjdsu")
 pulling_in_sound = ExtResource("6_pulling_in")
 pulling_in_no_doors_sound = ExtResource("8_no_doors")
 pulling_out_sound = ExtResource("7_pulling_out")
 pulling_out_no_doors_sound = ExtResource("9_pulling_out_no_doors")
-rest_arrival_duration_multiplier = null
 sprite = NodePath("TrainSprite")
 
 [node name="PullingInPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=620830900]

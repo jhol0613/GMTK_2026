@@ -76,6 +76,8 @@ var arrival_offset: Vector2
 var _boarding: bool = false
 #var _missed_departure: bool = false
 var _l_or_r: String
+#if true, this platform won't be used for other train arrivals
+var _block_arrivals = false
 
 @onready var player_disembark_marker: Marker2D
 @onready var player_embark_marker: Marker2D = $PlayerEmbarkMarker
@@ -272,6 +274,9 @@ func train_depart(play_pulling_out_sfx = false) -> void:
 	await tween.finished
 
 func call_train() -> void:
+	if _block_arrivals:
+		print("train blocked due to player arrival animation")
+		return
 	print("train called")
 	play_arrival_animation(false)
 
@@ -281,9 +286,12 @@ func play_arrival_animation(include_player = true) -> void:
 
 	var stop_position: Vector2 = original_position
 	position = stop_position + arrival_offset
+	
+	visible = true
 
 	var player := get_tree().get_first_node_in_group("player") as PlayerCharacter
 	if include_player and player:
+		_block_arrivals = true
 		player.global_position = player_disembark_marker.global_position - arrival_offset
 		play_pulling_in()
 		player.set_active(false)
@@ -301,6 +309,7 @@ func play_arrival_animation(include_player = true) -> void:
 	await tween.finished
 
 	if not include_player or not player:
+		_block_arrivals = false
 		play_bobbing()
 		return
 	
@@ -346,7 +355,8 @@ func play_arrival_animation(include_player = true) -> void:
 	
 	player.set_active(true)
 	
-	train_depart()
+	await train_depart()
+	_block_arrivals = false
 	#play_bobbing()
 
 func play_bobbing() -> void:
