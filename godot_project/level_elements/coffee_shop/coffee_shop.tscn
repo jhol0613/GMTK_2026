@@ -74,6 +74,7 @@ purchase_animation = ExtResource("11_coffee_drink")
 empty_cup_item = SubResource("Resource_empty_cup")
 drinking_sound = ExtResource("14_slurping")
 effect_sound = ExtResource("10_effect_bell")
+effect_volume_db = -80.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=458582389]
 z_index = 1

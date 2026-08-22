@@ -21,6 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://d3pyqkmohkmva" path="res://ui/inventory/BagClose.mp3" id="15_57od6"]
 [ext_resource type="AudioStream" uid="uid://r48846sj6hs2" path="res://ui/ticket/TicketClose.mp3" id="15_sm8jv"]
 [ext_resource type="AudioStream" path="res://ui/inventory/item_goes_into_inventory.mp3" id="16_item_inventory"]
+[ext_resource type="AudioStream" path="res://level_elements/trinket_shop/trinket_purchased.wav" id="17_trinket_purchase"]
 
 [sub_resource type="Animation" id="Animation_reset"]
 length = 0.001
@@ -391,6 +392,7 @@ volume_db = 4.0
 bus = &"SFX"
 
 [node name="TrinketPurchaseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_trinket_purchase")
 volume_db = -4.0
 bus = &"SFX"
 

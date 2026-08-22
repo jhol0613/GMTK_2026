@@ -496,8 +496,9 @@ func _show_item_popup(icon: Texture2D, item: ItemData = null) -> void:
 	_item_popup.visible = true
 	_item_popup_icon.modulate = Color(1, 1, 1, 0)
 	_item_popup_icon.scale = Vector2(0.6, 0.6)
-	if item != null and String(item.id).begins_with("mask_") and _trinket_purchase_sound.stream != null:
-		_trinket_purchase_sound.play()
+	if item != null and String(item.id).begins_with("mask_"):
+		if _trinket_purchase_sound.stream != null:
+			_trinket_purchase_sound.play()
 
 	_item_popup_tween = create_tween()
 	_item_popup_tween.set_parallel(true)

@@ -162,6 +162,10 @@ shape = SubResource("RectangleShape2D_bqp2h")
 z_index = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="PurchaseSfx" type="AudioStreamPlayer2D" parent="." unique_id=1180624417]
+position = Vector2(-14, -47)
+bus = &"SFX"
+
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=806731683]
 z_index = 1
 position = Vector2(-12, -44.5)

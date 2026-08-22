@@ -4,10 +4,14 @@ extends Node2D
 const PURCHASE_OUTCOME: StringName = &"sold_trinket"
 
 @onready var _dialogue_panel: DialoguePanel = $DialoguePanel
+@onready var _purchase_sfx: AudioStreamPlayer2D = $PurchaseSfx
+
+var _awaiting_trinket: bool = false
 
 
 func _ready() -> void:
 	_dialogue_panel.option_confirmed.connect(_on_option_confirmed)
+	Inventory.item_added.connect(_on_item_added)
 
 
 func _on_option_confirmed(outcome_id: StringName) -> void:
@@ -17,3 +21,14 @@ func _on_option_confirmed(outcome_id: StringName) -> void:
 	if outcome_id != PURCHASE_OUTCOME:
 		return
 	Wallet.spend(Wallet.TRINKET_COST)
+	_awaiting_trinket = true
+
+
+func _on_item_added(item: ItemData) -> void:
+	if not _awaiting_trinket:
+		return
+	if not String(item.id).begins_with("mask_"):
+		return
+	_awaiting_trinket = false
+	if _purchase_sfx.stream != null:
+		_purchase_sfx.play()
