@@ -134,7 +134,7 @@ func _on_time_changed(hour, minute, second):
 	
 	#Old trains depart
 	while not departure_list.is_empty() and time <= departure_list[0].departure_time_seconds:
-		departure_assignments[0].train_depart()
+		departure_assignments[0].train_depart(true)
 		for board in departure_boards:
 			if departure_list.size() >= board.MAX_ENTRIES:
 				await board.pop_and_add(departure_list[board.MAX_ENTRIES])

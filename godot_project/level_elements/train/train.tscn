@@ -7,10 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://d0p3sbfud3275" path="res://player/sprites/Main_Character.png" id="4_player"]
 [ext_resource type="Texture2D" uid="uid://dixkuxjdnkyp" path="res://level_elements/train/hoverthruster_sparcle.png" id="4_wb4gf"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="5_oe38n"]
-[ext_resource type="AudioStream" uid="uid://cu3ssob4apsrg" path="res://level_elements/train/Train Pulling Into.mp3" id="6_pulling_in"]
-[ext_resource type="AudioStream" uid="uid://b511cvpm80f52" path="res://level_elements/train/Pulling Out.mp3" id="7_pulling_out"]
-[ext_resource type="AudioStream" uid="uid://bjj4avshu6qv3" path="res://level_elements/train/Pulling Into without door opening.mp3" id="8_no_doors"]
-[ext_resource type="AudioStream" uid="uid://b3n6k2kwd05jh" path="res://level_elements/train/Train_Pulling_Out_without_door.mp3" id="9_pulling_out_no_doors"]
+[ext_resource type="AudioStream" uid="uid://dwigb4phdw4ik" path="res://level_elements/train/updated_sfx/Train_Pulling_Into_with_doors.mp3" id="6_pulling_in"]
+[ext_resource type="AudioStream" uid="uid://5c1e5coucolc" path="res://level_elements/train/updated_sfx/Train_Pulling_Out_with_doors.mp3" id="7_pulling_out"]
+[ext_resource type="AudioStream" uid="uid://bvouajgkbq3o5" path="res://level_elements/train/updated_sfx/Train_Pulling_Into.mp3" id="8_no_doors"]
+[ext_resource type="AudioStream" uid="uid://t63ujqoprrca" path="res://level_elements/train/updated_sfx/Train_Pulling_Out.mp3" id="9_pulling_out_no_doors"]
 [ext_resource type="Script" uid="uid://xxne2e5lqbq1" path="res://level_elements/train/no_ticket_night_light.gd" id="10_no_ticket_night"]
 [ext_resource type="Texture2D" uid="uid://b7k1rwda5wu1p" path="res://visual_effects/day_night/light_radial.png" id="11_no_ticket_light"]
 [ext_resource type="Script" uid="uid://iqsa7knvxpkd" path="res://level_elements/train/train_night_glow.gd" id="12_train_night_glow"]
@@ -443,15 +443,15 @@ sprite = NodePath("TrainSprite")
 
 [node name="PullingInPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=620830900]
 volume_db = 4.0
-max_distance = 4600.0
-attenuation = 0.6597539
+max_distance = 1600.0
+attenuation = 3.0
 panning_strength = 0.5
 bus = &"SFX"
 
 [node name="PullingOutPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1254845133]
 volume_db = 4.0
-max_distance = 4600.0
-attenuation = 0.65
+max_distance = 1600.0
+attenuation = 3.0
 panning_strength = 0.5
 bus = &"SFX"
 

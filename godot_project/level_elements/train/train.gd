@@ -288,6 +288,11 @@ func play_arrival_animation(include_player = true) -> void:
 	position = stop_position + arrival_offset
 	
 	visible = true
+	var adjusted_arrival_duration := (
+		arrival_duration * rest_arrival_duration_multiplier
+		if _resting
+		else arrival_duration
+	)
 
 	var player := get_tree().get_first_node_in_group("player") as PlayerCharacter
 	if include_player and player:
@@ -298,12 +303,6 @@ func play_arrival_animation(include_player = true) -> void:
 	else:
 		play_pulling_in(true)
 
-	##Make arrival duration faster if resting
-	var adjusted_arrival_duration: float
-	if _resting:
-		adjusted_arrival_duration = arrival_duration * rest_arrival_duration_multiplier
-	else:
-		adjusted_arrival_duration = arrival_duration
 	var tween := create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(self, "position", stop_position, adjusted_arrival_duration)
 	await tween.finished
@@ -355,7 +354,7 @@ func play_arrival_animation(include_player = true) -> void:
 	
 	player.set_active(true)
 	
-	await train_depart()
+	await train_depart(true)
 	_block_arrivals = false
 	#play_bobbing()
 
