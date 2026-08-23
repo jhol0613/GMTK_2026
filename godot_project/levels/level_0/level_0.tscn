@@ -669,7 +669,6 @@ player_icon = ExtResource("19_ggct0")
 
 [node name="ATM" parent="." index="8" unique_id=124595741 instance=ExtResource("18_uuq13")]
 position = Vector2(-1056, -480)
-broken = true
 
 [node name="TrainMap" parent="." index="9" unique_id=940096549 instance=ExtResource("18_owf05")]
 position = Vector2(-1280, -464)
