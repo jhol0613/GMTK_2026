@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://hhrseelwguig" path="res://levels/level_template/level_template.tscn" id="1_mi4ay"]
 [ext_resource type="PackedScene" uid="uid://cxekovsy3q368" path="res://level_elements/train_platform/platform.tscn" id="2_pqqg8"]
+[ext_resource type="PackedScene" uid="uid://bj6c3dkqrbxyt" path="res://level_elements/train_platform/vertical_platform.tscn" id="3_2smvo"]
 [ext_resource type="PackedScene" uid="uid://denclmxtn1x1l" path="res://level_elements/departure_board/departure_board.tscn" id="3_lnqnw"]
 [ext_resource type="PackedScene" uid="uid://djoepaapryv6s" path="res://level_elements/trinket_shop/trinket_shop.tscn" id="4_5ptf1"]
 [ext_resource type="PackedScene" uid="uid://dpexe87ps0d7f" path="res://level_elements/hourglass/hourglass.tscn" id="5_2smvo"]
@@ -36,8 +37,10 @@ animations = [{
 "speed": 4.0
 }]
 
-[node name="Level2" unique_id=783439983 instance=ExtResource("1_mi4ay")]
+[node name="Level2" unique_id=783439983 node_paths=PackedStringArray("arrival_train") instance=ExtResource("1_mi4ay")]
 correct_train_line = 1
+correct_train_direction = 1
+arrival_train = NodePath("Platform6/UpperTrain")
 
 [node name="Camera2D" parent="." index="1" unique_id=1821430600]
 position = Vector2(-1781, -2713)
@@ -58,12 +61,10 @@ platform_number = 1
 
 [node name="UpperTrain" parent="Platform1" index="7" unique_id=995237668]
 next_scene = 4
-reload_scene = 4
 color = 4
 
 [node name="LowerTrain" parent="Platform1" index="8" unique_id=1370361982]
 next_scene = 4
-reload_scene = 4
 color = 4
 
 [node name="Station0Sign" parent="Platform1" index="19" unique_id=98722644]
@@ -80,13 +81,10 @@ platform_number = 2
 
 [node name="UpperTrain" parent="Platform2" index="7" unique_id=995237668]
 next_scene = 4
-reload_scene = 4
 direction = 1
-color = 0
 
 [node name="LowerTrain" parent="Platform2" index="8" unique_id=1370361982]
 next_scene = 4
-reload_scene = 4
 direction = 0
 color = 0
 
@@ -103,12 +101,10 @@ platform_number = 3
 
 [node name="UpperTrain" parent="Platform3" index="7" unique_id=995237668]
 next_scene = 4
-reload_scene = 4
 color = 2
 
 [node name="LowerTrain" parent="Platform3" index="8" unique_id=1370361982]
 next_scene = 4
-reload_scene = 4
 color = 2
 
 [node name="Station0Sign" parent="Platform3" index="19" unique_id=98722644]
@@ -124,11 +120,9 @@ platform_number = 4
 
 [node name="UpperTrain" parent="Platform4" index="7" unique_id=995237668]
 next_scene = 4
-reload_scene = 4
 
 [node name="LowerTrain" parent="Platform4" index="8" unique_id=1370361982]
 next_scene = 4
-reload_scene = 4
 color = 1
 
 [node name="Station0Sign" parent="Platform4" index="19" unique_id=98722644]
@@ -145,13 +139,11 @@ platform_number = 5
 
 [node name="UpperTrain" parent="Platform5" index="7" unique_id=995237668]
 next_scene = 4
-reload_scene = 4
 direction = 1
 color = 6
 
 [node name="LowerTrain" parent="Platform5" index="8" unique_id=1370361982]
 next_scene = 4
-reload_scene = 4
 direction = 0
 color = 6
 
@@ -161,28 +153,18 @@ station_number = 2
 [node name="Station0Sign2" parent="Platform5" index="20" unique_id=421458582]
 station_number = 2
 
-[node name="Platform6" parent="." index="11" unique_id=1560803943 instance=ExtResource("2_pqqg8")]
-position = Vector2(-2576, -432)
-rotation = 1.5707964
+[node name="Platform6" parent="." index="11" unique_id=275140016 instance=ExtResource("3_2smvo")]
+position = Vector2(-2512, -708)
 station_number = 2
 platform_number = 6
 
-[node name="UpperTrain" parent="Platform6" index="7" unique_id=995237668]
-next_scene = 4
-reload_scene = 4
-direction = 1
-color = 9
+[node name="LowerTrain" parent="Platform6" index="4" unique_id=1370361982]
+color = 5
 
-[node name="LowerTrain" parent="Platform6" index="8" unique_id=1370361982]
-next_scene = 4
-reload_scene = 4
-direction = 0
-color = 9
-
-[node name="Station0Sign" parent="Platform6" index="19" unique_id=98722644]
+[node name="Station0Sign" parent="Platform6" index="15" unique_id=98722644]
 station_number = 2
 
-[node name="Station0Sign2" parent="Platform6" index="20" unique_id=421458582]
+[node name="Station0Sign2" parent="Platform6" index="16" unique_id=421458582]
 station_number = 2
 
 [node name="Platform7" parent="." index="12" unique_id=261612207 instance=ExtResource("2_pqqg8")]
@@ -192,12 +174,10 @@ platform_number = 7
 
 [node name="UpperTrain" parent="Platform7" index="7" unique_id=995237668]
 next_scene = 4
-reload_scene = 4
 color = 8
 
 [node name="LowerTrain" parent="Platform7" index="8" unique_id=1370361982]
 next_scene = 6
-reload_scene = 4
 color = 1
 
 [node name="Station0Sign" parent="Platform7" index="19" unique_id=98722644]

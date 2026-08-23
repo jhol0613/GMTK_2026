@@ -9,9 +9,8 @@ class_name Train
 @export var direction: Enums.TrainDirection:
 	set(new_direction):
 		direction = new_direction
-		var is_vertical = direction == Enums.TrainDirection.NORTH or direction == Enums.TrainDirection.SOUTH
 		for node in hide_if_vertical:
-			node.visible = not is_vertical
+			node.visible = not _is_vertical()
 		color = color #to force setter
 @export var hide_if_vertical : Array[Node2D]
 ##this is just the string to display on the departure board and has no game impact
@@ -80,8 +79,13 @@ var arrival_offset: Vector2
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var train_interactable_l: TrainInteractable = $TrainInteractableL
 @onready var train_interactable_r: TrainInteractable = $TrainInteractableR
+@onready var train_interactable_u: TrainInteractable = $TrainInteractableU
+@onready var train_interactable_d: TrainInteractable = $TrainInteractableD
 @onready var _pulling_in_player: AudioStreamPlayer2D = $PullingInPlayer2D
 @onready var _pulling_out_player: AudioStreamPlayer2D = $PullingOutPlayer2D
+
+@onready var original_position = position
+@onready var _resting = false
 
 var _boarding: bool = false
 #var _missed_departure: bool = false
@@ -89,12 +93,8 @@ var _l_or_r: String
 #if true, this platform won't be used for other train arrivals
 var _block_arrivals = false
 
-@onready var player_disembark_marker: Marker2D
-@onready var player_embark_marker: Marker2D = $PlayerEmbarkMarker
-
-@onready var original_position = position
-
-@onready var _resting = false
+var player_disembark_marker: Marker2D
+var player_embark_marker: Marker2D
 
 func _ready() -> void:
 	add_to_group("trains")
@@ -107,13 +107,21 @@ func _ready() -> void:
 	#Inventory.inventory_changed.connect(_on_inventory_changed)
 	match direction:
 		Enums.TrainDirection.NORTH:
+			player_embark_marker = $PlayerEmbarkMarkerVertical
 			player_disembark_marker = $PlayerDisembarkMarkerNorth
 		Enums.TrainDirection.SOUTH:
+			player_embark_marker = $PlayerEmbarkMarkerVertical
 			player_disembark_marker = $PlayerDisembarkMarkerSouth
 		Enums.TrainDirection.EAST:
+			player_embark_marker = $PlayerEmbarkMarkerHorizontal
 			player_disembark_marker = $PlayerDisembarkMarkerEast
 		Enums.TrainDirection.WEST:
+			player_embark_marker = $PlayerEmbarkMarkerHorizontal
 			player_disembark_marker = $PlayerDisembarkMarkerWest
+	train_interactable_u.visible = _is_vertical()
+	train_interactable_d.visible = _is_vertical()
+	train_interactable_l.visible = not _is_vertical()
+	train_interactable_r.visible = not _is_vertical()
 	
 	SignalBus.rest_started.connect(func(): _resting = true)
 	SignalBus.rest_ended.connect(func(): _resting = false)
@@ -481,3 +489,6 @@ func _get_arrival_offset_vector() -> Vector2:
 
 func _get_departure_offset_vector() -> Vector2:
 	return _get_arrival_offset_vector() * -1.0
+
+func _is_vertical() -> bool:
+	return direction == Enums.TrainDirection.NORTH or direction == Enums.TrainDirection.SOUTH
