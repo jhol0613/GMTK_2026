@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cniar1emgicic" path="res://level_elements/decorative/ads/ad_board.tscn" id="27_wn8pp"]
 [ext_resource type="PackedScene" uid="uid://b3rra7yj17p2b" path="res://level_elements/decorative/benches/bench_snoozin.tscn" id="29_4acx1"]
 [ext_resource type="PackedScene" uid="uid://dcsei1m2axnjk" path="res://level_elements/decorative/benches/bench.tscn" id="30_sqt4m"]
-[ext_resource type="Texture2D" uid="uid://70v4pred1q71" path="res://level_elements/bathroom/outside restroom.png" id="31_530me"]
+[ext_resource type="Texture2D" uid="uid://70v4pred1q71" path="res://level_elements/bathroom/outside_restroom.png" id="31_530me"]
 [ext_resource type="PackedScene" uid="uid://ba3allrv3pni0" path="res://level_elements/decorative/plants/plant_1.tscn" id="32_82lf4"]
 [ext_resource type="PackedScene" uid="uid://b8j82426dfwlf" path="res://level_elements/decorative/plants/plant_2.tscn" id="33_e0qbr"]
 [ext_resource type="PackedScene" uid="uid://sve0agw1p5d0" path="res://level_elements/NPCs/atm_guy.tscn" id="34_7fqnt"]

@@ -5,6 +5,7 @@ signal interacted
 
 @onready var _prompt: ResshanLabel = $Prompt
 @export var _arrow: AnimatedSprite2D
+@export var has_arrow: bool = true
 
 var _player_in_range: bool = false
 
@@ -64,4 +65,4 @@ func _on_body_entered(_body: Node2D) -> void:
 func _on_body_exited(_body: Node2D) -> void:
 	_player_in_range = false
 	_prompt.visible = false
-	_arrow.visible = true
+	_arrow.visible = has_arrow
