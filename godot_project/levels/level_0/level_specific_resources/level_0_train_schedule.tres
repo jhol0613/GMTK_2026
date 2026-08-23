@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="TrainSchedule" format=3 uid="uid://bwniyebs5hs7t"]
+
+[ext_resource type="Script" uid="uid://kipmht1y7efq" path="res://level_elements/train_scheduler/schedule_data.gd" id="1_eo3dq"]
+[ext_resource type="Script" uid="uid://dped1kocrdwq8" path="res://level_elements/train_scheduler/train_schedule.gd" id="2_y3ldl"]
+
+[sub_resource type="Resource" id="Resource_et3v2"]
+script = ExtResource("1_eo3dq")
+color = 7
+direction = 2
+arrival_interval_minutes = 3
+initial_offset = 1
+scene_destination = 3
+metadata/_custom_type_script = "uid://kipmht1y7efq"
+
+[sub_resource type="Resource" id="Resource_4w86p"]
+script = ExtResource("1_eo3dq")
+color = 7
+direction = 3
+arrival_interval_minutes = 3
+scene_destination = 2
+metadata/_custom_type_script = "uid://kipmht1y7efq"
+
+[resource]
+script = ExtResource("2_y3ldl")
+schedule = Array[ExtResource("1_eo3dq")]([SubResource("Resource_et3v2"), SubResource("Resource_4w86p")])
+metadata/_custom_type_script = "uid://dped1kocrdwq8"
