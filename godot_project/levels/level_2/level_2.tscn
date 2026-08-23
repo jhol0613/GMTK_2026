@@ -14,6 +14,29 @@
 [ext_resource type="PackedScene" uid="uid://c5jvn4a3mfhj" path="res://level_elements/decorative/recycle_bin/recycle_bin.tscn" id="11_yiikh"]
 [ext_resource type="Texture2D" uid="uid://70v4pred1q71" path="res://level_elements/bathroom/outside restroom.png" id="12_fq0us"]
 [ext_resource type="Texture2D" uid="uid://csgvh6vnlfcrk" path="res://level_elements/NPCs/kid.png" id="13_5ptf1"]
+[ext_resource type="Script" uid="uid://ckmg2kdqbxsyq" path="res://level_elements/train_scheduler/station_handler.gd" id="15_aq41y"]
+[ext_resource type="Resource" uid="uid://bbiqg1las2w2b" path="res://levels/level_2/level_specific_resources/level_2_train_schedule.tres" id="16_5ts7o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aq41y"]
+size = Vector2(846, 413)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ts7o"]
+size = Vector2(574, 602)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dj0pt"]
+size = Vector2(810, 413)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vf62"]
+size = Vector2(841, 413)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yiikh"]
+size = Vector2(574, 519)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fq0us"]
+size = Vector2(574, 606)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kgdtm"]
+size = Vector2(839, 413)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2smvo"]
 atlas = ExtResource("13_5ptf1")
@@ -55,6 +78,7 @@ tile_map_data = PackedByteArray("AAC4/+L/AwABAAQAAAC4/+b/AwABAAkAAAC4/+f/AwABAAo
 position = Vector2(-1824, -2720)
 
 [node name="Platform1" parent="." index="6" unique_id=1302422271 instance=ExtResource("2_pqqg8")]
+z_index = 5
 position = Vector2(-2880, -1856)
 station_number = 2
 platform_number = 1
@@ -74,33 +98,21 @@ station_number = 2
 station_number = 2
 
 [node name="LayerTransitionZone" parent="Platform1" index="21" unique_id=1963443963]
-transition_z_index = 1
+transition_z_index = 6
 
-[node name="Platform2" parent="." index="7" unique_id=4787159 instance=ExtResource("2_pqqg8")]
-position = Vector2(-1808, -2432)
-rotation = 1.5707964
-station_number = 2
-platform_number = 2
+[node name="CollisionShape2D" parent="Platform1/LayerTransitionZone" index="0" unique_id=1067701298]
+position = Vector2(23, 14.5)
+shape = SubResource("RectangleShape2D_aq41y")
 
-[node name="UpperTrain" parent="Platform2" index="7" unique_id=995237668]
-next_scene = 4
-direction = 1
+[node name="Platform2" parent="." index="7" unique_id=293687369 instance=ExtResource("3_2smvo")]
+position = Vector2(-1696, -2464)
 
-[node name="LowerTrain" parent="Platform2" index="8" unique_id=1370361982]
-next_scene = 4
-direction = 0
-color = 0
-
-[node name="Station0Sign" parent="Platform2" index="19" unique_id=98722644]
-station_number = 2
-
-[node name="Station0Sign2" parent="Platform2" index="20" unique_id=421458582]
-station_number = 2
-
-[node name="LayerTransitionZone" parent="Platform2" index="21" unique_id=1963443963]
-transition_z_index = 1
+[node name="CollisionShape2D" parent="Platform2/LayerTransitionZone" parent_id_path=PackedInt32Array(293687369, 1662407236) index="0" unique_id=6447672]
+position = Vector2(-128, 173)
+shape = SubResource("RectangleShape2D_5ts7o")
 
 [node name="Platform3" parent="." index="8" unique_id=662428683 instance=ExtResource("2_pqqg8")]
+z_index = 5
 position = Vector2(16, -2256)
 station_number = 2
 platform_number = 3
@@ -120,9 +132,14 @@ station_number = 2
 station_number = 2
 
 [node name="LayerTransitionZone" parent="Platform3" index="21" unique_id=1963443963]
-transition_z_index = 1
+transition_z_index = 6
+
+[node name="CollisionShape2D" parent="Platform3/LayerTransitionZone" index="0" unique_id=1067701298]
+position = Vector2(-278, 14.5)
+shape = SubResource("RectangleShape2D_dj0pt")
 
 [node name="Platform4" parent="." index="9" unique_id=978393930 instance=ExtResource("2_pqqg8")]
+z_index = 5
 position = Vector2(-624, -1456)
 station_number = 2
 platform_number = 4
@@ -141,35 +158,21 @@ station_number = 2
 station_number = 2
 
 [node name="LayerTransitionZone" parent="Platform4" index="21" unique_id=1963443963]
-transition_z_index = 1
+transition_z_index = 6
 
-[node name="Platform5" parent="." index="10" unique_id=2026114477 instance=ExtResource("2_pqqg8")]
-position = Vector2(-1184, 144)
-rotation = 1.5707964
-station_number = 2
-platform_number = 5
+[node name="CollisionShape2D" parent="Platform4/LayerTransitionZone" index="0" unique_id=1067701298]
+position = Vector2(-293.5, 14.5)
+shape = SubResource("RectangleShape2D_1vf62")
 
-[node name="UpperTrain" parent="Platform5" index="7" unique_id=995237668]
-next_scene = 4
-direction = 1
-color = 6
+[node name="Platform5" parent="." index="10" unique_id=1126306435 instance=ExtResource("3_2smvo")]
+position = Vector2(-1072, -132)
 
-[node name="LowerTrain" parent="Platform5" index="8" unique_id=1370361982]
-next_scene = 4
-direction = 0
-color = 6
-
-[node name="Station0Sign" parent="Platform5" index="19" unique_id=98722644]
-station_number = 2
-
-[node name="Station0Sign2" parent="Platform5" index="20" unique_id=421458582]
-station_number = 2
-
-[node name="LayerTransitionZone" parent="Platform5" index="21" unique_id=1963443963]
-transition_z_index = 1
+[node name="CollisionShape2D" parent="Platform5/LayerTransitionZone" parent_id_path=PackedInt32Array(1126306435, 1662407236) index="0" unique_id=6447672]
+position = Vector2(-128, -96.5)
+shape = SubResource("RectangleShape2D_yiikh")
 
 [node name="Platform6" parent="." index="11" unique_id=275140016 instance=ExtResource("3_2smvo")]
-position = Vector2(-2512, -708)
+position = Vector2(-2480, -704)
 station_number = 2
 platform_number = 6
 
@@ -182,10 +185,12 @@ station_number = 2
 [node name="Station0Sign2" parent="Platform6" index="16" unique_id=421458582]
 station_number = 2
 
-[node name="LayerTransitionZone" parent="Platform6" index="17" unique_id=1662407236]
-transition_z_index = 1
+[node name="CollisionShape2D" parent="Platform6/LayerTransitionZone" parent_id_path=PackedInt32Array(275140016, 1662407236) index="0" unique_id=6447672]
+position = Vector2(-128, -140)
+shape = SubResource("RectangleShape2D_fq0us")
 
 [node name="Platform7" parent="." index="12" unique_id=261612207 instance=ExtResource("2_pqqg8")]
+z_index = 5
 position = Vector2(-176, -816)
 station_number = 2
 platform_number = 7
@@ -205,7 +210,11 @@ station_number = 2
 station_number = 2
 
 [node name="LayerTransitionZone" parent="Platform7" index="21" unique_id=1963443963]
-transition_z_index = 1
+transition_z_index = 6
+
+[node name="CollisionShape2D" parent="Platform7/LayerTransitionZone" index="0" unique_id=1067701298]
+position = Vector2(-292.5, 14.5)
+shape = SubResource("RectangleShape2D_kgdtm")
 
 [node name="DeaprtureBoard" parent="." index="13" unique_id=994016923 instance=ExtResource("3_lnqnw")]
 position = Vector2(-1664, -1328)
@@ -287,6 +296,11 @@ position = Vector2(-2016, -1376)
 sprite_frames = SubResource("SpriteFrames_fpcxu")
 autoplay = "default"
 frame_progress = 0.92452526
+
+[node name="StationHandler" type="Node" parent="." index="29" unique_id=327838935]
+script = ExtResource("15_aq41y")
+train_schedule = ExtResource("16_5ts7o")
+metadata/_custom_type_script = "uid://ckmg2kdqbxsyq"
 
 [editable path="Platform1"]
 [editable path="Platform2"]

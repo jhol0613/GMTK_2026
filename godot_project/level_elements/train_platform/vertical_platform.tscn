@@ -42,8 +42,7 @@ tile_map_data = PackedByteArray("AAD+/wkAAgADAAIAAAD+/wgAAgADAAAAAADx//n/AgADAAI
 tile_set = ExtResource("3_qp02f")
 
 [node name="UpperTrain" parent="." unique_id=995237668 instance=ExtResource("4_m7glf")]
-visible = false
-z_index = 2
+z_index = -1
 position = Vector2(-296, 54)
 direction = 0
 color = 5
@@ -62,8 +61,7 @@ material = SubResource("CanvasItemMaterial_train_front_glow")
 texture = ExtResource("7_0b0m3")
 
 [node name="LowerTrain" parent="." unique_id=1370361982 instance=ExtResource("4_m7glf")]
-visible = false
-z_index = 2
+z_index = -1
 position = Vector2(41, 58)
 
 [node name="Trainfront2" type="Sprite2D" parent="LowerTrain" unique_id=1995562429]

@@ -286,7 +286,9 @@ func train_depart(play_pulling_out_sfx = false) -> void:
 	
 	if play_pulling_out_sfx:
 		play_pulling_out(true)
-
+	
+	if _is_vertical():
+		z_index -= 2
 	tween.tween_property(self, "position", position + depart_offset, depart_duration)
 
 	await tween.finished
@@ -324,7 +326,13 @@ func play_arrival_animation(include_player = true) -> void:
 	var tween := create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(self, "position", stop_position, adjusted_arrival_duration)
 	await tween.finished
-
+	
+	#for vertical trains, in order for embarking/disembarking animations to have
+	#the correct z indexing and for vertical trains to appear below the station,
+	#z index has to be higher while train is in the station
+	if _is_vertical():
+		z_index += 2
+	
 	if not include_player or not player:
 		_block_arrivals = false
 		play_bobbing()
@@ -353,6 +361,7 @@ func play_arrival_animation(include_player = true) -> void:
 		remote.position = remote_rest + seat_to_platform# + disembark_camera_offset_y
 
 	player.global_position = start_global
+	#required so player doesn't appear on train roof
 	player.visible = true
 	if player_disembark_marker and player.has_method("walk_to"):
 		if remote:
@@ -425,7 +434,8 @@ func _run_boarding_and_departure(should_play_pulling_out: bool = false) -> void:
 
 	if player:
 		player.visible = false
-	board_marker.visible = true
+	if not _is_vertical():
+		board_marker.visible = true
 	SignalBus.ticket_consumed.emit()
 
 	await _close_doors()

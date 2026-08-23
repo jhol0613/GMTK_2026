@@ -1,0 +1,111 @@
+[gd_resource type="Resource" script_class="TrainSchedule" format=3 uid="uid://bbiqg1las2w2b"]
+
+[ext_resource type="Script" uid="uid://kipmht1y7efq" path="res://level_elements/train_scheduler/schedule_data.gd" id="1_jg6t2"]
+[ext_resource type="Script" uid="uid://dped1kocrdwq8" path="res://level_elements/train_scheduler/train_schedule.gd" id="2_5x2ia"]
+
+[sub_resource type="Resource" id="Resource_i56tt"]
+script = ExtResource("1_jg6t2")
+destination = "<<endofblueline>>"
+arrival_interval_minutes = 9
+metadata/_custom_type_script = "uid://kipmht1y7efq"
+
+[sub_resource type="Resource" id="Resource_y7ted"]
+script = ExtResource("1_jg6t2")
+direction = 1
+destination = "<<startofblueline>>"
+arrival_interval_minutes = 9
+initial_offset = 5
+metadata/_custom_type_script = "uid://kipmht1y7efq"
+
+[sub_resource type="Resource" id="Resource_5u3es"]
+script = ExtResource("1_jg6t2")
+color = 9
+destination = "startofyellowline>>"
+arrival_interval_minutes = 9
+initial_offset = 6
+metadata/_custom_type_script = "uid://kipmht1y7efq"
+
+[sub_resource type="Resource" id="Resource_3xtxi"]
+script = ExtResource("1_jg6t2")
+color = 9
+direction = 1
+destination = "<<endofyellowline>>"
+arrival_interval_minutes = 9
+initial_offset = 7
+metadata/_custom_type_script = "uid://kipmht1y7efq"
+
+[sub_resource type="Resource" id="Resource_mo36r"]
+script = ExtResource("1_jg6t2")
+color = 6
+destination = "<<startofpurpleline>>"
+arrival_interval_minutes = 9
+initial_offset = 8
+metadata/_custom_type_script = "uid://kipmht1y7efq"
+
+[sub_resource type="Resource" id="Resource_cfehr"]
+script = ExtResource("1_jg6t2")
+color = 6
+direction = 1
+destination = "<<endofpurpleline>>"
+arrival_interval_minutes = 9
+initial_offset = 2
+metadata/_custom_type_script = "uid://kipmht1y7efq"
+
+[sub_resource type="Resource" id="Resource_sfwxw"]
+script = ExtResource("1_jg6t2")
+color = 1
+direction = 3
+destination = "<<startofbrownline>>"
+arrival_interval_minutes = 9
+initial_offset = 9
+metadata/_custom_type_script = "uid://kipmht1y7efq"
+
+[sub_resource type="Resource" id="Resource_n0x2w"]
+script = ExtResource("1_jg6t2")
+color = 1
+direction = 2
+destination = "<<endofbrownline>>"
+arrival_interval_minutes = 9
+initial_offset = 10
+metadata/_custom_type_script = "uid://kipmht1y7efq"
+
+[sub_resource type="Resource" id="Resource_8heau"]
+script = ExtResource("1_jg6t2")
+color = 8
+direction = 3
+destination = "<<startoftealline>>"
+arrival_interval_minutes = 9
+initial_offset = 3
+metadata/_custom_type_script = "uid://kipmht1y7efq"
+
+[sub_resource type="Resource" id="Resource_l5f3h"]
+script = ExtResource("1_jg6t2")
+color = 8
+direction = 2
+destination = "<<endoftealline>>"
+arrival_interval_minutes = 9
+initial_offset = 11
+metadata/_custom_type_script = "uid://kipmht1y7efq"
+
+[sub_resource type="Resource" id="Resource_oau40"]
+script = ExtResource("1_jg6t2")
+color = 2
+direction = 3
+destination = "<<startofgrayline>>"
+arrival_interval_minutes = 9
+initial_offset = 4
+metadata/_custom_type_script = "uid://kipmht1y7efq"
+
+[sub_resource type="Resource" id="Resource_myywn"]
+script = ExtResource("1_jg6t2")
+color = 2
+direction = 2
+destination = "<<endofgrayline>>"
+arrival_interval_minutes = 9
+initial_offset = 12
+metadata/_custom_type_script = "uid://kipmht1y7efq"
+
+[resource]
+script = ExtResource("2_5x2ia")
+schedule = Array[ExtResource("1_jg6t2")]([SubResource("Resource_i56tt"), SubResource("Resource_y7ted"), SubResource("Resource_5u3es"), SubResource("Resource_3xtxi"), SubResource("Resource_mo36r"), SubResource("Resource_cfehr"), SubResource("Resource_sfwxw"), SubResource("Resource_n0x2w"), SubResource("Resource_8heau"), SubResource("Resource_l5f3h"), SubResource("Resource_oau40"), SubResource("Resource_myywn")])
+metadata/_custom_type_script = "uid://dped1kocrdwq8"
