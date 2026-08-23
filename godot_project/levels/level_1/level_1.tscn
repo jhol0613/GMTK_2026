@@ -39,11 +39,18 @@
 [ext_resource type="PackedScene" uid="uid://cltjgiddt3m3y" path="res://level_elements/NPCs/preston.tscn" id="43_y7g21"]
 [ext_resource type="Script" uid="uid://dcanbg433hb0v" path="res://visual_effects/day_night/hoverthruster_lighting.gd" id="44_thruster_light"]
 [ext_resource type="PackedScene" path="res://visual_effects/fireflies/firefly_field.tscn" id="45_fireflies"]
+[ext_resource type="PackedScene" path="res://level_elements/NPCs/npc.tscn" id="46_s81jn"]
 [ext_resource type="PackedScene" path="res://level_elements/decorative/street_lamp/street_lamp.tscn" id="47_n5t7a"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="48_rshan"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_betor"]
 size = Vector2(128, 32)
+
+[sub_resource type="Curve2D" id="Curve2D_60i3m"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -482, -232, 0, 0, 0, 0, -364, -232, 0, 0, 0, 0, -453, -274)
+}
+point_count = 3
 
 [node name="Level1" unique_id=783439983 node_paths=PackedStringArray("arrival_train") instance=ExtResource("1_2jmd8")]
 correct_train_direction = 2
@@ -184,6 +191,7 @@ dialogue = ExtResource("9_jq5vq")
 [node name="CoffeeShop" parent="." index="15" unique_id=1288725174 instance=ExtResource("19_wx43u")]
 position = Vector2(-570, -297)
 scale = Vector2(0.6, 0.6)
+effect_volume_db = -10.0
 
 [node name="TicketBooth" parent="." index="16" unique_id=861247956 instance=ExtResource("19_uptk2")]
 position = Vector2(-267, -170)
@@ -1098,6 +1106,13 @@ brightness = 1.6
 
 [node name="RestChairVerticalLeft" parent="." index="27" unique_id=1996001012 instance=ExtResource("39_wl75l")]
 position = Vector2(-40, -350)
+
+[node name="Npc" parent="." index="28" unique_id=612785611 node_paths=PackedStringArray("patrol_path") instance=ExtResource("46_s81jn")]
+position = Vector2(-502, -234)
+patrol_path = NodePath("../Path2D")
+
+[node name="Path2D" type="Path2D" parent="." index="29" unique_id=1719496755]
+curve = SubResource("Curve2D_60i3m")
 
 [editable path="Platform1"]
 [editable path="Platform2"]

@@ -1,0 +1,30 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://level_elements/NPCs/npc.gd" id="1_npc"]
+[ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialog_system/dialogue_interactable.tscn" id="2_dlgint"]
+[ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialog_system/dialogue_panel.tscn" id="3_dlgpnl"]
+[ext_resource type="SpriteFrames" uid="uid://c1cudv3v3tgvt" path="res://player/player_sprite_frames.tres" id="4_frames"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_npc"]
+radius = 6.0
+
+[node name="Npc" type="CharacterBody2D"]
+z_index = 1
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_npc")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = ExtResource("4_frames")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_npc")
+
+[node name="DialogueInteractable" parent="." instance=ExtResource("2_dlgint")]
+panel_path = NodePath("../DialoguePanel")
+
+[node name="DialoguePanel" parent="." instance=ExtResource("3_dlgpnl")]
