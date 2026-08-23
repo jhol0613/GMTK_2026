@@ -40,7 +40,7 @@ animations = [{
 [node name="Level2" unique_id=783439983 node_paths=PackedStringArray("arrival_train") instance=ExtResource("1_mi4ay")]
 correct_train_line = 1
 correct_train_direction = 1
-arrival_train = NodePath("Platform6/UpperTrain")
+arrival_train = NodePath("Platform6/LowerTrain")
 
 [node name="Camera2D" parent="." index="1" unique_id=1821430600]
 position = Vector2(-1781, -2713)
@@ -73,6 +73,9 @@ station_number = 2
 [node name="Station0Sign2" parent="Platform1" index="20" unique_id=421458582]
 station_number = 2
 
+[node name="LayerTransitionZone" parent="Platform1" index="21" unique_id=1963443963]
+transition_z_index = 1
+
 [node name="Platform2" parent="." index="7" unique_id=4787159 instance=ExtResource("2_pqqg8")]
 position = Vector2(-1808, -2432)
 rotation = 1.5707964
@@ -94,6 +97,9 @@ station_number = 2
 [node name="Station0Sign2" parent="Platform2" index="20" unique_id=421458582]
 station_number = 2
 
+[node name="LayerTransitionZone" parent="Platform2" index="21" unique_id=1963443963]
+transition_z_index = 1
+
 [node name="Platform3" parent="." index="8" unique_id=662428683 instance=ExtResource("2_pqqg8")]
 position = Vector2(16, -2256)
 station_number = 2
@@ -113,6 +119,9 @@ station_number = 2
 [node name="Station0Sign2" parent="Platform3" index="20" unique_id=421458582]
 station_number = 2
 
+[node name="LayerTransitionZone" parent="Platform3" index="21" unique_id=1963443963]
+transition_z_index = 1
+
 [node name="Platform4" parent="." index="9" unique_id=978393930 instance=ExtResource("2_pqqg8")]
 position = Vector2(-624, -1456)
 station_number = 2
@@ -130,6 +139,9 @@ station_number = 2
 
 [node name="Station0Sign2" parent="Platform4" index="20" unique_id=421458582]
 station_number = 2
+
+[node name="LayerTransitionZone" parent="Platform4" index="21" unique_id=1963443963]
+transition_z_index = 1
 
 [node name="Platform5" parent="." index="10" unique_id=2026114477 instance=ExtResource("2_pqqg8")]
 position = Vector2(-1184, 144)
@@ -153,6 +165,9 @@ station_number = 2
 [node name="Station0Sign2" parent="Platform5" index="20" unique_id=421458582]
 station_number = 2
 
+[node name="LayerTransitionZone" parent="Platform5" index="21" unique_id=1963443963]
+transition_z_index = 1
+
 [node name="Platform6" parent="." index="11" unique_id=275140016 instance=ExtResource("3_2smvo")]
 position = Vector2(-2512, -708)
 station_number = 2
@@ -166,6 +181,9 @@ station_number = 2
 
 [node name="Station0Sign2" parent="Platform6" index="16" unique_id=421458582]
 station_number = 2
+
+[node name="LayerTransitionZone" parent="Platform6" index="17" unique_id=1662407236]
+transition_z_index = 1
 
 [node name="Platform7" parent="." index="12" unique_id=261612207 instance=ExtResource("2_pqqg8")]
 position = Vector2(-176, -816)
@@ -185,6 +203,9 @@ station_number = 2
 
 [node name="Station0Sign2" parent="Platform7" index="20" unique_id=421458582]
 station_number = 2
+
+[node name="LayerTransitionZone" parent="Platform7" index="21" unique_id=1963443963]
+transition_z_index = 1
 
 [node name="DeaprtureBoard" parent="." index="13" unique_id=994016923 instance=ExtResource("3_lnqnw")]
 position = Vector2(-1664, -1328)

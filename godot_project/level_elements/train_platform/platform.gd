@@ -12,11 +12,15 @@ extends Node2D
 			_apply_station_number_to_signs()
 @export var platform_number: int = 0
 
+@onready var transition_zone : LayerTransitionZone = $LayerTransitionZone
+
 # Called when the node enters the scene tree for the first time.
 func _enter_tree() -> void:
 	_apply_station_number_to_signs()
 
 func _ready() -> void:
+	#makes it so player will match the z index of the platform
+	transition_zone.transition_z_index = z_index + 1
 	if upper_train and lower_train:
 		upper_train.platform_number = platform_number
 		upper_train.return_train = lower_train

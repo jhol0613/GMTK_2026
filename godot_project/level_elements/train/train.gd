@@ -330,7 +330,8 @@ func play_arrival_animation(include_player = true) -> void:
 		play_bobbing()
 		return
 	
-	_boarded_player_l.visible = true
+	if not _is_vertical():
+		_boarded_player_l.visible = true
 	await _open_doors()
 	_boarded_player_l.visible = false
 
@@ -344,12 +345,12 @@ func play_arrival_animation(include_player = true) -> void:
 	if remote:
 		remote_rest = remote.position
 		# Keep the camera at platform height so snapping into the seat doesn't jump up.
-		var seat_to_platform_y := 0.0
+		var seat_to_platform : Vector2#= 0.0
 		if player_disembark_marker:
-			seat_to_platform_y = (
-				player_disembark_marker.global_position.y - start_global.y
+			seat_to_platform = (
+				player_disembark_marker.global_position - start_global
 			)
-		remote.position.y = remote_rest.y + seat_to_platform_y + disembark_camera_offset_y
+		remote.position = remote_rest + seat_to_platform# + disembark_camera_offset_y
 
 	player.global_position = start_global
 	player.visible = true

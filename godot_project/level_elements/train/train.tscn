@@ -482,6 +482,7 @@ _data = {
 size = Vector2(40, 23)
 
 [node name="Train" type="Node2D" unique_id=2086324427 node_paths=PackedStringArray("hide_if_vertical", "sprite")]
+visible = false
 script = ExtResource("1_cjdsu")
 direction = 1
 hide_if_vertical = [NodePath("DoorL"), NodePath("DoorR"), NodePath("DoorL2"), NodePath("DoorR2"), NodePath("TrainSprite/DoorBlocker"), NodePath("TrainSprite/DoorBlocker2"), NodePath("TrainSprite/DoorBlocker3"), NodePath("TrainSprite/DoorBlocker4"), NodePath("TrainSprite/HoverSparcles"), NodePath("TrainSprite/NoTicketLight")]
@@ -706,7 +707,7 @@ metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 position = Vector2(-64, -14)
 
 [node name="PlayerEmbarkMarkerVertical" type="Marker2D" parent="." unique_id=1561335238]
-position = Vector2(0, -62)
+position = Vector2(0, -57)
 
 [node name="PlayerDisembarkMarkerEast" type="Marker2D" parent="." unique_id=594824708]
 position = Vector2(-64, 18)
@@ -718,7 +719,7 @@ position = Vector2(-64, -64)
 position = Vector2(64, -57)
 
 [node name="PlayerDisembarkMarkerSouth" type="Marker2D" parent="." unique_id=877095749]
-position = Vector2(-64, -55)
+position = Vector2(-64, -57)
 
 [node name="BoardedPlayerL" type="Sprite2D" parent="." unique_id=1300163411]
 z_index = 2
@@ -821,19 +822,19 @@ l_or_r = "l"
 position = Vector2(58, 5)
 shape = SubResource("RectangleShape2D_5xnue")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="TrainInteractableU" unique_id=1480050936]
-position = Vector2(-56, 5)
-scale = Vector2(1, 4.5)
-shape = SubResource("RectangleShape2D_5xnue")
-
-[node name="Prompt" parent="TrainInteractableU" index="2" unique_id=272794898]
+[node name="Prompt" parent="TrainInteractableU" index="1" unique_id=272794898]
 offset_left = -37.0
 offset_top = -81.0
 offset_right = 38.0
 offset_bottom = 87.0
 
-[node name="AnimatedSprite2D" parent="TrainInteractableU" index="3" unique_id=819702371]
+[node name="AnimatedSprite2D" parent="TrainInteractableU" index="2" unique_id=819702371]
 position = Vector2(1, -10)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="TrainInteractableU" unique_id=1480050936]
+position = Vector2(-56, 5)
+scale = Vector2(1, 4.5)
+shape = SubResource("RectangleShape2D_5xnue")
 
 [node name="TrainInteractableD" parent="." unique_id=1650056729 instance=ExtResource("3_725i7")]
 position = Vector2(1, 64)
@@ -843,19 +844,19 @@ l_or_r = "l"
 position = Vector2(57, 8)
 shape = SubResource("RectangleShape2D_5xnue")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="TrainInteractableD" unique_id=525134334]
-position = Vector2(-58, 8)
-scale = Vector2(1, 4.5)
-shape = SubResource("RectangleShape2D_5xnue")
-
-[node name="Prompt" parent="TrainInteractableD" index="2" unique_id=272794898]
+[node name="Prompt" parent="TrainInteractableD" index="1" unique_id=272794898]
 offset_left = -37.0
 offset_top = -82.0
 offset_right = 38.0
 offset_bottom = 86.0
 
-[node name="AnimatedSprite2D" parent="TrainInteractableD" index="3" unique_id=819702371]
+[node name="AnimatedSprite2D" parent="TrainInteractableD" index="2" unique_id=819702371]
 position = Vector2(1, -11)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="TrainInteractableD" unique_id=525134334]
+position = Vector2(-58, 8)
+scale = Vector2(1, 4.5)
+shape = SubResource("RectangleShape2D_5xnue")
 
 [editable path="TrainInteractableL"]
 [editable path="TrainInteractableR"]
