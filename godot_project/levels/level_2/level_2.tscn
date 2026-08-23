@@ -80,6 +80,9 @@ station_number = 2
 [node name="Station0Sign2" parent="Platform1" index="20" unique_id=421458582]
 station_number = 2
 
+[node name="LayerTransitionZone" parent="Platform1" index="21" unique_id=1963443963]
+transition_z_index = 6
+
 [node name="Platform2" parent="." index="7" unique_id=293687369 instance=ExtResource("3_2smvo")]
 position = Vector2(-1696, -2464)
 
@@ -111,6 +114,9 @@ station_number = 2
 [node name="Station0Sign2" parent="Platform3" index="20" unique_id=421458582]
 station_number = 2
 
+[node name="LayerTransitionZone" parent="Platform3" index="21" unique_id=1963443963]
+transition_z_index = 6
+
 [node name="Platform4" parent="." index="9" unique_id=978393930 instance=ExtResource("2_pqqg8")]
 z_index = 5
 position = Vector2(-624, -1456)
@@ -131,6 +137,9 @@ station_number = 2
 
 [node name="Station0Sign2" parent="Platform4" index="20" unique_id=421458582]
 station_number = 2
+
+[node name="LayerTransitionZone" parent="Platform4" index="21" unique_id=1963443963]
+transition_z_index = 6
 
 [node name="Platform5" parent="." index="10" unique_id=1126306435 instance=ExtResource("3_2smvo")]
 position = Vector2(-1072, -132)
@@ -153,10 +162,10 @@ visible = true
 visible = true
 color = 5
 
-[node name="Station0Sign" parent="Platform6" index="15" unique_id=98722644]
+[node name="Station0Sign" parent="Platform6" index="11" unique_id=98722644]
 station_number = 2
 
-[node name="Station0Sign2" parent="Platform6" index="16" unique_id=421458582]
+[node name="Station0Sign2" parent="Platform6" index="12" unique_id=421458582]
 station_number = 2
 
 [node name="Platform7" parent="." index="12" unique_id=261612207 instance=ExtResource("2_pqqg8")]
@@ -181,23 +190,26 @@ station_number = 2
 [node name="Station0Sign2" parent="Platform7" index="20" unique_id=421458582]
 station_number = 2
 
+[node name="LayerTransitionZone" parent="Platform7" index="21" unique_id=1963443963]
+transition_z_index = 6
+
 [node name="DeaprtureBoard" parent="." index="13" unique_id=994016923 instance=ExtResource("3_lnqnw")]
-position = Vector2(-1664, -1328)
+position = Vector2(-1657, -1496)
 
 [node name="TrinketShop" parent="." index="14" unique_id=877031898 instance=ExtResource("4_5ptf1")]
 position = Vector2(-1664, -1184)
 
 [node name="CentralHourglass" parent="." index="15" unique_id=259821884 instance=ExtResource("5_2smvo")]
-position = Vector2(-1824, -1488)
+position = Vector2(-1822, -1284)
 
 [node name="StationMapLvl1" parent="." index="16" unique_id=1108949590 instance=ExtResource("6_cp47v")]
 position = Vector2(-1680, -992)
 
 [node name="TicketBooth" parent="." index="17" unique_id=861247956 instance=ExtResource("7_aq41y")]
-position = Vector2(-1952, -1264)
+position = Vector2(-1906, -1469)
 
 [node name="ATM" parent="." index="18" unique_id=124595741 instance=ExtResource("8_5ts7o")]
-position = Vector2(-1984, -1104)
+position = Vector2(-1994, -1040)
 
 [node name="TrainMap" parent="." index="19" unique_id=940096549 instance=ExtResource("9_dj0pt")]
 position = Vector2(-1280, -1984)
@@ -273,7 +285,6 @@ position = Vector2(-1919, -1021)
 [node name="DialogueInteractable" parent="Guide" index="2"]
 dialogue = ExtResource("18_guide")
 
-[editable path="Guide"]
 [editable path="Platform1"]
 [editable path="Platform2"]
 [editable path="Platform3"]
@@ -281,3 +292,4 @@ dialogue = ExtResource("18_guide")
 [editable path="Platform5"]
 [editable path="Platform6"]
 [editable path="Platform7"]
+[editable path="Guide"]
