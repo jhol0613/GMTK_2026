@@ -21,7 +21,6 @@ metadata/_custom_type_script = "uid://kipmht1y7efq"
 [sub_resource type="Resource" id="Resource_loj4c"]
 script = ExtResource("1_3wyqc")
 color = 5
-direction = 2
 destination = "<<endofpinkline>>"
 initial_offset = 2
 scene_destination = 3
@@ -30,8 +29,8 @@ metadata/_custom_type_script = "uid://kipmht1y7efq"
 [sub_resource type="Resource" id="Resource_3wyqc"]
 script = ExtResource("1_3wyqc")
 color = 5
-direction = 3
-destination = "??"
+direction = 1
+destination = "<<startofpinkline>>"
 initial_offset = 4
 scene_destination = 3
 metadata/_custom_type_script = "uid://kipmht1y7efq"
