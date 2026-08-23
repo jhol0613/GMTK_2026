@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kqw3w0sof3qf"
-path="res://.godot/imported/signs.png-550761a8b8f42fbd22f8e07b2f78654d.ctex"
+uid="uid://cmw372tprmntw"
+path="res://.godot/imported/plant_4.png-d5473e6d038e6a965903f87b35f09daa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level_elements/signs/signs.png"
-dest_files=["res://.godot/imported/signs.png-550761a8b8f42fbd22f8e07b2f78654d.ctex"]
+source_file="res://level_elements/decorative/plants/plant_4.png"
+dest_files=["res://.godot/imported/plant_4.png-d5473e6d038e6a965903f87b35f09daa.ctex"]
 
 [params]
 

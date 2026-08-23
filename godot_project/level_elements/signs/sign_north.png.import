@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://w5q40dmw26or"
-path="res://.godot/imported/northsign.png-52385445d8f7ef33c9a6ab4d5d6e3501.ctex"
+uid="uid://df7py87oah34i"
+path="res://.godot/imported/sign_north.png-f57b25baf3ec9042e3cde467616afc22.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level_elements/signs/northsign.png"
-dest_files=["res://.godot/imported/northsign.png-52385445d8f7ef33c9a6ab4d5d6e3501.ctex"]
+source_file="res://level_elements/signs/sign_north.png"
+dest_files=["res://.godot/imported/sign_north.png-f57b25baf3ec9042e3cde467616afc22.ctex"]
 
 [params]
 

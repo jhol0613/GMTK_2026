@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://ba3allrv3pni0" path="res://level_elements/decorative/plants/plant_1.tscn" id="25_vfwqd"]
 [ext_resource type="PackedScene" uid="uid://b8j82426dfwlf" path="res://level_elements/decorative/plants/plant_2.tscn" id="26_juy1h"]
 [ext_resource type="Texture2D" uid="uid://bogm6imvrrjwr" path="res://level_elements/decorative/solar_decor/Solardecor1.png" id="26_vfwqd"]
-[ext_resource type="PackedScene" uid="uid://bo3pcctdon7l" path="res://level_elements/signs/station_name_sign.tscn" id="27_7di2q"]
+[ext_resource type="PackedScene" uid="uid://bo3pcctdon7l" path="res://level_elements/signs/sign_station_name.tscn" id="27_7di2q"]
 [ext_resource type="PackedScene" uid="uid://cniar1emgicic" path="res://level_elements/decorative/ad_board.tscn" id="27_juy1h"]
 [ext_resource type="Texture2D" uid="uid://danrb3vfq83ag" path="res://level_elements/decorative/hoverthruster.png" id="28_7di2q"]
 [ext_resource type="PackedScene" uid="uid://cbuohfggvk1qu" path="res://level_elements/decorative/birb.tscn" id="30_x8hdd"]

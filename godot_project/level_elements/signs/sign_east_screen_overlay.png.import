@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c7dv1q5qawnvu"
-path="res://.godot/imported/eastsign_screen_overlay.png-fb242094e1f83a4b029b56d29fc9a6b0.ctex"
+path="res://.godot/imported/sign_east_screen_overlay.png-c2b219b8a9eff78b563c322b5bef7c28.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level_elements/signs/eastsign_screen_overlay.png"
-dest_files=["res://.godot/imported/eastsign_screen_overlay.png-fb242094e1f83a4b029b56d29fc9a6b0.ctex"]
+source_file="res://level_elements/signs/sign_east_screen_overlay.png"
+dest_files=["res://.godot/imported/sign_east_screen_overlay.png-c2b219b8a9eff78b563c322b5bef7c28.ctex"]
 
 [params]
 

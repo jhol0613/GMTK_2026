@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bo3pcctdon7l"]
 
-[ext_resource type="Script" uid="uid://x84dynvpqr3d" path="res://level_elements/signs/station_name_sign.gd" id="1_54acc"]
-[ext_resource type="Texture2D" uid="uid://kqw3w0sof3qf" path="res://level_elements/signs/signs.png" id="2_muhwy"]
+[ext_resource type="Script" uid="uid://x84dynvpqr3d" path="res://level_elements/signs/sign_station_name.gd" id="1_54acc"]
+[ext_resource type="Texture2D" uid="uid://kqw3w0sof3qf" path="res://level_elements/signs/sign_station_names.png" id="2_muhwy"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="3_r0etv"]
-[ext_resource type="Texture2D" path="res://level_elements/signs/signs_screen_overlay.png" id="4_screen"]
-[ext_resource type="Script" path="res://level_elements/signs/sign_screen_glow.gd" id="5_glow"]
+[ext_resource type="Texture2D" uid="uid://ceio7j52g13um" path="res://level_elements/signs/sign_station_names_screen_overlay.png" id="4_screen"]
+[ext_resource type="Script" uid="uid://cawljfdqejobl" path="res://level_elements/signs/sign_screen_glow.gd" id="5_glow"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bx4ty"]
 atlas = ExtResource("2_muhwy")

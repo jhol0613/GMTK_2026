@@ -8,10 +8,10 @@
 [ext_resource type="Script" uid="uid://iqsa7knvxpkd" path="res://level_elements/train/train_night_glow.gd" id="6_xsc1w"]
 [ext_resource type="Texture2D" uid="uid://duudg8ecdajql" path="res://level_elements/train/train_front_glow.png" id="7_0b0m3"]
 [ext_resource type="PackedScene" uid="uid://dpexe87ps0d7f" path="res://level_elements/hourglass/hourglass.tscn" id="8_s1ukv"]
-[ext_resource type="PackedScene" uid="uid://cf017hd6cyx1m" path="res://level_elements/signs/west_sign.tscn" id="9_quilk"]
-[ext_resource type="PackedScene" uid="uid://dbiw0lhyerkp2" path="res://level_elements/signs/east_sign.tscn" id="10_lrx33"]
+[ext_resource type="PackedScene" uid="uid://cf017hd6cyx1m" path="res://level_elements/signs/sign_west.tscn" id="9_quilk"]
+[ext_resource type="PackedScene" uid="uid://dbiw0lhyerkp2" path="res://level_elements/signs/sign_east.tscn" id="10_lrx33"]
 [ext_resource type="Texture2D" uid="uid://danrb3vfq83ag" path="res://level_elements/decorative/hoverthruster.png" id="11_54gbr"]
-[ext_resource type="PackedScene" uid="uid://bo3pcctdon7l" path="res://level_elements/signs/station_name_sign.tscn" id="12_cw4qh"]
+[ext_resource type="PackedScene" uid="uid://bo3pcctdon7l" path="res://level_elements/signs/sign_station_name.tscn" id="12_cw4qh"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_train_front_glow"]
 blend_mode = 1

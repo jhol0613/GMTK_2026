@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dbiw0lhyerkp2"]
 
-[ext_resource type="Texture2D" uid="uid://b48qp3csk2gks" path="res://level_elements/signs/eastsign.png" id="1_l2epn"]
+[ext_resource type="Texture2D" uid="uid://b48qp3csk2gks" path="res://level_elements/signs/sign_east.png" id="1_l2epn"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="2_o25h1"]
-[ext_resource type="Texture2D" path="res://level_elements/signs/eastsign_screen_overlay.png" id="3_screen"]
-[ext_resource type="Script" path="res://level_elements/signs/sign_screen_glow.gd" id="4_glow"]
+[ext_resource type="Texture2D" uid="uid://c7dv1q5qawnvu" path="res://level_elements/signs/sign_east_screen_overlay.png" id="3_screen"]
+[ext_resource type="Script" uid="uid://cawljfdqejobl" path="res://level_elements/signs/sign_screen_glow.gd" id="4_glow"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o25h1"]
 atlas = ExtResource("1_l2epn")
