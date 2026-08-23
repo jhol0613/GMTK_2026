@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bcltguxgmfo2w"]
 
-[ext_resource type="Script" uid="uid://dm85pgfbjp37e" path="res://level_elements/decorative/sprinkler.gd" id="1_script"]
-[ext_resource type="Texture2D" uid="uid://bs8ymtphyyt1b" path="res://level_elements/decorative/Spinkler.png" id="2_texture"]
-[ext_resource type="Shader" uid="uid://fukyhu3sdxhr" path="res://level_elements/decorative/sprinkler_wet_ground.gdshader" id="3_shader"]
+[ext_resource type="Script" uid="uid://dm85pgfbjp37e" path="res://level_elements/decorative/sprinkler/sprinkler.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://bs8ymtphyyt1b" path="res://level_elements/decorative/sprinkler/Spinkler.png" id="2_texture"]
+[ext_resource type="Shader" uid="uid://fukyhu3sdxhr" path="res://level_elements/decorative/sprinkler/sprinkler_wet_ground.gdshader" id="3_shader"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wet"]
 resource_local_to_scene = true

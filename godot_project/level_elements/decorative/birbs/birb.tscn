@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cbuohfggvk1qu"]
 
-[ext_resource type="Script" uid="uid://hbbmxyvgmygl" path="res://level_elements/decorative/birb.gd" id="1_4ajn0"]
-[ext_resource type="Texture2D" uid="uid://dovhsfyvtrxa7" path="res://level_elements/decorative/Birdfly.png" id="2_mpt1l"]
-[ext_resource type="Texture2D" uid="uid://c4raujj6twdo" path="res://level_elements/decorative/Birdturn.png" id="2_o8bts"]
-[ext_resource type="AudioStream" uid="uid://d1778yj0adoqa" path="res://level_elements/decorative/PigeonAmbient.mp3" id="4_o80xf"]
-[ext_resource type="AudioStream" uid="uid://cy86xfpdi60kh" path="res://level_elements/decorative/PigeonFly.mp3" id="5_1k3iy"]
+[ext_resource type="Script" uid="uid://hbbmxyvgmygl" path="res://level_elements/decorative/birbs/birb.gd" id="1_4ajn0"]
+[ext_resource type="Texture2D" uid="uid://dovhsfyvtrxa7" path="res://level_elements/decorative/birbs/Birdfly.png" id="2_mpt1l"]
+[ext_resource type="Texture2D" uid="uid://c4raujj6twdo" path="res://level_elements/decorative/birbs/Birdturn.png" id="2_o8bts"]
+[ext_resource type="AudioStream" uid="uid://d1778yj0adoqa" path="res://level_elements/decorative/birbs/PigeonAmbient.mp3" id="4_o80xf"]
+[ext_resource type="AudioStream" uid="uid://cy86xfpdi60kh" path="res://level_elements/decorative/birbs/PigeonFly.mp3" id="5_1k3iy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xpuwd"]
 atlas = ExtResource("2_mpt1l")

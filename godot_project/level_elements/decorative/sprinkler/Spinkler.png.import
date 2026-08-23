@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rwmj8nau5w51"
-path="res://.godot/imported/ad.png-29ebd362383de55a4a69cb96fb4a4d14.ctex"
+uid="uid://bs8ymtphyyt1b"
+path="res://.godot/imported/Spinkler.png-547ef4e607c815e1b39b42f572ed2278.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level_elements/decorative/ad.png"
-dest_files=["res://.godot/imported/ad.png-29ebd362383de55a4a69cb96fb4a4d14.ctex"]
+source_file="res://level_elements/decorative/sprinkler/Spinkler.png"
+dest_files=["res://.godot/imported/Spinkler.png-547ef4e607c815e1b39b42f572ed2278.ctex"]
 
 [params]
 

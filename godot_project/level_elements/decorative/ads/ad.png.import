@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4raujj6twdo"
-path="res://.godot/imported/Birdturn.png-44b041a3eae6b26179475ec7f072da95.ctex"
+uid="uid://rwmj8nau5w51"
+path="res://.godot/imported/ad.png-66622a5d11a1d757d8b21f51902ffb42.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level_elements/decorative/Birdturn.png"
-dest_files=["res://.godot/imported/Birdturn.png-44b041a3eae6b26179475ec7f072da95.ctex"]
+source_file="res://level_elements/decorative/ads/ad.png"
+dest_files=["res://.godot/imported/ad.png-66622a5d11a1d757d8b21f51902ffb42.ctex"]
 
 [params]
 

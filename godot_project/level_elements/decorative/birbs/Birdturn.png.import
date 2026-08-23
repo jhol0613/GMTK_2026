@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bs8ymtphyyt1b"
-path="res://.godot/imported/Spinkler.png-81bb1c4f15cb5be86b9ff00f9fe73b36.ctex"
+uid="uid://c4raujj6twdo"
+path="res://.godot/imported/Birdturn.png-951002df18102eeaf31023d92804bd66.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level_elements/decorative/Spinkler.png"
-dest_files=["res://.godot/imported/Spinkler.png-81bb1c4f15cb5be86b9ff00f9fe73b36.ctex"]
+source_file="res://level_elements/decorative/birbs/Birdturn.png"
+dest_files=["res://.godot/imported/Birdturn.png-951002df18102eeaf31023d92804bd66.ctex"]
 
 [params]
 

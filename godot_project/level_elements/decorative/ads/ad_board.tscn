@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cniar1emgicic"]
 
-[ext_resource type="Texture2D" uid="uid://rwmj8nau5w51" path="res://level_elements/decorative/ad.png" id="1_r42dx"]
-[ext_resource type="Texture2D" uid="uid://cuelkqxh1gatt" path="res://level_elements/decorative/ad_overlay.png" id="2_overlay"]
+[ext_resource type="Texture2D" uid="uid://rwmj8nau5w51" path="res://level_elements/decorative/ads/ad.png" id="1_r42dx"]
+[ext_resource type="Texture2D" uid="uid://cuelkqxh1gatt" path="res://level_elements/decorative/ads/ad_overlay.png" id="2_overlay"]
 [ext_resource type="Texture2D" uid="uid://b7k1rwda5wu1p" path="res://visual_effects/day_night/light_radial.png" id="3_light"]
 [ext_resource type="Script" uid="uid://cqe28fftgjtbc" path="res://visual_effects/day_night/night_light_2d.gd" id="4_night"]
 
