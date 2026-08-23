@@ -131,10 +131,6 @@ position = Vector2(-13, -12)
 shape = SubResource("RectangleShape2D_o8pop")
 
 [node name="Prompt" parent="DialogueInteractable" index="1" unique_id=272794898]
-offset_left = -39.0
-offset_top = -136.0
-offset_right = 36.0
-offset_bottom = 32.0
 
 [node name="AnimatedSprite2D" parent="DialogueInteractable" index="2" unique_id=819702371]
 visible = false

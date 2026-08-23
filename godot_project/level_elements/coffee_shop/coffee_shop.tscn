@@ -133,15 +133,10 @@ position = Vector2(-1, 54)
 shape = SubResource("RectangleShape2D_interact")
 
 [node name="Prompt" parent="DialogueInteractable" index="1" unique_id=272794898]
-offset_left = -46.0
-offset_right = 29.0
 
 [node name="Polygon2D" parent="DialogueInteractable/Prompt" index="0" unique_id=917238640]
-position = Vector2(1.5, 28)
 
 [node name="AnimatedSprite2D" parent="DialogueInteractable" index="2" unique_id=819702371]
-position = Vector2(-9, -51)
-scale = Vector2(1.21875, 1.5000002)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=560896929]
 z_index = 1

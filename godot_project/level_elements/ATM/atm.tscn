@@ -139,8 +139,6 @@ resshan_interactable2 = NodePath("ResshanInteractable2")
 turn_on_sound = NodePath("../ATMTurnOnSound")
 
 [node name="Prompt" parent="DialogueInteractable" index="1" unique_id=272794898]
-offset_top = -207.0
-offset_bottom = -39.0
 
 [node name="ATMSprite" type="AnimatedSprite2D" parent="." unique_id=1776144098]
 y_sort_enabled = true
