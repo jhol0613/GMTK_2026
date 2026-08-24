@@ -1,6 +1,6 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://cmdda7648573b"]
 
-[ext_resource type="Script" path="res://level_elements/NPCs/npc.gd" id="1_npc"]
+[ext_resource type="Script" uid="uid://conx8cq5lv58j" path="res://level_elements/NPCs/npc.gd" id="1_npc"]
 [ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialog_system/dialogue_interactable.tscn" id="2_dlgint"]
 [ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialog_system/dialogue_panel.tscn" id="3_dlgpnl"]
 [ext_resource type="SpriteFrames" uid="uid://c1cudv3v3tgvt" path="res://player/player_sprite_frames.tres" id="4_frames"]
@@ -8,23 +8,32 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_npc"]
 radius = 6.0
 
-[node name="Npc" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_1vf62"]
+radius = 17.029387
+
+[node name="Npc" type="CharacterBody2D" unique_id=837182991]
 z_index = 1
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_npc")
 
-[node name="Sprite" type="AnimatedSprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1868209522]
 position = Vector2(0, -16)
 sprite_frames = ExtResource("4_frames")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1601565643]
 position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_npc")
 
-[node name="DialogueInteractable" parent="." instance=ExtResource("2_dlgint")]
+[node name="DialogueInteractable" parent="." unique_id=1161048169 instance=ExtResource("2_dlgint")]
 panel_path = NodePath("../DialoguePanel")
 
-[node name="DialoguePanel" parent="." instance=ExtResource("3_dlgpnl")]
+[node name="CollisionShape2D" parent="DialogueInteractable" index="0" unique_id=278382881]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_1vf62")
+
+[node name="DialoguePanel" parent="." unique_id=600656822 instance=ExtResource("3_dlgpnl")]
+
+[editable path="DialogueInteractable"]
