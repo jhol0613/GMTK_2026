@@ -40,7 +40,7 @@ func _process_data_queue():
 		if _entry_holder.get_children().size() < MAX_ENTRIES:
 			add(_new_data_queue[0])
 			_new_data_queue.pop_front()
-			return
+			continue
 		_entry_holder.get_child(0).set_data(null)
 		_update_board_sound.play()
 		await get_tree().create_timer(board_update_animation_pause).timeout
