@@ -1,0 +1,245 @@
+[gd_scene format=3 uid="uid://x4ghn30rc8l0"]
+
+[ext_resource type="PackedScene" uid="uid://cmdda7648573b" path="res://level_elements/NPCs/npc.tscn" id="1_eycq2"]
+[ext_resource type="Texture2D" uid="uid://csgvh6vnlfcrk" path="res://level_elements/NPCs/kid.png" id="2_4b8ki"]
+[ext_resource type="Script" uid="uid://ck0sdtrfmcibe" path="res://level_elements/NPCs/crying_kid.gd" id="2_rvg38"]
+[ext_resource type="Texture2D" uid="uid://cicclo21xo02d" path="res://level_elements/trinket_shop/masks/blue.png" id="3_8xta5"]
+[ext_resource type="Texture2D" uid="uid://3ma7e8j2tpci" path="res://level_elements/trinket_shop/masks/brown.png" id="4_4i0ya"]
+[ext_resource type="Texture2D" uid="uid://nw2bxlclpp72" path="res://level_elements/trinket_shop/masks/gray.png" id="5_18ce6"]
+[ext_resource type="Texture2D" uid="uid://diqiiusxlru6i" path="res://level_elements/trinket_shop/masks/green.png" id="6_rvg38"]
+[ext_resource type="Texture2D" uid="uid://btkre4p6a4goq" path="res://level_elements/trinket_shop/masks/maroon.png" id="7_28yu8"]
+[ext_resource type="Texture2D" uid="uid://da67b0efu17m4" path="res://level_elements/trinket_shop/masks/pink.png" id="8_o6lhc"]
+[ext_resource type="Texture2D" uid="uid://bda7u4bubywk8" path="res://level_elements/trinket_shop/masks/purple.png" id="9_j4g0e"]
+[ext_resource type="Texture2D" uid="uid://dsaviofjnf4jt" path="res://level_elements/trinket_shop/masks/red.png" id="10_rgv02"]
+[ext_resource type="Texture2D" uid="uid://c2bv0us1dd1uk" path="res://level_elements/trinket_shop/masks/teal.png" id="11_qtnng"]
+[ext_resource type="Texture2D" uid="uid://1t6371th0ljj" path="res://level_elements/trinket_shop/masks/yellow.png" id="12_82ypd"]
+[ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://interactables/dialog_system/dialogue_choice.gd" id="13_18ce6"]
+[ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="14_rvg38"]
+[ext_resource type="Texture2D" uid="uid://cednu5xibxyat" path="res://interactables/dialog_system/character_portraits/crying_kid/portrait_kid_1.png" id="15_28yu8"]
+[ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="16_o6lhc"]
+
+[sub_resource type="Resource" id="Resource_rgv02"]
+script = ExtResource("14_rvg38")
+text = "<<0>> <<money>> <<0>> <<trinketmask>> <<angry>>"
+speaker_icon = ExtResource("15_28yu8")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_qtnng"]
+script = ExtResource("14_rvg38")
+text = "<<i>> <<trinketmask>> <<buy>> <<?>>"
+speaker_icon = ExtResource("15_28yu8")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_j4g0e"]
+script = ExtResource("16_o6lhc")
+lines = Array[ExtResource("14_rvg38")]([SubResource("Resource_rgv02"), SubResource("Resource_qtnng")])
+metadata/_custom_type_script = "uid://dvkforrusa0nj"
+
+[sub_resource type="Resource" id="Resource_2xq5c"]
+script = ExtResource("14_rvg38")
+text = "<<trinketmask>>"
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_ouyi4"]
+script = ExtResource("16_o6lhc")
+lines = Array[ExtResource("14_rvg38")]([SubResource("Resource_2xq5c")])
+metadata/_custom_type_script = "uid://dvkforrusa0nj"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gsv6k"]
+atlas = ExtResource("2_4b8ki")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtluw"]
+atlas = ExtResource("2_4b8ki")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3h8gp"]
+atlas = ExtResource("2_4b8ki")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xl64p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gsv6k")
+}],
+"loop": 1,
+"name": &"happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dtluw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3h8gp")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glfqm"]
+atlas = ExtResource("3_8xta5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxgb0"]
+atlas = ExtResource("4_4i0ya")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8i7v"]
+atlas = ExtResource("5_18ce6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jymw1"]
+atlas = ExtResource("6_rvg38")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2uea2"]
+atlas = ExtResource("7_28yu8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njux5"]
+atlas = ExtResource("8_o6lhc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2at1"]
+atlas = ExtResource("9_j4g0e")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkqyi"]
+atlas = ExtResource("10_rgv02")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dilyq"]
+atlas = ExtResource("11_qtnng")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yx8hm"]
+atlas = ExtResource("12_82ypd")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5l23l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glfqm")
+}],
+"loop": 0,
+"name": &"BLUE",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxgb0")
+}],
+"loop": 0,
+"name": &"BROWN",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8i7v")
+}],
+"loop": 0,
+"name": &"GRAY",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jymw1")
+}],
+"loop": 0,
+"name": &"GREEN",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2uea2")
+}],
+"loop": 0,
+"name": &"MAROON",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njux5")
+}],
+"loop": 0,
+"name": &"PINK",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2at1")
+}],
+"loop": 0,
+"name": &"PURPLE",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkqyi")
+}],
+"loop": 0,
+"name": &"RED",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dilyq")
+}],
+"loop": 0,
+"name": &"TEAL",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yx8hm")
+}],
+"loop": 0,
+"name": &"YELLOW",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_8tawe"]
+script = ExtResource("14_rvg38")
+text = "<<0>> <<money>> <<0>> <<trinketmask>> <<angry>>"
+speaker_icon = ExtResource("15_28yu8")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_o6lhc"]
+script = ExtResource("14_rvg38")
+text = "<<trinketmask>> <<buy>>"
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_g1pxt"]
+script = ExtResource("16_o6lhc")
+lines = Array[ExtResource("14_rvg38")]([SubResource("Resource_8tawe"), SubResource("Resource_o6lhc")])
+metadata/_custom_type_script = "uid://dvkforrusa0nj"
+
+[node name="Npc" unique_id=837182991 node_paths=PackedStringArray("dialogue_interactable") instance=ExtResource("1_eycq2")]
+script = ExtResource("2_rvg38")
+dialogue_interactable = NodePath("DialogueInteractable")
+choice_bank = Dictionary[int, ExtResource("13_18ce6")]({})
+crying_dialogue = SubResource("Resource_j4g0e")
+happy_dialogue = SubResource("Resource_ouyi4")
+
+[node name="Sprite" parent="." index="0" unique_id=1868209522]
+sprite_frames = SubResource("SpriteFrames_xl64p")
+animation = &"happy"
+autoplay = ""
+
+[node name="Blue" type="AnimatedSprite2D" parent="Sprite" index="0" unique_id=894242630]
+position = Vector2(0, 9)
+sprite_frames = SubResource("SpriteFrames_5l23l")
+animation = &"RED"
+
+[node name="DialogueInteractable" parent="." index="2" unique_id=1161048169]
+dialogue = SubResource("Resource_g1pxt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="4" unique_id=1857139683]
+
+[connection signal="interacted" from="DialogueInteractable" to="." method="_on_dialogue_interactable_interacted"]
+
+[editable path="DialogueInteractable"]

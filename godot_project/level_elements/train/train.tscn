@@ -510,8 +510,7 @@ bus = &"SFX"
 [node name="TrainSprite" type="AnimatedSprite2D" parent="." unique_id=865404147]
 position = Vector2(0, -40)
 sprite_frames = SubResource("SpriteFrames_ujtin")
-animation = &"VERTICAL_BLUE"
-frame_progress = 1.0
+animation = &"MAROON"
 
 [node name="BodyNightGlow" type="Node2D" parent="TrainSprite" unique_id=638013023 groups=["night_lights"]]
 script = ExtResource("12_train_night_glow")
