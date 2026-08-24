@@ -10,3 +10,7 @@ func show_map(title: String, texture: Texture2D = null, minutes: int = 1) -> voi
 	_map_image.texture = texture
 	_map_image.visible = texture != null
 	_open(minutes)
+
+func _ready() -> void:
+	super._ready()
+	dismissible = true

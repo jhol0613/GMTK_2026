@@ -7,6 +7,9 @@ signal closed
 @onready var _root: Control = $Root
 
 var _is_open: bool = false
+## Info-only panels (maps, signs) set this so escape or a click outside the popup
+## also closes them. Dialogue leaves it off so a stray click cannot skip a reward.
+var dismissible: bool = false
 
 
 func _ready() -> void:
@@ -44,9 +47,28 @@ func _unhandled_input(event: InputEvent) -> void:
 	if focused is LineEdit or focused is TextEdit:
 		return
 
+	if dismissible:
+		if event.is_action_pressed("escape"):
+			hide_popup()
+			get_viewport().set_input_as_handled()
+			return
+		if (
+			event is InputEventMouseButton
+			and event.pressed
+			and event.button_index == MOUSE_BUTTON_LEFT
+			and not _popup_rect().has_point(event.position)
+		):
+			hide_popup()
+			get_viewport().set_input_as_handled()
+			return
+
 	if event.is_action_pressed("interact"):
 		_on_interact_while_open()
 		get_viewport().set_input_as_handled()
+
+
+func _popup_rect() -> Rect2:
+	return ($Root/Popup as Control).get_global_rect()
 
 
 ## Override in subclasses to handle interaction while the panel is open
