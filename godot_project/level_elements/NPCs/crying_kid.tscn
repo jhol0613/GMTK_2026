@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cicclo21xo02d" path="res://level_elements/trinket_shop/masks/blue.png" id="3_8xta5"]
 [ext_resource type="Texture2D" uid="uid://3ma7e8j2tpci" path="res://level_elements/trinket_shop/masks/brown.png" id="4_4i0ya"]
 [ext_resource type="Texture2D" uid="uid://nw2bxlclpp72" path="res://level_elements/trinket_shop/masks/gray.png" id="5_18ce6"]
+[ext_resource type="Texture2D" uid="uid://d4ca0sqte8qqn" path="res://interactables/dialog_system/character_portraits/crying_kid/portrait_kid_2.png" id="5_28yu8"]
 [ext_resource type="Texture2D" uid="uid://diqiiusxlru6i" path="res://level_elements/trinket_shop/masks/green.png" id="6_rvg38"]
 [ext_resource type="Texture2D" uid="uid://btkre4p6a4goq" path="res://level_elements/trinket_shop/masks/maroon.png" id="7_28yu8"]
 [ext_resource type="Texture2D" uid="uid://da67b0efu17m4" path="res://level_elements/trinket_shop/masks/pink.png" id="8_o6lhc"]
@@ -18,31 +19,96 @@
 [ext_resource type="Texture2D" uid="uid://cednu5xibxyat" path="res://interactables/dialog_system/character_portraits/crying_kid/portrait_kid_1.png" id="15_28yu8"]
 [ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="16_o6lhc"]
 
-[sub_resource type="Resource" id="Resource_rgv02"]
+[sub_resource type="Resource" id="Resource_i2idl"]
 script = ExtResource("14_rvg38")
-text = "<<0>> <<money>> <<0>> <<trinketmask>> <<angry>>"
-speaker_icon = ExtResource("15_28yu8")
+text = "<<blue>> <<trinketmask>> <<thankyou>>"
+speaker_icon = ExtResource("5_28yu8")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_rgv02"]
+script = ExtResource("13_18ce6")
+player_text = "Give <<blue>> thing"
+reply = SubResource("Resource_i2idl")
+outcome_id = &"BLUE"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_weyje"]
+script = ExtResource("14_rvg38")
+text = "<<pink>> <<trinketmask>> <<thankyou>>"
+speaker_icon = ExtResource("5_28yu8")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_du5p0"]
+script = ExtResource("13_18ce6")
+player_text = "Give <<pink>> thing"
+reply = SubResource("Resource_weyje")
+outcome_id = &"PINK"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_j4g0e"]
+script = ExtResource("14_rvg38")
+text = "<<red>> <<trinketmask>> <<thankyou>>"
+speaker_icon = ExtResource("5_28yu8")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_28yu8"]
+script = ExtResource("13_18ce6")
+player_text = "<<red>> <<trinketmask>> <<thankyou>>"
+reply = SubResource("Resource_j4g0e")
+outcome_id = &"RED"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_82ypd"]
+script = ExtResource("14_rvg38")
+text = "<<green>> <<trinketmask>> <<thankyou>>"
+speaker_icon = ExtResource("5_28yu8")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_qtnng"]
+script = ExtResource("13_18ce6")
+reply = SubResource("Resource_82ypd")
+outcome_id = &"GREEN"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_g1pxt"]
 script = ExtResource("14_rvg38")
-text = "<<i>> <<trinketmask>> <<buy>> <<?>>"
+text = "<<angry>>"
 speaker_icon = ExtResource("15_28yu8")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
-[sub_resource type="Resource" id="Resource_j4g0e"]
-script = ExtResource("16_o6lhc")
-lines = Array[ExtResource("14_rvg38")]([SubResource("Resource_rgv02"), SubResource("Resource_qtnng")])
-metadata/_custom_type_script = "uid://dvkforrusa0nj"
+[sub_resource type="Resource" id="Resource_v6nb3"]
+script = ExtResource("13_18ce6")
+player_text = "Nevermind"
+reply = SubResource("Resource_g1pxt")
+outcome_id = &"NONE"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 
-[sub_resource type="Resource" id="Resource_2xq5c"]
+[sub_resource type="Resource" id="Resource_uv1sx"]
 script = ExtResource("14_rvg38")
-text = "<<trinketmask>>"
+text = "<<0>> <<money>> <<0>> <<holiday>> <<trinketmask>> <<angry>>"
+speaker_icon = ExtResource("15_28yu8")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
-[sub_resource type="Resource" id="Resource_ouyi4"]
+[sub_resource type="Resource" id="Resource_r605r"]
+script = ExtResource("14_rvg38")
+text = "<<i>> <<buy>> <<trinketmask>> <<?>>"
+speaker_icon = ExtResource("15_28yu8")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_pdpml"]
 script = ExtResource("16_o6lhc")
-lines = Array[ExtResource("14_rvg38")]([SubResource("Resource_2xq5c")])
+lines = Array[ExtResource("14_rvg38")]([SubResource("Resource_uv1sx"), SubResource("Resource_r605r")])
+metadata/_custom_type_script = "uid://dvkforrusa0nj"
+
+[sub_resource type="Resource" id="Resource_3a12k"]
+script = ExtResource("14_rvg38")
+text = "%s <<trinketmask>> <<angry>> <<i>> <<buy>> next <<trinketmask>> <<?>>"
+speaker_icon = ExtResource("15_28yu8")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_6q1ay"]
+script = ExtResource("16_o6lhc")
+lines = Array[ExtResource("14_rvg38")]([SubResource("Resource_3a12k")])
 metadata/_custom_type_script = "uid://dvkforrusa0nj"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gsv6k"]
@@ -213,30 +279,36 @@ script = ExtResource("14_rvg38")
 text = "<<trinketmask>> <<buy>>"
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
-[sub_resource type="Resource" id="Resource_g1pxt"]
+[sub_resource type="Resource" id="Resource_5fpys"]
 script = ExtResource("16_o6lhc")
 lines = Array[ExtResource("14_rvg38")]([SubResource("Resource_8tawe"), SubResource("Resource_o6lhc")])
 metadata/_custom_type_script = "uid://dvkforrusa0nj"
 
-[node name="Npc" unique_id=837182991 node_paths=PackedStringArray("dialogue_interactable") instance=ExtResource("1_eycq2")]
+[node name="CryingKid" unique_id=837182991 instance=ExtResource("1_eycq2")]
 script = ExtResource("2_rvg38")
-dialogue_interactable = NodePath("DialogueInteractable")
-choice_bank = Dictionary[int, ExtResource("13_18ce6")]({})
-crying_dialogue = SubResource("Resource_j4g0e")
-happy_dialogue = SubResource("Resource_ouyi4")
+choice_bank = Dictionary[int, ExtResource("13_18ce6")]({
+0: SubResource("Resource_rgv02"),
+3: SubResource("Resource_qtnng"),
+5: SubResource("Resource_du5p0"),
+7: SubResource("Resource_28yu8")
+})
+nevermind_choice = SubResource("Resource_v6nb3")
+initial_dialogue = SubResource("Resource_pdpml")
+repeat_dialogue = SubResource("Resource_6q1ay")
+repeat_dialogue_text = "%s <<trinketmask>> <<angry>> <<i>> <<buy>> next <<trinketmask>> <<?>>"
 
 [node name="Sprite" parent="." index="0" unique_id=1868209522]
 sprite_frames = SubResource("SpriteFrames_xl64p")
 animation = &"happy"
 autoplay = ""
 
-[node name="Blue" type="AnimatedSprite2D" parent="Sprite" index="0" unique_id=894242630]
+[node name="Mask" type="AnimatedSprite2D" parent="Sprite" index="0" unique_id=894242630]
 position = Vector2(0, 9)
 sprite_frames = SubResource("SpriteFrames_5l23l")
 animation = &"RED"
 
 [node name="DialogueInteractable" parent="." index="2" unique_id=1161048169]
-dialogue = SubResource("Resource_g1pxt")
+dialogue = SubResource("Resource_5fpys")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="4" unique_id=1857139683]
 

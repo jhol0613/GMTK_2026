@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://b6qspiqfbsraw"]
+
+[ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://interactables/dialog_system/dialogue_choice.gd" id="1_hclks"]
+[ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="2_wyubc"]
+[ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="3_5dc4c"]
+[ext_resource type="Texture2D" uid="uid://c36oq0n5g8b0y" path="res://interactables/dialog_system/character_portraits/trinket_salesman/portrait_shopkeeper2_1.png" id="3_wyubc"]
+
+[sub_resource type="Resource" id="Resource_yvw7r"]
+script = ExtResource("2_wyubc")
+text = "<<hello>> <<trinketmask>> <<buy>> <<?>>"
+speaker_icon = ExtResource("3_wyubc")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[resource]
+script = ExtResource("3_5dc4c")
+lines = Array[ExtResource("2_wyubc")]([SubResource("Resource_yvw7r")])
+metadata/_custom_type_script = "uid://dvkforrusa0nj"
