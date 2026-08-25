@@ -102,7 +102,7 @@ func _on_previous_page_pressed() -> void:
 
 
 func _on_notebook_mouse_entered() -> void:
-	Input.set_custom_mouse_cursor(pen)
+	Input.set_custom_mouse_cursor(pen, Input.CURSOR_ARROW, Vector2(0, 32) )
 
 
 func _on_close_button_pressed() -> void:

@@ -240,7 +240,7 @@ func open_notebook() -> void:
 	_close_ticket()
 	_close_inventory()
 	
-	Input.set_custom_mouse_cursor(pen)
+	Input.set_custom_mouse_cursor(pen, Input.CURSOR_ARROW, Vector2(0,32) )
 
 	_notebook_click_sound.play()
 
@@ -316,7 +316,7 @@ func close_notebook() -> void:
 	if not _notebook.visible:
 		return
 
-	Input.set_custom_mouse_cursor(magnifying_glass)
+	Input.set_custom_mouse_cursor( magnifying_glass, Input.CURSOR_ARROW, Vector2(0,0) )
 
 	_notebook_exit_sound.play()
 

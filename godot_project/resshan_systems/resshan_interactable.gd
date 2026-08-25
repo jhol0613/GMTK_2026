@@ -70,14 +70,14 @@ func _on_mouse_entered() -> void:
 	
 	shader.set_shader_parameter('time', -0.5)
 	
-	Input.set_custom_mouse_cursor(magnifying_glass_hover)
+	Input.set_custom_mouse_cursor(magnifying_glass_hover, Input.CURSOR_ARROW, Vector2(0,0) )
 	_hovered = true
 	display_note()
 
 
 func _on_mouse_exited() -> void:
 	_shine_cover.hide()
-	Input.set_custom_mouse_cursor(magnifying_glass)
+	Input.set_custom_mouse_cursor(magnifying_glass, Input.CURSOR_ARROW, Vector2(0,0) )
 	_hovered = false
 	if note:
 		note.hide()
