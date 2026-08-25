@@ -2,8 +2,160 @@
 
 [ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://interactables/dialog_system/dialogue_choice.gd" id="1_hclks"]
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="2_wyubc"]
+[ext_resource type="Resource" uid="uid://c33b25prjbdy5" path="res://levels/level_2/level_specific_resources/trinket_salesperson_thankyou.tres" id="2_yvw7r"]
 [ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="3_5dc4c"]
+[ext_resource type="Script" uid="uid://1bxpf358unij" path="res://scripts/item_data.gd" id="3_6773v"]
+[ext_resource type="Texture2D" uid="uid://1t6371th0ljj" path="res://level_elements/trinket_shop/masks/yellow.png" id="3_dfdwx"]
 [ext_resource type="Texture2D" uid="uid://c36oq0n5g8b0y" path="res://interactables/dialog_system/character_portraits/trinket_salesman/portrait_shopkeeper2_1.png" id="3_wyubc"]
+[ext_resource type="Texture2D" uid="uid://cicclo21xo02d" path="res://level_elements/trinket_shop/masks/blue.png" id="5_bj2yx"]
+[ext_resource type="Texture2D" uid="uid://bda7u4bubywk8" path="res://level_elements/trinket_shop/masks/purple.png" id="6_2qd2e"]
+[ext_resource type="Texture2D" uid="uid://dsaviofjnf4jt" path="res://level_elements/trinket_shop/masks/red.png" id="7_pmma2"]
+[ext_resource type="Texture2D" uid="uid://diqiiusxlru6i" path="res://level_elements/trinket_shop/masks/green.png" id="8_bphey"]
+[ext_resource type="Texture2D" uid="uid://3ma7e8j2tpci" path="res://level_elements/trinket_shop/masks/brown.png" id="9_bbgy8"]
+[ext_resource type="Texture2D" uid="uid://btkre4p6a4goq" path="res://level_elements/trinket_shop/masks/maroon.png" id="10_5sdgd"]
+[ext_resource type="Texture2D" uid="uid://c2bv0us1dd1uk" path="res://level_elements/trinket_shop/masks/teal.png" id="11_exmon"]
+[ext_resource type="Texture2D" uid="uid://da67b0efu17m4" path="res://level_elements/trinket_shop/masks/pink.png" id="12_5oove"]
+[ext_resource type="Texture2D" uid="uid://nw2bxlclpp72" path="res://level_elements/trinket_shop/masks/gray.png" id="13_pdgem"]
+
+[sub_resource type="Resource" id="Resource_4dsj6"]
+script = ExtResource("3_6773v")
+id = &"mask_yellow"
+item_name = "<<0>> thing"
+item_icon = ExtResource("3_dfdwx")
+metadata/_custom_type_script = "uid://1bxpf358unij"
+
+[sub_resource type="Resource" id="Resource_1oj8u"]
+script = ExtResource("1_hclks")
+player_text = "<<0>>"
+reply = ExtResource("2_yvw7r")
+reward = SubResource("Resource_4dsj6")
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_goj7x"]
+script = ExtResource("3_6773v")
+id = &"mask_blue"
+item_name = "<<1>> thing"
+item_icon = ExtResource("5_bj2yx")
+metadata/_custom_type_script = "uid://1bxpf358unij"
+
+[sub_resource type="Resource" id="Resource_rqds2"]
+script = ExtResource("1_hclks")
+player_text = "<<1>>"
+reply = ExtResource("2_yvw7r")
+reward = SubResource("Resource_goj7x")
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_04g3c"]
+script = ExtResource("3_6773v")
+id = &"mask_purple"
+item_name = "<<2>> thing"
+item_icon = ExtResource("6_2qd2e")
+metadata/_custom_type_script = "uid://1bxpf358unij"
+
+[sub_resource type="Resource" id="Resource_1yo0j"]
+script = ExtResource("1_hclks")
+player_text = "<<2>>"
+reply = ExtResource("2_yvw7r")
+reward = SubResource("Resource_04g3c")
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_i3jv1"]
+script = ExtResource("3_6773v")
+id = &"mask_red"
+item_name = "<<3>> thing"
+item_icon = ExtResource("7_pmma2")
+metadata/_custom_type_script = "uid://1bxpf358unij"
+
+[sub_resource type="Resource" id="Resource_vba3p"]
+script = ExtResource("1_hclks")
+player_text = "<<3>>"
+reply = ExtResource("2_yvw7r")
+reward = SubResource("Resource_i3jv1")
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_4p860"]
+script = ExtResource("3_6773v")
+id = &"mask_green"
+item_name = "<<4>> thing"
+item_icon = ExtResource("8_bphey")
+metadata/_custom_type_script = "uid://1bxpf358unij"
+
+[sub_resource type="Resource" id="Resource_v364w"]
+script = ExtResource("1_hclks")
+player_text = "<<4>>"
+reply = ExtResource("2_yvw7r")
+reward = SubResource("Resource_4p860")
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_dcs7h"]
+script = ExtResource("3_6773v")
+id = &"mask_brown"
+item_name = "<<5>> thing"
+item_icon = ExtResource("9_bbgy8")
+metadata/_custom_type_script = "uid://1bxpf358unij"
+
+[sub_resource type="Resource" id="Resource_crhbv"]
+script = ExtResource("1_hclks")
+player_text = "<<5>>"
+reply = ExtResource("2_yvw7r")
+reward = SubResource("Resource_dcs7h")
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_y421w"]
+script = ExtResource("3_6773v")
+id = &"mask_maroon"
+item_name = "<<6>> thing"
+item_icon = ExtResource("10_5sdgd")
+metadata/_custom_type_script = "uid://1bxpf358unij"
+
+[sub_resource type="Resource" id="Resource_rxcmq"]
+script = ExtResource("1_hclks")
+player_text = "<<6>>"
+reply = ExtResource("2_yvw7r")
+reward = SubResource("Resource_y421w")
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_xxpsn"]
+script = ExtResource("3_6773v")
+id = &"mask_teal"
+item_name = "<<7>> thing"
+item_icon = ExtResource("11_exmon")
+metadata/_custom_type_script = "uid://1bxpf358unij"
+
+[sub_resource type="Resource" id="Resource_ef27d"]
+script = ExtResource("1_hclks")
+player_text = "<<7>>"
+reply = ExtResource("2_yvw7r")
+reward = SubResource("Resource_xxpsn")
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_2qd2e"]
+script = ExtResource("3_6773v")
+id = &"mask_pink"
+item_name = "<<1>> <<0>> thing"
+item_icon = ExtResource("12_5oove")
+metadata/_custom_type_script = "uid://1bxpf358unij"
+
+[sub_resource type="Resource" id="Resource_dfdwx"]
+script = ExtResource("1_hclks")
+player_text = "<<1>> <<0>>"
+reply = ExtResource("2_yvw7r")
+reward = SubResource("Resource_2qd2e")
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_bphey"]
+script = ExtResource("3_6773v")
+id = &"mask_gray"
+item_name = "<<1>> <<1>> thing"
+item_icon = ExtResource("13_pdgem")
+metadata/_custom_type_script = "uid://1bxpf358unij"
+
+[sub_resource type="Resource" id="Resource_pmma2"]
+script = ExtResource("1_hclks")
+player_text = "<<1>> <<1>>"
+reply = ExtResource("2_yvw7r")
+reward = SubResource("Resource_bphey")
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 
 [sub_resource type="Resource" id="Resource_yvw7r"]
 script = ExtResource("2_wyubc")
@@ -14,4 +166,5 @@ metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 [resource]
 script = ExtResource("3_5dc4c")
 lines = Array[ExtResource("2_wyubc")]([SubResource("Resource_yvw7r")])
+choices = Array[ExtResource("1_hclks")]([SubResource("Resource_1oj8u"), SubResource("Resource_rqds2"), SubResource("Resource_1yo0j"), SubResource("Resource_vba3p"), SubResource("Resource_v364w"), SubResource("Resource_crhbv"), SubResource("Resource_rxcmq"), SubResource("Resource_ef27d"), SubResource("Resource_dfdwx"), SubResource("Resource_pmma2")])
 metadata/_custom_type_script = "uid://dvkforrusa0nj"
