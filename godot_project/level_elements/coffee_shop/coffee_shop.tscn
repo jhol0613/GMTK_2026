@@ -69,6 +69,7 @@ size = Vector2(111, 30)
 size = Vector2(161, 42)
 
 [node name="CoffeeShop" type="Node2D" unique_id=780382610]
+scale = Vector2(0.6, 0.6)
 script = ExtResource("1_coffee")
 purchase_animation = ExtResource("11_coffee_drink")
 empty_cup_item = SubResource("Resource_empty_cup")
@@ -131,12 +132,6 @@ panel_path = NodePath("../DialoguePanel")
 [node name="CollisionShape2D" parent="DialogueInteractable" index="0" unique_id=278382881]
 position = Vector2(-1, 54)
 shape = SubResource("RectangleShape2D_interact")
-
-[node name="Prompt" parent="DialogueInteractable" index="1" unique_id=272794898]
-
-[node name="Polygon2D" parent="DialogueInteractable/Prompt" index="0" unique_id=917238640]
-
-[node name="AnimatedSprite2D" parent="DialogueInteractable" index="2" unique_id=819702371]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=560896929]
 z_index = 1

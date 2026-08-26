@@ -20,7 +20,7 @@ metadata/_custom_type_script = "uid://kipmht1y7efq"
 [sub_resource type="Resource" id="Resource_5u3es"]
 script = ExtResource("1_jg6t2")
 color = 9
-destination = "startofyellowline>>"
+destination = "<<startofyellowline>>"
 arrival_interval_minutes = 9
 initial_offset = 6
 metadata/_custom_type_script = "uid://kipmht1y7efq"
