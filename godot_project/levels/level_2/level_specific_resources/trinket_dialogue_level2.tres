@@ -17,6 +17,11 @@
 [ext_resource type="Texture2D" uid="uid://da67b0efu17m4" path="res://level_elements/trinket_shop/masks/pink.png" id="12_5oove"]
 [ext_resource type="Texture2D" uid="uid://nw2bxlclpp72" path="res://level_elements/trinket_shop/masks/gray.png" id="13_pdgem"]
 
+[sub_resource type="Resource" id="Resource_dfdwx"]
+script = ExtResource("1_hclks")
+player_text = "Nevermind"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
 [sub_resource type="Resource" id="Resource_4dsj6"]
 script = ExtResource("3_6773v")
 id = &"mask_yellow"
@@ -29,11 +34,6 @@ script = ExtResource("1_hclks")
 player_text = "<<0>>"
 reply = ExtResource("2_yvw7r")
 reward = SubResource("Resource_4dsj6")
-metadata/_custom_type_script = "uid://dcq16ybg1hhts"
-
-[sub_resource type="Resource" id="Resource_dfdwx"]
-script = ExtResource("1_hclks")
-player_text = "Nevermind"
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 
 [sub_resource type="Resource" id="Resource_goj7x"]
@@ -171,5 +171,5 @@ metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 [resource]
 script = ExtResource("3_5dc4c")
 lines = Array[ExtResource("2_wyubc")]([SubResource("Resource_yvw7r")])
-choices = Array[ExtResource("1_hclks")]([SubResource("Resource_1oj8u"), SubResource("Resource_dfdwx"), SubResource("Resource_rqds2"), SubResource("Resource_1yo0j"), SubResource("Resource_vba3p"), SubResource("Resource_v364w"), SubResource("Resource_crhbv"), SubResource("Resource_rxcmq"), SubResource("Resource_ef27d"), SubResource("Resource_bj2yx"), SubResource("Resource_pmma2")])
+choices = Array[ExtResource("1_hclks")]([SubResource("Resource_dfdwx"), SubResource("Resource_1oj8u"), SubResource("Resource_rqds2"), SubResource("Resource_1yo0j"), SubResource("Resource_vba3p"), SubResource("Resource_v364w"), SubResource("Resource_crhbv"), SubResource("Resource_rxcmq"), SubResource("Resource_ef27d"), SubResource("Resource_bj2yx"), SubResource("Resource_pmma2")])
 metadata/_custom_type_script = "uid://dvkforrusa0nj"

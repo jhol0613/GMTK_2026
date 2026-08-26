@@ -12,13 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://bni8iwfqac6ap" path="res://level_elements/coffee_shop/coffee_shop.tscn" id="10_1vf62"]
 [ext_resource type="PackedScene" uid="uid://c5jvn4a3mfhj" path="res://level_elements/decorative/recycle_bin/recycle_bin.tscn" id="11_yiikh"]
 [ext_resource type="PackedScene" uid="uid://dg7w0a3gclx0w" path="res://level_elements/bathroom/outside_restroom_open.tscn" id="13_1vf62"]
-[ext_resource type="Texture2D" uid="uid://csgvh6vnlfcrk" path="res://level_elements/NPCs/kid.png" id="13_5ptf1"]
 [ext_resource type="PackedScene" uid="uid://0ckll8fgejet" path="res://level_elements/bathroom/bathroom_open.tscn" id="14_yiikh"]
 [ext_resource type="Script" uid="uid://ckmg2kdqbxsyq" path="res://level_elements/train_scheduler/station_handler.gd" id="15_aq41y"]
 [ext_resource type="Resource" uid="uid://bbiqg1las2w2b" path="res://levels/level_2/level_specific_resources/level_2_train_schedule.tres" id="16_5ts7o"]
 [ext_resource type="PackedScene" uid="uid://cmdda7648573b" path="res://level_elements/NPCs/npc.tscn" id="17_5ts7o"]
 [ext_resource type="Resource" uid="uid://bkybfv1jevm2y" path="res://levels/level_2/level_specific_resources/guide_dialogue_level2.tres" id="18_guide"]
 [ext_resource type="PackedScene" uid="uid://xyprm41o3crg" path="res://levels/level_2/level_specific_resources/trinket_shop_level_2.tscn" id="19_1vf62"]
+[ext_resource type="PackedScene" uid="uid://x4ghn30rc8l0" path="res://level_elements/NPCs/crying_kid.tscn" id="19_yiikh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vf62"]
 size = Vector2(816, 408)
@@ -28,28 +28,6 @@ size = Vector2(815, 413)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fq0us"]
 size = Vector2(816, 416)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2smvo"]
-atlas = ExtResource("13_5ptf1")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cp47v"]
-atlas = ExtResource("13_5ptf1")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_fpcxu"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2smvo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cp47v")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 4.0
-}]
 
 [node name="Level2" unique_id=783439983 node_paths=PackedStringArray("arrival_train") instance=ExtResource("1_mi4ay")]
 correct_train_line = 1
@@ -74,12 +52,10 @@ station_number = 2
 platform_number = 1
 
 [node name="UpperTrain" parent="Platform1" index="7" unique_id=995237668]
-visible = true
 next_scene = 4
 color = 4
 
 [node name="LowerTrain" parent="Platform1" index="8" unique_id=1370361982]
-visible = true
 next_scene = 4
 color = 4
 
@@ -97,14 +73,17 @@ position = Vector2(8, 12)
 shape = SubResource("RectangleShape2D_1vf62")
 
 [node name="Platform2" parent="." index="7" unique_id=293687369 instance=ExtResource("3_2smvo")]
+z_index = -1
 position = Vector2(-1696, -2464)
 
 [node name="UpperTrain" parent="Platform2" index="3" unique_id=995237668]
-visible = true
 color = 0
 
-[node name="LowerTrain" parent="Platform2" index="4" unique_id=1370361982]
-visible = true
+[node name="LayerTransitionZone" parent="Platform2" index="13" unique_id=1662407236]
+transition_z_index = 0
+
+[node name="CollisionShape2D" parent="Platform2/LayerTransitionZone" index="0" unique_id=6447672]
+position = Vector2(-126, 7)
 
 [node name="Platform3" parent="." index="8" unique_id=662428683 instance=ExtResource("2_pqqg8")]
 z_index = 5
@@ -113,12 +92,10 @@ station_number = 2
 platform_number = 3
 
 [node name="UpperTrain" parent="Platform3" index="7" unique_id=995237668]
-visible = true
 next_scene = 4
 color = 2
 
 [node name="LowerTrain" parent="Platform3" index="8" unique_id=1370361982]
-visible = true
 next_scene = 4
 color = 2
 
@@ -142,11 +119,9 @@ station_number = 2
 platform_number = 4
 
 [node name="UpperTrain" parent="Platform4" index="7" unique_id=995237668]
-visible = true
 next_scene = 4
 
 [node name="LowerTrain" parent="Platform4" index="8" unique_id=1370361982]
-visible = true
 next_scene = 4
 color = 1
 
@@ -161,12 +136,6 @@ transition_z_index = 6
 
 [node name="Platform5" parent="." index="10" unique_id=1126306435 instance=ExtResource("3_2smvo")]
 position = Vector2(-288, -576)
-
-[node name="UpperTrain" parent="Platform5" index="3" unique_id=995237668]
-visible = true
-
-[node name="LowerTrain" parent="Platform5" index="4" unique_id=1370361982]
-visible = true
 
 [node name="Platform6" parent="." index="11" unique_id=275140016 instance=ExtResource("3_2smvo")]
 position = Vector2(-2528, -704)
@@ -287,26 +256,22 @@ position = Vector2(-720, -1152)
 [node name="Bathroom2" parent="Decorations" index="7" unique_id=1753618523 instance=ExtResource("14_yiikh")]
 position = Vector2(-656, -1152)
 
-[node name="KID_PLACEHOLDER" type="AnimatedSprite2D" parent="." index="29" unique_id=1618856631]
-z_index = 1
-position = Vector2(-2016, -1376)
-sprite_frames = SubResource("SpriteFrames_fpcxu")
-autoplay = "default"
-frame_progress = 0.92452526
-
-[node name="StationHandler" type="Node" parent="." index="30" unique_id=327838935]
+[node name="StationHandler" type="Node" parent="." index="29" unique_id=327838935]
 script = ExtResource("15_aq41y")
 train_schedule = ExtResource("16_5ts7o")
 metadata/_custom_type_script = "uid://ckmg2kdqbxsyq"
 
-[node name="Guide" parent="." index="31" unique_id=1202977622 instance=ExtResource("17_5ts7o")]
+[node name="Guide" parent="." index="30" unique_id=1202977622 instance=ExtResource("17_5ts7o")]
 position = Vector2(-1919, -1021)
 
 [node name="DialogueInteractable" parent="Guide" index="2" unique_id=1161048169]
 dialogue = ExtResource("18_guide")
 
-[node name="TrinketShop" parent="." index="32" unique_id=877031898 instance=ExtResource("19_1vf62")]
+[node name="TrinketShop" parent="." index="31" unique_id=877031898 instance=ExtResource("19_1vf62")]
 position = Vector2(-1664, -1161)
+
+[node name="CryingKid" parent="." index="32" unique_id=837182991 instance=ExtResource("19_yiikh")]
+position = Vector2(-1766, -1170)
 
 [editable path="Platform1"]
 [editable path="Platform2"]
