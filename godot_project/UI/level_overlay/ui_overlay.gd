@@ -15,6 +15,7 @@ var _notebook_tween: Tween
 var _compacted_panel: Node
 var _compacted_close_signal := &""
 var _notebook_player_movement_states: Dictionary = {}
+var _launcher_button_states: Dictionary = {}
 
 @onready var _time := $Time
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
@@ -277,7 +278,25 @@ func open_notebook() -> void:
 		_notebook_player_movement_states[player] = player.movement_disabled
 		player.movement_disabled = true
 
+	_hide_launcher_buttons()
+
 	SignalBus.notebook_opened.emit()
+
+
+## The launcher buttons draw on top of the notebook and cover its page controls,
+## so they step aside while it is open. Each button's previous state is restored,
+## since the ticket button has its own visibility rule.
+func _hide_launcher_buttons() -> void:
+	_launcher_button_states.clear()
+	for button: Control in [_notebook_button, _ticket_button, _inventory_button]:
+		_launcher_button_states[button] = button.visible
+		button.visible = false
+
+
+func _restore_launcher_buttons() -> void:
+	for button: Control in _launcher_button_states:
+		button.visible = _launcher_button_states[button]
+	_launcher_button_states.clear()
 
 
 func _get_open_dialogue() -> Node:
@@ -335,8 +354,10 @@ func close_notebook() -> void:
 		_compacted_close_signal = &""
 		var tween := _slide_notebook(notebook_offscreen_x)
 		tween.tween_callback(func() -> void: _notebook.visible = false)
+		tween.tween_callback(_restore_launcher_buttons)
 	else:
 		_notebook.visible = false
+		_restore_launcher_buttons()
 
 	for player in _notebook_player_movement_states:
 		if is_instance_valid(player):
