@@ -19,6 +19,7 @@
 [ext_resource type="Resource" uid="uid://bkybfv1jevm2y" path="res://levels/level_2/level_specific_resources/guide_dialogue_level2.tres" id="18_guide"]
 [ext_resource type="PackedScene" uid="uid://xyprm41o3crg" path="res://levels/level_2/level_specific_resources/trinket_shop_level_2.tscn" id="19_1vf62"]
 [ext_resource type="PackedScene" uid="uid://x4ghn30rc8l0" path="res://level_elements/NPCs/crying_kid.tscn" id="19_yiikh"]
+[ext_resource type="PackedScene" uid="uid://wvltf0ie5ih7" path="res://levels/level_2/level_specific_resources/station_2_technician.tscn" id="20_yiikh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vf62"]
 size = Vector2(816, 408)
@@ -75,9 +76,17 @@ shape = SubResource("RectangleShape2D_1vf62")
 [node name="Platform2" parent="." index="7" unique_id=293687369 instance=ExtResource("3_2smvo")]
 z_index = -1
 position = Vector2(-1696, -2464)
+station_number = 2
+platform_number = 2
 
 [node name="UpperTrain" parent="Platform2" index="3" unique_id=995237668]
 color = 0
+
+[node name="Station0Sign" parent="Platform2" index="11" unique_id=98722644]
+station_number = 2
+
+[node name="Station0Sign2" parent="Platform2" index="12" unique_id=421458582]
+station_number = 2
 
 [node name="LayerTransitionZone" parent="Platform2" index="13" unique_id=1662407236]
 transition_z_index = 0
@@ -136,6 +145,14 @@ transition_z_index = 6
 
 [node name="Platform5" parent="." index="10" unique_id=1126306435 instance=ExtResource("3_2smvo")]
 position = Vector2(-288, -576)
+station_number = 2
+platform_number = 5
+
+[node name="Station0Sign" parent="Platform5" index="11" unique_id=98722644]
+station_number = 2
+
+[node name="Station0Sign2" parent="Platform5" index="12" unique_id=421458582]
+station_number = 2
 
 [node name="Platform6" parent="." index="11" unique_id=275140016 instance=ExtResource("3_2smvo")]
 position = Vector2(-2528, -704)
@@ -198,6 +215,7 @@ position = Vector2(-1906, -1469)
 
 [node name="ATM" parent="." index="17" unique_id=124595741 instance=ExtResource("8_5ts7o")]
 position = Vector2(-1994, -1040)
+broken = true
 
 [node name="TrainMap" parent="." index="18" unique_id=940096549 instance=ExtResource("9_dj0pt")]
 position = Vector2(-1104, -1952)
@@ -273,6 +291,9 @@ position = Vector2(-1663, -1186)
 [node name="CryingKid" parent="." index="32" unique_id=837182991 instance=ExtResource("19_yiikh")]
 position = Vector2(-1755, -1177)
 sad_repeat_text = ""
+
+[node name="Station2Technician" parent="." index="33" unique_id=1047069434 instance=ExtResource("20_yiikh")]
+position = Vector2(-1907, -1158)
 
 [editable path="Platform1"]
 [editable path="Platform2"]
