@@ -15,11 +15,11 @@ func _ready() -> void:
 
 
 func _on_option_confirmed(outcome_id: StringName) -> void:
-	if outcome_id == &"cancel":
+	if outcome_id == &"NONE":
 		_dialogue_panel.hide_popup.call_deferred()
 		return
-	if outcome_id != PURCHASE_OUTCOME:
-		return
+	#if outcome_id != PURCHASE_OUTCOME:
+		#return
 	if Inventory.is_full():
 		SignalBus.inventory_full.emit()
 		return
