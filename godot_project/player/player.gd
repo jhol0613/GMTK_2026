@@ -45,6 +45,8 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	if _is_any_panel_open() or movement_disabled:
 		direction = Vector2.ZERO
+		sprite.speed_scale = 1.0
+		_animate()
 		return
 
 	direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
