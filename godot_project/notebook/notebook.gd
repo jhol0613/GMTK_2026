@@ -95,6 +95,13 @@ static func get_note(resshan:String) -> ResshanPopUp:
 	return null
 
 
+static func has_note(resshan: String) -> bool:
+	for section: String in player_vocab.data:
+		if player_vocab.data[section].has(resshan):
+			return true
+	return false
+
+
 func _on_next_page_pressed() -> void:
 	_sections[_current_section].switch_page(1)
 	_page_turn_sound.play()

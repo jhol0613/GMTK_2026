@@ -44,13 +44,18 @@ func _process(delta: float) -> void:
 
 
 func _gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if not event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+	if (
+		event is InputEventMouseButton
+		and not event.pressed
+		and event.button_index == MOUSE_BUTTON_LEFT
+	):
+		if Notebook.has_note(_encoded_string):
+			SignalBus.show_resshan_entry.emit(_encoded_string)
+		else:
 			noted = true
 			shader.set_shader_parameter('color', Color.WHITE)
 			SignalBus.resshan_clicked.emit(_encoded_string)
-		if not event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
-			SignalBus.show_resshan_entry.emit(_encoded_string)
+		accept_event()
 
 
 func _on_mouse_entered() -> void:
