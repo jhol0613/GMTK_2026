@@ -85,17 +85,27 @@ func _is_any_panel_open() -> bool:
 
 
 ## Scripted walk used by cutscenes (train boarding / exit). Disables input until done.
-## `walk_up` forces the up/down walk clip (boarding vs exit) instead of direction-based selection.
+## `walk_up` forces the up clip (boarding, where the player walks into the train).
+## Otherwise the clip follows the direction of travel, same as normal movement.
 func walk_to(
 	target_global: Vector2,
 	walk_speed: float = 80.0,
 	walk_up: bool = false,
 ) -> void:
 	movement_disabled = true
-	var walk_anim: StringName = &"walk_up" if walk_up else &"walk_down"
-	var idle_anim: StringName = &"idle_up" if walk_up else &"idle"
 	var delta_pos := target_global - global_position
 	var travel_distance := delta_pos.length()
+
+	var walk_anim: StringName = &"walk_up"
+	var idle_anim: StringName = &"idle_up"
+	if not walk_up:
+		if absf(delta_pos.x) > absf(delta_pos.y):
+			walk_anim = &"walk_right"
+			idle_anim = &"idle_right"
+			sprite.flip_h = delta_pos.x < 0.0
+		elif delta_pos.y > 0.0:
+			walk_anim = &"walk_down"
+			idle_anim = &"idle"
 	if travel_distance < 1.0:
 		direction = Vector2.ZERO
 		sprite.play(idle_anim)
