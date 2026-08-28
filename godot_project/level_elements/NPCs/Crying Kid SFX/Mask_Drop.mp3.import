@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bnp28on2ppf5p"
+path="res://.godot/imported/Mask_Drop.mp3-4e4e922c6c641e599ec29667fcc5cad7.mp3str"
+
+[deps]
+
+source_file="res://level_elements/NPCs/Crying Kid SFX/Mask_Drop.mp3"
+dest_files=["res://.godot/imported/Mask_Drop.mp3-4e4e922c6c641e599ec29667fcc5cad7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
