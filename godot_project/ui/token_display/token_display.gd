@@ -19,14 +19,16 @@ extends Control
 
 @export_group("Behaviour")
 @export var low_threshold: int = 4
-@export var charge_step_delay: float = 0.06
-@export var discharge_step_delay: float = 0.06
+@export var charge_step_delay: float = 0.2
+@export var discharge_step_delay: float = 0.2
 
 @export_group("Audio")
 @export var gain_sound: AudioStream
 @export var drain_sound: AudioStream
 @export_range(-80.0, 6.0, 0.5) var gain_volume_db: float = -8.0
 @export_range(-80.0, 6.0, 0.5) var drain_volume_db: float = -8.0
+@export_range(0.5, 2.0, 0.05) var gain_pitch_scale: float = 0.85
+@export_range(0.5, 2.0, 0.05) var drain_pitch_scale: float = 0.85
 
 var _shell: TextureRect
 var _cells: Array[TextureRect] = []
@@ -111,7 +113,7 @@ func _on_tokens_changed(current: int, _maximum: int) -> void:
 
 
 func _animate_gain(target: int, generation: int) -> void:
-	_play_audio(_gain_player, gain_sound, gain_volume_db)
+	_play_audio(_gain_player, gain_sound, gain_volume_db, gain_pitch_scale)
 	_play_scale_bump()
 	while _displayed_tokens < target:
 		var cell := _cell_for_token(_displayed_tokens)
@@ -129,7 +131,7 @@ func _animate_gain(target: int, generation: int) -> void:
 
 
 func _animate_drain(target: int, generation: int) -> void:
-	_play_audio(_drain_player, drain_sound, drain_volume_db)
+	_play_audio(_drain_player, drain_sound, drain_volume_db, drain_pitch_scale)
 	_play_scale_bump()
 	while _displayed_tokens > target:
 		var cell := _cell_for_token(_displayed_tokens - 1)
@@ -172,11 +174,17 @@ func _cell_for_token(token_index: int) -> TextureRect:
 	return _cells[cell_index]
 
 
-func _play_audio(player: AudioStreamPlayer, stream: AudioStream, volume_db: float) -> void:
+func _play_audio(
+	player: AudioStreamPlayer,
+	stream: AudioStream,
+	volume_db: float,
+	pitch_scale: float,
+) -> void:
 	if stream == null:
 		return
 	player.stream = stream
 	player.volume_db = volume_db
+	player.pitch_scale = pitch_scale
 	player.play()
 
 
@@ -185,8 +193,8 @@ func _play_scale_bump() -> void:
 	position = _base_position
 	scale = _base_scale
 	_motion_tween = create_tween()
-	_motion_tween.tween_property(self, "scale", _base_scale * 1.18, 0.1)
-	_motion_tween.tween_property(self, "scale", _base_scale, 0.18)
+	_motion_tween.tween_property(self, "scale", _base_scale * 1.18, 0.32)
+	_motion_tween.tween_property(self, "scale", _base_scale, 0.6)
 
 
 func _play_shake() -> void:
@@ -201,14 +209,14 @@ func _play_shake() -> void:
 
 func _play_completion_flash() -> void:
 	var tween := create_tween()
-	tween.tween_property(self, "modulate", Color(0.75, 1.0, 1.0, 1.0), 0.06)
-	tween.tween_property(self, "modulate", Color.WHITE, 0.12)
+	tween.tween_property(self, "modulate", Color(0.75, 1.0, 1.0, 1.0), 0.2)
+	tween.tween_property(self, "modulate", Color.WHITE, 0.4)
 
 
 func _play_low_pulse() -> void:
 	var tween := create_tween()
-	tween.tween_property(self, "modulate", Color(1.0, 0.72, 0.45, 1.0), 0.08)
-	tween.tween_property(self, "modulate", Color.WHITE, 0.14)
+	tween.tween_property(self, "modulate", Color(1.0, 0.72, 0.45, 1.0), 0.26)
+	tween.tween_property(self, "modulate", Color.WHITE, 0.46)
 
 
 func _kill_motion_tween() -> void:

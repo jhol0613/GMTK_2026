@@ -71,12 +71,19 @@ func _ready() -> void:
 	SignalBus.new_unique_resshan_note_added_to_notebook.connect( _emphasize_icon.bind(_notebook_button,_initial_notebook_button_scale) )
 	TimeManager.time_up.connect(_on_time_up)
 	
+	SignalBus.inventory_full.connect(_on_inventory_full)
 	SignalBus.ticket_consumed.connect(_on_ticket_consumed)
 	SignalBus.rest_started.connect(_on_rest_started)
 	SignalBus.rest_ended.connect(_on_rest_ended)
 	_notebook.close_requested.connect(close_notebook)
 	_ticket.close_requested.connect(_close_ticket)
 	_inventory.close_requested.connect(_close_inventory)
+
+
+## Nothing fits in the bag: point at it instead of failing silently.
+func _on_inventory_full() -> void:
+	AudioManager.play_wrong_ticket_sfx()
+	_emphasize_icon(_inventory_button, _initial_inventory_button_scale)
 
 
 func _on_rest_started() -> void:

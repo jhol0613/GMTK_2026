@@ -59,7 +59,7 @@ func _input(event: InputEvent) -> void:
 
 
 func _start_drag(pos: Vector2) -> void:
-	for i in _items.size():
+	for i in mini(_items.size(), SLOT_COUNT):
 		if not _slot_icons[i].get_global_rect().has_point(pos):
 			continue
 		_drag_item = _items[i]

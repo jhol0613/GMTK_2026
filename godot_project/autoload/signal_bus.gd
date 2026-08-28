@@ -16,6 +16,8 @@ signal no_ticket
 
 signal ticket_purchased(hour: int, minute: int, second:int)
 
+signal inventory_full
+
 signal ticket_consumed
 signal ticket_received
 signal item_popup_requested(icon: Texture2D)

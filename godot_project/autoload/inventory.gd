@@ -4,18 +4,38 @@ signal item_added(item: ItemData)
 signal item_removed(item: ItemData)
 signal inventory_changed
 
+## Non-ticket capacity. Must match InventoryPanel.SLOT_COUNT.
+const MAX_ITEMS: int = 4
+
 var items: Array[ItemData] = []
 
-func add_item(item: ItemData) -> void:
+## False when the bag was full and the item was not taken.
+func add_item(item: ItemData) -> bool:
 	if item is TicketData:
 		_replace_ticket(item as TicketData)
-		return
+		return true
 	if owns_item(item):
 		item_added.emit(item)
-		return
+		return true
+	if is_full():
+		SignalBus.inventory_full.emit()
+		return false
 	items.append(item)
 	item_added.emit(item)
 	inventory_changed.emit()
+	return true
+
+
+func item_count() -> int:
+	var count := 0
+	for item in items:
+		if not item is TicketData:
+			count += 1
+	return count
+
+
+func is_full() -> bool:
+	return item_count() >= MAX_ITEMS
 
 
 func _replace_ticket(ticket: TicketData) -> void:

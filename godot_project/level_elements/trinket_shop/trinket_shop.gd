@@ -20,6 +20,9 @@ func _on_option_confirmed(outcome_id: StringName) -> void:
 		return
 	if outcome_id != PURCHASE_OUTCOME:
 		return
+	if Inventory.is_full():
+		SignalBus.inventory_full.emit()
+		return
 	Wallet.spend(Wallet.TRINKET_COST)
 	_awaiting_trinket = true
 
