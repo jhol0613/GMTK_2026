@@ -268,10 +268,11 @@ position = Vector2(-1919, -1021)
 dialogue = ExtResource("18_guide")
 
 [node name="TrinketShop" parent="." index="31" unique_id=877031898 instance=ExtResource("19_1vf62")]
-position = Vector2(-1664, -1161)
+position = Vector2(-1663, -1186)
 
 [node name="CryingKid" parent="." index="32" unique_id=837182991 instance=ExtResource("19_yiikh")]
-position = Vector2(-1766, -1170)
+position = Vector2(-1755, -1177)
+sad_repeat_text = ""
 
 [editable path="Platform1"]
 [editable path="Platform2"]
