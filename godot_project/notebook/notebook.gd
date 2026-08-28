@@ -26,7 +26,11 @@ func _ready() -> void:
 				encoded, player_vocab.data[section][encoded], section, false)
 
 func _handle_show_resshan(encoded: String) -> void:
-	self.show()
+	var overlay := get_parent()
+	if overlay != null and overlay.has_method("open_notebook"):
+		overlay.open_notebook()
+	else:
+		show()
 	var pages: = _sections[0].get_pages()
 	for page: NotebookPage in pages:
 		for entry: NotebookEntry in page.get_entries():
