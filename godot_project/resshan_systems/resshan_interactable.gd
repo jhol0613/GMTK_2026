@@ -87,4 +87,5 @@ func display_note() -> void:
 	if note: 
 		if not note.get_parent():
 			add_child(note)
+		note.position.x = size.x * 0.5
 		note.show()

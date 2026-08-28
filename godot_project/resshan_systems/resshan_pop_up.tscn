@@ -25,6 +25,7 @@ scale = Vector2(0.2, 0.2)
 script = ExtResource("1_dt5xr")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1377185846]
+custom_minimum_size = Vector2(60, 30)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
