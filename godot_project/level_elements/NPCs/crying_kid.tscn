@@ -18,10 +18,10 @@
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="14_rvg38"]
 [ext_resource type="Texture2D" uid="uid://cednu5xibxyat" path="res://interactables/dialog_system/character_portraits/crying_kid/portrait_kid_1.png" id="15_28yu8"]
 [ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="16_o6lhc"]
-[ext_resource type="AudioStream" uid="uid://dtuqkufedw6t" path="res://level_elements/NPCs/Crying Kid SFX/Kid_Crying_1.mp3" id="sfx_cry_1"]
-[ext_resource type="AudioStream" uid="uid://clx117ssty4rs" path="res://level_elements/NPCs/Crying Kid SFX/Kid_Crying_2.mp3" id="sfx_cry_2"]
-[ext_resource type="AudioStream" uid="uid://csh8u87ual0h" path="res://level_elements/NPCs/Crying Kid SFX/Kid_Crying_3.mp3" id="sfx_cry_3"]
-[ext_resource type="AudioStream" uid="uid://d0snssw7klt66" path="res://level_elements/NPCs/Crying Kid SFX/Kid_Crying_4.mp3" id="sfx_cry_4"]
+[ext_resource type="AudioStream" uid="uid://b3w187pvp460c" path="res://level_elements/NPCs/Crying Kid SFX/kid_cry_1.mp3" id="sfx_cry_1"]
+[ext_resource type="AudioStream" uid="uid://5gv8v0btbj3f" path="res://level_elements/NPCs/Crying Kid SFX/kid_cry_2.mp3" id="sfx_cry_2"]
+[ext_resource type="AudioStream" uid="uid://bfhd4015x8aas" path="res://level_elements/NPCs/Crying Kid SFX/kid_cry_3.mp3" id="sfx_cry_3"]
+[ext_resource type="AudioStream" uid="uid://bm142wypeddqo" path="res://level_elements/NPCs/Crying Kid SFX/kid_cry_4.mp3" id="sfx_cry_4"]
 [ext_resource type="AudioStream" uid="uid://bnp28on2ppf5p" path="res://level_elements/NPCs/Crying Kid SFX/Mask_Drop.mp3" id="sfx_drop"]
 [ext_resource type="AudioStream" uid="uid://n7yv7j3hqn82" path="res://level_elements/NPCs/Crying Kid SFX/Kid_Happy.mp3" id="sfx_happy"]
 
@@ -404,7 +404,9 @@ dialogue = SubResource("Resource_knmce")
 [node name="Sprite2D" type="Sprite2D" parent="." index="4" unique_id=1857139683]
 
 [node name="CryLoop" type="AudioStreamPlayer2D" parent="." index="5" unique_id=276118853]
-max_distance = 400.0
+volume_db = -4.0
+pitch_scale = 1.35
+max_distance = 200.0
 attenuation = 1.5
 bus = &"SFX"
 

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://5gv8v0btbj3f"
+path="res://.godot/imported/kid_cry_2.mp3-545545b5bb66430edac1936889c654da.mp3str"
+
+[deps]
+
+source_file="res://level_elements/NPCs/Crying Kid SFX/kid_cry_2.mp3"
+dest_files=["res://.godot/imported/kid_cry_2.mp3-545545b5bb66430edac1936889c654da.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
