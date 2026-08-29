@@ -42,8 +42,8 @@ theme_override_constants/separation = 8
 alignment = 1
 
 [node name="Slot1Bg" type="TextureRect" parent="VBoxContainer/Slots/Slot1" unique_id=388756599]
-clip_contents = true
 custom_minimum_size = Vector2(150, 150)
+clip_contents = true
 layout_mode = 2
 texture = ExtResource("2_slot")
 expand_mode = 1
@@ -74,7 +74,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
 script = ExtResource("3_resshan")
-font_size = 16
 metadata/_custom_type_script = "uid://sidowamkhcrt"
 
 [node name="Slot2" type="VBoxContainer" parent="VBoxContainer/Slots" unique_id=1514983281]
@@ -83,8 +82,8 @@ theme_override_constants/separation = 8
 alignment = 1
 
 [node name="Slot2Bg" type="TextureRect" parent="VBoxContainer/Slots/Slot2" unique_id=1514983282]
-clip_contents = true
 custom_minimum_size = Vector2(150, 150)
+clip_contents = true
 layout_mode = 2
 texture = ExtResource("2_slot")
 expand_mode = 1
@@ -115,7 +114,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
 script = ExtResource("3_resshan")
-font_size = 16
 metadata/_custom_type_script = "uid://sidowamkhcrt"
 
 [node name="Slot3" type="VBoxContainer" parent="VBoxContainer/Slots" unique_id=951460956]
@@ -124,8 +122,8 @@ theme_override_constants/separation = 8
 alignment = 1
 
 [node name="Slot3Bg" type="TextureRect" parent="VBoxContainer/Slots/Slot3" unique_id=951460957]
-clip_contents = true
 custom_minimum_size = Vector2(150, 150)
+clip_contents = true
 layout_mode = 2
 texture = ExtResource("2_slot")
 expand_mode = 1
@@ -156,7 +154,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
 script = ExtResource("3_resshan")
-font_size = 16
 metadata/_custom_type_script = "uid://sidowamkhcrt"
 
 [node name="Slot4" type="VBoxContainer" parent="VBoxContainer/Slots" unique_id=405363349]
@@ -165,8 +162,8 @@ theme_override_constants/separation = 8
 alignment = 1
 
 [node name="Slot4Bg" type="TextureRect" parent="VBoxContainer/Slots/Slot4" unique_id=405363350]
-clip_contents = true
 custom_minimum_size = Vector2(150, 150)
+clip_contents = true
 layout_mode = 2
 texture = ExtResource("2_slot")
 expand_mode = 1
@@ -197,7 +194,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
 script = ExtResource("3_resshan")
-font_size = 16
 metadata/_custom_type_script = "uid://sidowamkhcrt"
 
 [node name="CloseButton" type="TextureButton" parent="." unique_id=1402412403]
@@ -212,4 +208,5 @@ texture_normal = ExtResource("4_close")
 ignore_texture_size = true
 stretch_mode = 5
 
+[connection signal="mouse_entered" from="VBoxContainer/Slots" to="." method="_on_slots_mouse_entered"]
 [connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]

@@ -12,6 +12,10 @@ const SLOT_COUNT: int = 4
 	%Slot1Name, %Slot2Name, %Slot3Name, %Slot4Name,
 ]
 
+var hand_open = load("uid://xuaolfjqb2gn")
+var hand_closed = load("uid://w4yu8aix4u4b")
+
+
 var _items: Array[ItemData] = []
 var _drag_item: ItemData
 var _drag_ghost: TextureRect
@@ -59,9 +63,11 @@ func _input(event: InputEvent) -> void:
 
 
 func _start_drag(pos: Vector2) -> void:
+	
 	for i in mini(_items.size(), SLOT_COUNT):
 		if not _slot_icons[i].get_global_rect().has_point(pos):
 			continue
+		Input.set_custom_mouse_cursor(hand_closed, Input.CURSOR_ARROW, Vector2(0.5,0.5) )
 		_drag_item = _items[i]
 		_drag_ghost = TextureRect.new()
 		_drag_ghost.texture = _drag_item.item_icon
@@ -76,7 +82,8 @@ func _start_drag(pos: Vector2) -> void:
 		_slot_icons[i].visible = false
 		_slot_names[i].visible = false
 		return
-		
+
+
 func _update_hovered_bin(pos: Vector2) -> void:
 	var bin: Node2D = null
 	for node in get_tree().get_nodes_in_group("recycle_bin"):
@@ -96,6 +103,7 @@ func _update_hovered_bin(pos: Vector2) -> void:
 
 
 func _finish_drag() -> void:
+	Input.set_custom_mouse_cursor(hand_open, Input.CURSOR_ARROW, Vector2(0.5,0.5) )
 	if _hovered_bin != null:
 		_hovered_bin.recycle(_drag_item)
 	_hovered_bin = null
@@ -107,3 +115,8 @@ func _finish_drag() -> void:
 
 func _on_close_button_pressed() -> void:
 	close_requested.emit()
+
+
+func _on_slots_mouse_entered() -> void:
+	if not _drag_item:
+		Input.set_custom_mouse_cursor(hand_open, Input.CURSOR_ARROW, Vector2(0.5,0.5) )

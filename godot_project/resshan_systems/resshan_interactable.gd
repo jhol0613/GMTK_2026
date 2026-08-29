@@ -16,6 +16,7 @@ var note: ResshanPopUp = null
 var noted: = false
 
 var magnifying_glass_hover = load("uid://rwsmjgconr7m")
+var magnifying_glass_hover_known = load("uid://b8iogjde6ylvv")
 var magnifying_glass = load("uid://c8n3by2cmh20k")
 var shader: ShaderMaterial = preload('uid://b6orlsmg3aep5')
 var _shine_cover: ColorRect
@@ -53,6 +54,7 @@ func _gui_input(event: InputEvent) -> void:
 			SignalBus.show_resshan_entry.emit(_encoded_string)
 		else:
 			noted = true
+			Input.set_custom_mouse_cursor(magnifying_glass_hover_known, Input.CURSOR_ARROW, Vector2(0,0) )
 			shader.set_shader_parameter('color', Color.WHITE)
 			SignalBus.resshan_clicked.emit(_encoded_string)
 		accept_event()
@@ -69,13 +71,15 @@ func _on_mouse_entered() -> void:
 			note = pop
 	_shine_cover.show()
 	if noted:
+		Input.set_custom_mouse_cursor(magnifying_glass_hover_known, Input.CURSOR_ARROW, Vector2(0,0) )
 		shader.set_shader_parameter('color', Color.WHITE)
 	else:
+		Input.set_custom_mouse_cursor(magnifying_glass_hover, Input.CURSOR_ARROW, Vector2(0,0) )
 		shader.set_shader_parameter('color', Color(1.0, 0.922, 0.569))
 	
 	shader.set_shader_parameter('time', -0.5)
 	
-	Input.set_custom_mouse_cursor(magnifying_glass_hover, Input.CURSOR_ARROW, Vector2(0,0) )
+	
 	_hovered = true
 	display_note()
 

@@ -8,6 +8,8 @@ extends CanvasLayer
 
 var magnifying_glass = load("uid://c8n3by2cmh20k")
 var pen = load("uid://c8yj5np7nrak6")
+var hand_open = load("uid://xuaolfjqb2gn")
+var hand_closed = load("uid://w4yu8aix4u4b")
 
 var _notebook_home := Vector2.ZERO
 var _notebook_docked := false
@@ -238,7 +240,6 @@ func _input(event: InputEvent) -> void:
 
 	if closed_something:
 		get_viewport().set_input_as_handled()
-		
 
 
 func open_notebook() -> void:
@@ -399,10 +400,11 @@ func _open_inventory() -> void:
 
 	close_notebook()
 	_close_ticket()
-
+	
 	_inventory_click_sound.play()
 	_inventory.refresh()
 	_inventory.visible = true
+	Input.set_custom_mouse_cursor(hand_open, Input.CURSOR_ARROW, Vector2(0.5,0.5) )
 
 
 func _close_inventory() -> void:
@@ -411,6 +413,7 @@ func _close_inventory() -> void:
 
 	_inventory_close_sound.play()
 	_inventory.visible = false
+	Input.set_custom_mouse_cursor(magnifying_glass, Input.CURSOR_ARROW, Vector2(0.0,0.0) )
 
 
 func _close_all_panels() -> void:

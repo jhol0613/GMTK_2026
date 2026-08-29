@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="13_u460r"]
 [ext_resource type="Texture2D" uid="uid://ca8r7wcmgae0o" path="res://level_elements/tileset/grasstiles.png" id="17_ggct0"]
 [ext_resource type="Texture2D" uid="uid://ddbgow303m2gq" path="res://level_elements/tileset/TX Tileset Grass.png" id="18_8mki0"]
-[ext_resource type="Texture2D" uid="uid://d2ujnxq7ovb74" path="res://ui/sprites/arrow_icon.png" id="18_juy1h"]
+[ext_resource type="Texture2D" uid="uid://d2ujnxq7ovb74" path="res://ui/sprites/icon_arrow.png" id="18_juy1h"]
 [ext_resource type="PackedScene" uid="uid://cit6uoxu58nwk" path="res://level_elements/maps/transit/train_map.tscn" id="18_owf05"]
 [ext_resource type="PackedScene" uid="uid://baukigq6wfgs1" path="res://level_elements/ATM/atm.tscn" id="18_uuq13"]
 [ext_resource type="PackedScene" uid="uid://bavx6n5qxivtt" path="res://level_elements/decorative/plants/tiny_foliage.tscn" id="18_x1db4"]
