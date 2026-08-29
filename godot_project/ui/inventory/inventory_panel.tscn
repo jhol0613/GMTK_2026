@@ -1,11 +1,10 @@
 [gd_scene format=3 uid="uid://deyhkqpvtwhsg"]
 
 [ext_resource type="Script" uid="uid://dnm5enmq0tluh" path="res://ui/inventory/inventory_panel.gd" id="1_script"]
-[ext_resource type="Texture2D" uid="uid://dfbg5i3l81fti" path="res://ui/inventory/inventory_slot.png" id="2_slot"]
-[ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/resshan_label.gd" id="3_resshan"]
+[ext_resource type="PackedScene" uid="uid://dfiuadb0lo2tk" path="res://ui/inventory/inventory_slot.tscn" id="2_obcwt"]
 [ext_resource type="Texture2D" uid="uid://cd287u1l626dg" path="res://ui/CloseButton.png" id="4_close"]
 
-[node name="InventoryPanel" type="Control" unique_id=1624485018]
+[node name="InventoryPanel" type="Control" unique_id=1624485018 node_paths=PackedStringArray("_slots")]
 texture_filter = 2
 layout_mode = 3
 anchors_preset = 8
@@ -21,6 +20,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_script")
+_slots = [NodePath("VBoxContainer/Slots/Slot1"), NodePath("VBoxContainer/Slots/Slot2"), NodePath("VBoxContainer/Slots/Slot3"), NodePath("VBoxContainer/Slots/Slot4")]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1202533034]
 layout_mode = 0
@@ -36,165 +36,17 @@ size_flags_horizontal = 4
 theme_override_constants/separation = 24
 alignment = 1
 
-[node name="Slot1" type="VBoxContainer" parent="VBoxContainer/Slots" unique_id=388756598]
+[node name="Slot1" parent="VBoxContainer/Slots" unique_id=401876438 instance=ExtResource("2_obcwt")]
 layout_mode = 2
-theme_override_constants/separation = 8
-alignment = 1
 
-[node name="Slot1Bg" type="TextureRect" parent="VBoxContainer/Slots/Slot1" unique_id=388756599]
-custom_minimum_size = Vector2(150, 150)
-clip_contents = true
+[node name="Slot2" parent="VBoxContainer/Slots" unique_id=1552145055 instance=ExtResource("2_obcwt")]
 layout_mode = 2
-texture = ExtResource("2_slot")
-expand_mode = 1
-stretch_mode = 5
 
-[node name="VBox" type="VBoxContainer" parent="VBoxContainer/Slots/Slot1/Slot1Bg" unique_id=714602350]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="Slot1Icon" type="TextureRect" parent="VBoxContainer/Slots/Slot1/Slot1Bg/VBox" unique_id=1672142477]
-unique_name_in_owner = true
-texture_filter = 1
-custom_minimum_size = Vector2(106, 100)
+[node name="Slot3" parent="VBoxContainer/Slots" unique_id=1102977093 instance=ExtResource("2_obcwt")]
 layout_mode = 2
-expand_mode = 1
-stretch_mode = 5
 
-[node name="Slot1Name" type="Control" parent="VBoxContainer/Slots/Slot1/Slot1Bg/VBox" unique_id=1672142478]
-unique_name_in_owner = true
-texture_filter = 1
+[node name="Slot4" parent="VBoxContainer/Slots" unique_id=498118464 instance=ExtResource("2_obcwt")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_filter = 2
-script = ExtResource("3_resshan")
-metadata/_custom_type_script = "uid://sidowamkhcrt"
-
-[node name="Slot2" type="VBoxContainer" parent="VBoxContainer/Slots" unique_id=1514983281]
-layout_mode = 2
-theme_override_constants/separation = 8
-alignment = 1
-
-[node name="Slot2Bg" type="TextureRect" parent="VBoxContainer/Slots/Slot2" unique_id=1514983282]
-custom_minimum_size = Vector2(150, 150)
-clip_contents = true
-layout_mode = 2
-texture = ExtResource("2_slot")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="VBox" type="VBoxContainer" parent="VBoxContainer/Slots/Slot2/Slot2Bg" unique_id=1876456496]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="Slot2Icon" type="TextureRect" parent="VBoxContainer/Slots/Slot2/Slot2Bg/VBox" unique_id=1463141831]
-unique_name_in_owner = true
-texture_filter = 1
-custom_minimum_size = Vector2(106, 100)
-layout_mode = 2
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Slot2Name" type="Control" parent="VBoxContainer/Slots/Slot2/Slot2Bg/VBox" unique_id=1463141832]
-unique_name_in_owner = true
-texture_filter = 1
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_filter = 2
-script = ExtResource("3_resshan")
-metadata/_custom_type_script = "uid://sidowamkhcrt"
-
-[node name="Slot3" type="VBoxContainer" parent="VBoxContainer/Slots" unique_id=951460956]
-layout_mode = 2
-theme_override_constants/separation = 8
-alignment = 1
-
-[node name="Slot3Bg" type="TextureRect" parent="VBoxContainer/Slots/Slot3" unique_id=951460957]
-custom_minimum_size = Vector2(150, 150)
-clip_contents = true
-layout_mode = 2
-texture = ExtResource("2_slot")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="VBox" type="VBoxContainer" parent="VBoxContainer/Slots/Slot3/Slot3Bg" unique_id=299194746]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="Slot3Icon" type="TextureRect" parent="VBoxContainer/Slots/Slot3/Slot3Bg/VBox" unique_id=1329048992]
-unique_name_in_owner = true
-texture_filter = 1
-custom_minimum_size = Vector2(106, 100)
-layout_mode = 2
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Slot3Name" type="Control" parent="VBoxContainer/Slots/Slot3/Slot3Bg/VBox" unique_id=1329048993]
-unique_name_in_owner = true
-texture_filter = 1
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_filter = 2
-script = ExtResource("3_resshan")
-metadata/_custom_type_script = "uid://sidowamkhcrt"
-
-[node name="Slot4" type="VBoxContainer" parent="VBoxContainer/Slots" unique_id=405363349]
-layout_mode = 2
-theme_override_constants/separation = 8
-alignment = 1
-
-[node name="Slot4Bg" type="TextureRect" parent="VBoxContainer/Slots/Slot4" unique_id=405363350]
-custom_minimum_size = Vector2(150, 150)
-clip_contents = true
-layout_mode = 2
-texture = ExtResource("2_slot")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="VBox" type="VBoxContainer" parent="VBoxContainer/Slots/Slot4/Slot4Bg" unique_id=701792621]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="Slot4Icon" type="TextureRect" parent="VBoxContainer/Slots/Slot4/Slot4Bg/VBox" unique_id=1041293691]
-unique_name_in_owner = true
-texture_filter = 1
-custom_minimum_size = Vector2(106, 100)
-layout_mode = 2
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Slot4Name" type="Control" parent="VBoxContainer/Slots/Slot4/Slot4Bg/VBox" unique_id=1041293692]
-unique_name_in_owner = true
-texture_filter = 1
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_filter = 2
-script = ExtResource("3_resshan")
-metadata/_custom_type_script = "uid://sidowamkhcrt"
 
 [node name="CloseButton" type="TextureButton" parent="." unique_id=1402412403]
 texture_filter = 1
@@ -208,5 +60,10 @@ texture_normal = ExtResource("4_close")
 ignore_texture_size = true
 stretch_mode = 5
 
-[connection signal="mouse_entered" from="VBoxContainer/Slots" to="." method="_on_slots_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Slots" to="." method="_on_slots_mouse_exited"]
 [connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
+
+[editable path="VBoxContainer/Slots/Slot1"]
+[editable path="VBoxContainer/Slots/Slot2"]
+[editable path="VBoxContainer/Slots/Slot3"]
+[editable path="VBoxContainer/Slots/Slot4"]

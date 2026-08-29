@@ -229,6 +229,7 @@ func _is_correct_line(ticket: TicketData) -> bool:
 
 func _boarding_sequence() -> void:
 	_boarding = true
+	get_tree().get_first_node_in_group("ui_overlay").player_in_arrive_disembark_anim = true
 	await _run_boarding_and_departure(true)
 
 	TimeManager.advance_minutes(level_clear_time_cost_minutes)
@@ -301,7 +302,7 @@ func call_train() -> void:
 	play_arrival_animation(false)
 
 func play_arrival_animation(include_player = true) -> void:
-	print("playing arrival animation")
+	
 	animation_player.play("RESET")
 
 	var stop_position: Vector2 = original_position
@@ -316,6 +317,7 @@ func play_arrival_animation(include_player = true) -> void:
 
 	var player := get_tree().get_first_node_in_group("player") as PlayerCharacter
 	if include_player and player:
+		get_tree().get_first_node_in_group("ui_overlay").player_in_arrive_disembark_anim = true
 		_block_arrivals = true
 		player.global_position = player_disembark_marker.global_position - arrival_offset
 		play_pulling_in()
@@ -375,6 +377,7 @@ func play_arrival_animation(include_player = true) -> void:
 			player_disembark_marker.global_position,
 			board_walk_speed,
 		)
+		get_tree().get_first_node_in_group("ui_overlay").player_in_arrive_disembark_anim = false
 	elif remote:
 		remote.position = remote_rest
 

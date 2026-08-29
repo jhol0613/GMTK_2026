@@ -61,7 +61,10 @@ func _gui_input(event: InputEvent) -> void:
 
 
 func _on_mouse_entered() -> void:
+	if get_tree().get_first_node_in_group("ui_overlay").dragging_item:
+		return
 	var pop: = Notebook.get_note(_encoded_string)
+	
 	if pop:
 		noted = true
 		if note:
@@ -85,6 +88,8 @@ func _on_mouse_entered() -> void:
 
 
 func _on_mouse_exited() -> void:
+	if get_tree().get_first_node_in_group("ui_overlay").dragging_item:
+		return
 	_shine_cover.hide()
 	Input.set_custom_mouse_cursor(magnifying_glass, Input.CURSOR_ARROW, Vector2(0,0) )
 	_hovered = false

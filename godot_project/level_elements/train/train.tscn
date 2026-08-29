@@ -801,7 +801,7 @@ libraries/ = SubResource("AnimationLibrary_oe38n")
 position = Vector2(-64, -66)
 l_or_r = "l"
 
-[node name="CollisionShape2D" parent="TrainInteractableL" index="0" unique_id=278382881]
+[node name="InteractableCollisionShape2D" parent="TrainInteractableL" index="0" unique_id=278382881]
 position = Vector2(0, 57)
 shape = SubResource("RectangleShape2D_5xnue")
 
@@ -809,7 +809,7 @@ shape = SubResource("RectangleShape2D_5xnue")
 position = Vector2(64, -66)
 l_or_r = "r"
 
-[node name="CollisionShape2D" parent="TrainInteractableR" index="0" unique_id=278382881]
+[node name="InteractableCollisionShape2D" parent="TrainInteractableR" index="0" unique_id=278382881]
 position = Vector2(0, 57)
 shape = SubResource("RectangleShape2D_5xnue")
 
@@ -817,7 +817,7 @@ shape = SubResource("RectangleShape2D_5xnue")
 position = Vector2(0, -64)
 l_or_r = "l"
 
-[node name="CollisionShape2D" parent="TrainInteractableU" index="0" unique_id=278382881]
+[node name="InteractableCollisionShape2D" parent="TrainInteractableU" index="0" unique_id=278382881]
 position = Vector2(58, 5)
 shape = SubResource("RectangleShape2D_5xnue")
 
@@ -839,7 +839,7 @@ shape = SubResource("RectangleShape2D_5xnue")
 position = Vector2(1, 64)
 l_or_r = "l"
 
-[node name="CollisionShape2D" parent="TrainInteractableD" index="0" unique_id=278382881]
+[node name="InteractableCollisionShape2D" parent="TrainInteractableD" index="0" unique_id=278382881]
 position = Vector2(57, 8)
 shape = SubResource("RectangleShape2D_5xnue")
 
