@@ -59,6 +59,8 @@ func _build_cry_randomizer() -> AudioStreamRandomizer:
 
 
 func _sob() -> void:
+	if _sprite.animation == &"throw":
+		_sprite.play("idle")
 	if _crying and not cry_clips.is_empty():
 		_cry_player.play()
 
@@ -113,16 +115,16 @@ func _on_no_longer_happy(outcome_id: StringName):
 	var generation := _mask_generation
 	repeat_dialogue.lines[0].speaker_icon = sad_portrait
 	repeat_dialogue.lines[0].text = \
-		sad_repeat_text % ["<<" + outcome_id.to_lower() + ">>"]
+		"%s <<trinketmask>> <<angry>> <<i>> <<buy>> next <<trinketmask>>" % ["<<" + outcome_id.to_lower() + ">>"]
 	happy_timer.timeout.disconnect(_on_no_longer_happy)
 	if _drop_player.stream != null:
 		_drop_player.play()
 	if mask_drop_delay > 0.0:
 		await get_tree().create_timer(mask_drop_delay).timeout
+	_sprite.play("throw")
 	mask.position = _mask_original_position + dropped_mask_offset
 	if _drop_player.playing:
 		await _drop_player.finished
-	_sprite.play("idle")
 	if generation != _mask_generation:
 		return
 	_crying = true

@@ -11,7 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://5gv8v0btbj3f" path="res://level_elements/NPCs/crying_kid/Crying Kid SFX/kid_cry_2.mp3" id="9_3fx6k"]
 [ext_resource type="AudioStream" uid="uid://bfhd4015x8aas" path="res://level_elements/NPCs/crying_kid/Crying Kid SFX/kid_cry_3.mp3" id="10_kpd5s"]
 [ext_resource type="AudioStream" uid="uid://bm142wypeddqo" path="res://level_elements/NPCs/crying_kid/Crying Kid SFX/kid_cry_4.mp3" id="11_vk5t0"]
-[ext_resource type="Texture2D" uid="uid://csgvh6vnlfcrk" path="res://level_elements/NPCs/crying_kid/kid.png" id="12_dsub4"]
+[ext_resource type="Texture2D" uid="uid://csgvh6vnlfcrk" path="res://level_elements/NPCs/crying_kid/kid.png" id="12_eqodx"]
 [ext_resource type="Texture2D" uid="uid://cicclo21xo02d" path="res://level_elements/trinket_shop/masks/blue.png" id="13_43rhy"]
 [ext_resource type="Texture2D" uid="uid://3ma7e8j2tpci" path="res://level_elements/trinket_shop/masks/brown.png" id="14_c61f0"]
 [ext_resource type="Texture2D" uid="uid://nw2bxlclpp72" path="res://level_elements/trinket_shop/masks/gray.png" id="15_1c8nb"]
@@ -187,22 +187,37 @@ outcome_id = &"NONE"
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gsv6k"]
-atlas = ExtResource("12_dsub4")
+atlas = ExtResource("12_eqodx")
 region = Rect2(64, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4b03v"]
+atlas = ExtResource("12_eqodx")
+region = Rect2(96, 0, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_dtluw"]
-atlas = ExtResource("12_dsub4")
+atlas = ExtResource("12_eqodx")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3h8gp"]
-atlas = ExtResource("12_dsub4")
+atlas = ExtResource("12_eqodx")
 region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqodx"]
+atlas = ExtResource("12_eqodx")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5aw8"]
+atlas = ExtResource("12_eqodx")
+region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xl64p"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gsv6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4b03v")
 }],
 "loop": 0,
 "name": &"happy",
@@ -218,6 +233,17 @@ animations = [{
 "loop": 1,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_eqodx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5aw8")
+}],
+"loop": 0,
+"name": &"throw",
+"speed": 6.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_glfqm"]
@@ -377,7 +403,7 @@ initial_dialogue = SubResource("Resource_646j3")
 repeat_dialogue = SubResource("Resource_6q1ay")
 nevermind_choice = SubResource("Resource_1ki84")
 give_item_choice_text = "Give %s"
-happy_repeat_text = ""
+happy_repeat_text = "%s <<trinketmask>> <<thankyou>>"
 sad_repeat_text = "%s <<trinketmask>> <<angry>> <<i>> <<buy>> next <<trinketmask>>"
 happy_portrait = ExtResource("5_oy818")
 sad_portrait = ExtResource("6_e8hpn")
@@ -391,6 +417,7 @@ mask_drop_delay = 1.0
 
 [node name="Sprite" parent="." index="0" unique_id=1868209522]
 sprite_frames = SubResource("SpriteFrames_xl64p")
+animation = &"throw"
 
 [node name="Mask" type="AnimatedSprite2D" parent="Sprite" index="0" unique_id=894242630]
 visible = false
