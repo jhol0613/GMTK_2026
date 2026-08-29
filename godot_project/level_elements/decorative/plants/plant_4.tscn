@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://blufc37tpefe4"]
+
+[ext_resource type="Texture2D" uid="uid://cmw372tprmntw" path="res://level_elements/decorative/plants/plant_4.png" id="1_xpsog"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fpcxu"]
+size = Vector2(14, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bt36x"]
+atlas = ExtResource("1_xpsog")
+region = Rect2(0, 0, 28, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vh1t0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bt36x")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Plant2" type="StaticBody2D" unique_id=232674008]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1878472438]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_fpcxu")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1185998454]
+z_index = 1
+position = Vector2(0, -18)
+sprite_frames = SubResource("SpriteFrames_vh1t0")
+autoplay = "default"
