@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://bc23anrbb7i7v" path="res://level_elements/maps/station/station_map_lvl2_sprite.png" id="2_n1xhd"]
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="3_eaavb"]
 [ext_resource type="Texture2D" uid="uid://b53hkyvvsyjsc" path="res://interactables/dialog_system/character_portraits/player/mc_portrait_10.png" id="4_adogf"]
-[ext_resource type="Texture2D" uid="uid://cixbb3fbio7h6" path="res://interactables/dialog_system/character_portraits/player/mc_portrait_6.png" id="5_48722"]
 [ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="6_xa7cy"]
 [ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialog_system/dialogue_panel.tscn" id="8_eaavb"]
 
@@ -15,15 +14,9 @@ text = "This silly plant is covering up the whole map!"
 speaker_icon = ExtResource("4_adogf")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
-[sub_resource type="Resource" id="Resource_48722"]
-script = ExtResource("3_eaavb")
-text = "I'll have to find another way to figure out where everything is..."
-speaker_icon = ExtResource("5_48722")
-metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
-
 [sub_resource type="Resource" id="Resource_adogf"]
 script = ExtResource("6_xa7cy")
-lines = Array[ExtResource("3_eaavb")]([SubResource("Resource_eaavb"), SubResource("Resource_48722")])
+lines = Array[ExtResource("3_eaavb")]([SubResource("Resource_eaavb")])
 metadata/_custom_type_script = "uid://dvkforrusa0nj"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iejek"]

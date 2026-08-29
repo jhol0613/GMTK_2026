@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bj6c3dkqrbxyt" path="res://level_elements/train_platform/vertical_platform.tscn" id="3_2smvo"]
 [ext_resource type="PackedScene" uid="uid://denclmxtn1x1l" path="res://level_elements/departure_board/departure_board.tscn" id="3_lnqnw"]
 [ext_resource type="PackedScene" uid="uid://dpexe87ps0d7f" path="res://level_elements/hourglass/hourglass.tscn" id="5_2smvo"]
-[ext_resource type="PackedScene" uid="uid://dsi7m6wwu01iw" path="res://level_elements/maps/station/station_map_lvl2.tscn" id="6_cp47v"]
+[ext_resource type="PackedScene" uid="uid://bh8gk7aegekyy" path="res://level_elements/maps/station/station_map_lvl2.tscn" id="6_cp47v"]
 [ext_resource type="PackedScene" uid="uid://2pwlm8itluel" path="res://level_elements/ticket_booth/ticket_booth.tscn" id="7_aq41y"]
 [ext_resource type="PackedScene" uid="uid://baukigq6wfgs1" path="res://level_elements/ATM/atm.tscn" id="8_5ts7o"]
 [ext_resource type="PackedScene" uid="uid://cit6uoxu58nwk" path="res://level_elements/maps/transit/train_map.tscn" id="9_dj0pt"]
@@ -231,14 +231,14 @@ position = Vector2(-1657, -1496)
 position = Vector2(-1822, -1284)
 
 [node name="TicketBooth" parent="." index="15" unique_id=861247956 instance=ExtResource("7_aq41y")]
-position = Vector2(-1906, -1469)
+position = Vector2(-1669, -991)
 
 [node name="ATM" parent="." index="16" unique_id=124595741 instance=ExtResource("8_5ts7o")]
 position = Vector2(-1994, -1040)
 broken = true
 
 [node name="TrainMap" parent="." index="17" unique_id=940096549 instance=ExtResource("9_dj0pt")]
-position = Vector2(-1104, -1952)
+position = Vector2(-1878, -1511)
 
 [node name="TrainMap2" parent="." index="18" unique_id=1587136523 instance=ExtResource("9_dj0pt")]
 position = Vector2(-736, -1952)
@@ -306,7 +306,6 @@ position = Vector2(-1919, -1021)
 dialogue = ExtResource("18_guide")
 
 [node name="InteractableCollisionShape2D" parent="Guide/DialogueInteractable" index="0" unique_id=278382881]
-position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_1vf62")
 
 [node name="TrinketShop" parent="." index="30" unique_id=877031898 instance=ExtResource("19_1vf62")]
@@ -322,7 +321,8 @@ position = Vector2(-1847, -2366)
 destination = NodePath("../TrinketShop")
 
 [node name="StationMapLevel2" parent="." index="33" unique_id=1664644018 instance=ExtResource("6_cp47v")]
-position = Vector2(-1680, -960)
+z_index = 1
+position = Vector2(-1944, -1511)
 
 [editable path="Platform1"]
 [editable path="Platform2"]
