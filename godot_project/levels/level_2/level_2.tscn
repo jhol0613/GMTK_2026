@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cmdda7648573b" path="res://level_elements/NPCs/npc.tscn" id="17_5ts7o"]
 [ext_resource type="Resource" uid="uid://bkybfv1jevm2y" path="res://levels/level_2/level_specific_resources/guide_dialogue_level2.tres" id="18_guide"]
 [ext_resource type="PackedScene" uid="uid://xyprm41o3crg" path="res://levels/level_2/level_specific_resources/trinket_shop_level_2.tscn" id="19_1vf62"]
-[ext_resource type="PackedScene" uid="uid://x4ghn30rc8l0" path="res://level_elements/NPCs/crying_kid.tscn" id="19_yiikh"]
+[ext_resource type="PackedScene" uid="uid://x4ghn30rc8l0" path="res://level_elements/NPCs/crying_kid/crying_kid.tscn" id="19_yiikh"]
 [ext_resource type="PackedScene" uid="uid://wvltf0ie5ih7" path="res://levels/level_2/level_specific_resources/station_2_technician.tscn" id="20_yiikh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vf62"]
@@ -290,6 +290,7 @@ position = Vector2(-1663, -1186)
 
 [node name="CryingKid" parent="." index="32" unique_id=837182991 instance=ExtResource("19_yiikh")]
 position = Vector2(-1755, -1177)
+collision_layer = 2
 sad_repeat_text = ""
 
 [node name="Station2Technician" parent="." index="33" unique_id=1047069434 node_paths=PackedStringArray("destination") instance=ExtResource("20_yiikh")]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cltjgiddt3m3y"]
 
-[ext_resource type="Texture2D" uid="uid://5jf280je61mn" path="res://level_elements/NPCs/character_preston.png" id="1_preston"]
+[ext_resource type="Texture2D" uid="uid://5jf280je61mn" path="res://level_elements/NPCs/preston/character_preston.png" id="1_preston"]
 [ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialog_system/dialogue_interactable.tscn" id="2_dialog"]
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="3_line"]
 [ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://interactables/dialog_system/dialogue_choice.gd" id="3_siqd2"]

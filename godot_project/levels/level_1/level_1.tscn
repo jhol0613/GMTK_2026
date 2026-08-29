@@ -23,7 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://70v4pred1q71" path="res://level_elements/bathroom/outside_restroom.png" id="31_530me"]
 [ext_resource type="PackedScene" uid="uid://ba3allrv3pni0" path="res://level_elements/decorative/plants/plant_1.tscn" id="32_82lf4"]
 [ext_resource type="PackedScene" uid="uid://b8j82426dfwlf" path="res://level_elements/decorative/plants/plant_2.tscn" id="33_e0qbr"]
-[ext_resource type="PackedScene" uid="uid://sve0agw1p5d0" path="res://level_elements/NPCs/atm_guy.tscn" id="34_7fqnt"]
+[ext_resource type="PackedScene" uid="uid://sve0agw1p5d0" path="res://level_elements/NPCs/atm_guy/atm_guy.tscn" id="34_7fqnt"]
 [ext_resource type="PackedScene" uid="uid://bcltguxgmfo2w" path="res://level_elements/decorative/sprinkler/sprinkler.tscn" id="35_wl75l"]
 [ext_resource type="PackedScene" uid="uid://bavx6n5qxivtt" path="res://level_elements/decorative/plants/tiny_foliage.tscn" id="35_ya8pr"]
 [ext_resource type="Texture2D" uid="uid://cs5l21wrqu5gc" path="res://level_elements/decorative/solar_decor/Solardecor3.png" id="36_t3e5a"]
@@ -35,11 +35,11 @@
 [ext_resource type="PackedScene" uid="uid://biebaxao2klw3" path="res://level_elements/decorative/benches/rest_chair_vertical_left.tscn" id="39_wl75l"]
 [ext_resource type="PackedScene" uid="uid://c5jvn4a3mfhj" path="res://level_elements/decorative/recycle_bin/recycle_bin.tscn" id="40_m78yj"]
 [ext_resource type="PackedScene" uid="uid://bo3pcctdon7l" path="res://level_elements/signs/sign_station_name.tscn" id="41_r4js7"]
-[ext_resource type="PackedScene" uid="uid://bqn5083nuxoa8" path="res://level_elements/NPCs/pee_pee_dance.tscn" id="42_jg3i0"]
-[ext_resource type="PackedScene" uid="uid://cltjgiddt3m3y" path="res://level_elements/NPCs/preston.tscn" id="43_y7g21"]
+[ext_resource type="PackedScene" uid="uid://bqn5083nuxoa8" path="res://level_elements/NPCs/pee_pee_dance/pee_pee_dance.tscn" id="42_jg3i0"]
+[ext_resource type="PackedScene" uid="uid://cltjgiddt3m3y" path="res://level_elements/NPCs/preston/preston.tscn" id="43_y7g21"]
 [ext_resource type="Script" uid="uid://dcanbg433hb0v" path="res://visual_effects/day_night/hoverthruster_lighting.gd" id="44_thruster_light"]
 [ext_resource type="PackedScene" path="res://visual_effects/fireflies/firefly_field.tscn" id="45_fireflies"]
-[ext_resource type="PackedScene" path="res://level_elements/NPCs/npc.tscn" id="46_s81jn"]
+[ext_resource type="PackedScene" uid="uid://cmdda7648573b" path="res://level_elements/NPCs/npc.tscn" id="46_s81jn"]
 [ext_resource type="PackedScene" path="res://level_elements/decorative/street_lamp/street_lamp.tscn" id="47_n5t7a"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="48_rshan"]
 
@@ -653,7 +653,6 @@ dialogue = ExtResource("9_jq5vq")
 
 [node name="CoffeeShop" parent="." index="15" unique_id=1288725174 instance=ExtResource("19_wx43u")]
 position = Vector2(-570, -297)
-scale = Vector2(0.6, 0.6)
 effect_volume_db = -10.0
 
 [node name="TicketBooth" parent="." index="16" unique_id=861247956 instance=ExtResource("19_uptk2")]

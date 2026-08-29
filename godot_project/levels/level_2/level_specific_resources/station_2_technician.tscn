@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://wvltf0ie5ih7"]
 
-[ext_resource type="PackedScene" uid="uid://4mogavb5vbg8" path="res://level_elements/NPCs/technician.tscn" id="1_sl31h"]
+[ext_resource type="PackedScene" uid="uid://4mogavb5vbg8" path="res://level_elements/NPCs/technician/technician.tscn" id="1_sl31h"]
 [ext_resource type="Script" uid="uid://coaqsteu4ipf0" path="res://levels/level_2/level_specific_resources/station_2_technician.gd" id="2_8an6j"]
 [ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://interactables/dialog_system/dialogue_choice.gd" id="3_i6y3f"]
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="4_2gt0t"]
@@ -14,6 +14,7 @@ metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 script = ExtResource("3_i6y3f")
 player_text = "<<money>> <<machine>> <<closed>> <<money>> <<machine>> <<fix>> <<?>>"
 reply = SubResource("Resource_fq0us")
+outcome_id = &"follow_me"
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 
 [sub_resource type="Resource" id="Resource_qvpki"]
@@ -28,6 +29,7 @@ choices = Array[ExtResource("3_i6y3f")]([SubResource("Resource_yiikh")])
 metadata/_custom_type_script = "uid://dvkforrusa0nj"
 
 [node name="Station2Technician" unique_id=837182991 instance=ExtResource("1_sl31h")]
+collision_layer = 2
 script = ExtResource("2_8an6j")
 
 [node name="DialogueInteractable" parent="." index="2" unique_id=1161048169]

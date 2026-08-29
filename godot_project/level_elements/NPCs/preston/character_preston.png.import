@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbrh2j31wvjgd"
-path="res://.godot/imported/ATM guy.png-62a72ebed9f4dff405d7aea09981da9a.ctex"
+uid="uid://5jf280je61mn"
+path="res://.godot/imported/character_preston.png-9ebafe08484de8b5ad80b53eb5174e33.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level_elements/NPCs/ATM guy.png"
-dest_files=["res://.godot/imported/ATM guy.png-62a72ebed9f4dff405d7aea09981da9a.ctex"]
+source_file="res://level_elements/NPCs/preston/character_preston.png"
+dest_files=["res://.godot/imported/character_preston.png-9ebafe08484de8b5ad80b53eb5174e33.ctex"]
 
 [params]
 

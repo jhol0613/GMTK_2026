@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://4mogavb5vbg8"]
 
 [ext_resource type="PackedScene" uid="uid://cmdda7648573b" path="res://level_elements/NPCs/npc.tscn" id="1_8shc6"]
-[ext_resource type="SpriteFrames" uid="uid://de2gdrslgml7o" path="res://level_elements/NPCs/technician_sprite_frames.tres" id="2_5cd8y"]
+[ext_resource type="SpriteFrames" uid="uid://de2gdrslgml7o" path="res://level_elements/NPCs/technician/technician_sprite_frames.tres" id="2_5cd8y"]
 [ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://interactables/dialog_system/dialogue_choice.gd" id="3_n0pet"]
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="4_gnxmv"]
 [ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="5_yve1r"]

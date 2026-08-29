@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://74mtphl52xwy"
-path="res://.godot/imported/Technician_Placeholder.png-b8b4732dce790f51124448f54bdb12e8.ctex"
+path="res://.godot/imported/Technician_Placeholder.png-1df217a4592e9c13fd01f6b36a35b354.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level_elements/NPCs/Technician_Placeholder.png"
-dest_files=["res://.godot/imported/Technician_Placeholder.png-b8b4732dce790f51124448f54bdb12e8.ctex"]
+source_file="res://level_elements/NPCs/technician/Technician_Placeholder.png"
+dest_files=["res://.godot/imported/Technician_Placeholder.png-1df217a4592e9c13fd01f6b36a35b354.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csgvh6vnlfcrk"
-path="res://.godot/imported/kid.png-b390ff75e03fbd06782ef01890055ac4.ctex"
+uid="uid://bbrh2j31wvjgd"
+path="res://.godot/imported/ATM guy.png-752effa967a49a8f918ee324b440397f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level_elements/NPCs/kid.png"
-dest_files=["res://.godot/imported/kid.png-b390ff75e03fbd06782ef01890055ac4.ctex"]
+source_file="res://level_elements/NPCs/atm_guy/ATM guy.png"
+dest_files=["res://.godot/imported/ATM guy.png-752effa967a49a8f918ee324b440397f.ctex"]
 
 [params]
 

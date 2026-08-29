@@ -111,7 +111,6 @@ func _on_option_confirmed(outcome_id: StringName):
 
 func _on_no_longer_happy(outcome_id: StringName):
 	var generation := _mask_generation
-	_sprite.play("idle")
 	repeat_dialogue.lines[0].speaker_icon = sad_portrait
 	repeat_dialogue.lines[0].text = \
 		sad_repeat_text % ["<<" + outcome_id.to_lower() + ">>"]
@@ -120,9 +119,10 @@ func _on_no_longer_happy(outcome_id: StringName):
 		_drop_player.play()
 	if mask_drop_delay > 0.0:
 		await get_tree().create_timer(mask_drop_delay).timeout
-	mask.position += dropped_mask_offset
+	mask.position = _mask_original_position + dropped_mask_offset
 	if _drop_player.playing:
 		await _drop_player.finished
+	_sprite.play("idle")
 	if generation != _mask_generation:
 		return
 	_crying = true

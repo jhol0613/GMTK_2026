@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://de2gdrslgml7o"]
 
-[ext_resource type="Texture2D" uid="uid://74mtphl52xwy" path="res://level_elements/NPCs/Technician_Placeholder.png" id="1_6bado"]
+[ext_resource type="Texture2D" uid="uid://74mtphl52xwy" path="res://level_elements/NPCs/technician/Technician_Placeholder.png" id="1_6bado"]
 [ext_resource type="Texture2D" uid="uid://d0p3sbfud3275" path="res://player/sprites/Main_Character.png" id="1_bwypv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ljipq"]

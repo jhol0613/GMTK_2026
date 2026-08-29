@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://sve0agw1p5d0"]
 
-[ext_resource type="Texture2D" uid="uid://bbrh2j31wvjgd" path="res://level_elements/NPCs/ATM guy.png" id="1_dfn31"]
+[ext_resource type="Texture2D" uid="uid://bbrh2j31wvjgd" path="res://level_elements/NPCs/atm_guy/ATM guy.png" id="1_dfn31"]
 [ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialog_system/dialogue_interactable.tscn" id="2_1k5ln"]
 [ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://interactables/dialog_system/dialogue_choice.gd" id="3_an07i"]
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="3_t36nf"]

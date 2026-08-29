@@ -15,7 +15,7 @@ const FACING_VECTORS := [Vector2.DOWN, Vector2.UP, Vector2.LEFT, Vector2.RIGHT]
 
 @onready var _sprite: AnimatedSprite2D = $Sprite
 @onready var _panel: DialoguePanel = $DialoguePanel
-@onready var _interactable: Interactable = $DialogueInteractable
+@onready var _interactable: DialogueInteractable = $DialogueInteractable
 @onready var _collision_shape: CollisionShape2D = $CollisionShape2D
 
 @onready var _player = get_tree().get_first_node_in_group("player") as PlayerCharacter

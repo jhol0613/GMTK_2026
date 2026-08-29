@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5jf280je61mn"
-path="res://.godot/imported/character_preston.png-80a0c5cd895a56fdfa7b53542d02003c.ctex"
+uid="uid://xpc6phcxted8"
+path="res://.godot/imported/pee pee dance.png-a70aeb764bcecc2409c4791bc2b6bad7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level_elements/NPCs/character_preston.png"
-dest_files=["res://.godot/imported/character_preston.png-80a0c5cd895a56fdfa7b53542d02003c.ctex"]
+source_file="res://level_elements/NPCs/pee_pee_dance/pee pee dance.png"
+dest_files=["res://.godot/imported/pee pee dance.png-a70aeb764bcecc2409c4791bc2b6bad7.ctex"]
 
 [params]
 

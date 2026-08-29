@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xpc6phcxted8"
-path="res://.godot/imported/pee pee dance.png-2c1144ad2c6f32986bf57e771c372c56.ctex"
+uid="uid://csgvh6vnlfcrk"
+path="res://.godot/imported/kid.png-d6c97cd4f00dace5179dedff4d05a0da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level_elements/NPCs/pee pee dance.png"
-dest_files=["res://.godot/imported/pee pee dance.png-2c1144ad2c6f32986bf57e771c372c56.ctex"]
+source_file="res://level_elements/NPCs/crying_kid/kid.png"
+dest_files=["res://.godot/imported/kid.png-d6c97cd4f00dace5179dedff4d05a0da.ctex"]
 
 [params]
 

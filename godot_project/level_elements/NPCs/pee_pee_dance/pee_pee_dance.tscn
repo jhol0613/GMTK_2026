@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bqn5083nuxoa8"]
 
-[ext_resource type="Texture2D" uid="uid://xpc6phcxted8" path="res://level_elements/NPCs/pee pee dance.png" id="1_sg8ok"]
+[ext_resource type="Texture2D" uid="uid://xpc6phcxted8" path="res://level_elements/NPCs/pee_pee_dance/pee pee dance.png" id="1_sg8ok"]
 [ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialog_system/dialogue_interactable.tscn" id="2_2jkr3"]
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="3_g1vn7"]
 [ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://interactables/dialog_system/dialogue_choice.gd" id="3_vh1nc"]
