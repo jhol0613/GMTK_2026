@@ -8,6 +8,13 @@ var sprint_animation_multiplier := 1.5
 var distance: int = 0
 var movement_disabled: bool = false
 
+@export_group("Following")
+@export var trail_buffer_max_size = 20
+@export var min_trail_distance_squared = 100.0
+@export var max_trail_distance_squared = 900.0
+var _trail_buffer : Array[Vector2]
+var _moved_last_iteration := false
+
 @export var distance_per_minute: int = 50
 
 @export var footstep_sounds: Array[AudioStream] = []
@@ -34,12 +41,14 @@ var _footstep_randomizers: Dictionary[StringName, AudioStreamRandomizer] = { }
 
 @onready var sprite := $PlayerSprite
 @onready var timer: Timer = $Timer
+@onready var trail_marker := $FollowPosition
 
 
 func _ready() -> void:
 	add_to_group("player")
 
 	_initialize_footstep_audio()
+	#trail_marker.reparent(get_parent())
 
 
 func _physics_process(_delta: float) -> void:
@@ -51,8 +60,19 @@ func _physics_process(_delta: float) -> void:
 
 	direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	_animate()
+	
+
+	print(_trail_buffer.size())
 
 	if not direction:
+		
+		if _moved_last_iteration and _trail_buffer.size() > 1 and \
+			_trail_buffer[0].distance_squared_to(_trail_buffer[-1]) > max_trail_distance_squared:
+			_trail_buffer.pop_front()
+			trail_marker.position = _trail_buffer[0] - position
+			_moved_last_iteration = true
+		else:
+			_moved_last_iteration = false
 		return
 
 	var sprinting = Input.is_action_pressed("sprint")
@@ -62,6 +82,13 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	if position != old_position:
 		distance += 1
+		
+		#keep track of position behind player for a following node to target
+		_trail_buffer.append(old_position)
+		if _trail_buffer.size() > trail_buffer_max_size:
+			_trail_buffer.pop_front()
+		trail_marker.position = _trail_buffer[0] - position
+		_moved_last_iteration = true
 
 	if distance == distance_per_minute:
 		SignalBus.minutes_passed.emit(1)

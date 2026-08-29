@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 const STUCK_GRACE: float = 0.75
 
-enum State { IDLE, PATROL, GOTO, ACTING, TALKING }
+enum State { IDLE, PATROL, GOTO, ACTING, TALKING, FOLLOWING }
 enum Facing { DOWN, UP, LEFT, RIGHT }
 
 const FACING_VECTORS := [Vector2.DOWN, Vector2.UP, Vector2.LEFT, Vector2.RIGHT]
@@ -16,8 +16,14 @@ const FACING_VECTORS := [Vector2.DOWN, Vector2.UP, Vector2.LEFT, Vector2.RIGHT]
 @onready var _sprite: AnimatedSprite2D = $Sprite
 @onready var _panel: DialoguePanel = $DialoguePanel
 @onready var _interactable: Interactable = $DialogueInteractable
+@onready var _collision_shape: CollisionShape2D = $CollisionShape2D
 
-var _state: State = State.IDLE
+@onready var _player = get_tree().get_first_node_in_group("player") as PlayerCharacter
+
+var _state: State = State.IDLE:
+	set(new_state):
+		_state = new_state
+		_collision_shape.disabled = _state == State.FOLLOWING
 var _progress: float = 0.0
 var _goto_target: Vector2 = Vector2.ZERO
 var _goto_resume: bool = true
@@ -35,6 +41,11 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	match _state:
+		State.FOLLOWING:
+			if _player:
+				var dif = _player.trail_marker.global_position - global_position
+				_animate(dif)
+				global_position = _player.trail_marker.global_position
 		State.PATROL:
 			_patrol(delta)
 		State.GOTO:

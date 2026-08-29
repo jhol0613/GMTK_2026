@@ -292,8 +292,9 @@ position = Vector2(-1663, -1186)
 position = Vector2(-1755, -1177)
 sad_repeat_text = ""
 
-[node name="Station2Technician" parent="." index="33" unique_id=1047069434 instance=ExtResource("20_yiikh")]
-position = Vector2(-1907, -1158)
+[node name="Station2Technician" parent="." index="33" unique_id=1047069434 node_paths=PackedStringArray("destination") instance=ExtResource("20_yiikh")]
+position = Vector2(-1847, -2366)
+destination = NodePath("../TrinketShop")
 
 [editable path="Platform1"]
 [editable path="Platform2"]
