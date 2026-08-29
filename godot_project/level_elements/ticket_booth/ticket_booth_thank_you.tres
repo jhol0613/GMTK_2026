@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DialogueLine" format=3 uid="uid://bet02myt21fpk"]
+
+[ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="1_mrrit"]
+[ext_resource type="AudioStream" uid="uid://dpnmacxamctuf" path="res://ui/SpeechAudio/Thank you.mp3" id="2_hbioh"]
+[ext_resource type="Texture2D" uid="uid://kayfkwypm2a" path="res://interactables/dialog_system/character_portraits/ticket_lady/ticket_lady_portrait_2.png" id="3_c3ag2"]
+
+[resource]
+script = ExtResource("1_mrrit")
+text = "<<thankyou>>"
+speaker_icon = ExtResource("3_c3ag2")
+sfx = ExtResource("2_hbioh")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"

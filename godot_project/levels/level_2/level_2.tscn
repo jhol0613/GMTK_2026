@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dpexe87ps0d7f" path="res://level_elements/hourglass/hourglass.tscn" id="5_2smvo"]
 [ext_resource type="PackedScene" uid="uid://bh8gk7aegekyy" path="res://level_elements/maps/station/station_map_lvl2.tscn" id="6_cp47v"]
 [ext_resource type="PackedScene" uid="uid://2pwlm8itluel" path="res://level_elements/ticket_booth/ticket_booth.tscn" id="7_aq41y"]
+[ext_resource type="Resource" uid="uid://dhce3mpsoap1v" path="res://levels/level_2/level_specific_resources/ticket_dialogue_level2.tres" id="7_fq0us"]
 [ext_resource type="PackedScene" uid="uid://baukigq6wfgs1" path="res://level_elements/ATM/atm.tscn" id="8_5ts7o"]
 [ext_resource type="PackedScene" uid="uid://cit6uoxu58nwk" path="res://level_elements/maps/transit/train_map.tscn" id="9_dj0pt"]
 [ext_resource type="PackedScene" uid="uid://bni8iwfqac6ap" path="res://level_elements/coffee_shop/coffee_shop.tscn" id="10_1vf62"]
@@ -233,6 +234,9 @@ position = Vector2(-1822, -1284)
 [node name="TicketBooth" parent="." index="15" unique_id=861247956 instance=ExtResource("7_aq41y")]
 position = Vector2(-1669, -991)
 
+[node name="DialogueInteractable" parent="TicketBooth" index="2" unique_id=358228256]
+dialogue = ExtResource("7_fq0us")
+
 [node name="ATM" parent="." index="16" unique_id=124595741 instance=ExtResource("8_5ts7o")]
 position = Vector2(-1994, -1040)
 broken = true
@@ -332,6 +336,8 @@ position = Vector2(-1944, -1511)
 [editable path="Platform5"]
 [editable path="Platform6"]
 [editable path="Platform7"]
+[editable path="TicketBooth"]
+[editable path="TicketBooth/DialogueInteractable"]
 [editable path="ATM"]
 [editable path="ATM/DialogueInteractable"]
 [editable path="Guide"]
