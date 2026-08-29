@@ -316,8 +316,9 @@ position = Vector2(-1755, -1177)
 collision_layer = 2
 sad_repeat_text = ""
 
-[node name="Station2Technician" parent="." index="32" unique_id=1047069434 node_paths=PackedStringArray("destination") instance=ExtResource("20_yiikh")]
+[node name="TechnicianStation2" parent="." index="32" unique_id=1047069434 node_paths=PackedStringArray("broken_atm_interactable", "destination") instance=ExtResource("20_yiikh")]
 position = Vector2(-1847, -2366)
+broken_atm_interactable = NodePath("../ATM/DialogueInteractable")
 destination = NodePath("../TrinketShop")
 
 [node name="StationMapLevel2" parent="." index="33" unique_id=1664644018 instance=ExtResource("6_cp47v")]
@@ -331,5 +332,7 @@ position = Vector2(-1944, -1511)
 [editable path="Platform5"]
 [editable path="Platform6"]
 [editable path="Platform7"]
+[editable path="ATM"]
+[editable path="ATM/DialogueInteractable"]
 [editable path="Guide"]
 [editable path="Guide/DialogueInteractable"]

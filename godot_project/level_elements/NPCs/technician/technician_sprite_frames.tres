@@ -7,25 +7,17 @@
 atlas = ExtResource("1_6bado")
 region = Rect2(0, 192, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_boad6"]
-atlas = ExtResource("1_bwypv")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqh2o"]
+atlas = ExtResource("1_6bado")
+region = Rect2(32, 192, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2xihk"]
 atlas = ExtResource("1_6bado")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_c35mf"]
-atlas = ExtResource("1_bwypv")
-region = Rect2(0, 32, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_6n2in"]
 atlas = ExtResource("1_6bado")
 region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_65viv"]
-atlas = ExtResource("1_bwypv")
-region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nl0ya"]
 atlas = ExtResource("1_6bado")
@@ -134,17 +126,29 @@ region = Rect2(96, 160, 32, 32)
 [resource]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_ljipq")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_hqh2o")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_ljipq")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_hqh2o")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_ljipq")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_hqh2o")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"fix",
 "speed": 6.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_boad6")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2xihk")
 }],
@@ -154,9 +158,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_c35mf")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_6n2in")
 }],
 "loop": 1,
@@ -164,9 +165,6 @@ animations = [{
 "speed": 4.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_65viv")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nl0ya")
 }],

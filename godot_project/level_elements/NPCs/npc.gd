@@ -85,8 +85,9 @@ func play_once(anim: StringName, fallback_seconds := 1.0) -> void:
 
 
 func _set_interactable(enabled: bool) -> void:
-	_interactable.set_deferred("monitoring", enabled)
-	_interactable.set_process_unhandled_input(enabled)
+	_interactable.active = enabled
+	#_interactable.set_deferred("monitoring", enabled)
+	#_interactable.set_process_unhandled_input(enabled)
 
 func _start_patrol() -> void:
 	if patrol_path == null or patrol_path.curve == null:

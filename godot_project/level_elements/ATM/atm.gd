@@ -9,9 +9,10 @@ extends Node2D
 func _ready() -> void:
 	if broken:
 		sprite.play( "broken" )
-		dialog_interactable.queue_free()
+		dialog_interactable.active = false
 		resshan_interactable.queue_free()
 		resshan_interactable2.queue_free()
+		dialog_interactable.turn_on_sound = null
 	else:
 		sprite.play( "default" )
 		if dialog_interactable != null:
@@ -19,4 +20,6 @@ func _ready() -> void:
 
 
 func _on_interacted() -> void:
+	if broken:
+		return
 	Wallet.refill()

@@ -138,6 +138,15 @@ resshan_interactable2 = NodePath("ResshanInteractable2")
 [node name="DialogueInteractable" parent="." unique_id=1631350735 node_paths=PackedStringArray("turn_on_sound") instance=ExtResource("1_5sl07")]
 turn_on_sound = NodePath("../ATMTurnOnSound")
 
+[node name="Prompt" parent="DialogueInteractable" index="1" unique_id=272794898]
+offset_left = -37.5
+offset_top = -208.5
+offset_right = 37.5
+offset_bottom = -40.5
+
+[node name="AnimatedSprite2D" parent="DialogueInteractable" index="2" unique_id=819702371]
+position = Vector2(0, -123.5)
+
 [node name="ATMSprite" type="AnimatedSprite2D" parent="." unique_id=1776144098]
 y_sort_enabled = true
 position = Vector2(0, -57)
