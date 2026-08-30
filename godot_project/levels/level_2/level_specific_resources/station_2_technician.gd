@@ -34,6 +34,9 @@ func _on_broken_atm_interacted():
 	_sprite.play("fix_start")
 	_set_interactable(false)
 	await _sprite.animation_finished
+	var camera = get_tree().get_first_node_in_group("cameras") as ShakeCamera
+	if camera:
+		camera.apply_shake()
 	walk_speed = speed_after_atm_explosion
 	await go_to(broken_atm_interactable.global_position + \
 		after_broken_atm_goto)

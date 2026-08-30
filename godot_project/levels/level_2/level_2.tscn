@@ -37,7 +37,7 @@ size = Vector2(816, 416)
 correct_train_line = 1
 arrival_train = NodePath("Platform2/UpperTrain")
 
-[node name="Camera2D" parent="." index="1" unique_id=1821430600]
+[node name="Camera2D" parent="." index="1" unique_id=855071997]
 position = Vector2(-1781, -2713)
 
 [node name="Ground" parent="." index="2" unique_id=405308893 groups=["footstep_surfaces"]]
