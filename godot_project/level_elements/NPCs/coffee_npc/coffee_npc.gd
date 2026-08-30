@@ -2,6 +2,7 @@ class_name CoffeeNpc
 extends Npc
 
 const GROUND_OBJECT_GROUP := &"coffee_npc_ground_object"
+const COFFEE_ANIMATION_SUFFIX := "_coffee"
 
 @export var action_point: Marker2D
 @export var spawn_point: Marker2D
@@ -15,6 +16,7 @@ const GROUND_OBJECT_GROUP := &"coffee_npc_ground_object"
 @export var round_trips_before_drop: int = 10
 
 var _busy := false
+var _has_coffee := true
 var _patrol_forward := true
 var _completed_round_trips := 0
 var _spawned_object: DroppedCoffee
@@ -77,11 +79,11 @@ func _drop_and_visit_shop() -> void:
 	if _sprite.sprite_frames.has_animation(action_animation):
 		_sprite.play(action_animation)
 		await _wait_for_release_frame()
-		_spawn_object()
+		_has_coffee = not _spawn_object()
 		await _finish_action_animation()
 	else:
 		await get_tree().create_timer(0.2).timeout
-		_spawn_object()
+		_has_coffee = not _spawn_object()
 
 	await go_to(_left_patrol_point(), false)
 	_set_interactable(false)
@@ -89,6 +91,7 @@ func _drop_and_visit_shop() -> void:
 		await go_to(shop_point.global_position, false)
 		_set_interactable(false)
 		await _play_shop_action()
+		_has_coffee = true
 		await go_to(_left_patrol_point(), false)
 
 	_patrol_forward = true
@@ -130,15 +133,16 @@ func _finish_animation(animation: StringName) -> void:
 	_sprite.stop()
 
 
-func _spawn_object() -> void:
+func _spawn_object() -> bool:
 	if spawned_object_scene == null or spawn_point == null or _ground_object_exists():
-		return
+		return false
 	_spawned_object = spawned_object_scene.instantiate() as DroppedCoffee
 	if _spawned_object == null:
-		return
+		return false
 	get_tree().current_scene.add_child(_spawned_object)
 	_spawned_object.global_position = spawn_point.global_position
 	_spawned_object.collected.connect(_on_object_collected.bind(_spawned_object), CONNECT_ONE_SHOT)
+	return true
 
 
 func _on_object_collected(object: DroppedCoffee) -> void:
@@ -152,6 +156,20 @@ func _ground_object_exists() -> bool:
 		if is_instance_valid(object) and not object.is_queued_for_deletion():
 			return true
 	return false
+
+
+func _play(animation: StringName) -> void:
+	var selected := animation
+	match animation:
+		&"idle", &"idle_up":
+			selected = &"idle_right"
+		&"walk_down", &"walk_up":
+			selected = &"walk_right"
+	if _has_coffee:
+		var coffee_animation := StringName(String(selected) + COFFEE_ANIMATION_SUFFIX)
+		if _sprite.sprite_frames.has_animation(coffee_animation):
+			selected = coffee_animation
+	super._play(selected)
 
 
 func _left_patrol_point() -> Vector2:
