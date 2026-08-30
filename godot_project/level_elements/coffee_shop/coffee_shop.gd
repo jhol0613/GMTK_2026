@@ -18,6 +18,7 @@ const PURCHASE_OUTCOME: StringName = &"bought_coffee"
 @export_range(-80.0, 6.0, 0.5) var effect_volume_db := -10.0
 
 @onready var _dialogue_panel: DialoguePanel = $DialoguePanel
+@onready var _lightning_origin := $LightningOrigin
 
 
 func _ready() -> void:
@@ -28,7 +29,7 @@ func _on_option_confirmed(outcome_id: StringName) -> void:
 	_dialogue_panel.hide_popup.call_deferred()
 	if outcome_id != PURCHASE_OUTCOME:
 		return
-	if not Wallet.spend(Wallet.COFFEE_COST):
+	if not Wallet.spend(Wallet.COFFEE_COST, _lightning_origin.global_position):
 		return
 	if purchase_sound != null:
 		AudioManager.play_ui_sfx(purchase_sound, purchase_volume_db)

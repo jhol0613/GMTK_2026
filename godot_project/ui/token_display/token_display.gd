@@ -30,6 +30,19 @@ extends Control
 @export_range(0.5, 2.0, 0.05) var gain_pitch_scale: float = 0.85
 @export_range(0.5, 2.0, 0.05) var drain_pitch_scale: float = 0.85
 
+@export_group("Lightning")
+@export var gain_color: Color
+@export var drain_color: Color
+@export var lightning_sreen_shake_strength := 8.0
+@export var lightning_screen_shake_decay := 10.0
+@export var lightning_duration := 0.2
+
+@onready var _lightning : Line2D = $Lightning
+@onready var _lightning_initial_position := _lightning.get_point_position(0)
+var _lightning_target_global
+##index of the side of lightning that's in the world
+var _lightning_world_end: int
+
 var _shell: TextureRect
 var _cells: Array[TextureRect] = []
 var _gain_player: AudioStreamPlayer
@@ -52,6 +65,12 @@ func _ready() -> void:
 	Wallet.tokens_changed.connect(_on_tokens_changed)
 	_refresh(_displayed_tokens)
 
+
+func _process(_delta):
+	if _lightning.visible:
+		_lightning.scale = Vector2(1.0, 1.0) / scale
+		var screen_space_lightning = get_viewport().get_canvas_transform() * _lightning_target_global
+		_lightning.set_point_position(_lightning_world_end, screen_space_lightning - _lightning.global_position)
 
 func _create_audio_players() -> void:
 	_gain_player = AudioStreamPlayer.new()
@@ -98,19 +117,52 @@ func _rebuild() -> void:
 
 	_refresh(_displayed_tokens)
 
-
-func _on_tokens_changed(current: int, _maximum: int) -> void:
+func _on_tokens_changed(current: int, _maximum: int, origin_global: Vector2) -> void:
 	current = clampi(current, 0, _cells.size())
 	if current == _displayed_tokens:
 		_refresh(current)
 		return
 	_charge_generation += 1
 	var generation := _charge_generation
+	_lightning_target_global = origin_global
+	var screen_space_lightning = get_viewport().get_canvas_transform() * origin_global
 	if current > _displayed_tokens:
-		_animate_gain(current, generation)
+		_play_gain_lightning(screen_space_lightning)
+		await _animate_gain(current, generation)
+		_stop_lightning()
+		
 	else:
-		_animate_drain(current, generation)
+		_play_drain_lightning(screen_space_lightning)
+		await _animate_drain(current, generation)
+		_stop_lightning()
 
+
+func _play_gain_lightning(target: Vector2):
+	if target == Vector2(0,0):
+		return
+	_lightning.set_point_position(1, _lightning_initial_position)
+	_lightning_world_end = 0
+	_lightning.set_point_position(0, target - _lightning.global_position)
+	_lightning.set_instance_shader_parameter("Color", gain_color)
+	_flash_lightning()
+
+func _play_drain_lightning(target: Vector2):
+	if target == Vector2(0,0):
+		return
+	_lightning.set_point_position(0, _lightning_initial_position)
+	_lightning_world_end = 1
+	_lightning.set_point_position(1, target - _lightning.global_position)
+	_lightning.set_instance_shader_parameter("Color", drain_color)
+	_flash_lightning()
+
+func _flash_lightning():
+	_lightning.visible = true
+	var camera = get_tree().get_first_node_in_group("cameras") as ShakeCamera
+	if camera:
+		camera.apply_shake(lightning_sreen_shake_strength, lightning_screen_shake_decay)
+
+func _stop_lightning():
+	_lightning.visible = false
 
 func _animate_gain(target: int, generation: int) -> void:
 	_play_audio(_gain_player, gain_sound, gain_volume_db, gain_pitch_scale)

@@ -6,6 +6,8 @@ extends Node2D
 @export var resshan_interactable : ResshanInteractable
 @export var resshan_interactable2 : ResshanInteractable
 
+@onready var _lightning_origin : Marker2D = $RefillLightningOrigin
+
 func _ready() -> void:
 	if broken:
 		sprite.play( "broken" )
@@ -22,4 +24,4 @@ func _ready() -> void:
 func _on_interacted() -> void:
 	if broken:
 		return
-	Wallet.refill()
+	Wallet.refill(_lightning_origin.global_position)
