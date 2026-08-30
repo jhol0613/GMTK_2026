@@ -14,9 +14,9 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bp74w"]
 shader = ExtResource("9_ovcdm")
-shader_parameter/MainBeamSpeed = -2.7
+shader_parameter/MainBeamSpeed = -1.8
 shader_parameter/basic_texture = ExtResource("11_05hsk")
-shader_parameter/AuxBeamSpeed = -3.0
+shader_parameter/AuxBeamSpeed = -2.0
 shader_parameter/background_texture = ExtResource("10_dsfu3")
 shader_parameter/Transparency = 0.0
 

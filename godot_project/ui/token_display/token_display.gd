@@ -157,9 +157,9 @@ func _play_drain_lightning(target: Vector2):
 
 func _flash_lightning():
 	_lightning.visible = true
-	var camera = get_tree().get_first_node_in_group("cameras") as ShakeCamera
-	if camera:
-		camera.apply_shake(lightning_sreen_shake_strength, lightning_screen_shake_decay)
+	#var camera = get_tree().get_first_node_in_group("cameras") as ShakeCamera
+	#if camera:
+		#camera.apply_shake(lightning_sreen_shake_strength, lightning_screen_shake_decay)
 
 func _stop_lightning():
 	_lightning.visible = false
