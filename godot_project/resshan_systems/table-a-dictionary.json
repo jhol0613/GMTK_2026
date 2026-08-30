@@ -86,7 +86,7 @@
   "<<recycle>>": "84",
   "<<startofpinkline>>": "85",
   "<<coffee>>": "86",
-  "<<technician.fix.repair>>": "87",
-  "<<next.then>>": "88",
+  "<<fix>>": "87",
+  "<<next>>": "88",
   "<<happy>>": "89"
 }
