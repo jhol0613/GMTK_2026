@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://sve0agw1p5d0"]
 
 [ext_resource type="Texture2D" uid="uid://bbrh2j31wvjgd" path="res://level_elements/NPCs/atm_guy/ATM guy.png" id="1_dfn31"]
+[ext_resource type="Script" uid="uid://dfb4mixnm56mi" path="res://level_elements/NPCs/atm_guy/atm_guy.gd" id="1_qcsi2"]
 [ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialog_system/dialogue_interactable.tscn" id="2_1k5ln"]
 [ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://interactables/dialog_system/dialogue_choice.gd" id="3_an07i"]
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="3_t36nf"]
@@ -45,6 +46,7 @@ metadata/_custom_type_script = "uid://dvkforrusa0nj"
 size = Vector2(20, 8)
 
 [node name="ATMGuy" type="Node2D" unique_id=1630953085]
+script = ExtResource("1_qcsi2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2084166253]
 z_index = 1
@@ -57,7 +59,7 @@ frame_progress = 0.9811859
 dialogue = SubResource("Resource_rgsox")
 panel_path = NodePath("../DialoguePanel")
 
-[node name="CollisionShape2D" parent="DialogueInteractable" index="0" unique_id=278382881]
+[node name="InteractableCollisionShape2D" parent="DialogueInteractable" index="0" unique_id=278382881]
 position = Vector2(0, 4)
 
 [node name="AnimatedSprite2D" parent="DialogueInteractable" index="2" unique_id=819702371]

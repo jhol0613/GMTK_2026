@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://2pwlm8itluel" path="res://level_elements/ticket_booth/ticket_booth.tscn" id="7_aq41y"]
 [ext_resource type="Resource" uid="uid://dhce3mpsoap1v" path="res://levels/level_2/level_specific_resources/ticket_dialogue_level2.tres" id="7_fq0us"]
 [ext_resource type="PackedScene" uid="uid://baukigq6wfgs1" path="res://level_elements/ATM/atm.tscn" id="8_5ts7o"]
+[ext_resource type="PackedScene" uid="uid://sve0agw1p5d0" path="res://level_elements/NPCs/atm_guy/atm_guy.tscn" id="9_12l1j"]
 [ext_resource type="PackedScene" uid="uid://cit6uoxu58nwk" path="res://level_elements/maps/transit/train_map.tscn" id="9_dj0pt"]
 [ext_resource type="PackedScene" uid="uid://bni8iwfqac6ap" path="res://level_elements/coffee_shop/coffee_shop.tscn" id="10_1vf62"]
 [ext_resource type="PackedScene" uid="uid://c5jvn4a3mfhj" path="res://level_elements/decorative/recycle_bin/recycle_bin.tscn" id="11_yiikh"]
@@ -239,37 +240,41 @@ dialogue = ExtResource("7_fq0us")
 position = Vector2(-1994, -1040)
 broken = true
 
-[node name="TrainMap" parent="." index="17" unique_id=940096549 instance=ExtResource("9_dj0pt")]
+[node name="ATMGuy" parent="." index="17" unique_id=1630953085 instance=ExtResource("9_12l1j")]
+z_index = 1
+position = Vector2(-1994, -1038)
+
+[node name="TrainMap" parent="." index="18" unique_id=940096549 instance=ExtResource("9_dj0pt")]
 position = Vector2(-1878, -1511)
 
-[node name="TrainMap2" parent="." index="18" unique_id=1587136523 instance=ExtResource("9_dj0pt")]
+[node name="TrainMap2" parent="." index="19" unique_id=1587136523 instance=ExtResource("9_dj0pt")]
 position = Vector2(-736, -1952)
 
-[node name="CoffeeShop" parent="." index="19" unique_id=780382610 instance=ExtResource("10_1vf62")]
+[node name="CoffeeShop" parent="." index="20" unique_id=780382610 instance=ExtResource("10_1vf62")]
 position = Vector2(-928, -1984)
 
-[node name="CoffeeShop2" parent="." index="20" unique_id=1986393938 instance=ExtResource("10_1vf62")]
+[node name="CoffeeShop2" parent="." index="21" unique_id=1986393938 instance=ExtResource("10_1vf62")]
 position = Vector2(-2144, -688)
 
-[node name="RecycleBin" parent="." index="21" unique_id=981033953 instance=ExtResource("11_yiikh")]
+[node name="RecycleBin" parent="." index="22" unique_id=981033953 instance=ExtResource("11_yiikh")]
 position = Vector2(-1024, -1968)
 
-[node name="RecycleBin6" parent="." index="22" unique_id=29257217 instance=ExtResource("11_yiikh")]
+[node name="RecycleBin6" parent="." index="23" unique_id=29257217 instance=ExtResource("11_yiikh")]
 position = Vector2(-832, -1968)
 
-[node name="RecycleBin2" parent="." index="23" unique_id=1992548694 instance=ExtResource("11_yiikh")]
+[node name="RecycleBin2" parent="." index="24" unique_id=1992548694 instance=ExtResource("11_yiikh")]
 position = Vector2(-784, -1192)
 
-[node name="RecycleBin3" parent="." index="24" unique_id=67699898 instance=ExtResource("11_yiikh")]
+[node name="RecycleBin3" parent="." index="25" unique_id=67699898 instance=ExtResource("11_yiikh")]
 position = Vector2(-592, -1192)
 
-[node name="RecycleBin4" parent="." index="25" unique_id=1647806399 instance=ExtResource("11_yiikh")]
+[node name="RecycleBin4" parent="." index="26" unique_id=1647806399 instance=ExtResource("11_yiikh")]
 position = Vector2(-2064, -592)
 
-[node name="RecycleBin5" parent="." index="26" unique_id=1973554782 instance=ExtResource("11_yiikh")]
+[node name="RecycleBin5" parent="." index="27" unique_id=1973554782 instance=ExtResource("11_yiikh")]
 position = Vector2(-2224, -1936)
 
-[node name="Decorations" type="Node2D" parent="." index="27" unique_id=270941818]
+[node name="Decorations" type="Node2D" parent="." index="28" unique_id=270941818]
 y_sort_enabled = true
 
 [node name="OutsideRestroom" parent="Decorations" index="0" unique_id=1631350735 instance=ExtResource("13_1vf62")]
@@ -296,36 +301,37 @@ position = Vector2(-720, -1152)
 [node name="Bathroom2" parent="Decorations" index="7" unique_id=1753618523 instance=ExtResource("14_yiikh")]
 position = Vector2(-656, -1152)
 
-[node name="StationHandler" type="Node" parent="." index="28" unique_id=327838935]
+[node name="StationHandler" type="Node" parent="." index="29" unique_id=327838935]
 script = ExtResource("15_aq41y")
 train_schedule = ExtResource("16_5ts7o")
 metadata/_custom_type_script = "uid://ckmg2kdqbxsyq"
 
-[node name="TrinketShop" parent="." index="29" unique_id=877031898 instance=ExtResource("19_1vf62")]
+[node name="TrinketShop" parent="." index="30" unique_id=877031898 instance=ExtResource("19_1vf62")]
 position = Vector2(-1663, -1186)
 
-[node name="CryingKid" parent="." index="30" unique_id=837182991 instance=ExtResource("19_yiikh")]
+[node name="CryingKid" parent="." index="31" unique_id=837182991 instance=ExtResource("19_yiikh")]
 position = Vector2(-1755, -1177)
 collision_layer = 2
 sad_repeat_text = ""
 
-[node name="TechnicianStation2" parent="." index="31" unique_id=1047069434 node_paths=PackedStringArray("broken_atm_interactable", "destination") instance=ExtResource("20_yiikh")]
+[node name="TechnicianStation2" parent="." index="32" unique_id=1047069434 node_paths=PackedStringArray("broken_atm_interactable", "atm_guy", "destination") instance=ExtResource("20_yiikh")]
 position = Vector2(-2326, -1550)
 broken_atm_interactable = NodePath("../ATM/DialogueInteractable")
+atm_guy = NodePath("../ATMGuy")
 destination = NodePath("../TrinketShop")
 
-[node name="StationMapLevel2" parent="." index="32" unique_id=1664644018 instance=ExtResource("6_cp47v")]
+[node name="StationMapLevel2" parent="." index="33" unique_id=1664644018 instance=ExtResource("6_cp47v")]
 z_index = 1
 position = Vector2(-1944, -1511)
 
-[node name="Guide" parent="." index="33" unique_id=1499669555 instance=ExtResource("20_fq0us")]
+[node name="Guide" parent="." index="34" unique_id=1499669555 instance=ExtResource("20_fq0us")]
 position = Vector2(-1730, -1516)
 collision_layer = 8
 
 [node name="DialogueInteractable" parent="Guide" index="2" unique_id=1161048169]
 dialogue = ExtResource("18_guide")
 
-[node name="StreetLamp" parent="." index="34" unique_id=2102771179 instance=ExtResource("22_kgdtm")]
+[node name="StreetLamp" parent="." index="35" unique_id=2102771179 instance=ExtResource("22_kgdtm")]
 position = Vector2(-2325, -1571)
 
 [editable path="Platform1"]
