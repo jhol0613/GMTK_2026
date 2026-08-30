@@ -241,7 +241,6 @@ position = Vector2(-1994, -1040)
 broken = true
 
 [node name="ATMGuy" parent="." index="17" unique_id=1630953085 instance=ExtResource("9_12l1j")]
-z_index = 1
 position = Vector2(-1994, -1038)
 
 [node name="TrainMap" parent="." index="18" unique_id=940096549 instance=ExtResource("9_dj0pt")]
