@@ -20,10 +20,7 @@ const FACING_VECTORS := [Vector2.DOWN, Vector2.UP, Vector2.LEFT, Vector2.RIGHT]
 
 @onready var _player = get_tree().get_first_node_in_group("player") as PlayerCharacter
 
-var _state: State = State.IDLE:
-	set(new_state):
-		_state = new_state
-		_collision_shape.disabled = _state == State.FOLLOWING
+var _state: State = State.IDLE
 var _progress: float = 0.0
 var _goto_target: Vector2 = Vector2.ZERO
 var _goto_resume: bool = true

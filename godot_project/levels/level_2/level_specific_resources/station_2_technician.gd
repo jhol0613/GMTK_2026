@@ -3,7 +3,9 @@ class_name Station2Technician
 
 @export var broken_atm_interactable: Interactable
 #relative to the broken atm interactable
-@export var broken_atm_fix_location := Vector2(30, 0)
+@export var broken_atm_fix_location := Vector2(0, 10)
+@export var after_broken_atm_goto := Vector2(30, 10)
+@export var speed_after_atm_explosion := 20.0
 @export var no_fix_dialogue: Dialogue
 
 func _ready():
@@ -14,6 +16,7 @@ func _ready():
 func _on_option_confirmed(option_id: StringName):
 	if option_id == &"follow_me":
 		_player.movement_disabled = true
+		_collision_shape.disabled = true
 		await go_to(_player.trail_marker.global_position)
 		_state = State.FOLLOWING
 		_set_interactable(false)
@@ -29,8 +32,12 @@ func _on_broken_atm_interacted():
 	await go_to(broken_atm_interactable.global_position + \
 		broken_atm_fix_location)
 	_state = State.ACTING
-	_sprite.play("fix")
+	_sprite.play("fix_start")
 	await _sprite.animation_finished
+	walk_speed = speed_after_atm_explosion
+	await go_to(broken_atm_interactable.global_position + \
+		after_broken_atm_goto)
 	_interactable.dialogue = no_fix_dialogue
 	_interactable.interact()
+	_collision_shape.disabled = false
 	_state = State.IDLE
