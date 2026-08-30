@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqphtjxu5x2mt"
-path="res://.godot/imported/coffee_guy.png-79700475deb6dc6c68adf5953c05f902.ctex"
+uid="uid://t84wpj6o2h1w"
+path="res://.godot/imported/dropped_coffee.png-e69b96e0555b4db3aa45beb72da50bcb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level_elements/NPCs/what_being_ready_does_to_a_mf/coffee_guy.png"
-dest_files=["res://.godot/imported/coffee_guy.png-79700475deb6dc6c68adf5953c05f902.ctex"]
+source_file="res://level_elements/NPCs/coffee_npc/dropped_coffee.png"
+dest_files=["res://.godot/imported/dropped_coffee.png-e69b96e0555b4db3aa45beb72da50bcb.ctex"]
 
 [params]
 

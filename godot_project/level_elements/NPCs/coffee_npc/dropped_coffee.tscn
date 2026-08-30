@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://d2delnaki3s6c" path="res://level_elements/NPCs/coffee_npc/dropped_coffee.gd" id="2_script"]
 [ext_resource type="Script" uid="uid://1bxpf358unij" path="res://scripts/item_data.gd" id="3_item"]
 [ext_resource type="Texture2D" uid="uid://h831v8j3jxlc" path="res://level_elements/coffee_shop/coffee_cup_empty.png" id="4_cup"]
+[ext_resource type="Texture2D" uid="uid://t84wpj6o2h1w" path="res://level_elements/NPCs/coffee_npc/dropped_coffee.png" id="5_i0sfj"]
 
 [sub_resource type="Resource" id="Resource_dropped_coffee"]
 script = ExtResource("3_item")
@@ -19,6 +20,7 @@ radius = 8.0
 z_index = 1
 script = ExtResource("2_script")
 item = SubResource("Resource_dropped_coffee")
+has_arrow = false
 
 [node name="InteractableCollisionShape2D" parent="." index="0" unique_id=278382881]
 position = Vector2(0, -4)
@@ -32,6 +34,6 @@ z_index = 10
 position = Vector2(0, -22)
 
 [node name="Cup" type="Sprite2D" parent="." index="3" unique_id=1597306767]
-position = Vector2(0, -5)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("4_cup")
+texture_filter = 1
+position = Vector2(0, -6)
+texture = ExtResource("5_i0sfj")
