@@ -12,20 +12,12 @@
 [ext_resource type="Script" uid="uid://b3sxo70i1r07u" path="res://level_elements/coffee_shop/coffee_shop_night_light.gd" id="7_nightlight"]
 [ext_resource type="Shader" uid="uid://cledinetwy2el" path="res://level_elements/coffee_shop/coffee_shop_glow.gdshader" id="8_glow_shader"]
 [ext_resource type="Shader" uid="uid://x010b1ugulx5" path="res://level_elements/coffee_shop/coffee_machine_untinted.gdshader" id="9_machine_shader"]
-[ext_resource type="AudioStream" uid="uid://ywiythiv43qa" path="res://ui/sfx/Coffee_Effect_Bell.wav" id="10_effect_bell"]
 [ext_resource type="Texture2D" uid="uid://c4r42ivphs6c7" path="res://level_elements/coffee_shop/coffee_drink.png" id="11_coffee_drink"]
 [ext_resource type="Texture2D" uid="uid://h831v8j3jxlc" path="res://level_elements/coffee_shop/coffee_cup_empty.png" id="12_empty_cup"]
 [ext_resource type="Script" uid="uid://1bxpf358unij" path="res://scripts/item_data.gd" id="13_item_data"]
 [ext_resource type="AudioStream" uid="uid://bu46rrnyifjaf" path="res://level_elements/coffee_shop/Slurping.mp3" id="14_slurping"]
+[ext_resource type="Script" uid="uid://cv5bovfv5slw1" path="res://scripts/animated_item_icon.gd" id="16_bvkv4"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="18_abad0"]
-
-[sub_resource type="Resource" id="Resource_empty_cup"]
-script = ExtResource("13_item_data")
-id = &"empty_coffee_cup"
-item_name = "Empty Cup"
-item_description = "An empty recyclable coffee cup."
-item_icon = ExtResource("12_empty_cup")
-metadata/_custom_type_script = "uid://1bxpf358unij"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_glow"]
 shader = ExtResource("8_glow_shader")
@@ -40,15 +32,39 @@ blend_mode = 1
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glow"]
 blend_mode = 1
 
+[sub_resource type="Resource" id="Resource_q3akp"]
+script = ExtResource("3_m5xxu")
+text = "<<thankyou>>"
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_biasd"]
+script = ExtResource("16_bvkv4")
+sprite_sheet = ExtResource("11_coffee_drink")
+frame_count = 4
+fps = 6
+metadata/_custom_type_script = "uid://cv5bovfv5slw1"
+
+[sub_resource type="Resource" id="Resource_qwrh7"]
+script = ExtResource("13_item_data")
+id = &"empty_coffee_cup"
+item_name = "Empty Coffee Cup"
+item_description = "An empty recyclable coffee cup."
+item_icon = ExtResource("12_empty_cup")
+animated_item_icon = SubResource("Resource_biasd")
+metadata/_custom_type_script = "uid://1bxpf358unij"
+
 [sub_resource type="Resource" id="Resource_wl75l"]
 script = ExtResource("2_4x3ae")
 player_text = "Yes"
+reply = SubResource("Resource_q3akp")
+reward = SubResource("Resource_qwrh7")
 outcome_id = &"bought_coffee"
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 
-[sub_resource type="Resource" id="Resource_q3akp"]
+[sub_resource type="Resource" id="Resource_abad0"]
 script = ExtResource("2_4x3ae")
 player_text = "Leave"
+outcome_id = &"NONE"
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 
 [sub_resource type="Resource" id="Resource_lu7vs"]
@@ -59,7 +75,7 @@ metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 [sub_resource type="Resource" id="Resource_ya87f"]
 script = ExtResource("4_4qbo7")
 lines = Array[ExtResource("3_m5xxu")]([SubResource("Resource_lu7vs")])
-choices = Array[ExtResource("2_4x3ae")]([SubResource("Resource_wl75l"), SubResource("Resource_q3akp")])
+choices = Array[ExtResource("2_4x3ae")]([SubResource("Resource_wl75l"), SubResource("Resource_abad0")])
 metadata/_custom_type_script = "uid://dvkforrusa0nj"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_interact"]
@@ -71,11 +87,6 @@ size = Vector2(161, 42)
 [node name="CoffeeShop" type="Node2D" unique_id=780382610]
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_coffee")
-purchase_animation = ExtResource("11_coffee_drink")
-empty_cup_item = SubResource("Resource_empty_cup")
-drinking_sound = ExtResource("14_slurping")
-effect_sound = ExtResource("10_effect_bell")
-effect_volume_db = -80.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=458582389]
 z_index = 1
@@ -169,5 +180,9 @@ metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="LightningOrigin" type="Marker2D" parent="." unique_id=1130067757]
 position = Vector2(-38.333332, -35)
+
+[node name="DrinkingSound" type="AudioStreamPlayer" parent="." unique_id=1052641628]
+stream = ExtResource("14_slurping")
+bus = &"SFX"
 
 [editable path="DialogueInteractable"]

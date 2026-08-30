@@ -5,6 +5,7 @@ const PURCHASE_OUTCOME: StringName = &"sold_trinket"
 
 @onready var _dialogue_panel: DialoguePanel = $DialoguePanel
 @onready var _purchase_sfx: AudioStreamPlayer2D = $PurchaseSfx
+@onready var _lightning_origin := $LightningOrigin
 
 var _awaiting_trinket: bool = false
 
@@ -23,7 +24,7 @@ func _on_option_confirmed(outcome_id: StringName) -> void:
 	if Inventory.is_full():
 		SignalBus.inventory_full.emit()
 		return
-	Wallet.spend(Wallet.TRINKET_COST)
+	Wallet.spend(Wallet.TRINKET_COST, _lightning_origin.global_position)
 	_awaiting_trinket = true
 
 

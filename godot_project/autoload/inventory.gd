@@ -25,7 +25,6 @@ func add_item(item: ItemData) -> bool:
 	inventory_changed.emit()
 	return true
 
-
 func item_count() -> int:
 	var count := 0
 	for item in items:

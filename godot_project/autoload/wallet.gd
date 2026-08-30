@@ -12,7 +12,6 @@ const COFFEE_COST: int = 5
 
 var tokens: int = MAX_TOKENS
 
-
 func _ready() -> void:
 	tokens_changed.emit(tokens, MAX_TOKENS, Vector2(0,0))
 
@@ -25,6 +24,7 @@ func spend(cost: int, origin_global := Vector2(0,0)) -> bool:
 		return false
 	tokens -= cost
 	tokens_changed.emit(tokens, MAX_TOKENS, origin_global)
+	
 	return true
 
 

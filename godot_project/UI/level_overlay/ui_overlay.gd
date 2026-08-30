@@ -71,8 +71,6 @@ func _ready() -> void:
 	Inventory.inventory_changed.connect(_refresh_ticket)
 	Inventory.inventory_changed.connect(_inventory.refresh)
 	Inventory.item_added.connect(_on_item_added)
-	SignalBus.item_popup_requested.connect(_on_item_popup_requested)
-	SignalBus.animated_item_popup_requested.connect(_on_animated_item_popup_requested)
 	SignalBus.new_unique_resshan_note_added_to_notebook.connect( _emphasize_icon.bind(_notebook_button,_initial_notebook_button_scale) )
 	TimeManager.time_up.connect(_on_time_up)
 	
@@ -479,10 +477,8 @@ func _sprite_contains_point(sprite: Sprite2D, point: Vector2) -> bool:
 
 
 func _on_item_added(item: ItemData) -> void:
-	if item.id == &"empty_coffee_cup":
-		if _item_to_inventory_sound.stream != null:
-			_item_to_inventory_sound.play()
-		_emphasize_icon(_inventory_button, _initial_inventory_button_scale)
+	if item.animated_item_icon != null:
+		_on_animated_item_added(item)
 		return
 	var icon: Texture2D = item.item_icon
 	if item is TicketData:
@@ -492,18 +488,10 @@ func _on_item_added(item: ItemData) -> void:
 		return
 	_show_item_popup(icon, item)
 
-
-func _on_item_popup_requested(icon: Texture2D) -> void:
-	if icon == null:
-		return
-	_show_item_popup(icon)
-
-
-func _on_animated_item_popup_requested(
-	sprite_sheet: Texture2D,
-	frame_count: int,
-	fps: float,
-) -> void:
+func _on_animated_item_added(item: ItemData) -> void:
+	var sprite_sheet = item.animated_item_icon.sprite_sheet
+	var frame_count = item.animated_item_icon.frame_count
+	var fps = item.animated_item_icon.fps
 	if sprite_sheet == null or frame_count <= 0 or fps <= 0.0:
 		SignalBus.item_popup_finished.emit()
 		return
@@ -511,7 +499,7 @@ func _on_animated_item_popup_requested(
 	var frame_texture := AtlasTexture.new()
 	frame_texture.atlas = sprite_sheet
 	frame_texture.region = Rect2(0, 0, frame_width, sprite_sheet.get_height())
-	_show_item_popup(frame_texture)
+	_show_item_popup(frame_texture, item)
 	_item_popup_animation_tween = create_tween()
 	for frame in range(1, frame_count):
 		_item_popup_animation_tween.tween_interval(1.0 / fps)
@@ -519,12 +507,10 @@ func _on_animated_item_popup_requested(
 			_set_item_popup_frame.bind(frame_texture, frame, frame_width)
 		)
 
-
 func _set_item_popup_frame(texture: AtlasTexture, frame: int, frame_width: int) -> void:
 	var region := texture.region
 	region.position.x = frame * frame_width
 	texture.region = region
-
 
 func _show_item_popup(icon: Texture2D, item: ItemData = null) -> void:
 	if _item_popup_tween != null and _item_popup_tween.is_valid():
@@ -536,10 +522,6 @@ func _show_item_popup(icon: Texture2D, item: ItemData = null) -> void:
 	_item_popup.visible = true
 	_item_popup_icon.modulate = Color(1, 1, 1, 0)
 	_item_popup_icon.scale = Vector2(0.6, 0.6)
-	if item != null and String(item.id).begins_with("mask_"):
-		if _trinket_purchase_sound.stream != null:
-			_trinket_purchase_sound.play()
-
 	_item_popup_tween = create_tween()
 	_item_popup_tween.set_parallel(true)
 	_item_popup_tween.tween_property(_item_popup_icon, "modulate:a", 1.0, 0.2)
