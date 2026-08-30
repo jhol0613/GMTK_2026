@@ -1,7 +1,7 @@
 extends Node
 
-
-signal tokens_changed(current: int, maximum: int)
+#origin_global is the location to play the lightning effect
+signal tokens_changed(current: int, maximum: int, origin_global: Vector2)
 signal spend_failed(cost: int, current: int)
 signal refilled
 
@@ -14,17 +14,17 @@ var tokens: int = MAX_TOKENS
 
 
 func _ready() -> void:
-	tokens_changed.emit(tokens, MAX_TOKENS)
+	tokens_changed.emit(tokens, MAX_TOKENS, Vector2(0,0))
 
 
-func spend(cost: int) -> bool:
+func spend(cost: int, origin_global := Vector2(0,0)) -> bool:
 	if cost <= 0:
 		return true
 	if tokens < cost:
 		spend_failed.emit(cost, tokens)
 		return false
 	tokens -= cost
-	tokens_changed.emit(tokens, MAX_TOKENS)
+	tokens_changed.emit(tokens, MAX_TOKENS, origin_global)
 	return true
 
 
@@ -32,15 +32,15 @@ func can_afford(cost: int) -> bool:
 	return tokens >= cost
 
 
-func refill() -> void:
+func refill(origin_global := Vector2(0,0)) -> void:
 	if tokens == MAX_TOKENS:
 		return
 	tokens = MAX_TOKENS
-	tokens_changed.emit(tokens, MAX_TOKENS)
+	tokens_changed.emit(tokens, MAX_TOKENS, origin_global)
 	refilled.emit()
 
 
-func add(amount: int) -> void:
+func add(amount: int, origin_global := Vector2(0,0)) -> void:
 	if amount <= 0:
 		return
 	tokens = mini(tokens + amount, MAX_TOKENS)

@@ -167,4 +167,7 @@ script = ExtResource("18_abad0")
 _string = "<<store>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
+[node name="LightningOrigin" type="Marker2D" parent="." unique_id=1130067757]
+position = Vector2(-38.333332, -35)
+
 [editable path="DialogueInteractable"]

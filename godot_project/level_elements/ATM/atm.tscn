@@ -199,4 +199,7 @@ metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 stream = ExtResource("5_5sl07")
 bus = &"SFX"
 
+[node name="RefillLightningOrigin" type="Marker2D" parent="." unique_id=926426454]
+position = Vector2(9, -29)
+
 [editable path="DialogueInteractable"]
