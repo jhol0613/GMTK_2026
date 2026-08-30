@@ -79,7 +79,7 @@ sprite = NodePath("DoorSprite")
 collider = NodePath("Node2D/DoorClosedCollision")
 has_arrow = false
 
-[node name="CollisionShape2D" parent="." index="0" unique_id=278382881]
+[node name="InteractableCollisionShape2D" parent="." index="0" unique_id=278382881]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_mdesx")
 

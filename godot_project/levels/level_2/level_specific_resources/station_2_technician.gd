@@ -4,8 +4,8 @@ class_name Station2Technician
 @export var broken_atm_interactable: Interactable
 #relative to the broken atm interactable
 @export var broken_atm_fix_location := Vector2(0, 10)
-@export var after_broken_atm_goto := Vector2(30, 10)
-@export var speed_after_atm_explosion := 20.0
+@export var after_broken_atm_goto := Vector2(40, 10)
+@export var speed_after_atm_explosion := 25.0
 @export var no_fix_dialogue: Dialogue
 
 func _ready():

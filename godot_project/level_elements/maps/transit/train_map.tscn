@@ -327,7 +327,7 @@ shape = SubResource("RectangleShape2D_ujtin")
 [node name="SignInteractable" parent="." unique_id=1631350735 instance=ExtResource("2_ed7fu")]
 panel_path = NodePath("../SignPanel")
 
-[node name="CollisionShape2D" parent="SignInteractable" index="0" unique_id=278382881]
+[node name="InteractableCollisionShape2D" parent="SignInteractable" index="0" unique_id=278382881]
 position = Vector2(0, 1)
 
 [node name="Prompt" parent="SignInteractable" index="1" unique_id=272794898]

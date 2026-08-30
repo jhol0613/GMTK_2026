@@ -21,10 +21,7 @@ metadata/_custom_type_script = "uid://dvkforrusa0nj"
 
 [node name="Sprite" parent="." index="0" unique_id=1868209522]
 sprite_frames = ExtResource("2_5cd8y")
-animation = &"fix"
 autoplay = "fix"
-frame = 3
-frame_progress = 1.0
 
 [node name="DialogueInteractable" parent="." index="2" unique_id=1161048169]
 dialogue = SubResource("Resource_i6y3f")
