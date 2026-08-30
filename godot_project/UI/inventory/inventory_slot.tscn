@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://dfiuadb0lo2tk"]
+
+[ext_resource type="Script" uid="uid://clxyxmdpj052m" path="res://ui/inventory/inventory_slot.gd" id="1_hwg0l"]
+[ext_resource type="Texture2D" uid="uid://dfbg5i3l81fti" path="res://ui/inventory/inventory_slot.png" id="1_nktrt"]
+[ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/resshan_label.gd" id="2_hwg0l"]
+
+[node name="Slot" type="VBoxContainer" unique_id=401876438 node_paths=PackedStringArray("slut_icon", "slut_name")]
+theme_override_constants/separation = 8
+alignment = 1
+script = ExtResource("1_hwg0l")
+slut_icon = NodePath("SlotBg/VBox/SlotIcon")
+slut_name = NodePath("SlotBg/VBox/SlotName")
+
+[node name="SlotBg" type="TextureRect" parent="." unique_id=68353347]
+custom_minimum_size = Vector2(150, 150)
+clip_contents = true
+layout_mode = 2
+texture = ExtResource("1_nktrt")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBox" type="VBoxContainer" parent="SlotBg" unique_id=1400509550]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="SlotIcon" type="TextureRect" parent="SlotBg/VBox" unique_id=594192910]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(106, 100)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SlotName" type="Control" parent="SlotBg/VBox" unique_id=729376455]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+script = ExtResource("2_hwg0l")
+metadata/_custom_type_script = "uid://sidowamkhcrt"

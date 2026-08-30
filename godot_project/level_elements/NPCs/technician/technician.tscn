@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://interactables/dialog_system/dialogue_choice.gd" id="3_n0pet"]
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="4_gnxmv"]
 [ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="5_yve1r"]
+[ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="6_a0uip"]
 
 [sub_resource type="Resource" id="Resource_2gt0t"]
 script = ExtResource("4_gnxmv")
@@ -20,10 +21,19 @@ metadata/_custom_type_script = "uid://dvkforrusa0nj"
 
 [node name="Sprite" parent="." index="0" unique_id=1868209522]
 sprite_frames = ExtResource("2_5cd8y")
-animation = &"fix"
 autoplay = "fix"
 
 [node name="DialogueInteractable" parent="." index="2" unique_id=1161048169]
 dialogue = SubResource("Resource_i6y3f")
+
+[node name="ResshanInteractable" type="Control" parent="." index="4" unique_id=287005088]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -5.0
+offset_top = -10.0
+offset_right = 5.0
+offset_bottom = -2.0
+script = ExtResource("6_a0uip")
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [editable path="DialogueInteractable"]

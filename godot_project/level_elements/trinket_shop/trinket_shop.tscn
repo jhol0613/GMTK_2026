@@ -175,7 +175,7 @@ z_index = 1
 position = Vector2(4, -33.5)
 panel_path = NodePath("../DialoguePanel")
 
-[node name="CollisionShape2D" parent="DialogueInteractable" index="0" unique_id=278382881]
+[node name="InteractableCollisionShape2D" parent="DialogueInteractable" index="0" unique_id=278382881]
 z_index = 1
 position = Vector2(-5, 37.5)
 shape = SubResource("RectangleShape2D_bqp2h")

@@ -130,7 +130,6 @@ sprite_frames = SubResource("SpriteFrames_glow")
 
 [node name="AreaGlow" type="Sprite2D" parent="NightLight" unique_id=388530082]
 modulate = Color(1, 0.72, 0.3, 0)
-z_index = 0
 material = SubResource("CanvasItemMaterial_glow")
 position = Vector2(1, -79)
 scale = Vector2(4, 4)
@@ -148,7 +147,7 @@ z_index = 1
 position = Vector2(4, -33.5)
 panel_path = NodePath("../DialoguePanel")
 
-[node name="CollisionShape2D" parent="DialogueInteractable" index="0" unique_id=278382881]
+[node name="InteractableCollisionShape2D" parent="DialogueInteractable" index="0" unique_id=278382881]
 z_index = 1
 position = Vector2(-4, 34)
 shape = SubResource("RectangleShape2D_8d5ud")

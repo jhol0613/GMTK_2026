@@ -129,7 +129,7 @@ position = Vector2(0, -20)
 dialogue = SubResource("Resource_ya87f")
 panel_path = NodePath("../DialoguePanel")
 
-[node name="CollisionShape2D" parent="DialogueInteractable" index="0" unique_id=278382881]
+[node name="InteractableCollisionShape2D" parent="DialogueInteractable" index="0" unique_id=278382881]
 position = Vector2(-1, 54)
 shape = SubResource("RectangleShape2D_interact")
 

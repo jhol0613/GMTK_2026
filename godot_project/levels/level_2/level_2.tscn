@@ -16,11 +16,12 @@
 [ext_resource type="PackedScene" uid="uid://0ckll8fgejet" path="res://level_elements/bathroom/bathroom_open.tscn" id="14_yiikh"]
 [ext_resource type="Script" uid="uid://ckmg2kdqbxsyq" path="res://level_elements/train_scheduler/station_handler.gd" id="15_aq41y"]
 [ext_resource type="Resource" uid="uid://bbiqg1las2w2b" path="res://levels/level_2/level_specific_resources/level_2_train_schedule.tres" id="16_5ts7o"]
-[ext_resource type="PackedScene" uid="uid://cmdda7648573b" path="res://level_elements/NPCs/npc.tscn" id="17_5ts7o"]
 [ext_resource type="Resource" uid="uid://bkybfv1jevm2y" path="res://levels/level_2/level_specific_resources/guide_dialogue_level2.tres" id="18_guide"]
 [ext_resource type="PackedScene" uid="uid://xyprm41o3crg" path="res://levels/level_2/level_specific_resources/trinket_shop_level_2.tscn" id="19_1vf62"]
 [ext_resource type="PackedScene" uid="uid://x4ghn30rc8l0" path="res://level_elements/NPCs/crying_kid/crying_kid.tscn" id="19_yiikh"]
+[ext_resource type="PackedScene" uid="uid://ospha2vyynas" path="res://level_elements/NPCs/guide/guide.tscn" id="20_fq0us"]
 [ext_resource type="PackedScene" uid="uid://wvltf0ie5ih7" path="res://levels/level_2/level_specific_resources/station_2_technician.tscn" id="20_yiikh"]
+[ext_resource type="PackedScene" path="res://level_elements/decorative/street_lamp/street_lamp.tscn" id="22_kgdtm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vf62"]
 size = Vector2(816, 408)
@@ -30,9 +31,6 @@ size = Vector2(815, 413)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fq0us"]
 size = Vector2(816, 416)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_1vf62"]
-radius = 17.029387
 
 [node name="Level2" unique_id=783439983 node_paths=PackedStringArray("arrival_train") instance=ExtResource("1_mi4ay")]
 correct_train_line = 1
@@ -226,7 +224,7 @@ position = Vector2(8, 16)
 shape = SubResource("RectangleShape2D_fq0us")
 
 [node name="DepartureBoard" parent="." index="13" unique_id=994016923 instance=ExtResource("3_lnqnw")]
-position = Vector2(-1657, -1496)
+position = Vector2(-1657, -1509)
 
 [node name="CentralHourglass" parent="." index="14" unique_id=259821884 instance=ExtResource("5_2smvo")]
 position = Vector2(-1822, -1284)
@@ -303,31 +301,32 @@ script = ExtResource("15_aq41y")
 train_schedule = ExtResource("16_5ts7o")
 metadata/_custom_type_script = "uid://ckmg2kdqbxsyq"
 
-[node name="Guide" parent="." index="29" unique_id=1202977622 instance=ExtResource("17_5ts7o")]
-position = Vector2(-1919, -1021)
-
-[node name="DialogueInteractable" parent="Guide" index="2" unique_id=1161048169]
-dialogue = ExtResource("18_guide")
-
-[node name="InteractableCollisionShape2D" parent="Guide/DialogueInteractable" index="0" unique_id=278382881]
-shape = SubResource("CircleShape2D_1vf62")
-
-[node name="TrinketShop" parent="." index="30" unique_id=877031898 instance=ExtResource("19_1vf62")]
+[node name="TrinketShop" parent="." index="29" unique_id=877031898 instance=ExtResource("19_1vf62")]
 position = Vector2(-1663, -1186)
 
-[node name="CryingKid" parent="." index="31" unique_id=837182991 instance=ExtResource("19_yiikh")]
+[node name="CryingKid" parent="." index="30" unique_id=837182991 instance=ExtResource("19_yiikh")]
 position = Vector2(-1755, -1177)
 collision_layer = 2
 sad_repeat_text = ""
 
-[node name="TechnicianStation2" parent="." index="32" unique_id=1047069434 node_paths=PackedStringArray("broken_atm_interactable", "destination") instance=ExtResource("20_yiikh")]
-position = Vector2(-1847, -2366)
+[node name="TechnicianStation2" parent="." index="31" unique_id=1047069434 node_paths=PackedStringArray("broken_atm_interactable", "destination") instance=ExtResource("20_yiikh")]
+position = Vector2(-2326, -1550)
 broken_atm_interactable = NodePath("../ATM/DialogueInteractable")
 destination = NodePath("../TrinketShop")
 
-[node name="StationMapLevel2" parent="." index="33" unique_id=1664644018 instance=ExtResource("6_cp47v")]
+[node name="StationMapLevel2" parent="." index="32" unique_id=1664644018 instance=ExtResource("6_cp47v")]
 z_index = 1
 position = Vector2(-1944, -1511)
+
+[node name="Guide" parent="." index="33" unique_id=1499669555 instance=ExtResource("20_fq0us")]
+position = Vector2(-1730, -1516)
+collision_layer = 8
+
+[node name="DialogueInteractable" parent="Guide" index="2" unique_id=1161048169]
+dialogue = ExtResource("18_guide")
+
+[node name="StreetLamp" parent="." index="34" unique_id=2102771179 instance=ExtResource("22_kgdtm")]
+position = Vector2(-2325, -1571)
 
 [editable path="Platform1"]
 [editable path="Platform2"]

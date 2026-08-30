@@ -16,7 +16,8 @@ var _notebook_docked := false
 var _notebook_tween: Tween
 var _compacted_panel: Node
 var _compacted_close_signal := &""
-var _notebook_player_movement_states: Dictionary = {}
+# stores whether the player's movement was enabled (walking around) or disabled (in dialog, etc) when they open the notebook
+var _notebook_player_initial_movement_disabled: bool
 var _launcher_button_states: Dictionary = {}
 
 @onready var _time := $Time
@@ -54,6 +55,8 @@ var _item_popup_animation_tween: Tween
 var _ticket_button_show_tween: Tween
 var _rest_vignette_tween: Tween
 
+var player_in_arrive_disembark_anim: bool
+var dragging_item: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -165,6 +168,8 @@ func _on_notebook_button_mouse_exited() -> void:
 
 
 func _on_notebook_button_pressed() -> void:
+	if player_in_arrive_disembark_anim:
+		return
 	if _notebook.visible:
 		close_notebook()
 	else:
@@ -181,7 +186,7 @@ func _on_ticket_button_mouse_exited():
 
 
 func _on_ticket_button_pressed() -> void:
-	if Inventory.get_ticket() == null:
+	if (Inventory.get_ticket() == null) or player_in_arrive_disembark_anim:
 		return
 
 	if _ticket.visible:
@@ -200,13 +205,15 @@ func _on_inventory_button_mouse_exited() -> void:
 
 
 func _on_inventory_button_pressed() -> void:
+	if player_in_arrive_disembark_anim:
+		return
 	if _inventory.visible:
 		_close_inventory()
 	else:
 		_open_inventory()
 
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("escape"):
 		if _has_open_panel():
 			_close_all_panels()
@@ -226,9 +233,9 @@ func _input(event: InputEvent) -> void:
 		_sprite_contains_point($Notebook/Sprite2D, pointer_position)
 		or _control_contains_point($Notebook/SectionSelector/Holder, pointer_position)
 	)
-	if _notebook.visible and not over_notebook:
-		close_notebook()
-		closed_something = true
+	#if _notebook.visible and not over_notebook:
+		#close_notebook()
+		#closed_something = true
 
 	if _ticket.visible and not _sprite_contains_point($Ticket/Background, pointer_position):
 		_close_ticket()
@@ -280,14 +287,13 @@ func open_notebook() -> void:
 	else:
 		_notebook.position = _notebook_home
 		_notebook.visible = true
-
-	_notebook_player_movement_states.clear()
-	for player in get_tree().get_nodes_in_group("player"):
-		_notebook_player_movement_states[player] = player.movement_disabled
-		player.movement_disabled = true
-
+	
+	var player := get_tree().get_first_node_in_group("player")
+	_notebook_player_initial_movement_disabled = player.movement_disabled
+	player.movement_disabled = true
+	
 	_hide_launcher_buttons()
-
+	
 	SignalBus.notebook_opened.emit()
 
 
@@ -366,12 +372,12 @@ func close_notebook() -> void:
 	else:
 		_notebook.visible = false
 		_restore_launcher_buttons()
-
-	for player in _notebook_player_movement_states:
-		if is_instance_valid(player):
-			player.movement_disabled = _notebook_player_movement_states[player]
-	_notebook_player_movement_states.clear()
-
+	
+	get_tree().get_first_node_in_group("player").movement_disabled = _notebook_player_initial_movement_disabled
+	
+	var event = InputEventMouseMotion.new()
+	get_viewport().push_input(event)
+	
 	SignalBus.notebook_closed.emit()
 
 
@@ -392,6 +398,9 @@ func _close_ticket() -> void:
 
 	_ticket_close_sound.play()
 	_ticket.visible = false
+	
+	var event = InputEventMouseMotion.new()
+	get_viewport().push_input(event)
 
 
 func _open_inventory() -> void:
@@ -404,16 +413,16 @@ func _open_inventory() -> void:
 	_inventory_click_sound.play()
 	_inventory.refresh()
 	_inventory.visible = true
-	Input.set_custom_mouse_cursor(hand_open, Input.CURSOR_ARROW, Vector2(0.5,0.5) )
 
 
 func _close_inventory() -> void:
 	if not _inventory.visible:
 		return
-
+	_inventory._finish_drag()
 	_inventory_close_sound.play()
 	_inventory.visible = false
-	Input.set_custom_mouse_cursor(magnifying_glass, Input.CURSOR_ARROW, Vector2(0.0,0.0) )
+	var event = InputEventMouseMotion.new()
+	get_viewport().push_input(event)
 
 
 func _close_all_panels() -> void:

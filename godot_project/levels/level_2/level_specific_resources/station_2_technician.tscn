@@ -50,11 +50,16 @@ choices = Array[ExtResource("3_i6y3f")]([SubResource("Resource_i6y3f"), SubResou
 metadata/_custom_type_script = "uid://dvkforrusa0nj"
 
 [node name="Station2Technician" unique_id=837182991 instance=ExtResource("1_sl31h")]
-collision_layer = 2
 script = ExtResource("2_8an6j")
-broken_atm_fix_location = Vector2(30, 0)
+broken_atm_fix_location = Vector2(0, 10)
+after_broken_atm_goto = Vector2(40, 10)
+speed_after_atm_explosion = 25.0
 no_fix_dialogue = SubResource("Resource_kgdtm")
 walk_speed = 80.0
+
+[node name="Sprite" parent="." index="0" unique_id=1868209522]
+animation = &"fix_loop"
+autoplay = "fix_loop"
 
 [node name="DialogueInteractable" parent="." index="2" unique_id=1161048169]
 dialogue = SubResource("Resource_46dy6")

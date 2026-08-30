@@ -655,8 +655,6 @@ position = Vector2(-64, -224)
 dialogue = ExtResource("9_jq5vq")
 
 [node name="InteractableCollisionShape2D" parent="TrinketShop/DialogueInteractable" index="0" unique_id=278382881]
-z_index = 1
-position = Vector2(-5, 37.5)
 shape = SubResource("RectangleShape2D_bqp2h")
 
 [node name="CoffeeShop" parent="." index="15" unique_id=1288725174 instance=ExtResource("19_wx43u")]
@@ -670,8 +668,6 @@ position = Vector2(-267, -170)
 dialogue = ExtResource("21_rflqb")
 
 [node name="InteractableCollisionShape2D" parent="TicketBooth/DialogueInteractable" index="0" unique_id=278382881]
-z_index = 1
-position = Vector2(-4, 34)
 shape = SubResource("RectangleShape2D_8d5ud")
 
 [node name="LevelExitBarrier" type="StaticBody2D" parent="." index="17" unique_id=1631214184]

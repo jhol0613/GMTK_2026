@@ -253,7 +253,7 @@ _data = {
 &"time_up": SubResource("Animation_time_up")
 }
 
-[node name="UiOverlay" type="CanvasLayer" unique_id=368800410]
+[node name="UiOverlay" type="CanvasLayer" unique_id=368800410 groups=["ui_overlay"]]
 layer = 2000
 script = ExtResource("1_0h6y4")
 

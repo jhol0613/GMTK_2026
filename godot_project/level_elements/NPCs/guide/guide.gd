@@ -1,5 +1,5 @@
 extends Npc
-class_name Technician
+
 
 func _ready():
 	_state = State.ACTING
