@@ -1,4 +1,5 @@
 extends Node2D
+class_name ATM
 
 @export var broken : bool = false
 @export var sprite : AnimatedSprite2D
@@ -20,6 +21,16 @@ func _ready() -> void:
 		if dialog_interactable != null:
 			dialog_interactable.interacted.connect( _on_interacted )
 
+func explode() -> void:
+	sprite.play("explode")
+	#numerator is desired frame number
+	var time_until_shake = 4.0/sprite.sprite_frames.get_animation_speed("explode")
+	await get_tree().create_timer(time_until_shake).timeout
+	var camera = get_tree().get_first_node_in_group("cameras") as ShakeCamera
+	if camera:
+		camera.apply_shake()
+	await sprite.animation_finished
+	dialog_interactable.active = false
 
 func _on_interacted() -> void:
 	if broken:

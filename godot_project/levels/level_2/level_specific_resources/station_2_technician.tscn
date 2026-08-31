@@ -53,12 +53,14 @@ metadata/_custom_type_script = "uid://dvkforrusa0nj"
 script = ExtResource("2_8an6j")
 broken_atm_fix_location = Vector2(0, 10)
 after_broken_atm_goto = Vector2(40, 10)
+stand_after_atm_explosion = 1.5
+walk_after_standing = 1.5
 speed_after_atm_explosion = 25.0
 no_fix_dialogue = SubResource("Resource_kgdtm")
 walk_speed = 80.0
 
 [node name="Sprite" parent="." index="0" unique_id=1868209522]
-animation = &"fix_loop"
+animation = &"idle"
 autoplay = "fix_loop"
 
 [node name="DialogueInteractable" parent="." index="2" unique_id=1161048169]

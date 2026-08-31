@@ -31,8 +31,8 @@ var _facing: Vector2 = Vector2.DOWN
 func _ready() -> void:
 	_facing = FACING_VECTORS[facing]
 	_sprite.flip_h = _facing.x < 0.0
-	_panel.opened.connect(_on_panel_opened)
-	_panel.closed.connect(_on_panel_closed)
+	#_panel.opened.connect(_on_panel_opened)
+	#_panel.closed.connect(_on_panel_closed)
 	_start_patrol()
 
 
@@ -50,7 +50,7 @@ func _physics_process(delta: float) -> void:
 		State.ACTING:
 			pass
 		_:
-			_animate(Vector2.ZERO)
+			pass#_animate(Vector2.ZERO)
 
 
 func go(resume := true) -> void:
@@ -157,9 +157,18 @@ func _animate(dir: Vector2) -> void:
 
 
 func _idle_animation() -> StringName:
-	if absf(_facing.x) > absf(_facing.y):
+	var angle = atan2(_facing.y, _facing.x)
+	if angle > -.75 * PI and angle < -.25 * PI:
+		return &"idle_up"
+	elif angle >= -.25 * PI and angle < .25 * PI:
 		return &"idle_right"
-	return &"idle_up" if _facing.y < 0.0 else &"idle"
+	elif angle >= .25 * PI and angle < .75 * PI:
+		return &"idle"
+	else:
+		return &"idle_right"
+	#if absf(_facing.x) > absf(_facing.y):
+		#return &"idle_right"
+	#return &"idle_up" if _facing.y < 0.0 else &"idle"
 
 
 func _play(anim: StringName) -> void:

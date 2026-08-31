@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bodxnyj4yyn7c" path="res://level_elements/ATM/ATM.png" id="2_5sl07"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="4_dfvvi"]
 [ext_resource type="AudioStream" uid="uid://depqietaoj2si" path="res://level_elements/ATM/ATMTurnOn.mp3" id="5_5sl07"]
+[ext_resource type="Texture2D" uid="uid://bv03gdn3r6x2a" path="res://level_elements/ATM/ATM_Explosion.png" id="5_qagpu"]
 [ext_resource type="Script" uid="uid://c1rjdkepeomqo" path="res://level_elements/ATM/atm_night_glow.gd" id="6_glow_script"]
 [ext_resource type="Texture2D" uid="uid://dutgmr1vyofwv" path="res://level_elements/ATM/atm_glow.png" id="7_normal_glow"]
 [ext_resource type="Texture2D" uid="uid://bdk1p3vfen6aa" path="res://level_elements/ATM/atm_broken_glow.png" id="8_broken_glow"]
@@ -33,6 +34,42 @@ region = Rect2(67, 0, 67, 112)
 [sub_resource type="AtlasTexture" id="AtlasTexture_2mcea"]
 atlas = ExtResource("2_5sl07")
 region = Rect2(134, 0, 67, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmhjf"]
+atlas = ExtResource("5_qagpu")
+region = Rect2(0, 0, 67, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1w4un"]
+atlas = ExtResource("5_qagpu")
+region = Rect2(67, 0, 67, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ld73o"]
+atlas = ExtResource("5_qagpu")
+region = Rect2(134, 0, 67, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1f1h4"]
+atlas = ExtResource("5_qagpu")
+region = Rect2(201, 0, 67, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftdbw"]
+atlas = ExtResource("5_qagpu")
+region = Rect2(268, 0, 67, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfair"]
+atlas = ExtResource("5_qagpu")
+region = Rect2(335, 0, 67, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqtpv"]
+atlas = ExtResource("5_qagpu")
+region = Rect2(402, 0, 67, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnaft"]
+atlas = ExtResource("5_qagpu")
+region = Rect2(469, 0, 67, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnb5e"]
+atlas = ExtResource("5_qagpu")
+region = Rect2(536, 0, 67, 112)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fpcxu"]
 animations = [{
@@ -62,6 +99,38 @@ animations = [{
 }],
 "loop": 1,
 "name": &"default",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmhjf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1w4un")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ld73o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1f1h4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftdbw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfair")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqtpv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnaft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnb5e")
+}],
+"loop": 0,
+"name": &"explode",
 "speed": 8.0
 }]
 
@@ -151,6 +220,7 @@ position = Vector2(0, -123.5)
 y_sort_enabled = true
 position = Vector2(0, -57)
 sprite_frames = SubResource("SpriteFrames_fpcxu")
+animation = &"explode"
 
 [node name="NightGlow" type="Node2D" parent="ATMSprite" unique_id=1722136684 groups=["night_lights"]]
 script = ExtResource("6_glow_script")

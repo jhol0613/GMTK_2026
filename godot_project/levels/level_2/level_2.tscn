@@ -173,6 +173,9 @@ station_number = 2
 [node name="Station0Sign2" parent="Platform5" index="12" unique_id=421458582]
 station_number = 2
 
+[node name="LayerTransitionZone" parent="Platform5" index="13" unique_id=1662407236]
+transition_z_index = -4
+
 [node name="Platform6" parent="." index="11" unique_id=275140016 instance=ExtResource("3_2smvo")]
 position = Vector2(-2528, -704)
 station_number = 2
@@ -189,6 +192,9 @@ station_number = 2
 
 [node name="Station0Sign2" parent="Platform6" index="12" unique_id=421458582]
 station_number = 2
+
+[node name="LayerTransitionZone" parent="Platform6" index="13" unique_id=1662407236]
+transition_z_index = -4
 
 [node name="Platform7" parent="." index="12" unique_id=261612207 instance=ExtResource("2_pqqg8")]
 z_index = 5
@@ -309,9 +315,9 @@ position = Vector2(-1755, -1177)
 collision_layer = 2
 sad_repeat_text = ""
 
-[node name="TechnicianStation2" parent="." index="32" unique_id=1047069434 node_paths=PackedStringArray("broken_atm_interactable", "atm_guy", "destination") instance=ExtResource("20_yiikh")]
+[node name="TechnicianStation2" parent="." index="32" unique_id=1047069434 node_paths=PackedStringArray("atm", "atm_guy", "destination") instance=ExtResource("20_yiikh")]
 position = Vector2(-2326, -1550)
-broken_atm_interactable = NodePath("../ATM/DialogueInteractable")
+atm = NodePath("../ATM")
 atm_guy = NodePath("../ATMGuy")
 destination = NodePath("../TrinketShop")
 
@@ -322,6 +328,9 @@ position = Vector2(-1944, -1511)
 [node name="Guide" parent="." index="34" unique_id=1499669555 instance=ExtResource("20_fq0us")]
 position = Vector2(-1730, -1516)
 collision_layer = 8
+
+[node name="Sprite" parent="Guide" index="0" unique_id=1868209522]
+animation = &"idle"
 
 [node name="DialogueInteractable" parent="Guide" index="2" unique_id=1161048169]
 dialogue = ExtResource("18_guide")

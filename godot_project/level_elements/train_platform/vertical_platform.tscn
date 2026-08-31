@@ -22,6 +22,7 @@ light_mode = 1
 size = Vector2(574, 291)
 
 [node name="Platform" type="Node2D" unique_id=1302422271 node_paths=PackedStringArray("upper_train", "lower_train")]
+z_index = -5
 y_sort_enabled = true
 script = ExtResource("1_25jkk")
 upper_train = NodePath("UpperTrain")
@@ -42,6 +43,7 @@ tile_map_data = PackedByteArray("AADx/woAAgAFAAEAAAD+/woAAgAFAAEAAADy/woAAgAFAAE
 tile_set = ExtResource("3_qp02f")
 
 [node name="UpperTrain" parent="." unique_id=995237668 instance=ExtResource("4_m7glf")]
+visible = false
 z_index = 1
 position = Vector2(-296, 54)
 direction = 0
@@ -62,6 +64,7 @@ material = SubResource("CanvasItemMaterial_train_front_glow")
 texture = ExtResource("7_0b0m3")
 
 [node name="LowerTrain" parent="." unique_id=1370361982 instance=ExtResource("4_m7glf")]
+visible = false
 z_index = 2
 position = Vector2(41, 58)
 
@@ -112,7 +115,7 @@ position = Vector2(-71, 10)
 visible = false
 z_index = 1
 script = ExtResource("13_n0ljr")
-transition_z_index = 1
+transition_z_index = -5
 metadata/_custom_type_script = "uid://c5fk2wp7w5c5k"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LayerTransitionZone" unique_id=6447672]
