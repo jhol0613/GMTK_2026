@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bcltguxgmfo2w"]
+
+[ext_resource type="Script" uid="uid://dm85pgfbjp37e" path="res://level_elements/decorative/sprinkler/sprinkler.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://bs8ymtphyyt1b" path="res://level_elements/decorative/sprinkler/Spinkler.png" id="2_texture"]
+[ext_resource type="Shader" uid="uid://fukyhu3sdxhr" path="res://level_elements/decorative/sprinkler/sprinkler_wet_ground.gdshader" id="3_shader"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wet"]
+resource_local_to_scene = true
+shader = ExtResource("3_shader")
+shader_parameter/wet_strength = 0.0
+shader_parameter/wet_multiplier = Vector3(0.86, 0.88, 0.86)
+
+[node name="Sprinkler" type="Node2D" unique_id=645521632]
+y_sort_enabled = true
+script = ExtResource("1_script")
+
+[node name="WetGroundAnchor" type="Node2D" parent="." unique_id=106510453]
+position = Vector2(0, 32)
+
+[node name="WetGround" type="Polygon2D" parent="WetGroundAnchor" unique_id=615117327]
+material = SubResource("ShaderMaterial_wet")
+position = Vector2(5.9604645e-08, -36)
+scale = Vector2(1.1212457, 0.657143)
+polygon = PackedVector2Array(0, -10, 8, -9, 16, -6, 23, -2, 27, 3, 28.093752, 7.163742, 27, 12, 22, 17, 14, 21, 6, 24, 0, 25, -6, 24, -14, 21, -22, 17, -27, 12, -28.093752, 7.163742, -27, 3, -23, -2, -16, -6, -8, -9)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=304273228]
+z_index = 1
+texture_filter = 1
+texture = ExtResource("2_texture")
+hframes = 4
+vframes = 4

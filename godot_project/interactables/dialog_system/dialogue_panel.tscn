@@ -158,6 +158,7 @@ sprite_frames = SubResource("SpriteFrames_fpcxu")
 [node name="ChoiceNavIcons" type="Control" parent="Root/Popup" unique_id=65935935]
 visible = false
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Up" type="AnimatedSprite2D" parent="Root/Popup/ChoiceNavIcons" unique_id=1925884366]
 position = Vector2(1304, 49)

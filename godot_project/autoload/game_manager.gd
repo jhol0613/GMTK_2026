@@ -14,9 +14,16 @@ extends Node2D
 
 @onready var _pause_layer: CanvasLayer
 
+var _transition_layer: CanvasLayer
 var stashed_data
 
 signal concurrent_scene_complete
+
+
+func _ready() -> void:
+	_transition_layer = CanvasLayer.new()
+	_transition_layer.layer = 3000
+	add_child(_transition_layer)
 
 func load_scene(
 	scene: Enums.Scenes,
@@ -80,29 +87,27 @@ func _load_scene(scene_to_load: Enums.Scenes):
 
 func _fadeout(next_scene: Enums.Scenes):
 	var fadeout_rect = _build_fadeout_rect(0)
-	get_tree().current_scene.add_child(fadeout_rect)
+	_transition_layer.add_child(fadeout_rect)
 	var tween = create_tween()
 	tween.tween_property(fadeout_rect, "modulate:a", 1.0, _transition_out_time)
-	tween.tween_callback(_load_scene_fadein.bind(next_scene))
+	tween.tween_callback(_load_scene_fadein.bind(next_scene, fadeout_rect))
 
 
-func _fadein():
-	var fadeout_rect = _build_fadeout_rect(1)
-	get_tree().current_scene.add_child(fadeout_rect)
+func _fadein(fadeout_rect: ColorRect):
 	var tween = create_tween()
 	tween.tween_property(fadeout_rect, "modulate:a", 0.0, _transition_in_time)
 	tween.tween_callback(_remove_fadeout_rect.bind(fadeout_rect))
 
 
-func _load_scene_fadein(scene_to_load: Enums.Scenes):
+func _load_scene_fadein(scene_to_load: Enums.Scenes, fadeout_rect: ColorRect):
 	get_tree().change_scene_to_packed(scene_dict.get(scene_to_load))
 	while get_tree().current_scene == null:
 		await get_tree().process_frame
-	_fadein()
+	_fadein(fadeout_rect)
 
 
 func _remove_fadeout_rect(rect: ColorRect):
-	get_tree().current_scene.remove_child(rect)
+	rect.queue_free()
 
 
 func _build_fadeout_rect(alpha: float) -> ColorRect:
@@ -114,5 +119,5 @@ func _build_fadeout_rect(alpha: float) -> ColorRect:
 	fadeout_rect.color = Color(0, 0, 0, 1)
 	fadeout_rect.modulate.a = alpha
 	fadeout_rect.z_index = RenderingServer.CANVAS_ITEM_Z_MAX
-	fadeout_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	fadeout_rect.mouse_filter = Control.MOUSE_FILTER_STOP
 	return fadeout_rect

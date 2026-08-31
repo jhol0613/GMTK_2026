@@ -6,7 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bodxnyj4yyn7c" path="res://level_elements/ATM/ATM.png" id="2_5sl07"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="4_dfvvi"]
 [ext_resource type="AudioStream" uid="uid://depqietaoj2si" path="res://level_elements/ATM/ATMTurnOn.mp3" id="5_5sl07"]
-[ext_resource type="Script" path="res://level_elements/ATM/atm_night_glow.gd" id="6_glow_script"]
+[ext_resource type="Texture2D" uid="uid://bv03gdn3r6x2a" path="res://level_elements/ATM/ATM_Explosion.png" id="5_qagpu"]
+[ext_resource type="Script" uid="uid://c1rjdkepeomqo" path="res://level_elements/ATM/atm_night_glow.gd" id="6_glow_script"]
 [ext_resource type="Texture2D" uid="uid://dutgmr1vyofwv" path="res://level_elements/ATM/atm_glow.png" id="7_normal_glow"]
 [ext_resource type="Texture2D" uid="uid://bdk1p3vfen6aa" path="res://level_elements/ATM/atm_broken_glow.png" id="8_broken_glow"]
 
@@ -33,6 +34,42 @@ region = Rect2(67, 0, 67, 112)
 [sub_resource type="AtlasTexture" id="AtlasTexture_2mcea"]
 atlas = ExtResource("2_5sl07")
 region = Rect2(134, 0, 67, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmhjf"]
+atlas = ExtResource("5_qagpu")
+region = Rect2(0, 0, 67, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1w4un"]
+atlas = ExtResource("5_qagpu")
+region = Rect2(67, 0, 67, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ld73o"]
+atlas = ExtResource("5_qagpu")
+region = Rect2(134, 0, 67, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1f1h4"]
+atlas = ExtResource("5_qagpu")
+region = Rect2(201, 0, 67, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftdbw"]
+atlas = ExtResource("5_qagpu")
+region = Rect2(268, 0, 67, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfair"]
+atlas = ExtResource("5_qagpu")
+region = Rect2(335, 0, 67, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqtpv"]
+atlas = ExtResource("5_qagpu")
+region = Rect2(402, 0, 67, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnaft"]
+atlas = ExtResource("5_qagpu")
+region = Rect2(469, 0, 67, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnb5e"]
+atlas = ExtResource("5_qagpu")
+region = Rect2(536, 0, 67, 112)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fpcxu"]
 animations = [{
@@ -62,6 +99,38 @@ animations = [{
 }],
 "loop": 1,
 "name": &"default",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmhjf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1w4un")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ld73o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1f1h4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftdbw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfair")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqtpv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnaft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnb5e")
+}],
+"loop": 0,
+"name": &"explode",
 "speed": 8.0
 }]
 
@@ -105,7 +174,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_glow_broken_2")
 }],
-"loop": true,
+"loop": 1,
 "name": &"broken",
 "speed": 8.0
 }, {
@@ -119,7 +188,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_glow_default_2")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 8.0
 }]
@@ -139,22 +208,28 @@ resshan_interactable2 = NodePath("ResshanInteractable2")
 turn_on_sound = NodePath("../ATMTurnOnSound")
 
 [node name="Prompt" parent="DialogueInteractable" index="1" unique_id=272794898]
-offset_top = -207.0
-offset_bottom = -39.0
+offset_left = -37.5
+offset_top = -208.5
+offset_right = 37.5
+offset_bottom = -40.5
+
+[node name="AnimatedSprite2D" parent="DialogueInteractable" index="2" unique_id=819702371]
+position = Vector2(0, -123.5)
 
 [node name="ATMSprite" type="AnimatedSprite2D" parent="." unique_id=1776144098]
 y_sort_enabled = true
 position = Vector2(0, -57)
 sprite_frames = SubResource("SpriteFrames_fpcxu")
+animation = &"explode"
 
-[node name="NightGlow" type="Node2D" parent="ATMSprite" groups=["night_lights"]]
+[node name="NightGlow" type="Node2D" parent="ATMSprite" unique_id=1722136684 groups=["night_lights"]]
 script = ExtResource("6_glow_script")
 
-[node name="Overlay" type="AnimatedSprite2D" parent="ATMSprite/NightGlow"]
+[node name="Overlay" type="AnimatedSprite2D" parent="ATMSprite/NightGlow" unique_id=786278177]
 modulate = Color(1, 1, 1, 0)
 material = SubResource("CanvasItemMaterial_glow")
+position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_glow")
-animation = &"default"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1122527182]
 z_index = 1
@@ -170,10 +245,10 @@ shape = SubResource("RectangleShape2D_1w4un")
 physics_interpolation_mode = 0
 layout_mode = 3
 anchors_preset = 0
-offset_left = -24.0
-offset_top = -39.0
-offset_right = -24.0
-offset_bottom = -39.0
+offset_left = -29.0
+offset_top = -44.0
+offset_right = -20.0
+offset_bottom = -34.0
 script = ExtResource("4_dfvvi")
 _string = "<<money>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
@@ -182,10 +257,10 @@ metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 physics_interpolation_mode = 0
 layout_mode = 3
 anchors_preset = 0
-offset_left = -24.0
-offset_top = -28.0
-offset_right = -24.0
-offset_bottom = -28.0
+offset_left = -29.0
+offset_top = -33.0
+offset_right = -20.0
+offset_bottom = -23.0
 script = ExtResource("4_dfvvi")
 _string = "<<machine>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
@@ -193,5 +268,8 @@ metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 [node name="ATMTurnOnSound" type="AudioStreamPlayer" parent="." unique_id=1102551377]
 stream = ExtResource("5_5sl07")
 bus = &"SFX"
+
+[node name="RefillLightningOrigin" type="Marker2D" parent="." unique_id=926426454]
+position = Vector2(9, -29)
 
 [editable path="DialogueInteractable"]

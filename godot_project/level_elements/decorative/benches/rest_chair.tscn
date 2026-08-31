@@ -129,9 +129,6 @@ dialogue = SubResource("Resource_6cojq")
 panel_path = NodePath("../DialoguePanel")
 
 [node name="Prompt" parent="DialogueInteractable" index="1" unique_id=272794898]
-offset_left = -38.0
-offset_top = -116.0
-offset_bottom = 52.0
 
 [node name="AnimatedSprite2D" parent="DialogueInteractable" index="2" unique_id=819702371]
 visible = false

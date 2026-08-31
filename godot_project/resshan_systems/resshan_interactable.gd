@@ -16,6 +16,7 @@ var note: ResshanPopUp = null
 var noted: = false
 
 var magnifying_glass_hover = load("uid://rwsmjgconr7m")
+var magnifying_glass_hover_known = load("uid://b8iogjde6ylvv")
 var magnifying_glass = load("uid://c8n3by2cmh20k")
 var shader: ShaderMaterial = preload('uid://b6orlsmg3aep5')
 var _shine_cover: ColorRect
@@ -44,17 +45,26 @@ func _process(delta: float) -> void:
 
 
 func _gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if not event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+	if (
+		event is InputEventMouseButton
+		and not event.pressed
+		and event.button_index == MOUSE_BUTTON_LEFT
+	):
+		if Notebook.has_note(_encoded_string):
+			SignalBus.show_resshan_entry.emit(_encoded_string)
+		else:
 			noted = true
+			Input.set_custom_mouse_cursor(magnifying_glass_hover_known, Input.CURSOR_ARROW, Vector2(0,0) )
 			shader.set_shader_parameter('color', Color.WHITE)
 			SignalBus.resshan_clicked.emit(_encoded_string)
-		if not event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
-			SignalBus.show_resshan_entry.emit(_encoded_string)
+		accept_event()
 
 
 func _on_mouse_entered() -> void:
+	if get_tree().get_first_node_in_group("ui_overlay").dragging_item:
+		return
 	var pop: = Notebook.get_note(_encoded_string)
+	
 	if pop:
 		noted = true
 		if note:
@@ -64,20 +74,24 @@ func _on_mouse_entered() -> void:
 			note = pop
 	_shine_cover.show()
 	if noted:
+		Input.set_custom_mouse_cursor(magnifying_glass_hover_known, Input.CURSOR_ARROW, Vector2(0,0) )
 		shader.set_shader_parameter('color', Color.WHITE)
 	else:
+		Input.set_custom_mouse_cursor(magnifying_glass_hover, Input.CURSOR_ARROW, Vector2(0,0) )
 		shader.set_shader_parameter('color', Color(1.0, 0.922, 0.569))
 	
 	shader.set_shader_parameter('time', -0.5)
 	
-	Input.set_custom_mouse_cursor(magnifying_glass_hover)
+	
 	_hovered = true
 	display_note()
 
 
 func _on_mouse_exited() -> void:
+	if get_tree().get_first_node_in_group("ui_overlay").dragging_item:
+		return
 	_shine_cover.hide()
-	Input.set_custom_mouse_cursor(magnifying_glass)
+	Input.set_custom_mouse_cursor(magnifying_glass, Input.CURSOR_ARROW, Vector2(0,0) )
 	_hovered = false
 	if note:
 		note.hide()
@@ -87,4 +101,5 @@ func display_note() -> void:
 	if note: 
 		if not note.get_parent():
 			add_child(note)
+		note.position.x = size.x * 0.5
 		note.show()

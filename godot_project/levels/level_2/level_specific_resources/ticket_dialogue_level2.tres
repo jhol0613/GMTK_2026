@@ -1,0 +1,189 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://dhce3mpsoap1v"]
+
+[ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://interactables/dialog_system/dialogue_choice.gd" id="1_a83ec"]
+[ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="2_56dy0"]
+[ext_resource type="Resource" uid="uid://bet02myt21fpk" path="res://level_elements/ticket_booth/ticket_booth_thank_you.tres" id="2_a22ne"]
+[ext_resource type="Texture2D" uid="uid://dkameqx3adr3l" path="res://interactables/dialog_system/character_portraits/ticket_lady/ticket_lady_portrait_1.png" id="3_56dy0"]
+[ext_resource type="Script" uid="uid://cpfgjwe2lpk0k" path="res://ui/ticket/ticket_data.gd" id="3_rkr7w"]
+[ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="3_vxevm"]
+
+[sub_resource type="Resource" id="Resource_6hgj7"]
+script = ExtResource("3_rkr7w")
+train_line = 9
+metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
+
+[sub_resource type="Resource" id="Resource_ubbq6"]
+script = ExtResource("1_a83ec")
+player_text = "<<yellow>> <<north>>"
+reply = ExtResource("2_a22ne")
+reward = SubResource("Resource_6hgj7")
+outcome_id = &"sold_ticket"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_u7ys2"]
+script = ExtResource("3_rkr7w")
+train_line = 9
+direction = 1
+metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
+
+[sub_resource type="Resource" id="Resource_22bx0"]
+script = ExtResource("1_a83ec")
+player_text = "<<yellow>> <<south>>"
+reply = ExtResource("2_a22ne")
+reward = SubResource("Resource_u7ys2")
+outcome_id = &"sold_ticket"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_v1hry"]
+script = ExtResource("3_rkr7w")
+metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
+
+[sub_resource type="Resource" id="Resource_l1k6l"]
+script = ExtResource("1_a83ec")
+player_text = "<<blue>> <<north>>"
+reply = ExtResource("2_a22ne")
+reward = SubResource("Resource_v1hry")
+outcome_id = &"sold_ticket"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_b5wyv"]
+script = ExtResource("3_rkr7w")
+direction = 1
+metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
+
+[sub_resource type="Resource" id="Resource_m0hlw"]
+script = ExtResource("1_a83ec")
+player_text = "<<blue>> <<south>>"
+reply = ExtResource("2_a22ne")
+reward = SubResource("Resource_b5wyv")
+outcome_id = &"sold_ticket"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_6c7kq"]
+script = ExtResource("3_rkr7w")
+train_line = 6
+metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
+
+[sub_resource type="Resource" id="Resource_pun8k"]
+script = ExtResource("1_a83ec")
+player_text = "<<purple>> <<north>>"
+reply = ExtResource("2_a22ne")
+reward = SubResource("Resource_6c7kq")
+outcome_id = &"sold_ticket"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_cari4"]
+script = ExtResource("3_rkr7w")
+train_line = 6
+direction = 1
+metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
+
+[sub_resource type="Resource" id="Resource_c4y5e"]
+script = ExtResource("1_a83ec")
+player_text = "<<purple>> <<south>>"
+reply = ExtResource("2_a22ne")
+reward = SubResource("Resource_cari4")
+outcome_id = &"sold_ticket"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_x3qea"]
+script = ExtResource("3_rkr7w")
+train_line = 1
+direction = 2
+metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
+
+[sub_resource type="Resource" id="Resource_imm05"]
+script = ExtResource("1_a83ec")
+player_text = "<<brown>> <<east>>"
+reply = ExtResource("2_a22ne")
+reward = SubResource("Resource_x3qea")
+outcome_id = &"sold_ticket"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_yg6lc"]
+script = ExtResource("3_rkr7w")
+train_line = 1
+direction = 3
+metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
+
+[sub_resource type="Resource" id="Resource_lg205"]
+script = ExtResource("1_a83ec")
+player_text = "<<brown>> <<west>>"
+reply = ExtResource("2_a22ne")
+reward = SubResource("Resource_yg6lc")
+outcome_id = &"sold_ticket"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_j5w83"]
+script = ExtResource("3_rkr7w")
+train_line = 8
+direction = 2
+metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
+
+[sub_resource type="Resource" id="Resource_tur6p"]
+script = ExtResource("1_a83ec")
+player_text = "<<teal>> <<east>>"
+reply = ExtResource("2_a22ne")
+reward = SubResource("Resource_j5w83")
+outcome_id = &"sold_ticket"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_p6mg1"]
+script = ExtResource("3_rkr7w")
+train_line = 8
+direction = 3
+metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
+
+[sub_resource type="Resource" id="Resource_dm74l"]
+script = ExtResource("1_a83ec")
+player_text = "<<teal>> <<west>>"
+reply = ExtResource("2_a22ne")
+reward = SubResource("Resource_p6mg1")
+outcome_id = &"sold_ticket"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_qhlsd"]
+script = ExtResource("3_rkr7w")
+train_line = 4
+direction = 2
+metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
+
+[sub_resource type="Resource" id="Resource_mapr3"]
+script = ExtResource("1_a83ec")
+player_text = "<<maroon>> <<east>>"
+reply = ExtResource("2_a22ne")
+reward = SubResource("Resource_qhlsd")
+outcome_id = &"sold_ticket"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_ycoc7"]
+script = ExtResource("3_rkr7w")
+train_line = 4
+direction = 3
+metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
+
+[sub_resource type="Resource" id="Resource_ai2sf"]
+script = ExtResource("1_a83ec")
+player_text = "<<maroon>> <<west>>"
+reply = ExtResource("2_a22ne")
+reward = SubResource("Resource_ycoc7")
+outcome_id = &"sold_ticket"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_huxyp"]
+script = ExtResource("1_a83ec")
+player_text = "Never mind"
+outcome_id = &"cancel"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_xc01j"]
+script = ExtResource("2_56dy0")
+text = "<<ticket>> <<buy>> <<?>>"
+speaker_icon = ExtResource("3_56dy0")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[resource]
+script = ExtResource("3_vxevm")
+lines = Array[ExtResource("2_56dy0")]([SubResource("Resource_xc01j")])
+choices = Array[ExtResource("1_a83ec")]([SubResource("Resource_ubbq6"), SubResource("Resource_22bx0"), SubResource("Resource_l1k6l"), SubResource("Resource_m0hlw"), SubResource("Resource_pun8k"), SubResource("Resource_c4y5e"), SubResource("Resource_imm05"), SubResource("Resource_lg205"), SubResource("Resource_tur6p"), SubResource("Resource_dm74l"), SubResource("Resource_mapr3"), SubResource("Resource_ai2sf"), SubResource("Resource_huxyp")])
+metadata/_custom_type_script = "uid://dvkforrusa0nj"

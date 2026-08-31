@@ -5,3 +5,4 @@ extends Resource
 @export var item_name: String
 @export var item_description: String
 @export var item_icon: Texture2D
+@export var animated_item_icon: AnimatedItemIcon

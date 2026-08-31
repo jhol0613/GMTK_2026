@@ -4,7 +4,7 @@ extends Area2D
 ##leave this zone, it will go back to what it was originally
 class_name LayerTransitionZone
 
-@export_flags_2d_physics var default_mask := 1
+@export_flags_2d_physics var default_mask := 9
 @export_flags_2d_physics var default_layer := 2
 ##This is the index entities will transition to when they enter the zone
 @export var transition_z_index := 0

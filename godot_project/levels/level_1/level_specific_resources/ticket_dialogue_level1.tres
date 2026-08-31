@@ -2,17 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://interactables/dialog_system/dialogue_choice.gd" id="1_wuq0v"]
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="2_k475t"]
-[ext_resource type="AudioStream" uid="uid://dpnmacxamctuf" path="res://ui/SpeechAudio/Thank you.mp3" id="3_bj5pu"]
+[ext_resource type="Resource" uid="uid://bet02myt21fpk" path="res://level_elements/ticket_booth/ticket_booth_thank_you.tres" id="2_l1k6l"]
 [ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="3_mgd23"]
 [ext_resource type="Texture2D" uid="uid://kayfkwypm2a" path="res://interactables/dialog_system/character_portraits/ticket_lady/ticket_lady_portrait_2.png" id="4_1wxrd"]
 [ext_resource type="Script" uid="uid://cpfgjwe2lpk0k" path="res://ui/ticket/ticket_data.gd" id="5_y4sxr"]
-
-[sub_resource type="Resource" id="Resource_4cd1h"]
-script = ExtResource("2_k475t")
-text = "<<thankyou>>"
-speaker_icon = ExtResource("4_1wxrd")
-sfx = ExtResource("3_bj5pu")
-metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_ntdhj"]
 script = ExtResource("5_y4sxr")
@@ -23,17 +16,10 @@ metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
 [sub_resource type="Resource" id="Resource_cnn7p"]
 script = ExtResource("1_wuq0v")
 player_text = "<<red>> <<west>>"
-reply = SubResource("Resource_4cd1h")
+reply = ExtResource("2_l1k6l")
 reward = SubResource("Resource_ntdhj")
 outcome_id = &"sold_ticket"
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"
-
-[sub_resource type="Resource" id="Resource_ai2ei"]
-script = ExtResource("2_k475t")
-text = "<<thankyou>>"
-speaker_icon = ExtResource("4_1wxrd")
-sfx = ExtResource("3_bj5pu")
-metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_4knja"]
 script = ExtResource("5_y4sxr")
@@ -44,17 +30,10 @@ metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
 [sub_resource type="Resource" id="Resource_flgpe"]
 script = ExtResource("1_wuq0v")
 player_text = "<<red>> <<east>>"
-reply = SubResource("Resource_ai2ei")
+reply = ExtResource("2_l1k6l")
 reward = SubResource("Resource_4knja")
 outcome_id = &"sold_ticket"
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"
-
-[sub_resource type="Resource" id="Resource_ua8iw"]
-script = ExtResource("2_k475t")
-text = "<<thankyou>>"
-speaker_icon = ExtResource("4_1wxrd")
-sfx = ExtResource("3_bj5pu")
-metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_w75he"]
 script = ExtResource("5_y4sxr")
@@ -64,17 +43,10 @@ metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
 [sub_resource type="Resource" id="Resource_oc15f"]
 script = ExtResource("1_wuq0v")
 player_text = "<<blue>> <<west>>"
-reply = SubResource("Resource_ua8iw")
+reply = ExtResource("2_l1k6l")
 reward = SubResource("Resource_w75he")
 outcome_id = &"sold_ticket"
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"
-
-[sub_resource type="Resource" id="Resource_vg3su"]
-script = ExtResource("2_k475t")
-text = "<<thankyou>>"
-speaker_icon = ExtResource("4_1wxrd")
-sfx = ExtResource("3_bj5pu")
-metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_06ecp"]
 script = ExtResource("5_y4sxr")
@@ -84,17 +56,10 @@ metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
 [sub_resource type="Resource" id="Resource_vmmyj"]
 script = ExtResource("1_wuq0v")
 player_text = "<<blue>> <<east>>"
-reply = SubResource("Resource_vg3su")
+reply = ExtResource("2_l1k6l")
 reward = SubResource("Resource_06ecp")
 outcome_id = &"sold_ticket"
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"
-
-[sub_resource type="Resource" id="Resource_yyq8c"]
-script = ExtResource("2_k475t")
-text = "<<thankyou>>"
-speaker_icon = ExtResource("4_1wxrd")
-sfx = ExtResource("3_bj5pu")
-metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_e5brb"]
 script = ExtResource("5_y4sxr")
@@ -105,17 +70,10 @@ metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
 [sub_resource type="Resource" id="Resource_54gw1"]
 script = ExtResource("1_wuq0v")
 player_text = "<<pink>> <<west>>"
-reply = SubResource("Resource_yyq8c")
+reply = ExtResource("2_l1k6l")
 reward = SubResource("Resource_e5brb")
 outcome_id = &"sold_ticket"
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"
-
-[sub_resource type="Resource" id="Resource_yik85"]
-script = ExtResource("2_k475t")
-text = "<<thankyou>>"
-speaker_icon = ExtResource("4_1wxrd")
-sfx = ExtResource("3_bj5pu")
-metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_toluw"]
 script = ExtResource("5_y4sxr")
@@ -126,17 +84,10 @@ metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
 [sub_resource type="Resource" id="Resource_mcb8q"]
 script = ExtResource("1_wuq0v")
 player_text = "<<pink>> <<east>>"
-reply = SubResource("Resource_yik85")
+reply = ExtResource("2_l1k6l")
 reward = SubResource("Resource_toluw")
 outcome_id = &"sold_ticket"
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"
-
-[sub_resource type="Resource" id="Resource_5vbbt"]
-script = ExtResource("2_k475t")
-text = "<<thankyou>>"
-speaker_icon = ExtResource("4_1wxrd")
-sfx = ExtResource("3_bj5pu")
-metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_udfhf"]
 script = ExtResource("5_y4sxr")
@@ -147,17 +98,10 @@ metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
 [sub_resource type="Resource" id="Resource_88jmc"]
 script = ExtResource("1_wuq0v")
 player_text = "<<green>> <<west>>"
-reply = SubResource("Resource_5vbbt")
+reply = ExtResource("2_l1k6l")
 reward = SubResource("Resource_udfhf")
 outcome_id = &"sold_ticket"
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"
-
-[sub_resource type="Resource" id="Resource_vsljp"]
-script = ExtResource("2_k475t")
-text = "<<thankyou>>"
-speaker_icon = ExtResource("4_1wxrd")
-sfx = ExtResource("3_bj5pu")
-metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_0x1rk"]
 script = ExtResource("5_y4sxr")
@@ -168,7 +112,7 @@ metadata/_custom_type_script = "uid://cpfgjwe2lpk0k"
 [sub_resource type="Resource" id="Resource_noxkf"]
 script = ExtResource("1_wuq0v")
 player_text = "<<green>> <<east>>"
-reply = SubResource("Resource_vsljp")
+reply = ExtResource("2_l1k6l")
 reward = SubResource("Resource_0x1rk")
 outcome_id = &"sold_ticket"
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"
@@ -184,7 +128,7 @@ data = PackedByteArray("SUQzAgAAAAAfdlRTUwAAEwBMb2dpYyBQcm8gWCAxMC43LjlDT00AAGgA
 
 [sub_resource type="Resource" id="Resource_r4wnr"]
 script = ExtResource("2_k475t")
-text = "<<ticket>> <<?>> <<red>> <<blue>> <<pink>> <<green>> <<?>> <<west>> <<east>> <<?>>"
+text = "<<ticket>> <<buy>> <<?>> <<red>> <<blue>> <<pink>> <<green>> <<?>> <<west>> <<east>> <<?>>"
 speaker_icon = ExtResource("4_1wxrd")
 sfx = SubResource("AudioStreamMP3_i6od7")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"

@@ -5,6 +5,12 @@ signal interacted
 
 @onready var _prompt: ResshanLabel = $Prompt
 @export var _arrow: AnimatedSprite2D
+@export var has_arrow: bool = true
+@export var active := true :
+	set(new_active):
+		active = new_active
+		visible = active
+		monitoring = active
 
 var _player_in_range: bool = false
 
@@ -14,6 +20,8 @@ func _ready() -> void:
 		_prompt.visible = false
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
+	#force the setter
+	active = active
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -25,8 +33,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 
 	if event.is_action_pressed("interact"):
-		interact()
 		interacted.emit()
+		interact()
 		get_viewport().set_input_as_handled()
 
 
@@ -64,4 +72,4 @@ func _on_body_entered(_body: Node2D) -> void:
 func _on_body_exited(_body: Node2D) -> void:
 	_player_in_range = false
 	_prompt.visible = false
-	_arrow.visible = true
+	_arrow.visible = has_arrow

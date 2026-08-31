@@ -8,6 +8,13 @@ var sprint_animation_multiplier := 1.5
 var distance: int = 0
 var movement_disabled: bool = false
 
+@export_group("Following")
+@export var trail_buffer_max_size = 20
+@export var min_trail_distance_squared = 100.0
+@export var max_trail_distance_squared = 900.0
+var _trail_buffer : Array[Vector2]
+var _moved_last_iteration := false
+
 @export var distance_per_minute: int = 50
 
 @export var footstep_sounds: Array[AudioStream] = []
@@ -34,23 +41,35 @@ var _footstep_randomizers: Dictionary[StringName, AudioStreamRandomizer] = { }
 
 @onready var sprite := $PlayerSprite
 @onready var timer: Timer = $Timer
+@onready var trail_marker := $FollowPosition
 
 
 func _ready() -> void:
 	add_to_group("player")
 
 	_initialize_footstep_audio()
+	#trail_marker.reparent(get_parent())
 
 
 func _physics_process(_delta: float) -> void:
 	if _is_any_panel_open() or movement_disabled:
 		direction = Vector2.ZERO
+		sprite.speed_scale = 1.0
+		_animate()
 		return
 
 	direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	_animate()
 
 	if not direction:
+		
+		if _moved_last_iteration and _trail_buffer.size() > 1 and \
+			_trail_buffer[0].distance_squared_to(_trail_buffer[-1]) > max_trail_distance_squared:
+			_trail_buffer.pop_front()
+			trail_marker.position = _trail_buffer[0] - position
+			_moved_last_iteration = true
+		else:
+			_moved_last_iteration = false
 		return
 
 	var sprinting = Input.is_action_pressed("sprint")
@@ -60,6 +79,13 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	if position != old_position:
 		distance += 1
+		
+		#keep track of position behind player for a following node to target
+		_trail_buffer.append(old_position)
+		if _trail_buffer.size() > trail_buffer_max_size:
+			_trail_buffer.pop_front()
+		trail_marker.position = _trail_buffer[0] - position
+		_moved_last_iteration = true
 
 	if distance == distance_per_minute:
 		SignalBus.minutes_passed.emit(1)
@@ -83,17 +109,27 @@ func _is_any_panel_open() -> bool:
 
 
 ## Scripted walk used by cutscenes (train boarding / exit). Disables input until done.
-## `walk_up` forces the up/down walk clip (boarding vs exit) instead of direction-based selection.
+## `walk_up` forces the up clip (boarding, where the player walks into the train).
+## Otherwise the clip follows the direction of travel, same as normal movement.
 func walk_to(
 	target_global: Vector2,
 	walk_speed: float = 80.0,
 	walk_up: bool = false,
 ) -> void:
 	movement_disabled = true
-	var walk_anim: StringName = &"walk_up" if walk_up else &"walk_down"
-	var idle_anim: StringName = &"idle_up" if walk_up else &"idle"
 	var delta_pos := target_global - global_position
 	var travel_distance := delta_pos.length()
+
+	var walk_anim: StringName = &"walk_up"
+	var idle_anim: StringName = &"idle_up"
+	if not walk_up:
+		if absf(delta_pos.x) > absf(delta_pos.y):
+			walk_anim = &"walk_right"
+			idle_anim = &"idle_right"
+			sprite.flip_h = delta_pos.x < 0.0
+		elif delta_pos.y > 0.0:
+			walk_anim = &"walk_down"
+			idle_anim = &"idle"
 	if travel_distance < 1.0:
 		direction = Vector2.ZERO
 		sprite.play(idle_anim)

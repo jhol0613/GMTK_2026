@@ -76,7 +76,7 @@ collision_layer = 4
 script = ExtResource("1_7t3he")
 _arrow = NodePath("AnimatedSprite2D")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=278382881]
+[node name="InteractableCollisionShape2D" type="CollisionShape2D" parent="." unique_id=278382881]
 position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_riqys")
 

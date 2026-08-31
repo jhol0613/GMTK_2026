@@ -27,7 +27,7 @@ func _begin_without_intro() -> void:
 	_intro_active = false
 	_set_pigeon_ambient_muted(false)
 	_remove_skip_intro_button()
-	platform.upper_train.call_train()
+	#platform.upper_train.call_train()
 
 
 func _remove_skip_intro_button() -> void:

@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://xc4w5cfbic0d" path="res://level_elements/trinket_shop/trinket_shop.gd" id="6_trinket"]
 [ext_resource type="Texture2D" uid="uid://0fat232mqu7p" path="res://level_elements/trinket_shop/trinket_shop_glowpng.png" id="7_glow"]
 [ext_resource type="Script" uid="uid://drq0avlr51tqy" path="res://level_elements/trinket_shop/trinket_shop_night_light.gd" id="8_night"]
+[ext_resource type="AudioStream" uid="uid://catt5hiwwwfor" path="res://level_elements/trinket_shop/trinket_purchased.wav" id="9_7wyia"]
 [ext_resource type="Texture2D" uid="uid://b7k1rwda5wu1p" path="res://visual_effects/day_night/light_radial.png" id="9_light"]
 [ext_resource type="Texture2D" uid="uid://8fjrji8ipc4f" path="res://visual_effects/day_night/light_downward.png" id="10_down"]
 
@@ -27,9 +28,21 @@ region = Rect2(358, 0, 179, 107)
 atlas = ExtResource("1_400x5")
 region = Rect2(537, 0, 179, 107)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7wyia"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvn3i"]
 atlas = ExtResource("2_8tbst")
 region = Rect2(0, 0, 179, 107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wyia"]
+atlas = ExtResource("2_8tbst")
+region = Rect2(179, 0, 179, 107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3uvvl"]
+atlas = ExtResource("2_8tbst")
+region = Rect2(358, 0, 179, 107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqp2h"]
+atlas = ExtResource("2_8tbst")
+region = Rect2(537, 0, 179, 107)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3uvvl"]
 animations = [{
@@ -52,11 +65,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_vvn3i")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_7wyia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3uvvl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqp2h")
 }],
 "loop": 1,
 "name": &"level2_idle",
-"speed": 5.0
+"speed": 6.0
 }]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glow"]
@@ -111,8 +133,9 @@ script = ExtResource("6_trinket")
 z_index = 1
 position = Vector2(-14, -47)
 sprite_frames = SubResource("SpriteFrames_3uvvl")
-animation = &"level1_idle"
+animation = &"level2_idle"
 autoplay = "level1_idle"
+frame_progress = 0.49772713
 
 [node name="NightLight" type="Node2D" parent="." unique_id=1446894394 groups=["night_lights"]]
 script = ExtResource("8_night")
@@ -153,7 +176,7 @@ z_index = 1
 position = Vector2(4, -33.5)
 panel_path = NodePath("../DialoguePanel")
 
-[node name="CollisionShape2D" parent="DialogueInteractable" index="0" unique_id=278382881]
+[node name="InteractableCollisionShape2D" parent="DialogueInteractable" index="0" unique_id=278382881]
 z_index = 1
 position = Vector2(-5, 37.5)
 shape = SubResource("RectangleShape2D_bqp2h")
@@ -164,6 +187,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="PurchaseSfx" type="AudioStreamPlayer2D" parent="." unique_id=1180624417]
 position = Vector2(-14, -47)
+stream = ExtResource("9_7wyia")
 bus = &"SFX"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=806731683]
@@ -179,7 +203,7 @@ shape = SubResource("RectangleShape2D_fhk1x")
 [node name="DialoguePanel" parent="." unique_id=210961773 instance=ExtResource("5_73t7r")]
 unique_name_in_owner = true
 
-[node name="ResshanInteractable" type="Control" parent="." unique_id=2144437478]
+[node name="ResshanInteractableMask" type="Control" parent="." unique_id=2144437478]
 physics_interpolation_mode = 0
 z_index = 2
 layout_mode = 3
@@ -192,17 +216,20 @@ script = ExtResource("5_400x5")
 _string = "<<trinketmask>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
-[node name="ResshanInteractable2" type="Control" parent="." unique_id=2016737962]
+[node name="ResshanInteractableStore" type="Control" parent="." unique_id=2016737962]
 physics_interpolation_mode = 0
 z_index = 2
 layout_mode = 3
 anchors_preset = 0
-offset_left = 11.0
+offset_left = 12.0
 offset_top = -73.0
-offset_right = 20.0
+offset_right = 21.0
 offset_bottom = -62.0
 script = ExtResource("5_400x5")
 _string = "<<store>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="LightningOrigin" type="Marker2D" parent="." unique_id=368861366]
+position = Vector2(10, -19)
 
 [editable path="DialogueInteractable"]

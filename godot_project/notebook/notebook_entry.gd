@@ -28,11 +28,5 @@ func get_note() -> String:
 	return player_input.text
 
 
-#func _on_resshan_gui_input(event: InputEvent) -> void:
-	#if event is InputEventMouseButton:
-		#if not event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
-			#queue_free()
-
-
 func _on_move_entry_pressed(to_section: int) -> void:
 	move_requested.emit(to_section)

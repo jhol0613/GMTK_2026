@@ -14,7 +14,7 @@
 [node name="GameManager" type="Node2D" unique_id=482173798]
 script = ExtResource("1_7xclw")
 scene_dict = Dictionary[int, PackedScene]({
-0: null,
+0: ExtResource("8_4gcu2"),
 1: ExtResource("2_lb6xn"),
 2: ExtResource("2_fjyxg"),
 3: ExtResource("4_0rjyf"),

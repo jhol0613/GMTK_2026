@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bo3pcctdon7l"]
 
 [ext_resource type="Script" uid="uid://x84dynvpqr3d" path="res://level_elements/signs/sign_station_name.gd" id="1_54acc"]
-[ext_resource type="Texture2D" uid="uid://kqw3w0sof3qf" path="res://level_elements/signs/sign_station_names.png" id="2_muhwy"]
+[ext_resource type="Texture2D" uid="uid://rhcpne7wge4n" path="res://level_elements/signs/sign_station_names.png" id="2_muhwy"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="3_r0etv"]
 [ext_resource type="Texture2D" uid="uid://ceio7j52g13um" path="res://level_elements/signs/sign_station_names_screen_overlay.png" id="4_screen"]
 [ext_resource type="Script" uid="uid://cawljfdqejobl" path="res://level_elements/signs/sign_screen_glow.gd" id="5_glow"]
@@ -38,6 +38,22 @@ region = Rect2(96, 48, 48, 48)
 atlas = ExtResource("2_muhwy")
 region = Rect2(144, 48, 48, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_d55r2"]
+atlas = ExtResource("2_muhwy")
+region = Rect2(0, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6keb3"]
+atlas = ExtResource("2_muhwy")
+region = Rect2(48, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qw263"]
+atlas = ExtResource("2_muhwy")
+region = Rect2(96, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwfr6"]
+atlas = ExtResource("2_muhwy")
+region = Rect2(144, 96, 48, 48)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ujtin"]
 animations = [{
 "frames": [{
@@ -73,6 +89,23 @@ animations = [{
 "loop": 1,
 "name": &"1",
 "speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d55r2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6keb3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qw263")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nwfr6")
+}],
+"loop": 1,
+"name": &"2",
+"speed": 6.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_screen_0"]
@@ -107,6 +140,22 @@ region = Rect2(96, 48, 48, 48)
 atlas = ExtResource("4_screen")
 region = Rect2(144, 48, 48, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_u64gj"]
+atlas = ExtResource("4_screen")
+region = Rect2(0, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1klqh"]
+atlas = ExtResource("4_screen")
+region = Rect2(48, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngq60"]
+atlas = ExtResource("4_screen")
+region = Rect2(96, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgkxj"]
+atlas = ExtResource("4_screen")
+region = Rect2(144, 96, 48, 48)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_screen"]
 animations = [{
 "frames": [{
@@ -122,7 +171,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_screen_3")
 }],
-"loop": true,
+"loop": 1,
 "name": &"0",
 "speed": 6.0
 }, {
@@ -139,8 +188,25 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_screen_7")
 }],
-"loop": true,
+"loop": 1,
 "name": &"1",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u64gj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1klqh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngq60")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgkxj")
+}],
+"loop": 1,
+"name": &"2",
 "speed": 6.0
 }]
 
@@ -154,17 +220,17 @@ script = ExtResource("1_54acc")
 z_index = 1
 position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_ujtin")
-animation = &"1"
+animation = &"2"
 
-[node name="ScreenGlow" type="Node2D" parent="." groups=["night_lights"]]
+[node name="ScreenGlow" type="Node2D" parent="." unique_id=1729399194 groups=["night_lights"]]
 script = ExtResource("5_glow")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScreenGlow"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScreenGlow" unique_id=1816985218]
 modulate = Color(1, 1, 1, 0)
 z_index = 1
 position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_screen")
-animation = &"1"
+animation = &"2"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1801662615]
 collision_layer = 2

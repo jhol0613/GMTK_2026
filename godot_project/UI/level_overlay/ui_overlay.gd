@@ -8,13 +8,17 @@ extends CanvasLayer
 
 var magnifying_glass = load("uid://c8n3by2cmh20k")
 var pen = load("uid://c8yj5np7nrak6")
+var hand_open = load("uid://xuaolfjqb2gn")
+var hand_closed = load("uid://w4yu8aix4u4b")
 
 var _notebook_home := Vector2.ZERO
 var _notebook_docked := false
 var _notebook_tween: Tween
 var _compacted_panel: Node
 var _compacted_close_signal := &""
-var _notebook_player_movement_states: Dictionary = {}
+# stores whether the player's movement was enabled (walking around) or disabled (in dialog, etc) when they open the notebook
+var _notebook_player_initial_movement_disabled: bool
+var _launcher_button_states: Dictionary = {}
 
 @onready var _time := $Time
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
@@ -51,6 +55,8 @@ var _item_popup_animation_tween: Tween
 var _ticket_button_show_tween: Tween
 var _rest_vignette_tween: Tween
 
+var player_in_arrive_disembark_anim: bool
+var dragging_item: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -65,17 +71,22 @@ func _ready() -> void:
 	Inventory.inventory_changed.connect(_refresh_ticket)
 	Inventory.inventory_changed.connect(_inventory.refresh)
 	Inventory.item_added.connect(_on_item_added)
-	SignalBus.item_popup_requested.connect(_on_item_popup_requested)
-	SignalBus.animated_item_popup_requested.connect(_on_animated_item_popup_requested)
 	SignalBus.new_unique_resshan_note_added_to_notebook.connect( _emphasize_icon.bind(_notebook_button,_initial_notebook_button_scale) )
 	TimeManager.time_up.connect(_on_time_up)
 	
+	SignalBus.inventory_full.connect(_on_inventory_full)
 	SignalBus.ticket_consumed.connect(_on_ticket_consumed)
 	SignalBus.rest_started.connect(_on_rest_started)
 	SignalBus.rest_ended.connect(_on_rest_ended)
 	_notebook.close_requested.connect(close_notebook)
 	_ticket.close_requested.connect(_close_ticket)
 	_inventory.close_requested.connect(_close_inventory)
+
+
+## Nothing fits in the bag: point at it instead of failing silently.
+func _on_inventory_full() -> void:
+	AudioManager.play_wrong_ticket_sfx()
+	_emphasize_icon(_inventory_button, _initial_inventory_button_scale)
 
 
 func _on_rest_started() -> void:
@@ -155,6 +166,8 @@ func _on_notebook_button_mouse_exited() -> void:
 
 
 func _on_notebook_button_pressed() -> void:
+	if player_in_arrive_disembark_anim:
+		return
 	if _notebook.visible:
 		close_notebook()
 	else:
@@ -171,7 +184,7 @@ func _on_ticket_button_mouse_exited():
 
 
 func _on_ticket_button_pressed() -> void:
-	if Inventory.get_ticket() == null:
+	if (Inventory.get_ticket() == null) or player_in_arrive_disembark_anim:
 		return
 
 	if _ticket.visible:
@@ -190,13 +203,15 @@ func _on_inventory_button_mouse_exited() -> void:
 
 
 func _on_inventory_button_pressed() -> void:
+	if player_in_arrive_disembark_anim:
+		return
 	if _inventory.visible:
 		_close_inventory()
 	else:
 		_open_inventory()
 
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("escape"):
 		if _has_open_panel():
 			_close_all_panels()
@@ -216,9 +231,9 @@ func _input(event: InputEvent) -> void:
 		_sprite_contains_point($Notebook/Sprite2D, pointer_position)
 		or _control_contains_point($Notebook/SectionSelector/Holder, pointer_position)
 	)
-	if _notebook.visible and not over_notebook:
-		close_notebook()
-		closed_something = true
+	#if _notebook.visible and not over_notebook:
+		#close_notebook()
+		#closed_something = true
 
 	if _ticket.visible and not _sprite_contains_point($Ticket/Background, pointer_position):
 		_close_ticket()
@@ -230,7 +245,6 @@ func _input(event: InputEvent) -> void:
 
 	if closed_something:
 		get_viewport().set_input_as_handled()
-		
 
 
 func open_notebook() -> void:
@@ -240,7 +254,7 @@ func open_notebook() -> void:
 	_close_ticket()
 	_close_inventory()
 	
-	Input.set_custom_mouse_cursor(pen)
+	Input.set_custom_mouse_cursor(pen, Input.CURSOR_ARROW, Vector2(0,32) )
 
 	_notebook_click_sound.play()
 
@@ -271,13 +285,30 @@ func open_notebook() -> void:
 	else:
 		_notebook.position = _notebook_home
 		_notebook.visible = true
-
-	_notebook_player_movement_states.clear()
-	for player in get_tree().get_nodes_in_group("player"):
-		_notebook_player_movement_states[player] = player.movement_disabled
-		player.movement_disabled = true
-
+	
+	var player := get_tree().get_first_node_in_group("player")
+	_notebook_player_initial_movement_disabled = player.movement_disabled
+	player.movement_disabled = true
+	
+	_hide_launcher_buttons()
+	
 	SignalBus.notebook_opened.emit()
+
+
+## The launcher buttons draw on top of the notebook and cover its page controls,
+## so they step aside while it is open. Each button's previous state is restored,
+## since the ticket button has its own visibility rule.
+func _hide_launcher_buttons() -> void:
+	_launcher_button_states.clear()
+	for button: Control in [_notebook_button, _ticket_button, _inventory_button]:
+		_launcher_button_states[button] = button.visible
+		button.visible = false
+
+
+func _restore_launcher_buttons() -> void:
+	for button: Control in _launcher_button_states:
+		button.visible = _launcher_button_states[button]
+	_launcher_button_states.clear()
 
 
 func _get_open_dialogue() -> Node:
@@ -316,7 +347,7 @@ func close_notebook() -> void:
 	if not _notebook.visible:
 		return
 
-	Input.set_custom_mouse_cursor(magnifying_glass)
+	Input.set_custom_mouse_cursor( magnifying_glass, Input.CURSOR_ARROW, Vector2(0,0) )
 
 	_notebook_exit_sound.play()
 
@@ -335,14 +366,16 @@ func close_notebook() -> void:
 		_compacted_close_signal = &""
 		var tween := _slide_notebook(notebook_offscreen_x)
 		tween.tween_callback(func() -> void: _notebook.visible = false)
+		tween.tween_callback(_restore_launcher_buttons)
 	else:
 		_notebook.visible = false
-
-	for player in _notebook_player_movement_states:
-		if is_instance_valid(player):
-			player.movement_disabled = _notebook_player_movement_states[player]
-	_notebook_player_movement_states.clear()
-
+		_restore_launcher_buttons()
+	
+	get_tree().get_first_node_in_group("player").movement_disabled = _notebook_player_initial_movement_disabled
+	
+	var event = InputEventMouseMotion.new()
+	get_viewport().push_input(event)
+	
 	SignalBus.notebook_closed.emit()
 
 
@@ -363,6 +396,9 @@ func _close_ticket() -> void:
 
 	_ticket_close_sound.play()
 	_ticket.visible = false
+	
+	var event = InputEventMouseMotion.new()
+	get_viewport().push_input(event)
 
 
 func _open_inventory() -> void:
@@ -371,7 +407,7 @@ func _open_inventory() -> void:
 
 	close_notebook()
 	_close_ticket()
-
+	
 	_inventory_click_sound.play()
 	_inventory.refresh()
 	_inventory.visible = true
@@ -380,9 +416,11 @@ func _open_inventory() -> void:
 func _close_inventory() -> void:
 	if not _inventory.visible:
 		return
-
+	_inventory._finish_drag()
 	_inventory_close_sound.play()
 	_inventory.visible = false
+	var event = InputEventMouseMotion.new()
+	get_viewport().push_input(event)
 
 
 func _close_all_panels() -> void:
@@ -439,10 +477,8 @@ func _sprite_contains_point(sprite: Sprite2D, point: Vector2) -> bool:
 
 
 func _on_item_added(item: ItemData) -> void:
-	if item.id == &"empty_coffee_cup":
-		if _item_to_inventory_sound.stream != null:
-			_item_to_inventory_sound.play()
-		_emphasize_icon(_inventory_button, _initial_inventory_button_scale)
+	if item.animated_item_icon != null:
+		_on_animated_item_added(item)
 		return
 	var icon: Texture2D = item.item_icon
 	if item is TicketData:
@@ -452,18 +488,10 @@ func _on_item_added(item: ItemData) -> void:
 		return
 	_show_item_popup(icon, item)
 
-
-func _on_item_popup_requested(icon: Texture2D) -> void:
-	if icon == null:
-		return
-	_show_item_popup(icon)
-
-
-func _on_animated_item_popup_requested(
-	sprite_sheet: Texture2D,
-	frame_count: int,
-	fps: float,
-) -> void:
+func _on_animated_item_added(item: ItemData) -> void:
+	var sprite_sheet = item.animated_item_icon.sprite_sheet
+	var frame_count = item.animated_item_icon.frame_count
+	var fps = item.animated_item_icon.fps
 	if sprite_sheet == null or frame_count <= 0 or fps <= 0.0:
 		SignalBus.item_popup_finished.emit()
 		return
@@ -471,7 +499,7 @@ func _on_animated_item_popup_requested(
 	var frame_texture := AtlasTexture.new()
 	frame_texture.atlas = sprite_sheet
 	frame_texture.region = Rect2(0, 0, frame_width, sprite_sheet.get_height())
-	_show_item_popup(frame_texture)
+	_show_item_popup(frame_texture, item)
 	_item_popup_animation_tween = create_tween()
 	for frame in range(1, frame_count):
 		_item_popup_animation_tween.tween_interval(1.0 / fps)
@@ -479,12 +507,10 @@ func _on_animated_item_popup_requested(
 			_set_item_popup_frame.bind(frame_texture, frame, frame_width)
 		)
 
-
 func _set_item_popup_frame(texture: AtlasTexture, frame: int, frame_width: int) -> void:
 	var region := texture.region
 	region.position.x = frame * frame_width
 	texture.region = region
-
 
 func _show_item_popup(icon: Texture2D, item: ItemData = null) -> void:
 	if _item_popup_tween != null and _item_popup_tween.is_valid():
@@ -496,10 +522,6 @@ func _show_item_popup(icon: Texture2D, item: ItemData = null) -> void:
 	_item_popup.visible = true
 	_item_popup_icon.modulate = Color(1, 1, 1, 0)
 	_item_popup_icon.scale = Vector2(0.6, 0.6)
-	if item != null and String(item.id).begins_with("mask_"):
-		if _trinket_purchase_sound.stream != null:
-			_trinket_purchase_sound.play()
-
 	_item_popup_tween = create_tween()
 	_item_popup_tween.set_parallel(true)
 	_item_popup_tween.tween_property(_item_popup_icon, "modulate:a", 1.0, 0.2)

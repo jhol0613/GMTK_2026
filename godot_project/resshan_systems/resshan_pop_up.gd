@@ -1,8 +1,16 @@
 class_name ResshanPopUp
 extends Control
 
+const EMPTY_NOTE_TEXT := "No Entry"
+
+var _note_text := ""
+
+
 func add_note(note:String) -> void:
-	$PanelContainer/MarginContainer/Note.text = note
+	_note_text = note
+	$PanelContainer/MarginContainer/Note.text = (
+		EMPTY_NOTE_TEXT if note.strip_edges().is_empty() else note
+	)
 
 func get_note() -> String:
-	return $PanelContainer/MarginContainer/Note.text
+	return _note_text

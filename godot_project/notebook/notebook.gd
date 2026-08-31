@@ -26,7 +26,11 @@ func _ready() -> void:
 				encoded, player_vocab.data[section][encoded], section, false)
 
 func _handle_show_resshan(encoded: String) -> void:
-	self.show()
+	var overlay := get_parent()
+	if overlay != null and overlay.has_method("open_notebook"):
+		overlay.open_notebook()
+	else:
+		show()
 	var pages: = _sections[0].get_pages()
 	for page: NotebookPage in pages:
 		for entry: NotebookEntry in page.get_entries():
@@ -91,6 +95,13 @@ static func get_note(resshan:String) -> ResshanPopUp:
 	return null
 
 
+static func has_note(resshan: String) -> bool:
+	for section: String in player_vocab.data:
+		if player_vocab.data[section].has(resshan):
+			return true
+	return false
+
+
 func _on_next_page_pressed() -> void:
 	_sections[_current_section].switch_page(1)
 	_page_turn_sound.play()
@@ -102,7 +113,7 @@ func _on_previous_page_pressed() -> void:
 
 
 func _on_notebook_mouse_entered() -> void:
-	Input.set_custom_mouse_cursor(pen)
+	Input.set_custom_mouse_cursor(pen, Input.CURSOR_ARROW, Vector2(0, 32) )
 
 
 func _on_close_button_pressed() -> void:

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DialogueLine" format=3 uid="uid://c33b25prjbdy5"]
+
+[ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="1_qkld4"]
+[ext_resource type="Texture2D" uid="uid://c36oq0n5g8b0y" path="res://interactables/dialog_system/character_portraits/trinket_salesman/portrait_shopkeeper2_1.png" id="2_2v24i"]
+
+[resource]
+script = ExtResource("1_qkld4")
+text = "<<thankyou>>"
+speaker_icon = ExtResource("2_2v24i")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"

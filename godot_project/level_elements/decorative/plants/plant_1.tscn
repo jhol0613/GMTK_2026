@@ -25,5 +25,5 @@ shape = SubResource("RectangleShape2D_fpcxu")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1185998454]
 z_index = 1
-position = Vector2(0, -16)
+position = Vector2(0, -18)
 sprite_frames = SubResource("SpriteFrames_uakun")

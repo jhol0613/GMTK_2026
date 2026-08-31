@@ -5,12 +5,11 @@ signal close_requested
 
 const SLOT_COUNT: int = 4
 
-@onready var _slot_icons: Array[TextureRect] = [
-	%Slot1Icon, %Slot2Icon, %Slot3Icon, %Slot4Icon,
-]
-@onready var _slot_names: Array[ResshanLabel] = [
-	%Slot1Name, %Slot2Name, %Slot3Name, %Slot4Name,
-]
+@export var _slots: Array[InventorySlot]
+
+var hand_open = load("uid://xuaolfjqb2gn")
+var hand_closed = load("uid://w4yu8aix4u4b")
+var magnifying_glass = load("uid://c8n3by2cmh20k")
 
 var _items: Array[ItemData] = []
 var _drag_item: ItemData
@@ -30,8 +29,8 @@ func refresh() -> void:
 		_items.append(item)
 
 	for i in SLOT_COUNT:
-		var icon := _slot_icons[i]
-		var name_label := _slot_names[i]
+		var icon := _slots[i].slut_icon
+		var name_label := _slots[i].slut_name
 		if i < _items.size():
 			icon.texture = _items[i].item_icon
 			icon.visible = icon.texture != null
@@ -53,30 +52,37 @@ func _input(event: InputEvent) -> void:
 			_start_drag(event.position)
 		elif _drag_item != null:
 			_finish_drag()
-	elif event is InputEventMouseMotion and _drag_item != null:
-		_drag_ghost.global_position = event.position - _drag_ghost.size * 0.5
-		_update_hovered_bin(event.position)
+	elif event is InputEventMouseMotion:
+		_update_cursor(event.position)
+		if _drag_item:
+			_drag_ghost.global_position = event.position - _drag_ghost.size * 0.5
+			_update_hovered_bin(event.position)
 
 
 func _start_drag(pos: Vector2) -> void:
-	for i in _items.size():
-		if not _slot_icons[i].get_global_rect().has_point(pos):
+	
+	for i in mini(_items.size(), SLOT_COUNT):
+		#if not _slots[i].slut_icon.get_global_rect().has_point(pos):
+		if not _slots[i].get_global_rect().has_point(pos):
 			continue
+		Input.set_custom_mouse_cursor(hand_closed, Input.CURSOR_ARROW, Vector2(16,16) )
+		get_tree().get_first_node_in_group("ui_overlay").dragging_item = true
 		_drag_item = _items[i]
 		_drag_ghost = TextureRect.new()
 		_drag_ghost.texture = _drag_item.item_icon
 		_drag_ghost.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		_drag_ghost.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		_drag_ghost.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-		_drag_ghost.size = _slot_icons[i].size
+		_drag_ghost.size = _slots[i].slut_icon.size
 		_drag_ghost.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		_drag_ghost.z_index = 100
 		add_child(_drag_ghost)
 		_drag_ghost.global_position = pos - _drag_ghost.size * 0.5
-		_slot_icons[i].visible = false
-		_slot_names[i].visible = false
+		_slots[i].slut_icon.visible = false
+		_slots[i].slut_name.visible = false
 		return
-		
+
+
 func _update_hovered_bin(pos: Vector2) -> void:
 	var bin: Node2D = null
 	for node in get_tree().get_nodes_in_group("recycle_bin"):
@@ -96,14 +102,37 @@ func _update_hovered_bin(pos: Vector2) -> void:
 
 
 func _finish_drag() -> void:
+	get_tree().get_first_node_in_group("ui_overlay").dragging_item = false
+	Input.set_custom_mouse_cursor(magnifying_glass, Input.CURSOR_ARROW, Vector2(0.0,0.0) )
 	if _hovered_bin != null:
 		_hovered_bin.recycle(_drag_item)
 	_hovered_bin = null
 	_drag_item = null
-	_drag_ghost.queue_free()
-	_drag_ghost = null
+	
+	if _drag_ghost:
+		_drag_ghost.queue_free()
+		_drag_ghost = null
 	refresh()
 
 
 func _on_close_button_pressed() -> void:
 	close_requested.emit()
+
+
+func _update_cursor(pos: Vector2):
+	if _drag_item:
+		return
+	
+	for i in mini( _items.size(), SLOT_COUNT ):
+		if not _slots[i].slut_icon.get_global_rect().has_point( pos ):
+			continue
+		Input.set_custom_mouse_cursor(hand_open, Input.CURSOR_ARROW, Vector2(16,16) )
+		return
+	
+	#Input.set_custom_mouse_cursor(magnifying_glass, Input.CURSOR_ARROW, Vector2(0.0,0.0) )
+
+
+func _on_slots_mouse_exited() -> void:
+	if _drag_item:
+		return
+	Input.set_custom_mouse_cursor( magnifying_glass, Input.CURSOR_ARROW, Vector2(0.0,0.0) )

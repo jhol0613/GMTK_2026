@@ -5,6 +5,7 @@ const PURCHASE_OUTCOME: StringName = &"sold_trinket"
 
 @onready var _dialogue_panel: DialoguePanel = $DialoguePanel
 @onready var _purchase_sfx: AudioStreamPlayer2D = $PurchaseSfx
+@onready var _lightning_origin := $LightningOrigin
 
 var _awaiting_trinket: bool = false
 
@@ -15,12 +16,15 @@ func _ready() -> void:
 
 
 func _on_option_confirmed(outcome_id: StringName) -> void:
-	if outcome_id == &"cancel":
+	if outcome_id == &"NONE":
 		_dialogue_panel.hide_popup.call_deferred()
 		return
-	if outcome_id != PURCHASE_OUTCOME:
+	#if outcome_id != PURCHASE_OUTCOME:
+		#return
+	if Inventory.is_full():
+		SignalBus.inventory_full.emit()
 		return
-	Wallet.spend(Wallet.TRINKET_COST)
+	Wallet.spend(Wallet.TRINKET_COST, _lightning_origin.global_position)
 	_awaiting_trinket = true
 
 

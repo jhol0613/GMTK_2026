@@ -1,0 +1,197 @@
+[gd_scene format=3 uid="uid://xyprm41o3crg"]
+
+[ext_resource type="PackedScene" uid="uid://djoepaapryv6s" path="res://level_elements/trinket_shop/trinket_shop.tscn" id="1_ndsbf"]
+[ext_resource type="Texture2D" uid="uid://blepwufe0phuw" path="res://level_elements/trinket_shop/Trinket shop level 1.png" id="2_kd2s4"]
+[ext_resource type="Texture2D" uid="uid://dcoghm70vomqf" path="res://level_elements/trinket_shop/Trinket shop level 2.png" id="3_ss7am"]
+[ext_resource type="Resource" uid="uid://b6qspiqfbsraw" path="res://levels/level_2/level_specific_resources/trinket_dialogue_level2.tres" id="4_ntdu4"]
+[ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="5_qic4t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tbst"]
+atlas = ExtResource("2_kd2s4")
+region = Rect2(0, 0, 179, 107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxwc8"]
+atlas = ExtResource("2_kd2s4")
+region = Rect2(179, 0, 179, 107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kg6p5"]
+atlas = ExtResource("2_kd2s4")
+region = Rect2(358, 0, 179, 107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73t7r"]
+atlas = ExtResource("2_kd2s4")
+region = Rect2(537, 0, 179, 107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntdu4"]
+atlas = ExtResource("3_ss7am")
+region = Rect2(0, 0, 179, 107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qic4t"]
+atlas = ExtResource("3_ss7am")
+region = Rect2(179, 0, 179, 107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cs45h"]
+atlas = ExtResource("3_ss7am")
+region = Rect2(358, 0, 179, 107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8f0t"]
+atlas = ExtResource("3_ss7am")
+region = Rect2(537, 0, 179, 107)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ntdu4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tbst")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxwc8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kg6p5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73t7r")
+}],
+"loop": 1,
+"name": &"level1_idle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntdu4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qic4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cs45h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8f0t")
+}],
+"loop": 1,
+"name": &"level2_idle",
+"speed": 6.0
+}]
+
+[node name="TrinketShop" unique_id=877031898 instance=ExtResource("1_ndsbf")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=984962632]
+sprite_frames = SubResource("SpriteFrames_ntdu4")
+autoplay = "level2_idle"
+frame_progress = 0.0
+
+[node name="WarmDisplayLight" parent="NightLight" parent_id_path=PackedInt32Array(1446894394) index="1" unique_id=1901038595]
+energy = 0.25
+
+[node name="WarmDisplayLight2" parent="NightLight" parent_id_path=PackedInt32Array(1446894394) index="2" unique_id=2036372027]
+energy = 0.25
+
+[node name="DialogueInteractable" parent="." index="2" unique_id=358228256]
+dialogue = ExtResource("4_ntdu4")
+
+[node name="ResshanInteractableMask" parent="." index="6" unique_id=2144437478]
+offset_left = -38.0
+offset_right = -25.0
+
+[node name="ResshanInteractable0" type="Control" parent="." index="8" unique_id=366265703]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -42.0
+offset_top = -52.0
+offset_right = -34.0
+offset_bottom = -43.0
+script = ExtResource("5_qic4t")
+_string = "<<0>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="ResshanInteractable0_2" type="Control" parent="." index="9" unique_id=1668310320]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_top = -28.0
+offset_right = 9.0
+offset_bottom = -19.0
+script = ExtResource("5_qic4t")
+_string = "<<0>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="ResshanInteractable1" type="Control" parent="." index="10" unique_id=293495968]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -16.0
+offset_top = -51.0
+offset_right = -8.0
+offset_bottom = -42.0
+script = ExtResource("5_qic4t")
+_string = "<<1>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="ResshanInteractable2" type="Control" parent="." index="11" unique_id=72826561]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -41.0
+offset_top = -38.0
+offset_right = -33.0
+offset_bottom = -29.0
+script = ExtResource("5_qic4t")
+_string = "<<2>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="ResshanInteractable3" type="Control" parent="." index="12" unique_id=802610896]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -16.0
+offset_top = -38.0
+offset_right = -8.0
+offset_bottom = -29.0
+script = ExtResource("5_qic4t")
+_string = "<<3>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="ResshanInteractable4" type="Control" parent="." index="13" unique_id=1823613307]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 19.0
+offset_top = -52.0
+offset_right = 27.0
+offset_bottom = -43.0
+script = ExtResource("5_qic4t")
+_string = "<<4>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="ResshanInteractable5" type="Control" parent="." index="14" unique_id=1843700460]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 23.0
+offset_top = -35.0
+offset_right = 31.0
+offset_bottom = -26.0
+script = ExtResource("5_qic4t")
+_string = "<<5>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="ResshanInteractable6" type="Control" parent="." index="15" unique_id=1395172404]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -35.0
+offset_top = -19.0
+offset_right = -27.0
+offset_bottom = -10.0
+script = ExtResource("5_qic4t")
+_string = "<<6>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="ResshanInteractable7" type="Control" parent="." index="16" unique_id=1445593687]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_top = -39.0
+offset_right = 9.0
+offset_bottom = -30.0
+script = ExtResource("5_qic4t")
+_string = "<<7>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[editable path="DialogueInteractable"]

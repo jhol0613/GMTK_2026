@@ -1,16 +1,29 @@
-[gd_scene load_steps=9 format=3]
+[gd_scene format=3 uid="uid://bsoxy1crv442m"]
 
-[ext_resource type="Script" path="res://ui/token_display/token_display.gd" id="1_token"]
-[ext_resource type="Texture2D" path="res://ui/Battery/Battery_shell.png" id="2_shell"]
-[ext_resource type="Texture2D" path="res://ui/Battery/Baterry_full.png" id="3_full"]
-[ext_resource type="Texture2D" path="res://ui/Battery/battery_empty.png" id="4_empty"]
-[ext_resource type="Texture2D" path="res://ui/Battery/battery_low.png" id="5_low"]
-[ext_resource type="Texture2D" path="res://ui/Battery/battery_charging.png" id="6_charging"]
-[ext_resource type="AudioStream" path="res://ui/token_display/sfx/battery_gain.wav" id="7_gain"]
-[ext_resource type="AudioStream" path="res://ui/token_display/sfx/battery_spend.wav" id="8_spend"]
+[ext_resource type="Script" uid="uid://dr1fvr7hmj2io" path="res://ui/token_display/token_display.gd" id="1_token"]
+[ext_resource type="Texture2D" uid="uid://cggvivkwosllt" path="res://ui/Battery/Battery_shell.png" id="2_shell"]
+[ext_resource type="Texture2D" uid="uid://q5ckk8wlv6r7" path="res://ui/Battery/Baterry_full.png" id="3_full"]
+[ext_resource type="Texture2D" uid="uid://bc6g5w8sy7hrh" path="res://ui/Battery/battery_empty.png" id="4_empty"]
+[ext_resource type="Texture2D" uid="uid://csgjup2gbi7vw" path="res://ui/Battery/battery_low.png" id="5_low"]
+[ext_resource type="Texture2D" uid="uid://bdskr4fgms68c" path="res://ui/Battery/battery_charging.png" id="6_charging"]
+[ext_resource type="AudioStream" uid="uid://oe8dem4o0rpq" path="res://ui/token_display/sfx/battery_gain.wav" id="7_gain"]
+[ext_resource type="AudioStream" uid="uid://cau3nw55w2whq" path="res://ui/token_display/sfx/battery_spend.wav" id="8_spend"]
+[ext_resource type="Shader" uid="uid://ubvksb86n4ul" path="res://visual_effects/lightning/antenna_connect_shader.tres" id="9_ovcdm"]
+[ext_resource type="Texture2D" uid="uid://byt03wg7ebkx5" path="res://visual_effects/lightning/antenna_lightning_back.png" id="10_dsfu3"]
+[ext_resource type="Texture2D" uid="uid://btkjltg511isl" path="res://visual_effects/lightning/antenna_lightning.png" id="11_05hsk"]
 
-[node name="TokenDisplay" type="Control"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bp74w"]
+shader = ExtResource("9_ovcdm")
+shader_parameter/MainBeamSpeed = -1.8
+shader_parameter/basic_texture = ExtResource("11_05hsk")
+shader_parameter/AuxBeamSpeed = -2.0
+shader_parameter/background_texture = ExtResource("10_dsfu3")
+shader_parameter/Transparency = 0.0
+
+[node name="TokenDisplay" type="Control" unique_id=1688312564]
 custom_minimum_size = Vector2(180, 84)
+layout_mode = 3
+anchors_preset = 0
 offset_right = 180.0
 offset_bottom = 84.0
 mouse_filter = 2
@@ -23,3 +36,14 @@ cell_charging = ExtResource("6_charging")
 pixel_scale = 4
 gain_sound = ExtResource("7_gain")
 drain_sound = ExtResource("8_spend")
+gain_color = Color(0.31764707, 0.9764706, 0.7607843, 1)
+drain_color = Color(1, 0.49803922, 0.03137255, 1)
+
+[node name="Lightning" type="Line2D" parent="." unique_id=492046986]
+visible = false
+material = SubResource("ShaderMaterial_bp74w")
+instance_shader_parameters/Color = Color(0.124486, 0.676947, 0.892928, 1)
+position = Vector2(21, 41)
+points = PackedVector2Array(0, 0, -877, 640)
+width = 300.0
+texture_mode = 1

@@ -8,13 +8,12 @@ texture_filter = 1
 script = ExtResource("2_script")
 l_or_r = ""
 
-[node name="CollisionShape2D" parent="." index="0" unique_id=278382881]
+[node name="InteractableCollisionShape2D" parent="." index="0" unique_id=278382881]
 position = Vector2(0, -9)
 scale = Vector2(1, 4.5)
 
 [node name="Prompt" parent="." index="1" unique_id=272794898]
 z_index = 16
-custom_minimum_size = Vector2(75, 168)
 offset_left = -37.5
 offset_top = -124.0
 offset_right = 37.5

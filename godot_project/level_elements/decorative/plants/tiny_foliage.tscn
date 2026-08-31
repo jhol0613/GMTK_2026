@@ -71,5 +71,4 @@ sprite = NodePath("AnimatedSprite2D")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1746332699]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_fpcxu")
-animation = &"yellow1"
-frame_progress = 0.84592474
+animation = &"shroom1"

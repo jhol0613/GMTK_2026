@@ -7,3 +7,7 @@ extends InteractionPanelBase
 func show_sign(title: String, minutes: int = 1) -> void:
 	_title.text = title
 	_open(minutes)
+
+func _ready() -> void:
+	super._ready()
+	dismissible = true

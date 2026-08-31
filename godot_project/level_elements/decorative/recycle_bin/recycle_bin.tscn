@@ -3,8 +3,21 @@
 [ext_resource type="Texture2D" uid="uid://c12ooog5cg04c" path="res://level_elements/decorative/recycle_bin/open.png" id="1_03jd3"]
 [ext_resource type="Script" uid="uid://b06a8qnyvxbet" path="res://level_elements/decorative/recycle_bin/recycle_bin.gd" id="1_bg1vw"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="3_0mfuq"]
-[ext_resource type="AudioStream" path="res://level_elements/decorative/recycle_bin/sfx/recycle_bin_open.wav" id="4_open"]
-[ext_resource type="AudioStream" path="res://level_elements/decorative/recycle_bin/sfx/recycle_bin_close.wav" id="5_close"]
+[ext_resource type="Texture2D" uid="uid://cicjpnfqkdl52" path="res://level_elements/decorative/recycle_bin/open_with_antenna.png" id="4_grawc"]
+[ext_resource type="AudioStream" uid="uid://dinip6hqusi6k" path="res://level_elements/decorative/recycle_bin/sfx/recycle_bin_open.wav" id="4_open"]
+[ext_resource type="AudioStream" uid="uid://d1svfr5582uu2" path="res://level_elements/decorative/recycle_bin/sfx/recycle_bin_close.wav" id="5_close"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uy0u1"]
+atlas = ExtResource("4_grawc")
+region = Rect2(0, 0, 362, 724)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3kor"]
+atlas = ExtResource("4_grawc")
+region = Rect2(2172, 0, 362, 724)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmext"]
+atlas = ExtResource("4_grawc")
+region = Rect2(2534, 0, 362, 724)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bg1vw"]
 atlas = ExtResource("1_03jd3")
@@ -32,6 +45,20 @@ region = Rect2(1810, 0, 362, 724)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6cojq"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uy0u1")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_v3kor")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_lmext")
+}],
+"loop": 0,
+"name": &"antenna_reveal",
+"speed": 12.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bg1vw")
@@ -70,7 +97,7 @@ texture_filter = 1
 position = Vector2(0, -12.5)
 scale = Vector2(0.075, 0.075)
 sprite_frames = SubResource("SpriteFrames_6cojq")
-animation = &"open"
+animation = &"antenna_reveal"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=344003920]
 collision_layer = 2
@@ -88,3 +115,6 @@ offset_right = 4.0
 offset_bottom = -4.0
 script = ExtResource("3_0mfuq")
 _string = "<<recycle>>"
+
+[node name="LightningOrigin" type="Marker2D" parent="." unique_id=996631730]
+position = Vector2(4, -13)

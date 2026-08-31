@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 const STUCK_GRACE: float = 0.75
 
-enum State { IDLE, PATROL, GOTO, ACTING, TALKING }
+enum State { IDLE, PATROL, GOTO, ACTING, TALKING, FOLLOWING }
 enum Facing { DOWN, UP, LEFT, RIGHT }
 
 const FACING_VECTORS := [Vector2.DOWN, Vector2.UP, Vector2.LEFT, Vector2.RIGHT]
@@ -15,7 +15,10 @@ const FACING_VECTORS := [Vector2.DOWN, Vector2.UP, Vector2.LEFT, Vector2.RIGHT]
 
 @onready var _sprite: AnimatedSprite2D = $Sprite
 @onready var _panel: DialoguePanel = $DialoguePanel
-@onready var _interactable: Interactable = $DialogueInteractable
+@onready var _interactable: DialogueInteractable = $DialogueInteractable
+@onready var _collision_shape: CollisionShape2D = $CollisionShape2D
+
+@onready var _player = get_tree().get_first_node_in_group("player") as PlayerCharacter
 
 var _state: State = State.IDLE
 var _progress: float = 0.0
@@ -28,13 +31,18 @@ var _facing: Vector2 = Vector2.DOWN
 func _ready() -> void:
 	_facing = FACING_VECTORS[facing]
 	_sprite.flip_h = _facing.x < 0.0
-	_panel.opened.connect(_on_panel_opened)
-	_panel.closed.connect(_on_panel_closed)
+	#_panel.opened.connect(_on_panel_opened)
+	#_panel.closed.connect(_on_panel_closed)
 	_start_patrol()
 
 
 func _physics_process(delta: float) -> void:
 	match _state:
+		State.FOLLOWING:
+			if _player:
+				var dif = _player.trail_marker.global_position - global_position
+				_animate(dif)
+				global_position = _player.trail_marker.global_position
 		State.PATROL:
 			_patrol(delta)
 		State.GOTO:
@@ -42,7 +50,7 @@ func _physics_process(delta: float) -> void:
 		State.ACTING:
 			pass
 		_:
-			_animate(Vector2.ZERO)
+			pass#_animate(Vector2.ZERO)
 
 
 func go(resume := true) -> void:
@@ -74,8 +82,9 @@ func play_once(anim: StringName, fallback_seconds := 1.0) -> void:
 
 
 func _set_interactable(enabled: bool) -> void:
-	_interactable.set_deferred("monitoring", enabled)
-	_interactable.set_process_unhandled_input(enabled)
+	_interactable.active = enabled
+	#_interactable.set_deferred("monitoring", enabled)
+	#_interactable.set_process_unhandled_input(enabled)
 
 func _start_patrol() -> void:
 	if patrol_path == null or patrol_path.curve == null:
@@ -148,9 +157,18 @@ func _animate(dir: Vector2) -> void:
 
 
 func _idle_animation() -> StringName:
-	if absf(_facing.x) > absf(_facing.y):
+	var angle = atan2(_facing.y, _facing.x)
+	if angle > -.75 * PI and angle < -.25 * PI:
+		return &"idle_up"
+	elif angle >= -.25 * PI and angle < .25 * PI:
 		return &"idle_right"
-	return &"idle_up" if _facing.y < 0.0 else &"idle"
+	elif angle >= .25 * PI and angle < .75 * PI:
+		return &"idle"
+	else:
+		return &"idle_right"
+	#if absf(_facing.x) > absf(_facing.y):
+		#return &"idle_right"
+	#return &"idle_up" if _facing.y < 0.0 else &"idle"
 
 
 func _play(anim: StringName) -> void:

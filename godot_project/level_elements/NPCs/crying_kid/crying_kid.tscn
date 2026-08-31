@@ -1,0 +1,453 @@
+[gd_scene format=3 uid="uid://x4ghn30rc8l0"]
+
+[ext_resource type="PackedScene" uid="uid://cmdda7648573b" path="res://level_elements/NPCs/npc.tscn" id="1_eqodx"]
+[ext_resource type="Script" uid="uid://ck0sdtrfmcibe" path="res://level_elements/NPCs/crying_kid/crying_kid.gd" id="2_4b03v"]
+[ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://interactables/dialog_system/dialogue_choice.gd" id="3_a5aw8"]
+[ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="4_thpdn"]
+[ext_resource type="Texture2D" uid="uid://d4ca0sqte8qqn" path="res://interactables/dialog_system/character_portraits/crying_kid/portrait_kid_2.png" id="5_oy818"]
+[ext_resource type="Texture2D" uid="uid://cednu5xibxyat" path="res://interactables/dialog_system/character_portraits/crying_kid/portrait_kid_1.png" id="6_e8hpn"]
+[ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="7_qntbx"]
+[ext_resource type="AudioStream" uid="uid://b3w187pvp460c" path="res://level_elements/NPCs/crying_kid/Crying Kid SFX/kid_cry_1.mp3" id="8_n364k"]
+[ext_resource type="AudioStream" uid="uid://5gv8v0btbj3f" path="res://level_elements/NPCs/crying_kid/Crying Kid SFX/kid_cry_2.mp3" id="9_3fx6k"]
+[ext_resource type="AudioStream" uid="uid://bfhd4015x8aas" path="res://level_elements/NPCs/crying_kid/Crying Kid SFX/kid_cry_3.mp3" id="10_kpd5s"]
+[ext_resource type="AudioStream" uid="uid://bm142wypeddqo" path="res://level_elements/NPCs/crying_kid/Crying Kid SFX/kid_cry_4.mp3" id="11_vk5t0"]
+[ext_resource type="Texture2D" uid="uid://csgvh6vnlfcrk" path="res://level_elements/NPCs/crying_kid/kid.png" id="12_eqodx"]
+[ext_resource type="Texture2D" uid="uid://cicclo21xo02d" path="res://level_elements/trinket_shop/masks/blue.png" id="13_43rhy"]
+[ext_resource type="Texture2D" uid="uid://3ma7e8j2tpci" path="res://level_elements/trinket_shop/masks/brown.png" id="14_c61f0"]
+[ext_resource type="Texture2D" uid="uid://nw2bxlclpp72" path="res://level_elements/trinket_shop/masks/gray.png" id="15_1c8nb"]
+[ext_resource type="Texture2D" uid="uid://diqiiusxlru6i" path="res://level_elements/trinket_shop/masks/green.png" id="16_sk8ik"]
+[ext_resource type="Texture2D" uid="uid://btkre4p6a4goq" path="res://level_elements/trinket_shop/masks/maroon.png" id="17_oljvn"]
+[ext_resource type="Texture2D" uid="uid://da67b0efu17m4" path="res://level_elements/trinket_shop/masks/pink.png" id="18_fn0fw"]
+[ext_resource type="Texture2D" uid="uid://bda7u4bubywk8" path="res://level_elements/trinket_shop/masks/purple.png" id="19_u0y27"]
+[ext_resource type="Texture2D" uid="uid://dsaviofjnf4jt" path="res://level_elements/trinket_shop/masks/red.png" id="20_ql4hp"]
+[ext_resource type="Texture2D" uid="uid://c2bv0us1dd1uk" path="res://level_elements/trinket_shop/masks/teal.png" id="21_ijabq"]
+[ext_resource type="Texture2D" uid="uid://1t6371th0ljj" path="res://level_elements/trinket_shop/masks/yellow.png" id="22_q10wk"]
+[ext_resource type="AudioStream" uid="uid://n7yv7j3hqn82" path="res://level_elements/NPCs/crying_kid/Crying Kid SFX/Kid_Happy.mp3" id="23_7gvav"]
+[ext_resource type="AudioStream" uid="uid://bnp28on2ppf5p" path="res://level_elements/NPCs/crying_kid/Crying Kid SFX/Mask_Drop.mp3" id="24_34ecw"]
+
+[sub_resource type="Resource" id="Resource_i2idl"]
+script = ExtResource("4_thpdn")
+text = "<<blue>> <<trinketmask>> <<thankyou>>"
+speaker_icon = ExtResource("5_oy818")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_rgv02"]
+script = ExtResource("3_a5aw8")
+reply = SubResource("Resource_i2idl")
+outcome_id = &"BLUE"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_o6lhc"]
+script = ExtResource("4_thpdn")
+text = "<<brown>> <<trinketmask>> <<thankyou>>"
+speaker_icon = ExtResource("5_oy818")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_ppu2g"]
+script = ExtResource("3_a5aw8")
+reply = SubResource("Resource_o6lhc")
+outcome_id = &"BROWN"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_qs8gb"]
+script = ExtResource("4_thpdn")
+text = "<<gray>> <<trinketmask>> <<thankyou>>"
+speaker_icon = ExtResource("5_oy818")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_wewwh"]
+script = ExtResource("3_a5aw8")
+reply = SubResource("Resource_qs8gb")
+outcome_id = &"GRAY"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_82ypd"]
+script = ExtResource("4_thpdn")
+text = "<<green>> <<trinketmask>> <<thankyou>>"
+speaker_icon = ExtResource("5_oy818")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_qtnng"]
+script = ExtResource("3_a5aw8")
+reply = SubResource("Resource_82ypd")
+outcome_id = &"GREEN"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_7altj"]
+script = ExtResource("4_thpdn")
+text = "<<maroon>> <<trinketmask>> <<thankyou>>"
+speaker_icon = ExtResource("5_oy818")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_6krev"]
+script = ExtResource("3_a5aw8")
+reply = SubResource("Resource_7altj")
+outcome_id = &"MAROON"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_weyje"]
+script = ExtResource("4_thpdn")
+text = "<<pink>> <<trinketmask>> <<thankyou>>"
+speaker_icon = ExtResource("5_oy818")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_du5p0"]
+script = ExtResource("3_a5aw8")
+reply = SubResource("Resource_weyje")
+outcome_id = &"PINK"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_8tawe"]
+script = ExtResource("4_thpdn")
+text = "<<purple>> <<trinketmask>> <<thankyou>>"
+speaker_icon = ExtResource("5_oy818")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_g1pxt"]
+script = ExtResource("3_a5aw8")
+reply = SubResource("Resource_8tawe")
+outcome_id = &"PURPLE"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_j4g0e"]
+script = ExtResource("4_thpdn")
+text = "<<red>> <<trinketmask>> <<thankyou>>"
+speaker_icon = ExtResource("5_oy818")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_28yu8"]
+script = ExtResource("3_a5aw8")
+reply = SubResource("Resource_j4g0e")
+outcome_id = &"RED"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_5fpys"]
+script = ExtResource("4_thpdn")
+text = "<<teal>> <<trinketmask>> <<thankyou>>"
+speaker_icon = ExtResource("5_oy818")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_v6nb3"]
+script = ExtResource("3_a5aw8")
+reply = SubResource("Resource_5fpys")
+outcome_id = &"TEAL"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_uv1sx"]
+script = ExtResource("4_thpdn")
+text = "<<yellow>> <<trinketmask>> <<thankyou>>"
+speaker_icon = ExtResource("5_oy818")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_pdpml"]
+script = ExtResource("3_a5aw8")
+reply = SubResource("Resource_uv1sx")
+outcome_id = &"YELLOW"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_birk2"]
+script = ExtResource("4_thpdn")
+text = "<<0>> <<money>> <<0>> <<holiday>> <<trinketmask>> <<angry>>"
+speaker_icon = ExtResource("6_e8hpn")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_r605r"]
+script = ExtResource("4_thpdn")
+text = "<<i>> <<buy>> <<trinketmask>> <<?>>"
+speaker_icon = ExtResource("6_e8hpn")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_646j3"]
+script = ExtResource("7_qntbx")
+lines = Array[ExtResource("4_thpdn")]([SubResource("Resource_birk2"), SubResource("Resource_r605r")])
+metadata/_custom_type_script = "uid://dvkforrusa0nj"
+
+[sub_resource type="Resource" id="Resource_3a12k"]
+script = ExtResource("4_thpdn")
+text = "%s <<trinketmask>> <<angry>> <<i>> <<buy>> next <<trinketmask>> <<?>>"
+speaker_icon = ExtResource("6_e8hpn")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_6q1ay"]
+script = ExtResource("7_qntbx")
+lines = Array[ExtResource("4_thpdn")]([SubResource("Resource_3a12k")])
+metadata/_custom_type_script = "uid://dvkforrusa0nj"
+
+[sub_resource type="Resource" id="Resource_tbpbq"]
+script = ExtResource("4_thpdn")
+text = "<<angry>>"
+speaker_icon = ExtResource("6_e8hpn")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_1ki84"]
+script = ExtResource("3_a5aw8")
+player_text = "Nevermind"
+reply = SubResource("Resource_tbpbq")
+outcome_id = &"NONE"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gsv6k"]
+atlas = ExtResource("12_eqodx")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4b03v"]
+atlas = ExtResource("12_eqodx")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtluw"]
+atlas = ExtResource("12_eqodx")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3h8gp"]
+atlas = ExtResource("12_eqodx")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqodx"]
+atlas = ExtResource("12_eqodx")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5aw8"]
+atlas = ExtResource("12_eqodx")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xl64p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gsv6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4b03v")
+}],
+"loop": 0,
+"name": &"happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dtluw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3h8gp")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_eqodx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5aw8")
+}],
+"loop": 0,
+"name": &"throw",
+"speed": 6.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glfqm"]
+atlas = ExtResource("13_43rhy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxgb0"]
+atlas = ExtResource("14_c61f0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8i7v"]
+atlas = ExtResource("15_1c8nb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jymw1"]
+atlas = ExtResource("16_sk8ik")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2uea2"]
+atlas = ExtResource("17_oljvn")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njux5"]
+atlas = ExtResource("18_fn0fw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2at1"]
+atlas = ExtResource("19_u0y27")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkqyi"]
+atlas = ExtResource("20_ql4hp")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dilyq"]
+atlas = ExtResource("21_ijabq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yx8hm"]
+atlas = ExtResource("22_q10wk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5l23l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glfqm")
+}],
+"loop": 0,
+"name": &"BLUE",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxgb0")
+}],
+"loop": 0,
+"name": &"BROWN",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8i7v")
+}],
+"loop": 0,
+"name": &"GRAY",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jymw1")
+}],
+"loop": 0,
+"name": &"GREEN",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2uea2")
+}],
+"loop": 0,
+"name": &"MAROON",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njux5")
+}],
+"loop": 0,
+"name": &"PINK",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2at1")
+}],
+"loop": 0,
+"name": &"PURPLE",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkqyi")
+}],
+"loop": 0,
+"name": &"RED",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dilyq")
+}],
+"loop": 0,
+"name": &"TEAL",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yx8hm")
+}],
+"loop": 0,
+"name": &"YELLOW",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_t6old"]
+script = ExtResource("4_thpdn")
+text = "<<0>> <<money>> <<0>> <<trinketmask>> <<angry>>"
+speaker_icon = ExtResource("6_e8hpn")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_5dsst"]
+script = ExtResource("4_thpdn")
+text = "<<trinketmask>> <<buy>>"
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_knmce"]
+script = ExtResource("7_qntbx")
+lines = Array[ExtResource("4_thpdn")]([SubResource("Resource_t6old"), SubResource("Resource_5dsst")])
+metadata/_custom_type_script = "uid://dvkforrusa0nj"
+
+[node name="CryingKid" unique_id=837182991 instance=ExtResource("1_eqodx")]
+script = ExtResource("2_4b03v")
+choice_bank = Dictionary[int, ExtResource("3_a5aw8")]({
+0: SubResource("Resource_rgv02"),
+1: SubResource("Resource_ppu2g"),
+2: SubResource("Resource_wewwh"),
+3: SubResource("Resource_qtnng"),
+4: SubResource("Resource_6krev"),
+5: SubResource("Resource_du5p0"),
+6: SubResource("Resource_g1pxt"),
+7: SubResource("Resource_28yu8"),
+8: SubResource("Resource_v6nb3"),
+9: SubResource("Resource_pdpml")
+})
+initial_dialogue = SubResource("Resource_646j3")
+repeat_dialogue = SubResource("Resource_6q1ay")
+nevermind_choice = SubResource("Resource_1ki84")
+give_item_choice_text = "Give %s"
+happy_repeat_text = "%s <<trinketmask>> <<thankyou>>"
+sad_repeat_text = "%s <<trinketmask>> <<angry>> <<i>> <<buy>> next <<trinketmask>>"
+happy_portrait = ExtResource("5_oy818")
+sad_portrait = ExtResource("6_e8hpn")
+cry_clips = Array[AudioStream]([ExtResource("8_n364k"), ExtResource("9_3fx6k"), ExtResource("10_kpd5s"), ExtResource("11_vk5t0")])
+cry_pitch_variation = 1.1
+cry_gap_min = 0.0
+cry_gap_max = 1.6
+happy_time = 5.0
+dropped_mask_offset = Vector2(0, 10)
+mask_drop_delay = 1.0
+
+[node name="Sprite" parent="." index="0" unique_id=1868209522]
+sprite_frames = SubResource("SpriteFrames_xl64p")
+animation = &"throw"
+
+[node name="Mask" type="AnimatedSprite2D" parent="Sprite" index="0" unique_id=894242630]
+visible = false
+position = Vector2(0, 9)
+sprite_frames = SubResource("SpriteFrames_5l23l")
+animation = &"RED"
+
+[node name="DialogueInteractable" parent="." index="2" unique_id=1161048169]
+dialogue = SubResource("Resource_knmce")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="4" unique_id=1857139683]
+
+[node name="CryLoop" type="AudioStreamPlayer2D" parent="." index="5" unique_id=276118853]
+volume_db = -4.0
+pitch_scale = 1.35
+max_distance = 200.0
+attenuation = 1.5
+bus = &"SFX"
+
+[node name="Laugh" type="AudioStreamPlayer2D" parent="." index="6" unique_id=1799272062]
+stream = ExtResource("23_7gvav")
+max_distance = 900.0
+bus = &"SFX"
+
+[node name="MumbleAndDrop" type="AudioStreamPlayer2D" parent="." index="7" unique_id=1980203932]
+stream = ExtResource("24_34ecw")
+volume_db = 12.0
+max_distance = 900.0
+bus = &"SFX"
+
+[connection signal="interacted" from="DialogueInteractable" to="." method="_on_dialogue_interactable_interacted"]
+
+[editable path="DialogueInteractable"]

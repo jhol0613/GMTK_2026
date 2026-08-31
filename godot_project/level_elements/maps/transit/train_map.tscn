@@ -3,8 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://cnf5hjo1lj1xu" path="res://level_elements/maps/transit/trainmap.png" id="1_f63an"]
 [ext_resource type="PackedScene" uid="uid://i202174cj82c" path="res://interactables/sign_interactable.tscn" id="2_ed7fu"]
 [ext_resource type="Texture2D" uid="uid://cxftno5ffy14d" path="res://level_elements/maps/transit/transit_map.png" id="2_nf7gk"]
-[ext_resource type="Texture2D" uid="uid://dci6gxplwgbkj" path="res://level_elements/maps/transit/transit_map_resshan_overlay.png" id="3_gawvt"]
+[ext_resource type="Texture2D" uid="uid://bkrj6y6y1oc3g" path="res://level_elements/maps/transit/map_overlay_all_stations.png" id="3_detsl"]
 [ext_resource type="PackedScene" uid="uid://0h6rwq0bq753" path="res://interactables/sign_panel.tscn" id="3_rlmea"]
+[ext_resource type="Texture2D" uid="uid://den2eufnw50jh" path="res://level_elements/maps/transit/transit_map_colorblind_overlay.png" id="5_qxlha"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="6_nf7gk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]
@@ -20,35 +21,35 @@ scale = Vector2(0.77, 0.77)
 texture = ExtResource("2_nf7gk")
 
 [node name="ColorRect2" type="ColorRect" parent="SignPanel/Root/Popup/Map" unique_id=1111831422]
-offset_left = -509.09094
-offset_top = -224.67534
-offset_right = -444.15588
-offset_bottom = -161.03899
+offset_left = -492.20782
+offset_top = -215.58443
+offset_right = -427.27277
+offset_bottom = -151.94807
 scale = Vector2(1.2034343, 1.1756684)
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect" type="ColorRect" parent="SignPanel/Root/Popup/Map" unique_id=1083407357]
-offset_left = -502.59763
-offset_top = -223.37663
-offset_right = -445.45474
-offset_bottom = -166.23378
+offset_left = -485.7145
+offset_top = -214.28572
+offset_right = -428.57162
+offset_bottom = -157.14287
 scale = Vector2(1.2034343, 1.1756684)
 mouse_filter = 2
 
 [node name="Overlay" type="Sprite2D" parent="SignPanel/Root/Popup" parent_id_path=PackedInt32Array(1998267979, 2123670025) index="2" unique_id=146975511]
 position = Vector2(228, 240)
 scale = Vector2(0.77, 0.77)
-texture = ExtResource("3_gawvt")
+texture = ExtResource("3_detsl")
 
 [node name="EndOfBrownLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=1162920577]
 physics_interpolation_mode = 0
 layout_mode = 3
 anchors_preset = 0
-offset_left = 223.37659
-offset_top = 306.49347
-offset_right = 289.61035
-offset_bottom = 359.74017
+offset_left = 154.54541
+offset_top = 346.7532
+offset_right = 220.77917
+offset_bottom = 399.9999
 script = ExtResource("6_nf7gk")
 _string = "<<endofbrownline>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
@@ -57,10 +58,10 @@ metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 physics_interpolation_mode = 0
 layout_mode = 3
 anchors_preset = 0
-offset_left = 301.29865
-offset_top = 485.7143
-offset_right = 367.5324
-offset_bottom = 538.96106
+offset_left = 355.84412
+offset_top = 520.77924
+offset_right = 422.07788
+offset_bottom = 574.026
 script = ExtResource("6_nf7gk")
 _string = "<<endofredline>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
@@ -93,10 +94,10 @@ metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 physics_interpolation_mode = 0
 layout_mode = 3
 anchors_preset = 0
-offset_left = 55.84412
-offset_top = -392.20786
-offset_right = 122.07788
-offset_bottom = -338.96115
+offset_left = 11.688274
+offset_top = -407.79224
+offset_right = 77.92204
+offset_bottom = -354.54553
 script = ExtResource("6_nf7gk")
 _string = "<<startofyellowline>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
@@ -117,10 +118,10 @@ metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 physics_interpolation_mode = 0
 layout_mode = 3
 anchors_preset = 0
-offset_left = 393.50644
-offset_top = 185.71423
-offset_right = 459.7402
-offset_bottom = 238.96095
+offset_left = 444.1558
+offset_top = 224.67535
+offset_right = 510.38956
+offset_bottom = 277.92206
 script = ExtResource("6_nf7gk")
 _string = "<<endoftealline>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
@@ -130,9 +131,9 @@ physics_interpolation_mode = 0
 layout_mode = 3
 anchors_preset = 0
 offset_left = -446.7533
-offset_top = 281.8181
+offset_top = 283.11682
 offset_right = -380.51953
-offset_bottom = 335.06482
+offset_bottom = 336.36353
 script = ExtResource("6_nf7gk")
 _string = "<<station.0>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
@@ -141,10 +142,10 @@ metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 physics_interpolation_mode = 0
 layout_mode = 3
 anchors_preset = 0
-offset_left = -501.29874
-offset_top = -216.8831
-offset_right = -435.06497
-offset_bottom = -155.84404
+offset_left = -485.71432
+offset_top = -210.38959
+offset_right = -419.48056
+offset_bottom = -149.35052
 script = ExtResource("6_nf7gk")
 _string = "<<closed>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
@@ -165,10 +166,10 @@ metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 physics_interpolation_mode = 0
 layout_mode = 3
 anchors_preset = 0
-offset_left = 101.29875
-offset_top = -10.389583
-offset_right = 162.33769
-offset_bottom = 42.85712
+offset_left = 106.49348
+offset_top = -12.986985
+offset_right = 167.53241
+offset_bottom = 40.25972
 script = ExtResource("6_nf7gk")
 _string = "<<station.2>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
@@ -177,10 +178,10 @@ metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 physics_interpolation_mode = 0
 layout_mode = 3
 anchors_preset = 0
-offset_left = 393.50644
-offset_top = 77.922104
-offset_right = 459.7402
-offset_bottom = 131.16881
+offset_left = 393.50647
+offset_top = 79.22081
+offset_right = 459.74023
+offset_bottom = 132.46751
 script = ExtResource("6_nf7gk")
 _string = "<<endofgrayline>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
@@ -189,10 +190,10 @@ metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 physics_interpolation_mode = 0
 layout_mode = 3
 anchors_preset = 0
-offset_left = 142.85709
-offset_top = 441.55847
-offset_right = 209.09085
-offset_bottom = 494.80518
+offset_left = 90.90903
+offset_top = 458.4416
+offset_right = 157.14279
+offset_bottom = 511.6883
 script = ExtResource("6_nf7gk")
 _string = "<<endofgreenline>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
@@ -201,10 +202,10 @@ metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 physics_interpolation_mode = 0
 layout_mode = 3
 anchors_preset = 0
-offset_left = 374.02594
-offset_top = -176.62338
-offset_right = 440.2597
-offset_bottom = -123.37668
+offset_left = 311.6883
+offset_top = 412.98706
+offset_right = 377.92206
+offset_bottom = 466.23376
 script = ExtResource("6_nf7gk")
 _string = "<<endofyellowline>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
@@ -213,9 +214,9 @@ metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 physics_interpolation_mode = 0
 layout_mode = 3
 anchors_preset = 0
-offset_left = 315.5844
+offset_left = 289.61038
 offset_top = -259.74026
-offset_right = 358.44147
+offset_right = 332.46744
 offset_bottom = -206.49356
 script = ExtResource("6_nf7gk")
 _string = "<<endofmaroonline>>"
@@ -225,10 +226,10 @@ metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 physics_interpolation_mode = 0
 layout_mode = 3
 anchors_preset = 0
-offset_left = 502.59747
-offset_top = 333.76614
-offset_right = 568.83124
-offset_bottom = 387.01285
+offset_left = 512.98706
+offset_top = 336.36362
+offset_right = 579.2208
+offset_bottom = 396.10385
 script = ExtResource("6_nf7gk")
 _string = "<<endofpurpleline>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
@@ -261,10 +262,10 @@ metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 physics_interpolation_mode = 0
 layout_mode = 3
 anchors_preset = 0
-offset_left = 371.42856
+offset_left = 371.4286
 offset_top = -559.7403
-offset_right = 437.66232
-offset_bottom = -506.4936
+offset_right = 437.66235
+offset_bottom = -502.5974
 script = ExtResource("6_nf7gk")
 _string = "<<north>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
@@ -285,10 +286,10 @@ metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 physics_interpolation_mode = 0
 layout_mode = 3
 anchors_preset = 0
-offset_left = 249.35065
-offset_top = -442.8572
-offset_right = 315.5844
-offset_bottom = -380.5195
+offset_left = 250.64935
+offset_top = -442.85718
+offset_right = 316.88312
+offset_bottom = -380.51947
 script = ExtResource("6_nf7gk")
 _string = "<<west>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
@@ -297,13 +298,18 @@ metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 physics_interpolation_mode = 0
 layout_mode = 3
 anchors_preset = 0
-offset_left = 370.12985
-offset_top = -323.3767
-offset_right = 436.36362
-offset_bottom = -261.03894
+offset_left = 371.4286
+offset_top = -323.3766
+offset_right = 437.66235
+offset_bottom = -261.03882
 script = ExtResource("6_nf7gk")
 _string = "<<south>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="TransitMapColorblindOverlay" type="Sprite2D" parent="SignPanel/Root/Popup" parent_id_path=PackedInt32Array(1998267979, 2123670025) index="3" unique_id=452948792]
+position = Vector2(230, 240.00006)
+scale = Vector2(0.7699999, 0.7699999)
+texture = ExtResource("5_qxlha")
 
 [node name="Trainmap" type="Sprite2D" parent="." unique_id=2020560551]
 z_index = 1
@@ -321,17 +327,11 @@ shape = SubResource("RectangleShape2D_ujtin")
 [node name="SignInteractable" parent="." unique_id=1631350735 instance=ExtResource("2_ed7fu")]
 panel_path = NodePath("../SignPanel")
 
-[node name="CollisionShape2D" parent="SignInteractable" index="0" unique_id=278382881]
+[node name="InteractableCollisionShape2D" parent="SignInteractable" index="0" unique_id=278382881]
 position = Vector2(0, 1)
 
 [node name="Prompt" parent="SignInteractable" index="1" unique_id=272794898]
 custom_minimum_size = Vector2(75, 168)
-offset_left = -38.0
-offset_top = -174.0
-offset_bottom = -6.0
-
-[node name="AnimatedSprite2D" parent="SignInteractable" index="2" unique_id=819702371]
-position = Vector2(0, -92)
 
 [editable path="SignPanel"]
 [editable path="SignInteractable"]
