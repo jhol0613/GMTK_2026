@@ -86,7 +86,7 @@ play_train_intro_before_music = true
 script = ExtResource("2_xf1kb")
 train_schedule = ExtResource("3_xf1kb")
 
-[node name="Camera2D" parent="." index="2" unique_id=1821430600]
+[node name="Camera2D" parent="." index="2" unique_id=855071997]
 position = Vector2(-1056, -752)
 limit_bottom = 0
 
@@ -664,7 +664,6 @@ shape = SubResource("RectangleShape2D_bqp2h")
 
 [node name="CoffeeShop" parent="." index="15" unique_id=1288725174 instance=ExtResource("19_wx43u")]
 position = Vector2(-570, -297)
-effect_volume_db = -10.0
 
 [node name="TicketBooth" parent="." index="16" unique_id=861247956 instance=ExtResource("19_uptk2")]
 position = Vector2(-267, -170)

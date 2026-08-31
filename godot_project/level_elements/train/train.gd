@@ -112,6 +112,11 @@ func _ready() -> void:
 		Enums.TrainDirection.SOUTH:
 			player_embark_marker = $PlayerEmbarkMarkerVertical
 			player_disembark_marker = $PlayerDisembarkMarkerSouth
+			#use scale to flip interactable to other side of train
+			train_interactable_u.scale = Vector2(-1, 1)
+			train_interactable_u._prompt.scale.x = -train_interactable_u._prompt.scale.x
+			train_interactable_d.scale = Vector2(-1, 1)
+			train_interactable_d._prompt.scale.x = -train_interactable_d._prompt.scale.x
 		Enums.TrainDirection.EAST:
 			player_embark_marker = $PlayerEmbarkMarkerHorizontal
 			player_disembark_marker = $PlayerDisembarkMarkerEast

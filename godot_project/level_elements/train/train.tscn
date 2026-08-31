@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dixkuxjdnkyp" path="res://level_elements/train/hoverthruster_sparcle.png" id="4_wb4gf"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="5_oe38n"]
 [ext_resource type="AudioStream" uid="uid://dwigb4phdw4ik" path="res://level_elements/train/updated_sfx/Train_Pulling_Into_with_doors.mp3" id="6_pulling_in"]
-[ext_resource type="Texture2D" uid="uid://bhqjsfr70bd0i" path="res://level_elements/train/vertical_train_placeholder.png" id="7_f6fyi"]
+[ext_resource type="Texture2D" uid="uid://ce6pqv3chf6bn" path="res://level_elements/train/train_vertical.png" id="7_f6fyi"]
 [ext_resource type="AudioStream" uid="uid://5c1e5coucolc" path="res://level_elements/train/updated_sfx/Train_Pulling_Out_with_doors.mp3" id="7_pulling_out"]
 [ext_resource type="AudioStream" uid="uid://bvouajgkbq3o5" path="res://level_elements/train/updated_sfx/Train_Pulling_Into.mp3" id="8_no_doors"]
 [ext_resource type="AudioStream" uid="uid://t63ujqoprrca" path="res://level_elements/train/updated_sfx/Train_Pulling_Out.mp3" id="9_pulling_out_no_doors"]
@@ -57,19 +57,19 @@ region = Rect2(0, 129, 813, 129)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f6fyi"]
 atlas = ExtResource("7_f6fyi")
-region = Rect2(240, 0, 80, 600)
+region = Rect2(324, 0, 108, 722)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8tfg2"]
 atlas = ExtResource("7_f6fyi")
-region = Rect2(0, 0, 80, 600)
+region = Rect2(0, 0, 108, 722)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ox5ll"]
 atlas = ExtResource("7_f6fyi")
-region = Rect2(80, 0, 80, 600)
+region = Rect2(108, 0, 108, 722)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gxn5h"]
 atlas = ExtResource("7_f6fyi")
-region = Rect2(160, 0, 80, 600)
+region = Rect2(216, 0, 108, 722)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gfhyf"]
 atlas = ExtResource("2_725i7")
@@ -482,7 +482,6 @@ _data = {
 size = Vector2(40, 23)
 
 [node name="Train" type="Node2D" unique_id=2086324427 node_paths=PackedStringArray("hide_if_vertical", "sprite")]
-visible = false
 script = ExtResource("1_cjdsu")
 direction = 1
 hide_if_vertical = [NodePath("DoorL"), NodePath("DoorR"), NodePath("DoorL2"), NodePath("DoorR2"), NodePath("TrainSprite/DoorBlocker"), NodePath("TrainSprite/DoorBlocker2"), NodePath("TrainSprite/DoorBlocker3"), NodePath("TrainSprite/DoorBlocker4"), NodePath("TrainSprite/HoverSparcles"), NodePath("TrainSprite/NoTicketLight")]
@@ -510,7 +509,7 @@ bus = &"SFX"
 [node name="TrainSprite" type="AnimatedSprite2D" parent="." unique_id=865404147]
 position = Vector2(0, -40)
 sprite_frames = SubResource("SpriteFrames_ujtin")
-animation = &"MAROON"
+animation = &"VERTICAL_YELLOW"
 
 [node name="BodyNightGlow" type="Node2D" parent="TrainSprite" unique_id=638013023 groups=["night_lights"]]
 script = ExtResource("12_train_night_glow")
@@ -814,7 +813,7 @@ position = Vector2(0, 57)
 shape = SubResource("RectangleShape2D_5xnue")
 
 [node name="TrainInteractableU" parent="." unique_id=459656988 instance=ExtResource("3_725i7")]
-position = Vector2(0, -64)
+position = Vector2(1, -103)
 l_or_r = "l"
 
 [node name="InteractableCollisionShape2D" parent="TrainInteractableU" index="0" unique_id=278382881]
@@ -822,40 +821,30 @@ position = Vector2(58, 5)
 shape = SubResource("RectangleShape2D_5xnue")
 
 [node name="Prompt" parent="TrainInteractableU" index="1" unique_id=272794898]
-offset_left = -37.0
-offset_top = -81.0
-offset_right = 38.0
-offset_bottom = 87.0
+offset_left = 6.0
+offset_top = -94.0
+offset_right = 81.0
+offset_bottom = 74.0
 
 [node name="AnimatedSprite2D" parent="TrainInteractableU" index="2" unique_id=819702371]
-position = Vector2(1, -10)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="TrainInteractableU" unique_id=1480050936]
-position = Vector2(-56, 5)
-scale = Vector2(1, 4.5)
-shape = SubResource("RectangleShape2D_5xnue")
+position = Vector2(44, -10)
 
 [node name="TrainInteractableD" parent="." unique_id=1650056729 instance=ExtResource("3_725i7")]
-position = Vector2(1, 64)
+position = Vector2(0, -2)
 l_or_r = "l"
 
 [node name="InteractableCollisionShape2D" parent="TrainInteractableD" index="0" unique_id=278382881]
-position = Vector2(57, 8)
+position = Vector2(59, 5)
 shape = SubResource("RectangleShape2D_5xnue")
 
 [node name="Prompt" parent="TrainInteractableD" index="1" unique_id=272794898]
-offset_left = -37.0
-offset_top = -82.0
-offset_right = 38.0
-offset_bottom = 86.0
+offset_left = 7.0
+offset_top = -96.0
+offset_right = 82.0
+offset_bottom = 72.0
 
 [node name="AnimatedSprite2D" parent="TrainInteractableD" index="2" unique_id=819702371]
-position = Vector2(1, -11)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="TrainInteractableD" unique_id=525134334]
-position = Vector2(-58, 8)
-scale = Vector2(1, 4.5)
-shape = SubResource("RectangleShape2D_5xnue")
+position = Vector2(45, -11)
 
 [editable path="TrainInteractableL"]
 [editable path="TrainInteractableR"]

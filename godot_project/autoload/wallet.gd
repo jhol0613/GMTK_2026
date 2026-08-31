@@ -44,7 +44,7 @@ func add(amount: int, origin_global := Vector2(0,0)) -> void:
 	if amount <= 0:
 		return
 	tokens = mini(tokens + amount, MAX_TOKENS)
-	tokens_changed.emit(tokens, MAX_TOKENS)
+	tokens_changed.emit(tokens, MAX_TOKENS, origin_global)
 
 
 func reset() -> void:

@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dcanbg433hb0v" path="res://visual_effects/day_night/hoverthruster_lighting.gd" id="2_n0ljr"]
 [ext_resource type="TileSet" uid="uid://dvxgqw1r5w5ps" path="res://level_elements/tileset/station_tileset.tres" id="3_qp02f"]
 [ext_resource type="PackedScene" uid="uid://67c8xgtu7o7f" path="res://level_elements/train/train.tscn" id="4_m7glf"]
-[ext_resource type="Texture2D" uid="uid://5pslrs1jdnbu" path="res://level_elements/train/trainfront.png" id="5_48o67"]
+[ext_resource type="Texture2D" uid="uid://ddfg2tu66h78y" path="res://level_elements/train/trainfront_vertical.png" id="5_qp02f"]
 [ext_resource type="Script" uid="uid://iqsa7knvxpkd" path="res://level_elements/train/train_night_glow.gd" id="6_xsc1w"]
 [ext_resource type="Texture2D" uid="uid://duudg8ecdajql" path="res://level_elements/train/train_front_glow.png" id="7_0b0m3"]
 [ext_resource type="PackedScene" uid="uid://dpexe87ps0d7f" path="res://level_elements/hourglass/hourglass.tscn" id="8_s1ukv"]
@@ -42,17 +42,18 @@ tile_map_data = PackedByteArray("AADx/woAAgAFAAEAAAD+/woAAgAFAAEAAADy/woAAgAFAAE
 tile_set = ExtResource("3_qp02f")
 
 [node name="UpperTrain" parent="." unique_id=995237668 instance=ExtResource("4_m7glf")]
-z_index = -1
+z_index = 1
 position = Vector2(-296, 54)
 direction = 0
 color = 5
 
 [node name="Trainfront" type="Sprite2D" parent="UpperTrain" unique_id=97515597]
-visible = false
-position = Vector2(522, -40)
-texture = ExtResource("5_48o67")
+position = Vector2(-1, -429)
+texture = ExtResource("5_qp02f")
+flip_v = true
 
 [node name="FrontNightGlow" type="Node2D" parent="UpperTrain/Trainfront" unique_id=1042547398 groups=["night_lights"]]
+visible = false
 script = ExtResource("6_xsc1w")
 
 [node name="Overlay" type="Sprite2D" parent="UpperTrain/Trainfront/FrontNightGlow" unique_id=818514475]
@@ -61,16 +62,16 @@ material = SubResource("CanvasItemMaterial_train_front_glow")
 texture = ExtResource("7_0b0m3")
 
 [node name="LowerTrain" parent="." unique_id=1370361982 instance=ExtResource("4_m7glf")]
-z_index = -1
+z_index = 2
 position = Vector2(41, 58)
 
 [node name="Trainfront2" type="Sprite2D" parent="LowerTrain" unique_id=1995562429]
-visible = false
-position = Vector2(-526, -40)
-texture = ExtResource("5_48o67")
+position = Vector2(1, 362)
+texture = ExtResource("5_qp02f")
 flip_h = true
 
 [node name="FrontNightGlow" type="Node2D" parent="LowerTrain/Trainfront2" unique_id=1378392762 groups=["night_lights"]]
+visible = false
 script = ExtResource("6_xsc1w")
 
 [node name="Overlay" type="Sprite2D" parent="LowerTrain/Trainfront2/FrontNightGlow" unique_id=1008726137]
