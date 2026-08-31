@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cxekovsy3q368" path="res://level_elements/train_platform/platform.tscn" id="2_pqqg8"]
 [ext_resource type="PackedScene" uid="uid://bj6c3dkqrbxyt" path="res://level_elements/train_platform/vertical_platform.tscn" id="3_2smvo"]
 [ext_resource type="PackedScene" uid="uid://denclmxtn1x1l" path="res://level_elements/departure_board/departure_board.tscn" id="3_lnqnw"]
+[ext_resource type="PackedScene" uid="uid://bn2ibeuqk0rgt" path="res://player/player.tscn" id="4_ppf8r"]
 [ext_resource type="PackedScene" uid="uid://dpexe87ps0d7f" path="res://level_elements/hourglass/hourglass.tscn" id="5_2smvo"]
 [ext_resource type="PackedScene" uid="uid://bh8gk7aegekyy" path="res://level_elements/maps/station/station_map_lvl2.tscn" id="6_cp47v"]
 [ext_resource type="PackedScene" uid="uid://2pwlm8itluel" path="res://level_elements/ticket_booth/ticket_booth.tscn" id="7_aq41y"]
@@ -30,6 +31,18 @@ size = Vector2(816, 408)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yiikh"]
 size = Vector2(815, 413)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4b5i"]
+size = Vector2(574, 265)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pg750"]
+size = Vector2(81, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uuidd"]
+size = Vector2(574, 265)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5l23l"]
+size = Vector2(79, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fq0us"]
 size = Vector2(816, 416)
@@ -81,7 +94,6 @@ position = Vector2(8, 12)
 shape = SubResource("RectangleShape2D_1vf62")
 
 [node name="Platform2" parent="." index="7" unique_id=293687369 instance=ExtResource("3_2smvo")]
-z_index = -1
 position = Vector2(-1696, -2464)
 station_number = 2
 platform_number = 2
@@ -174,7 +186,23 @@ station_number = 2
 station_number = 2
 
 [node name="LayerTransitionZone" parent="Platform5" index="13" unique_id=1662407236]
+visible = true
 transition_z_index = -4
+
+[node name="CollisionShape2D" parent="Platform5/LayerTransitionZone" index="0" unique_id=6447672]
+position = Vector2(-128, 30.5)
+shape = SubResource("RectangleShape2D_s4b5i")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Platform5/LayerTransitionZone" index="1" unique_id=1264534563]
+position = Vector2(-215.5, -115)
+shape = SubResource("RectangleShape2D_pg750")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Platform5/LayerTransitionZone" index="2" unique_id=429838709]
+position = Vector2(-40, -114.5)
+shape = SubResource("RectangleShape2D_pg750")
+
+[node name="Player" parent="Platform5/LayerTransitionZone" index="3" unique_id=1361624922 instance=ExtResource("4_ppf8r")]
+position = Vector2(-141, -102)
 
 [node name="Platform6" parent="." index="11" unique_id=275140016 instance=ExtResource("3_2smvo")]
 position = Vector2(-2528, -704)
@@ -194,7 +222,20 @@ station_number = 2
 station_number = 2
 
 [node name="LayerTransitionZone" parent="Platform6" index="13" unique_id=1662407236]
+visible = true
 transition_z_index = -4
+
+[node name="CollisionShape2D" parent="Platform6/LayerTransitionZone" index="0" unique_id=6447672]
+position = Vector2(-128, 30.5)
+shape = SubResource("RectangleShape2D_uuidd")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Platform6/LayerTransitionZone" index="1" unique_id=2081528539]
+position = Vector2(-215.5, -114)
+shape = SubResource("RectangleShape2D_5l23l")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Platform6/LayerTransitionZone" index="2" unique_id=1535857085]
+position = Vector2(-41, -115)
+shape = SubResource("RectangleShape2D_5l23l")
 
 [node name="Platform7" parent="." index="12" unique_id=261612207 instance=ExtResource("2_pqqg8")]
 z_index = 5
