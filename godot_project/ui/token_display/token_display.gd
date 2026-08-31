@@ -132,9 +132,9 @@ func _on_tokens_changed(current: int, _maximum: int, origin_global: Vector2) -> 
 		_stop_lightning()
 		
 	else:
-		_play_drain_lightning(screen_space_lightning)
+		#_play_drain_lightning(screen_space_lightning)
 		await _animate_drain(current, generation)
-		_stop_lightning()
+		#_stop_lightning()
 
 
 func _play_gain_lightning(target: Vector2):
