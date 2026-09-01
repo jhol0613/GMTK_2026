@@ -11,7 +11,8 @@ signal option_confirmed(outcome_id: StringName)
 
 @onready var _speaker: ResshanLabel = $Root/Popup/MarginContainer/HBoxContainer/VBox/Speaker
 @onready var _body: ResshanLabel = $Root/Popup/MarginContainer/HBoxContainer/VBox/Body
-@onready var _options: VBoxContainer = $Root/Popup/MarginContainer/HBoxContainer/VBox/Options
+@onready var _options_scroll: ScrollContainer = $Root/Popup/MarginContainer/HBoxContainer/VBox/OptionsScroll
+@onready var _options: VBoxContainer = $Root/Popup/MarginContainer/HBoxContainer/VBox/OptionsScroll/Options
 @onready var _speaker_icon: TextureRect = %SpeakerIcon
 @onready var _lines_sfx: AudioStreamPlayer = %LinesSFX
 
@@ -55,7 +56,8 @@ func show_dialogue(
 ) -> void:
 	_showing_options = false
 	_selected_option = 0
-	_options.visible = false
+	_options_scroll.visible = false
+	_options_scroll.scroll_vertical = 0
 	_speaker.text = speaker
 	_lines = lines
 	_index = 0
@@ -133,14 +135,14 @@ func _enter_options_mode() -> void:
 	_body.text = ""
 	_speaker.text = player_name
 	_speaker_icon.texture = player_icon
-	_options.visible = true
+	_options_scroll.visible = true
 	choice_nav_icons.visible = true
 	_refresh_options_visual()
 
 func _exit_options_mode() -> void:
 	_showing_options = false
 	_body.text = ""
-	_options.visible = false
+	_options_scroll.visible = false
 	choice_nav_icons.visible = false
 	_refresh_options_visual()
 
@@ -189,6 +191,16 @@ func _refresh_options_visual() -> void:
 		var prefix : String = "> " if i == _selected_option else "  "
 		label.text = prefix + _choices[i].player_text
 		label.modulate = Color.WHITE if i == _selected_option else Color.GRAY
+	call_deferred("_ensure_selected_option_visible")
+
+
+func _ensure_selected_option_visible() -> void:
+	if not _showing_options or _selected_option >= _options.get_child_count():
+		return
+	await get_tree().process_frame
+	if not _showing_options or _selected_option >= _options.get_child_count():
+		return
+	_options_scroll.ensure_control_visible(_options.get_child(_selected_option))
 
 
 func _give_reward() -> void:
