@@ -1,8 +1,25 @@
-[gd_scene load_steps=15 format=3]
+[gd_scene format=3 uid="uid://blkhoxm6f3cap"]
 
-[ext_resource type="Texture2D" path="res://level_elements/vending_machine/Vending_Machine.png" id="1_main"]
-[ext_resource type="Texture2D" path="res://level_elements/vending_machine/Vending_Machine_Glow.png" id="2_glow"]
-[ext_resource type="Script" path="res://level_elements/ATM/atm_night_glow.gd" id="3_night"]
+[ext_resource type="Texture2D" uid="uid://qhh1k6dd1vlk" path="res://level_elements/vending_machine/Vending_Machine_Broken.png" id="1_bv2u7"]
+[ext_resource type="Texture2D" uid="uid://cu44d7lo1sgp8" path="res://level_elements/vending_machine/Vending_Machine.png" id="1_main"]
+[ext_resource type="Texture2D" uid="uid://lp4xudcwuj56" path="res://level_elements/vending_machine/Vending_Machine_Glow.png" id="2_glow"]
+[ext_resource type="Script" uid="uid://c1rjdkepeomqo" path="res://level_elements/ATM/atm_night_glow.gd" id="3_night"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfkbt"]
+atlas = ExtResource("1_bv2u7")
+region = Rect2(0, 0, 63, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8xb3"]
+atlas = ExtResource("1_bv2u7")
+region = Rect2(63, 0, 63, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqcg5"]
+atlas = ExtResource("1_bv2u7")
+region = Rect2(126, 0, 63, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7mxb"]
+atlas = ExtResource("1_bv2u7")
+region = Rect2(189, 0, 63, 85)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_main_0"]
 atlas = ExtResource("1_main")
@@ -24,6 +41,23 @@ region = Rect2(189, 0, 63, 85)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_lfkbt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8xb3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqcg5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7mxb")
+}],
+"loop": 1,
+"name": &"broken",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_main_0")
 }, {
 "duration": 1.0,
@@ -35,7 +69,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_main_3")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 6.0
 }]
@@ -74,24 +108,24 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_glow_3")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 6.0
 }]
 
-[node name="VendingMachine" type="Node2D"]
+[node name="VendingMachine" type="Node2D" unique_id=1576657544]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1207707935]
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_main")
-animation = &"idle"
+animation = &"broken"
 autoplay = "idle"
+frame_progress = 0.8417471
 
-[node name="NightGlow" type="Node2D" parent="AnimatedSprite2D" groups=["night_lights"]]
+[node name="NightGlow" type="Node2D" parent="AnimatedSprite2D" unique_id=375776049 groups=["night_lights"]]
 script = ExtResource("3_night")
-max_alpha = 0.75
 
-[node name="Overlay" type="AnimatedSprite2D" parent="AnimatedSprite2D/NightGlow"]
+[node name="Overlay" type="AnimatedSprite2D" parent="AnimatedSprite2D/NightGlow" unique_id=411314288]
 modulate = Color(1, 1, 1, 0)
 material = SubResource("CanvasItemMaterial_glow")
 sprite_frames = SubResource("SpriteFrames_glow")
