@@ -14,7 +14,7 @@ item_description = "An empty recyclable coffee cup."
 item_icon = ExtResource("4_cup")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_coffee"]
-radius = 8.0
+radius = 24.0
 
 [node name="DroppedCoffee" unique_id=488694397 groups=["coffee_npc_ground_object"] instance=ExtResource("1_base")]
 z_index = 1
@@ -30,6 +30,7 @@ shape = SubResource("CircleShape2D_coffee")
 z_index = 10
 
 [node name="AnimatedSprite2D" parent="." index="2" unique_id=819702371]
+visible = false
 z_index = 10
 position = Vector2(0, -22)
 

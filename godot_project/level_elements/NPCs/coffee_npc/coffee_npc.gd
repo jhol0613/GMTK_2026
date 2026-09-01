@@ -2,28 +2,30 @@ class_name CoffeeNpc
 extends Npc
 
 const GROUND_OBJECT_GROUP := &"coffee_npc_ground_object"
-const COFFEE_ANIMATION_SUFFIX := "_coffee"
+const COFFEE_ANIMATION_PREFIX := "coffee_"
 
 @export var action_point: Marker2D
 @export var spawn_point: Marker2D
 @export var shop_point: Marker2D
 @export var spawned_object_scene: PackedScene
-@export var action_animation: StringName = &"throw"
-@export var shop_animation: StringName = &"shop_action"
+@export var action_animation: StringName = &"coffee_throw"
+@export var shop_animation: StringName = &"coffee_drink"
 @export var release_frame: int = 1
 @export var trigger_distance: float = 4.0
-@export var shop_action_seconds: float = 0.6
-@export var round_trips_before_drop: int = 10
+@export var round_trips_before_drop: int = 16
 
 var _busy := false
 var _has_coffee := true
 var _patrol_forward := true
 var _completed_round_trips := 0
 var _spawned_object: DroppedCoffee
+var _coffee_speed: float = 256.0
+var _ready_speed: float = 40.0
 
 
 func _ready() -> void:
 	super._ready()
+	walk_speed = _coffee_speed
 
 
 func _physics_process(delta: float) -> void:
@@ -75,16 +77,15 @@ func _drop_and_visit_shop() -> void:
 	_set_interactable(false)
 	_face_spawn_point()
 	_sprite.speed_scale = 1.0
-
-	if _sprite.sprite_frames.has_animation(action_animation):
-		_sprite.play(action_animation)
-		await _wait_for_release_frame()
-		_has_coffee = not _spawn_object()
-		await _finish_action_animation()
-	else:
-		await get_tree().create_timer(0.2).timeout
-		_has_coffee = not _spawn_object()
-
+	
+	_sprite.play(action_animation)
+	# walk_speed = _ready_speed
+	await _sprite.animation_finished
+	# _wait_for_release_frame()
+	_has_coffee = not _spawn_object()
+	# await _finish_action_animation()
+	
+	
 	await go_to(_left_patrol_point(), false)
 	_set_interactable(false)
 	if shop_point != null:
@@ -92,8 +93,9 @@ func _drop_and_visit_shop() -> void:
 		_set_interactable(false)
 		await _play_shop_action()
 		_has_coffee = true
+		walk_speed = _coffee_speed
 		await go_to(_left_patrol_point(), false)
-
+	
 	_patrol_forward = true
 	_completed_round_trips = 0
 	_busy = false
@@ -105,32 +107,31 @@ func _play_shop_action() -> void:
 	_state = State.ACTING
 	velocity = Vector2.ZERO
 	_sprite.speed_scale = 1.0
-	if _sprite.sprite_frames.has_animation(shop_animation):
-		_sprite.play(shop_animation)
-		await _finish_animation(shop_animation)
-	else:
-		await get_tree().create_timer(shop_action_seconds).timeout
+	
+	_sprite.play(shop_animation)
+	await _sprite.animation_finished
 
 
-func _wait_for_release_frame() -> void:
-	var count := _sprite.sprite_frames.get_frame_count(action_animation)
-	var target := clampi(release_frame, 0, count - 1)
-	while _sprite.frame < target:
-		await _sprite.frame_changed
+
+#func _wait_for_release_frame() -> void:
+#	var count := _sprite.sprite_frames.get_frame_count(action_animation)
+#	var target := clampi(release_frame, 0, count - 1)
+#	while _sprite.frame < target:
+#		await _sprite.frame_changed
 
 
-func _finish_action_animation() -> void:
-	await _finish_animation(action_animation)
+#func _finish_action_animation() -> void:
+#	await _finish_animation(action_animation)
 
 
-func _finish_animation(animation: StringName) -> void:
-	if not _sprite.sprite_frames.get_animation_loop(animation):
-		await _sprite.animation_finished
-		return
-	var fps := maxf(_sprite.sprite_frames.get_animation_speed(animation), 0.01)
-	var duration := _sprite.sprite_frames.get_frame_count(animation) / fps
-	await get_tree().create_timer(duration).timeout
-	_sprite.stop()
+#func _finish_animation(animation: StringName) -> void:
+#	if not _sprite.sprite_frames.get_animation_loop(animation):
+#		await _sprite.animation_finished
+#		return
+#	var fps := maxf(_sprite.sprite_frames.get_animation_speed(animation), 0.01)
+#	var duration := _sprite.sprite_frames.get_frame_count(animation) / fps
+#	await get_tree().create_timer(duration).timeout
+#	_sprite.stop()
 
 
 func _spawn_object() -> bool:
@@ -166,7 +167,7 @@ func _play(animation: StringName) -> void:
 		&"walk_down", &"walk_up":
 			selected = &"walk_right"
 	if _has_coffee:
-		var coffee_animation := StringName(String(selected) + COFFEE_ANIMATION_SUFFIX)
+		var coffee_animation := StringName( COFFEE_ANIMATION_PREFIX + String(selected) )
 		if _sprite.sprite_frames.has_animation(coffee_animation):
 			selected = coffee_animation
 	super._play(selected)
@@ -184,4 +185,4 @@ func _face_spawn_point() -> void:
 		return
 	_facing = direction.normalized()
 	if direction.x != 0.0:
-		_sprite.flip_h = direction.x < 0.0
+		_sprite.flip_h = direction.x < 0.0 and not _sprite.sprite_frames.has_animation(&"idle_left")

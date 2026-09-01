@@ -30,7 +30,8 @@ var _facing: Vector2 = Vector2.DOWN
 
 func _ready() -> void:
 	_facing = FACING_VECTORS[facing]
-	_sprite.flip_h = _facing.x < 0.0
+	if not _sprite.sprite_frames.has_animation(&"idle_left"):
+		_sprite.flip_h = _facing.x < 0.0
 	#_panel.opened.connect(_on_panel_opened)
 	#_panel.closed.connect(_on_panel_closed)
 	_start_patrol()
@@ -146,24 +147,35 @@ func _animate(dir: Vector2) -> void:
 		_play(_idle_animation())
 		return
 	_facing = dir
-	if dir.x != 0.0:
-		_sprite.flip_h = dir.x < 0.0
-	if absf(dir.x) > absf(dir.y):
-		_play(&"walk_right")
+	
+	# flip the sprite if walking left and no walk_left animation exists
+	if not _sprite.sprite_frames.has_animation(&"walk_left"):
+		_sprite.flip_h = (absf(dir.x) > absf(dir.y)) and (dir.x < 0)
+	
+	if ( dir.x > absf(dir.y) ) and dir.x > 0.0:
+		_play( &"walk_right" )
+	elif ( absf(dir.x) > absf(dir.y) ) and dir.x < 0.0:
+		_play( &"walk_left" if _sprite.sprite_frames.has_animation(&"walk_left") else &"walk_right" )
 	elif dir.y > 0.0:
-		_play(&"walk_down")
+		_play( &"walk_down" )
 	else:
-		_play(&"walk_up")
+		_play( &"walk_up" )
 
 
 func _idle_animation() -> StringName:
 	var angle = atan2(_facing.y, _facing.x)
+	
+	if not _sprite.sprite_frames.has_animation( &"idle_left" ):
+		_sprite.flip_h = (angle >= .75 * PI) or (angle >= .75 * PI)
+	
 	if angle > -.75 * PI and angle < -.25 * PI:
 		return &"idle_up"
 	elif angle >= -.25 * PI and angle < .25 * PI:
 		return &"idle_right"
 	elif angle >= .25 * PI and angle < .75 * PI:
 		return &"idle"
+	elif _sprite.sprite_frames.has_animation( &"idle_left" ):
+		return &"idle_left"
 	else:
 		return &"idle_right"
 	#if absf(_facing.x) > absf(_facing.y):
@@ -188,6 +200,4 @@ func _on_panel_closed() -> void:
 func _face_player() -> void:
 	var player := get_tree().get_first_node_in_group("player") as Node2D
 	_facing = (player.global_position - global_position).normalized()
-	if _facing.x != 0.0:
-		_sprite.flip_h = _facing.x < 0.0
 	_play(_idle_animation())

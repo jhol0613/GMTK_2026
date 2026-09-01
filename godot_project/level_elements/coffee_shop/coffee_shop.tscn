@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dya82x1l0owwt" path="res://level_elements/coffee_shop/coffee_shop.gd" id="1_coffee"]
 [ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://interactables/dialog_system/dialogue_choice.gd" id="2_4x3ae"]
+[ext_resource type="Texture2D" uid="uid://cqd1hka2n8vwt" path="res://level_elements/coffee_shop/Coffee_Shop_2.png" id="2_bvkv4"]
 [ext_resource type="Texture2D" uid="uid://b7jqw3hjabu1s" path="res://level_elements/coffee_shop/Coffee_Shop.png" id="2_sprite"]
 [ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialog_system/dialogue_interactable.tscn" id="3_interact"]
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="3_m5xxu"]
@@ -82,16 +83,15 @@ metadata/_custom_type_script = "uid://dvkforrusa0nj"
 size = Vector2(111, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
-size = Vector2(161, 42)
+size = Vector2(102, 39)
 
 [node name="CoffeeShop" type="Node2D" unique_id=780382610]
-scale = Vector2(0.6, 0.6)
 script = ExtResource("1_coffee")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=458582389]
 z_index = 1
-position = Vector2(0, -50)
-texture = ExtResource("2_sprite")
+position = Vector2(0, -43)
+texture = ExtResource("2_bvkv4")
 
 [node name="NightLight" type="Node2D" parent="." unique_id=791999141 groups=["night_lights"]]
 script = ExtResource("7_nightlight")
@@ -107,23 +107,23 @@ texture = ExtResource("5_glow")
 [node name="CoffeeMachineUntinted" type="Sprite2D" parent="NightLight" unique_id=444728222]
 z_index = 1
 material = SubResource("ShaderMaterial_machine")
-position = Vector2(0, -50)
+position = Vector2(0, -48)
 texture = ExtResource("2_sprite")
 
 [node name="BakeryInteriorGlow" type="Sprite2D" parent="NightLight" unique_id=2069493395]
 modulate = Color(1, 0.23921569, 0.039215688, 0)
 z_index = 1
 material = SubResource("CanvasItemMaterial_warm_mix")
-position = Vector2(19, -46)
-scale = Vector2(0.78, 0.43)
+position = Vector2(13, -35)
+scale = Vector2(0.595, 0.327)
 texture = ExtResource("6_light")
 
 [node name="BakeryInteriorGlow2" type="Sprite2D" parent="NightLight" unique_id=1690428174]
 modulate = Color(1, 0.23921569, 0.039215688, 0)
 z_index = 1
 material = SubResource("CanvasItemMaterial_warm_mix")
-position = Vector2(22, -28)
-scale = Vector2(0.78, 0.43)
+position = Vector2(11.999999, -34)
+scale = Vector2(0.55, 0.302)
 texture = ExtResource("6_light")
 
 [node name="CyanAreaGlow" type="Sprite2D" parent="NightLight" unique_id=1750756706]
@@ -136,13 +136,21 @@ texture = ExtResource("6_light")
 
 [node name="DialogueInteractable" parent="." unique_id=1481065752 instance=ExtResource("3_interact")]
 z_index = 1
-position = Vector2(0, -20)
+position = Vector2(0, -11)
 dialogue = SubResource("Resource_ya87f")
 panel_path = NodePath("../DialoguePanel")
 
 [node name="InteractableCollisionShape2D" parent="DialogueInteractable" index="0" unique_id=278382881]
-position = Vector2(-1, 54)
 shape = SubResource("RectangleShape2D_interact")
+
+[node name="Prompt" parent="DialogueInteractable" index="1" unique_id=272794898]
+offset_left = -37.5
+offset_top = -165.5
+offset_right = 37.5
+offset_bottom = 2.5
+
+[node name="AnimatedSprite2D" parent="DialogueInteractable" index="2" unique_id=819702371]
+position = Vector2(0, -80.5)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=560896929]
 z_index = 1
@@ -150,7 +158,7 @@ collision_layer = 2
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=957672512]
-position = Vector2(1, -7)
+position = Vector2(-1, -19.5)
 shape = SubResource("RectangleShape2D_body")
 
 [node name="DialoguePanel" parent="." unique_id=112215550 instance=ExtResource("4_panel")]
@@ -159,10 +167,10 @@ unique_name_in_owner = true
 [node name="ResshanInteractable" type="Control" parent="." unique_id=1608915256]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -21.0
-offset_top = -2.0
-offset_right = -5.0
-offset_bottom = 13.0
+offset_left = -13.0
+offset_top = -14.0
+offset_right = -4.0
+offset_bottom = -5.0
 script = ExtResource("18_abad0")
 _string = "<<coffee>> "
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
@@ -170,16 +178,16 @@ metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 [node name="ResshanInteractable2" type="Control" parent="." unique_id=569445288]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -4.0
-offset_top = -2.0
-offset_right = 12.0
-offset_bottom = 13.0
+offset_left = -3.0
+offset_top = -14.0
+offset_right = 6.0
+offset_bottom = -5.0
 script = ExtResource("18_abad0")
 _string = "<<store>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="LightningOrigin" type="Marker2D" parent="." unique_id=1130067757]
-position = Vector2(-38.333332, -35)
+position = Vector2(-24, -34)
 
 [node name="DrinkingSound" type="AudioStreamPlayer" parent="." unique_id=1052641628]
 stream = ExtResource("14_slurping")

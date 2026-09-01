@@ -34,7 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://biebaxao2klw3" path="res://level_elements/decorative/benches/rest_chair_vertical_left.tscn" id="39_wl75l"]
 [ext_resource type="PackedScene" uid="uid://c5jvn4a3mfhj" path="res://level_elements/decorative/recycle_bin/recycle_bin.tscn" id="40_m78yj"]
 [ext_resource type="PackedScene" uid="uid://bo3pcctdon7l" path="res://level_elements/signs/sign_station_name.tscn" id="41_r4js7"]
-[ext_resource type="PackedScene" path="res://level_elements/NPCs/coffee_npc/coffee_npc.tscn" id="42_60i3m"]
+[ext_resource type="PackedScene" uid="uid://d2ffkk2tvq3wc" path="res://level_elements/NPCs/coffee_npc/coffee_npc.tscn" id="42_60i3m"]
 [ext_resource type="PackedScene" uid="uid://bqn5083nuxoa8" path="res://level_elements/NPCs/pee_pee_dance/pee_pee_dance.tscn" id="42_jg3i0"]
 [ext_resource type="PackedScene" uid="uid://cltjgiddt3m3y" path="res://level_elements/NPCs/preston/preston.tscn" id="43_y7g21"]
 [ext_resource type="Script" uid="uid://dcanbg433hb0v" path="res://visual_effects/day_night/hoverthruster_lighting.gd" id="44_thruster_light"]
@@ -1171,13 +1171,7 @@ position = Vector2(-611, -255)
 action_point = NodePath("../CoffeeActionPoint")
 spawn_point = NodePath("../CoffeeSpawnPoint")
 shop_point = NodePath("../CoffeeShopPoint")
-action_animation = &"throw"
-shop_animation = &"shop_action"
-release_frame = 1
-trigger_distance = 4.0
-shop_action_seconds = 0.6
-round_trips_before_drop = 10
-walk_speed = 300.0
+round_trips_before_drop = 16
 patrol_path = NodePath("../CoffeePatrolPath")
 
 [node name="CoffeePatrolPath" type="Path2D" parent="." index="30" unique_id=1151938190]
@@ -1187,7 +1181,7 @@ curve = SubResource("Curve2D_2jmd8")
 position = Vector2(-532, -255)
 
 [node name="CoffeeSpawnPoint" type="Marker2D" parent="." index="32" unique_id=1381325532]
-position = Vector2(-525, -265)
+position = Vector2(-544, -256)
 
 [node name="CoffeeShopPoint" type="Marker2D" parent="." index="33" unique_id=1262861504]
 position = Vector2(-573, -281)
