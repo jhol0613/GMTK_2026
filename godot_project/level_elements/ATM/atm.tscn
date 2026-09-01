@@ -218,7 +218,7 @@ position = Vector2(0, -123.5)
 
 [node name="ATMSprite" type="AnimatedSprite2D" parent="." unique_id=1776144098]
 y_sort_enabled = true
-position = Vector2(0, -57)
+position = Vector2(0, -56)
 sprite_frames = SubResource("SpriteFrames_fpcxu")
 animation = &"explode"
 
@@ -228,8 +228,9 @@ script = ExtResource("6_glow_script")
 [node name="Overlay" type="AnimatedSprite2D" parent="ATMSprite/NightGlow" unique_id=786278177]
 modulate = Color(1, 1, 1, 0)
 material = SubResource("CanvasItemMaterial_glow")
-position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_glow")
+animation = &"broken"
+frame_progress = 0.9145892
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1122527182]
 z_index = 1

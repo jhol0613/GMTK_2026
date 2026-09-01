@@ -117,10 +117,11 @@ animations = [{
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1207707935]
 z_index = 1
+position = Vector2(0, -43)
 sprite_frames = SubResource("SpriteFrames_main")
 animation = &"broken"
 autoplay = "idle"
-frame_progress = 0.8417471
+frame_progress = 0.18201451
 
 [node name="NightGlow" type="Node2D" parent="AnimatedSprite2D" unique_id=375776049 groups=["night_lights"]]
 script = ExtResource("3_night")

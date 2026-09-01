@@ -160,7 +160,7 @@ position = Vector2(10, 5)
 position = Vector2(-378, -28)
 
 [node name="RestChairVerticalLeft" parent="Platform1" index="27" unique_id=363741417 instance=ExtResource("39_wl75l")]
-position = Vector2(106, -28)
+position = Vector2(96, -24)
 
 [node name="TinyFoliage18" parent="Platform1" index="28" unique_id=1564407425 instance=ExtResource("35_ya8pr")]
 position = Vector2(160, 1)
@@ -201,7 +201,7 @@ position = Vector2(-208, 16)
 position = Vector2(189, -7)
 
 [node name="StreetLamp" parent="Platform1" index="40" unique_id=1013452097 instance=ExtResource("47_n5t7a")]
-position = Vector2(68, -52)
+position = Vector2(48, -40)
 
 [node name="StreetLamp2" parent="Platform1" index="41" unique_id=1016945674 instance=ExtResource("47_n5t7a")]
 position = Vector2(-334, -57)
@@ -250,7 +250,7 @@ position = Vector2(-326, 14.5)
 shape = SubResource("RectangleShape2D_wx43u")
 
 [node name="Hoverthruster14" type="Sprite2D" parent="Platform2" index="22" unique_id=1825305654]
-z_index = -1
+z_index = -6
 position = Vector2(-552, 120)
 texture = ExtResource("26_db00x")
 
@@ -383,7 +383,7 @@ position = Vector2(-326.5, 14.5)
 shape = SubResource("RectangleShape2D_60i3m")
 
 [node name="Hoverthruster12" type="Sprite2D" parent="Platform3" index="22" unique_id=661365257]
-z_index = -1
+z_index = -6
 position = Vector2(-552, 120)
 texture = ExtResource("26_db00x")
 
@@ -701,52 +701,52 @@ y_sort_enabled = true
 script = ExtResource("44_thruster_light")
 
 [node name="Hoverthruster" type="Sprite2D" parent="Decorations" index="0" unique_id=236404443]
-z_index = -1
+z_index = -6
 position = Vector2(-600, -56)
 texture = ExtResource("26_db00x")
 
 [node name="Hoverthruster2" type="Sprite2D" parent="Decorations" index="1" unique_id=698290148]
-z_index = -1
+z_index = -6
 position = Vector2(-40, -56)
 texture = ExtResource("26_db00x")
 
 [node name="Hoverthruster3" type="Sprite2D" parent="Decorations" index="2" unique_id=654094576]
-z_index = -1
+z_index = -6
 position = Vector2(-152, -56)
 texture = ExtResource("26_db00x")
 
 [node name="Hoverthruster4" type="Sprite2D" parent="Decorations" index="3" unique_id=153828386]
-z_index = -1
+z_index = -6
 position = Vector2(-488, -56)
 texture = ExtResource("26_db00x")
 
 [node name="Hoverthruster5" type="Sprite2D" parent="Decorations" index="4" unique_id=1145824133]
-z_index = -1
+z_index = -6
 position = Vector2(-376, -56)
 texture = ExtResource("26_db00x")
 
 [node name="Hoverthruster6" type="Sprite2D" parent="Decorations" index="5" unique_id=14164561]
-z_index = -1
+z_index = -6
 position = Vector2(-264, -56)
 texture = ExtResource("26_db00x")
 
 [node name="Hoverthruster8" type="Sprite2D" parent="Decorations" index="6" unique_id=2021264767]
-z_index = -1
+z_index = -6
 position = Vector2(-480, -488)
 texture = ExtResource("26_db00x")
 
 [node name="Hoverthruster9" type="Sprite2D" parent="Decorations" index="7" unique_id=1279003934]
-z_index = -1
+z_index = -6
 position = Vector2(-384, -488)
 texture = ExtResource("26_db00x")
 
 [node name="Hoverthruster10" type="Sprite2D" parent="Decorations" index="8" unique_id=1092477541]
-z_index = -1
+z_index = -6
 position = Vector2(-256, -488)
 texture = ExtResource("26_db00x")
 
 [node name="Hoverthruster11" type="Sprite2D" parent="Decorations" index="9" unique_id=816733153]
-z_index = -1
+z_index = -6
 position = Vector2(-160, -488)
 texture = ExtResource("26_db00x")
 
