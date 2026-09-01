@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://brf15e0nly738" path="res://level_elements/train/train_body_glow.png" id="13_body_glow"]
 [ext_resource type="Texture2D" uid="uid://ckse578l7fu5i" path="res://level_elements/train/train_door_left_glow.png" id="14_door_left_glow"]
 [ext_resource type="Texture2D" uid="uid://jlyj28m40he" path="res://level_elements/train/train_door_right_glow.png" id="15_door_right_glow"]
+[ext_resource type="Texture2D" uid="uid://c7vw7ooslwwf2" path="res://level_elements/train/train_vertical_glow.png" id="16_vertical_body_glow"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5xnue"]
 atlas = ExtResource("2_725i7")
@@ -193,6 +194,29 @@ animations = [{
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_train_glow"]
 blend_mode = 1
 light_mode = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vertical_glow"]
+atlas = ExtResource("16_vertical_body_glow")
+region = Rect2(0, 0, 108, 722)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_body_glow"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_body_glow")
+}],
+"loop": false,
+"name": &"HORIZONTAL",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vertical_glow")
+}],
+"loop": false,
+"name": &"VERTICAL",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l3brj"]
 atlas = ExtResource("4_wb4gf")
@@ -514,10 +538,11 @@ animation = &"VERTICAL_YELLOW"
 [node name="BodyNightGlow" type="Node2D" parent="TrainSprite" unique_id=638013023 groups=["night_lights"]]
 script = ExtResource("12_train_night_glow")
 
-[node name="Overlay" type="Sprite2D" parent="TrainSprite/BodyNightGlow" unique_id=2033507625]
+[node name="Overlay" type="AnimatedSprite2D" parent="TrainSprite/BodyNightGlow" unique_id=2033507625]
 modulate = Color(1, 1, 1, 0)
 material = SubResource("CanvasItemMaterial_train_glow")
-texture = ExtResource("13_body_glow")
+sprite_frames = SubResource("SpriteFrames_body_glow")
+animation = &"HORIZONTAL"
 
 [node name="DoorBlocker" type="Sprite2D" parent="TrainSprite" unique_id=1733779265]
 visible = false
