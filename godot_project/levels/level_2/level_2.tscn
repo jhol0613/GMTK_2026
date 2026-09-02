@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://ospha2vyynas" path="res://level_elements/NPCs/guide/guide.tscn" id="20_fq0us"]
 [ext_resource type="PackedScene" uid="uid://wvltf0ie5ih7" path="res://levels/level_2/level_specific_resources/station_2_technician.tscn" id="20_yiikh"]
 [ext_resource type="PackedScene" path="res://level_elements/decorative/street_lamp/street_lamp.tscn" id="22_kgdtm"]
-[ext_resource type="PackedScene" path="res://level_elements/vending_machine/vending_machine.tscn" id="24_uuidd"]
+[ext_resource type="PackedScene" uid="uid://blkhoxm6f3cap" path="res://level_elements/vending_machine/vending_machine.tscn" id="24_uuidd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vf62"]
 size = Vector2(816, 408)
@@ -111,7 +111,7 @@ station_number = 2
 station_number = 2
 
 [node name="LayerTransitionZone" parent="Platform2" index="13" unique_id=1662407236]
-transition_z_index = 0
+transition_z_index = -4
 
 [node name="CollisionShape2D" parent="Platform2/LayerTransitionZone" index="0" unique_id=6447672]
 position = Vector2(-126, 7)
@@ -379,8 +379,8 @@ dialogue = ExtResource("18_guide")
 [node name="StreetLamp" parent="." index="35" unique_id=2102771179 instance=ExtResource("22_kgdtm")]
 position = Vector2(-2325, -1571)
 
-[node name="VendingMachine" parent="." index="36" unique_id=2058901394 instance=ExtResource("24_uuidd")]
-position = Vector2(-2007, -1276)
+[node name="VendingMachine" parent="." index="36" unique_id=1576657544 instance=ExtResource("24_uuidd")]
+position = Vector2(-1997, -1246)
 
 [editable path="Platform1"]
 [editable path="Platform2"]

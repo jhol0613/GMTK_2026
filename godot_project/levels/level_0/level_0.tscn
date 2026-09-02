@@ -547,7 +547,7 @@ train_schedule = ExtResource("4_dp5o0")
 pull_in_seconds_before_departure = 12
 metadata/_custom_type_script = "uid://ckmg2kdqbxsyq"
 
-[node name="Camera2D" parent="." index="2" unique_id=1821430600]
+[node name="Camera2D" parent="." index="2" unique_id=855071997]
 limit_bottom = -144
 
 [node name="Ground" parent="." index="3" unique_id=405308893 groups=["footstep_surfaces"]]
@@ -583,7 +583,6 @@ tile_set = SubResource("TileSet_3beyx")
 tile_set = SubResource("TileSet_3beyx")
 
 [node name="UpperTrain" parent="Platform" index="7" unique_id=995237668]
-visible = true
 color = 7
 
 [node name="TrainSprite" parent="Platform/UpperTrain" index="2" unique_id=865404147]

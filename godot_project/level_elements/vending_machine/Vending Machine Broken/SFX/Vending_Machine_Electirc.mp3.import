@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bbbingpbiu0gs"
+path="res://.godot/imported/Vending_Machine_Electirc.mp3-31ee5f8e901df2ee96bb89cad7b49d8e.mp3str"
+
+[deps]
+
+source_file="res://level_elements/vending_machine/Vending Machine Broken/SFX/Vending_Machine_Electirc.mp3"
+dest_files=["res://.godot/imported/Vending_Machine_Electirc.mp3-31ee5f8e901df2ee96bb89cad7b49d8e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

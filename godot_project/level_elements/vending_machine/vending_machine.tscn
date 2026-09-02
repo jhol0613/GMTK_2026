@@ -1,9 +1,15 @@
 [gd_scene format=3 uid="uid://blkhoxm6f3cap"]
 
-[ext_resource type="Texture2D" uid="uid://qhh1k6dd1vlk" path="res://level_elements/vending_machine/Vending_Machine_Broken.png" id="1_bv2u7"]
+[ext_resource type="Texture2D" uid="uid://bugjtbglgda1p" path="res://level_elements/vending_machine/Vending Machine Broken/Vending_Machine_Broken_V3.png" id="1_bv2u7"]
 [ext_resource type="Texture2D" uid="uid://cu44d7lo1sgp8" path="res://level_elements/vending_machine/Vending_Machine.png" id="1_main"]
 [ext_resource type="Texture2D" uid="uid://lp4xudcwuj56" path="res://level_elements/vending_machine/Vending_Machine_Glow.png" id="2_glow"]
 [ext_resource type="Script" uid="uid://c1rjdkepeomqo" path="res://level_elements/ATM/atm_night_glow.gd" id="3_night"]
+[ext_resource type="Texture2D" uid="uid://p5qmlbsqaqa" path="res://level_elements/vending_machine/Vending Machine Broken/Vending_Machine_Electric.png" id="4_elec"]
+[ext_resource type="Script" uid="uid://biq377fgxlpnm" path="res://level_elements/vending_machine/vending_machine.gd" id="9_vm"]
+[ext_resource type="AudioStream" uid="uid://bbbingpbiu0gs" path="res://level_elements/vending_machine/Vending Machine Broken/SFX/Vending_Machine_Electirc.mp3" id="sfx_elec"]
+[ext_resource type="AudioStream" uid="uid://cx4xobcfpwqqk" path="res://level_elements/vending_machine/Vending Machine Broken/SFX/Vending_Maching_Shaking.mp3" id="sfx_shake"]
+[ext_resource type="AudioStream" uid="uid://c50hdoa2huvq7" path="res://level_elements/vending_machine/Vending Machine Broken/SFX/Vending_Machine_Sparks_1.mp3" id="sfx_spark1"]
+[ext_resource type="AudioStream" uid="uid://b0qtqhxgexa8e" path="res://level_elements/vending_machine/Vending Machine Broken/SFX/Vending_Machine_Sparks_2.mp3" id="sfx_spark2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lfkbt"]
 atlas = ExtResource("1_bv2u7")
@@ -74,6 +80,42 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_elec_0"]
+atlas = ExtResource("4_elec")
+region = Rect2(0, 0, 63, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elec_1"]
+atlas = ExtResource("4_elec")
+region = Rect2(63, 0, 63, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elec_2"]
+atlas = ExtResource("4_elec")
+region = Rect2(126, 0, 63, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elec_3"]
+atlas = ExtResource("4_elec")
+region = Rect2(189, 0, 63, 85)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_elec"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elec_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elec_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elec_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elec_3")
+}],
+"loop": 0,
+"name": &"spark",
+"speed": 6.0
+}]
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glow"]
 light_mode = 1
 
@@ -113,15 +155,33 @@ animations = [{
 "speed": 6.0
 }]
 
-[node name="VendingMachine" type="Node2D" unique_id=1576657544]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_spark"]
+playback_mode = 1
+streams_count = 2
+stream_0/stream = ExtResource("sfx_spark1")
+stream_1/stream = ExtResource("sfx_spark2")
+stream_1/weight = 3.0
+
+[node name="VendingMachine" type="Node2D" unique_id=1576657544 node_paths=PackedStringArray("electricity")]
+script = ExtResource("9_vm")
+spark_gap_min = 0.3
+spark_gap_max = 0.7
+spark_volume_db = 0.0
+electricity = NodePath("AnimatedSprite2D/Electricity")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1207707935]
 z_index = 1
 position = Vector2(0, -43)
 sprite_frames = SubResource("SpriteFrames_main")
 animation = &"broken"
-autoplay = "idle"
+autoplay = "broken"
 frame_progress = 0.18201451
+
+[node name="Electricity" type="AnimatedSprite2D" parent="AnimatedSprite2D" unique_id=1576657600]
+visible = false
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_elec")
+animation = &"spark"
 
 [node name="NightGlow" type="Node2D" parent="AnimatedSprite2D" unique_id=375776049 groups=["night_lights"]]
 script = ExtResource("3_night")
@@ -131,3 +191,23 @@ modulate = Color(1, 1, 1, 0)
 material = SubResource("CanvasItemMaterial_glow")
 sprite_frames = SubResource("SpriteFrames_glow")
 animation = &"idle"
+
+[node name="Current" type="AudioStreamPlayer2D" parent="." unique_id=768555068]
+stream = ExtResource("sfx_elec")
+volume_db = -4.0
+max_distance = 300.0
+attenuation = 1.5
+bus = &"SFX"
+
+[node name="Spark" type="AudioStreamPlayer2D" parent="." unique_id=322547875]
+stream = SubResource("AudioStreamRandomizer_spark")
+volume_db = 12.0
+max_distance = 300.0
+attenuation = 2.0
+bus = &"SFX"
+
+[node name="Compressor" type="AudioStreamPlayer2D" parent="." unique_id=1222307612]
+stream = ExtResource("sfx_shake")
+volume_db = -6.0
+max_distance = 300.0
+bus = &"SFX"

@@ -26,6 +26,7 @@ func _ready() -> void:
 	var camera: Camera2D = $Camera2D
 	var remote_transform: RemoteTransform2D = player.get_node("RemoteTransform2D")
 	remote_transform.remote_path = remote_transform.get_path_to(camera)
+	player.get_node("AudioListener2D").make_current()
 	
 	if arrival_train != null: 
 		arrival_train.play_arrival_animation(true)

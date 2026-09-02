@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c50hdoa2huvq7"
+path="res://.godot/imported/Vending_Machine_Sparks_1.mp3-4345b2c617187717281f4231629c5211.mp3str"
+
+[deps]
+
+source_file="res://level_elements/vending_machine/Vending Machine Broken/SFX/Vending_Machine_Sparks_1.mp3"
+dest_files=["res://.godot/imported/Vending_Machine_Sparks_1.mp3-4345b2c617187717281f4231629c5211.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
