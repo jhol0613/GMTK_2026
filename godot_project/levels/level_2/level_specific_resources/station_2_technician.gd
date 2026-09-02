@@ -1,6 +1,9 @@
 extends Technician
 class_name Station2Technician
 
+const FOLLOW_TIMEOUT_SECONDS := 24.0
+const RETURN_SPEED := 300.0
+
 @export var atm: ATM
 @export var atm_guy: ATMGuy
 #relative to the broken atm interactable
@@ -11,9 +14,16 @@ class_name Station2Technician
 @export var walk_after_standing := 1.5
 @export var speed_after_atm_explosion := 25.0
 @export var no_fix_dialogue: Dialogue
+@export var timeout_dialogue: Dialogue
+
+var _initial_position: Vector2
+var _initial_dialogue: Dialogue
+var _follow_session := 0
 
 func _ready():
 	#super._ready()
+	_initial_position = global_position
+	_initial_dialogue = _interactable.dialogue
 	_state = State.ACTING
 	#_interactable.interacted.connect(_on_first_interaction)
 	_panel.option_confirmed.connect(_on_option_confirmed)
@@ -32,10 +42,12 @@ func _on_option_confirmed(option_id: StringName):
 		_state = State.FOLLOWING
 		_set_interactable(false)
 		_player.movement_disabled = false
-	atm.dialog_interactable.active = true
-	atm.dialog_interactable.interacted.connect(_on_broken_atm_interacted)
+		atm.dialog_interactable.active = true
+		atm.dialog_interactable.interacted.connect(_on_broken_atm_interacted)
+		_start_follow_timeout()
 
 func _on_broken_atm_interacted():
+	_follow_session += 1
 	atm.dialog_interactable.interacted.disconnect(_on_broken_atm_interacted)
 	await go_to(atm.dialog_interactable.global_position + \
 		broken_atm_fix_location)
@@ -55,3 +67,30 @@ func _on_broken_atm_interacted():
 	_interactable.interact()
 	_collision_shape.disabled = false
 	_state = State.IDLE
+
+func _start_follow_timeout() -> void:
+	_follow_session += 1
+	var session := _follow_session
+	await get_tree().create_timer(FOLLOW_TIMEOUT_SECONDS, false).timeout
+	if session != _follow_session or _state != State.FOLLOWING:
+		return
+	_follow_session += 1
+	_state = State.ACTING
+	atm.dialog_interactable.active = false
+	if atm.dialog_interactable.interacted.is_connected(_on_broken_atm_interacted):
+		atm.dialog_interactable.interacted.disconnect(_on_broken_atm_interacted)
+	_interactable.dialogue = timeout_dialogue
+	_interactable.interact()
+	await _panel.dialogue_complete
+	_interactable.dialogue = _initial_dialogue
+	var direction := _initial_position - global_position
+	_animate(direction)
+	var tween := create_tween()
+	tween.tween_property(self, "global_position", _initial_position, direction.length() / RETURN_SPEED)
+	await tween.finished
+	_facing = FACING_VECTORS[facing]
+	_animate(Vector2.ZERO)
+	atm_guy.visible = true
+	_collision_shape.disabled = false
+	_state = State.ACTING
+	_set_interactable(true)

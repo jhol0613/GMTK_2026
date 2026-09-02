@@ -12,6 +12,12 @@ func _ready():
 	_state = State.ACTING
 	setup_fixing_sfx()
 
+func _idle_animation() -> StringName:
+	var animation := super._idle_animation()
+	if animation == &"idle_left":
+		_sprite.flip_h = false
+	return animation
+
 
 ## Called from _ready, and separately by subclasses that do not call super.
 func setup_fixing_sfx() -> void:

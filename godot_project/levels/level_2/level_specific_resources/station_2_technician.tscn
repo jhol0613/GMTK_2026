@@ -49,6 +49,18 @@ lines = Array[ExtResource("4_2gt0t")]([SubResource("Resource_qvpki")])
 choices = Array[ExtResource("3_i6y3f")]([SubResource("Resource_i6y3f"), SubResource("Resource_2gt0t")])
 metadata/_custom_type_script = "uid://dvkforrusa0nj"
 
+[sub_resource type="Resource" id="Resource_timeout_line"]
+script = ExtResource("4_2gt0t")
+speaker = "Technician"
+text = "Don't waste my time. I have work to do."
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_timeout_dialogue"]
+script = ExtResource("5_l1brb")
+speaker = "Technician"
+lines = Array[ExtResource("4_2gt0t")]([SubResource("Resource_timeout_line")])
+metadata/_custom_type_script = "uid://dvkforrusa0nj"
+
 [node name="Station2Technician" unique_id=837182991 instance=ExtResource("1_sl31h")]
 script = ExtResource("2_8an6j")
 broken_atm_fix_location = Vector2(0, 10)
@@ -57,6 +69,7 @@ stand_after_atm_explosion = 1.5
 walk_after_standing = 1.5
 speed_after_atm_explosion = 25.0
 no_fix_dialogue = SubResource("Resource_kgdtm")
+timeout_dialogue = SubResource("Resource_timeout_dialogue")
 walk_speed = 80.0
 
 [node name="Sprite" parent="." index="0" unique_id=1868209522]
