@@ -22,6 +22,7 @@ func _ready() -> void:
 			dialog_interactable.interacted.connect( _on_interacted )
 
 func explode() -> void:
+	$ExplosionSound.play()
 	sprite.play("explode")
 	#numerator is desired frame number
 	var time_until_shake = 4.0/sprite.sprite_frames.get_animation_speed("explode")
