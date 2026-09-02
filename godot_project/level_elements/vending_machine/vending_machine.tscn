@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bugjtbglgda1p" path="res://level_elements/vending_machine/Vending Machine Broken/Vending_Machine_Broken_V3.png" id="1_bv2u7"]
 [ext_resource type="Texture2D" uid="uid://cu44d7lo1sgp8" path="res://level_elements/vending_machine/Vending_Machine.png" id="1_main"]
+[ext_resource type="Texture2D" uid="uid://bd5mqbp8juyaq" path="res://level_elements/vending_machine/Vending Machine Broken/Vending_Maching_Broken_Glow.png" id="2_broken_glow"]
 [ext_resource type="Texture2D" uid="uid://lp4xudcwuj56" path="res://level_elements/vending_machine/Vending_Machine_Glow.png" id="2_glow"]
 [ext_resource type="Script" uid="uid://c1rjdkepeomqo" path="res://level_elements/ATM/atm_night_glow.gd" id="3_night"]
 [ext_resource type="Texture2D" uid="uid://p5qmlbsqaqa" path="res://level_elements/vending_machine/Vending Machine Broken/Vending_Machine_Electric.png" id="4_elec"]
@@ -119,6 +120,22 @@ animations = [{
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glow"]
 light_mode = 1
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_broken_glow_0"]
+atlas = ExtResource("2_broken_glow")
+region = Rect2(0, 0, 63, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_broken_glow_1"]
+atlas = ExtResource("2_broken_glow")
+region = Rect2(63, 0, 63, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_broken_glow_2"]
+atlas = ExtResource("2_broken_glow")
+region = Rect2(126, 0, 63, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_broken_glow_3"]
+atlas = ExtResource("2_broken_glow")
+region = Rect2(189, 0, 63, 85)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_glow_0"]
 atlas = ExtResource("2_glow")
 region = Rect2(0, 0, 63, 85)
@@ -137,6 +154,23 @@ region = Rect2(189, 0, 63, 85)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_glow"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_broken_glow_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_broken_glow_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_broken_glow_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_broken_glow_3")
+}],
+"loop": 1,
+"name": &"broken",
+"speed": 6.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_glow_0")
@@ -164,7 +198,7 @@ stream_1/weight = 3.0
 
 [node name="VendingMachine" type="Node2D" unique_id=1576657544 node_paths=PackedStringArray("electricity")]
 script = ExtResource("9_vm")
-spark_gap_min = 0.3
+spark_gap_min = 0.2
 spark_gap_max = 0.7
 spark_volume_db = 0.0
 electricity = NodePath("AnimatedSprite2D/Electricity")
@@ -190,7 +224,7 @@ script = ExtResource("3_night")
 modulate = Color(1, 1, 1, 0)
 material = SubResource("CanvasItemMaterial_glow")
 sprite_frames = SubResource("SpriteFrames_glow")
-animation = &"idle"
+animation = &"broken"
 
 [node name="Current" type="AudioStreamPlayer2D" parent="." unique_id=768555068]
 stream = ExtResource("sfx_elec")

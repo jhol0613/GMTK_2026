@@ -30,6 +30,7 @@ extends Node2D
 @export var shake_frequency := 26.0
 
 @onready var _sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var _glow: AnimatedSprite2D = $AnimatedSprite2D/NightGlow/Overlay
 @onready var _spark: AudioStreamPlayer2D = $Spark
 @onready var _compressor: AudioStreamPlayer2D = $Compressor
 @onready var _current: AudioStreamPlayer2D = $Current
@@ -41,11 +42,19 @@ var _shake_token := 0
 
 func _ready() -> void:
 	_sprite_home = $AnimatedSprite2D.position
+	_sprite.frame_changed.connect(_sync_glow)
+	_sync_glow()
 	if electricity != null:
 		electricity.visible = false
 	_run_spark()
 	_run_current()
 	_run_compressor()
+
+
+func _sync_glow() -> void:
+	if _glow.sprite_frames.has_animation(_sprite.animation):
+		_glow.animation = _sprite.animation
+		_glow.frame = _sprite.frame
 
 
 ## One loop of the body animation, so the burst stays in step if the fps changes.
