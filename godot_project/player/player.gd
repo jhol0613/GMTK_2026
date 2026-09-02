@@ -2,8 +2,12 @@ class_name PlayerCharacter
 extends CharacterBody2D
 
 var direction: Vector2 = Vector2(1, 1)
-var speed: int = 100
-var sprint_speed: int = 200
+const NORMAL_SPEED := 100
+const NORMAL_SPRINT_SPEED := 200
+const COFFEE_SPEED := 150
+const COFFEE_SPRINT_SPEED := 300
+var speed: int = NORMAL_SPEED
+var sprint_speed: int = NORMAL_SPRINT_SPEED
 var sprint_animation_multiplier := 1.5
 var distance: int = 0
 var movement_disabled: bool = false
@@ -48,7 +52,15 @@ func _ready() -> void:
 	add_to_group("player")
 
 	_initialize_footstep_audio()
+	TimeManager.time_scale_changed.connect(_on_time_scale_changed)
+	_on_time_scale_changed(TimeManager.time_scale)
 	#trail_marker.reparent(get_parent())
+
+
+func _on_time_scale_changed(scale: float) -> void:
+	var coffee_active := scale < 1.0
+	speed = COFFEE_SPEED if coffee_active else NORMAL_SPEED
+	sprint_speed = COFFEE_SPRINT_SPEED if coffee_active else NORMAL_SPRINT_SPEED
 
 
 func _physics_process(_delta: float) -> void:

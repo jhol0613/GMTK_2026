@@ -3,6 +3,8 @@ extends Npc
 
 const GROUND_OBJECT_GROUP := &"coffee_npc_ground_object"
 const COFFEE_ANIMATION_PREFIX := "coffee_"
+const NORMAL_SPEED := 300.0
+const PLAYER_COFFEE_SPEED := 150.0
 
 @export var action_point: Marker2D
 @export var spawn_point: Marker2D
@@ -19,13 +21,14 @@ var _has_coffee := true
 var _patrol_forward := true
 var _completed_round_trips := 0
 var _spawned_object: DroppedCoffee
-var _coffee_speed: float = 256.0
-var _ready_speed: float = 40.0
-
-
 func _ready() -> void:
 	super._ready()
-	walk_speed = _coffee_speed
+	TimeManager.time_scale_changed.connect(_on_time_scale_changed)
+	_on_time_scale_changed(TimeManager.time_scale)
+
+
+func _on_time_scale_changed(scale: float) -> void:
+	walk_speed = PLAYER_COFFEE_SPEED if scale < 1.0 else NORMAL_SPEED
 
 
 func _physics_process(delta: float) -> void:
@@ -76,11 +79,11 @@ func _drop_and_visit_shop() -> void:
 	velocity = Vector2.ZERO
 	_set_interactable(false)
 	_face_spawn_point()
-	_sprite.speed_scale = 1.0
+	_sprite.speed_scale = 1.0 if TimeManager.time_scale < 1.0 else 1.3
 	
 	_sprite.play(action_animation)
-	# walk_speed = _ready_speed
 	await _sprite.animation_finished
+	_sprite.speed_scale = 1.0
 	# _wait_for_release_frame()
 	_has_coffee = not _spawn_object()
 	# await _finish_action_animation()
@@ -93,7 +96,7 @@ func _drop_and_visit_shop() -> void:
 		_set_interactable(false)
 		await _play_shop_action()
 		_has_coffee = true
-		walk_speed = _coffee_speed
+		_on_time_scale_changed(TimeManager.time_scale)
 		await go_to(_left_patrol_point(), false)
 	
 	_patrol_forward = true
@@ -106,10 +109,11 @@ func _drop_and_visit_shop() -> void:
 func _play_shop_action() -> void:
 	_state = State.ACTING
 	velocity = Vector2.ZERO
-	_sprite.speed_scale = 1.0
+	_sprite.speed_scale = 1.0 if TimeManager.time_scale < 1.0 else 2.0
 	
 	_sprite.play(shop_animation)
 	await _sprite.animation_finished
+	_sprite.speed_scale = 1.0
 
 
 
