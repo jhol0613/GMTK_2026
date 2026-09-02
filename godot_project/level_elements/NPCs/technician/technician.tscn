@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="4_gnxmv"]
 [ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="5_yve1r"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="6_a0uip"]
+[ext_resource type="AudioStream" uid="uid://drbvjf0whu5ka" path="res://level_elements/NPCs/technician/Technician_Fixing_SFX.mp3" id="7_fixsfx"]
 
 [sub_resource type="Resource" id="Resource_2gt0t"]
 script = ExtResource("4_gnxmv")
@@ -35,5 +36,12 @@ offset_right = 5.0
 offset_bottom = -2.0
 script = ExtResource("6_a0uip")
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="FixingSfx" type="AudioStreamPlayer2D" parent="." index="5" unique_id=1531965422]
+stream = ExtResource("7_fixsfx")
+volume_db = -2.0
+max_distance = 300.0
+attenuation = 1.5
+bus = &"Ambient"
 
 [editable path="DialogueInteractable"]

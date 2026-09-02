@@ -17,6 +17,7 @@ func _ready():
 	_state = State.ACTING
 	#_interactable.interacted.connect(_on_first_interaction)
 	_panel.option_confirmed.connect(_on_option_confirmed)
+	setup_fixing_sfx()
 
 ##Parent function has you starting patrol, which we don't want to do
 func _on_panel_closed():
