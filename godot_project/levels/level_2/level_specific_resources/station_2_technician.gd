@@ -7,6 +7,11 @@ const RETURN_SPEED := 300.0
 @export var atm: ATM
 @export var atm_guy: ATMGuy
 #relative to the broken atm interactable
+@export_group("Idle")
+@export var vending_machines : Array[VendingMachine]
+@export var vending_machine_fix_location := Vector2(0, 10)
+@export var vending_machine_fix_time := 18.0
+#@export var vending_machine_stay_fixed_time := 9.0
 @export_group("Animation Sequence")
 @export var broken_atm_fix_location := Vector2(0, 10)
 @export var after_broken_atm_goto := Vector2(40, 10)
@@ -20,14 +25,36 @@ var _initial_position: Vector2
 var _initial_dialogue: Dialogue
 var _follow_session := 0
 
+var _fixing_vending_machines = true
+
 func _ready():
-	#super._ready()
+	super._ready()
 	_initial_position = global_position
 	_initial_dialogue = _interactable.dialogue
 	_state = State.ACTING
 	#_interactable.interacted.connect(_on_first_interaction)
 	_panel.option_confirmed.connect(_on_option_confirmed)
-	setup_fixing_sfx()
+	if not vending_machines.is_empty():
+		fix_vending_machine()
+
+func fix_vending_machine():
+	var index = 0
+	while _fixing_vending_machines:
+		await go_to(vending_machines[index].global_position + vending_machine_fix_location)
+
+		if not _fixing_vending_machines:
+			return
+
+		_state = State.ACTING
+		_sprite.play("fix_start")
+		await _sprite.animation_finished
+		_sprite.play("fix_loop")
+		await get_tree().create_timer(vending_machine_fix_time).timeout
+		vending_machines[index].fix(true)
+		_sprite.play("stand_up")
+		await _sprite.animation_finished
+
+		index = (index + 1) % vending_machines.size()
 
 ##Parent function has you starting patrol, which we don't want to do
 func _on_panel_closed():
@@ -35,6 +62,7 @@ func _on_panel_closed():
 
 func _on_option_confirmed(option_id: StringName):
 	if option_id == &"follow_me":
+		_fixing_vending_machines = false
 		_player.movement_disabled = true
 		_collision_shape.disabled = true
 		atm_guy.visible = false

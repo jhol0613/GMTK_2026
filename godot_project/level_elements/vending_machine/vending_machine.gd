@@ -1,4 +1,7 @@
 extends Node2D
+class_name VendingMachine
+
+@export var start_broken := false
 
 @export_group("Spark")
 ## Gap between sparks. They fire on their own schedule, unrelated to the picture.
@@ -46,9 +49,23 @@ func _ready() -> void:
 	_sync_glow()
 	if electricity != null:
 		electricity.visible = false
-	_run_spark()
-	_run_current()
-	_run_compressor()
+	if start_broken:
+		_sprite.play("broken")
+		#_run_spark()
+		#_run_current()
+		#_run_compressor()
+
+func fix(break_again := true):
+	_sprite.play("idle")
+	if break_again:
+		_run_spark()
+		_run_current()
+		_run_compressor()
+	#_sprite.play("idle")
+	#if time <= 0:
+		#return
+	#await get_tree().create_timer(time).timeout
+	#_sprite.play("broken")
 
 
 func _sync_glow() -> void:
@@ -145,3 +162,4 @@ func _run_shake_schedule() -> void:
 				return
 		elapsed = shake_offsets[i]
 		shake(-1.0, shake_scales[i] if i < shake_scales.size() else 1.0)
+	_sprite.play("broken")

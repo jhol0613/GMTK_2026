@@ -497,7 +497,7 @@ animations = [{
 
 [sub_resource type="Resource" id="Resource_coffee_line"]
 script = ExtResource("5_line")
-text = "<<coffee>>"
+text = "<<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>>  <<coffee>> "
 
 [sub_resource type="Resource" id="Resource_coffee_dialogue"]
 script = ExtResource("6_dialogue")
@@ -511,7 +511,6 @@ action_animation = &"coffee_throw"
 shop_animation = &"coffee_drink"
 release_frame = 1
 trigger_distance = 4.0
-shop_action_seconds = 0.6
 round_trips_before_drop = 10
 
 [node name="Sprite" parent="." index="0" unique_id=1868209522]

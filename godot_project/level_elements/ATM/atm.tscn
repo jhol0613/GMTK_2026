@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://c1rjdkepeomqo" path="res://level_elements/ATM/atm_night_glow.gd" id="6_glow_script"]
 [ext_resource type="Texture2D" uid="uid://dutgmr1vyofwv" path="res://level_elements/ATM/atm_glow.png" id="7_normal_glow"]
 [ext_resource type="Texture2D" uid="uid://bdk1p3vfen6aa" path="res://level_elements/ATM/atm_broken_glow.png" id="8_broken_glow"]
-[ext_resource type="AudioStream" path="res://level_elements/ATM/ATM_Explosion.mp3" id="9_explosion"]
+[ext_resource type="AudioStream" uid="uid://dbh1ouofo0rld" path="res://level_elements/ATM/ATM_Explosion.mp3" id="9_explosion"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ylf28"]
 atlas = ExtResource("1_df8qj")
@@ -271,7 +271,7 @@ metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 stream = ExtResource("5_5sl07")
 bus = &"SFX"
 
-[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="."]
+[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="." unique_id=345024535]
 stream = ExtResource("9_explosion")
 max_distance = 500.0
 attenuation = 1.5

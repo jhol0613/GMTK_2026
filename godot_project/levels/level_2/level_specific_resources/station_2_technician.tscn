@@ -21,6 +21,18 @@ script = ExtResource("5_l1brb")
 lines = Array[ExtResource("4_2gt0t")]([SubResource("Resource_12l1j"), SubResource("Resource_yiikh")])
 metadata/_custom_type_script = "uid://dvkforrusa0nj"
 
+[sub_resource type="Resource" id="Resource_timeout_line"]
+script = ExtResource("4_2gt0t")
+speaker = "Technician"
+text = "Don't waste my time. I have work to do."
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_timeout_dialogue"]
+script = ExtResource("5_l1brb")
+speaker = "Technician"
+lines = Array[ExtResource("4_2gt0t")]([SubResource("Resource_timeout_line")])
+metadata/_custom_type_script = "uid://dvkforrusa0nj"
+
 [sub_resource type="Resource" id="Resource_fq0us"]
 script = ExtResource("4_2gt0t")
 text = "<<go>> <<i>> <<machine>> <<fix>>"
@@ -49,20 +61,11 @@ lines = Array[ExtResource("4_2gt0t")]([SubResource("Resource_qvpki")])
 choices = Array[ExtResource("3_i6y3f")]([SubResource("Resource_i6y3f"), SubResource("Resource_2gt0t")])
 metadata/_custom_type_script = "uid://dvkforrusa0nj"
 
-[sub_resource type="Resource" id="Resource_timeout_line"]
-script = ExtResource("4_2gt0t")
-speaker = "Technician"
-text = "Don't waste my time. I have work to do."
-metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
-
-[sub_resource type="Resource" id="Resource_timeout_dialogue"]
-script = ExtResource("5_l1brb")
-speaker = "Technician"
-lines = Array[ExtResource("4_2gt0t")]([SubResource("Resource_timeout_line")])
-metadata/_custom_type_script = "uid://dvkforrusa0nj"
-
-[node name="Station2Technician" unique_id=837182991 instance=ExtResource("1_sl31h")]
+[node name="Station2Technician" unique_id=837182991 node_paths=PackedStringArray("vending_machines") instance=ExtResource("1_sl31h")]
 script = ExtResource("2_8an6j")
+vending_machines = []
+vending_machine_fix_location = Vector2(0, 10)
+vending_machine_fix_time = 18.0
 broken_atm_fix_location = Vector2(0, 10)
 after_broken_atm_goto = Vector2(40, 10)
 stand_after_atm_explosion = 1.5

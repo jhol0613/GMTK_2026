@@ -196,6 +196,9 @@ stream_0/stream = ExtResource("sfx_spark1")
 stream_1/stream = ExtResource("sfx_spark2")
 stream_1/weight = 3.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pg750"]
+size = Vector2(50, 14)
+
 [node name="VendingMachine" type="Node2D" unique_id=1576657544 node_paths=PackedStringArray("electricity")]
 script = ExtResource("9_vm")
 spark_gap_min = 0.2
@@ -208,8 +211,8 @@ z_index = 1
 position = Vector2(0, -43)
 sprite_frames = SubResource("SpriteFrames_main")
 animation = &"broken"
-autoplay = "broken"
-frame_progress = 0.18201451
+autoplay = "idle"
+frame_progress = 0.66888314
 
 [node name="Electricity" type="AnimatedSprite2D" parent="AnimatedSprite2D" unique_id=1576657600]
 visible = false
@@ -224,7 +227,7 @@ script = ExtResource("3_night")
 modulate = Color(1, 1, 1, 0)
 material = SubResource("CanvasItemMaterial_glow")
 sprite_frames = SubResource("SpriteFrames_glow")
-animation = &"broken"
+animation = &"idle"
 
 [node name="Current" type="AudioStreamPlayer2D" parent="." unique_id=768555068]
 stream = ExtResource("sfx_elec")
@@ -245,3 +248,10 @@ stream = ExtResource("sfx_shake")
 volume_db = -6.0
 max_distance = 300.0
 bus = &"SFX"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1111715722]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=211468187]
+position = Vector2(1, -7)
+shape = SubResource("RectangleShape2D_pg750")

@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bni8iwfqac6ap" path="res://level_elements/coffee_shop/coffee_shop.tscn" id="10_1vf62"]
 [ext_resource type="PackedScene" uid="uid://c5jvn4a3mfhj" path="res://level_elements/decorative/recycle_bin/recycle_bin.tscn" id="11_yiikh"]
 [ext_resource type="PackedScene" uid="uid://dg7w0a3gclx0w" path="res://level_elements/bathroom/outside_restroom_open.tscn" id="13_1vf62"]
+[ext_resource type="PackedScene" uid="uid://d2ffkk2tvq3wc" path="res://level_elements/NPCs/coffee_npc/coffee_npc.tscn" id="13_s4b5i"]
 [ext_resource type="PackedScene" uid="uid://0ckll8fgejet" path="res://level_elements/bathroom/bathroom_open.tscn" id="14_yiikh"]
 [ext_resource type="Script" uid="uid://ckmg2kdqbxsyq" path="res://level_elements/train_scheduler/station_handler.gd" id="15_aq41y"]
 [ext_resource type="Resource" uid="uid://bbiqg1las2w2b" path="res://levels/level_2/level_specific_resources/level_2_train_schedule.tres" id="16_5ts7o"]
@@ -23,7 +24,6 @@
 [ext_resource type="PackedScene" uid="uid://x4ghn30rc8l0" path="res://level_elements/NPCs/crying_kid/crying_kid.tscn" id="19_yiikh"]
 [ext_resource type="PackedScene" uid="uid://ospha2vyynas" path="res://level_elements/NPCs/guide/guide.tscn" id="20_fq0us"]
 [ext_resource type="PackedScene" uid="uid://wvltf0ie5ih7" path="res://levels/level_2/level_specific_resources/station_2_technician.tscn" id="20_yiikh"]
-[ext_resource type="PackedScene" path="res://level_elements/decorative/street_lamp/street_lamp.tscn" id="22_kgdtm"]
 [ext_resource type="PackedScene" uid="uid://blkhoxm6f3cap" path="res://level_elements/vending_machine/vending_machine.tscn" id="24_uuidd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vf62"]
@@ -46,6 +46,12 @@ size = Vector2(79, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fq0us"]
 size = Vector2(816, 416)
+
+[sub_resource type="Curve2D" id="Curve2D_s4b5i"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -30, 0, 0, 0, 0, 0, 78, 1)
+}
+point_count = 2
 
 [node name="Level2" unique_id=783439983 node_paths=PackedStringArray("arrival_train") instance=ExtResource("1_mi4ay")]
 correct_train_line = 1
@@ -298,25 +304,45 @@ position = Vector2(-928, -1984)
 [node name="CoffeeShop2" parent="." index="21" unique_id=1986393938 instance=ExtResource("10_1vf62")]
 position = Vector2(-2144, -688)
 
-[node name="RecycleBin" parent="." index="22" unique_id=981033953 instance=ExtResource("11_yiikh")]
+[node name="CoffeeNpc" parent="." index="22" unique_id=934775270 node_paths=PackedStringArray("action_point", "spawn_point", "shop_point", "patrol_path") instance=ExtResource("13_s4b5i")]
+position = Vector2(-2111, -644)
+action_point = NodePath("../CoffeeActionPoint")
+spawn_point = NodePath("../CoffeeSpawnPoint")
+shop_point = NodePath("../CoffeeShopPoint")
+patrol_path = NodePath("../CoffeePatrol")
+
+[node name="CoffeePatrol" type="Path2D" parent="." index="23" unique_id=1439544814]
+position = Vector2(-2189, -645)
+curve = SubResource("Curve2D_s4b5i")
+
+[node name="CoffeeShopPoint" type="Marker2D" parent="." index="24" unique_id=1794303509]
+position = Vector2(-2144, -668)
+
+[node name="CoffeeSpawnPoint" type="Marker2D" parent="." index="25" unique_id=404684285]
+position = Vector2(-2111, -628)
+
+[node name="CoffeeActionPoint" type="Marker2D" parent="." index="26" unique_id=279803127]
+position = Vector2(-2111, -644)
+
+[node name="RecycleBin" parent="." index="27" unique_id=981033953 instance=ExtResource("11_yiikh")]
 position = Vector2(-1024, -1968)
 
-[node name="RecycleBin6" parent="." index="23" unique_id=29257217 instance=ExtResource("11_yiikh")]
+[node name="RecycleBin6" parent="." index="28" unique_id=29257217 instance=ExtResource("11_yiikh")]
 position = Vector2(-832, -1968)
 
-[node name="RecycleBin2" parent="." index="24" unique_id=1992548694 instance=ExtResource("11_yiikh")]
+[node name="RecycleBin2" parent="." index="29" unique_id=1992548694 instance=ExtResource("11_yiikh")]
 position = Vector2(-784, -1192)
 
-[node name="RecycleBin3" parent="." index="25" unique_id=67699898 instance=ExtResource("11_yiikh")]
+[node name="RecycleBin3" parent="." index="30" unique_id=67699898 instance=ExtResource("11_yiikh")]
 position = Vector2(-592, -1192)
 
-[node name="RecycleBin4" parent="." index="26" unique_id=1647806399 instance=ExtResource("11_yiikh")]
+[node name="RecycleBin4" parent="." index="31" unique_id=1647806399 instance=ExtResource("11_yiikh")]
 position = Vector2(-2064, -592)
 
-[node name="RecycleBin5" parent="." index="27" unique_id=1973554782 instance=ExtResource("11_yiikh")]
+[node name="RecycleBin5" parent="." index="32" unique_id=1973554782 instance=ExtResource("11_yiikh")]
 position = Vector2(-2224, -1936)
 
-[node name="Decorations" type="Node2D" parent="." index="28" unique_id=270941818]
+[node name="Decorations" type="Node2D" parent="." index="33" unique_id=270941818]
 y_sort_enabled = true
 
 [node name="OutsideRestroom" parent="Decorations" index="0" unique_id=1631350735 instance=ExtResource("13_1vf62")]
@@ -343,30 +369,30 @@ position = Vector2(-720, -1152)
 [node name="Bathroom2" parent="Decorations" index="7" unique_id=1753618523 instance=ExtResource("14_yiikh")]
 position = Vector2(-656, -1152)
 
-[node name="StationHandler" type="Node" parent="." index="29" unique_id=327838935]
+[node name="StationHandler" type="Node" parent="." index="34" unique_id=327838935]
 script = ExtResource("15_aq41y")
 train_schedule = ExtResource("16_5ts7o")
 metadata/_custom_type_script = "uid://ckmg2kdqbxsyq"
 
-[node name="TrinketShop" parent="." index="30" unique_id=877031898 instance=ExtResource("19_1vf62")]
+[node name="TrinketShop" parent="." index="35" unique_id=877031898 instance=ExtResource("19_1vf62")]
 position = Vector2(-1663, -1186)
 
-[node name="CryingKid" parent="." index="31" unique_id=837182991 instance=ExtResource("19_yiikh")]
+[node name="CryingKid" parent="." index="36" unique_id=837182991 instance=ExtResource("19_yiikh")]
 position = Vector2(-1755, -1177)
 collision_layer = 2
 sad_repeat_text = ""
 
-[node name="TechnicianStation2" parent="." index="32" unique_id=1047069434 node_paths=PackedStringArray("atm", "atm_guy", "destination") instance=ExtResource("20_yiikh")]
-position = Vector2(-2326, -1550)
+[node name="TechnicianStation2" parent="." index="37" unique_id=1047069434 node_paths=PackedStringArray("atm", "atm_guy", "vending_machines") instance=ExtResource("20_yiikh")]
+position = Vector2(-2332, -1550)
 atm = NodePath("../ATM")
 atm_guy = NodePath("../ATMGuy")
-destination = NodePath("../TrinketShop")
+vending_machines = [NodePath("../VendingMachine"), NodePath("../VendingMachine2"), NodePath("../VendingMachine3")]
 
-[node name="StationMapLevel2" parent="." index="33" unique_id=1664644018 instance=ExtResource("6_cp47v")]
+[node name="StationMapLevel2" parent="." index="38" unique_id=1664644018 instance=ExtResource("6_cp47v")]
 z_index = 1
 position = Vector2(-1944, -1511)
 
-[node name="Guide" parent="." index="34" unique_id=1499669555 instance=ExtResource("20_fq0us")]
+[node name="Guide" parent="." index="39" unique_id=1499669555 instance=ExtResource("20_fq0us")]
 position = Vector2(-1730, -1516)
 collision_layer = 8
 
@@ -376,11 +402,17 @@ animation = &"idle"
 [node name="DialogueInteractable" parent="Guide" index="2" unique_id=1161048169]
 dialogue = ExtResource("18_guide")
 
-[node name="StreetLamp" parent="." index="35" unique_id=2102771179 instance=ExtResource("22_kgdtm")]
-position = Vector2(-2325, -1571)
+[node name="VendingMachine" parent="." index="40" unique_id=2058901394 instance=ExtResource("24_uuidd")]
+position = Vector2(-2458, -1562)
+start_broken = true
 
-[node name="VendingMachine" parent="." index="36" unique_id=1576657544 instance=ExtResource("24_uuidd")]
-position = Vector2(-1997, -1246)
+[node name="VendingMachine2" parent="." index="41" unique_id=1576657544 instance=ExtResource("24_uuidd")]
+position = Vector2(-2395, -1562)
+start_broken = true
+
+[node name="VendingMachine3" parent="." index="42" unique_id=482119658 instance=ExtResource("24_uuidd")]
+position = Vector2(-2332, -1562)
+start_broken = true
 
 [editable path="Platform1"]
 [editable path="Platform2"]
