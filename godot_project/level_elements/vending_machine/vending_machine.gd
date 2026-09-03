@@ -4,7 +4,6 @@ class_name VendingMachine
 @export var start_broken := false
 
 @export_group("Spark")
-## Gap between sparks. They fire on their own schedule, unrelated to the picture.
 @export var spark_gap_min := 0.8
 @export var spark_gap_max := 4.0
 @export var spark_pitch_min := 0.9
@@ -13,21 +12,16 @@ class_name VendingMachine
 @export_range(0.0, 12.0, 0.5) var spark_volume_jitter_db := 4.0
 
 @export_group("Current")
-## The separate marquee animation. Leave empty until the art exists.
 @export var electricity: AnimatedSprite2D
-## How many loops of the body animation pass between bursts.
 @export var current_every_loops := 3
 
 @export_group("Compressor")
 @export var compressor_cycle_min := 18.0
 @export var compressor_cycle_max := 40.0
-## Seconds into the clip where the motor judders. One table drives both the
-## sound cues and the picture, so they cannot drift apart.
 @export var shake_offsets: PackedFloat32Array = PackedFloat32Array([0.0, 1.4, 2.2, 2.5])
 @export var shake_scales: PackedFloat32Array = PackedFloat32Array([1.0, 0.7, 0.9, 0.4])
 
 @export_group("Shake")
-## Rattle for the compressor. Electricity is a child of the body, so it shakes too.
 @export var shake_duration := 0.3
 @export var shake_strength := 2.0
 @export var shake_frequency := 26.0
@@ -74,7 +68,6 @@ func _sync_glow() -> void:
 		_glow.frame = _sprite.frame
 
 
-## One loop of the body animation, so the burst stays in step if the fps changes.
 func _loop_seconds() -> float:
 	var frames := _sprite.sprite_frames
 	var anim := _sprite.animation
@@ -94,7 +87,6 @@ func _run_current() -> void:
 		_burst()
 
 
-## Picture and sound are started by the same call, so they cannot drift apart.
 func _burst() -> void:
 	if _current.stream != null:
 		_current.play()
@@ -120,8 +112,6 @@ func _run_spark() -> void:
 		_spark.play()
 
 
-## Call this the moment the compressor sound starts. Decays to nothing over
-## `shake_duration`; offsets are whole pixels so the art never blurs.
 func shake(duration := -1.0, strength_scale := 1.0) -> void:
 	_shake_token += 1
 	var token := _shake_token

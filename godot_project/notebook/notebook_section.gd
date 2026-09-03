@@ -11,18 +11,14 @@ var current_page: int = 0
 func _ready() -> void:
 	var pages: = get_pages()
 	for page: NotebookPage in pages:
-		page.entry_updated.connect(_handle_entry_update)
-		page.entry_removed.connect(_handle_removed_entry.bind(page))
-		page.limit_reached.connect(_handle_limit_reached.bind(page))
+		_connect_page(page)
 
 
 # It always be placed at the end
 func _new_page() -> void:
 	var page:NotebookPage = preload('res://notebook/notebook_page.tscn').instantiate()
 	
-	page.entry_updated.connect(_handle_entry_update)
-	page.entry_removed.connect(_handle_removed_entry.bind(page))
-	page.limit_reached.connect(_handle_limit_reached.bind(page))
+	_connect_page(page)
 	
 	$Pages.add_child(page)
 	page.hide()
@@ -48,6 +44,21 @@ func _handle_limit_reached(page:NotebookPage) -> void:
 
 func _handle_entry_update(encoded:String, new_text:String) -> void:
 	Notebook.player_vocab.data[section_name][encoded] = new_text
+
+
+func _connect_page(page: NotebookPage) -> void:
+	page.entry_updated.connect(_handle_entry_update)
+	page.entry_removed.connect(_handle_removed_entry.bind(page))
+	page.limit_reached.connect(_handle_limit_reached.bind(page))
+	page.entry_order_changed.connect(_sync_entry_order)
+
+
+func _sync_entry_order() -> void:
+	var ordered := {}
+	for page in get_pages():
+		for entry in page.get_entries():
+			ordered[entry.resshan_string] = entry.get_note()
+	Notebook.player_vocab.data[section_name] = ordered
 
 
 func switch_page(direction:int) -> void:
