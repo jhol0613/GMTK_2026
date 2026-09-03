@@ -35,9 +35,7 @@ func _handle_show_resshan(encoded: String) -> void:
 	for page: NotebookPage in pages:
 		for entry: NotebookEntry in page.get_entries():
 			if entry.resshan_string == encoded:
-				pages[_sections[0].current_page].hide()
-				_sections[0].current_page = pages.find(page)
-				pages[_sections[0].current_page].show()
+				_sections[0].show_page(pages.find(page))
 
 func _handle_entry_removed() -> void:
 	pass
@@ -73,9 +71,7 @@ func _add_entry_to_the_section(
 				if entry.resshan_string == encoded:
 					return
 	assert(indx >= 0, 'Section %s does not exist' % [section])
-	if _sections[indx].get_pages().is_empty():
-		_sections[indx]._new_page()
-	var page: = _sections[indx].get_pages()[-1]
+	var page := _sections[indx].get_entry_page()
 	if play_feedback:
 		_entry_added_sound.play()
 		SignalBus.new_unique_resshan_note_added_to_notebook.emit()

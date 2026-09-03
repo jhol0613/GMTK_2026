@@ -7,17 +7,25 @@ extends Control
 
 var current_page: int = 0
 
+const INSTRUCTION_PAGE_TOP := 124.0
+const ENTRY_PAGE_TOP := 65.0
+const FIRST_PAGE_LIMIT := 8
+const OTHER_PAGE_LIMIT := 9
+
 
 func _ready() -> void:
 	var pages: = get_pages()
-	for page: NotebookPage in pages:
+	for page_index in pages.size():
+		var page := pages[page_index]
+		page.entry_limit = _get_page_limit(page_index)
 		_connect_page(page)
+	_update_page_layout()
 
 
 # It always be placed at the end
 func _new_page() -> void:
 	var page:NotebookPage = preload('res://notebook/notebook_page.tscn').instantiate()
-	
+	page.entry_limit = _get_page_limit(get_pages().size())
 	_connect_page(page)
 	
 	$Pages.add_child(page)
@@ -38,7 +46,7 @@ func _handle_removed_entry(page:NotebookPage) -> void:
 
 
 func _handle_limit_reached(page:NotebookPage) -> void:
-	if page.entries_count == page.LIMIT:
+	if page.entries_count == page.entry_limit:
 		_new_page()
 
 
@@ -66,9 +74,36 @@ func switch_page(direction:int) -> void:
 	var i = current_page - direction
 	if i > pages.size() - 1 or i < 0:
 		return
+	show_page(i)
+
+
+func show_page(index: int) -> void:
+	var pages := get_pages()
 	pages[current_page].hide()
-	current_page = i
+	current_page = index
 	pages[current_page].show()
+	_update_page_layout()
+
+
+func get_entry_page() -> NotebookPage:
+	if get_pages().is_empty():
+		_new_page()
+	return get_pages()[-1]
+
+
+func _has_instruction_page() -> bool:
+	return has_node("Label2")
+
+
+func _get_page_limit(page_index: int) -> int:
+	return FIRST_PAGE_LIMIT if _has_instruction_page() and page_index == 0 else OTHER_PAGE_LIMIT
+
+
+func _update_page_layout() -> void:
+	if not _has_instruction_page():
+		return
+	$Label2.visible = current_page == 0
+	$Pages.offset_top = INSTRUCTION_PAGE_TOP if current_page == 0 else ENTRY_PAGE_TOP
 
 
 func get_pages() -> Array[NotebookPage]:

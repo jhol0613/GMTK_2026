@@ -6,10 +6,8 @@ signal entry_removed
 signal entry_updated(encoded:String, new_text:String)
 signal entry_order_changed
 
-const LIMIT: = 5
-
-
 var entries_count: int = 0
+var entry_limit := 9
 var _drop_indicator: Line2D
 
 
@@ -32,7 +30,7 @@ func _new_entry(encoded:String, initial_text = "") -> NotebookEntry:
 	entry.player_input.text_changed.connect(_handle_entry_update.bind(encoded))
 	entry.reordered.connect(entry_order_changed.emit)
 	entries_count += 1
-	if entries_count == LIMIT:
+	if entries_count == entry_limit:
 		limit_reached.emit()
 	
 	return entry
