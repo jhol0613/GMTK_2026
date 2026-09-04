@@ -8,6 +8,7 @@ signal option_confirmed(outcome_id: StringName)
 @export var player_icon: Texture2D
 @export var choice_nav_icons: Control
 @export_range(5.0, 120.0, 1.0) var characters_per_second := 45.0
+@export_range(0.5, 4.0, 0.1) var note_popup_scale_multiplier := 2.0
 
 @onready var _speaker: ResshanLabel = $Root/Popup/MarginContainer/HBoxContainer/VBox/Speaker
 @onready var _body: ResshanLabel = $Root/Popup/MarginContainer/HBoxContainer/VBox/Body
@@ -54,6 +55,8 @@ func show_dialogue(
 	choices: Array[DialogueChoice],
 	minutes: int = 1,
 ) -> void:
+	_speaker.note_popup_scale_multiplier = note_popup_scale_multiplier
+	_body.note_popup_scale_multiplier = note_popup_scale_multiplier
 	_showing_options = false
 	_selected_option = 0
 	_options_scroll.visible = false
@@ -78,6 +81,7 @@ func _rebuild_option_labels() -> void:
 		var label := ResshanLabel.new()
 		label.text = choice.player_text
 		label.font_size = 42
+		label.note_popup_scale_multiplier = note_popup_scale_multiplier
 		_options.add_child(label)
 
 

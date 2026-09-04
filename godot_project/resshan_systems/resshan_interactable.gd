@@ -10,6 +10,7 @@ const TIME_TO_HOVER: = .4
 			_encoded_string = LanguageRenderer.encode(_string)
 		
 var _encoded_string: String = ''
+var note_popup_scale_multiplier := 1.0
 
 var _hovered: = false
 var note: ResshanPopUp = null
@@ -72,6 +73,7 @@ func _on_mouse_entered() -> void:
 			pop.queue_free()
 		else:
 			note = pop
+			note.scale *= note_popup_scale_multiplier
 	_shine_cover.show()
 	if noted:
 		Input.set_custom_mouse_cursor(magnifying_glass_hover_known, Input.CURSOR_ARROW, Vector2(0,0) )

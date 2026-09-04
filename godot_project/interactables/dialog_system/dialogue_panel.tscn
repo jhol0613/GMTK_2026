@@ -54,6 +54,7 @@ animations = [{
 layer = 20
 script = ExtResource("1_script")
 choice_nav_icons = NodePath("Root/Popup/ChoiceNavIcons")
+note_popup_scale_multiplier = 3.0
 
 [node name="Root" type="Control" parent="." unique_id=919228005]
 layout_mode = 3
@@ -131,6 +132,7 @@ mouse_filter = 2
 script = ExtResource("2_wos7g")
 text = "Speaker"
 font_size = 42
+note_popup_scale_multiplier = null
 metadata/_custom_type_script = "uid://sidowamkhcrt"
 
 [node name="Body" type="Control" parent="Root/Popup/MarginContainer/HBoxContainer/VBox" unique_id=895602396]
@@ -142,6 +144,7 @@ mouse_filter = 2
 script = ExtResource("2_wos7g")
 text = "Dialogue line"
 font_size = 42
+note_popup_scale_multiplier = null
 metadata/_custom_type_script = "uid://sidowamkhcrt"
 
 [node name="OptionsScroll" type="ScrollContainer" parent="Root/Popup/MarginContainer/HBoxContainer/VBox" unique_id=1645536568]

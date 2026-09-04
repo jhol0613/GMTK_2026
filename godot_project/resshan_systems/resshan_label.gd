@@ -26,6 +26,8 @@ extends Control
 		_drawn = false
 		queue_redraw()
 
+@export_range(0.5, 4.0, 0.1) var note_popup_scale_multiplier := 1.0
+
 var _shapes: Array[RectangleShape2D]
 var _areas: Array[ResshanInteractable]
 
@@ -60,6 +62,7 @@ func _draw() -> void:
 		#area.position.x += shape.size.x * 0.5
 		area._encoded_string = LanguageRenderer.encode(resshen)
 		area.size = shape.size
+		area.note_popup_scale_multiplier = note_popup_scale_multiplier
 
 		_areas.append(area)
 		add_child(area)
