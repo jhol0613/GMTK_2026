@@ -1,7 +1,7 @@
 extends Technician
 class_name Station2Technician
 
-const FOLLOW_TIMEOUT_SECONDS := 24.0
+const FOLLOW_TIMEOUT_MINUTES := 3
 const RETURN_SPEED := 300.0
 
 @export var atm: ATM
@@ -64,11 +64,15 @@ func _on_option_confirmed(option_id: StringName):
 	if option_id == &"follow_me":
 		_fixing_vending_machines = false
 		_player.movement_disabled = true
+		await _panel.dialogue_complete
 		_collision_shape.disabled = true
 		atm_guy.visible = false
+		_state = State.ACTING
+		_sprite.play(&"start_moving")
+		await _sprite.animation_finished
+		set_flight_visual(true)
 		await go_to(_player.trail_marker.global_position)
 		_state = State.FOLLOWING
-		set_flight_visual(true)
 		_set_interactable(false)
 		_player.movement_disabled = false
 		atm.dialog_interactable.active = true
@@ -101,7 +105,11 @@ func _on_broken_atm_interacted():
 func _start_follow_timeout() -> void:
 	_follow_session += 1
 	var session := _follow_session
-	await get_tree().create_timer(FOLLOW_TIMEOUT_SECONDS, false).timeout
+	var start_time := TimeManager.total_seconds()
+	while start_time - TimeManager.total_seconds() < FOLLOW_TIMEOUT_MINUTES * TimeManager.SECONDS_PER_MINUTE:
+		await TimeManager.time_changed
+		if session != _follow_session or _state != State.FOLLOWING:
+			return
 	if session != _follow_session or _state != State.FOLLOWING:
 		return
 	_follow_session += 1
@@ -120,7 +128,12 @@ func _start_follow_timeout() -> void:
 	await tween.finished
 	_facing = FACING_VECTORS[facing]
 	set_flight_visual(false)
+	_sprite.play_backwards(&"start_moving")
+	await _sprite.animation_finished
+	_animate(Vector2.ZERO)
 	atm_guy.visible = true
 	_collision_shape.disabled = false
 	_state = State.ACTING
 	_set_interactable(true)
+	_fixing_vending_machines = true
+	fix_vending_machine()
