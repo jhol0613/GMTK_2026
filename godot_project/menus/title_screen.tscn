@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://c72jo4tde0cb4"]
 
 [ext_resource type="Script" uid="uid://c35x4it7udhry" path="res://menus/title_screen.gd" id="1_m4alt"]
-[ext_resource type="Texture2D" uid="uid://bcvddiwm04q80" path="res://menus/Menu.png" id="2_2pwrd"]
 [ext_resource type="AudioStream" uid="uid://0m40rq43uqvu" path="res://menus/TitleButtonHover.mp3" id="2_823ok"]
 [ext_resource type="AudioStream" uid="uid://dxqoh2ew8lvid" path="res://menus/Main Menu.mp3" id="2_vppps"]
 [ext_resource type="Texture2D" uid="uid://cw01faj1lgkwp" path="res://menus/clouds.png" id="3_2pwrd"]
 [ext_resource type="AudioStream" uid="uid://ctf4fe33qw2dj" path="res://menus/TitleButtonClick.mp3" id="3_vppps"]
 [ext_resource type="Texture2D" uid="uid://urrf4cbjda0y" path="res://menus/islands.png" id="4_kc2cy"]
 [ext_resource type="Texture2D" uid="uid://c5t0anutvo5db" path="res://menus/blue.png" id="5_823ok"]
+[ext_resource type="Texture2D" uid="uid://bp58wmmtcb04g" path="res://menus/Menu_2.png" id="5_vppps"]
 
 [node name="TitleScreen" type="Node2D" unique_id=1887702429]
 script = ExtResource("1_m4alt")
@@ -50,7 +50,7 @@ offset_bottom = 857.0
 z_index = -1
 position = Vector2(959.99994, 540.5)
 scale = Vector2(3.9999998, 4.055556)
-texture = ExtResource("2_2pwrd")
+texture = ExtResource("5_vppps")
 
 [node name="Blue" type="Sprite2D" parent="Background" unique_id=27265599]
 z_index = -4
