@@ -68,6 +68,7 @@ func _on_option_confirmed(option_id: StringName):
 		atm_guy.visible = false
 		await go_to(_player.trail_marker.global_position)
 		_state = State.FOLLOWING
+		set_flight_visual(true)
 		_set_interactable(false)
 		_player.movement_disabled = false
 		atm.dialog_interactable.active = true
@@ -76,6 +77,7 @@ func _on_option_confirmed(option_id: StringName):
 
 func _on_broken_atm_interacted():
 	_follow_session += 1
+	set_flight_visual(false)
 	atm.dialog_interactable.interacted.disconnect(_on_broken_atm_interacted)
 	await go_to(atm.dialog_interactable.global_position + \
 		broken_atm_fix_location)
@@ -117,7 +119,7 @@ func _start_follow_timeout() -> void:
 	tween.tween_property(self, "global_position", _initial_position, direction.length() / RETURN_SPEED)
 	await tween.finished
 	_facing = FACING_VECTORS[facing]
-	_animate(Vector2.ZERO)
+	set_flight_visual(false)
 	atm_guy.visible = true
 	_collision_shape.disabled = false
 	_state = State.ACTING
