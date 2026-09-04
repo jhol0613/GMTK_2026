@@ -26,6 +26,7 @@ var _selected_option: int
 var _reward: ItemData
 var _awaiting_close: bool
 var _awaiting_reward: bool
+var _choice_reply_override: DialogueLine
 var _typewriter_units: Array[String] = []
 var _typewriter_index := 0
 var _typewriter_accumulator := 0.0
@@ -68,6 +69,7 @@ func show_dialogue(
 	_awaiting_close = false
 	_awaiting_reward = false
 	_reward = null
+	_choice_reply_override = null
 
 	_rebuild_option_labels()
 	_update_line()
@@ -172,6 +174,7 @@ func _confirm_option() -> void:
 		return
 	var choice: DialogueChoice = _choices[_selected_option]
 
+	_choice_reply_override = null
 	_reward = choice.reward
 	option_confirmed.emit(choice.outcome_id)
 	if _reward != null:
@@ -183,8 +186,20 @@ func _confirm_option() -> void:
 	
 	_exit_options_mode()
 	
-	if choice.reply != null:
-		_show_line(choice.reply)
+	var reply := _choice_reply_override if _choice_reply_override != null else choice.reply
+	if reply != null:
+		_show_line(reply)
+
+
+func reject_choice(text: String) -> void:
+	_reward = null
+	_choice_reply_override = DialogueLine.new()
+	_choice_reply_override.text = text
+	if _showing_options and _selected_option < _choices.size():
+		var reply := _choices[_selected_option].reply
+		if reply != null:
+			_choice_reply_override.speaker = reply.speaker
+			_choice_reply_override.speaker_icon = reply.speaker_icon
 
 
 func _refresh_options_visual() -> void:

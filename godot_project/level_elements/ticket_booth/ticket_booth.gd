@@ -6,7 +6,7 @@ extends Node2D
 @onready var _ambient: AudioStreamPlayer2D = $BoothAmbient
 @onready var _loop_pause_timer: Timer = $LoopPauseTimer
 @onready var _resume_timer: Timer = $ResumeTimer
-@onready var _dialogue_panel: InteractionPanelBase = $DialoguePanel
+@onready var _dialogue_panel: DialoguePanel = $DialoguePanel
 
 @onready var purchased_ticket: AudioStreamPlayer = $PurchasedTicket
 
@@ -138,7 +138,9 @@ func _on_option_confirmed(outcome_id: StringName) -> void:
 	if outcome_id != &"sold_ticket":
 		return
 
-	Wallet.spend(Wallet.TICKET_COST)
+	if not Wallet.spend(Wallet.TICKET_COST):
+		_dialogue_panel.reject_choice("<<0>> <<money>> <<0>> <<ticket>> <<angry>>")
+		return
 
 	if purchased_ticket.stream == null:
 		push_warning("FirstChoiceSound has no audio stream.")

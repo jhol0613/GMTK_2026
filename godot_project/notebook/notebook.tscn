@@ -121,7 +121,6 @@ volume_db = 8.0
 bus = &"SFX"
 
 [node name="SectionSelector" type="Control" parent="." unique_id=862698154]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 341.0

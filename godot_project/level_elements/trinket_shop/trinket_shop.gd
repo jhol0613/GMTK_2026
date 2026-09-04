@@ -21,6 +21,9 @@ func _on_option_confirmed(outcome_id: StringName) -> void:
 		return
 	#if outcome_id != PURCHASE_OUTCOME:
 		#return
+	if not Wallet.can_afford(Wallet.TRINKET_COST):
+		_dialogue_panel.reject_choice("<<0>> <<money>> <<0>> <<mask>> <<angry>>")
+		return
 	if Inventory.is_full():
 		SignalBus.inventory_full.emit()
 		return

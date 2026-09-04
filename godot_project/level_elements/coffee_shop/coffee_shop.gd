@@ -21,6 +21,7 @@ func _on_option_confirmed(outcome_id: StringName) -> void:
 	if outcome_id != PURCHASE_OUTCOME:
 		return
 	if not Wallet.spend(Wallet.COFFEE_COST, _lightning_origin.global_position):
+		_dialogue_panel.reject_choice("<<0>> <<money>> <<0>> <<coffee>> <<angry>>")
 		return
 	Inventory.item_added.connect(_on_item_added)
 	TimeManager.set_time_scale(time_scale_while_active, slow_duration_minutes)
