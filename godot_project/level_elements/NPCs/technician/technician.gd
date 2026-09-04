@@ -41,6 +41,15 @@ func _animate(direction: Vector2) -> void:
 	_sprite.pause()
 
 
+func _face_player() -> void:
+	if not _flight_visual_enabled:
+		super._face_player()
+		return
+	if _player:
+		_facing = (_player.global_position - global_position).normalized()
+	_animate(_facing)
+
+
 func set_flight_visual(enabled: bool) -> void:
 	if _flight_visual_enabled == enabled:
 		return
