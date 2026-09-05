@@ -2,6 +2,7 @@ extends Node2D
 
 @export var pause_between_loops: float = 8
 @export var resume_delay: float = 3.0
+@export var no_money_line: DialogueLine
 
 @onready var _ambient: AudioStreamPlayer2D = $BoothAmbient
 @onready var _loop_pause_timer: Timer = $LoopPauseTimer
@@ -139,7 +140,9 @@ func _on_option_confirmed(outcome_id: StringName) -> void:
 		return
 
 	if not Wallet.spend(Wallet.TICKET_COST):
-		_dialogue_panel.reject_choice("<<0>> <<money>> <<0>> <<ticket>> <<angry>>")
+		var line = no_money_line.duplicate()
+		line.text = no_money_line.text % [Wallet.tokens, Wallet.TICKET_COST]
+		_dialogue_panel.reject_choice(line)
 		return
 
 	if purchased_ticket.stream == null:

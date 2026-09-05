@@ -63,6 +63,7 @@ func _ready() -> void:
 	_rebuild()
 	_displayed_tokens = Wallet.tokens
 	Wallet.tokens_changed.connect(_on_tokens_changed)
+	Wallet.spend_failed.connect(_on_spend_failed)
 	_refresh(_displayed_tokens)
 
 
@@ -136,6 +137,8 @@ func _on_tokens_changed(current: int, _maximum: int, origin_global: Vector2) -> 
 		await _animate_drain(current, generation)
 		#_stop_lightning()
 
+func _on_spend_failed(cost: int, current: int):
+	print("Not enough money")
 
 func _play_gain_lightning(target: Vector2):
 	if target == Vector2(0,0):

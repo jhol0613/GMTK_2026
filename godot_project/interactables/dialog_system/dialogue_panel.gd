@@ -177,6 +177,11 @@ func _confirm_option() -> void:
 	_choice_reply_override = null
 	_reward = choice.reward
 	option_confirmed.emit(choice.outcome_id)
+	
+	# in case dialogue was updated by something connecting to option_confirmed
+	if _choices.is_empty():
+		return
+
 	if _reward != null:
 		_awaiting_close = true
 		_awaiting_reward = true
@@ -191,10 +196,10 @@ func _confirm_option() -> void:
 		_show_line(reply)
 
 
-func reject_choice(text: String) -> void:
+func reject_choice(line: DialogueLine) -> void:
 	_reward = null
-	_choice_reply_override = DialogueLine.new()
-	_choice_reply_override.text = text
+	_choice_reply_override = line
+	#_choice_reply_override.text = text
 	if _showing_options and _selected_option < _choices.size():
 		var reply := _choices[_selected_option].reply
 		if reply != null:

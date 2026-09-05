@@ -2,7 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://bof6fneov4vmn" path="res://level_elements/ticket_booth/Ticketbooth.png" id="1_8vy6h"]
 [ext_resource type="Script" uid="uid://dtxt0cu3nyw4g" path="res://level_elements/ticket_booth/ticket_booth.gd" id="1_e2qtd"]
+[ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="2_t148x"]
 [ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialog_system/dialogue_interactable.tscn" id="2_ui1pi"]
+[ext_resource type="Texture2D" uid="uid://dkameqx3adr3l" path="res://interactables/dialog_system/character_portraits/ticket_lady/ticket_lady_portrait_1.png" id="3_bp0gh"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="3_ui1pi"]
 [ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialog_system/dialogue_panel.tscn" id="4_2vr77"]
 [ext_resource type="AudioStream" uid="uid://6llsv27ckbd2" path="res://ui/sfx/Purchased Ticket.mp3" id="5_8d5ud"]
@@ -10,6 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://eojwir66fro1" path="res://level_elements/ticket_booth/Ticketbooth_glow.png" id="8_glow"]
 [ext_resource type="Script" uid="uid://bn4id4xt76xwa" path="res://level_elements/ticket_booth/ticket_booth_night_light.gd" id="9_night_light"]
 [ext_resource type="Texture2D" uid="uid://b7k1rwda5wu1p" path="res://visual_effects/day_night/light_radial.png" id="10_radial"]
+
+[sub_resource type="Resource" id="Resource_3uvvl"]
+script = ExtResource("2_t148x")
+text = "<<i>> <<%s>> <<money>> <<ticket>> <<%s>> <<money>> <<angry>>"
+speaker_icon = ExtResource("3_bp0gh")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2vr77"]
 atlas = ExtResource("1_8vy6h")
@@ -110,6 +118,7 @@ size = Vector2(15, 14)
 
 [node name="TicketBooth" type="Node2D" unique_id=861247956]
 script = ExtResource("1_e2qtd")
+no_money_line = SubResource("Resource_3uvvl")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=530977529]
 z_index = 1

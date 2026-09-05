@@ -2,7 +2,7 @@ extends Node2D
 
 @export var sprite: AnimatedSprite2D
 @export var drop_radius: float = 120.0
-@export var reward_battery_mask: int = 3
+@export var reward_battery_mask: int = 2
 @export var reward_battery_coffee_cup: int = 2
 @export var antenna_open_time := 1.5
 

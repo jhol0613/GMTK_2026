@@ -19,6 +19,11 @@
 [ext_resource type="Script" uid="uid://cv5bovfv5slw1" path="res://scripts/animated_item_icon.gd" id="16_bvkv4"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="18_abad0"]
 
+[sub_resource type="Resource" id="Resource_3uvvl"]
+script = ExtResource("3_m5xxu")
+text = "<<i>> <<%s>> <<money>> <<coffee>> <<%s>> <<money>> <<angry>>"
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_glow"]
 shader = ExtResource("8_glow_shader")
 
@@ -63,7 +68,7 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 
 [sub_resource type="Resource" id="Resource_abad0"]
 script = ExtResource("2_4x3ae")
-player_text = "Leave"
+player_text = "Never mind"
 outcome_id = &"NONE"
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 
@@ -86,6 +91,7 @@ size = Vector2(102, 39)
 
 [node name="CoffeeShop" type="Node2D" unique_id=780382610]
 script = ExtResource("1_coffee")
+no_money_line = SubResource("Resource_3uvvl")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=458582389]
 z_index = 1

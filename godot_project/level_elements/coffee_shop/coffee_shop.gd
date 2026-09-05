@@ -5,6 +5,7 @@ const EMPTY_COFFEE_ID: StringName = &"empty_coffee_cup"
 
 @export var slow_duration_minutes: int = 5
 @export var time_scale_while_active: float = 0.5
+@export var no_money_line: DialogueLine
 
 @onready var _dialogue_panel: DialoguePanel = $DialoguePanel
 @onready var _lightning_origin := $LightningOrigin
@@ -20,8 +21,10 @@ func _on_option_confirmed(outcome_id: StringName) -> void:
 		return
 	if outcome_id != PURCHASE_OUTCOME:
 		return
-	if not Wallet.spend(Wallet.COFFEE_COST, _lightning_origin.global_position):
-		_dialogue_panel.reject_choice("<<0>> <<money>> <<0>> <<coffee>> <<angry>>")
+	if not Wallet.spend(Wallet.COFFEE_COST):
+		var line = no_money_line.duplicate()
+		line.text = no_money_line.text % [Wallet.tokens, Wallet.COFFEE_COST]
+		_dialogue_panel.reject_choice(line)
 		return
 	Inventory.item_added.connect(_on_item_added)
 	TimeManager.set_time_scale(time_scale_while_active, slow_duration_minutes)

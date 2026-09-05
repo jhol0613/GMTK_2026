@@ -18,7 +18,7 @@ var _tween: Tween
 func _ready() -> void:
 	add_to_group("night_lights")
 	Wallet.tokens_changed.connect(_on_tokens_changed)
-	_on_tokens_changed(Wallet.tokens, Wallet.MAX_TOKENS)
+	_on_tokens_changed(Wallet.tokens, Wallet.MAX_TOKENS, Vector2(0,0))
 
 	var total := (
 		TimeManager.HOURS_PER_DAY
@@ -28,7 +28,7 @@ func _ready() -> void:
 	set_day_progress(1.0 - float(TimeManager.total_seconds()) / float(total), 0.0)
 
 
-func _on_tokens_changed(current: int, maximum: int) -> void:
+func _on_tokens_changed(current: int, maximum: int, _origin_global) -> void:
 	_charge = float(current) / float(maxi(maximum, 1))
 	color = empty_color.lerp(full_color, _charge)
 

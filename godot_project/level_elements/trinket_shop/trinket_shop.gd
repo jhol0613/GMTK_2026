@@ -3,6 +3,8 @@ extends Node2D
 
 const PURCHASE_OUTCOME: StringName = &"sold_trinket"
 
+@export var no_money_line: DialogueLine
+
 @onready var _dialogue_panel: DialoguePanel = $DialoguePanel
 @onready var _purchase_sfx: AudioStreamPlayer2D = $PurchaseSfx
 @onready var _lightning_origin := $LightningOrigin
@@ -22,7 +24,9 @@ func _on_option_confirmed(outcome_id: StringName) -> void:
 	#if outcome_id != PURCHASE_OUTCOME:
 		#return
 	if not Wallet.can_afford(Wallet.TRINKET_COST):
-		_dialogue_panel.reject_choice("<<0>> <<money>> <<0>> <<mask>> <<angry>>")
+		var line = no_money_line.duplicate()
+		line.text = no_money_line.text % [Wallet.tokens, Wallet.TRINKET_COST]
+		_dialogue_panel.reject_choice(line)
 		return
 	if Inventory.is_full():
 		SignalBus.inventory_full.emit()

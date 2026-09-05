@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://djoepaapryv6s"]
 
 [ext_resource type="Texture2D" uid="uid://blepwufe0phuw" path="res://level_elements/trinket_shop/Trinket shop level 1.png" id="1_400x5"]
+[ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="2_3uvvl"]
 [ext_resource type="Texture2D" uid="uid://dcoghm70vomqf" path="res://level_elements/trinket_shop/Trinket shop level 2.png" id="2_8tbst"]
 [ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialog_system/dialogue_interactable.tscn" id="3_xxwc8"]
 [ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialog_system/dialogue_panel.tscn" id="5_73t7r"]
@@ -11,6 +12,11 @@
 [ext_resource type="AudioStream" uid="uid://catt5hiwwwfor" path="res://level_elements/trinket_shop/trinket_purchased.wav" id="9_7wyia"]
 [ext_resource type="Texture2D" uid="uid://b7k1rwda5wu1p" path="res://visual_effects/day_night/light_radial.png" id="9_light"]
 [ext_resource type="Texture2D" uid="uid://8fjrji8ipc4f" path="res://visual_effects/day_night/light_downward.png" id="10_down"]
+
+[sub_resource type="Resource" id="Resource_ppf8r"]
+script = ExtResource("2_3uvvl")
+text = "<<i>> <<%s>> <<money>> <<trinketmask>> <<%s>> <<money>> <<angry>>"
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8tbst"]
 atlas = ExtResource("1_400x5")
@@ -128,6 +134,7 @@ size = Vector2(117, 31)
 
 [node name="TrinketShop" type="Node2D" unique_id=877031898]
 script = ExtResource("6_trinket")
+no_money_line = SubResource("Resource_ppf8r")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=984962632]
 z_index = 1
