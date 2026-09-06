@@ -13,7 +13,7 @@ metadata/_custom_type_script = "uid://kipmht1y7efq"
 [sub_resource type="Resource" id="Resource_gq3wq"]
 script = ExtResource("1_3wyqc")
 direction = 3
-destination = "??"
+destination = "<<startofblueline>>"
 initial_offset = 1
 scene_destination = 3
 metadata/_custom_type_script = "uid://kipmht1y7efq"
@@ -48,7 +48,7 @@ metadata/_custom_type_script = "uid://kipmht1y7efq"
 script = ExtResource("1_3wyqc")
 color = 3
 direction = 3
-destination = "??"
+destination = "<<startofgreenline>>"
 initial_offset = 6
 scene_destination = 3
 metadata/_custom_type_script = "uid://kipmht1y7efq"
@@ -66,7 +66,7 @@ metadata/_custom_type_script = "uid://kipmht1y7efq"
 script = ExtResource("1_3wyqc")
 color = 7
 direction = 3
-destination = "??"
+destination = "<<startofredline>>"
 scene_destination = 3
 metadata/_custom_type_script = "uid://kipmht1y7efq"
 
