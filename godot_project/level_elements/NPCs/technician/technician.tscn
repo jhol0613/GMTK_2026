@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cmdda7648573b" path="res://level_elements/NPCs/npc.tscn" id="1_8shc6"]
 [ext_resource type="SpriteFrames" uid="uid://de2gdrslgml7o" path="res://level_elements/NPCs/technician/technician_sprite_frames.tres" id="2_5cd8y"]
+[ext_resource type="Script" uid="uid://cwcdnp0t5rxkq" path="res://level_elements/NPCs/technician/technician_basic.gd" id="2_cojxk"]
 [ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://interactables/dialog_system/dialogue_choice.gd" id="3_n0pet"]
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="4_gnxmv"]
 [ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="5_yve1r"]
@@ -19,9 +20,11 @@ lines = Array[ExtResource("4_gnxmv")]([SubResource("Resource_2gt0t")])
 metadata/_custom_type_script = "uid://dvkforrusa0nj"
 
 [node name="Technician" unique_id=837182991 instance=ExtResource("1_8shc6")]
+script = ExtResource("2_cojxk")
 
 [node name="Sprite" parent="." index="0" unique_id=1868209522]
 sprite_frames = ExtResource("2_5cd8y")
+animation = &"fix_loop"
 autoplay = "fix"
 
 [node name="DialogueInteractable" parent="." index="2" unique_id=1161048169]
