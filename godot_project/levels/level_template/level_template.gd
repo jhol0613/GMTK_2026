@@ -4,7 +4,15 @@ class_name LevelTemplate
 
 @export var correct_train_line: Enums.TrainColor
 @export var correct_train_direction: Enums.TrainDirection
+@export var correct_train_scene: Enums.Scenes
+@export var previous_station_line: Enums.TrainColor
+@export var previous_station_direction: Enums.TrainDirection
+@export var previous_station_scene: Enums.Scenes
+## Typically refers to this scene
+@export var wrong_train_destination: Enums.Scenes
 @export var arrival_train: Train
+
+@export_category("Dialogue")
 @export var wrong_train_line: DialogueLine
 #@export var missed_train_line: DialogueLine
 @export var dialogue_panel_scene: PackedScene
@@ -45,25 +53,9 @@ func _start_level_audio() -> void:
 		await arrival_train.wait_for_pulling_in()
 	AudioManager.finish_level_music_start(sequence, music_fade_in_duration)
 
-
-#func _find_opening_train() -> Train:
-	#for child in get_children():
-		#if child is TrainPlatform:
-			#var platform := child as TrainPlatform
-			#if platform.play_arrival_on_ready and platform.upper_train != null:
-				#return platform.upper_train
-	#return null
-
-
-#func _on_missed_train() -> void:
-	#_play_character_dialogue(missed_train_line)
-#func _play_wrong_train_cutscene() -> void:
-	#add_child(wrong_train_cutscene.instantiate())
-
 func _play_wrong_train_dialogue() -> void:
 	await get_tree().create_timer(1.5).timeout
 	await _play_character_dialogue(wrong_train_line)
-
 
 func _play_character_dialogue(line: DialogueLine) -> void:
 	if line == null or dialogue_panel_scene == null or _dialogue_playing:

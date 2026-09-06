@@ -204,15 +204,27 @@ func _matches_ticket(ticket: TicketData) -> bool:
 		color == ticket.train_line
 	)
 
-## Checks if the ticket is on this level's correct line
+## Checks if the ticket is on this level's correct line. If it is, set the
+## correct destination
 func _is_correct_line(ticket: TicketData) -> bool:
 	var level := get_tree().current_scene as LevelTemplate
 	if level == null:
 		return true
-	return (
+	if (
 		ticket.train_line == level.correct_train_line and
 		ticket.direction == level.correct_train_direction
-	)
+	):
+		next_scene = level.correct_train_scene
+		return true
+	elif (
+		ticket.train_line == level.previous_station_line and
+		ticket.direction == level.previous_station_direction
+	):
+		next_scene = level.previous_station_scene
+		return true
+	else:
+		next_scene = level.wrong_train_destination
+		return false
 
 #func _is_on_time(ticket: TicketData) -> bool:
 	#return TimeManager.has_at_least(ticket.departure_hours, 
