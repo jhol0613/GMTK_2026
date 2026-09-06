@@ -182,8 +182,14 @@ text = "<<ticket>> <<buy>> <<?>>"
 speaker_icon = ExtResource("3_56dy0")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
+[sub_resource type="Resource" id="Resource_bvkv4"]
+script = ExtResource("2_56dy0")
+text = "<<ticket>> <<4>> <<money>>"
+speaker_icon = ExtResource("3_56dy0")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
 [resource]
 script = ExtResource("3_vxevm")
-lines = Array[ExtResource("2_56dy0")]([SubResource("Resource_xc01j")])
+lines = Array[ExtResource("2_56dy0")]([SubResource("Resource_xc01j"), SubResource("Resource_bvkv4")])
 choices = Array[ExtResource("1_a83ec")]([SubResource("Resource_huxyp"), SubResource("Resource_ubbq6"), SubResource("Resource_22bx0"), SubResource("Resource_l1k6l"), SubResource("Resource_m0hlw"), SubResource("Resource_pun8k"), SubResource("Resource_c4y5e"), SubResource("Resource_imm05"), SubResource("Resource_lg205"), SubResource("Resource_tur6p"), SubResource("Resource_dm74l"), SubResource("Resource_mapr3"), SubResource("Resource_ai2sf")])
 metadata/_custom_type_script = "uid://dvkforrusa0nj"

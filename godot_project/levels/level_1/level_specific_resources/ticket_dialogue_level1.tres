@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="2_k475t"]
 [ext_resource type="Resource" uid="uid://bet02myt21fpk" path="res://level_elements/ticket_booth/ticket_booth_thank_you.tres" id="2_l1k6l"]
 [ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="3_mgd23"]
-[ext_resource type="Texture2D" uid="uid://kayfkwypm2a" path="res://interactables/dialog_system/character_portraits/ticket_lady/ticket_lady_portrait_2.png" id="4_1wxrd"]
+[ext_resource type="Texture2D" uid="uid://dkameqx3adr3l" path="res://interactables/dialog_system/character_portraits/ticket_lady/ticket_lady_portrait_1.png" id="5_22bx0"]
 [ext_resource type="Script" uid="uid://cpfgjwe2lpk0k" path="res://ui/ticket/ticket_data.gd" id="5_y4sxr"]
 
 [sub_resource type="Resource" id="Resource_nevermind"]
@@ -129,12 +129,18 @@ data = PackedByteArray("SUQzAgAAAAAfdlRTUwAAEwBMb2dpYyBQcm8gWCAxMC43LjlDT00AAGgA
 [sub_resource type="Resource" id="Resource_r4wnr"]
 script = ExtResource("2_k475t")
 text = "<<ticket>> <<buy>> <<?>> <<red>> <<blue>> <<pink>> <<green>> <<?>> <<west>> <<east>> <<?>>"
-speaker_icon = ExtResource("4_1wxrd")
+speaker_icon = ExtResource("5_22bx0")
 sfx = SubResource("AudioStreamMP3_i6od7")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_xc01j"]
+script = ExtResource("2_k475t")
+text = "<<ticket>> <<4>> <<money>>"
+speaker_icon = ExtResource("5_22bx0")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [resource]
 script = ExtResource("3_mgd23")
-lines = Array[ExtResource("2_k475t")]([SubResource("Resource_r4wnr")])
+lines = Array[ExtResource("2_k475t")]([SubResource("Resource_r4wnr"), SubResource("Resource_xc01j")])
 choices = Array[ExtResource("1_wuq0v")]([SubResource("Resource_nevermind"), SubResource("Resource_cnn7p"), SubResource("Resource_flgpe"), SubResource("Resource_oc15f"), SubResource("Resource_vmmyj"), SubResource("Resource_54gw1"), SubResource("Resource_mcb8q"), SubResource("Resource_88jmc"), SubResource("Resource_noxkf")])
 metadata/_custom_type_script = "uid://dvkforrusa0nj"
