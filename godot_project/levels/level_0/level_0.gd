@@ -12,12 +12,15 @@ var _intro_active := true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super._ready()
-	Wallet.enable(false)
+	var play_intro: bool = GameManager.level_0_intro_pending
+	GameManager.level_0_intro_pending = false
+	var skip_intro := TimeManager.consume_skip_intro()
 	_battery_pickup.visible = false
-	_set_pigeon_ambient_muted(true)
-	if TimeManager.consume_skip_intro():
+	if not play_intro or skip_intro:
 		_begin_without_intro()
 		return
+	Wallet.enable(false)
+	_set_pigeon_ambient_muted(true)
 	_intro_conversation_scene = preload("uid://b40aq7wt2wqcs").instantiate()
 	_intro_falling_scene = preload("uid://dnm5746r17yej").instantiate()
 	add_child(_intro_conversation_scene)

@@ -16,6 +16,7 @@ extends Node2D
 
 var _transition_layer: CanvasLayer
 var stashed_data
+var level_0_intro_pending := false
 
 signal concurrent_scene_complete
 
