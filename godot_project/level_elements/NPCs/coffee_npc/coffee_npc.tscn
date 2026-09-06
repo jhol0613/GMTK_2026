@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cyxqf0cwa75yi" path="res://level_elements/NPCs/coffee_npc/ready_guy.png" id="5_5v5hs"]
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="5_line"]
 [ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="6_dialogue"]
+[ext_resource type="AudioStream" path="res://level_elements/NPCs/coffee_npc/throw_cup.mp3" id="7_throw_cup"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qe4bh"]
 atlas = ExtResource("4_oqesw")
@@ -532,5 +533,12 @@ offset_bottom = 47.5
 [node name="AnimatedSprite2D" parent="DialogueInteractable" index="2" unique_id=819702371]
 visible = false
 position = Vector2(0, -35.5)
+
+[node name="ThrowCupSound" type="AudioStreamPlayer2D" parent="."]
+top_level = true
+stream = ExtResource("7_throw_cup")
+volume_db = 6.0
+max_distance = 600.0
+bus = &"SFX"
 
 [editable path="DialogueInteractable"]

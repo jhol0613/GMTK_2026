@@ -21,6 +21,7 @@ var _has_coffee := true
 var _patrol_forward := true
 var _completed_round_trips := 0
 var _spawned_object: DroppedCoffee
+@onready var _throw_cup_sound: AudioStreamPlayer2D = $ThrowCupSound
 func _ready() -> void:
 	super._ready()
 	TimeManager.time_scale_changed.connect(_on_time_scale_changed)
@@ -147,6 +148,8 @@ func _spawn_object() -> bool:
 	get_tree().current_scene.add_child(_spawned_object)
 	_spawned_object.global_position = spawn_point.global_position
 	_spawned_object.collected.connect(_on_object_collected.bind(_spawned_object), CONNECT_ONE_SHOT)
+	_throw_cup_sound.global_position = spawn_point.global_position
+	_throw_cup_sound.play()
 	return true
 
 
