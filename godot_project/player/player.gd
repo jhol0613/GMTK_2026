@@ -19,7 +19,7 @@ var movement_disabled: bool = false
 var _trail_buffer : Array[Vector2]
 var _moved_last_iteration := false
 
-@export var distance_per_minute: int = 50
+@export var distance_per_minute: int = 100
 
 @export var footstep_sounds: Array[AudioStream] = []
 var _footsteps: AudioStreamPlayer

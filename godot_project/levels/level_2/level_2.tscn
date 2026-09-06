@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://cxekovsy3q368" path="res://level_elements/train_platform/platform.tscn" id="2_pqqg8"]
 [ext_resource type="PackedScene" uid="uid://bj6c3dkqrbxyt" path="res://level_elements/train_platform/vertical_platform.tscn" id="3_2smvo"]
 [ext_resource type="PackedScene" uid="uid://denclmxtn1x1l" path="res://level_elements/departure_board/departure_board.tscn" id="3_lnqnw"]
-[ext_resource type="PackedScene" uid="uid://bn2ibeuqk0rgt" path="res://player/player.tscn" id="4_ppf8r"]
 [ext_resource type="PackedScene" uid="uid://dpexe87ps0d7f" path="res://level_elements/hourglass/hourglass.tscn" id="5_2smvo"]
 [ext_resource type="PackedScene" uid="uid://bh8gk7aegekyy" path="res://level_elements/maps/station/station_map_lvl2.tscn" id="6_cp47v"]
 [ext_resource type="PackedScene" uid="uid://2pwlm8itluel" path="res://level_elements/ticket_booth/ticket_booth.tscn" id="7_aq41y"]
@@ -23,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://xyprm41o3crg" path="res://levels/level_2/level_specific_resources/trinket_shop_level_2.tscn" id="19_1vf62"]
 [ext_resource type="PackedScene" uid="uid://x4ghn30rc8l0" path="res://level_elements/NPCs/crying_kid/crying_kid.tscn" id="19_yiikh"]
 [ext_resource type="PackedScene" uid="uid://ospha2vyynas" path="res://level_elements/NPCs/guide/guide.tscn" id="20_fq0us"]
-[ext_resource type="PackedScene" uid="uid://wvltf0ie5ih7" path="res://levels/level_2/level_specific_resources/station_2_technician.tscn" id="20_yiikh"]
+[ext_resource type="PackedScene" uid="uid://wvltf0ie5ih7" path="res://level_elements/NPCs/technician/station_2_technician.tscn" id="20_yiikh"]
 [ext_resource type="PackedScene" uid="uid://blkhoxm6f3cap" path="res://level_elements/vending_machine/vending_machine.tscn" id="24_uuidd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vf62"]
@@ -206,9 +205,6 @@ shape = SubResource("RectangleShape2D_pg750")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Platform5/LayerTransitionZone" index="2" unique_id=429838709]
 position = Vector2(-40, -114.5)
 shape = SubResource("RectangleShape2D_pg750")
-
-[node name="Player" parent="Platform5/LayerTransitionZone" index="3" unique_id=1361624922 instance=ExtResource("4_ppf8r")]
-position = Vector2(-141, -102)
 
 [node name="Platform6" parent="." index="11" unique_id=275140016 instance=ExtResource("3_2smvo")]
 position = Vector2(-2528, -704)
