@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://dk0yrl5ejk4vw"]
+
+[ext_resource type="Texture2D" uid="uid://cwna8wecpcuaa" path="res://ui/Battery/Battery_shell_full.png" id="1_f6aee"]
+[ext_resource type="Script" uid="uid://mipviiuy8b4k" path="res://ui/token_display/battery_pickup.gd" id="1_hgfbw"]
+[ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialog_system/dialogue_interactable.tscn" id="2_apqf7"]
+[ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://interactables/dialog_system/dialogue_choice.gd" id="3_hgfbw"]
+[ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="4_m2ssd"]
+[ext_resource type="Texture2D" uid="uid://cci611me4u0h1" path="res://interactables/dialog_system/character_portraits/player/mc_portrait_7.png" id="5_dec1h"]
+[ext_resource type="Texture2D" uid="uid://c7g1auq7xhd5y" path="res://interactables/dialog_system/character_portraits/player/mc_portrait_3.png" id="6_ojhwi"]
+[ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="7_dpcax"]
+[ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialog_system/dialogue_panel.tscn" id="9_m2ssd"]
+
+[sub_resource type="Resource" id="Resource_5l23l"]
+script = ExtResource("3_hgfbw")
+player_text = "Pick it up"
+outcome_id = &"GOT_BATTERY"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_hgfbw"]
+script = ExtResource("3_hgfbw")
+player_text = "Leave it"
+metadata/_custom_type_script = "uid://dcq16ybg1hhts"
+
+[sub_resource type="Resource" id="Resource_y4wlt"]
+script = ExtResource("4_m2ssd")
+text = "I must have dropped this when I fell."
+speaker_icon = ExtResource("5_dec1h")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_qsv7x"]
+script = ExtResource("4_m2ssd")
+text = "What did Dana say this was for again?"
+speaker_icon = ExtResource("6_ojhwi")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_pg750"]
+script = ExtResource("7_dpcax")
+lines = Array[ExtResource("4_m2ssd")]([SubResource("Resource_y4wlt"), SubResource("Resource_qsv7x")])
+choices = Array[ExtResource("3_hgfbw")]([SubResource("Resource_5l23l"), SubResource("Resource_hgfbw")])
+metadata/_custom_type_script = "uid://dvkforrusa0nj"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5l23l"]
+radius = 17.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5l23l"]
+radius = 4.999907
+height = 16.011898
+
+[node name="BatteryPickup" type="Node2D" unique_id=440037839]
+script = ExtResource("1_hgfbw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1439101391]
+z_index = 1
+texture = ExtResource("1_f6aee")
+
+[node name="DialogueInteractable" parent="." unique_id=1631350735 instance=ExtResource("2_apqf7")]
+dialogue = SubResource("Resource_pg750")
+panel_path = NodePath("../DialoguePanel")
+
+[node name="InteractableCollisionShape2D" parent="DialogueInteractable" index="0" unique_id=278382881]
+position = Vector2(0, 0)
+shape = SubResource("CircleShape2D_5l23l")
+
+[node name="Prompt" parent="DialogueInteractable" index="1" unique_id=272794898]
+offset_left = -37.5
+offset_top = -103.5
+offset_right = 37.5
+offset_bottom = 64.5
+
+[node name="AnimatedSprite2D" parent="DialogueInteractable" index="2" unique_id=819702371]
+position = Vector2(0, -18.5)
+
+[node name="DialoguePanel" parent="." unique_id=210961773 instance=ExtResource("9_m2ssd")]
+player_name = ""
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1551033461]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1672239273]
+rotation = 1.5646988
+shape = SubResource("CapsuleShape2D_5l23l")
+
+[connection signal="option_confirmed" from="DialoguePanel" to="." method="_on_dialogue_panel_option_confirmed"]
+
+[editable path="DialogueInteractable"]

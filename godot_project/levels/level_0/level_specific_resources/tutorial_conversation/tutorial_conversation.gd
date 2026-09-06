@@ -14,4 +14,4 @@ func _ready() -> void:
 
 func _on_dialogue_complete():
 	scene_complete.emit()
-	queue_free()
+	#queue_free()

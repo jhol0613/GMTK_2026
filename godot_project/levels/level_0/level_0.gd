@@ -7,11 +7,13 @@ var _intro_active := true
 @onready var platform :TrainPlatform = $Platform
 @onready var ui_layer := $UiOverlay
 @onready var _skip_intro_layer: CanvasLayer = $SkipIntroLayer
-
+@onready var _battery_pickup := $BatteryPickup
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super._ready()
+	Wallet.enable(false)
+	_battery_pickup.visible = false
 	_set_pigeon_ambient_muted(true)
 	if TimeManager.consume_skip_intro():
 		_begin_without_intro()
@@ -69,9 +71,11 @@ func _on_conversation_complete():
 	add_child(_intro_falling_scene)
 	await get_tree().create_timer(2).timeout
 	AudioManager.play_tripped_music()
+	_free_intro_scene(_intro_conversation_scene)
 
 
 func _on_falling_scene_complete():
+	_battery_pickup.visible = true
 	platform.upper_train.train_depart(true)
 	ui_layer.open_notebook()
 	await get_tree().create_timer(10).timeout

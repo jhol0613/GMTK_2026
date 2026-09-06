@@ -35,6 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://dj6pi30ngfhch" path="res://level_elements/decorative/benches/rest_chair.tscn" id="32_oxxmn"]
 [ext_resource type="PackedScene" uid="uid://digydaor1ukv0" path="res://level_elements/decorative/benches/rest_chair_vertical_right.tscn" id="32_u460r"]
 [ext_resource type="PackedScene" path="res://level_elements/decorative/street_lamp/street_lamp.tscn" id="33_2dnbt"]
+[ext_resource type="PackedScene" uid="uid://dk0yrl5ejk4vw" path="res://ui/token_display/battery_pickup.tscn" id="36_dp5o0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8v7xn"]
 texture = ExtResource("17_ggct0")
@@ -953,6 +954,9 @@ position = Vector2(-160, -248)
 
 [node name="FireflyField" parent="." index="17" unique_id=1674045412 instance=ExtResource("32_fireflies")]
 brightness = 1.6
+
+[node name="BatteryPickup" parent="." index="18" unique_id=440037839 instance=ExtResource("36_dp5o0")]
+position = Vector2(-617, -293)
 
 [connection signal="pressed" from="SkipIntroLayer/SkipIntroButton" to="." method="_skip_intro"]
 

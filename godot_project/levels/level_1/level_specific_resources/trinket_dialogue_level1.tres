@@ -33,7 +33,7 @@ metadata/_custom_type_script = "uid://1bxpf358unij"
 
 [sub_resource type="Resource" id="Resource_j03om"]
 script = ExtResource("1_vvqtr")
-player_text = "uh... <<pink>>"
+player_text = "<<pink>> maybe?"
 reply = SubResource("Resource_r0nt2")
 reward = SubResource("Resource_vlm06")
 outcome_id = &"PINK"
@@ -96,7 +96,7 @@ metadata/_custom_type_script = "uid://1bxpf358unij"
 
 [sub_resource type="Resource" id="Resource_wfs54"]
 script = ExtResource("1_vvqtr")
-player_text = "<<red>>"
+player_text = "<<red>> I think?"
 reply = SubResource("Resource_stsco")
 reward = SubResource("Resource_yrao0")
 outcome_id = &"RED"

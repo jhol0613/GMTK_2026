@@ -64,6 +64,7 @@ func _ready() -> void:
 	_displayed_tokens = Wallet.tokens
 	Wallet.tokens_changed.connect(_on_tokens_changed)
 	Wallet.spend_failed.connect(_on_spend_failed)
+	Wallet.set_enabled.connect(_on_set_enabled)
 	_refresh(_displayed_tokens)
 
 
@@ -73,6 +74,11 @@ func _process(_delta):
 		var screen_space_lightning = get_viewport().get_canvas_transform() * _lightning_target_global
 		_lightning.set_point_position(_lightning_world_end, screen_space_lightning - _lightning.global_position)
 
+func _on_set_enabled(new_enabled: bool):
+	if not visible and new_enabled:
+		_play_scale_bump()
+	visible = new_enabled
+
 func _create_audio_players() -> void:
 	_gain_player = AudioStreamPlayer.new()
 	_gain_player.bus = &"SFX"
@@ -80,7 +86,6 @@ func _create_audio_players() -> void:
 	_drain_player = AudioStreamPlayer.new()
 	_drain_player.bus = &"SFX"
 	add_child(_drain_player)
-
 
 func _rebuild() -> void:
 	if not is_node_ready():
@@ -138,6 +143,8 @@ func _on_tokens_changed(current: int, _maximum: int, origin_global: Vector2) -> 
 		#_stop_lightning()
 
 func _on_spend_failed(cost: int, current: int):
+	_play_scale_bump()
+	#TODO: play sound, maybe flashing animation
 	print("Not enough money")
 
 func _play_gain_lightning(target: Vector2):
