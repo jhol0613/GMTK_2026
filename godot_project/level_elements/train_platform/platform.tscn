@@ -66,6 +66,7 @@ tile_map_data = PackedByteArray("AAD5//j/AgABAAIAAAD6//j/AgABAAIAAAD7//j/AgABAAI
 tile_set = ExtResource("2_617rf")
 
 [node name="UpperTrain" parent="." unique_id=995237668 instance=ExtResource("5_ajha7")]
+visible = false
 z_index = -3
 position = Vector2(-128, -79)
 direction = 2
@@ -83,6 +84,7 @@ material = SubResource("CanvasItemMaterial_train_front_glow")
 texture = ExtResource("11_train_front_glow")
 
 [node name="LowerTrain" parent="." unique_id=1370361982 instance=ExtResource("5_ajha7")]
+visible = false
 z_index = 3
 position = Vector2(-128, 145)
 direction = 3

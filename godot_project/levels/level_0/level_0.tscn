@@ -541,6 +541,8 @@ z_index = 1270
 script = ExtResource("2_as6hq")
 correct_train_line = 7
 correct_train_direction = 2
+correct_train_scene = 3
+wrong_train_destination = 2
 
 [node name="StationHandler" type="Node" parent="." index="0" unique_id=1817374426]
 script = ExtResource("3_2dnbt")
@@ -584,6 +586,7 @@ tile_set = SubResource("TileSet_3beyx")
 tile_set = SubResource("TileSet_3beyx")
 
 [node name="UpperTrain" parent="Platform" index="7" unique_id=995237668]
+visible = true
 color = 7
 
 [node name="TrainSprite" parent="Platform/UpperTrain" index="2" unique_id=865404147]
