@@ -10,7 +10,7 @@ const TIME_TO_HOVER: = .4
 			_encoded_string = LanguageRenderer.encode(_string)
 		
 var _encoded_string: String = ''
-var note_popup_scale_multiplier := 1.0
+@export var note_popup_scale_multiplier := 1.0
 
 var _hovered: = false
 var note: ResshanPopUp = null

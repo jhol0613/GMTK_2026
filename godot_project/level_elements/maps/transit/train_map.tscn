@@ -52,6 +52,7 @@ offset_right = 220.77917
 offset_bottom = 399.9999
 script = ExtResource("6_nf7gk")
 _string = "<<endofbrownline>>"
+note_popup_scale_multiplier = 4.0
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="EndOfRedLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=815718767]
@@ -64,6 +65,59 @@ offset_right = 422.07788
 offset_bottom = 574.026
 script = ExtResource("6_nf7gk")
 _string = "<<endofredline>>"
+note_popup_scale_multiplier = 4.0
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="StartOfRedLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=1509763264]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -594.8052
+offset_top = 277.9221
+offset_right = -511.6883
+offset_bottom = 340.25974
+script = ExtResource("6_nf7gk")
+_string = "<<startofredline>>"
+note_popup_scale_multiplier = 4.0
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="StartOfGreenLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=1416550363]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -220.77924
+offset_top = 514.2857
+offset_right = -148.05194
+offset_bottom = 587.013
+script = ExtResource("6_nf7gk")
+_string = "<<startofgreenline>>"
+note_popup_scale_multiplier = 4.0
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="StartOfBlueLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=2114235621]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -428.57144
+offset_top = 132.46754
+offset_right = -345.45456
+offset_bottom = 194.80519
+script = ExtResource("6_nf7gk")
+_string = "<<startofblueline>>"
+note_popup_scale_multiplier = 4.0
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="StartOfPurpleLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=855200917]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -428.57147
+offset_top = 38.961014
+offset_right = -366.23376
+offset_bottom = 111.68831
+script = ExtResource("6_nf7gk")
+_string = "<<startofpurpleline>>"
+note_popup_scale_multiplier = 4.0
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="EndOfPinkLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=1378205086]
@@ -76,6 +130,7 @@ offset_right = 225.97398
 offset_bottom = -224.67535
 script = ExtResource("6_nf7gk")
 _string = "<<endofpinkline>>"
+note_popup_scale_multiplier = 4.0
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="EndOfBlueLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=1491655319]
@@ -88,6 +143,7 @@ offset_right = 107.79218
 offset_bottom = -84.4156
 script = ExtResource("6_nf7gk")
 _string = "<<endofblueline>>"
+note_popup_scale_multiplier = 4.0
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="StartOfYellowLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=2060930016]
@@ -100,18 +156,20 @@ offset_right = 77.92204
 offset_bottom = -354.54553
 script = ExtResource("6_nf7gk")
 _string = "<<startofyellowline>>"
+note_popup_scale_multiplier = 4.0
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="MiddleOfPinkLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=1783399837]
 physics_interpolation_mode = 0
 layout_mode = 3
 anchors_preset = 0
-offset_left = -261.039
-offset_top = -32.46755
-offset_right = -194.80524
-offset_bottom = 20.779156
+offset_left = -262.3377
+offset_top = -23.37664
+offset_right = -189.61041
+offset_bottom = 29.870064
 script = ExtResource("6_nf7gk")
 _string = "<<middleofpinkline>>"
+note_popup_scale_multiplier = 4.0
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="EndOfTealLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=1068910969]
@@ -124,6 +182,7 @@ offset_right = 510.38956
 offset_bottom = 277.92206
 script = ExtResource("6_nf7gk")
 _string = "<<endoftealline>>"
+note_popup_scale_multiplier = 4.0
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="station0" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=337114235]
@@ -136,6 +195,7 @@ offset_right = -380.51953
 offset_bottom = 336.36353
 script = ExtResource("6_nf7gk")
 _string = "<<station.0>>"
+note_popup_scale_multiplier = 4.0
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="clsd" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=2107252903]
@@ -148,6 +208,7 @@ offset_right = -419.48056
 offset_bottom = -149.35052
 script = ExtResource("6_nf7gk")
 _string = "<<closed>>"
+note_popup_scale_multiplier = 4.0
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="station1" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=191321993]
@@ -160,6 +221,7 @@ offset_right = -61.03901
 offset_bottom = 227.27278
 script = ExtResource("6_nf7gk")
 _string = "<<station.1>>"
+note_popup_scale_multiplier = 4.0
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="station2" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=1567662776]
@@ -172,6 +234,7 @@ offset_right = 167.53241
 offset_bottom = 40.25972
 script = ExtResource("6_nf7gk")
 _string = "<<station.2>>"
+note_popup_scale_multiplier = 4.0
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="EndOfGrayLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=769690753]
@@ -184,6 +247,7 @@ offset_right = 459.74023
 offset_bottom = 132.46751
 script = ExtResource("6_nf7gk")
 _string = "<<endofgrayline>>"
+note_popup_scale_multiplier = 4.0
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="EndOfGreenLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=465219179]
@@ -196,6 +260,7 @@ offset_right = 157.14279
 offset_bottom = 511.6883
 script = ExtResource("6_nf7gk")
 _string = "<<endofgreenline>>"
+note_popup_scale_multiplier = 4.0
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="EndOfYellowLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=1548955366]
@@ -208,6 +273,59 @@ offset_right = 377.92206
 offset_bottom = 466.23376
 script = ExtResource("6_nf7gk")
 _string = "<<endofyellowline>>"
+note_popup_scale_multiplier = 4.0
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="StartOfGrayLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=712673995]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -116.88312
+offset_top = -501.2987
+offset_right = -44.155823
+offset_bottom = -418.18182
+script = ExtResource("6_nf7gk")
+_string = "<<startofgrayline>>"
+note_popup_scale_multiplier = 4.0
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="StartOfMaroonLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=93757511]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -241.55844
+offset_top = -584.4156
+offset_right = -158.44156
+offset_bottom = -532.4675
+script = ExtResource("6_nf7gk")
+_string = "<<startofmaroonline>>"
+note_popup_scale_multiplier = 4.0
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="StartOfBrownLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=869874120]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -241.55844
+offset_top = -324.67532
+offset_right = -168.8312
+offset_bottom = -262.33765
+script = ExtResource("6_nf7gk")
+_string = "<<startofbrownline>>"
+note_popup_scale_multiplier = 4.0
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="StartOfTealLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=2025729239]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -366.23376
+offset_top = -283.11688
+offset_right = -293.50653
+offset_bottom = -220.7792
+script = ExtResource("6_nf7gk")
+_string = "<<startoftealline>>"
+note_popup_scale_multiplier = 4.0
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="EndOfMaroonLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=1123076639]
@@ -220,6 +338,7 @@ offset_right = 332.46744
 offset_bottom = -206.49356
 script = ExtResource("6_nf7gk")
 _string = "<<endofmaroonline>>"
+note_popup_scale_multiplier = 4.0
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="EndOfPurpleLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=621705647]
@@ -232,6 +351,7 @@ offset_right = 579.2208
 offset_bottom = 396.10385
 script = ExtResource("6_nf7gk")
 _string = "<<endofpurpleline>>"
+note_popup_scale_multiplier = 4.0
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="resshancentralsquare" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=550058470]
@@ -244,6 +364,7 @@ offset_right = -2.597435
 offset_bottom = -244.15582
 script = ExtResource("6_nf7gk")
 _string = "<<resshancentralsquare>>"
+note_popup_scale_multiplier = 4.0
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="StartOfPinkLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=711403735]
@@ -256,6 +377,7 @@ offset_right = 185.7142
 offset_bottom = 228.57133
 script = ExtResource("6_nf7gk")
 _string = "<<startofpinkline>>"
+note_popup_scale_multiplier = 4.0
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="north" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=492400746]
@@ -268,6 +390,7 @@ offset_right = 437.66235
 offset_bottom = -502.5974
 script = ExtResource("6_nf7gk")
 _string = "<<north>>"
+note_popup_scale_multiplier = 4.0
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="east" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=1161092808]
@@ -280,6 +403,7 @@ offset_right = 557.1428
 offset_bottom = -381.8182
 script = ExtResource("6_nf7gk")
 _string = "<<east>>"
+note_popup_scale_multiplier = 4.0
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="west" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=372488495]
@@ -292,6 +416,7 @@ offset_right = 316.88312
 offset_bottom = -380.51947
 script = ExtResource("6_nf7gk")
 _string = "<<west>>"
+note_popup_scale_multiplier = 4.0
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="south" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=379963249]
@@ -304,6 +429,7 @@ offset_right = 437.66235
 offset_bottom = -261.03882
 script = ExtResource("6_nf7gk")
 _string = "<<south>>"
+note_popup_scale_multiplier = 4.0
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="TransitMapColorblindOverlay" type="Sprite2D" parent="SignPanel/Root/Popup" parent_id_path=PackedInt32Array(1998267979, 2123670025) index="3" unique_id=452948792]

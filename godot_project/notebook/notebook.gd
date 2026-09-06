@@ -27,8 +27,8 @@ func _ready() -> void:
 
 func _handle_show_resshan(encoded: String) -> void:
 	var overlay := get_parent()
-	if overlay != null and overlay.has_method("open_notebook"):
-		overlay.open_notebook()
+	if overlay != null and overlay.has_method("on_notebook_button_pressed"):
+		overlay.on_notebook_button_pressed()
 	else:
 		show()
 	var pages: = _sections[0].get_pages()

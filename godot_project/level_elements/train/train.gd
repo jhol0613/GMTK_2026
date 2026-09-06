@@ -382,13 +382,14 @@ func play_arrival_animation(include_player = true) -> void:
 			player_disembark_marker.global_position,
 			board_walk_speed,
 		)
-		get_tree().get_first_node_in_group("ui_overlay").player_in_arrive_disembark_anim = false
+		
 	elif remote:
 		remote.position = remote_rest
 
 	await _close_doors()
 	
 	player.set_active(true)
+	get_tree().get_first_node_in_group("ui_overlay").player_in_arrive_disembark_anim = false
 	
 	await train_depart(true)
 	_block_arrivals = false
