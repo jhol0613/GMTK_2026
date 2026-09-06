@@ -40,6 +40,7 @@ var _shake_token := 0
 func _ready() -> void:
 	_sprite_home = $AnimatedSprite2D.position
 	_sprite.frame_changed.connect(_sync_glow)
+	_sprite.animation_changed.connect(_update_electricity)
 	_sync_glow()
 	if electricity != null:
 		electricity.visible = false
@@ -48,12 +49,13 @@ func _ready() -> void:
 		#_run_spark()
 		#_run_current()
 		#_run_compressor()
+	_update_electricity()
+	_run_current()
 
 func fix(break_again := true):
 	_sprite.play("idle")
 	if break_again:
 		_run_spark()
-		_run_current()
 		_run_compressor()
 	#_sprite.play("idle")
 	#if time <= 0:
@@ -87,7 +89,18 @@ func _run_current() -> void:
 		_burst()
 
 
+func _update_electricity() -> void:
+	if _sprite.animation == &"broken":
+		return
+	_current.stop()
+	if electricity != null:
+		electricity.stop()
+		electricity.visible = false
+
+
 func _burst() -> void:
+	if _sprite.animation != &"broken":
+		return
 	if _current.stream != null:
 		_current.play()
 	if electricity == null:
