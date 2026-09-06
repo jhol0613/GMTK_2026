@@ -34,12 +34,10 @@
 [ext_resource type="PackedScene" uid="uid://biebaxao2klw3" path="res://level_elements/decorative/benches/rest_chair_vertical_left.tscn" id="39_wl75l"]
 [ext_resource type="PackedScene" uid="uid://c5jvn4a3mfhj" path="res://level_elements/decorative/recycle_bin/recycle_bin.tscn" id="40_m78yj"]
 [ext_resource type="PackedScene" uid="uid://bo3pcctdon7l" path="res://level_elements/signs/sign_station_name.tscn" id="41_r4js7"]
-[ext_resource type="PackedScene" uid="uid://d2ffkk2tvq3wc" path="res://level_elements/NPCs/coffee_npc/coffee_npc.tscn" id="42_60i3m"]
 [ext_resource type="PackedScene" uid="uid://bqn5083nuxoa8" path="res://level_elements/NPCs/pee_pee_dance/pee_pee_dance.tscn" id="42_jg3i0"]
 [ext_resource type="PackedScene" uid="uid://cltjgiddt3m3y" path="res://level_elements/NPCs/preston/preston.tscn" id="43_y7g21"]
 [ext_resource type="Script" uid="uid://dcanbg433hb0v" path="res://visual_effects/day_night/hoverthruster_lighting.gd" id="44_thruster_light"]
 [ext_resource type="PackedScene" path="res://visual_effects/fireflies/firefly_field.tscn" id="45_fireflies"]
-[ext_resource type="PackedScene" uid="uid://cmdda7648573b" path="res://level_elements/NPCs/npc.tscn" id="46_s81jn"]
 [ext_resource type="PackedScene" path="res://level_elements/decorative/street_lamp/street_lamp.tscn" id="47_n5t7a"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="48_rshan"]
 
@@ -63,18 +61,6 @@ size = Vector2(29.5, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_betor"]
 size = Vector2(128, 32)
-
-[sub_resource type="Curve2D" id="Curve2D_60i3m"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -482, -232, 0, 0, 0, 0, -364, -232, 0, 0, 0, 0, -453, -274)
-}
-point_count = 3
-
-[sub_resource type="Curve2D" id="Curve2D_2jmd8"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -611, -255, 0, 0, 0, 0, -532, -255)
-}
-point_count = 2
 
 [node name="Level1" unique_id=783439983 node_paths=PackedStringArray("arrival_train") instance=ExtResource("1_2jmd8")]
 correct_train_direction = 2
@@ -1158,33 +1144,6 @@ brightness = 1.6
 
 [node name="RestChairVerticalLeft" parent="." index="26" unique_id=1996001012 instance=ExtResource("39_wl75l")]
 position = Vector2(-40, -350)
-
-[node name="Npc" parent="." index="27" unique_id=612785611 node_paths=PackedStringArray("patrol_path") instance=ExtResource("46_s81jn")]
-position = Vector2(-502, -234)
-patrol_path = NodePath("../Path2D")
-
-[node name="Path2D" type="Path2D" parent="." index="28" unique_id=1719496755]
-curve = SubResource("Curve2D_60i3m")
-
-[node name="CoffeeNpc" parent="." index="29" unique_id=1765667578 node_paths=PackedStringArray("action_point", "spawn_point", "shop_point", "patrol_path") instance=ExtResource("42_60i3m")]
-position = Vector2(-611, -255)
-action_point = NodePath("../CoffeeActionPoint")
-spawn_point = NodePath("../CoffeeSpawnPoint")
-shop_point = NodePath("../CoffeeShopPoint")
-round_trips_before_drop = 16
-patrol_path = NodePath("../CoffeePatrolPath")
-
-[node name="CoffeePatrolPath" type="Path2D" parent="." index="30" unique_id=1151938190]
-curve = SubResource("Curve2D_2jmd8")
-
-[node name="CoffeeActionPoint" type="Marker2D" parent="." index="31" unique_id=1405243710]
-position = Vector2(-532, -255)
-
-[node name="CoffeeSpawnPoint" type="Marker2D" parent="." index="32" unique_id=1381325532]
-position = Vector2(-544, -256)
-
-[node name="CoffeeShopPoint" type="Marker2D" parent="." index="33" unique_id=1262861504]
-position = Vector2(-573, -281)
 
 [editable path="Platform1"]
 [editable path="Platform2"]
