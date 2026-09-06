@@ -6,6 +6,7 @@ signal close_requested
 const SLOT_COUNT: int = 4
 
 @export var _slots: Array[InventorySlot]
+@export var slot_h_box: HBoxContainer
 
 var hand_open = load("uid://xuaolfjqb2gn")
 var hand_closed = load("uid://w4yu8aix4u4b")
@@ -63,7 +64,7 @@ func _start_drag(pos: Vector2) -> void:
 	
 	for i in mini(_items.size(), SLOT_COUNT):
 		#if not _slots[i].slut_icon.get_global_rect().has_point(pos):
-		if not _slots[i].get_global_rect().has_point(pos):
+		if not _slots[i].slut_icon.get_global_rect().has_point(pos):
 			continue
 		Input.set_custom_mouse_cursor(hand_closed, Input.CURSOR_ARROW, Vector2(16,16) )
 		get_tree().get_first_node_in_group("ui_overlay").dragging_item = true
@@ -133,6 +134,7 @@ func _update_cursor(pos: Vector2):
 
 
 func _on_slots_mouse_exited() -> void:
-	if _drag_item:
+	
+	if _drag_item or slot_h_box.get_global_rect().has_point(get_global_mouse_position()) :
 		return
 	Input.set_custom_mouse_cursor( magnifying_glass, Input.CURSOR_ARROW, Vector2(0.0,0.0) )

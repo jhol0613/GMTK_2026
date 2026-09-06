@@ -18,9 +18,8 @@ static func draw_text(
 	separator: String = DEFAULT_PARAGRAPH_SEPARATOR,
 	font: = ThemeDB.fallback_font,
 	font_size: = ENGLISH_DEFAULT_FONT_SIZE,
-	modulate_color: = Color.WHITE
-
-) -> Array[RectangleShape2D]:
+	modulate_color: = Color(1.0,.98,.83,1)
+	) -> Array[RectangleShape2D]:
 	
 	var shapes: Array[RectangleShape2D]
 	var char_pos: Vector2 = Vector2(0, font_size)
@@ -28,7 +27,7 @@ static func draw_text(
 	
 	for str:String in arr:
 		if str == separator:
-			char_pos.y += 16
+			char_pos.y += font_size * 1.25
 			char_pos.x = 0
 			continue
 		if str.contains("<<") and str.contains(">>"):

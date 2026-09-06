@@ -13,7 +13,6 @@ slut_name = NodePath("SlotBg/VBox/SlotName")
 
 [node name="SlotBg" type="TextureRect" parent="." unique_id=68353347]
 custom_minimum_size = Vector2(150, 150)
-clip_contents = true
 layout_mode = 2
 texture = ExtResource("1_nktrt")
 expand_mode = 1
@@ -38,11 +37,16 @@ stretch_mode = 5
 
 [node name="SlotName" type="Control" parent="SlotBg/VBox" unique_id=729376455]
 unique_name_in_owner = true
+z_index = 1
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
 script = ExtResource("2_hwg0l")
-font_size = 24
+font_size = 32
+note_popup_scale_multiplier = 2.0
 metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
