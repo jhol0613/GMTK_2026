@@ -44,4 +44,5 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
 script = ExtResource("2_hwg0l")
+font_size = 24
 metadata/_custom_type_script = "uid://sidowamkhcrt"

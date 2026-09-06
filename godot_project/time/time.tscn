@@ -54,6 +54,7 @@ script = ExtResource("2_i56kd")
 text = "hi"
 spacing = 10.0
 font_size = 24
+note_popup_scale_multiplier = 4.0
 metadata/_custom_type_script = "uid://sidowamkhcrt"
 
 [node name="SFXPlayer" type="AudioStreamPlayer" parent="." unique_id=1979466321]
