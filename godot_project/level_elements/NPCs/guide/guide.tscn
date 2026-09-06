@@ -154,4 +154,13 @@ animations = [{
 [node name="Sprite" parent="." index="0" unique_id=1868209522]
 sprite_frames = SubResource("SpriteFrames_x4dmb")
 
+[node name="Prompt" parent="DialogueInteractable" parent_id_path=PackedInt32Array(1161048169) index="1" unique_id=272794898]
+offset_left = -37.5
+offset_top = -120.5
+offset_right = 37.5
+offset_bottom = 47.5
+
+[node name="AnimatedSprite2D" parent="DialogueInteractable" parent_id_path=PackedInt32Array(1161048169) index="2" unique_id=819702371]
+position = Vector2(0, -35.5)
+
 [editable path="DialogueInteractable"]

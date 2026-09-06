@@ -30,6 +30,16 @@ autoplay = "fix"
 [node name="DialogueInteractable" parent="." index="2" unique_id=1161048169]
 dialogue = SubResource("Resource_i6y3f")
 
+[node name="Prompt" parent="DialogueInteractable" index="1" unique_id=272794898]
+offset_left = -37.5
+offset_top = -123.5
+offset_right = 37.5
+offset_bottom = 44.5
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimatedSprite2D" parent="DialogueInteractable" index="2" unique_id=819702371]
+position = Vector2(0, -38.5)
+
 [node name="ResshanInteractable" type="Control" parent="." index="4" unique_id=287005088]
 layout_mode = 3
 anchors_preset = 0

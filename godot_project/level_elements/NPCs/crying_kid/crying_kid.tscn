@@ -428,6 +428,16 @@ animation = &"RED"
 [node name="DialogueInteractable" parent="." index="2" unique_id=1161048169]
 dialogue = SubResource("Resource_knmce")
 
+[node name="Prompt" parent="DialogueInteractable" index="1" unique_id=272794898]
+offset_left = -37.5
+offset_top = -122.5
+offset_right = 37.5
+offset_bottom = 45.5
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimatedSprite2D" parent="DialogueInteractable" index="2" unique_id=819702371]
+position = Vector2(0, -37.5)
+
 [node name="Sprite2D" type="Sprite2D" parent="." index="4" unique_id=1857139683]
 
 [node name="CryLoop" type="AudioStreamPlayer2D" parent="." index="5" unique_id=276118853]

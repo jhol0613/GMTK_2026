@@ -62,8 +62,15 @@ panel_path = NodePath("../DialoguePanel")
 [node name="InteractableCollisionShape2D" parent="DialogueInteractable" index="0" unique_id=278382881]
 position = Vector2(0, 4)
 
+[node name="Prompt" parent="DialogueInteractable" index="1" unique_id=272794898]
+offset_left = -37.5
+offset_top = -123.0
+offset_right = 37.5
+offset_bottom = 45.0
+
 [node name="AnimatedSprite2D" parent="DialogueInteractable" index="2" unique_id=819702371]
 visible = false
+position = Vector2(0, -40)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=40297082]
 collision_layer = 2

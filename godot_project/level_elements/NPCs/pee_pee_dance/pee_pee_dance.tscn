@@ -55,12 +55,20 @@ autoplay = "default"
 [node name="DialogueInteractable" parent="." unique_id=1631350735 instance=ExtResource("2_2jkr3")]
 dialogue = SubResource("Resource_fpwrr")
 panel_path = NodePath("../DialoguePanel")
+has_arrow = false
 
 [node name="InteractableCollisionShape2D" parent="DialogueInteractable" index="0" unique_id=278382881]
 position = Vector2(0, 4)
 
+[node name="Prompt" parent="DialogueInteractable" index="1" unique_id=272794898]
+offset_left = -37.5
+offset_top = -124.0
+offset_right = 37.5
+offset_bottom = 44.0
+
 [node name="AnimatedSprite2D" parent="DialogueInteractable" index="2" unique_id=819702371]
 visible = false
+position = Vector2(0, -40)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=40297082]
 collision_layer = 2

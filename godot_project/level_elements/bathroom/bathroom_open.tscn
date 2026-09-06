@@ -83,8 +83,15 @@ has_arrow = false
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_mdesx")
 
+[node name="Prompt" parent="." index="1" unique_id=272794898]
+offset_left = -37.5
+offset_top = -126.5
+offset_right = 37.5
+offset_bottom = 41.5
+
 [node name="AnimatedSprite2D" parent="." index="2" unique_id=819702371]
 visible = false
+position = Vector2(0, -41.5)
 
 [node name="DoorSprite" type="AnimatedSprite2D" parent="." index="3" unique_id=1535641476]
 z_index = 1

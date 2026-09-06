@@ -1,20 +1,17 @@
 [gd_scene format=3 uid="uid://dj6pi30ngfhch"]
 
 [ext_resource type="Script" uid="uid://cc7ngque0dksu" path="res://level_elements/decorative/benches/rest_chair.gd" id="1_cflp7"]
-[ext_resource type="Texture2D" path="res://level_elements/decorative/benches/bench_new.png" id="1_q3xr7"]
+[ext_resource type="Texture2D" uid="uid://eg6rx0uah10h" path="res://level_elements/decorative/benches/bench_new.png" id="1_q3xr7"]
 [ext_resource type="Texture2D" uid="uid://df2ldgroey8mb" path="res://level_elements/decorative/snoozin.png" id="2_nb0la"]
 [ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialog_system/dialogue_interactable.tscn" id="4_2owq5"]
 [ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://interactables/dialog_system/dialogue_choice.gd" id="5_pjyse"]
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="6_gbq2o"]
 [ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="7_e8i8n"]
 [ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialog_system/dialogue_panel.tscn" id="8_dmf37"]
-[ext_resource type="Texture2D" path="res://level_elements/decorative/benches/bench_new_glow.png" id="9_glow"]
-[ext_resource type="Texture2D" path="res://visual_effects/day_night/light_radial.png" id="10_light"]
-[ext_resource type="Script" path="res://visual_effects/day_night/night_light_2d.gd" id="11_night"]
-[ext_resource type="Texture2D" path="res://level_elements/decorative/benches/Bench_sitting.png" id="12_sitting"]
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glow"]
-blend_mode = 1
+[ext_resource type="Texture2D" uid="uid://cgmv5kw25wrki" path="res://level_elements/decorative/benches/bench_new_glow.png" id="9_glow"]
+[ext_resource type="Texture2D" uid="uid://b7k1rwda5wu1p" path="res://visual_effects/day_night/light_radial.png" id="10_light"]
+[ext_resource type="Script" uid="uid://cqe28fftgjtbc" path="res://visual_effects/day_night/night_light_2d.gd" id="11_night"]
+[ext_resource type="Texture2D" uid="uid://cb0r3npuv41tw" path="res://level_elements/decorative/benches/Bench_sitting.png" id="12_sitting"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fpcxu"]
 size = Vector2(48, 16)
@@ -60,6 +57,9 @@ animations = [{
 "speed": 2.0
 }]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glow"]
+blend_mode = 1
+
 [sub_resource type="Resource" id="Resource_lxykm"]
 script = ExtResource("5_pjyse")
 player_text = "Rest"
@@ -97,26 +97,26 @@ sprite_frames = SubResource("SpriteFrames_fpcxu")
 autoplay = "default"
 frame_progress = 0.0259226
 
-[node name="SeatedSprite" type="Sprite2D" parent="."]
+[node name="SeatedSprite" type="Sprite2D" parent="." unique_id=949703738]
 visible = false
 z_index = 1
 position = Vector2(0, -13.5)
 texture = ExtResource("12_sitting")
 
-[node name="NightLight" type="Node2D" parent="." groups=["night_lights"]]
+[node name="NightLight" type="Node2D" parent="." unique_id=1947052358 groups=["night_lights"]]
 script = ExtResource("11_night")
 max_energy = 0.16
 max_glow_alpha = 0.9
 stagger_range = 0.04
 
-[node name="GlowOverlay" type="Sprite2D" parent="NightLight"]
+[node name="GlowOverlay" type="Sprite2D" parent="NightLight" unique_id=913253509]
 modulate = Color(1, 1, 1, 0)
 z_index = 1
 material = SubResource("CanvasItemMaterial_glow")
 position = Vector2(0, -12.5)
 texture = ExtResource("9_glow")
 
-[node name="PointLight2D" type="PointLight2D" parent="NightLight"]
+[node name="PointLight2D" type="PointLight2D" parent="NightLight" unique_id=79390853]
 position = Vector2(0, -3)
 scale = Vector2(1.2, 0.42)
 color = Color(0.20784314, 0.9019608, 0.8980392, 1)
@@ -129,6 +129,10 @@ dialogue = SubResource("Resource_6cojq")
 panel_path = NodePath("../DialoguePanel")
 
 [node name="Prompt" parent="DialogueInteractable" index="1" unique_id=272794898]
+offset_left = -37.5
+offset_top = -116.0
+offset_right = 37.5
+offset_bottom = 52.0
 
 [node name="AnimatedSprite2D" parent="DialogueInteractable" index="2" unique_id=819702371]
 visible = false

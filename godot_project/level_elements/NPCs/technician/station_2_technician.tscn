@@ -82,4 +82,11 @@ autoplay = "fix_loop"
 [node name="DialogueInteractable" parent="." index="2" unique_id=1161048169]
 dialogue = SubResource("Resource_46dy6")
 
+[node name="Prompt" parent="DialogueInteractable" index="1" unique_id=272794898]
+offset_top = -129.5
+offset_bottom = 38.5
+
+[node name="AnimatedSprite2D" parent="DialogueInteractable" index="2" unique_id=819702371]
+position = Vector2(0, -44.5)
+
 [editable path="DialogueInteractable"]

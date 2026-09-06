@@ -67,12 +67,20 @@ autoplay = "default"
 speaker = "Preston"
 dialogue = SubResource("Resource_fslih")
 panel_path = NodePath("../DialoguePanel")
+has_arrow = false
 
 [node name="InteractableCollisionShape2D" parent="DialogueInteractable" index="0" unique_id=278382881]
 position = Vector2(0, 4)
 
+[node name="Prompt" parent="DialogueInteractable" index="1" unique_id=272794898]
+offset_left = -37.5
+offset_top = -122.5
+offset_right = 37.5
+offset_bottom = 45.5
+
 [node name="AnimatedSprite2D" parent="DialogueInteractable" index="2" unique_id=819702371]
 visible = false
+position = Vector2(0, -37.5)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1113648422]
 collision_layer = 2
