@@ -16,6 +16,8 @@ data = PackedByteArray("SUQzAgAAAAAfdlRTUwAAEwBMb2dpYyBQcm8gWCAxMC43LjlDT00AAGgA
 
 [node name="Control" type="Control" unique_id=190135014]
 process_mode = 3
+z_index = 4096
+z_as_relative = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

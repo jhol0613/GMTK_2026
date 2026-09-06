@@ -48,7 +48,7 @@ func pause_game():
 	if pause_enabled:
 		get_tree().paused = true
 		_pause_layer = CanvasLayer.new()
-		_pause_layer.layer = 10
+		_pause_layer.layer = 10000
 		get_tree().current_scene.add_child(_pause_layer)
 		_pause_layer.add_child(scene_dict.get(Enums.Scenes.PAUSE).instantiate())
 
