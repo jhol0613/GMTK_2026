@@ -28,7 +28,6 @@ var _launcher_button_states: Dictionary = {}
 @onready var _ticket: Ticket = $Ticket
 @onready var _inventory_button : TextureButton = $InventoryButton
 @onready var _inventory: InventoryPanel = $InventoryPanel
-@onready var _options_button: Button = $OptionsButton
 @onready var _notebook_hover_sound: AudioStreamPlayer = $NotebookHoverSound
 @onready var _notebook_click_sound: AudioStreamPlayer = $NotebookClickSound
 @onready var _notebook_exit_sound: AudioStreamPlayer = $NotebookCloseSound
@@ -215,7 +214,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("escape"):
 		if _has_open_panel():
 			_close_all_panels()
-			get_viewport().set_input_as_handled()
+		elif GameManager.pause_enabled and not get_tree().paused:
+			GameManager.pause_game()
+		get_viewport().set_input_as_handled()
 		return
 
 	var pointer_position := _get_pressed_pointer_position(event)
@@ -452,7 +453,6 @@ func _is_over_launcher_button(point: Vector2) -> bool:
 		_notebook_button,
 		_ticket_button,
 		_inventory_button,
-		_options_button,
 	]:
 		if button.visible and _control_contains_point(button, point):
 			return true
@@ -548,15 +548,3 @@ func _hide_item_popup(item: ItemData = null) -> void:
 
 func _on_ticket_consumed():
 	_animation_player.play("ticket_consumed")
-
-func _on_options_button_pressed() -> void:
-	if _notebook.visible:
-		close_notebook()
-
-	if _ticket.visible:
-		_close_ticket()
-
-	if _inventory.visible:
-		_close_inventory()
-
-	GameManager.pause_game()
