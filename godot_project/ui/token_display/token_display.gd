@@ -50,6 +50,7 @@ var _drain_player: AudioStreamPlayer
 var _displayed_tokens: int = 0
 var _charge_generation: int = 0
 var _motion_tween: Tween
+var _color_tween: Tween
 var _base_position := Vector2.ZERO
 var _base_scale := Vector2.ONE
 
@@ -142,10 +143,17 @@ func _on_tokens_changed(current: int, _maximum: int, origin_global: Vector2) -> 
 		await _animate_drain(current, generation)
 		#_stop_lightning()
 
-func _on_spend_failed(cost: int, current: int):
-	_play_scale_bump()
-	#TODO: play sound, maybe flashing animation
-	print("Not enough money")
+func _on_spend_failed(_cost: int, _current: int) -> void:
+	AudioManager.play_wrong_ticket_sfx()
+	_kill_motion_tween()
+	position = _base_position
+	scale = _base_scale
+	_motion_tween = create_tween()
+	_motion_tween.tween_property(self, "scale", _base_scale * 1.18, 0.1)
+	for offset in [2.0, -2.0, 1.0, -1.0, 0.0]:
+		_motion_tween.tween_property(self, "position", _base_position + Vector2(offset * pixel_scale, 0.0), 0.06)
+	_motion_tween.tween_property(self, "scale", _base_scale, 0.2)
+	_play_color_flash(Color(1.0, 0.35, 0.3), 0.08, 0.42)
 
 func _play_gain_lightning(target: Vector2):
 	if target == Vector2(0,0):
@@ -270,15 +278,19 @@ func _play_shake() -> void:
 
 
 func _play_completion_flash() -> void:
-	var tween := create_tween()
-	tween.tween_property(self, "modulate", Color(0.75, 1.0, 1.0, 1.0), 0.2)
-	tween.tween_property(self, "modulate", Color.WHITE, 0.4)
+	_play_color_flash(Color(0.75, 1.0, 1.0, 1.0), 0.2, 0.4)
 
 
 func _play_low_pulse() -> void:
-	var tween := create_tween()
-	tween.tween_property(self, "modulate", Color(1.0, 0.72, 0.45, 1.0), 0.26)
-	tween.tween_property(self, "modulate", Color.WHITE, 0.46)
+	_play_color_flash(Color(1.0, 0.72, 0.45, 1.0), 0.26, 0.46)
+
+
+func _play_color_flash(color: Color, fade_in: float, fade_out: float) -> void:
+	if _color_tween != null and _color_tween.is_valid():
+		_color_tween.kill()
+	_color_tween = create_tween()
+	_color_tween.tween_property(self, "modulate", color, fade_in)
+	_color_tween.tween_property(self, "modulate", Color.WHITE, fade_out)
 
 
 func _kill_motion_tween() -> void:

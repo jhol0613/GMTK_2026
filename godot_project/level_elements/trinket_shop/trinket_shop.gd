@@ -24,6 +24,7 @@ func _on_option_confirmed(outcome_id: StringName) -> void:
 	#if outcome_id != PURCHASE_OUTCOME:
 		#return
 	if not Wallet.can_afford(Wallet.TRINKET_COST):
+		Wallet.spend(Wallet.TRINKET_COST, _lightning_origin.global_position)
 		var line = no_money_line.duplicate()
 		line.text = no_money_line.text % [Wallet.tokens, Wallet.TRINKET_COST]
 		_dialogue_panel.reject_choice(line)
