@@ -165,7 +165,7 @@ func _on_notebook_button_mouse_exited() -> void:
 	_notebook_button.position -= mouse_hover_offset
 
 
-func _on_notebook_button_pressed() -> void:
+func on_notebook_button_pressed() -> void:
 	if player_in_arrive_disembark_anim:
 		return
 	if _notebook.visible:
