@@ -66,6 +66,54 @@ script = ExtResource("6_nf7gk")
 _string = "<<endofredline>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
+[node name="StartOfRedLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=1509763264]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -594.8052
+offset_top = 277.9221
+offset_right = -511.6883
+offset_bottom = 340.25974
+script = ExtResource("6_nf7gk")
+_string = "<<startofredline>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="StartOfGreenLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=1416550363]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -220.77924
+offset_top = 514.2857
+offset_right = -148.05194
+offset_bottom = 587.013
+script = ExtResource("6_nf7gk")
+_string = "<<startofgreenline>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="StartOfBlueLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=2114235621]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -428.57144
+offset_top = 132.46754
+offset_right = -345.45456
+offset_bottom = 194.80519
+script = ExtResource("6_nf7gk")
+_string = "<<startofblueline>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="StartOfPurpleLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=855200917]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -428.57147
+offset_top = 38.961014
+offset_right = -366.23376
+offset_bottom = 111.68831
+script = ExtResource("6_nf7gk")
+_string = "<<startofpupleline>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
 [node name="EndOfPinkLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=1378205086]
 physics_interpolation_mode = 0
 layout_mode = 3
@@ -106,10 +154,10 @@ metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 physics_interpolation_mode = 0
 layout_mode = 3
 anchors_preset = 0
-offset_left = -261.039
-offset_top = -32.46755
-offset_right = -194.80524
-offset_bottom = 20.779156
+offset_left = -262.3377
+offset_top = -23.37664
+offset_right = -189.61041
+offset_bottom = 29.870064
 script = ExtResource("6_nf7gk")
 _string = "<<middleofpinkline>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
@@ -208,6 +256,54 @@ offset_right = 377.92206
 offset_bottom = 466.23376
 script = ExtResource("6_nf7gk")
 _string = "<<endofyellowline>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="StartOfGrayLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=712673995]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -116.88312
+offset_top = -501.2987
+offset_right = -44.155823
+offset_bottom = -418.18182
+script = ExtResource("6_nf7gk")
+_string = "<<startofgrayline>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="StartOfMaroonLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=93757511]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -241.55844
+offset_top = -584.4156
+offset_right = -158.44156
+offset_bottom = -532.4675
+script = ExtResource("6_nf7gk")
+_string = "<<startofmaroonline>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="StartOfBrownLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=869874120]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -241.55844
+offset_top = -324.67532
+offset_right = -168.8312
+offset_bottom = -262.33765
+script = ExtResource("6_nf7gk")
+_string = "<<startofbrownline>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="StartOfTealLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=2025729239]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -366.23376
+offset_top = -283.11688
+offset_right = -293.50653
+offset_bottom = -220.7792
+script = ExtResource("6_nf7gk")
+_string = "<<startoftealline>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="EndOfMaroonLine" type="Control" parent="SignPanel/Root/Popup/Overlay" unique_id=1123076639]
