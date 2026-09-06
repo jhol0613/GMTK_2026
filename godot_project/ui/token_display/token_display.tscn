@@ -44,6 +44,6 @@ visible = false
 material = SubResource("ShaderMaterial_bp74w")
 instance_shader_parameters/Color = Color(0.124486, 0.676947, 0.892928, 1)
 position = Vector2(21, 41)
-points = PackedVector2Array(0, 0, -877, 640)
+points = PackedVector2Array(130, 0, -877, 640)
 width = 300.0
 texture_mode = 1

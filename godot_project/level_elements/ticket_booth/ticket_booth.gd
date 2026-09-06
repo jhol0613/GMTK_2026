@@ -39,6 +39,7 @@ func _ready() -> void:
 	_loop_pause_timer.timeout.connect(_on_loop_pause_finished)
 	_resume_timer.timeout.connect(_on_resume_timer_finished)
 
+	
 	_dialogue_panel.opened.connect(_on_dialogue_opened)
 	_dialogue_panel.closed.connect(_on_dialogue_closed)
 	_dialogue_panel.option_confirmed.connect(
