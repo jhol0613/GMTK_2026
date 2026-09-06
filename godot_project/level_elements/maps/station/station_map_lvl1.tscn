@@ -29,7 +29,7 @@ texture = ExtResource("1_ayper")
 [node name="SignInteractable" parent="." unique_id=1631350735 instance=ExtResource("2_kho12")]
 panel_path = NodePath("../SignPanel")
 
-[node name="CollisionShape2D" parent="SignInteractable" index="0" unique_id=278382881]
+[node name="InteractableCollisionShape2D" parent="SignInteractable" index="0" unique_id=278382881]
 position = Vector2(0, 37)
 shape = SubResource("RectangleShape2D_riqys")
 

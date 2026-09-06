@@ -129,11 +129,9 @@ texture_scale = 0.38
 dialogue = SubResource("Resource_6cojq")
 panel_path = NodePath("../DialoguePanel")
 
-[node name="CollisionShape2D" parent="DialogueInteractable" index="0" unique_id=278382881]
+[node name="InteractableCollisionShape2D" parent="DialogueInteractable" index="0" unique_id=278382881]
 position = Vector2(12, -12)
 shape = SubResource("RectangleShape2D_o8pop")
-
-[node name="Prompt" parent="DialogueInteractable" index="1" unique_id=272794898]
 
 [node name="AnimatedSprite2D" parent="DialogueInteractable" index="2" unique_id=819702371]
 visible = false
