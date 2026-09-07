@@ -16,12 +16,15 @@ var tokens: int = MAX_TOKENS
 func _ready() -> void:
 	tokens_changed.emit(tokens, MAX_TOKENS, Vector2(0,0))
 
+
 func enable(new_enabled):
 	if new_enabled:
 		tokens = MAX_TOKENS
 	else:
 		tokens = 0
 	set_enabled.emit(new_enabled)
+	
+
 
 func spend(cost: int, origin_global := Vector2(0,0)) -> bool:
 	if cost <= 0:

@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c7g1auq7xhd5y" path="res://interactables/dialog_system/character_portraits/player/mc_portrait_3.png" id="6_ojhwi"]
 [ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="7_dpcax"]
 [ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialog_system/dialogue_panel.tscn" id="9_m2ssd"]
-[ext_resource type="AudioStream" path="res://ui/Battery/pick_up_battery.mp3" id="10_pickup"]
+[ext_resource type="AudioStream" uid="uid://daw3jy7eif2f7" path="res://ui/Battery/pick_up_battery.mp3" id="10_pickup"]
 
 [sub_resource type="Resource" id="Resource_5l23l"]
 script = ExtResource("3_hgfbw")
@@ -50,7 +50,7 @@ height = 16.011898
 [node name="BatteryPickup" type="Node2D" unique_id=440037839]
 script = ExtResource("1_hgfbw")
 
-[node name="PickupSound" type="AudioStreamPlayer" parent="."]
+[node name="PickupSound" type="AudioStreamPlayer" parent="." unique_id=811195765]
 stream = ExtResource("10_pickup")
 bus = &"SFX"
 
