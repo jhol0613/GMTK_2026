@@ -555,7 +555,6 @@ region = Rect2(0, 0, 32, 32)
 
 [node name="Train" type="Node2D" unique_id=2086324427 node_paths=PackedStringArray("hide_if_vertical", "sprite")]
 script = ExtResource("1_cjdsu")
-direction = 2
 hide_if_vertical = [NodePath("EastWest/DoorL"), NodePath("EastWest/DoorR"), NodePath("EastWest/DoorL2"), NodePath("EastWest/DoorR2"), NodePath("TrainSprite/DoorBlocker"), NodePath("TrainSprite/DoorBlocker2"), NodePath("TrainSprite/DoorBlocker3"), NodePath("TrainSprite/DoorBlocker4"), NodePath("TrainSprite/HoverSparcles"), NodePath("TrainSprite/NoTicketLight")]
 pulling_in_sound = ExtResource("6_pulling_in")
 pulling_in_no_doors_sound = ExtResource("8_no_doors")
@@ -581,7 +580,7 @@ bus = &"SFX"
 [node name="TrainSprite" type="AnimatedSprite2D" parent="." unique_id=865404147]
 position = Vector2(0, -40)
 sprite_frames = SubResource("SpriteFrames_ujtin")
-animation = &"BLUE"
+animation = &"VERTICAL_BLUE"
 frame_progress = 1.0
 
 [node name="BodyNightGlow" type="Node2D" parent="TrainSprite" unique_id=638013023 groups=["night_lights"]]
@@ -594,22 +593,27 @@ sprite_frames = SubResource("SpriteFrames_body_glow")
 animation = &"HORIZONTAL"
 
 [node name="DoorBlocker" type="Sprite2D" parent="TrainSprite" unique_id=1733779265]
+visible = false
 position = Vector2(-335, 5)
 texture = ExtResource("3_17x1t")
 
 [node name="DoorBlocker2" type="Sprite2D" parent="TrainSprite" unique_id=566216451]
+visible = false
 position = Vector2(-206, 5)
 texture = ExtResource("3_17x1t")
 
 [node name="DoorBlocker3" type="Sprite2D" parent="TrainSprite" unique_id=1551714510]
+visible = false
 position = Vector2(207, 5)
 texture = ExtResource("3_17x1t")
 
 [node name="DoorBlocker4" type="Sprite2D" parent="TrainSprite" unique_id=1361625764]
+visible = false
 position = Vector2(336, 5)
 texture = ExtResource("3_17x1t")
 
 [node name="HoverSparcles" type="Node2D" parent="TrainSprite" unique_id=1933076444]
+visible = false
 
 [node name="HoverSparcle3" type="AnimatedSprite2D" parent="TrainSprite/HoverSparcles" unique_id=1935636803]
 position = Vector2(-373, 54)
@@ -662,6 +666,7 @@ position = Vector2(375, 54)
 sprite_frames = SubResource("SpriteFrames_khhxn")
 
 [node name="NoTicketLight" type="Sprite2D" parent="TrainSprite" unique_id=994817530 groups=["night_lights"]]
+visible = false
 z_index = 4
 position = Vector2(0, 26)
 texture = SubResource("AtlasTexture_ticket")
@@ -851,6 +856,7 @@ offset_bottom = 44.5
 position = Vector2(0, -38.5)
 
 [node name="DoorL" type="Sprite2D" parent="EastWest" unique_id=371770877]
+visible = false
 z_index = 3
 position = Vector2(-78.5, -61.5)
 scale = Vector2(0.9, 1)
@@ -866,6 +872,7 @@ material = SubResource("CanvasItemMaterial_train_glow")
 texture = ExtResource("14_door_left_glow")
 
 [node name="DoorR" type="Sprite2D" parent="EastWest" unique_id=621257440]
+visible = false
 z_index = 3
 position = Vector2(-65, -61.5)
 scale = Vector2(0.9, 1)
@@ -881,6 +888,7 @@ material = SubResource("CanvasItemMaterial_train_glow")
 texture = ExtResource("15_door_right_glow")
 
 [node name="DoorL2" type="Sprite2D" parent="EastWest" unique_id=1692903795]
+visible = false
 z_index = 3
 position = Vector2(50.5, -61.5)
 scale = Vector2(0.9, 1)
@@ -896,6 +904,7 @@ material = SubResource("CanvasItemMaterial_train_glow")
 texture = ExtResource("14_door_left_glow")
 
 [node name="DoorR2" type="Sprite2D" parent="EastWest" unique_id=71265228]
+visible = false
 z_index = 3
 position = Vector2(64, -61.5)
 scale = Vector2(0.9, 1)

@@ -226,7 +226,6 @@ tile_map_data = PackedByteArray("AADx/woAAgAFAAEAAAD+/woAAgAFAAEAAADy/woAAgAFAAE
 hide_if_vertical = []
 
 [node name="LowerTrain" parent="Platform2" index="4" unique_id=1370361982 node_paths=PackedStringArray("hide_if_vertical")]
-visible = false
 hide_if_vertical = []
 
 [node name="Station0Sign" parent="Platform2" index="11" unique_id=98722644]

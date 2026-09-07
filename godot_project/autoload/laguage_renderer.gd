@@ -27,7 +27,7 @@ static func draw_text(
 	
 	for str:String in arr:
 		if str == separator:
-			char_pos.y += font_size * 1.25
+			char_pos.y += font_size * 1.1
 			char_pos.x = 0
 			continue
 		if str.contains("<<") and str.contains(">>"):
