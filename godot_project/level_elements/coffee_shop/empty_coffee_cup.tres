@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://b0tbe3g1t5ayy"]
+
+[ext_resource type="Texture2D" uid="uid://cwjp8mp1koktt" path="res://level_elements/coffee_shop/coffee_cup_empty_inventory.png" id="1_p8rqf"]
+[ext_resource type="Script" uid="uid://1bxpf358unij" path="res://scripts/item_data.gd" id="2_ybxmn"]
+
+[resource]
+script = ExtResource("2_ybxmn")
+id = &"empty_coffee_cup"
+item_name = "<<coffee>> Cup"
+item_description = "An empty recyclable coffee cup."
+item_icon = ExtResource("1_p8rqf")

@@ -228,7 +228,6 @@ hide_if_vertical = []
 
 [node name="LayerTransitionZone" parent="Platform2" index="13" unique_id=1662407236]
 visible = true
-transition_z_index = -4
 
 [node name="CollisionShape2D" parent="Platform2/LayerTransitionZone" index="0" unique_id=6447672]
 position = Vector2(-128, 12.5)

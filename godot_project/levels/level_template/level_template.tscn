@@ -65,6 +65,7 @@ repeat_times = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/FarClouds" unique_id=303005145]
 texture = ExtResource("8_2ip8h")
+centered = false
 
 [node name="FloatingIslands" type="Parallax2D" parent="Background" unique_id=168409842]
 repeat_size = Vector2(720, 405)
@@ -73,6 +74,7 @@ repeat_times = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/FloatingIslands" unique_id=1405803179]
 texture = ExtResource("9_unwjj")
+centered = false
 
 [node name="CloseClouds" type="Parallax2D" parent="Background" unique_id=782128031]
 repeat_size = Vector2(720, 405)
@@ -81,3 +83,4 @@ repeat_times = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/CloseClouds" unique_id=542614353]
 texture = ExtResource("10_u3vgj")
+centered = false

@@ -125,10 +125,7 @@ station_number = 2
 [node name="Station0Sign2" parent="Platform2" index="12" unique_id=421458582]
 station_number = 2
 
-[node name="LayerTransitionZone" parent="Platform2" index="13" unique_id=1662407236]
-transition_z_index = -4
-
-[node name="CollisionShape2D" parent="Platform2/LayerTransitionZone" index="0" unique_id=6447672]
+[node name="CollisionShape2D" parent="Platform2/LayerTransitionZone" parent_id_path=PackedInt32Array(293687369, 1662407236) index="0" unique_id=6447672]
 position = Vector2(-126, 7)
 
 [node name="Platform3" parent="." index="8" unique_id=662428683 instance=ExtResource("2_pqqg8")]
@@ -212,7 +209,6 @@ station_number = 2
 
 [node name="LayerTransitionZone" parent="Platform5" index="13" unique_id=1662407236]
 visible = true
-transition_z_index = -4
 
 [node name="CollisionShape2D" parent="Platform5/LayerTransitionZone" index="0" unique_id=6447672]
 position = Vector2(-128, 30.5)
@@ -249,7 +245,6 @@ station_number = 2
 
 [node name="LayerTransitionZone" parent="Platform6" index="13" unique_id=1662407236]
 visible = true
-transition_z_index = -4
 
 [node name="CollisionShape2D" parent="Platform6/LayerTransitionZone" index="0" unique_id=6447672]
 position = Vector2(-128, 30.5)

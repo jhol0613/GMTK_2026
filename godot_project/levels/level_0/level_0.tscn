@@ -591,7 +591,6 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/UpperTrain" index="2" unique_id=865404147]
 animation = &"RED"
-frame_progress = 1.0
 
 [node name="DoorBlocker" parent="Platform/UpperTrain/TrainSprite" index="1" unique_id=1733779265]
 visible = true
@@ -629,7 +628,6 @@ color = 7
 
 [node name="TrainSprite" parent="Platform/LowerTrain" index="2" unique_id=865404147]
 animation = &"RED"
-frame_progress = 1.0
 
 [node name="DoorBlocker" parent="Platform/LowerTrain/TrainSprite" index="1" unique_id=1733779265]
 visible = true
