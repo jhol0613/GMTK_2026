@@ -336,7 +336,7 @@ curve = SubResource("Curve2D_s4b5i")
 position = Vector2(-2144, -668)
 
 [node name="CoffeeSpawnPoint" type="Marker2D" parent="." index="25" unique_id=404684285]
-position = Vector2(-2111, -628)
+position = Vector2(-2124, -643)
 
 [node name="CoffeeActionPoint" type="Marker2D" parent="." index="26" unique_id=279803127]
 position = Vector2(-2111, -644)

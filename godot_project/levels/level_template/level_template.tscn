@@ -49,7 +49,7 @@ layer = -100
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/Blue" unique_id=1648586157]
 position = Vector2(960, 540)
-scale = Vector2(2.6667, 2.6667)
+scale = Vector2(4, 4)
 texture = ExtResource("7_64qpc")
 
 [node name="StarField" type="Node2D" parent="Background/Blue" unique_id=1370911981 groups=["night_lights"]]
