@@ -46,7 +46,6 @@ tile_set = ExtResource("3_qp02f")
 visible = false
 z_index = 1
 position = Vector2(-296, 54)
-direction = 0
 color = 5
 
 [node name="Trainfront" type="Sprite2D" parent="UpperTrain" unique_id=97515597]
@@ -66,6 +65,7 @@ texture = ExtResource("7_0b0m3")
 visible = false
 z_index = 2
 position = Vector2(41, 58)
+direction = 1
 
 [node name="Trainfront2" type="Sprite2D" parent="LowerTrain" unique_id=1995562429]
 position = Vector2(1, 362)

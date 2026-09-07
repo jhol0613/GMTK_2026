@@ -226,6 +226,7 @@ tile_map_data = PackedByteArray("AADx/woAAgAFAAEAAAD+/woAAgAFAAEAAADy/woAAgAFAAE
 hide_if_vertical = []
 
 [node name="LowerTrain" parent="Platform2" index="4" unique_id=1370361982 node_paths=PackedStringArray("hide_if_vertical")]
+visible = false
 hide_if_vertical = []
 
 [node name="Station0Sign" parent="Platform2" index="11" unique_id=98722644]
@@ -240,6 +241,9 @@ visible = true
 [node name="CollisionShape2D" parent="Platform2/LayerTransitionZone" index="0" unique_id=6447672]
 position = Vector2(-128, 12.5)
 shape = SubResource("RectangleShape2D_wx43u")
+
+[node name="RestChair" parent="Platform2" index="18" unique_id=2080236173 instance=ExtResource("37_ya87f")]
+position = Vector2(-128, 64)
 
 [node name="Platform3" parent="." index="11" unique_id=1115988881 instance=ExtResource("6_rflqb")]
 z_index = 5

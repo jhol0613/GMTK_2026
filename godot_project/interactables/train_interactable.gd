@@ -3,7 +3,7 @@ extends Interactable
 
 @export var l_or_r: String
 
-@onready var train: Train = get_parent() as Train
+@onready var train: Train = get_parent().get_parent() as Train
 
 
 func interact() -> void:

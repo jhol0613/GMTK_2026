@@ -74,13 +74,13 @@ var arrival_offset: Vector2
 @export var bypass_ticket_requirement := false
 
 @onready var _no_ticket_light: Sprite2D = $TrainSprite/NoTicketLight
-@onready var _boarded_player_l: Sprite2D = $BoardedPlayerL
-@onready var _boarded_player_r: Sprite2D = $BoardedPlayerR
+@onready var _boarded_player_l: Sprite2D = $EastWest/BoardedPlayerL
+@onready var _boarded_player_r: Sprite2D = $EastWest/BoardedPlayerR
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var train_interactable_l: TrainInteractable = $TrainInteractableL
-@onready var train_interactable_r: TrainInteractable = $TrainInteractableR
-@onready var train_interactable_u: TrainInteractable = $TrainInteractableU
-@onready var train_interactable_d: TrainInteractable = $TrainInteractableD
+@onready var train_interactable_l: TrainInteractable = $EastWest/TrainInteractableL
+@onready var train_interactable_r: TrainInteractable = $EastWest/TrainInteractableR
+@onready var train_interactable_u: TrainInteractable = $NorthSouth/TrainInteractableU
+@onready var train_interactable_d: TrainInteractable = $NorthSouth/TrainInteractableD
 @onready var _pulling_in_player: AudioStreamPlayer2D = $PullingInPlayer2D
 @onready var _pulling_out_player: AudioStreamPlayer2D = $PullingOutPlayer2D
 
@@ -107,22 +107,22 @@ func _ready() -> void:
 	#Inventory.inventory_changed.connect(_on_inventory_changed)
 	match direction:
 		Enums.TrainDirection.NORTH:
-			player_embark_marker = $PlayerEmbarkMarkerVertical
-			player_disembark_marker = $PlayerDisembarkMarkerNorth
+			player_embark_marker = $NorthSouth/PlayerEmbarkMarkerVertical
+			player_disembark_marker = $NorthSouth/PlayerDisembarkMarkerNorth
 		Enums.TrainDirection.SOUTH:
-			player_embark_marker = $PlayerEmbarkMarkerVertical
-			player_disembark_marker = $PlayerDisembarkMarkerSouth
+			player_embark_marker = $NorthSouth/PlayerEmbarkMarkerVertical
+			player_disembark_marker = $NorthSouth/PlayerDisembarkMarkerSouth
 			#use scale to flip interactable to other side of train
 			train_interactable_u.scale = Vector2(-1, 1)
 			train_interactable_u._prompt.scale.x = -train_interactable_u._prompt.scale.x
 			train_interactable_d.scale = Vector2(-1, 1)
 			train_interactable_d._prompt.scale.x = -train_interactable_d._prompt.scale.x
 		Enums.TrainDirection.EAST:
-			player_embark_marker = $PlayerEmbarkMarkerHorizontal
-			player_disembark_marker = $PlayerDisembarkMarkerEast
+			player_embark_marker = $EastWest/PlayerEmbarkMarkerHorizontal
+			player_disembark_marker = $EastWest/PlayerDisembarkMarkerEast
 		Enums.TrainDirection.WEST:
-			player_embark_marker = $PlayerEmbarkMarkerHorizontal
-			player_disembark_marker = $PlayerDisembarkMarkerWest
+			player_embark_marker = $EastWest/PlayerEmbarkMarkerHorizontal
+			player_disembark_marker = $EastWest/PlayerDisembarkMarkerWest
 	train_interactable_u.visible = _is_vertical()
 	train_interactable_d.visible = _is_vertical()
 	train_interactable_l.visible = not _is_vertical()
@@ -311,12 +311,14 @@ func train_depart(play_pulling_out_sfx = false) -> void:
 
 	await tween.finished
 
+
 func call_train() -> void:
 	if _block_arrivals:
 		print("train blocked due to player arrival animation")
 		return
 	print("train called")
 	play_arrival_animation(false)
+
 
 func play_arrival_animation(include_player = true) -> void:
 	
