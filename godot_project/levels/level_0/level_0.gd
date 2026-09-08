@@ -15,12 +15,11 @@ func _ready() -> void:
 	var play_intro: bool = GameManager.level_0_intro_pending
 	GameManager.level_0_intro_pending = false
 	var skip_intro := TimeManager.consume_skip_intro()
-	_battery_pickup.visible = false
+	_battery_pickup.set_active(false)
 	if not play_intro or skip_intro:
 		_begin_without_intro()
 		return
 	Wallet.enable(false)
-	_battery_pickup.visible = true
 	_set_pigeon_ambient_muted(true)
 	_intro_conversation_scene = preload("uid://b40aq7wt2wqcs").instantiate()
 	_intro_falling_scene = preload("uid://dnm5746r17yej").instantiate()
@@ -47,6 +46,7 @@ func _skip_intro() -> void:
 	_intro_active = false
 	_set_pigeon_ambient_muted(false)
 	_remove_skip_intro_button()
+	_battery_pickup.set_active(true)
 
 	_free_intro_scene(_intro_conversation_scene)
 	_intro_conversation_scene = null
@@ -74,6 +74,8 @@ func _set_pigeon_ambient_muted(muted: bool) -> void:
 func _on_conversation_complete():
 	add_child(_intro_falling_scene)
 	await get_tree().create_timer(2).timeout
+	# The comic now covers the screen, so the battery can be dropped unseen.
+	_battery_pickup.set_active(true)
 	AudioManager.play_tripped_music()
 	_free_intro_scene(_intro_conversation_scene)
 
