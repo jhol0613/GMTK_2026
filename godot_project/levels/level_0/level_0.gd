@@ -20,6 +20,7 @@ func _ready() -> void:
 		_begin_without_intro()
 		return
 	Wallet.enable(false)
+	_battery_pickup.visible = true
 	_set_pigeon_ambient_muted(true)
 	_intro_conversation_scene = preload("uid://b40aq7wt2wqcs").instantiate()
 	_intro_falling_scene = preload("uid://dnm5746r17yej").instantiate()
@@ -78,7 +79,6 @@ func _on_conversation_complete():
 
 
 func _on_falling_scene_complete():
-	_battery_pickup.visible = true
 	platform.upper_train.train_depart(true)
 	ui_layer.open_notebook()
 	await get_tree().create_timer(10).timeout
