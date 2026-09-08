@@ -27,6 +27,7 @@ var _reward: ItemData
 var _awaiting_close: bool
 var _awaiting_reward: bool
 var _choice_reply_override: DialogueLine
+var _choice_rejected: bool
 var _typewriter_units: Array[String] = []
 var _typewriter_index := 0
 var _typewriter_accumulator := 0.0
@@ -70,6 +71,7 @@ func show_dialogue(
 	_awaiting_reward = false
 	_reward = null
 	_choice_reply_override = null
+	_choice_rejected = false
 
 	_rebuild_option_labels()
 	_update_line()
@@ -175,6 +177,7 @@ func _confirm_option() -> void:
 	var choice: DialogueChoice = _choices[_selected_option]
 
 	_choice_reply_override = null
+	_choice_rejected = false
 	_reward = choice.reward
 	option_confirmed.emit(choice.outcome_id)
 	
@@ -184,7 +187,9 @@ func _confirm_option() -> void:
 
 	_exit_options_mode()
 
-	var reply := _choice_reply_override if _choice_reply_override != null else choice.reply
+	var reply := _choice_reply_override
+	if reply == null and not _choice_rejected:
+		reply = choice.reply
 	if reply != null:
 		_awaiting_close = true
 		_awaiting_reward = _reward != null
@@ -198,8 +203,10 @@ func _confirm_option() -> void:
 
 func reject_choice(line: DialogueLine) -> void:
 	_reward = null
+	_choice_rejected = true
 	_choice_reply_override = line
-	#_choice_reply_override.text = text
+	if line == null:
+		return
 	if _showing_options and _selected_option < _choices.size():
 		var reply := _choices[_selected_option].reply
 		if reply != null:

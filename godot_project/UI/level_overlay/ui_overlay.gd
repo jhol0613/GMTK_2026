@@ -48,11 +48,16 @@ var _launcher_button_states: Dictionary = {}
 @onready var _initial_ticket_button_scale: Vector2 = _ticket_button.scale
 
 const TICKET_BUTTON_SHOW_DELAY := 2.0
+const REJECT_SHAKE_UNIT := 5.0
 
 var _item_popup_tween: Tween
 var _item_popup_animation_tween: Tween
 var _ticket_button_show_tween: Tween
 var _rest_vignette_tween: Tween
+var _reject_tween: Tween
+var _reject_color_tween: Tween
+var _reject_target: Control
+var _reject_shake_x: float = 0.0
 
 var player_in_arrive_disembark_anim: bool
 var dragging_item: bool = false
@@ -60,6 +65,7 @@ var dragging_item: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GameManager.pause_enabled = true
+	_inventory_button.pivot_offset = _inventory_button.size * 0.5
 	_notebook_home = _notebook.position
 	_notebook.visible = false
 	_ticket.visible = false
@@ -85,7 +91,7 @@ func _ready() -> void:
 ## Nothing fits in the bag: point at it instead of failing silently.
 func _on_inventory_full() -> void:
 	AudioManager.play_wrong_ticket_sfx()
-	_emphasize_icon(_inventory_button, _initial_inventory_button_scale)
+	_reject_icon(_inventory_button, _initial_inventory_button_scale)
 
 
 func _on_rest_started() -> void:
@@ -153,6 +159,39 @@ func _emphasize_icon( button:TextureButton, initial_scale:Vector2 ):
 	tween.kill()
 	tween = create_tween()
 	tween.tween_property(button, "scale", initial_scale, .08)
+
+
+func _reject_icon( button:Control, initial_scale:Vector2 ):
+	if _reject_tween != null and _reject_tween.is_valid():
+		_reject_tween.kill()
+	if _reject_color_tween != null and _reject_color_tween.is_valid():
+		_reject_color_tween.kill()
+	_apply_reject_shake(0.0)
+
+	_reject_target = button
+	button.scale = initial_scale
+	button.modulate = Color.WHITE
+
+	_reject_tween = create_tween()
+	_reject_tween.tween_property(button, "scale", initial_scale * 1.18, 0.1)
+	var previous := 0.0
+	for offset in [2.0, -2.0, 1.0, -1.0, 0.0]:
+		var target: float = offset * REJECT_SHAKE_UNIT
+		_reject_tween.tween_method(_apply_reject_shake, previous, target, 0.06)
+		previous = target
+	_reject_tween.tween_property(button, "scale", initial_scale, 0.2)
+
+	_reject_color_tween = create_tween()
+	_reject_color_tween.tween_property(button, "modulate", Color(1.0, 0.35, 0.3), 0.08)
+	_reject_color_tween.tween_property(button, "modulate", Color.WHITE, 0.42)
+
+
+## Additive so the mouse-hover offset survives a shake happening on top of it.
+func _apply_reject_shake( x:float ):
+	if _reject_target == null:
+		return
+	_reject_target.position.x += x - _reject_shake_x
+	_reject_shake_x = x
 
 
 func _on_notebook_button_mouse_entered() -> void:

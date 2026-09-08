@@ -1,7 +1,6 @@
 extends Node2D
 
 const PURCHASE_OUTCOME: StringName = &"bought_coffee"
-const EMPTY_COFFEE_ID: StringName = &"empty_coffee_cup"
 
 @export var slow_duration_minutes: int = 5
 @export var time_scale_while_active: float = 0.5
@@ -32,12 +31,11 @@ func _on_option_confirmed(outcome_id: StringName) -> void:
 		return
 	_got_free_coffee = true
 	_interactable.dialogue.lines[1] = after_first_coffee_line
-	Inventory.item_added.connect(_on_item_added)
 	TimeManager.set_time_scale(time_scale_while_active, slow_duration_minutes)
+	if not _dialogue_panel.dialogue_complete.is_connected(_on_drink_finished):
+		_dialogue_panel.dialogue_complete.connect(_on_drink_finished, CONNECT_ONE_SHOT)
 
-func _on_item_added(item: ItemData):
-	if item.id != EMPTY_COFFEE_ID:
-		return
-	Inventory.item_added.disconnect(_on_item_added)
+## Fires whether or not the empty cup found room, so a full bag still drinks.
+func _on_drink_finished() -> void:
 	if _drinking_sound.stream != null:
 		_drinking_sound.play()
