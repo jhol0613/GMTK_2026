@@ -1,20 +1,10 @@
 {
-	"Unsorted" : {
-		"59" : "The place I am trying to go"
+	"Unsorted": {
+		"59": "The place I am trying to go"
 	},
-	"Section1" : {
-		
-	},
-	"Section2" : {
-		
-	},
-	"Section3" : {
-		
-	},
-	"Section4" : {
-		
-	},
-	"Section5" : {
-		
-	}
+	"Section1": {},
+	"Section2": {},
+	"Section3": {},
+	"Section4": {},
+	"Section5": {}
 }
