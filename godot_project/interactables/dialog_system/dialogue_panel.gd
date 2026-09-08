@@ -182,18 +182,18 @@ func _confirm_option() -> void:
 	if _choices.is_empty():
 		return
 
-	if _reward != null:
-		_awaiting_close = true
-		_awaiting_reward = true
-	else:
-		_awaiting_close = true
-		_awaiting_reward = false
-	
 	_exit_options_mode()
-	
+
 	var reply := _choice_reply_override if _choice_reply_override != null else choice.reply
 	if reply != null:
+		_awaiting_close = true
+		_awaiting_reward = _reward != null
 		_show_line(reply)
+		return
+
+	if _reward != null:
+		_give_reward()
+	_close_dialog()
 
 
 func reject_choice(line: DialogueLine) -> void:

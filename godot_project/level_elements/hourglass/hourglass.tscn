@@ -425,7 +425,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"flow",
-"speed": 36.0
+"speed": 24.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i7vl5"]
