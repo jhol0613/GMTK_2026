@@ -12,6 +12,7 @@ border_width_bottom = 2
 border_color = Color(0.45064825, 0.4506483, 0.450648, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_dt5xr"]
+resource_local_to_scene = true
 font = ExtResource("2_1uc05")
 font_size = 64
 font_color = Color(0.0018410678, 0.0018410682, 0.0018410678, 1)
