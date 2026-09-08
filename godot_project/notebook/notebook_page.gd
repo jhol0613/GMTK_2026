@@ -10,6 +10,8 @@ var entries_count: int = 0
 var entry_limit := 9
 var _drop_indicator: Line2D
 
+@onready var holder := %Holder
+
 
 func _ready() -> void:
 	_drop_indicator = Line2D.new()
@@ -24,7 +26,7 @@ func _ready() -> void:
 func _new_entry(encoded:String, initial_text = "") -> NotebookEntry:
 	var entry:NotebookEntry = preload('uid://s4gdpvpyayn0').instantiate()
 	
-	$Holder.add_child(entry)
+	holder.add_child(entry)
 	entry.player_input.text = initial_text
 	entry.add_resshan(encoded)
 	entry.player_input.text_changed.connect(_handle_entry_update.bind(encoded))
@@ -37,7 +39,7 @@ func _new_entry(encoded:String, initial_text = "") -> NotebookEntry:
 
 # This WILL cause memory leak, if entry isn't properly handled 
 func remove_entry(entry:NotebookEntry) -> void:
-	$Holder.remove_child(entry)
+	holder.remove_child(entry)
 	entries_count -= 1
 	entry_removed.emit()
 
@@ -48,42 +50,43 @@ func _handle_entry_update(new_text:String, encoded:String) -> void:
 
 func get_entries() -> Array[NotebookEntry]:
 	var arr: Array[NotebookEntry] = []
-	arr.append_array($Holder.get_children())
+	arr.append_array(holder.get_children())
 	return arr
 
 
 func show_drop_indicator(entry: NotebookEntry, after: bool) -> void:
-	var y: float = $Holder.position.y + entry.position.y
+	var y: float = holder.position.y + entry.position.y
 	if after:
 		y += entry.size.y
 	_drop_indicator.points = PackedVector2Array([
-		Vector2($Holder.position.x, y),
-		Vector2($Holder.position.x + $Holder.size.x, y),
+		Vector2(holder.position.x, y),
+		Vector2(holder.position.x + holder.size.x, y),
 	])
 	_drop_indicator.visible = true
 
 func show_drop_indicator_bottom() -> void:
 	var y: float
-	if $Holder.get_children().size() == 0:
+	if holder.get_children().size() == 0:
 		y = 0
 	else:
-		var last_entry = $Holder.get_child(-1) as NotebookEntry
+		var last_entry = holder.get_child(-1) as NotebookEntry
 		y = last_entry.position.y + last_entry.size.y
 	_drop_indicator.points = PackedVector2Array([
-		Vector2($Holder.position.x, y),
-		Vector2($Holder.position.x + $Holder.size.x, y),
+		Vector2(holder.position.x, y),
+		Vector2(holder.position.x + holder.size.x, y),
 	])
 	_drop_indicator.visible = true
 
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
+	
 	show_drop_indicator_bottom()
 	return true
 
 func _drop_data(at_position: Vector2, data: Variant) -> void:
 	hide_drop_indicator()
-	var target := $Holder.get_child_count() - 1
+	var target := holder.get_child_count() - 1
 	if data.get_index() != target:
-		$Holder.move_child(data, target)
+		holder.move_child(data, target)
 		data.reordered.emit()
 
 func hide_drop_indicator() -> void:

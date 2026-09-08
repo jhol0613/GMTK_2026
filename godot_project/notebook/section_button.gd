@@ -5,7 +5,7 @@ class_name SectionTab
 @export var hover_modulate = 0.7
 @export var hover_scale := Vector2(1.05, 1.05)
 @export var hover_offset := Vector2(3, -1)
-@export var hover_time_to_section_switch := 0.8
+@export var hover_time_to_section_switch := 0.5
 
 @onready var label : Label = $Label
 @onready var sticker : TextureRect = $Sticker
@@ -34,12 +34,12 @@ func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 func _on_section_switch_timeout():
 	if _dragged_data:
 		_dragged_data.request_switch_section_view.emit(get_index())
-		_dragged_data.move_requested.emit(get_index())
+		_dragged_data.move_requested.emit(get_index(), false)
 		#_dragged_data._get_entry_drag_data(Vector2.ZERO)
 
 func _drop_data(at_position: Vector2, data: Variant) -> void:
 	if _dragged_data is NotebookEntry:
-		_dragged_data.move_requested.emit(get_index())
+		_dragged_data.move_requested.emit(get_index(), true)
 		if _section_switch_timer and _section_switch_timer.timeout.is_connected(_on_section_switch_timeout):
 			_section_switch_timer.timeout.disconnect(_on_section_switch_timeout)
 

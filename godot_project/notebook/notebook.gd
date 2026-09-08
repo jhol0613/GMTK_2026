@@ -33,6 +33,11 @@ func _ready() -> void:
 	
 	_section_selector_holder.get_child(0).z_index = TOP_TAB_Z_INDEX
 
+#func _process(delta):
+	#for section in _sections:
+		#if section.get_pages().size() == 0:
+			#pass
+
 func _on_section_header_changed(index: int, text: String):
 	var tab = _section_selector_holder.get_child(index) as SectionTab
 	tab.label.text = text
@@ -55,18 +60,23 @@ func _handle_entry_removed() -> void:
 func _handle_limit_reached() -> void:
 	pass
 
-func _handle_moving_entry(to_section:int, entry:NotebookEntry) -> void:
+func _handle_moving_entry(to_section:int, remove_old_entry: bool, entry:NotebookEntry) -> void:
 	for section: NotebookSection in _sections:
 		for page: NotebookPage in section.get_pages():
 			if page.get_entries().has(entry):
-				page.remove_entry(entry)
-				_add_entry_to_the_section(
+				if remove_old_entry:
+					page.remove_entry(entry)
+				entry = _add_entry_to_the_section(
 					entry.resshan_string,entry.get_note(), _sections[to_section].section_name
 				)
-				#entry.queue_free()
+				#if remove_old_entry:
+					#entry.queue_free()
+				return
 
-func _on_switch_section_requested(to_section):
+func _on_switch_section_requested(to_section, dragged_data: NotebookEntry = null):
 	_on_section_switch_pressed(to_section)
+	if dragged_data:
+		dragged_data.reparent(_sections[_current_section].get_pages()[-1].holder, false)
 
 func _add_entry_to_the_section(
 	encoded: String,
@@ -89,7 +99,7 @@ func _add_entry_to_the_section(
 		SignalBus.new_unique_resshan_note_added_to_notebook.emit()
 	var entry: = page._new_entry(encoded, initial_text)
 	entry.move_requested.connect(_handle_moving_entry.bind(entry))
-	entry.request_switch_section_view.connect(_on_switch_section_requested)
+	entry.request_switch_section_view.connect(_on_switch_section_requested.bind(entry))
 	entry.reordered.connect(_on_entry_reordered)
 	
 	player_vocab.data[section][encoded] = initial_text

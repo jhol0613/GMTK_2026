@@ -14,6 +14,7 @@ const OTHER_PAGE_LIMIT := 9
 
 signal header_changed(index: int, text: String)
 
+@onready var _pages = $Pages
 
 func _ready() -> void:
 	var pages: = get_pages()
@@ -30,7 +31,7 @@ func _new_page() -> void:
 	page.entry_limit = _get_page_limit(get_pages().size())
 	_connect_page(page)
 	
-	$Pages.add_child(page)
+	_pages.add_child(page)
 	page.hide()
 	if get_pages().size() == 1:
 		page.show()
@@ -38,12 +39,14 @@ func _new_page() -> void:
 
 # It always be the last one
 func _delete_page() -> void:
+	if _pages.get_child_count() <= 1:
+		return
 	var pages: = get_pages()
 	pages[-1].queue_free()
 
 
 func _handle_removed_entry(page:NotebookPage) -> void:
-	if page.entries_count == 0:
+	if page.entries_count == 0 and _pages.get_child_count() > 1:
 		page.queue_free()
 
 
@@ -105,12 +108,12 @@ func _update_page_layout() -> void:
 	if not _has_instruction_page():
 		return
 	$Label2.visible = current_page == 0
-	$Pages.offset_top = INSTRUCTION_PAGE_TOP if current_page == 0 else ENTRY_PAGE_TOP
+	_pages.offset_top = INSTRUCTION_PAGE_TOP if current_page == 0 else ENTRY_PAGE_TOP
 
 
 func get_pages() -> Array[NotebookPage]:
 	var arr: Array[NotebookPage]
-	arr.append_array($Pages.get_children())
+	arr.append_array(_pages.get_children())
 	return arr
 
 

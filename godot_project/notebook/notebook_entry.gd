@@ -79,7 +79,7 @@ func _get_entry_drag_data(_position: Vector2) -> Variant:
 
 	set_process(true)
 	
-	_drag_data = self.duplicate()
+	_drag_data = self#.duplicate()
 	return self
 
 func _get_no_drag_data(_position: Vector2) -> Variant:
