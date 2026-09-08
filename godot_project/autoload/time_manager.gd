@@ -13,6 +13,8 @@ var hour: int = HOURS_PER_DAY
 var minute: int = 0
 var second: int = 0
 
+var run_total_seconds: int = HOURS_PER_DAY * MINUTES_PER_HOUR * SECONDS_PER_MINUTE
+
 var _preserve_across_reload: bool = false
 var _skip_intro_on_reload: bool = false
 var _pending_wrong_train_dialogue: bool = false
@@ -55,6 +57,7 @@ func reset(start_hour: int = HOURS_PER_DAY, start_minute: int = 0, start_second:
 	hour = start_hour
 	minute = start_minute
 	second = start_second
+	run_total_seconds = maxi(total_seconds(), 1)
 	_time_up_emitted = total_seconds() <= 0
 	time_changed.emit(hour, minute, second)
 
