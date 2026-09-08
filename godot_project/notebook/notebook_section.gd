@@ -1,7 +1,7 @@
 class_name NotebookSection
 extends Control
 
-
+## This must match a section name in the dictionary json
 @export var section_name: String = 'Section'
 
 
@@ -11,6 +11,8 @@ const INSTRUCTION_PAGE_TOP := 124.0
 const ENTRY_PAGE_TOP := 65.0
 const FIRST_PAGE_LIMIT := 8
 const OTHER_PAGE_LIMIT := 9
+
+signal header_changed(index: int, text: String)
 
 
 func _ready() -> void:
@@ -110,3 +112,7 @@ func get_pages() -> Array[NotebookPage]:
 	var arr: Array[NotebookPage]
 	arr.append_array($Pages.get_children())
 	return arr
+
+
+func _on_header_text_changed(new_text: String) -> void:
+	header_changed.emit(get_index(), new_text)

@@ -62,6 +62,29 @@ func show_drop_indicator(entry: NotebookEntry, after: bool) -> void:
 	])
 	_drop_indicator.visible = true
 
+func show_drop_indicator_bottom() -> void:
+	var y: float
+	if $Holder.get_children().size() == 0:
+		y = 0
+	else:
+		var last_entry = $Holder.get_child(-1) as NotebookEntry
+		y = last_entry.position.y + last_entry.size.y
+	_drop_indicator.points = PackedVector2Array([
+		Vector2($Holder.position.x, y),
+		Vector2($Holder.position.x + $Holder.size.x, y),
+	])
+	_drop_indicator.visible = true
+
+func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
+	show_drop_indicator_bottom()
+	return true
+
+func _drop_data(at_position: Vector2, data: Variant) -> void:
+	hide_drop_indicator()
+	var target := $Holder.get_child_count() - 1
+	if data.get_index() != target:
+		$Holder.move_child(data, target)
+		data.reordered.emit()
 
 func hide_drop_indicator() -> void:
 	_drop_indicator.visible = false

@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://ci68ehr4bcoab"]
+
+[ext_resource type="Script" uid="uid://21lv0r3ac7va" path="res://notebook/section_button.gd" id="1_3aufw"]
+[ext_resource type="Texture2D" uid="uid://cuqfxxpgfhh5h" path="res://notebook/notebook_tab.png" id="1_jyc3v"]
+[ext_resource type="FontFile" uid="uid://byxrvfx8kprnq" path="res://ui/fonts/Embolism Spark.ttf" id="3_8bgml"]
+[ext_resource type="Texture2D" uid="uid://cywukbfu3pufw" path="res://notebook/notebook_tab_selected.png" id="4_fpimr"]
+[ext_resource type="AudioStream" uid="uid://bjnescgt4ic" path="res://ui/sfx/HoverTicket_Schedule2.mp3" id="5_nacgk"]
+
+[node name="SectionButton" type="TextureButton" unique_id=238963011]
+offset_transform_enabled = true
+texture_normal = ExtResource("1_jyc3v")
+script = ExtResource("1_3aufw")
+
+[node name="Label" type="Label" parent="." unique_id=104312582]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 29.184202
+offset_right = 163.15791
+offset_bottom = 54.184204
+rotation = 1.5707964
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8bgml")
+theme_override_font_sizes/font_size = 25
+text = "untitled"
+horizontal_alignment = 1
+clip_text = true
+
+[node name="Sticker" type="TextureRect" parent="." unique_id=326293469]
+visible = false
+layout_mode = 0
+offset_left = -35.0
+offset_top = -8.0
+offset_right = 5.0
+offset_bottom = 188.0
+texture = ExtResource("4_fpimr")
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="." unique_id=2103387370]
+stream = ExtResource("5_nacgk")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
