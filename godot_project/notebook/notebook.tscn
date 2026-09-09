@@ -181,8 +181,8 @@ color = Color(0.5411765, 0.27058825, 0.9019608, 1)
 
 [connection signal="mouse_entered" from="Sprite2D/Control" to="." method="_on_notebook_mouse_entered"]
 [connection signal="mouse_exited" from="Sprite2D/Control" to="." method="_on_notebook_mouse_exited"]
-[connection signal="pressed" from="NextPage" to="." method="_on_previous_page_pressed"]
-[connection signal="pressed" from="PreviousPage" to="." method="_on_next_page_pressed"]
+[connection signal="pressed" from="NextPage" to="." method="_on_next_page_pressed"]
+[connection signal="pressed" from="PreviousPage" to="." method="_on_previous_page_pressed"]
 [connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="SectionSelector/Holder/SectionButton" to="." method="_on_section_switch_pressed" binds= [0]]
 [connection signal="pressed" from="SectionSelector/Holder/SectionButton2" to="." method="_on_section_switch_pressed" binds= [1]]

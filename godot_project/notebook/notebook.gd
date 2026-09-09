@@ -10,11 +10,14 @@ const TOP_TAB_Z_INDEX = 1
 var pen = load("uid://c8yj5np7nrak6")
 var _current_section: int = 0
 var _sections: Array[NotebookSection] = []
+var _active_section_count := 6
 
 
 @onready var _page_turn_sound: AudioStreamPlayer = $PageTurnSound
 @onready var _entry_added_sound: AudioStreamPlayer = $EntryAdded
 @onready var _section_selector_holder := $SectionSelector/Holder
+@onready var _next_page_button := %NextPage
+@onready var _previous_page_button := %PreviousPage
 
 func _ready() -> void:
 	add_to_group("world_interaction_blocker")
@@ -127,14 +130,33 @@ func _on_entry_reordered() -> void:
 	_entry_added_sound.play()
 
 func _on_next_page_pressed() -> void:
-	_sections[_current_section].switch_page(1)
+	if _sections[_current_section].current_page < _get_current_section_page_count() - 1:
+		_sections[_current_section].switch_page(1)
+	elif _current_section < _active_section_count - 1:
+		_on_section_switch_pressed(_current_section + 1)
+
+	if _current_section == _active_section_count - 1 and \
+		_sections[_current_section].current_page == _get_current_section_page_count() - 1:
+		_next_page_button.show()
+	_previous_page_button.show()
+
 	_page_turn_sound.play()
 
 
 func _on_previous_page_pressed() -> void:
-	_sections[_current_section].switch_page(-1)
+	if _sections[_current_section].current_page > 0:
+		_sections[_current_section].switch_page(-1)
+	elif _current_section > 0:
+		_on_section_switch_pressed(_current_section - 1)
+
+	if _current_section == 0 and _sections[_current_section].current_page == 0:
+		_previous_page_button.show()
+	_next_page_button.show()
+
 	_page_turn_sound.play()
 
+func _get_current_section_page_count() -> int:
+	return _sections[_current_section].get_pages().size()
 
 func _on_notebook_mouse_entered() -> void:
 	Input.set_custom_mouse_cursor(pen, Input.CURSOR_ARROW, Vector2(0, 32) )
