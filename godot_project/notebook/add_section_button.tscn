@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b32ohv26etu0g"]
+
+[ext_resource type="PackedScene" uid="uid://ci68ehr4bcoab" path="res://notebook/section_button.tscn" id="1_yytid"]
+[ext_resource type="Texture2D" uid="uid://12fm08r8njn3" path="res://notebook/notebook_tab_plus.png" id="2_fr2q1"]
+[ext_resource type="Script" uid="uid://mlhde4b8fgov" path="res://notebook/add_section_button.gd" id="2_kyn6q"]
+
+[node name="SectionButton" unique_id=238963011 instance=ExtResource("1_yytid")]
+texture_normal = ExtResource("2_fr2q1")
+script = ExtResource("2_kyn6q")
+color = Color(1, 1, 1, 1)
+
+[node name="Label" parent="." index="0" unique_id=104312582]
+visible = false

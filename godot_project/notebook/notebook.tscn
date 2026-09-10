@@ -4,13 +4,21 @@
 [ext_resource type="PackedScene" uid="uid://cg7lcfqothrd2" path="res://notebook/notebook_section.tscn" id="3_7rwif"]
 [ext_resource type="Texture2D" uid="uid://cmp7iukc3tyy4" path="res://notebook/notebook.png" id="3_kkelw"]
 [ext_resource type="FontFile" uid="uid://byxrvfx8kprnq" path="res://ui/fonts/Embolism Spark.ttf" id="4_ft0je"]
-[ext_resource type="AudioStream" uid="uid://ce16br5qebd7" path="res://ui/sfx/HoverTicket_Schedule1.mp3" id="4_y1ha3"]
 [ext_resource type="Texture2D" uid="uid://dki35rl0kbnw4" path="res://notebook/notebook_button_icon.png" id="5_7rwif"]
 [ext_resource type="AudioStream" uid="uid://u1j8iapwbxgk" path="res://ui/sfx/Pencil1.mp3" id="5_141dl"]
 [ext_resource type="AudioStream" uid="uid://dmcj5ur7l6jb4" path="res://ui/sfx/Pencil2.mp3" id="6_7rtp4"]
+[ext_resource type="AudioStream" uid="uid://dxds6wjegh3pq" path="res://ui/sfx/HoverTicket_Schedule3.mp3" id="6_a5d5w"]
 [ext_resource type="AudioStream" uid="uid://da6j41l6x4sxf" path="res://ui/sfx/Pencil3.mp3" id="7_ft0je"]
 [ext_resource type="Texture2D" uid="uid://cd287u1l626dg" path="res://ui/CloseButton.png" id="8_close"]
+[ext_resource type="AudioStream" uid="uid://ce6kvjn3hwsb0" path="res://ui/sfx/Schedule_Open.mp3" id="11_1veoj"]
 [ext_resource type="PackedScene" uid="uid://ci68ehr4bcoab" path="res://notebook/section_button.tscn" id="11_egov3"]
+[ext_resource type="PackedScene" uid="uid://b32ohv26etu0g" path="res://notebook/add_section_button.tscn" id="12_a5d5w"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5l23l"]
+random_pitch = 1.2397792
+random_volume_offset_db = 0.4
+streams_count = 1
+stream_0/stream = ExtResource("6_a5d5w")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ujtin"]
 random_pitch = 1.0190678
@@ -115,8 +123,8 @@ flat = true
 icon_alignment = 1
 
 [node name="PageTurnSound" type="AudioStreamPlayer" parent="." unique_id=561482912]
-stream = ExtResource("4_y1ha3")
-volume_db = 24.0
+stream = SubResource("AudioStreamRandomizer_5l23l")
+volume_db = 18.0
 bus = &"SFX"
 
 [node name="CloseButton" type="TextureButton" parent="." unique_id=1122025902]
@@ -135,6 +143,9 @@ stream = SubResource("AudioStreamRandomizer_ujtin")
 volume_db = 8.0
 bus = &"SFX"
 
+[node name="SectionAdded" type="AudioStreamPlayer" parent="." unique_id=1479236139]
+stream = ExtResource("11_1veoj")
+
 [node name="SectionSelector" type="Control" parent="." unique_id=862698154]
 layout_mode = 3
 anchors_preset = 0
@@ -152,32 +163,41 @@ theme_override_constants/separation = -44
 [node name="SectionButton" parent="SectionSelector/Holder" unique_id=238963011 instance=ExtResource("11_egov3")]
 z_index = -1
 layout_mode = 2
-color = Color(0.9019608, 0.27058825, 0.27058825, 1)
+color = Color(0.9, 0.54, 0.54, 1)
 
 [node name="SectionButton2" parent="SectionSelector/Holder" unique_id=1351271917 instance=ExtResource("11_egov3")]
+visible = false
 z_index = -2
 layout_mode = 2
-color = Color(0.78431374, 0.2784314, 0.13333334, 1)
+color = Color(0.78, 0.5356, 0.468, 1)
 
 [node name="SectionButton3" parent="SectionSelector/Holder" unique_id=1161783827 instance=ExtResource("11_egov3")]
+visible = false
 z_index = -3
 layout_mode = 2
-color = Color(0.88235295, 0.9019608, 0.27058825, 1)
+color = Color(0.888, 0.9, 0.54, 1)
 
 [node name="SectionButton4" parent="SectionSelector/Holder" unique_id=1946371373 instance=ExtResource("11_egov3")]
+visible = false
 z_index = -4
 layout_mode = 2
-color = Color(0.27058825, 0.9019608, 0.30588236, 1)
+color = Color(0.54, 0.9, 0.55799997, 1)
 
 [node name="SectionButton5" parent="SectionSelector/Holder" unique_id=1952436481 instance=ExtResource("11_egov3")]
+visible = false
 z_index = -5
 layout_mode = 2
-color = Color(0.27058825, 0.30588236, 0.9019608, 1)
+color = Color(0.54, 0.5579999, 0.9, 1)
 
 [node name="SectionButton6" parent="SectionSelector/Holder" unique_id=716132446 instance=ExtResource("11_egov3")]
+visible = false
 z_index = -6
 layout_mode = 2
-color = Color(0.5411765, 0.27058825, 0.9019608, 1)
+color = Color(0.69600004, 0.54, 0.9, 1)
+
+[node name="AddSectionButton" parent="SectionSelector/Holder" unique_id=1610681184 instance=ExtResource("12_a5d5w")]
+z_index = -7
+layout_mode = 2
 
 [connection signal="mouse_entered" from="Sprite2D/Control" to="." method="_on_notebook_mouse_entered"]
 [connection signal="mouse_exited" from="Sprite2D/Control" to="." method="_on_notebook_mouse_exited"]
@@ -190,6 +210,7 @@ color = Color(0.5411765, 0.27058825, 0.9019608, 1)
 [connection signal="pressed" from="SectionSelector/Holder/SectionButton4" to="." method="_on_section_switch_pressed" binds= [3]]
 [connection signal="pressed" from="SectionSelector/Holder/SectionButton5" to="." method="_on_section_switch_pressed" binds= [4]]
 [connection signal="pressed" from="SectionSelector/Holder/SectionButton6" to="." method="_on_section_switch_pressed" binds= [5]]
+[connection signal="pressed" from="SectionSelector/Holder/AddSectionButton" to="." method="_on_add_section_button_pressed"]
 
 [editable path="Sections/NotebookSection"]
 [editable path="Sections/NotebookSection/Pages/NotebookPage"]

@@ -1,7 +1,10 @@
 extends TextureButton
 class_name SectionTab
 
-@export var color: Color
+@export var color: Color :
+	set(new_color):
+		color = new_color
+		modulate = color
 @export var hover_modulate = 0.7
 @export var hover_scale := Vector2(1.05, 1.05)
 @export var hover_offset := Vector2(3, -1)
@@ -19,10 +22,6 @@ var _dragged_data: NotebookEntry
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	modulate = color
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 	_dragged_data = data

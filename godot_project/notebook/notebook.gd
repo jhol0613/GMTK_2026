@@ -10,7 +10,7 @@ const TOP_TAB_Z_INDEX = 1
 var pen = load("uid://c8yj5np7nrak6")
 var _current_section: int = 0
 var _sections: Array[NotebookSection] = []
-var _active_section_count := 6
+var _active_section_count := 1
 
 
 @onready var _page_turn_sound: AudioStreamPlayer = $PageTurnSound
@@ -18,6 +18,7 @@ var _active_section_count := 6
 @onready var _section_selector_holder := $SectionSelector/Holder
 @onready var _next_page_button := %NextPage
 @onready var _previous_page_button := %PreviousPage
+@onready var _add_section_button := $SectionSelector/Holder/AddSectionButton
 
 func _ready() -> void:
 	add_to_group("world_interaction_blocker")
@@ -181,3 +182,13 @@ func _on_section_switch_pressed(section_indx: int) -> void:
 	tab = _section_selector_holder.get_child(_current_section)
 	tab.sticker.visible = true
 	tab.z_index = TOP_TAB_Z_INDEX
+
+
+func _on_add_section_button_pressed() -> void:
+	$SectionAdded.play()
+	_section_selector_holder.get_child(_active_section_count).show()
+	_on_section_switch_pressed(_active_section_count)
+	_active_section_count += 1
+	if _active_section_count == _section_selector_holder.get_child_count() - 1:
+		_add_section_button.hide()
+		
