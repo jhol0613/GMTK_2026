@@ -52,11 +52,13 @@ func _handle_show_resshan(encoded: String) -> void:
 		overlay.on_notebook_button_pressed()
 	else:
 		show()
-	var pages: = _sections[0].get_pages()
-	for page: NotebookPage in pages:
-		for entry: NotebookEntry in page.get_entries():
-			if entry.resshan_string == encoded:
-				_sections[0].show_page(pages.find(page))
+	for section_index in _sections.size():
+		var pages: = _sections[section_index].get_pages()
+		for page: NotebookPage in pages:
+			for entry: NotebookEntry in page.get_entries():
+				if entry.resshan_string == encoded:
+					_on_section_switch_pressed(section_index)
+					_sections[_current_section].show_page(pages.find(page))
 
 func _handle_entry_removed() -> void:
 	pass
@@ -134,7 +136,7 @@ func _on_next_page_pressed() -> void:
 	if _sections[_current_section].current_page < _get_current_section_page_count() - 1:
 		_sections[_current_section].switch_page(1)
 	elif _current_section < _active_section_count - 1:
-		_on_section_switch_pressed(_current_section + 1)
+		_on_section_switch_pressed(_current_section + 1, 0)
 
 	if _current_section == _active_section_count - 1 and \
 		_sections[_current_section].current_page == _get_current_section_page_count() - 1:
@@ -148,7 +150,8 @@ func _on_previous_page_pressed() -> void:
 	if _sections[_current_section].current_page > 0:
 		_sections[_current_section].switch_page(-1)
 	elif _current_section > 0:
-		_on_section_switch_pressed(_current_section - 1)
+		_on_section_switch_pressed(_current_section - 1, 
+			_sections[_current_section - 1].get_pages().size() - 1)
 
 	if _current_section == 0 and _sections[_current_section].current_page == 0:
 		_previous_page_button.show()
@@ -170,7 +173,7 @@ func _on_notebook_mouse_exited() -> void:
 func _on_close_button_pressed() -> void:
 	close_requested.emit()
 
-func _on_section_switch_pressed(section_indx: int) -> void:
+func _on_section_switch_pressed(section_indx: int, page_number := 0) -> void:
 	_page_turn_sound.play()
 	_sections[_current_section].hide()
 	var tab: SectionTab = _section_selector_holder.get_child(_current_section)
@@ -179,10 +182,10 @@ func _on_section_switch_pressed(section_indx: int) -> void:
 
 	_current_section = section_indx
 	_sections[_current_section].show()
+	_sections[_current_section].show_page(page_number)
 	tab = _section_selector_holder.get_child(_current_section)
 	tab.sticker.visible = true
 	tab.z_index = TOP_TAB_Z_INDEX
-
 
 func _on_add_section_button_pressed() -> void:
 	$SectionAdded.play()

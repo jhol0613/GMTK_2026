@@ -62,7 +62,7 @@ func _handle_removed_entry(page:NotebookPage) -> void:
 
 
 func _handle_limit_reached(page:NotebookPage) -> void:
-	if page.entries_count == page.entry_limit:
+	if page.entries_count >= page.entry_limit:
 		_new_page()
 
 
@@ -87,7 +87,7 @@ func _sync_entry_order() -> void:
 
 func switch_page(direction:int) -> void:
 	var pages: = get_pages()
-	var i = current_page - direction
+	var i = current_page + direction
 	if i > pages.size() - 1 or i < 0:
 		return
 	show_page(i)

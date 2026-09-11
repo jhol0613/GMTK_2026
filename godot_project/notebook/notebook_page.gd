@@ -26,19 +26,21 @@ func _ready() -> void:
 func _new_entry(encoded:String, initial_text = "") -> NotebookEntry:
 	var entry:NotebookEntry = preload('uid://s4gdpvpyayn0').instantiate()
 	
+	entries_count += 1
+	if entries_count >= entry_limit:
+		limit_reached.emit()
+	
 	holder.add_child(entry)
 	entry.player_input.text = initial_text
 	entry.add_resshan(encoded)
 	entry.player_input.text_changed.connect(_handle_entry_update.bind(encoded))
 	entry.reordered.connect(entry_order_changed.emit)
-	entries_count += 1
-	if entries_count == entry_limit:
-		limit_reached.emit()
 	
 	return entry
 
 ## Entry must not be in the scene tree
 func add_entry(entry:NotebookEntry) -> void:
+	entries_count += 1
 	holder.add_child(entry)
 
 # This WILL cause memory leak, if entry isn't properly handled 
