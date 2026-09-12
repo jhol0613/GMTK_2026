@@ -14,6 +14,7 @@ var _drag_preview: NotebookEntry
 var _drag_data: NotebookEntry
 var _drag_x := 0.0
 var open_hand = load("uid://xuaolfjqb2gn")
+var closed_hand = load("uid://w4yu8aix4u4b")
 var pen = load("uid://c8yj5np7nrak6")
 
 @onready var player_input: LineEdit = $PlayerInput
@@ -129,3 +130,8 @@ func _on_resshan_mouse_entered() -> void:
 
 func _on_resshan_mouse_exited() -> void:
 	Input.set_custom_mouse_cursor(pen, Input.CURSOR_ARROW, Vector2(0, 32) )
+
+func _on_resshan_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.is_pressed():
+		Input.set_custom_mouse_cursor(closed_hand, Input.CURSOR_ARROW, Vector2(16, 26))
+		

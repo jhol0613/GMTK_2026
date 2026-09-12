@@ -195,6 +195,8 @@ func _set_visual_state(
 			_dusk_sprites[index].modulate.a = dusk_alpha
 			_night_sprites[index].modulate.a = night_alpha
 		for index in _world_items.size():
+			if _world_items[index] == null:
+				continue
 			_world_items[index].modulate = _world_base_modulates[index] * world_tint
 			_world_items[index].modulate.a = _world_base_modulates[index].a
 		_counteract_tint_on_lights(world_tint)
@@ -221,6 +223,8 @@ func _set_visual_state(
 			transition_duration,
 		)
 	for index in _world_items.size():
+		if _world_items[index] == null:
+			continue
 		var target := _world_base_modulates[index] * world_tint
 		target.a = _world_base_modulates[index].a
 		_fade_tween.tween_property(

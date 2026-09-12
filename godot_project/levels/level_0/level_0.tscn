@@ -592,12 +592,72 @@ color = 7
 [node name="TrainSprite" parent="Platform/UpperTrain" index="2" unique_id=865404147]
 animation = &"RED"
 
+[node name="DoorBlocker" parent="Platform/UpperTrain/TrainSprite" index="1" unique_id=1733779265]
+visible = true
+
+[node name="DoorBlocker2" parent="Platform/UpperTrain/TrainSprite" index="2" unique_id=566216451]
+visible = true
+
+[node name="DoorBlocker3" parent="Platform/UpperTrain/TrainSprite" index="3" unique_id=1551714510]
+visible = true
+
+[node name="DoorBlocker4" parent="Platform/UpperTrain/TrainSprite" index="4" unique_id=1361625764]
+visible = true
+
+[node name="HoverSparcles" parent="Platform/UpperTrain/TrainSprite" index="5" unique_id=1933076444]
+visible = true
+
+[node name="NoTicketLight" parent="Platform/UpperTrain/TrainSprite" index="6" unique_id=994817530]
+visible = true
+
+[node name="DoorL" parent="Platform/UpperTrain/EastWest" parent_id_path=PackedInt32Array(1302422271, 995237668, 1018275487) index="2" unique_id=371770877]
+visible = true
+
+[node name="DoorR" parent="Platform/UpperTrain/EastWest" parent_id_path=PackedInt32Array(1302422271, 995237668, 1018275487) index="3" unique_id=621257440]
+visible = true
+
+[node name="DoorL2" parent="Platform/UpperTrain/EastWest" parent_id_path=PackedInt32Array(1302422271, 995237668, 1018275487) index="4" unique_id=1692903795]
+visible = true
+
+[node name="DoorR2" parent="Platform/UpperTrain/EastWest" parent_id_path=PackedInt32Array(1302422271, 995237668, 1018275487) index="5" unique_id=71265228]
+visible = true
+
 [node name="LowerTrain" parent="Platform" index="8" unique_id=1370361982]
 next_scene = 2
 color = 7
 
 [node name="TrainSprite" parent="Platform/LowerTrain" index="2" unique_id=865404147]
 animation = &"RED"
+
+[node name="DoorBlocker" parent="Platform/LowerTrain/TrainSprite" index="1" unique_id=1733779265]
+visible = true
+
+[node name="DoorBlocker2" parent="Platform/LowerTrain/TrainSprite" index="2" unique_id=566216451]
+visible = true
+
+[node name="DoorBlocker3" parent="Platform/LowerTrain/TrainSprite" index="3" unique_id=1551714510]
+visible = true
+
+[node name="DoorBlocker4" parent="Platform/LowerTrain/TrainSprite" index="4" unique_id=1361625764]
+visible = true
+
+[node name="HoverSparcles" parent="Platform/LowerTrain/TrainSprite" index="5" unique_id=1933076444]
+visible = true
+
+[node name="NoTicketLight" parent="Platform/LowerTrain/TrainSprite" index="6" unique_id=994817530]
+visible = true
+
+[node name="DoorL" parent="Platform/LowerTrain/EastWest" parent_id_path=PackedInt32Array(1302422271, 1370361982, 1018275487) index="2" unique_id=371770877]
+visible = true
+
+[node name="DoorR" parent="Platform/LowerTrain/EastWest" parent_id_path=PackedInt32Array(1302422271, 1370361982, 1018275487) index="3" unique_id=621257440]
+visible = true
+
+[node name="DoorL2" parent="Platform/LowerTrain/EastWest" parent_id_path=PackedInt32Array(1302422271, 1370361982, 1018275487) index="4" unique_id=1692903795]
+visible = true
+
+[node name="DoorR2" parent="Platform/LowerTrain/EastWest" parent_id_path=PackedInt32Array(1302422271, 1370361982, 1018275487) index="5" unique_id=71265228]
+visible = true
 
 [node name="TicketBooth" parent="." index="7" unique_id=861247956 instance=ExtResource("2_823pn")]
 position = Vector2(-1168, -368)
