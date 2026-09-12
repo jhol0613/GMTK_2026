@@ -19,7 +19,7 @@ extends Npc
 
 @export_group("Animation")
 @export var happy_time = 5.0
-@export var dropped_mask_offset := Vector2(0.0, 10.0)
+@export var dropped_mask_offset := Vector2(0.0, 12.0)
 @export var mask_drop_delay := 1.0
 
 var _mask_original_position
@@ -115,7 +115,7 @@ func _on_no_longer_happy(outcome_id: StringName):
 	var generation := _mask_generation
 	repeat_dialogue.lines[0].speaker_icon = sad_portrait
 	repeat_dialogue.lines[0].text = \
-		"%s <<trinketmask>> <<angry>> <<i>> <<buy>> next <<trinketmask>>" % ["<<" + outcome_id.to_lower() + ">>"]
+		"%s <<trinketmask>> <<angry>> <<i>> <<buy>> <<next>> <<trinketmask>>" % ["<<" + outcome_id.to_lower() + ">>"]
 	happy_timer.timeout.disconnect(_on_no_longer_happy)
 	if _drop_player.stream != null:
 		_drop_player.play()

@@ -164,7 +164,7 @@ metadata/_custom_type_script = "uid://dvkforrusa0nj"
 
 [sub_resource type="Resource" id="Resource_3a12k"]
 script = ExtResource("4_thpdn")
-text = "%s <<trinketmask>> <<angry>> <<i>> <<buy>> next <<trinketmask>> <<?>>"
+text = "%s <<trinketmask>> <<angry>> <<i>> <<buy>> <<next>> <<trinketmask>> <<?>>"
 speaker_icon = ExtResource("6_e8hpn")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
@@ -246,51 +246,51 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_glfqm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_oy818"]
 atlas = ExtResource("13_43rhy")
-region = Rect2(0, 0, 32, 32)
+region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gxgb0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8hpn"]
 atlas = ExtResource("14_c61f0")
-region = Rect2(0, 0, 32, 32)
+region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b8i7v"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qntbx"]
 atlas = ExtResource("15_1c8nb")
-region = Rect2(0, 0, 32, 32)
+region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jymw1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_n364k"]
 atlas = ExtResource("16_sk8ik")
-region = Rect2(0, 0, 32, 32)
+region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2uea2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fx6k"]
 atlas = ExtResource("17_oljvn")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_njux5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpd5s"]
 atlas = ExtResource("18_fn0fw")
-region = Rect2(0, 0, 32, 32)
+region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v2at1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vk5t0"]
 atlas = ExtResource("19_u0y27")
-region = Rect2(0, 0, 32, 32)
+region = Rect2(0, 0, 18, 19)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xkqyi"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsub4"]
 atlas = ExtResource("20_ql4hp")
-region = Rect2(0, 0, 32, 32)
+region = Rect2(0, 0, 18, 19)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dilyq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_43rhy"]
 atlas = ExtResource("21_ijabq")
-region = Rect2(0, 0, 32, 32)
+region = Rect2(0, 0, 18, 19)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yx8hm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_thpdn"]
 atlas = ExtResource("22_q10wk")
-region = Rect2(0, 0, 32, 32)
+region = Rect2(0, 0, 18, 19)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5l23l"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_glfqm")
+"texture": SubResource("AtlasTexture_oy818")
 }],
 "loop": 0,
 "name": &"BLUE",
@@ -298,7 +298,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gxgb0")
+"texture": SubResource("AtlasTexture_e8hpn")
 }],
 "loop": 0,
 "name": &"BROWN",
@@ -306,7 +306,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_b8i7v")
+"texture": SubResource("AtlasTexture_qntbx")
 }],
 "loop": 0,
 "name": &"GRAY",
@@ -314,7 +314,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jymw1")
+"texture": SubResource("AtlasTexture_n364k")
 }],
 "loop": 0,
 "name": &"GREEN",
@@ -322,7 +322,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2uea2")
+"texture": SubResource("AtlasTexture_3fx6k")
 }],
 "loop": 0,
 "name": &"MAROON",
@@ -330,7 +330,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_njux5")
+"texture": SubResource("AtlasTexture_kpd5s")
 }],
 "loop": 0,
 "name": &"PINK",
@@ -338,7 +338,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_v2at1")
+"texture": SubResource("AtlasTexture_vk5t0")
 }],
 "loop": 0,
 "name": &"PURPLE",
@@ -346,7 +346,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xkqyi")
+"texture": SubResource("AtlasTexture_dsub4")
 }],
 "loop": 0,
 "name": &"RED",
@@ -354,7 +354,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dilyq")
+"texture": SubResource("AtlasTexture_43rhy")
 }],
 "loop": 0,
 "name": &"TEAL",
@@ -362,7 +362,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yx8hm")
+"texture": SubResource("AtlasTexture_thpdn")
 }],
 "loop": 0,
 "name": &"YELLOW",
@@ -412,7 +412,7 @@ cry_pitch_variation = 1.1
 cry_gap_min = 0.0
 cry_gap_max = 1.6
 happy_time = 5.0
-dropped_mask_offset = Vector2(0, 10)
+dropped_mask_offset = Vector2(0, 12)
 mask_drop_delay = 1.0
 
 [node name="Sprite" parent="." index="0" unique_id=1868209522]
@@ -423,7 +423,7 @@ animation = &"throw"
 visible = false
 position = Vector2(0, 9)
 sprite_frames = SubResource("SpriteFrames_5l23l")
-animation = &"RED"
+animation = &"YELLOW"
 
 [node name="DialogueInteractable" parent="." index="2" unique_id=1161048169]
 dialogue = SubResource("Resource_knmce")
