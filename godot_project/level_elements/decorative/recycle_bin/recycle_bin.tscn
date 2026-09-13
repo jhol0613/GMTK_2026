@@ -93,6 +93,7 @@ open_sound = ExtResource("4_open")
 close_sound = ExtResource("5_close")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=932330891]
+z_index = 1
 texture_filter = 1
 position = Vector2(0, -12.5)
 scale = Vector2(0.075, 0.075)

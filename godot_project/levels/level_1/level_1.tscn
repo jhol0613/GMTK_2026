@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://djoepaapryv6s" path="res://level_elements/trinket_shop/trinket_shop.tscn" id="8_daoe1"]
 [ext_resource type="Resource" uid="uid://ct10126tfbxb3" path="res://levels/level_1/level_specific_resources/trinket_dialogue_level1.tres" id="9_jq5vq"]
 [ext_resource type="PackedScene" uid="uid://2pwlm8itluel" path="res://level_elements/ticket_booth/ticket_booth.tscn" id="19_uptk2"]
-[ext_resource type="PackedScene" uid="uid://bni8iwfqac6ap" path="res://level_elements/coffee_shop/coffee_shop.tscn" id="19_wx43u"]
 [ext_resource type="Resource" uid="uid://cnbhuvmr2ufjd" path="res://levels/level_1/level_specific_resources/ticket_dialogue_level1.tres" id="21_rflqb"]
 [ext_resource type="Texture2D" uid="uid://bhn6gjy4u51qd" path="res://level_elements/decorative/exit_gradient.png" id="23_v3xwt"]
 [ext_resource type="PackedScene" uid="uid://bph5ufs84kb6f" path="res://level_elements/bathroom/bathroom.tscn" id="24_gukcl"]
@@ -554,10 +553,7 @@ dialogue = ExtResource("9_jq5vq")
 [node name="InteractableCollisionShape2D" parent="TrinketShop/DialogueInteractable" index="0" unique_id=278382881]
 shape = SubResource("RectangleShape2D_bqp2h")
 
-[node name="CoffeeShop" parent="." index="15" unique_id=1288725174 instance=ExtResource("19_wx43u")]
-position = Vector2(-570, -297)
-
-[node name="TicketBooth" parent="." index="16" unique_id=861247956 instance=ExtResource("19_uptk2")]
+[node name="TicketBooth" parent="." index="15" unique_id=861247956 instance=ExtResource("19_uptk2")]
 position = Vector2(-267, -170)
 
 [node name="DialogueInteractable" parent="TicketBooth" index="2" unique_id=358228256]
@@ -566,7 +562,7 @@ dialogue = ExtResource("21_rflqb")
 [node name="InteractableCollisionShape2D" parent="TicketBooth/DialogueInteractable" index="0" unique_id=278382881]
 shape = SubResource("RectangleShape2D_8d5ud")
 
-[node name="LevelExitBarrier" type="StaticBody2D" parent="." index="17" unique_id=1631214184]
+[node name="LevelExitBarrier" type="StaticBody2D" parent="." index="16" unique_id=1631214184]
 position = Vector2(-384, 0)
 collision_layer = 2
 
@@ -579,16 +575,16 @@ z_index = 5
 position = Vector2(64, -32)
 texture = ExtResource("23_v3xwt")
 
-[node name="Bathroom" parent="." index="18" unique_id=1865459548 instance=ExtResource("24_gukcl")]
+[node name="Bathroom" parent="." index="17" unique_id=1865459548 instance=ExtResource("24_gukcl")]
 position = Vector2(-416, -432)
 
-[node name="Bathroom2" parent="." index="19" unique_id=1689604557 instance=ExtResource("24_gukcl")]
+[node name="Bathroom2" parent="." index="18" unique_id=1689604557 instance=ExtResource("24_gukcl")]
 position = Vector2(-256, -432)
 
-[node name="StationMapLvl1" parent="." index="20" unique_id=1108949590 instance=ExtResource("25_13ste")]
+[node name="StationMapLvl1" parent="." index="19" unique_id=1108949590 instance=ExtResource("25_13ste")]
 position = Vector2(-318, -445)
 
-[node name="Decorations" type="Node2D" parent="." index="21" unique_id=1967516623]
+[node name="Decorations" type="Node2D" parent="." index="20" unique_id=1967516623]
 y_sort_enabled = true
 script = ExtResource("44_thruster_light")
 
@@ -1026,7 +1022,7 @@ position = Vector2(-432, -554)
 [node name="Sprinkler14" parent="Decorations" index="80" unique_id=1049610554 instance=ExtResource("35_wl75l")]
 position = Vector2(-208, -560)
 
-[node name="Background" parent="." index="22" unique_id=102847613]
+[node name="Background" parent="." index="21" unique_id=102847613]
 transition_duration = 0.6
 
 [node name="FarClouds" parent="Background" index="1" unique_id=1089277525]
@@ -1038,24 +1034,24 @@ repeat_times = 5
 [node name="CloseClouds" parent="Background" index="3" unique_id=782128031]
 repeat_times = 5
 
-[node name="StationNameSign" parent="." index="23" unique_id=948597200 instance=ExtResource("41_r4js7")]
+[node name="StationNameSign" parent="." index="22" unique_id=948597200 instance=ExtResource("41_r4js7")]
 position = Vector2(-463, -416)
 station_number = 1
 
-[node name="PeePeeDance" parent="." index="24" unique_id=22283460 instance=ExtResource("42_jg3i0")]
+[node name="PeePeeDance" parent="." index="23" unique_id=22283460 instance=ExtResource("42_jg3i0")]
 position = Vector2(-262, -416)
 
-[node name="FireflyField" parent="." index="25" unique_id=37705798 instance=ExtResource("45_fireflies")]
+[node name="FireflyField" parent="." index="24" unique_id=37705798 instance=ExtResource("45_fireflies")]
 brightness = 1.6
 
-[node name="RestChairVerticalLeft" parent="." index="26" unique_id=1996001012 instance=ExtResource("39_wl75l")]
+[node name="RestChairVerticalLeft" parent="." index="25" unique_id=1996001012 instance=ExtResource("39_wl75l")]
 position = Vector2(-40, -350)
 
-[node name="VendingMachine" parent="." index="27" unique_id=1576657544 instance=ExtResource("42_wx43u")]
+[node name="VendingMachine" parent="." index="26" unique_id=1576657544 instance=ExtResource("42_wx43u")]
 position = Vector2(98, -1599)
 start_broken = true
 
-[node name="Technician" parent="." index="28" unique_id=837182991 instance=ExtResource("43_tr4hg")]
+[node name="Technician" parent="." index="27" unique_id=837182991 instance=ExtResource("43_tr4hg")]
 position = Vector2(98, -1589)
 
 [editable path="Platform1"]
