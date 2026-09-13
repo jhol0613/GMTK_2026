@@ -5,9 +5,11 @@ extends Node2D
 signal close_requested
 
 @export var ticket_data: TicketData
+@export var num_followon_times_to_display := 4
 
 @onready var _line_label: ResshanLabel = %LineValue
 @onready var _departure_label: ResshanLabel = %DepartureValue
+@onready var _next_departure_label: ResshanLabel = %NextDepartureValue
 @onready var _direction_label: ResshanLabel = %DirectionValue
 
 
@@ -19,16 +21,27 @@ func _ready() -> void:
 
 func set_ticket(data: TicketData) -> void:
 	ticket_data = data
+	
 	_line_label.text = Enums.train_color_to_resshan(data.train_line)
-	#_departure_label.text = "<<%s>> : <<%s>> : <<%s>>" % [data.departure_hours, data.departure_minutes, data.departure_seconds]
 	_direction_label.text = Enums.train_direction_to_resshan(data.direction)
-
-#func check_ticket(h, m, s) -> void:
-	#if not ticket_data:
-		#return
-	#if ticket_data._is_expired(h, m, s):
-		#ticket_expired.emit()
-
+	
+	var departures = ticket_data.departures
+	_departure_label.text = ""
+	_next_departure_label.text = ""
+	
+	if departures.size() <= 0:
+		_departure_label.text = "<<train>> <<closed>>"
+		return
+	
+	var time = TimeManager.seconds_to_hms(departures[0].departure_time_seconds)
+	_departure_label.text += "<<%s>> : <<%s>> : <<%s>>" % [time.x, time.y, time.z]
+	
+	for i in range(1, departures.size()):
+		if i >= num_followon_times_to_display: 
+			break
+		time = TimeManager.seconds_to_hms(departures[i].departure_time_seconds)
+		_next_departure_label.text += "<<%s>> : <<%s>> : <<%s>>     " % [time.x, time.y, time.z]
+		i += 1
 
 func _on_close_button_pressed() -> void:
 	close_requested.emit()

@@ -240,8 +240,9 @@ func _give_reward() -> void:
 
 	var item := _reward.duplicate() as ItemData
 	if item is TicketData:
-		(item as TicketData).resolve_departure()
-		SignalBus.ticket_purchased.emit(item.departure_hours, item.departure_minutes, item.departure_seconds)
+		var handler = get_tree().get_first_node_in_group("station_handler") as StationHandler
+		item.departures = handler.get_next_departures(item.train_line, item.direction, 5)
+		#SignalBus.ticket_purchased.emit(departures)
 	Inventory.add_item(item)
 
 

@@ -14,7 +14,7 @@ signal rest_ended
 signal no_ticket
 #signal missed_train
 
-signal ticket_purchased(hour: int, minute: int, second:int)
+#signal ticket_purchased(next_departures: Array[DepartureData])
 
 signal inventory_full
 

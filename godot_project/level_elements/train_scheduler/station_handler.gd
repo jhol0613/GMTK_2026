@@ -8,6 +8,8 @@ extends Node
 @export var pull_in_seconds_before_departure := 8
 ##No train can pull in for this long after a train departs
 @export var post_departure_buffer_seconds := 4
+##Number of trains displayed on a departure board
+@export var displayed_trains := 8
 
 #@onready var post_departure_buffer_seconds := \
 	#post_departure_buffer_minutes * TimeManager.SECONDS_PER_MINUTE
@@ -20,10 +22,15 @@ var train_pool: Dictionary[Enums.TrainDirection, TrainSet]
 ##All the trains that are currently in the station with their departure time
 var trains_in_station := 0
 
+var force_scheduled_line : Enums.TrainColor
+var force_scheduled_direction : Enums.TrainDirection
+var force_scheduled_destination : String
+
 ##All departure boards in the level. These are grabbed automatically during initialization
 var departure_boards: Array[DepartureBoard]
 
 func _ready() -> void:
+	add_to_group("station_handler")
 	#need to wait for trains and departure boards to initialize
 	call_deferred("_connect_to_departure_boards")
 	call_deferred("build_schedule")
@@ -73,6 +80,48 @@ func build_schedule():
 
 	_pair_departures_with_trains()
 	_initialize_boards()
+
+func get_next_departures(line: Enums.TrainColor, direction: Enums.TrainDirection, amount: int) -> Array[DepartureData]:
+	var departures : Array[DepartureData]
+	for departure in departure_list:
+		if departure.color_line == line and departure.direction == direction:
+			departures.append(departure)
+		if departures.size() >= amount:
+			return departures
+	return departures
+
+###If there is no train within the next 8 of this line/direction, forces one to
+###be scheduled to jump the queue
+#func set_force_schedule(line: Enums.TrainColor, direction: Enums.TrainDirection, destination: String):
+	#force_scheduled_line = line
+	#force_scheduled_direction = direction
+	#_update_force_schedule()
+#
+#func _update_force_schedule():
+	#var has_departure := false
+	#for i in range(displayed_trains):
+		#if departure_list[i].color_line == force_scheduled_line and \
+			#departure_list[i].direction == force_scheduled_direction:
+			#has_departure = true
+			#return
+#
+	#var departure_data = DepartureData.new()
+	#departure_data.color_line = force_scheduled_line
+	#departure_data.direction = force_scheduled_direction
+	#departure_data.destination = force_scheduled_destination
+	#
+	#departure_data.departure_time_seconds = randi_range(
+		#departure_list[displayed_trains-2].departure_time_seconds,
+		#departure_list[displayed_trains].departure_time_seconds
+	#)
+	#departure_data.arrival_time_seconds = departure_data.departure_time_seconds + \
+		#pull_in_seconds_before_departure
+#
+	#departure_list.insert(displayed_trains-1, departure_data)
+	#
+	#for i in range(displayed_trains, departure_list.size()):
+		#
+		#
 
 #if there are no available platforms for a train at a given time,
 #that particular departure will be null and should not happen
