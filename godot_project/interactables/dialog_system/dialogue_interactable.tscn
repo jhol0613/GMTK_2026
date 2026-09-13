@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bi61ptmirslbj" path="res://interactables/dialog_system/dialogue_interactable.gd" id="2_0byqe"]
 
 [node name="DialogueInteractable" unique_id=1631350735 instance=ExtResource("1_sbur3")]
+z_index = 2
 script = ExtResource("2_0byqe")
 speaker = "NPC"
 dialogue = null

@@ -126,6 +126,7 @@ texture = ExtResource("10_light")
 texture_scale = 0.38
 
 [node name="DialogueInteractable" parent="." unique_id=1631350735 instance=ExtResource("4_6alwt")]
+z_index = 2
 dialogue = SubResource("Resource_6cojq")
 panel_path = NodePath("../DialoguePanel")
 

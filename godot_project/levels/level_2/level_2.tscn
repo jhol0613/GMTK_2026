@@ -412,10 +412,6 @@ position = Vector2(-1944, -1511)
 
 [node name="Guide" parent="." index="39" unique_id=1499669555 instance=ExtResource("20_fq0us")]
 position = Vector2(-1730, -1516)
-collision_layer = 8
-
-[node name="Sprite" parent="Guide" index="0" unique_id=1868209522]
-animation = &"idle"
 
 [node name="DialogueInteractable" parent="Guide" index="2" unique_id=1161048169]
 dialogue = ExtResource("18_guide")

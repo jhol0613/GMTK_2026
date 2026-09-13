@@ -28,6 +28,7 @@ position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_npc")
 
 [node name="DialogueInteractable" parent="." unique_id=1161048169 instance=ExtResource("2_dlgint")]
+z_index = 2
 panel_path = NodePath("../DialoguePanel")
 
 [node name="InteractableCollisionShape2D" parent="DialogueInteractable" index="0" unique_id=278382881]
