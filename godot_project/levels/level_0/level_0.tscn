@@ -659,6 +659,12 @@ visible = true
 [node name="DoorR2" parent="Platform/LowerTrain/EastWest" parent_id_path=PackedInt32Array(1302422271, 1370361982, 1018275487) index="5" unique_id=71265228]
 visible = true
 
+[node name="RestChair" parent="Platform" index="22" unique_id=232674008]
+process_mode = 4
+visible = false
+collision_layer = 0
+collision_mask = 0
+
 [node name="TicketBooth" parent="." index="7" unique_id=861247956 instance=ExtResource("2_823pn")]
 position = Vector2(-1168, -368)
 
@@ -811,7 +817,7 @@ position = Vector2(-696, -280)
 [node name="Bench11" parent="Decorations" index="15" unique_id=1186735631 instance=ExtResource("25_vfwqd")]
 position = Vector2(-160, -280)
 
-[node name="RestChair" parent="Decorations" index="16" unique_id=232674008 instance=ExtResource("32_oxxmn")]
+[node name="RestChair" parent="Decorations" index="16" unique_id=1296102744 instance=ExtResource("32_oxxmn")]
 position = Vector2(-1272, -274)
 
 [node name="RestChairVerticalLeft" parent="Decorations" index="17" unique_id=1206111667 instance=ExtResource("31_oxxmn")]

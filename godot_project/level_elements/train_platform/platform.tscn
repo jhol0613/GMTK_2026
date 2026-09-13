@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://iqsa7knvxpkd" path="res://level_elements/train/train_night_glow.gd" id="10_train_night_glow"]
 [ext_resource type="Texture2D" uid="uid://duudg8ecdajql" path="res://level_elements/train/train_front_glow.png" id="11_train_front_glow"]
 [ext_resource type="Script" uid="uid://c5fk2wp7w5c5k" path="res://level_elements/train_platform/layer_transition_zone.gd" id="13_6gnah"]
+[ext_resource type="PackedScene" uid="uid://dj6pi30ngfhch" path="res://level_elements/decorative/benches/rest_chair.tscn" id="14_hl68x"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_train_front_glow"]
 blend_mode = 1
@@ -154,3 +155,6 @@ metadata/_custom_type_script = "uid://c5fk2wp7w5c5k"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LayerTransitionZone" unique_id=1067701298]
 position = Vector2(-136.5, 14.5)
 shape = SubResource("RectangleShape2D_5l23l")
+
+[node name="RestChair" parent="." unique_id=232674008 instance=ExtResource("14_hl68x")]
+position = Vector2(-232, 8)

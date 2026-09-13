@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://bmnw11k645y5q" path="res://level_elements/signs/sign_south.tscn" id="12_n0ljr"]
 [ext_resource type="Script" uid="uid://c5fk2wp7w5c5k" path="res://level_elements/train_platform/layer_transition_zone.gd" id="13_n0ljr"]
 [ext_resource type="PackedScene" uid="uid://55gh65cx5lcj" path="res://level_elements/signs/sign_north.tscn" id="13_qp02f"]
+[ext_resource type="PackedScene" uid="uid://biebaxao2klw3" path="res://level_elements/decorative/benches/rest_chair_vertical_left.tscn" id="14_m7glf"]
+[ext_resource type="PackedScene" uid="uid://digydaor1ukv0" path="res://level_elements/decorative/benches/rest_chair_vertical_right.tscn" id="15_48o67"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_train_front_glow"]
 blend_mode = 1
@@ -81,7 +83,7 @@ material = SubResource("CanvasItemMaterial_train_front_glow")
 texture = ExtResource("7_0b0m3")
 
 [node name="Hourglass" parent="." unique_id=259821884 instance=ExtResource("8_s1ukv")]
-position = Vector2(-127, 12)
+position = Vector2(-127, 26)
 
 [node name="Hoverthruster" type="Sprite2D" parent="." unique_id=811947803]
 position = Vector2(-380, 220)
@@ -104,10 +106,10 @@ position = Vector2(120, 220)
 texture = ExtResource("11_54gbr")
 
 [node name="Station0Sign" parent="." unique_id=98722644 instance=ExtResource("12_cw4qh")]
-position = Vector2(-184, 10)
+position = Vector2(-184, 24)
 
 [node name="Station0Sign2" parent="." unique_id=421458582 instance=ExtResource("12_cw4qh")]
-position = Vector2(-71, 10)
+position = Vector2(-71, 24)
 
 [node name="LayerTransitionZone" type="Area2D" parent="." unique_id=1662407236]
 visible = false
@@ -131,3 +133,15 @@ position = Vector2(-229, 124)
 
 [node name="NorthSign2" parent="." unique_id=1482066451 instance=ExtResource("13_qp02f")]
 position = Vector2(-232, -77)
+
+[node name="RestChairVerticalLeft" parent="." unique_id=232674008 instance=ExtResource("14_m7glf")]
+position = Vector2(-144, 80)
+
+[node name="RestChairVerticalRight" parent="." unique_id=484732143 instance=ExtResource("15_48o67")]
+position = Vector2(-112, 80)
+
+[node name="RestChairVerticalLeft2" parent="." unique_id=1219193307 instance=ExtResource("14_m7glf")]
+position = Vector2(-144, 0)
+
+[node name="RestChairVerticalRight2" parent="." unique_id=1655447813 instance=ExtResource("15_48o67")]
+position = Vector2(-112, 0)
