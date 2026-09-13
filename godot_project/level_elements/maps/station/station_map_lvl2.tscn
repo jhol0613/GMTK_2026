@@ -39,6 +39,17 @@ size = Vector2(50, 15)
 speaker = "player"
 dialogue = SubResource("Resource_adogf")
 panel_path = NodePath("../DialoguePanel")
+has_arrow = false
+
+[node name="Prompt" parent="DialogueInteractable" index="1" unique_id=272794898]
+offset_left = -37.5
+offset_top = -184.5
+offset_right = 37.5
+offset_bottom = -16.5
+
+[node name="AnimatedSprite2D" parent="DialogueInteractable" index="2" unique_id=819702371]
+visible = false
+position = Vector2(0, -99.5)
 
 [node name="MapSprite" type="AnimatedSprite2D" parent="." unique_id=1872372018]
 position = Vector2(-4, -46)

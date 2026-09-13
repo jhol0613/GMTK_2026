@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cmdda7648573b" path="res://level_elements/NPCs/npc.tscn" id="1_a1kig"]
 [ext_resource type="Texture2D" uid="uid://baqw0y264taw5" path="res://level_elements/NPCs/guide/Guide.png" id="2_qddw2"]
+[ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="3_qddw2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o4ndn"]
 atlas = ExtResource("2_qddw2")
@@ -78,5 +79,16 @@ offset_bottom = 45.5
 
 [node name="AnimatedSprite2D" parent="DialogueInteractable" parent_id_path=PackedInt32Array(1161048169) index="2" unique_id=819702371]
 position = Vector2(0, -37.5)
+
+[node name="ResshanInteractable" type="Control" parent="." index="4" unique_id=789729504]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -6.0
+offset_top = -13.0
+offset_right = 6.0
+offset_bottom = -5.0
+script = ExtResource("3_qddw2")
+_string = "<<map>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [editable path="DialogueInteractable"]
