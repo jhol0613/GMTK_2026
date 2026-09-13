@@ -124,6 +124,7 @@ func _rebuild() -> void:
 
 	_refresh(_displayed_tokens)
 
+
 func _on_tokens_changed(current: int, _maximum: int, origin_global: Vector2) -> void:
 	current = clampi(current, 0, _cells.size())
 	if current == _displayed_tokens:

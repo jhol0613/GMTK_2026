@@ -15,7 +15,7 @@
 [ext_resource type="Script" uid="uid://dype06xkw1udm" path="res://visual_effects/stars/star_field.gd" id="12_stars"]
 [ext_resource type="Texture2D" uid="uid://b7k1rwda5wu1p" path="res://visual_effects/day_night/light_radial.png" id="13_starlight"]
 
-[node name="LevelTemplate" type="Node2D" unique_id=783439983]
+[node name="LevelTemplate" type="Node2D" unique_id=783439983 groups=["level"]]
 y_sort_enabled = true
 script = ExtResource("1_yglgk")
 wrong_train_line = ExtResource("2_unwjj")

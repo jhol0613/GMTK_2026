@@ -18,7 +18,8 @@ font_size = 64
 font_color = Color(0.0018410678, 0.0018410682, 0.0018410678, 1)
 
 [node name="ResshanNote" type="Control" unique_id=463936935]
-z_index = 59
+z_index = 4096
+z_as_relative = false
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 0

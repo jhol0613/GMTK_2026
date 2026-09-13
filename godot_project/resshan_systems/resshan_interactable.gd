@@ -100,8 +100,20 @@ func _on_mouse_exited() -> void:
 
 
 func display_note() -> void:
-	if note: 
+	if note:
+		
 		if not note.get_parent():
-			add_child(note)
-		note.position.x = size.x * 0.5
+			get_tree().root.add_child(note)
+		else:
+			note.reparent(get_tree().root)
+		
+		#cursor -> viewport position -> local position relative to Level scene. As long as Level is
+		#at global (0,0) this converts viewport position into global position. Required because mouse
+		#global position is not accurate when in Dialog
+		note.global_position = get_tree().get_first_node_in_group( "level" ).make_canvas_position_local( get_viewport().get_mouse_position() ) + Vector2(0,-32)
 		note.show()
+	#if note: 
+		#if not note.get_parent():
+			#add_child(note)
+		#note.position.x = size.x * 0.5
+		#note.show()
