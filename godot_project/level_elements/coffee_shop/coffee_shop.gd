@@ -2,7 +2,7 @@ extends Node2D
 
 const PURCHASE_OUTCOME: StringName = &"bought_coffee"
 
-@export var slow_duration_minutes: int = 5
+@export var slow_duration_minutes: int = 2
 @export var time_scale_while_active: float = 0.5
 @export var no_money_line: DialogueLine
 @export var after_first_coffee_line: DialogueLine
