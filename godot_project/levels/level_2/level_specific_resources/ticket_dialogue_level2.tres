@@ -5,6 +5,7 @@
 [ext_resource type="Resource" uid="uid://bet02myt21fpk" path="res://level_elements/ticket_booth/ticket_booth_thank_you.tres" id="2_a22ne"]
 [ext_resource type="Texture2D" uid="uid://dkameqx3adr3l" path="res://interactables/dialog_system/character_portraits/ticket_lady/ticket_lady_portrait_1.png" id="3_56dy0"]
 [ext_resource type="Script" uid="uid://cpfgjwe2lpk0k" path="res://ui/ticket/ticket_data.gd" id="3_rkr7w"]
+[ext_resource type="Script" uid="uid://c10ykhl581yb1" path="res://level_elements/train_scheduler/departure_data.gd" id="3_tixrp"]
 [ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="3_vxevm"]
 
 [sub_resource type="Resource" id="Resource_huxyp"]

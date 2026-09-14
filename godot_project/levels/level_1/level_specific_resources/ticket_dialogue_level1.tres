@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://interactables/dialog_system/dialogue_choice.gd" id="1_wuq0v"]
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="2_k475t"]
 [ext_resource type="Resource" uid="uid://bet02myt21fpk" path="res://level_elements/ticket_booth/ticket_booth_thank_you.tres" id="2_l1k6l"]
+[ext_resource type="Script" uid="uid://c10ykhl581yb1" path="res://level_elements/train_scheduler/departure_data.gd" id="3_l1k6l"]
 [ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="3_mgd23"]
 [ext_resource type="Texture2D" uid="uid://dkameqx3adr3l" path="res://interactables/dialog_system/character_portraits/ticket_lady/ticket_lady_portrait_1.png" id="5_22bx0"]
 [ext_resource type="Script" uid="uid://cpfgjwe2lpk0k" path="res://ui/ticket/ticket_data.gd" id="5_y4sxr"]
