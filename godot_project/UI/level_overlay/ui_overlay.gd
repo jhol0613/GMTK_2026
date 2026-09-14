@@ -61,6 +61,7 @@ var _reject_shake_x: float = 0.0
 
 var player_in_arrive_disembark_anim: bool
 var dragging_item: bool = false
+var in_dialog: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -86,7 +87,7 @@ func _ready() -> void:
 	_notebook.close_requested.connect(close_notebook)
 	_ticket.close_requested.connect(_close_ticket)
 	_inventory.close_requested.connect(_close_inventory)
-
+	
 
 ## Nothing fits in the bag: point at it instead of failing silently.
 func _on_inventory_full() -> void:
@@ -245,7 +246,7 @@ func _on_inventory_button_pressed() -> void:
 		return
 	if _inventory.visible:
 		_close_inventory()
-	else:
+	elif not in_dialog:
 		_open_inventory()
 
 

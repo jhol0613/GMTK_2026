@@ -72,7 +72,12 @@ func show_dialogue(
 	_reward = null
 	_choice_reply_override = null
 	_choice_rejected = false
-
+	
+	var ui = get_tree().get_first_node_in_group("ui_overlay")
+	if ui:
+		ui.in_dialog = true
+		ui._close_inventory()
+	
 	_rebuild_option_labels()
 	_update_line()
 	_open(minutes)
@@ -252,6 +257,9 @@ func _close_dialog() -> void:
 	_awaiting_reward = false
 	hide_popup()
 	dialogue_complete.emit()
+	var ui = get_tree().get_first_node_in_group("ui_overlay")
+	if ui:
+		ui.in_dialog = false
 
 
 func _start_typewriter(value: String) -> void:
