@@ -17,32 +17,44 @@ font = ExtResource("2_1uc05")
 font_size = 64
 font_color = Color(0.0018410678, 0.0018410682, 0.0018410678, 1)
 
-[node name="ResshanNote" type="Control" unique_id=463936935]
-z_index = 4096
-z_as_relative = false
+[node name="ResshanNote" type="Control" unique_id=463936935 node_paths=PackedStringArray("_panel")]
+z_index = 16
 texture_filter = 1
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -960.0
+offset_right = -960.0
+grow_horizontal = 2
 scale = Vector2(0.2, 0.2)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+mouse_behavior_recursive = 1
 script = ExtResource("1_dt5xr")
+_panel = NodePath("PanelContainer")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1377185846]
 custom_minimum_size = Vector2(60, 30)
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -17.5
-offset_top = -88.0
-offset_right = 17.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -44.0
+offset_right = 30.0
+offset_bottom = 44.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_1uc05")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1081625459]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_right = 15
 
@@ -50,3 +62,6 @@ theme_override_constants/margin_right = 15
 texture_filter = 1
 layout_mode = 2
 label_settings = SubResource("LabelSettings_dt5xr")
+horizontal_alignment = 1
+
+[connection signal="resized" from="PanelContainer" to="." method="_on_panel_container_resized"]

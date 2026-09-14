@@ -537,7 +537,6 @@ sources/2 = SubResource("TileSetAtlasSource_0fg8s")
 size = Vector2(112, 32)
 
 [node name="Level0" unique_id=783439983 instance=ExtResource("1_eus5j")]
-z_index = 1270
 script = ExtResource("2_as6hq")
 correct_train_line = 7
 correct_train_direction = 2

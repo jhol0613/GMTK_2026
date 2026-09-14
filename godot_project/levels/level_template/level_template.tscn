@@ -77,6 +77,7 @@ texture = ExtResource("9_unwjj")
 centered = false
 
 [node name="CloseClouds" type="Parallax2D" parent="Background" unique_id=782128031]
+scroll_offset = Vector2(-78, 34)
 repeat_size = Vector2(720, 405)
 autoscroll = Vector2(4, 6)
 repeat_times = 4
@@ -84,3 +85,7 @@ repeat_times = 4
 [node name="Sprite2D" type="Sprite2D" parent="Background/CloseClouds" unique_id=542614353]
 texture = ExtResource("10_u3vgj")
 centered = false
+
+[node name="PopupCanvasLayer" type="CanvasLayer" parent="." unique_id=1090977002 groups=["popup_layer"]]
+layer = 3
+follow_viewport_enabled = true

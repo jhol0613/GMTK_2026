@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://csbwbn60kfjyg"]
+
+[ext_resource type="Script" uid="uid://cekbi2hwg8fsi" path="res://levels/level_template/offscreen_detection.gd" id="1_idr31"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r5ysm"]
+size = Vector2(512, 270)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p4kw0"]
+size = Vector2(480, 512)
+
+[node name="OffscreenDetection" type="Area2D" unique_id=1295928008 node_paths=PackedStringArray("right", "left", "top", "bottom")]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("1_idr31")
+right = NodePath("Right")
+left = NodePath("Left")
+top = NodePath("Top")
+bottom = NodePath("Bottom")
+
+[node name="Right" type="CollisionShape2D" parent="." unique_id=1379164340]
+position = Vector2(496, 8.077936e-28)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_r5ysm")
+
+[node name="Left" type="CollisionShape2D" parent="." unique_id=1924296623]
+position = Vector2(-496, 1.3552527e-20)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_r5ysm")
+
+[node name="Top" type="CollisionShape2D" parent="." unique_id=1660894808]
+position = Vector2(-1.8189894e-12, -391)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_p4kw0")
+
+[node name="Bottom" type="CollisionShape2D" parent="." unique_id=1939413515]
+position = Vector2(0, 391.00003)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_p4kw0")
+
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]

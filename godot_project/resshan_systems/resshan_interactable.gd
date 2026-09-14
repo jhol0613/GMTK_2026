@@ -59,6 +59,7 @@ func _gui_input(event: InputEvent) -> void:
 			shader.set_shader_parameter('color', Color.WHITE)
 			SignalBus.resshan_clicked.emit(_encoded_string)
 		accept_event()
+	
 
 
 func _on_mouse_entered() -> void:
@@ -96,24 +97,21 @@ func _on_mouse_exited() -> void:
 	Input.set_custom_mouse_cursor(magnifying_glass, Input.CURSOR_ARROW, Vector2(0,0) )
 	_hovered = false
 	if note:
-		note.hide()
+		note.queue_free()
 
 
 func display_note() -> void:
 	if note:
-		
+		var parent := get_tree().get_first_node_in_group( "popup_layer" )
 		if not note.get_parent():
-			get_tree().root.add_child(note)
+			parent.add_child(note)
 		else:
-			note.reparent(get_tree().root)
+			note.reparent(parent)
 		
 		#cursor -> viewport position -> local position relative to Level scene. As long as Level is
 		#at global (0,0) this converts viewport position into global position. Required because mouse
 		#global position is not accurate when in Dialog
-		note.global_position = get_tree().get_first_node_in_group( "level" ).make_canvas_position_local( get_viewport().get_mouse_position() ) + Vector2(0,-32)
+		note.global_position = get_tree().get_first_node_in_group( "level" ).make_canvas_position_local( get_viewport().get_mouse_position() ) + Vector2(0,-16)
+		
+		note.constrain()
 		note.show()
-	#if note: 
-		#if not note.get_parent():
-			#add_child(note)
-		#note.position.x = size.x * 0.5
-		#note.show()

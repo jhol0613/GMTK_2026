@@ -51,7 +51,7 @@ animations = [{
 }]
 
 [node name="DialoguePanel" type="CanvasLayer" unique_id=210961773 node_paths=PackedStringArray("choice_nav_icons")]
-layer = 20
+layer = 2
 script = ExtResource("1_script")
 choice_nav_icons = NodePath("Root/Popup/ChoiceNavIcons")
 note_popup_scale_multiplier = 1.0
