@@ -355,12 +355,15 @@ position = Vector2(-784, -1192)
 position = Vector2(-592, -1192)
 
 [node name="RecycleBin4" parent="." index="31" unique_id=1647806399 instance=ExtResource("11_yiikh")]
-position = Vector2(-2064, -592)
+position = Vector2(-2469, -1489)
 
-[node name="RecycleBin5" parent="." index="32" unique_id=1973554782 instance=ExtResource("11_yiikh")]
+[node name="RecycleBin7" parent="." index="32" unique_id=1562498425 instance=ExtResource("11_yiikh")]
+position = Vector2(-2012, -926)
+
+[node name="RecycleBin5" parent="." index="33" unique_id=1973554782 instance=ExtResource("11_yiikh")]
 position = Vector2(-2224, -1936)
 
-[node name="Decorations" type="Node2D" parent="." index="33" unique_id=270941818]
+[node name="Decorations" type="Node2D" parent="." index="34" unique_id=270941818]
 y_sort_enabled = true
 
 [node name="OutsideRestroom" parent="Decorations" index="0" unique_id=1631350735 instance=ExtResource("13_1vf62")]
@@ -387,44 +390,44 @@ position = Vector2(-720, -1152)
 [node name="Bathroom2" parent="Decorations" index="7" unique_id=1753618523 instance=ExtResource("14_yiikh")]
 position = Vector2(-656, -1152)
 
-[node name="StationHandler" type="Node" parent="." index="34" unique_id=327838935]
+[node name="StationHandler" type="Node" parent="." index="35" unique_id=327838935]
 script = ExtResource("15_aq41y")
 train_schedule = ExtResource("16_5ts7o")
 metadata/_custom_type_script = "uid://ckmg2kdqbxsyq"
 
-[node name="TrinketShop" parent="." index="35" unique_id=877031898 instance=ExtResource("19_1vf62")]
+[node name="TrinketShop" parent="." index="36" unique_id=877031898 instance=ExtResource("19_1vf62")]
 position = Vector2(-1663, -1186)
 
-[node name="CryingKid" parent="." index="36" unique_id=837182991 instance=ExtResource("19_yiikh")]
+[node name="CryingKid" parent="." index="37" unique_id=837182991 instance=ExtResource("19_yiikh")]
 position = Vector2(-1755, -1177)
 collision_layer = 2
 sad_repeat_text = ""
 
-[node name="TechnicianStation2" parent="." index="37" unique_id=1047069434 node_paths=PackedStringArray("atm", "atm_guy", "vending_machines") instance=ExtResource("20_yiikh")]
+[node name="TechnicianStation2" parent="." index="38" unique_id=1047069434 node_paths=PackedStringArray("atm", "atm_guy", "vending_machines") instance=ExtResource("20_yiikh")]
 position = Vector2(-2332, -1550)
 atm = NodePath("../ATM")
 atm_guy = NodePath("../ATMGuy")
 vending_machines = [NodePath("../VendingMachine"), NodePath("../VendingMachine2"), NodePath("../VendingMachine3")]
 
-[node name="StationMapLevel2" parent="." index="38" unique_id=1664644018 instance=ExtResource("6_cp47v")]
+[node name="StationMapLevel2" parent="." index="39" unique_id=1664644018 instance=ExtResource("6_cp47v")]
 z_index = 1
 position = Vector2(-1944, -1511)
 
-[node name="Guide" parent="." index="39" unique_id=1499669555 instance=ExtResource("20_fq0us")]
+[node name="Guide" parent="." index="40" unique_id=1499669555 instance=ExtResource("20_fq0us")]
 position = Vector2(-1730, -1516)
 
 [node name="DialogueInteractable" parent="Guide" index="2" unique_id=1161048169]
 dialogue = ExtResource("18_guide")
 
-[node name="VendingMachine" parent="." index="40" unique_id=2058901394 instance=ExtResource("24_uuidd")]
+[node name="VendingMachine" parent="." index="41" unique_id=2058901394 instance=ExtResource("24_uuidd")]
 position = Vector2(-2458, -1562)
 start_broken = true
 
-[node name="VendingMachine2" parent="." index="41" unique_id=1576657544 instance=ExtResource("24_uuidd")]
+[node name="VendingMachine2" parent="." index="42" unique_id=1576657544 instance=ExtResource("24_uuidd")]
 position = Vector2(-2395, -1562)
 start_broken = true
 
-[node name="VendingMachine3" parent="." index="42" unique_id=482119658 instance=ExtResource("24_uuidd")]
+[node name="VendingMachine3" parent="." index="43" unique_id=482119658 instance=ExtResource("24_uuidd")]
 position = Vector2(-2332, -1562)
 start_broken = true
 
