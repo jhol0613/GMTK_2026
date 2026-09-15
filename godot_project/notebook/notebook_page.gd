@@ -7,7 +7,7 @@ signal entry_updated(encoded:String, new_text:String)
 signal entry_order_changed
 
 var entries_count: int = 0
-var entry_limit := 9
+var entry_limit := 8
 var _drop_indicator: Line2D
 
 @onready var holder := %Holder
@@ -76,16 +76,26 @@ func show_drop_indicator_bottom() -> void:
 		y = 0
 	else:
 		var last_entry = holder.get_child(-1) as NotebookEntry
-		y = last_entry.position.y + last_entry.size.y
+		y = holder.position.y + last_entry.position.y + last_entry.size.y
 	_drop_indicator.points = PackedVector2Array([
 		Vector2(holder.position.x, y),
 		Vector2(holder.position.x + holder.size.x, y),
 	])
 	_drop_indicator.visible = true
 
+func show_drop_indicator_top() -> void:
+	_drop_indicator.points = PackedVector2Array([
+		Vector2(holder.position.x, holder.position.y),
+		Vector2(holder.position.x + holder.size.x, holder.position.y)
+	])
+	_drop_indicator.visible = false
+
+# this only gets called if drag position isn't intercepted by holder
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
-	
-	show_drop_indicator_bottom()
+	if at_position.y < holder.position.y:
+		show_drop_indicator_top()
+	else:
+		show_drop_indicator_bottom()
 	return true
 
 func _drop_data(at_position: Vector2, data: Variant) -> void:

@@ -9,8 +9,8 @@ var current_page: int = 0
 
 const INSTRUCTION_PAGE_TOP := 124.0
 const ENTRY_PAGE_TOP := 65.0
-const FIRST_PAGE_LIMIT := 8
-const OTHER_PAGE_LIMIT := 9
+const FIRST_PAGE_LIMIT := 7
+const OTHER_PAGE_LIMIT := 8
 
 signal header_changed(index: int, text: String)
 

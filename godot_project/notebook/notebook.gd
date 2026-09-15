@@ -3,6 +3,9 @@ extends Node2D
 
 signal close_requested
 
+@export var button_hover_scale := Vector2(1.03, 1.03)
+@export var page_number_label_text := "%s / %s"
+
 static var player_vocab: JSON = preload('res://resshan_systems/player_vocab.json')
 
 const TOP_TAB_Z_INDEX = 1
@@ -15,9 +18,11 @@ var _active_section_count := 1
 
 @onready var _page_turn_sound: AudioStreamPlayer = $PageTurnSound
 @onready var _entry_added_sound: AudioStreamPlayer = $EntryAdded
+@onready var _hover_sound: AudioStreamPlayer = $HoverSound
 @onready var _section_selector_holder := $SectionSelector/Holder
 @onready var _next_page_button := %NextPage
 @onready var _previous_page_button := %PreviousPage
+@onready var _page_number_label := $PageNumber
 @onready var _add_section_button := $SectionSelector/Holder/AddSectionButton
 
 func _ready() -> void:
@@ -37,11 +42,6 @@ func _ready() -> void:
 	
 	_section_selector_holder.get_child(0).z_index = TOP_TAB_Z_INDEX
 
-#func _process(delta):
-	#for section in _sections:
-		#if section.get_pages().size() == 0:
-			#pass
-
 func _on_section_header_changed(index: int, text: String):
 	var tab = _section_selector_holder.get_child(index) as SectionTab
 	tab.label.text = text
@@ -59,12 +59,6 @@ func _handle_show_resshan(encoded: String) -> void:
 				if entry.resshan_string == encoded:
 					_on_section_switch_pressed(section_index)
 					_sections[_current_section].show_page(pages.find(page))
-
-func _handle_entry_removed() -> void:
-	pass
-
-func _handle_limit_reached() -> void:
-	pass
 
 func _handle_moving_entry(to_section:int, remove_old_entry: bool, entry:NotebookEntry) -> void:
 	for section: NotebookSection in _sections:
@@ -144,7 +138,9 @@ func _on_next_page_pressed() -> void:
 	_previous_page_button.show()
 
 	_page_turn_sound.play()
-
+	
+	_update_nav_button_visibility(_current_section, _sections[_current_section].current_page)
+	
 
 func _on_previous_page_pressed() -> void:
 	if _sections[_current_section].current_page > 0:
@@ -158,6 +154,22 @@ func _on_previous_page_pressed() -> void:
 	_next_page_button.show()
 
 	_page_turn_sound.play()
+	
+	_update_nav_button_visibility(_current_section, _sections[_current_section].current_page)
+
+func _on_next_page_mouse_entered() -> void:
+	_hover_sound.play()
+	_next_page_button.scale = button_hover_scale
+
+func _on_next_page_mouse_exited() -> void:
+	_next_page_button.scale = Vector2.ONE
+
+func _on_previous_page_mouse_entered() -> void:
+	_hover_sound.play()
+	_previous_page_button.scale = button_hover_scale
+
+func _on_previous_page_mouse_exited() -> void:
+	_previous_page_button.scale = Vector2.ONE
 
 func _get_current_section_page_count() -> int:
 	return _sections[_current_section].get_pages().size()
@@ -186,12 +198,35 @@ func _on_section_switch_pressed(section_indx: int, page_number := 0) -> void:
 	tab = _section_selector_holder.get_child(_current_section)
 	tab.sticker.visible = true
 	tab.z_index = TOP_TAB_Z_INDEX
+	
+	_update_nav_button_visibility(section_indx, page_number)
+
+func _update_nav_button_visibility(section_indx: int, page_number: int):
+	if section_indx == 0 and page_number == 0:
+		_previous_page_button.hide()
+	else:
+		_previous_page_button.show()
+	if section_indx == _active_section_count - 1 and \
+		page_number == _sections[_active_section_count - 1].get_pages().size() - 1:
+			_next_page_button.hide()
+	else:
+		_next_page_button.show()
+		
+	var num_pages = _sections[section_indx].get_pages().size()
+	if num_pages > 1:
+		_page_number_label.text = page_number_label_text % [page_number + 1, num_pages]
+		_page_number_label.show()
+	else:
+		_page_number_label.hide()
 
 func _on_add_section_button_pressed() -> void:
 	$SectionAdded.play()
 	_section_selector_holder.get_child(_active_section_count).show()
-	_on_section_switch_pressed(_active_section_count)
 	_active_section_count += 1
+	_on_section_switch_pressed(_active_section_count - 1)
 	if _active_section_count == _section_selector_holder.get_child_count() - 1:
 		_add_section_button.hide()
-		
+
+func _on_visibility_changed() -> void:
+	if visible:
+		_update_nav_button_visibility(_current_section, _sections[_current_section].current_page)

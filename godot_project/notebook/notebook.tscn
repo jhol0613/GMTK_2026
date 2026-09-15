@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://u1j8iapwbxgk" path="res://ui/sfx/Pencil1.mp3" id="5_141dl"]
 [ext_resource type="AudioStream" uid="uid://dmcj5ur7l6jb4" path="res://ui/sfx/Pencil2.mp3" id="6_7rtp4"]
 [ext_resource type="AudioStream" uid="uid://dxds6wjegh3pq" path="res://ui/sfx/HoverTicket_Schedule3.mp3" id="6_a5d5w"]
+[ext_resource type="AudioStream" uid="uid://bjnescgt4ic" path="res://ui/sfx/HoverTicket_Schedule2.mp3" id="6_ct6lf"]
 [ext_resource type="AudioStream" uid="uid://da6j41l6x4sxf" path="res://ui/sfx/Pencil3.mp3" id="7_ft0je"]
 [ext_resource type="Texture2D" uid="uid://cd287u1l626dg" path="res://ui/CloseButton.png" id="8_close"]
 [ext_resource type="AudioStream" uid="uid://ce6kvjn3hwsb0" path="res://ui/sfx/Schedule_Open.mp3" id="11_1veoj"]
@@ -15,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://b32ohv26etu0g" path="res://notebook/add_section_button.tscn" id="12_a5d5w"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5l23l"]
-random_pitch = 1.2397792
+random_pitch = 1.122462
 random_volume_offset_db = 0.4
 streams_count = 1
 stream_0/stream = ExtResource("6_a5d5w")
@@ -53,7 +54,8 @@ visible = true
 section_name = "Unsorted"
 
 [node name="Pages" parent="Sections/NotebookSection" index="0" unique_id=1298499381]
-offset_top = 124.0
+offset_top = 89.0
+offset_bottom = -70.0
 
 [node name="Label" parent="Sections/NotebookSection" index="1" unique_id=1597412108]
 visible = false
@@ -88,10 +90,12 @@ section_name = "Section5"
 
 [node name="NextPage" type="Button" parent="." unique_id=1734661789]
 unique_name_in_owner = true
+visible = false
 offset_left = 192.0
 offset_top = 392.0
 offset_right = 328.0
 offset_bottom = 464.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.1764706, 0.12941177, 0.21568628, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.039215688, 0.3882353, 0.3137255, 1)
@@ -106,10 +110,12 @@ icon_alignment = 1
 
 [node name="PreviousPage" type="Button" parent="." unique_id=2095987400]
 unique_name_in_owner = true
+visible = false
 offset_left = -328.0
 offset_top = 392.0
 offset_right = -192.0
 offset_bottom = 464.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.1764706, 0.12941177, 0.21568628, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.039215688, 0.3882353, 0.3137255, 1)
@@ -121,6 +127,26 @@ text = "Previous"
 icon = ExtResource("5_7rwif")
 flat = true
 icon_alignment = 1
+
+[node name="PageNumber" type="Label" parent="." unique_id=572042579]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -61.0
+offset_top = 405.0
+offset_right = 61.0
+offset_bottom = 451.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ft0je")
+theme_override_font_sizes/font_size = 30
+text = "( %s / %s)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="." unique_id=461396411]
+stream = ExtResource("6_ct6lf")
 
 [node name="PageTurnSound" type="AudioStreamPlayer" parent="." unique_id=561482912]
 stream = SubResource("AudioStreamRandomizer_5l23l")
@@ -165,11 +191,17 @@ z_index = -1
 layout_mode = 2
 color = Color(0.9, 0.54, 0.54, 1)
 
+[node name="Sticker" parent="SectionSelector/Holder/SectionButton" index="1" unique_id=326293469]
+visible = true
+
 [node name="SectionButton2" parent="SectionSelector/Holder" unique_id=1351271917 instance=ExtResource("11_egov3")]
 visible = false
 z_index = -2
 layout_mode = 2
 color = Color(0.78, 0.5356, 0.468, 1)
+
+[node name="Label" parent="SectionSelector/Holder/SectionButton2" index="0" unique_id=104312582]
+text = "Untitled"
 
 [node name="SectionButton3" parent="SectionSelector/Holder" unique_id=1161783827 instance=ExtResource("11_egov3")]
 visible = false
@@ -199,9 +231,14 @@ color = Color(0.69600004, 0.54, 0.9, 1)
 z_index = -7
 layout_mode = 2
 
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="mouse_entered" from="Sprite2D/Control" to="." method="_on_notebook_mouse_entered"]
 [connection signal="mouse_exited" from="Sprite2D/Control" to="." method="_on_notebook_mouse_exited"]
+[connection signal="mouse_entered" from="NextPage" to="." method="_on_next_page_mouse_entered"]
+[connection signal="mouse_exited" from="NextPage" to="." method="_on_next_page_mouse_exited"]
 [connection signal="pressed" from="NextPage" to="." method="_on_next_page_pressed"]
+[connection signal="mouse_entered" from="PreviousPage" to="." method="_on_previous_page_mouse_entered"]
+[connection signal="mouse_exited" from="PreviousPage" to="." method="_on_previous_page_mouse_exited"]
 [connection signal="pressed" from="PreviousPage" to="." method="_on_previous_page_pressed"]
 [connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="SectionSelector/Holder/SectionButton" to="." method="_on_section_switch_pressed" binds= [0]]
@@ -214,3 +251,6 @@ layout_mode = 2
 
 [editable path="Sections/NotebookSection"]
 [editable path="Sections/NotebookSection/Pages/NotebookPage"]
+[editable path="Sections/NotebookSection2"]
+[editable path="SectionSelector/Holder/SectionButton"]
+[editable path="SectionSelector/Holder/SectionButton2"]
