@@ -44,9 +44,17 @@ offset_bottom = 42.5
 position = Vector2(0, -40.5)
 
 [node name="SignPanel" parent="." unique_id=1998267979 instance=ExtResource("3_adogf")]
+layer = 3
 
-[node name="Sprite2D" type="Sprite2D" parent="SignPanel/Root/Popup" parent_id_path=PackedInt32Array(1998267979, 2123670025) index="1" unique_id=13954861]
-position = Vector2(250, 250)
+[node name="Popup" parent="SignPanel/Root" parent_id_path=PackedInt32Array(1998267979, 313175214) index="1" unique_id=2123670025]
+offset_left = -460.0
+offset_top = -460.0
+offset_right = 460.0
+offset_bottom = 460.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="SignPanel/Root/Popup" index="1" unique_id=13954861]
+position = Vector2(460, 460)
 scale = Vector2(0.77, 0.77)
 texture = ExtResource("4_eaavb")
 
