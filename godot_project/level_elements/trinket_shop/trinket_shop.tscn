@@ -159,14 +159,14 @@ animation = &"level1_idle"
 position = Vector2(-33, -56)
 scale = Vector2(1.640625, 2.140625)
 color = Color(0.8331245, 0.44918954, 0.15880418, 1)
-energy = 2.42
+energy = 1.6
 texture = ExtResource("10_down")
 
 [node name="WarmDisplayLight2" type="PointLight2D" parent="NightLight" unique_id=2036372027]
 position = Vector2(17.999996, -54)
 scale = Vector2(1.640625, 2.140625)
 color = Color(0.8331245, 0.44918954, 0.15880418, 1)
-energy = 3.01
+energy = 1.6
 texture = ExtResource("10_down")
 
 [node name="TerminalLight" type="PointLight2D" parent="NightLight" unique_id=886125922]
