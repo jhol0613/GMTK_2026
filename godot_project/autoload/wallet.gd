@@ -9,7 +9,7 @@ signal set_enabled(new_enabled: bool)
 const MAX_TOKENS: int = 16
 const TICKET_COST: int = 4
 const TRINKET_COST: int = 3
-const COFFEE_COST: int = 2
+const COFFEE_COST: int = 4
 
 var tokens: int = MAX_TOKENS
 
