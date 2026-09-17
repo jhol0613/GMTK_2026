@@ -148,6 +148,8 @@ position = Vector2(-71, 10)
 [node name="LayerTransitionZone" type="Area2D" parent="." unique_id=1963443963]
 visible = false
 z_index = 4
+collision_layer = 2
+collision_mask = 9
 script = ExtResource("13_6gnah")
 transition_z_index = 1
 metadata/_custom_type_script = "uid://c5fk2wp7w5c5k"

@@ -1,7 +1,7 @@
 extends Technician
 class_name Station2Technician
 
-const FOLLOW_TIMEOUT_MINUTES := 3
+const FOLLOW_TIMEOUT_MINUTES := 2
 const RETURN_SPEED := 300.0
 
 @export var atm: ATM
@@ -65,7 +65,8 @@ func _on_option_confirmed(option_id: StringName):
 		_fixing_vending_machines = false
 		_player.movement_disabled = true
 		await _panel.dialogue_complete
-		_collision_shape.disabled = true
+		#_collision_shape.disabled = true
+		set_collision_layer_value(2, false)
 		atm_guy.visible = false
 		_state = State.ACTING
 		_sprite.play(&"start_moving")
@@ -136,4 +137,5 @@ func _start_follow_timeout() -> void:
 	_state = State.ACTING
 	_set_interactable(true)
 	_fixing_vending_machines = true
+	set_collision_layer_value(2, true)
 	fix_vending_machine()
