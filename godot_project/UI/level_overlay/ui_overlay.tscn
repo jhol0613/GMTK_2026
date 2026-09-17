@@ -301,7 +301,7 @@ ticket_data = null
 [node name="InventoryPanel" parent="." unique_id=1917505249 instance=ExtResource("10_invpanel")]
 offset_left = -952.0
 offset_top = 94.0
-offset_right = -212.0
+offset_right = 136.0
 offset_bottom = 474.0
 
 [node name="ItemPopup" type="CenterContainer" parent="." unique_id=1015391337]

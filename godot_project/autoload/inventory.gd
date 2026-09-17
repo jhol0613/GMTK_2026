@@ -5,7 +5,7 @@ signal item_removed(item: ItemData)
 signal inventory_changed
 
 ## Non-ticket capacity. Must match InventoryPanel.SLOT_COUNT.
-const MAX_ITEMS: int = 4
+const MAX_ITEMS: int = 6
 const COFFEE_CUP_ID: StringName = &"empty_coffee_cup"
 const COFFEE_CUP_LIMIT: int = 8
 

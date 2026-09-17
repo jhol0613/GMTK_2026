@@ -3,7 +3,7 @@ extends Control
 
 signal close_requested
 
-const SLOT_COUNT: int = 4
+const SLOT_COUNT: int = Inventory.MAX_ITEMS
 
 @export var _slots: Array[InventorySlot]
 @export var slot_h_box: HBoxContainer
