@@ -30,6 +30,7 @@ func refresh() -> void:
 		_items.append(item)
 
 	for i in SLOT_COUNT:
+		_slots[i].show_stack(_items[i] if i < _items.size() else null)
 		var icon := _slots[i].slut_icon
 		var name_label := _slots[i].slut_name
 		if i < _items.size():
@@ -81,6 +82,7 @@ func _start_drag(pos: Vector2) -> void:
 		_drag_ghost.global_position = pos - _drag_ghost.size * 0.5
 		_slots[i].slut_icon.visible = false
 		_slots[i].slut_name.visible = false
+		_slots[i].stack_count.visible = false
 		return
 
 

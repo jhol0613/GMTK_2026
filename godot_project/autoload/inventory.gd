@@ -6,6 +6,8 @@ signal inventory_changed
 
 ## Non-ticket capacity. Must match InventoryPanel.SLOT_COUNT.
 const MAX_ITEMS: int = 4
+const COFFEE_CUP_ID: StringName = &"empty_coffee_cup"
+const COFFEE_CUP_LIMIT: int = 8
 
 var items: Array[ItemData] = []
 
@@ -14,12 +16,25 @@ func add_item(item: ItemData) -> bool:
 	if item is TicketData:
 		_replace_ticket(item as TicketData)
 		return true
+	if item.id == COFFEE_CUP_ID:
+		var stack := get_item(COFFEE_CUP_ID)
+		if stack != null:
+			if stack.quantity >= COFFEE_CUP_LIMIT:
+				SignalBus.inventory_full.emit()
+				return false
+			stack.quantity += 1
+			item_added.emit(item)
+			inventory_changed.emit()
+			return true
 	if owns_item(item):
 		item_added.emit(item)
 		return true
 	if is_full():
 		SignalBus.inventory_full.emit()
 		return false
+	if item.id == COFFEE_CUP_ID:
+		item = item.duplicate() as ItemData
+		item.quantity = 1
 	items.append(item)
 	item_added.emit(item)
 	inventory_changed.emit()
@@ -47,6 +62,13 @@ func _replace_ticket(ticket: TicketData) -> void:
 	inventory_changed.emit()
 
 func remove_item(item: ItemData) -> void:
+	if item == null or not items.has(item):
+		return
+	if item.id == COFFEE_CUP_ID and item.quantity > 1:
+		item.quantity -= 1
+		item_removed.emit(item)
+		inventory_changed.emit()
+		return
 	items.erase(item)
 	item_removed.emit(item)
 	inventory_changed.emit()

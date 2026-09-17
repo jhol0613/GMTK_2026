@@ -4,6 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://dfbg5i3l81fti" path="res://ui/inventory/inventory_slot.png" id="1_nktrt"]
 [ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/resshan_label.gd" id="2_hwg0l"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stack"]
+bg_color = Color(0.07, 0.15, 0.18, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.33, 0.67, 0.65, 1)
+
 [node name="Slot" type="VBoxContainer" unique_id=401876438 node_paths=PackedStringArray("slut_icon", "slut_name")]
 theme_override_constants/separation = 8
 alignment = 1
@@ -47,6 +55,27 @@ script = ExtResource("2_hwg0l")
 font_size = 32
 note_popup_scale_multiplier = 2.0
 metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="StackCount" type="Label" parent="SlotBg" unique_id=588139805]
+z_index = 2
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_top = -155.0
+offset_right = 21.0
+offset_bottom = -122.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.94, 0.92, 0.77, 1)
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_stack")
+text = "0/8"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
