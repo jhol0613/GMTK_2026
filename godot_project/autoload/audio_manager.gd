@@ -14,8 +14,11 @@ const REST_OPEN_CUTOFF_HZ: float = 20000.0
 const REST_CUTOFF_HZ: float = 1100.0
 const REST_FILTER_DURATION: float = 0.6
 
+const SETTINGS_PATH: String = "user://settings.cfg"
+
 var _music_volume_linear: float = 1.0
 var _sfx_volume_linear: float = 1.0
+var _settings_save_timer: Timer
 
 const LEVEL_0_BGM: AudioStream = preload(
 	"uid://dg0waag44ulse"
@@ -78,6 +81,13 @@ func _ready() -> void:
 	_ensure_audio_bus(AMBIENT_BUS, SFX_BUS)
 	_music_low_pass = _ensure_low_pass(MUSIC_BUS)
 	_ambient_low_pass = _ensure_low_pass(AMBIENT_BUS)
+
+	_settings_save_timer = Timer.new()
+	_settings_save_timer.wait_time = 0.5
+	_settings_save_timer.one_shot = true
+	_settings_save_timer.timeout.connect(_save_settings)
+	add_child(_settings_save_timer)
+	_load_settings()
 
 	_music_player = _create_player(
 		"MainMusicPlayer",
@@ -469,11 +479,31 @@ func _set_ambient_rest_cutoff(value: float) -> void:
 func set_music_volume(value: float) -> void:
 	_music_volume_linear = clampf(value, 0.0, 1.0)
 	_set_bus_volume(MUSIC_BUS, _music_volume_linear)
+	_settings_save_timer.start()
 
 
 func set_sfx_volume(value: float) -> void:
 	_sfx_volume_linear = clampf(value, 0.0, 1.0)
 	_set_bus_volume(SFX_BUS, _sfx_volume_linear)
+	_settings_save_timer.start()
+
+
+## Applies the bus volumes directly so loading never re-triggers a save.
+func _load_settings() -> void:
+	var config := ConfigFile.new()
+	if config.load(SETTINGS_PATH) != OK:
+		return
+	_music_volume_linear = clampf(float(config.get_value("audio", "music", 1.0)), 0.0, 1.0)
+	_sfx_volume_linear = clampf(float(config.get_value("audio", "sfx", 1.0)), 0.0, 1.0)
+	_set_bus_volume(MUSIC_BUS, _music_volume_linear)
+	_set_bus_volume(SFX_BUS, _sfx_volume_linear)
+
+
+func _save_settings() -> void:
+	var config := ConfigFile.new()
+	config.set_value("audio", "music", _music_volume_linear)
+	config.set_value("audio", "sfx", _sfx_volume_linear)
+	config.save(SETTINGS_PATH)
 
 
 func get_music_volume() -> float:
