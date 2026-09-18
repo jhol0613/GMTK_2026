@@ -24,6 +24,9 @@ var _spawned_object: DroppedCoffee
 @onready var _throw_cup_sound: AudioStreamPlayer2D = $ThrowCupSound
 func _ready() -> void:
 	super._ready()
+	add_to_group("save_state")
+	if SaveManager.state_for(self).get("cup_on_ground", false):
+		_spawn_object.call_deferred(false)
 	TimeManager.time_scale_changed.connect(_on_time_scale_changed)
 	_on_time_scale_changed(TimeManager.time_scale)
 
@@ -139,7 +142,11 @@ func _play_shop_action() -> void:
 #	_sprite.stop()
 
 
-func _spawn_object() -> bool:
+func get_save_state() -> Dictionary:
+	return {"cup_on_ground": _ground_object_exists()}
+
+
+func _spawn_object(play_sound := true) -> bool:
 	if spawned_object_scene == null or spawn_point == null or _ground_object_exists():
 		return false
 	_spawned_object = spawned_object_scene.instantiate() as DroppedCoffee
@@ -149,7 +156,8 @@ func _spawn_object() -> bool:
 	_spawned_object.global_position = spawn_point.global_position
 	_spawned_object.collected.connect(_on_object_collected.bind(_spawned_object), CONNECT_ONE_SHOT)
 	_throw_cup_sound.global_position = spawn_point.global_position
-	_throw_cup_sound.play()
+	if play_sound:
+		_throw_cup_sound.play()
 	return true
 
 

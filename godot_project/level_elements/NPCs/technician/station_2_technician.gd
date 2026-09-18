@@ -26,16 +26,33 @@ var _initial_dialogue: Dialogue
 var _follow_session := 0
 
 var _fixing_vending_machines = true
+var _atm_attempted := false
 
 func _ready():
 	super._ready()
+	add_to_group("save_state")
 	_initial_position = global_position
 	_initial_dialogue = _interactable.dialogue
 	_state = State.ACTING
 	#_interactable.interacted.connect(_on_first_interaction)
 	_panel.option_confirmed.connect(_on_option_confirmed)
+	_atm_attempted = SaveManager.state_for(self).get("atm_attempted", false)
+	if _atm_attempted:
+		_fixing_vending_machines = false
+		_interactable.dialogue = no_fix_dialogue
+		atm_guy.visible = false
+		_state = State.IDLE
+		return
 	if not vending_machines.is_empty():
 		fix_vending_machine()
+
+
+func get_save_state() -> Dictionary:
+	return {"atm_attempted": _atm_attempted}
+
+
+func save_in_progress() -> bool:
+	return _atm_attempted and _interactable.dialogue != no_fix_dialogue
 
 func fix_vending_machine():
 	var index = 0
@@ -81,6 +98,7 @@ func _on_option_confirmed(option_id: StringName):
 		_start_follow_timeout()
 
 func _on_broken_atm_interacted():
+	_atm_attempted = true
 	_follow_session += 1
 	set_flight_visual(false)
 	atm.dialog_interactable.interacted.disconnect(_on_broken_atm_interacted)

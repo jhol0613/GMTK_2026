@@ -30,6 +30,12 @@ var _opened_as_pause_menu := false
 func _ready() -> void:
 	_opened_as_pause_menu = get_tree().paused
 	_resume_button.visible = _opened_as_pause_menu
+	$SaveButton.visible = _opened_as_pause_menu
+	$SaveStatus.visible = _opened_as_pause_menu
+	if _opened_as_pause_menu:
+		var reason := SaveManager.save_unavailable_reason()
+		$SaveButton.disabled = not reason.is_empty()
+		$SaveStatus.text = reason
 	
 	if _opened_as_pause_menu:
 		AudioManager.play_pause_menu_music(
@@ -49,6 +55,11 @@ func _ready() -> void:
 
 func _on_music_slider_value_changed(value: float) -> void:
 	AudioManager.set_music_volume(value / 100.0)
+
+
+func _on_save_button_pressed() -> void:
+	AudioManager.play_ui_sfx(button_click_sound, click_volume_db)
+	$SaveStatus.text = "Game saved. Continue returns to this level's starting point." if SaveManager.save_game() else SaveManager.last_error
 
 
 func _on_sfx_slider_value_changed(value: float) -> void:

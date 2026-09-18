@@ -32,6 +32,8 @@ func load_scene(
 	transition_in_time = default_fade_in_time,
 	transition_out_time = default_fade_out_time,
 ):
+	SaveManager.capture_scene()
+	SaveManager.transitioning = true
 	_transition_out_time = transition_out_time
 	_transition_in_time = transition_in_time
 

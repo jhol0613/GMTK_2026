@@ -38,6 +38,8 @@ var _shake_token := 0
 
 
 func _ready() -> void:
+	add_to_group("save_state")
+	start_broken = SaveManager.state_for(self).get("broken", start_broken)
 	_sprite_home = $AnimatedSprite2D.position
 	_sprite.frame_changed.connect(_sync_glow)
 	_sprite.animation_changed.connect(_update_electricity)
@@ -51,6 +53,10 @@ func _ready() -> void:
 		#_run_compressor()
 	_update_electricity()
 	_run_current()
+
+
+func get_save_state() -> Dictionary:
+	return {"broken": _sprite.animation == &"broken"}
 
 func fix(break_again := true):
 	_sprite.play("idle")

@@ -35,19 +35,32 @@ func _ready() -> void:
 	var remote_transform: RemoteTransform2D = player.get_node("RemoteTransform2D")
 	remote_transform.remote_path = remote_transform.get_path_to(camera)
 	player.get_node("AudioListener2D").make_current()
+	if SaveManager.restoring:
+		var train := get_resume_spawn_train()
+		if train != null and train.player_disembark_marker != null:
+			player.global_position = train.player_disembark_marker.global_position
+			player.velocity = Vector2.ZERO
+			player.set_active(true)
+			camera.global_position = player.global_position
+			camera.reset_smoothing()
 	
-	if arrival_train != null: 
+	if arrival_train != null and not SaveManager.restoring:
 		arrival_train.play_arrival_animation(true)
 	_start_level_audio()
+	SaveManager.level_ready.call_deferred(self)
 
 	#SignalBus.missed_train.connect(_on_missed_train)
 
 	if TimeManager.consume_wrong_train_dialogue():
 		call_deferred("_play_wrong_train_dialogue")
 
+
+func get_resume_spawn_train() -> Train:
+	return arrival_train
+
 func _start_level_audio() -> void:
 	var sequence := AudioManager.prepare_level_music(level_music_track)
-	if play_train_intro_before_music:
+	if play_train_intro_before_music and arrival_train != null and not SaveManager.restoring:
 		#var opening_train := _find_opening_train()
 		#if opening_train != null:
 		await arrival_train.wait_for_pulling_in()

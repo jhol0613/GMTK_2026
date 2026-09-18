@@ -40,13 +40,29 @@ var _mask_generation := 0
 var happy_timer: SceneTreeTimer
 
 func _ready():
+	add_to_group("save_state")
+	repeat_dialogue = repeat_dialogue.duplicate(true)
+	initial_dialogue = initial_dialogue.duplicate(true)
 	panel.option_confirmed.connect(_on_option_confirmed)
 	dialogue_interactable.dialogue = initial_dialogue
 	_state = State.ACTING
 	_mask_original_position = mask.position
 	_cry_player.stream = _build_cry_randomizer()
 	_cry_player.finished.connect(_queue_next_sob)
+	var saved := SaveManager.state_for(self)
+	_previous_outcome_id = StringName(saved.get("mask", ""))
+	if _previous_outcome_id != &"":
+		repeat_dialogue.lines[0].speaker_icon = sad_portrait
+		repeat_dialogue.lines[0].text = "%s <<trinketmask>> <<angry>> <<i>> <<buy>> <<next>> <<trinketmask>>" % ["<<" + _previous_outcome_id.to_lower() + ">>"]
+		dialogue_interactable.dialogue = repeat_dialogue
+		mask.play(_previous_outcome_id)
+		mask.position = _mask_original_position + dropped_mask_offset
+		mask.visible = true
 	_sob()
+
+
+func get_save_state() -> Dictionary:
+	return {"mask": str(_previous_outcome_id)}
 
 
 func _build_cry_randomizer() -> AudioStreamRandomizer:

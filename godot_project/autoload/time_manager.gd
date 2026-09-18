@@ -31,6 +31,35 @@ var _scale_units_total: int = 0
 var _debug_time_frozen: bool = false
 
 
+func get_save_state() -> Dictionary:
+	return {
+		"remaining": total_seconds(), "total": run_total_seconds,
+		"scale": time_scale, "effect_left": _scaled_units_left,
+		"effect_total": _scale_units_total, "fraction": _scale_accumulator,
+	}
+
+
+func restore_save_state(data: Dictionary) -> void:
+	_preserve_across_reload = false
+	_skip_intro_on_reload = false
+	_pending_wrong_train_dialogue = false
+	_pending_flash = false
+	_debug_time_frozen = false
+	_run_active = true
+	var remaining := clampi(int(data.get("remaining", 511)), 1, 512)
+	hour = remaining / (MINUTES_PER_HOUR * SECONDS_PER_MINUTE)
+	minute = (remaining / SECONDS_PER_MINUTE) % MINUTES_PER_HOUR
+	second = remaining % SECONDS_PER_MINUTE
+	run_total_seconds = maxi(int(data.get("total", 512)), remaining)
+	_time_up_emitted = false
+	_scaled_units_left = maxi(int(data.get("effect_left", 0)), 0)
+	_scale_units_total = maxi(int(data.get("effect_total", 0)), _scaled_units_left)
+	_scale_accumulator = clampf(float(data.get("fraction", 0.0)), 0.0, 1.0)
+	time_scale = float(data.get("scale", 1.0)) if _scaled_units_left > 0 else 1.0
+	time_changed.emit(hour, minute, second)
+	time_scale_changed.emit(time_scale)
+
+
 func _ready() -> void:
 	SignalBus.minutes_passed.connect(advance)
 
@@ -63,6 +92,7 @@ func reset(start_hour: int = HOURS_PER_DAY, start_minute: int = 0, start_second:
 
 
 func begin_new_run() -> void:
+	_debug_time_frozen = false
 	_preserve_across_reload = false
 	_skip_intro_on_reload = false
 	_pending_wrong_train_dialogue = false

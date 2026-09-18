@@ -12,12 +12,14 @@ const TRINKET_COST: int = 3
 const COFFEE_COST: int = 4
 
 var tokens: int = MAX_TOKENS
+var enabled := true
 
 func _ready() -> void:
 	tokens_changed.emit(tokens, MAX_TOKENS, Vector2(0,0))
 
 
 func enable(new_enabled):
+	enabled = new_enabled
 	if new_enabled:
 		tokens = MAX_TOKENS
 	else:
@@ -59,4 +61,4 @@ func add(amount: int, origin_global := Vector2(0,0)) -> void:
 
 func reset() -> void:
 	tokens = MAX_TOKENS
-	tokens_changed.emit(tokens, MAX_TOKENS)
+	tokens_changed.emit(tokens, MAX_TOKENS, Vector2.ZERO)

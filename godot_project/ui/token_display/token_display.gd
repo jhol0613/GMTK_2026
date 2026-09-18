@@ -67,6 +67,7 @@ func _ready() -> void:
 	Wallet.spend_failed.connect(_on_spend_failed)
 	Wallet.set_enabled.connect(_on_set_enabled)
 	_refresh(_displayed_tokens)
+	visible = Wallet.enabled
 
 
 func _process(_delta):

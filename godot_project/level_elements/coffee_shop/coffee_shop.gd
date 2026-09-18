@@ -16,6 +16,15 @@ var _got_free_coffee = false
 
 func _ready() -> void:
 	_dialogue_panel.option_confirmed.connect(_on_option_confirmed)
+	add_to_group("save_state")
+	_interactable.dialogue = _interactable.dialogue.duplicate(true)
+	_got_free_coffee = SaveManager.state_for(self).get("got_free_coffee", false)
+	if _got_free_coffee:
+		_interactable.dialogue.lines[1] = after_first_coffee_line
+
+
+func get_save_state() -> Dictionary:
+	return {"got_free_coffee": _got_free_coffee}
 
 func _on_option_confirmed(outcome_id: StringName) -> void:
 	if outcome_id == &"NONE":

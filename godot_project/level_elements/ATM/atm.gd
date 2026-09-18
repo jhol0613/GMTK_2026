@@ -6,10 +6,13 @@ class_name ATM
 @export var dialog_interactable : DialogueInteractable
 @export var resshan_interactable : ResshanInteractable
 @export var resshan_interactable2 : ResshanInteractable
+var exploded := false
 
 @onready var _lightning_origin : Marker2D = $RefillLightningOrigin
 
 func _ready() -> void:
+	add_to_group("save_state")
+	exploded = SaveManager.state_for(self).get("exploded", false)
 	if broken:
 		sprite.play( "broken" )
 		dialog_interactable.active = false
@@ -20,8 +23,18 @@ func _ready() -> void:
 		sprite.play( "default" )
 		if dialog_interactable != null:
 			dialog_interactable.interacted.connect( _on_interacted )
+	if exploded:
+		sprite.animation = &"explode"
+		sprite.stop()
+		sprite.frame = sprite.sprite_frames.get_frame_count(&"explode") - 1
+		dialog_interactable.active = false
+
+
+func get_save_state() -> Dictionary:
+	return {"exploded": exploded}
 
 func explode() -> void:
+	exploded = true
 	$ExplosionSound.play()
 	sprite.play("explode")
 	#numerator is desired frame number

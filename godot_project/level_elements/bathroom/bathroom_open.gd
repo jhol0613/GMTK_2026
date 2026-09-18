@@ -5,6 +5,20 @@ extends Interactable
 
 var open : bool = false
 
+
+func _ready() -> void:
+	super._ready()
+	add_to_group("save_state")
+	open = SaveManager.state_for(self).get("open", false)
+	if open:
+		sprite.animation = &"opening"
+		sprite.frame = sprite.sprite_frames.get_frame_count(&"opening") - 1
+		collider.set_deferred("disabled", true)
+
+
+func get_save_state() -> Dictionary:
+	return {"open": open}
+
 func interact() -> void:
 	open = not open
 	if open:

@@ -13,9 +13,9 @@ extends ItemData
 @export var departures: Array[DepartureData]
 
 ## Resolved at purchase from current time + offset.
-var departure_hours: int = 0
-var departure_minutes: int = 0
-var departure_seconds: int = 0
+@export var departure_hours: int = 0
+@export var departure_minutes: int = 0
+@export var departure_seconds: int = 0
 
 
 #func resolve_departure() -> void:

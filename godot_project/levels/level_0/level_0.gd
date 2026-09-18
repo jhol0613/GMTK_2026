@@ -30,9 +30,14 @@ func _ready() -> void:
 
 func _begin_without_intro() -> void:
 	_intro_active = false
+	_battery_pickup.set_active(not Wallet.enabled)
 	_set_pigeon_ambient_muted(false)
 	_remove_skip_intro_button()
 	#platform.upper_train.call_train()
+
+
+func get_resume_spawn_train() -> Train:
+	return platform.upper_train
 
 
 func _remove_skip_intro_button() -> void:
@@ -54,6 +59,8 @@ func _skip_intro() -> void:
 	_intro_falling_scene = null
 
 	AudioManager.restore_level_music(2.0)
+	ui_layer.in_dialog = false
+	$Player.set_active(true)
 	ui_layer.open_notebook()
 	platform.upper_train.call_train()
 

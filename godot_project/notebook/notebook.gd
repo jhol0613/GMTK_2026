@@ -26,6 +26,7 @@ var _active_section_count := 1
 @onready var _add_section_button := $SectionSelector/Holder/AddSectionButton
 
 func _ready() -> void:
+	add_to_group("notebook")
 	add_to_group("world_interaction_blocker")
 	for i in $Sections.get_children():
 		_sections.append(i)
@@ -33,7 +34,13 @@ func _ready() -> void:
 	SignalBus.show_resshan_entry.connect(_handle_show_resshan)
 	
 	for section:String in player_vocab.data:
-		for encoded:String in player_vocab.data[section]:
+		var ordered: Array = SaveManager.notebook_state.get("order", {}).get(section, []).duplicate()
+		for encoded in player_vocab.data[section]:
+			if not ordered.has(encoded):
+				ordered.append(encoded)
+		for encoded:String in ordered:
+			if not player_vocab.data[section].has(encoded):
+				continue
 			_add_entry_to_the_section(
 				encoded, player_vocab.data[section][encoded], section, false)
 	
@@ -41,6 +48,33 @@ func _ready() -> void:
 		section.header_changed.connect(_on_section_header_changed)
 	
 	_section_selector_holder.get_child(0).z_index = TOP_TAB_Z_INDEX
+	_restore_section_state(SaveManager.notebook_state)
+
+
+func get_save_state() -> Dictionary:
+	var headers: Array[String] = []
+	var order := {}
+	for section in _sections:
+		section._sync_entry_order()
+		headers.append(section.get_node("Label").text)
+		order[section.section_name] = player_vocab.data[section.section_name].keys()
+	return {"headers": headers, "order": order, "active_sections": _active_section_count}
+
+
+func _restore_section_state(data: Dictionary) -> void:
+	var headers: Array = data.get("headers", [])
+	_active_section_count = clampi(int(data.get("active_sections", 1)), 1, _sections.size())
+	for i in _sections.size():
+		if not player_vocab.data.get(_sections[i].section_name, {}).is_empty():
+			_active_section_count = maxi(_active_section_count, i + 1)
+		if i < headers.size():
+			_sections[i].get_node("Label").text = headers[i]
+			if i > 0:
+				_on_section_header_changed(i, headers[i])
+	for i in _sections.size():
+		_section_selector_holder.get_child(i).visible = i < _active_section_count
+	_add_section_button.visible = _active_section_count < _sections.size()
+	_update_nav_button_visibility(0, 0)
 
 func _on_section_header_changed(index: int, text: String):
 	var tab = _section_selector_holder.get_child(index) as SectionTab

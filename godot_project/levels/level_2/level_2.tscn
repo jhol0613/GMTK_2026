@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://ospha2vyynas" path="res://level_elements/NPCs/guide/guide.tscn" id="20_fq0us"]
 [ext_resource type="PackedScene" uid="uid://wvltf0ie5ih7" path="res://level_elements/NPCs/technician/station_2_technician.tscn" id="20_yiikh"]
 [ext_resource type="PackedScene" uid="uid://blkhoxm6f3cap" path="res://level_elements/vending_machine/vending_machine.tscn" id="24_uuidd"]
+[ext_resource type="PackedScene" uid="uid://cbuohfggvk1qu" path="res://level_elements/decorative/birbs/birb.tscn" id="25_ppf8r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vf62"]
 size = Vector2(816, 408)
@@ -430,6 +431,24 @@ start_broken = true
 [node name="VendingMachine3" parent="." index="43" unique_id=482119658 instance=ExtResource("24_uuidd")]
 position = Vector2(-2332, -1562)
 start_broken = true
+
+[node name="Birb" parent="." index="44" unique_id=1245074896 instance=ExtResource("25_ppf8r")]
+position = Vector2(-1886, -2550)
+
+[node name="Birb2" parent="." index="45" unique_id=325827332 instance=ExtResource("25_ppf8r")]
+position = Vector2(-1868, -2530)
+
+[node name="Birb3" parent="." index="46" unique_id=861790997 instance=ExtResource("25_ppf8r")]
+position = Vector2(-1862, -2560)
+
+[node name="Birb4" parent="." index="47" unique_id=452710290 instance=ExtResource("25_ppf8r")]
+position = Vector2(-1777, -2560)
+
+[node name="Birb5" parent="." index="48" unique_id=2069064482 instance=ExtResource("25_ppf8r")]
+position = Vector2(-1762, -2532)
+
+[node name="Birb6" parent="." index="49" unique_id=1533662933 instance=ExtResource("25_ppf8r")]
+position = Vector2(-1896, -2331)
 
 [editable path="Platform1"]
 [editable path="Platform2"]

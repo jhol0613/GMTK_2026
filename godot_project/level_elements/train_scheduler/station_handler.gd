@@ -31,6 +31,7 @@ var departure_boards: Array[DepartureBoard]
 
 func _ready() -> void:
 	add_to_group("station_handler")
+	add_to_group("save_state")
 	#need to wait for trains and departure boards to initialize
 	call_deferred("_connect_to_departure_boards")
 	call_deferred("build_schedule")
@@ -45,6 +46,10 @@ func _connect_to_departure_boards():
 
 #region build schdule
 func build_schedule():
+	if SaveManager.restoring and SaveManager.state_for(self).has("departures"):
+		_restore_schedule(SaveManager.state_for(self)["departures"])
+		_initialize_boards()
+		return
 	#builds schedule from 0 out to the current time minus buffer
 	var current_time = TimeManager.total_seconds() - pull_in_seconds_before_departure - 1
 	
@@ -80,6 +85,34 @@ func build_schedule():
 
 	_pair_departures_with_trains()
 	_initialize_boards()
+
+
+func get_save_state() -> Dictionary:
+	var departures: Array[Dictionary] = []
+	for i in departure_list.size():
+		departures.append({
+			"data": departure_list[i].duplicate(),
+			"train": str(get_path_to(departure_assignments[i])),
+		})
+	return {"departures": departures}
+
+
+func _restore_schedule(departures: Array) -> void:
+	var remaining := TimeManager.total_seconds()
+	for entry in departures:
+		var departure := entry["data"] as DepartureData
+		var train := get_node_or_null(NodePath(entry["train"])) as Train
+		if departure == null or train == null or departure.departure_time_seconds >= remaining:
+			continue
+		departure_list.append(departure)
+		departure_assignments.append(train)
+		if departure.arrival_time_seconds >= remaining:
+			train.color = departure.color_line
+			train.position = train.original_position
+			train.visible = true
+			if train._is_vertical():
+				train.z_index += 2
+			trains_in_station += 1
 
 func get_next_departures(line: Enums.TrainColor, direction: Enums.TrainDirection, amount: int) -> Array[DepartureData]:
 	var departures : Array[DepartureData]
@@ -171,7 +204,7 @@ func _refresh_train_pool():
 func _initialize_boards():
 	for board in departure_boards:
 		for i in range(board.MAX_ENTRIES):
-			if departure_list.size() >= i-1:
+			if i < departure_list.size():
 				board.add(departure_list[i])
 			else:
 				board.add(null)

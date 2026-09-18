@@ -7,4 +7,4 @@ extends Resource
 @export var item_icon: Texture2D
 @export var animated_item_icon: AnimatedItemIcon
 
-var quantity: int = 1
+@export var quantity: int = 1
