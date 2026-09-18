@@ -17,43 +17,37 @@ button_click_sound = ExtResource("3_vppps")
 hover_volume_db = -7.0
 click_volume_db = -3.0
 
-[node name="Buttons" type="Control" parent="." unique_id=1186367208]
-layout_mode = 3
-anchors_preset = 9
-anchor_bottom = 1.0
-grow_vertical = 2
-
-[node name="PlayButton" type="Button" parent="Buttons" unique_id=1271435869]
-layout_mode = 0
-offset_left = 567.0
+[node name="Buttons" type="VBoxContainer" parent="." unique_id=1186367208]
+offset_left = 200.0
 offset_top = 412.0
-offset_right = 899.0
-offset_bottom = 537.0
-theme_override_font_sizes/font_size = 44
-text = "New Game"
+offset_right = 532.0
+offset_bottom = 857.0
+theme_override_constants/separation = 0
 
 [node name="ContinueButton" type="Button" parent="Buttons" unique_id=1974762931]
-layout_mode = 0
-offset_left = 567.0
-offset_top = 571.0
-offset_right = 899.0
-offset_bottom = 686.0
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
 theme_override_font_sizes/font_size = 44
 text = "Continue"
 
+[node name="PlayButton" type="Button" parent="Buttons" unique_id=1271435869]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 44
+text = "New Game"
+
 [node name="OptionsButton" type="Button" parent="Buttons" unique_id=1170702684]
-layout_mode = 0
-offset_left = 200.0
-offset_top = 569.0
-offset_right = 532.0
-offset_bottom = 695.0
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 44
+text = "Option"
 
 [node name="QuitButton" type="Button" parent="Buttons" unique_id=1827988637]
-layout_mode = 0
-offset_left = 200.0
-offset_top = 731.0
-offset_right = 532.0
-offset_bottom = 857.0
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 44
+text = "Quit"
 
 [node name="Background" type="Node2D" parent="." unique_id=613649569]
 

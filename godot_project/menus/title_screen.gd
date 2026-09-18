@@ -13,7 +13,8 @@ extends Node2D
 
 func _ready() -> void:
 	Input.set_custom_mouse_cursor(null)
-	$Buttons/ContinueButton.disabled = not SaveManager.has_save()
+	SaveManager.load_game()
+	$Buttons/ContinueButton.visible = SaveManager.has_save()
 
 	AudioManager.play_menu_music(
 		main_menu_bgm,
@@ -37,7 +38,7 @@ func _on_play_button_pressed() -> void:
 func _on_continue_button_pressed() -> void:
 	_play_button_click()
 	if not SaveManager.continue_game():
-		$Buttons/ContinueButton.disabled = true
+		$Buttons/ContinueButton.hide()
 
 
 func _on_new_game_confirmed() -> void:
