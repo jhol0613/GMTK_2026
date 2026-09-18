@@ -52,14 +52,21 @@ func _read_save(path: String) -> SaveData:
 		return _reject("clock or vocabulary missing")
 	if int(data.clock.get("remaining", 0)) <= 0:
 		return _reject("run already over")
+	# A broken item costs the player that item, never the whole run.
+	var valid: Array[ItemData] = []
 	for item in data.items:
 		if item == null or item.quantity < 1:
-			return _reject("item with no quantity")
+			push_warning("Save: dropped an item with no quantity")
+			continue
 		if item is TicketData:
 			if item.train_line not in Enums.TrainColor.values() or item.direction not in Enums.TrainDirection.values():
-				return _reject("ticket with line %s direction %s" % [item.train_line, item.direction])
+				push_warning("Save: dropped a ticket with line %s direction %s" % [item.train_line, item.direction])
+				continue
 		elif item.id == &"":
-			return _reject("item with no id: " + item.item_name)
+			push_warning("Save: dropped an item with no id: " + item.item_name)
+			continue
+		valid.append(item)
+	data.items = valid
 	return data
 
 
