@@ -132,6 +132,7 @@ mouse_filter = 2
 script = ExtResource("2_wos7g")
 text = "Speaker"
 font_size = 42
+wrap_text = true
 metadata/_custom_type_script = "uid://sidowamkhcrt"
 
 [node name="Body" type="Control" parent="Root/Popup/MarginContainer/HBoxContainer/VBox" unique_id=895602396]
@@ -143,6 +144,7 @@ mouse_filter = 2
 script = ExtResource("2_wos7g")
 text = "Dialogue line"
 font_size = 42
+wrap_text = true
 metadata/_custom_type_script = "uid://sidowamkhcrt"
 
 [node name="OptionsScroll" type="ScrollContainer" parent="Root/Popup/MarginContainer/HBoxContainer/VBox" unique_id=1645536568]

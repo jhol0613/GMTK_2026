@@ -88,6 +88,7 @@ func _rebuild_option_labels() -> void:
 		child.free()
 	for choice in _choices:
 		var label := ResshanLabel.new()
+		label.wrap_text = true
 		label.text = choice.player_text
 		label.font_size = 42
 		label.note_popup_scale_multiplier = note_popup_scale_multiplier
