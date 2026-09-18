@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://4gvbpwprqmwg"
+path="res://.godot/imported/ticket_four_money.mp3-069e3c40934583bfd2b7d59a644ad50a.mp3str"
+
+[deps]
+
+source_file="res://level_elements/ticket_booth/Dialogue Sound/ticket_four_money.mp3"
+dest_files=["res://.godot/imported/ticket_four_money.mp3-069e3c40934583bfd2b7d59a644ad50a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://n1qk025hdx3p"
+path="res://.godot/imported/no_enough_money_for _mask.mp3-8b4f8daf9d862191e508622bc7581f4c.mp3str"
+
+[deps]
+
+source_file="res://level_elements/trinket_shop/Dialogue_Sound/no_enough_money_for _mask.mp3"
+dest_files=["res://.godot/imported/no_enough_money_for _mask.mp3-8b4f8daf9d862191e508622bc7581f4c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dxdnvkc7odcxe"
+path="res://.godot/imported/no_enough_money _for_ticket.mp3-51761b3a3a4ecc2bd9701791490f2f70.mp3str"
+
+[deps]
+
+source_file="res://level_elements/ticket_booth/Dialogue Sound/no_enough_money _for_ticket.mp3"
+dest_files=["res://.godot/imported/no_enough_money _for_ticket.mp3-51761b3a3a4ecc2bd9701791490f2f70.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

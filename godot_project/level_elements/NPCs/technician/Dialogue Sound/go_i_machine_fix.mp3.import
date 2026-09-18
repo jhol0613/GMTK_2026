@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ddaw00q6vkkcv"
+path="res://.godot/imported/go_i_machine_fix.mp3-e5dd94bd4a308dbbbf2ad80b648c2d94.mp3str"
+
+[deps]
+
+source_file="res://level_elements/NPCs/technician/Dialogue Sound/go_i_machine_fix.mp3"
+dest_files=["res://.godot/imported/go_i_machine_fix.mp3-e5dd94bd4a308dbbbf2ad80b648c2d94.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

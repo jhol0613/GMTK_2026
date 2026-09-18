@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b61onbt14bass"
+path="res://.godot/imported/go_platform_go_bathroom.mp3-e62cef4784b2edbfac44c6bf6620cb0e.mp3str"
+
+[deps]
+
+source_file="res://level_elements/NPCs/guide/Dialogue Sound/go_platform_go_bathroom.mp3"
+dest_files=["res://.godot/imported/go_platform_go_bathroom.mp3-e62cef4784b2edbfac44c6bf6620cb0e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

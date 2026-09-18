@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dbwg4ws2sptli"
+path="res://.godot/imported/ticket_buy.mp3-6f3857ff85403b7a4459b484d569838c.mp3str"
+
+[deps]
+
+source_file="res://level_elements/ticket_booth/Dialogue Sound/ticket_buy.mp3"
+dest_files=["res://.godot/imported/ticket_buy.mp3-6f3857ff85403b7a4459b484d569838c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cdmci1vbg2y38"
+path="res://.godot/imported/i_buy_mask.mp3-40d29b71d1329c68d25429f3319f8c51.mp3str"
+
+[deps]
+
+source_file="res://level_elements/NPCs/crying_kid/Dialogue Sound/i_buy_mask.mp3"
+dest_files=["res://.godot/imported/i_buy_mask.mp3-40d29b71d1329c68d25429f3319f8c51.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

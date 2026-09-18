@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://byxhvnp3g8y3i"
+path="res://.godot/imported/no_money_no_holiday_mask_buy.mp3-3f0c827ba8dd32128f1c4bdc2c2fc40a.mp3str"
+
+[deps]
+
+source_file="res://level_elements/NPCs/crying_kid/Dialogue Sound/no_money_no_holiday_mask_buy.mp3"
+dest_files=["res://.godot/imported/no_money_no_holiday_mask_buy.mp3-3f0c827ba8dd32128f1c4bdc2c2fc40a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

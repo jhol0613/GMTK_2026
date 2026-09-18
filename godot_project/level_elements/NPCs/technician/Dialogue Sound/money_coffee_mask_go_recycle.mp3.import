@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c8frdni4sfqwt"
+path="res://.godot/imported/money_coffee_mask_go_recycle.mp3-3e4a7c5c2ecf30f9df115476ab1bb09a.mp3str"
+
+[deps]
+
+source_file="res://level_elements/NPCs/technician/Dialogue Sound/money_coffee_mask_go_recycle.mp3"
+dest_files=["res://.godot/imported/money_coffee_mask_go_recycle.mp3-3e4a7c5c2ecf30f9df115476ab1bb09a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
