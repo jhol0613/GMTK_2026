@@ -6,8 +6,6 @@ extends Npc
 @export var repeat_dialogue: Dialogue
 @export var nevermind_choice: DialogueChoice
 @export var give_item_choice_text: String
-@export var happy_repeat_text: String
-@export var sad_repeat_text: String
 @export var happy_portrait: Texture2D
 @export var sad_portrait: Texture2D
 
