@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://0fat232mqu7p" path="res://level_elements/trinket_shop/trinket_shop_glowpng.png" id="7_glow"]
 [ext_resource type="Script" uid="uid://drq0avlr51tqy" path="res://level_elements/trinket_shop/trinket_shop_night_light.gd" id="8_night"]
 [ext_resource type="AudioStream" uid="uid://catt5hiwwwfor" path="res://level_elements/trinket_shop/trinket_purchased.wav" id="9_7wyia"]
+[ext_resource type="Shader" uid="uid://8idom0gsb7r" path="res://level_elements/decorative/street_lamp/street_lamp_light_cone.gdshader" id="9_bqp2h"]
 [ext_resource type="Texture2D" uid="uid://b7k1rwda5wu1p" path="res://visual_effects/day_night/light_radial.png" id="9_light"]
 [ext_resource type="Texture2D" uid="uid://8fjrji8ipc4f" path="res://visual_effects/day_night/light_downward.png" id="10_down"]
 
@@ -126,6 +127,9 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fhk1x"]
+shader = ExtResource("9_bqp2h")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bqp2h"]
 size = Vector2(54, 16)
 
@@ -156,6 +160,8 @@ sprite_frames = SubResource("SpriteFrames_glow")
 animation = &"level1_idle"
 
 [node name="WarmDisplayLight" type="PointLight2D" parent="NightLight" unique_id=1901038595]
+visible = false
+texture_filter = 2
 position = Vector2(-33, -56)
 scale = Vector2(1.640625, 2.140625)
 color = Color(0.8331245, 0.44918954, 0.15880418, 1)
@@ -163,6 +169,8 @@ energy = 1.6
 texture = ExtResource("10_down")
 
 [node name="WarmDisplayLight2" type="PointLight2D" parent="NightLight" unique_id=2036372027]
+visible = false
+texture_filter = 2
 position = Vector2(17.999996, -54)
 scale = Vector2(1.640625, 2.140625)
 color = Color(0.8331245, 0.44918954, 0.15880418, 1)
@@ -177,6 +185,25 @@ color = Color(0.20784314, 0.8666667, 0.89411765, 1)
 energy = 0.0
 texture = ExtResource("9_light")
 texture_scale = 0.6
+
+[node name="LightCone" type="ColorRect" parent="NightLight" unique_id=929931695]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+material = SubResource("ShaderMaterial_fhk1x")
+offset_left = -15.0
+offset_top = -55.0
+offset_right = 50.0
+offset_bottom = 13.0
+mouse_filter = 2
+
+[node name="LightCone2" type="ColorRect" parent="NightLight" unique_id=824084984]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+material = SubResource("ShaderMaterial_fhk1x")
+offset_left = -65.0
+offset_top = -55.0
+offset_bottom = 13.0
+mouse_filter = 2
 
 [node name="DialogueInteractable" parent="." unique_id=358228256 instance=ExtResource("3_xxwc8")]
 z_index = 1

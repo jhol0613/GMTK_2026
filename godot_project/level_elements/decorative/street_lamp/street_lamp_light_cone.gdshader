@@ -2,7 +2,7 @@ shader_type canvas_item;
 render_mode blend_add, unshaded;
 
 void fragment() {
-	float half_width = mix(0.055, 0.5, smoothstep(0.0, 0.88, UV.y));
+	float half_width = mix(0.055, 0.5, UV.y);
 	float distance_from_center = abs(UV.x - 0.5) / half_width;
 	float side_fade = 1.0 - smoothstep(0.68, 1.0, distance_from_center);
 	float top_fade = smoothstep(0.0, 0.06, UV.y);

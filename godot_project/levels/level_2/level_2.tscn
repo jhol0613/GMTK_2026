@@ -394,13 +394,30 @@ position = Vector2(-720, -1152)
 [node name="Bathroom2" parent="Decorations" index="7" unique_id=1753618523 instance=ExtResource("14_yiikh")]
 position = Vector2(-656, -1152)
 
+[node name="Birb" parent="Decorations" index="8" unique_id=1245074896 instance=ExtResource("25_ppf8r")]
+position = Vector2(-1886, -2550)
+
+[node name="Birb2" parent="Decorations" index="9" unique_id=325827332 instance=ExtResource("25_ppf8r")]
+position = Vector2(-1868, -2530)
+
+[node name="Birb3" parent="Decorations" index="10" unique_id=861790997 instance=ExtResource("25_ppf8r")]
+position = Vector2(-1862, -2560)
+
+[node name="Birb4" parent="Decorations" index="11" unique_id=452710290 instance=ExtResource("25_ppf8r")]
+position = Vector2(-1777, -2560)
+
+[node name="Birb5" parent="Decorations" index="12" unique_id=2069064482 instance=ExtResource("25_ppf8r")]
+position = Vector2(-1762, -2532)
+
+[node name="Birb6" parent="Decorations" index="13" unique_id=1533662933 instance=ExtResource("25_ppf8r")]
+position = Vector2(-1896, -2331)
+
 [node name="TrinketShop" parent="." index="35" unique_id=877031898 instance=ExtResource("19_1vf62")]
 position = Vector2(-1663, -1186)
 
 [node name="CryingKid" parent="." index="36" unique_id=837182991 instance=ExtResource("19_yiikh")]
 position = Vector2(-1755, -1177)
 collision_layer = 2
-sad_repeat_text = ""
 
 [node name="TechnicianStation2" parent="." index="37" unique_id=1047069434 node_paths=PackedStringArray("atm", "atm_guy", "vending_machines") instance=ExtResource("20_yiikh")]
 position = Vector2(-2332, -1550)
@@ -429,24 +446,6 @@ start_broken = true
 [node name="VendingMachine3" parent="." index="42" unique_id=482119658 instance=ExtResource("24_uuidd")]
 position = Vector2(-2332, -1562)
 start_broken = true
-
-[node name="Birb" parent="." index="43" unique_id=1245074896 instance=ExtResource("25_ppf8r")]
-position = Vector2(-1886, -2550)
-
-[node name="Birb2" parent="." index="44" unique_id=325827332 instance=ExtResource("25_ppf8r")]
-position = Vector2(-1868, -2530)
-
-[node name="Birb3" parent="." index="45" unique_id=861790997 instance=ExtResource("25_ppf8r")]
-position = Vector2(-1862, -2560)
-
-[node name="Birb4" parent="." index="46" unique_id=452710290 instance=ExtResource("25_ppf8r")]
-position = Vector2(-1777, -2560)
-
-[node name="Birb5" parent="." index="47" unique_id=2069064482 instance=ExtResource("25_ppf8r")]
-position = Vector2(-1762, -2532)
-
-[node name="Birb6" parent="." index="48" unique_id=1533662933 instance=ExtResource("25_ppf8r")]
-position = Vector2(-1896, -2331)
 
 [editable path="Platform1"]
 [editable path="Platform2"]
