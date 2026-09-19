@@ -7,14 +7,14 @@
 script = ExtResource("1_3wyqc")
 direction = 2
 destination = "<<endofblueline>>"
-scene_destination = 6
+scene_destination = 4
 metadata/_custom_type_script = "uid://kipmht1y7efq"
 
 [sub_resource type="Resource" id="Resource_gq3wq"]
 script = ExtResource("1_3wyqc")
 direction = 3
 destination = "<<startofblueline>>"
-initial_offset = 1
+initial_offset = 9
 scene_destination = 3
 metadata/_custom_type_script = "uid://kipmht1y7efq"
 
@@ -67,6 +67,7 @@ script = ExtResource("1_3wyqc")
 color = 7
 direction = 3
 destination = "<<startofredline>>"
+initial_offset = 8
 scene_destination = 3
 metadata/_custom_type_script = "uid://kipmht1y7efq"
 

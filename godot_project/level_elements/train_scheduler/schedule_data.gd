@@ -15,8 +15,9 @@ signal train_aproaching
 ##early or late
 @export var arrival_variation_minutes: int = 3
 ##Offset by this amount for scheduling the first train. Make these different
-##for different trains to avoid all trains arriving at once
-@export var initial_offset: int = 0
+##for different trains to avoid all trains arriving at once. Initial offset
+##not affected by variation
+@export var initial_offset: int = 1
 @export var scene_destination: Enums.Scenes
 
 #var expired: = false

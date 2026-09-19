@@ -54,8 +54,8 @@ func build_schedule():
 	var current_time = TimeManager.total_seconds() - pull_in_seconds_before_departure - 1
 	
 	for schedule_item: ScheduleData in schedule:
-		var time = schedule_item.initial_offset + \
-			randi_range(0, schedule_item.arrival_variation_minutes * TimeManager.SECONDS_PER_MINUTE)
+		var time = schedule_item.initial_offset# + \
+			#randi_range(0, schedule_item.arrival_variation_minutes * TimeManager.SECONDS_PER_MINUTE)
 		while time < current_time:
 			#copy basic schedule data to departures
 			var departure_data = DepartureData.new()

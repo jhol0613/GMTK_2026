@@ -7,6 +7,7 @@
 script = ExtResource("1_jg6t2")
 destination = "<<endofblueline>>"
 arrival_interval_minutes = 9
+initial_offset = 9
 metadata/_custom_type_script = "uid://kipmht1y7efq"
 
 [sub_resource type="Resource" id="Resource_y7ted"]
@@ -57,7 +58,7 @@ color = 1
 direction = 3
 destination = "<<startofbrownline>>"
 arrival_interval_minutes = 9
-initial_offset = 9
+scene_destination = 6
 metadata/_custom_type_script = "uid://kipmht1y7efq"
 
 [sub_resource type="Resource" id="Resource_n0x2w"]
