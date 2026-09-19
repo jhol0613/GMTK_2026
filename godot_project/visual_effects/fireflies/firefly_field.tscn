@@ -1,8 +1,9 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene format=3 uid="uid://7db0w0lpg45q"]
 
-[ext_resource type="Script" path="res://visual_effects/fireflies/firefly_field.gd" id="1_field"]
-[ext_resource type="Texture2D" path="res://visual_effects/day_night/light_radial.png" id="2_light"]
+[ext_resource type="Script" uid="uid://dr8dwpevt8mly" path="res://visual_effects/fireflies/firefly_field.gd" id="1_field"]
+[ext_resource type="Texture2D" uid="uid://b7k1rwda5wu1p" path="res://visual_effects/day_night/light_radial.png" id="2_light"]
 
-[node name="FireflyField" type="Node2D" groups=["night_lights"]]
+[node name="FireflyField" type="Node2D" unique_id=717600283 groups=["night_lights"]]
 script = ExtResource("1_field")
 texture = ExtResource("2_light")
+max_distance_from_player = 512.0

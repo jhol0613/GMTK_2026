@@ -4,6 +4,8 @@
 [ext_resource type="Resource" uid="uid://cs1k0a7leguxs" path="res://levels/level_template/wrong_train.tres" id="2_unwjj"]
 [ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialog_system/dialogue_panel.tscn" id="3_u3vgj"]
 [ext_resource type="PackedScene" uid="uid://bn2ibeuqk0rgt" path="res://player/player.tscn" id="4_3dbtp"]
+[ext_resource type="Script" uid="uid://ckmg2kdqbxsyq" path="res://level_elements/train_scheduler/station_handler.gd" id="4_qs80c"]
+[ext_resource type="Resource" uid="uid://bwniyebs5hs7t" path="res://levels/level_0/level_specific_resources/level_0_train_schedule.tres" id="5_7nq05"]
 [ext_resource type="Script" uid="uid://btkqgbo0adau2" path="res://levels/level_template/shake_camera.gd" id="5_r5ysm"]
 [ext_resource type="TileSet" uid="uid://dvxgqw1r5w5ps" path="res://level_elements/tileset/station_tileset.tres" id="6_7nq05"]
 [ext_resource type="Texture2D" uid="uid://duuound6q3dyn" path="res://level_elements/background/sky1.png" id="7_64qpc"]
@@ -14,12 +16,19 @@
 [ext_resource type="Script" uid="uid://7gvc0vds6k6g" path="res://level_elements/background/day_night_background.gd" id="11_daynight"]
 [ext_resource type="Script" uid="uid://dype06xkw1udm" path="res://visual_effects/stars/star_field.gd" id="12_stars"]
 [ext_resource type="Texture2D" uid="uid://b7k1rwda5wu1p" path="res://visual_effects/day_night/light_radial.png" id="13_starlight"]
+[ext_resource type="PackedScene" uid="uid://7db0w0lpg45q" path="res://visual_effects/fireflies/firefly_field.tscn" id="17_7nq05"]
 
 [node name="LevelTemplate" type="Node2D" unique_id=783439983 groups=["level"]]
 y_sort_enabled = true
 script = ExtResource("1_yglgk")
 wrong_train_line = ExtResource("2_unwjj")
 dialogue_panel_scene = ExtResource("3_u3vgj")
+
+[node name="StationHandler" type="Node" parent="." unique_id=1058728153]
+script = ExtResource("4_qs80c")
+train_schedule = ExtResource("5_7nq05")
+pull_in_seconds_before_departure = 12
+metadata/_custom_type_script = "uid://ckmg2kdqbxsyq"
 
 [node name="UiOverlay" parent="." unique_id=368800410 instance=ExtResource("7_glpk1")]
 
@@ -89,3 +98,6 @@ centered = false
 [node name="PopupCanvasLayer" type="CanvasLayer" parent="." unique_id=1090977002 groups=["popup_layer"]]
 layer = 3
 follow_viewport_enabled = true
+
+[node name="FireflyField" parent="." unique_id=1243834593 instance=ExtResource("17_7nq05")]
+brightness = 1.6

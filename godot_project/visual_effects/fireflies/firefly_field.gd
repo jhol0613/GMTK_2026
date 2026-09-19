@@ -10,15 +10,17 @@ class_name FireflyField
 @export var sprite_z_index: int = 2
 
 @export_group("Population")
-@export var max_count: int = 12
+@export var max_count: int = 64
 @export_range(0.0, 1.0, 0.01) var appear_start_progress := 0.55
 @export_range(0.0, 1.0, 0.01) var full_strength_progress := 0.85
-@export var spawn_check_interval := 1.2
+@export var min_spawn_check_interval := .25
+@export var max_spawn_check_interval := 1.25
 @export var lifetime_range := Vector2(10.0, 22.0)
 @export var fade_duration := 1.2
 @export_range(0.0, 1.0, 0.05) var cluster_chance := 0.3
 @export var cluster_radius := 60.0
-@export var min_distance_from_player := 60.0
+@export var min_distance_from_player := 30.0
+@export var max_distance_from_player := 128.0
 
 @export_group("Movement")
 @export var speed_range := Vector2(6.0, 14.0)
@@ -26,9 +28,9 @@ class_name FireflyField
 @export var bob_amplitude_range := Vector2(2.0, 5.0)
 @export var bob_period_range := Vector2(2.0, 4.0)
 @export var edge_lookahead := 16.0
-@export var player_push_radius := 40.0
+@export var player_push_radius := 32.0
 @export var player_push_strength := 18.0
-@export var light_avoid_radius := 90.0
+@export var light_avoid_radius := 64.0
 @export_range(0.0, 1.0, 0.05) var light_min_brightness := 0.15
 
 @export_group("Blink")
@@ -165,7 +167,7 @@ func _process(delta: float) -> void:
 
 	_spawn_timer -= delta
 	if _spawn_timer <= 0.0:
-		_spawn_timer = spawn_check_interval
+		_spawn_timer = lerp(max_spawn_check_interval,min_spawn_check_interval,_target_strength)
 		_try_spawn()
 
 	for firefly in _pool:
@@ -214,24 +216,25 @@ func _pick_spawn_point() -> Vector2:
 				_rng.randf_range(-cluster_radius, cluster_radius)
 			)
 			var candidate := anchor.pos + offset
-			if _is_grass(candidate) and _is_far_enough(candidate, player):
+			if _is_grass(candidate) and _is_distance_good(candidate, player):
 				return candidate
 
 	for attempt in 12:
 		var candidate := _spawn_points[_rng.randi() % _spawn_points.size()]
 		candidate += Vector2(_rng.randf_range(-8.0, 8.0), _rng.randf_range(-8.0, 8.0))
-		if not _is_on_screen(candidate):
-			continue
-		if not _is_far_enough(candidate, player):
+		#if not _is_on_screen(candidate):
+			#continue
+		if not _is_distance_good(candidate, player):
 			continue
 		return candidate
 	return Vector2.INF
 
 
-func _is_far_enough(point: Vector2, player: Node2D) -> bool:
+func _is_distance_good(point: Vector2, player: Node2D) -> bool:
 	if player == null:
 		return true
-	return point.distance_to(player.global_position) >= min_distance_from_player
+	return (  (point.distance_to(player.global_position) >= min_distance_from_player) and
+		(point.distance_to(player.global_position) <= max_distance_from_player)  )
 
 
 func _is_on_screen(point: Vector2) -> bool:
