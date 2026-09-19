@@ -18,6 +18,11 @@ func _ready() -> void:
 	await tween.finished
 	_end_intro()
 
+func _enable_resshan():
+	$CanvasLayer/Comic1Picture4a/ResshanInteractable.enabled = true
+	$CanvasLayer/Comic1Picture4a/ResshanInteractable2.enabled = true
+	$CanvasLayer/Comic1Picture4a/ResshanInteractable3.enabled = true 
+	$CanvasLayer/Comic1Picture4a/ResshanInteractable4.enabled = true
 
 func _input(event):
 	if event.is_action_pressed("skip"):

@@ -11,6 +11,7 @@ const TIME_TO_HOVER: = .4
 		
 var _encoded_string: String = ''
 @export var note_popup_scale_multiplier := 1.0
+@export var enabled := true
 
 var _hovered: = false
 var note: ResshanPopUp = null
@@ -50,6 +51,7 @@ func _gui_input(event: InputEvent) -> void:
 		event is InputEventMouseButton
 		and not event.pressed
 		and event.button_index == MOUSE_BUTTON_LEFT
+		and enabled
 	):
 		if Notebook.has_note(_encoded_string):
 			SignalBus.show_resshan_entry.emit(_encoded_string)
@@ -63,6 +65,8 @@ func _gui_input(event: InputEvent) -> void:
 
 
 func _on_mouse_entered() -> void:
+	if not enabled:
+		return
 	if get_tree().get_first_node_in_group("ui_overlay").dragging_item:
 		return
 	var pop: = Notebook.get_note(_encoded_string)
@@ -91,6 +95,8 @@ func _on_mouse_entered() -> void:
 
 
 func _on_mouse_exited() -> void:
+	if not enabled:
+		return
 	if get_tree().get_first_node_in_group("ui_overlay").dragging_item:
 		return
 	_shine_cover.hide()
@@ -101,6 +107,8 @@ func _on_mouse_exited() -> void:
 
 
 func display_note() -> void:
+	if not enabled:
+		return
 	if note:
 		var parent := get_tree().get_first_node_in_group( "popup_layer" )
 		if not note.get_parent():
