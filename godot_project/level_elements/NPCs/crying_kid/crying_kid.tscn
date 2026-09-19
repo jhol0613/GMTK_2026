@@ -5,9 +5,11 @@
 [ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://interactables/dialog_system/dialogue_choice.gd" id="3_a5aw8"]
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="4_thpdn"]
 [ext_resource type="Texture2D" uid="uid://d4ca0sqte8qqn" path="res://interactables/dialog_system/character_portraits/crying_kid/portrait_kid_2.png" id="5_oy818"]
+[ext_resource type="AudioStream" uid="uid://byxhvnp3g8y3i" path="res://level_elements/NPCs/crying_kid/Dialogue Sound/no_money_no_holiday_mask_buy.mp3" id="6_a5aw8"]
 [ext_resource type="Texture2D" uid="uid://cednu5xibxyat" path="res://interactables/dialog_system/character_portraits/crying_kid/portrait_kid_1.png" id="6_e8hpn"]
 [ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="7_qntbx"]
 [ext_resource type="AudioStream" uid="uid://b3w187pvp460c" path="res://level_elements/NPCs/crying_kid/Crying Kid SFX/kid_cry_1.mp3" id="8_n364k"]
+[ext_resource type="AudioStream" uid="uid://cdmci1vbg2y38" path="res://level_elements/NPCs/crying_kid/Dialogue Sound/i_buy_mask.mp3" id="8_thpdn"]
 [ext_resource type="AudioStream" uid="uid://5gv8v0btbj3f" path="res://level_elements/NPCs/crying_kid/Crying Kid SFX/kid_cry_2.mp3" id="9_3fx6k"]
 [ext_resource type="AudioStream" uid="uid://bfhd4015x8aas" path="res://level_elements/NPCs/crying_kid/Crying Kid SFX/kid_cry_3.mp3" id="10_kpd5s"]
 [ext_resource type="AudioStream" uid="uid://bm142wypeddqo" path="res://level_elements/NPCs/crying_kid/Crying Kid SFX/kid_cry_4.mp3" id="11_vk5t0"]
@@ -149,12 +151,14 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 script = ExtResource("4_thpdn")
 text = "<<0>> <<money>> <<0>> <<holiday>> <<trinketmask>> <<angry>>"
 speaker_icon = ExtResource("6_e8hpn")
+sfx = ExtResource("6_a5aw8")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_r605r"]
 script = ExtResource("4_thpdn")
 text = "<<i>> <<buy>> <<trinketmask>> <<?>>"
 speaker_icon = ExtResource("6_e8hpn")
+sfx = ExtResource("8_thpdn")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_646j3"]
