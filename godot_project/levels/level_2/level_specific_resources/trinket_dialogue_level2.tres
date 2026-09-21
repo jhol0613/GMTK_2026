@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://c2bv0us1dd1uk" path="res://level_elements/trinket_shop/masks/teal.png" id="11_exmon"]
 [ext_resource type="Texture2D" uid="uid://da67b0efu17m4" path="res://level_elements/trinket_shop/masks/pink.png" id="12_5oove"]
 [ext_resource type="Texture2D" uid="uid://nw2bxlclpp72" path="res://level_elements/trinket_shop/masks/gray.png" id="13_pdgem"]
+[ext_resource type="AudioStream" uid="uid://6o85jmal60t7" path="res://level_elements/trinket_shop/Dialogue_Sound/hello_buy_holiday_mask.mp3" id="15_2qd2e"]
+[ext_resource type="AudioStream" uid="uid://dpmb8uypvlhsn" path="res://level_elements/trinket_shop/Dialogue_Sound/mask_three_money.mp3" id="17_pmma2"]
 
 [sub_resource type="Resource" id="Resource_dfdwx"]
 script = ExtResource("1_hclks")
@@ -171,12 +173,14 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 script = ExtResource("2_wyubc")
 text = "<<hello>> <<holiday>> <<trinketmask>> <<buy>> <<?>>"
 speaker_icon = ExtResource("3_wyubc")
+sfx = ExtResource("15_2qd2e")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_bbgy8"]
 script = ExtResource("2_wyubc")
 text = "<<trinketmask>> <<3>> <<money>>"
 speaker_icon = ExtResource("3_wyubc")
+sfx = ExtResource("17_pmma2")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [resource]

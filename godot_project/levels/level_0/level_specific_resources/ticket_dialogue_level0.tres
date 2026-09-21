@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="3_y6jeb"]
 [ext_resource type="AudioStream" uid="uid://clvosvg2vfbfv" path="res://ui/SpeechAudio/Ticket buy West or East.mp3" id="5_g31f1"]
 [ext_resource type="Texture2D" uid="uid://dkameqx3adr3l" path="res://interactables/dialog_system/character_portraits/ticket_lady/ticket_lady_portrait_1.png" id="6_lm76g"]
+[ext_resource type="AudioStream" uid="uid://4gvbpwprqmwg" path="res://level_elements/ticket_booth/Dialogue Sound/ticket_four_money.mp3" id="8_8gxof"]
 
 [sub_resource type="Resource" id="Resource_g31f1"]
 script = ExtResource("3_xaymj")
@@ -58,6 +59,7 @@ metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 script = ExtResource("2_mhbdw")
 text = " <<ticket>> <<4>> <<money>>"
 speaker_icon = ExtResource("6_lm76g")
+sfx = ExtResource("8_8gxof")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [resource]

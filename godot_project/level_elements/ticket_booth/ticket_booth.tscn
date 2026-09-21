@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialog_system/dialogue_interactable.tscn" id="2_ui1pi"]
 [ext_resource type="Texture2D" uid="uid://dkameqx3adr3l" path="res://interactables/dialog_system/character_portraits/ticket_lady/ticket_lady_portrait_1.png" id="3_bp0gh"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="3_ui1pi"]
+[ext_resource type="AudioStream" uid="uid://4gvbpwprqmwg" path="res://level_elements/ticket_booth/Dialogue Sound/ticket_four_money.mp3" id="3_wot1w"]
 [ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialog_system/dialogue_panel.tscn" id="4_2vr77"]
 [ext_resource type="AudioStream" uid="uid://6llsv27ckbd2" path="res://ui/sfx/Purchased Ticket.mp3" id="5_8d5ud"]
 [ext_resource type="AudioStream" uid="uid://dtf5vr8s8qloo" path="res://level_elements/ticket_booth/Ticket_Booth_Noise.mp3" id="7_8vjcj"]
@@ -17,6 +18,7 @@
 script = ExtResource("2_t148x")
 text = "<<i>> <<%s>> <<money>> <<ticket>> <<%s>> <<money>> <<angry>>"
 speaker_icon = ExtResource("3_bp0gh")
+sfx = ExtResource("3_wot1w")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2vr77"]

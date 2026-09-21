@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="1_qkld4"]
 [ext_resource type="Texture2D" uid="uid://c36oq0n5g8b0y" path="res://interactables/dialog_system/character_portraits/trinket_salesman/portrait_shopkeeper2_1.png" id="2_2v24i"]
+[ext_resource type="AudioStream" uid="uid://di6ymnkd01d11" path="res://level_elements/trinket_shop/Dialogue_Sound/thank_you.mp3" id="2_goj7x"]
 
 [resource]
 script = ExtResource("1_qkld4")
 text = "<<thankyou>>"
 speaker_icon = ExtResource("2_2v24i")
+sfx = ExtResource("2_goj7x")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"

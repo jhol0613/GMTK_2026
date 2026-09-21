@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="2_1rppi"]
 [ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="3_6jj0n"]
 [ext_resource type="Texture2D" uid="uid://q2rsif8t8xqv" path="res://interactables/dialog_system/character_portraits/trinket_salesman/portrait_shopkeeper1_1.png" id="3_638h5"]
+[ext_resource type="AudioStream" uid="uid://di6ymnkd01d11" path="res://level_elements/trinket_shop/Dialogue_Sound/thank_you.mp3" id="3_qt8px"]
 [ext_resource type="Texture2D" uid="uid://da67b0efu17m4" path="res://level_elements/trinket_shop/masks/pink.png" id="4_4cuw3"]
 [ext_resource type="Script" uid="uid://1bxpf358unij" path="res://scripts/item_data.gd" id="5_bh7nf"]
 [ext_resource type="Texture2D" uid="uid://diqiiusxlru6i" path="res://level_elements/trinket_shop/masks/green.png" id="6_2nfay"]
@@ -22,6 +23,7 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 script = ExtResource("2_1rppi")
 text = "<<thankyou>>"
 speaker_icon = ExtResource("3_638h5")
+sfx = ExtResource("3_qt8px")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_vlm06"]
@@ -43,6 +45,7 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 script = ExtResource("2_1rppi")
 text = "<<thankyou>>"
 speaker_icon = ExtResource("3_638h5")
+sfx = ExtResource("3_qt8px")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_pn4ta"]
@@ -64,6 +67,7 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 script = ExtResource("2_1rppi")
 text = "<<thankyou>>"
 speaker_icon = ExtResource("3_638h5")
+sfx = ExtResource("3_qt8px")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_i0qum"]
@@ -85,6 +89,7 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 script = ExtResource("2_1rppi")
 text = "<<thankyou>>"
 speaker_icon = ExtResource("3_638h5")
+sfx = ExtResource("3_qt8px")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_yrao0"]

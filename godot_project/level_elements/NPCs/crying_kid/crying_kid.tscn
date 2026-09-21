@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://ck0sdtrfmcibe" path="res://level_elements/NPCs/crying_kid/crying_kid.gd" id="2_4b03v"]
 [ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://interactables/dialog_system/dialogue_choice.gd" id="3_a5aw8"]
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="4_thpdn"]
+[ext_resource type="AudioStream" uid="uid://cfvafobico6nc" path="res://level_elements/NPCs/crying_kid/Dialogue Sound/mask_thank_you.mp3" id="5_e8hpn"]
 [ext_resource type="Texture2D" uid="uid://d4ca0sqte8qqn" path="res://interactables/dialog_system/character_portraits/crying_kid/portrait_kid_2.png" id="5_oy818"]
 [ext_resource type="AudioStream" uid="uid://byxhvnp3g8y3i" path="res://level_elements/NPCs/crying_kid/Dialogue Sound/no_money_no_holiday_mask_buy.mp3" id="6_a5aw8"]
 [ext_resource type="Texture2D" uid="uid://cednu5xibxyat" path="res://interactables/dialog_system/character_portraits/crying_kid/portrait_kid_1.png" id="6_e8hpn"]
@@ -12,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://cdmci1vbg2y38" path="res://level_elements/NPCs/crying_kid/Dialogue Sound/i_buy_mask.mp3" id="8_thpdn"]
 [ext_resource type="AudioStream" uid="uid://5gv8v0btbj3f" path="res://level_elements/NPCs/crying_kid/Crying Kid SFX/kid_cry_2.mp3" id="9_3fx6k"]
 [ext_resource type="AudioStream" uid="uid://bfhd4015x8aas" path="res://level_elements/NPCs/crying_kid/Crying Kid SFX/kid_cry_3.mp3" id="10_kpd5s"]
+[ext_resource type="AudioStream" uid="uid://b2bdidn00qgy5" path="res://level_elements/NPCs/crying_kid/Dialogue Sound/a_mask_angry_i_buy_next_mask_b.mp3" id="11_qntbx"]
 [ext_resource type="AudioStream" uid="uid://bm142wypeddqo" path="res://level_elements/NPCs/crying_kid/Crying Kid SFX/kid_cry_4.mp3" id="11_vk5t0"]
 [ext_resource type="Texture2D" uid="uid://csgvh6vnlfcrk" path="res://level_elements/NPCs/crying_kid/kid.png" id="12_eqodx"]
 [ext_resource type="Texture2D" uid="uid://cicclo21xo02d" path="res://level_elements/trinket_shop/masks/blue.png" id="13_43rhy"]
@@ -31,6 +33,7 @@
 script = ExtResource("4_thpdn")
 text = "<<blue>> <<trinketmask>> <<thankyou>>"
 speaker_icon = ExtResource("5_oy818")
+sfx = ExtResource("5_e8hpn")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_rgv02"]
@@ -43,6 +46,7 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 script = ExtResource("4_thpdn")
 text = "<<brown>> <<trinketmask>> <<thankyou>>"
 speaker_icon = ExtResource("5_oy818")
+sfx = ExtResource("5_e8hpn")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_ppu2g"]
@@ -55,6 +59,7 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 script = ExtResource("4_thpdn")
 text = "<<gray>> <<trinketmask>> <<thankyou>>"
 speaker_icon = ExtResource("5_oy818")
+sfx = ExtResource("5_e8hpn")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_wewwh"]
@@ -67,6 +72,7 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 script = ExtResource("4_thpdn")
 text = "<<green>> <<trinketmask>> <<thankyou>>"
 speaker_icon = ExtResource("5_oy818")
+sfx = ExtResource("5_e8hpn")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_qtnng"]
@@ -79,6 +85,7 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 script = ExtResource("4_thpdn")
 text = "<<maroon>> <<trinketmask>> <<thankyou>>"
 speaker_icon = ExtResource("5_oy818")
+sfx = ExtResource("5_e8hpn")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_6krev"]
@@ -91,6 +98,7 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 script = ExtResource("4_thpdn")
 text = "<<pink>> <<trinketmask>> <<thankyou>>"
 speaker_icon = ExtResource("5_oy818")
+sfx = ExtResource("5_e8hpn")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_du5p0"]
@@ -103,6 +111,7 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 script = ExtResource("4_thpdn")
 text = "<<purple>> <<trinketmask>> <<thankyou>>"
 speaker_icon = ExtResource("5_oy818")
+sfx = ExtResource("5_e8hpn")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_g1pxt"]
@@ -115,6 +124,7 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 script = ExtResource("4_thpdn")
 text = "<<red>> <<trinketmask>> <<thankyou>>"
 speaker_icon = ExtResource("5_oy818")
+sfx = ExtResource("5_e8hpn")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_28yu8"]
@@ -127,6 +137,7 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 script = ExtResource("4_thpdn")
 text = "<<teal>> <<trinketmask>> <<thankyou>>"
 speaker_icon = ExtResource("5_oy818")
+sfx = ExtResource("5_e8hpn")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_v6nb3"]
@@ -139,6 +150,7 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 script = ExtResource("4_thpdn")
 text = "<<yellow>> <<trinketmask>> <<thankyou>>"
 speaker_icon = ExtResource("5_oy818")
+sfx = ExtResource("5_e8hpn")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_pdpml"]
@@ -170,6 +182,7 @@ metadata/_custom_type_script = "uid://dvkforrusa0nj"
 script = ExtResource("4_thpdn")
 text = "%s <<trinketmask>> <<angry>> <<i>> <<buy>> <<next>> <<trinketmask>> <<?>>"
 speaker_icon = ExtResource("6_e8hpn")
+sfx = ExtResource("11_qntbx")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_6q1ay"]
@@ -377,11 +390,13 @@ animations = [{
 script = ExtResource("4_thpdn")
 text = "<<0>> <<money>> <<0>> <<trinketmask>> <<angry>>"
 speaker_icon = ExtResource("6_e8hpn")
+sfx = ExtResource("6_a5aw8")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_5dsst"]
 script = ExtResource("4_thpdn")
 text = "<<trinketmask>> <<buy>>"
+sfx = ExtResource("8_thpdn")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_knmce"]

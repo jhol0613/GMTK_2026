@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://cpfgjwe2lpk0k" path="res://ui/ticket/ticket_data.gd" id="3_rkr7w"]
 [ext_resource type="Script" uid="uid://c10ykhl581yb1" path="res://level_elements/train_scheduler/departure_data.gd" id="3_tixrp"]
 [ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="3_vxevm"]
+[ext_resource type="AudioStream" uid="uid://dbwg4ws2sptli" path="res://level_elements/ticket_booth/Dialogue Sound/ticket_buy.mp3" id="6_knpdm"]
+[ext_resource type="AudioStream" uid="uid://4gvbpwprqmwg" path="res://level_elements/ticket_booth/Dialogue Sound/ticket_four_money.mp3" id="8_wqd0t"]
 
 [sub_resource type="Resource" id="Resource_huxyp"]
 script = ExtResource("1_a83ec")
@@ -181,12 +183,14 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 script = ExtResource("2_56dy0")
 text = "<<ticket>> <<buy>> <<?>>"
 speaker_icon = ExtResource("3_56dy0")
+sfx = ExtResource("6_knpdm")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_bvkv4"]
 script = ExtResource("2_56dy0")
 text = "<<ticket>> <<4>> <<money>>"
 speaker_icon = ExtResource("3_56dy0")
+sfx = ExtResource("8_wqd0t")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [resource]

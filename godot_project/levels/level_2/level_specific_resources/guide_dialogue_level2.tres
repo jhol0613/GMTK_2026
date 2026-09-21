@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://interactables/dialog_system/dialogue_choice.gd" id="1_choice"]
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="2_line"]
 [ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="3_dialogue"]
+[ext_resource type="AudioStream" uid="uid://dkrkcute25fnf" path="res://level_elements/NPCs/guide/Dialogue Sound/give_directions.mp3" id="3_dl4dy"]
 [ext_resource type="AudioStream" uid="uid://bny751dpf88xs" path="res://level_elements/NPCs/guide/Dialogue Sound/station_station2_go.mp3" id="3_hu3b6"]
 [ext_resource type="AudioStream" uid="uid://b61onbt14bass" path="res://level_elements/NPCs/guide/Dialogue Sound/go_platform_go_bathroom.mp3" id="4_dl4dy"]
 
@@ -14,6 +15,7 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 [sub_resource type="Resource" id="Resource_dl4dy"]
 script = ExtResource("2_line")
 text = "<<go>> <<ticket>> <<store>> <<next>> <<north>> <<west>> <<west>>"
+sfx = ExtResource("3_dl4dy")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_1vf62"]
@@ -25,6 +27,7 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 [sub_resource type="Resource" id="Resource_68ik4"]
 script = ExtResource("2_line")
 text = "<<go>> <<ticket>> <<store>> <<next>> <<north>> <<east>> <<north>>"
+sfx = ExtResource("3_dl4dy")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_yiikh"]
@@ -36,6 +39,7 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 [sub_resource type="Resource" id="Resource_aond6"]
 script = ExtResource("2_line")
 text = "<<go>> <<bathroom>> <<next>> <<east>> <<north>> <<east>>"
+sfx = ExtResource("3_dl4dy")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_fq0us"]
@@ -47,6 +51,7 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 [sub_resource type="Resource" id="Resource_cmeuc"]
 script = ExtResource("2_line")
 text = "<<go>> <<trinketmask>> <<store>> <<next>> <<east>> <<north>> <<east>>"
+sfx = ExtResource("3_dl4dy")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_kgdtm"]
@@ -58,6 +63,7 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 [sub_resource type="Resource" id="Resource_bsb76"]
 script = ExtResource("2_line")
 text = "<<go>> <<bathroom>> <<next>> <<east>> <<south>>"
+sfx = ExtResource("3_dl4dy")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_12l1j"]
@@ -69,6 +75,7 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 [sub_resource type="Resource" id="Resource_4daeo"]
 script = ExtResource("2_line")
 text = "<<go>> <<money>> <<machine>> <<next>> <<west>> <<west>> <<south>>"
+sfx = ExtResource("3_dl4dy")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_uuidd"]
@@ -80,6 +87,7 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 [sub_resource type="Resource" id="Resource_ouyi4"]
 script = ExtResource("2_line")
 text = "<<go>> <<bathroom>> <<next>> <<west>> <<south>>"
+sfx = ExtResource("3_dl4dy")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_ppf8r"]
@@ -91,6 +99,7 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 [sub_resource type="Resource" id="Resource_38thp"]
 script = ExtResource("2_line")
 text = "<<go>> <<trinketmask>> <<store>> <<next>> <<east>> <<east>> <<east>>"
+sfx = ExtResource("3_dl4dy")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_s4b5i"]
@@ -102,6 +111,7 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 [sub_resource type="Resource" id="Resource_y14rs"]
 script = ExtResource("2_line")
 text = "<<go>> <<money>> <<machine>> <<next>> <<west>> <<south>> "
+sfx = ExtResource("3_dl4dy")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_jr2bd"]
