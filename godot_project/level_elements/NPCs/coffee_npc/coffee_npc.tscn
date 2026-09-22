@@ -8,7 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://cyxqf0cwa75yi" path="res://level_elements/NPCs/coffee_npc/ready_guy.png" id="5_5v5hs"]
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="5_line"]
 [ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="6_dialogue"]
-[ext_resource type="AudioStream" path="res://level_elements/NPCs/coffee_npc/throw_cup.mp3" id="7_throw_cup"]
+[ext_resource type="AudioStream" uid="uid://c8m7mc42c6huh" path="res://level_elements/NPCs/coffee_npc/throw_cup.mp3" id="7_throw_cup"]
+[ext_resource type="AudioStream" uid="uid://bblvcdtpifscg" path="res://level_elements/NPCs/coffee_npc/coffee_coffee_coffee.mp3" id="8_qe4bh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qe4bh"]
 atlas = ExtResource("4_oqesw")
@@ -499,6 +500,7 @@ animations = [{
 [sub_resource type="Resource" id="Resource_coffee_line"]
 script = ExtResource("5_line")
 text = "<<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>> <<coffee>>  <<coffee>> "
+sfx = ExtResource("8_qe4bh")
 
 [sub_resource type="Resource" id="Resource_coffee_dialogue"]
 script = ExtResource("6_dialogue")
@@ -534,7 +536,7 @@ offset_bottom = 47.5
 visible = false
 position = Vector2(0, -35.5)
 
-[node name="ThrowCupSound" type="AudioStreamPlayer2D" parent="."]
+[node name="ThrowCupSound" type="AudioStreamPlayer2D" parent="." index="4" unique_id=1676849546]
 top_level = true
 stream = ExtResource("7_throw_cup")
 volume_db = 6.0
