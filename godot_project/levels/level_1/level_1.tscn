@@ -541,11 +541,9 @@ position = Vector2(-146, -416)
 position = Vector2(-64, -224)
 
 [node name="WarmDisplayLight" parent="TrinketShop/NightLight" parent_id_path=PackedInt32Array(877031898, 1446894394) index="1" unique_id=1901038595]
-visible = true
 texture_filter = 0
 
 [node name="WarmDisplayLight2" parent="TrinketShop/NightLight" parent_id_path=PackedInt32Array(877031898, 1446894394) index="2" unique_id=2036372027]
-visible = true
 texture_filter = 0
 
 [node name="DialogueInteractable" parent="TrinketShop" index="2" unique_id=358228256]

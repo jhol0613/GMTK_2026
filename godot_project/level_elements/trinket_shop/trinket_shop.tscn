@@ -127,6 +127,23 @@ animations = [{
 "loop": 1,
 "name": &"level1_idle",
 "speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glow_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glow_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glow_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glow_3")
+}],
+"loop": 1,
+"name": &"level2_idle",
+"speed": 6.0
 }]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fhk1x"]
@@ -150,8 +167,9 @@ animation = &"level2_idle"
 autoplay = "level1_idle"
 frame_progress = 0.49772713
 
-[node name="NightLight" type="Node2D" parent="." unique_id=1446894394 groups=["night_lights"]]
+[node name="NightLight" type="Node2D" parent="." unique_id=1446894394 node_paths=PackedStringArray("light_cones") groups=["night_lights"]]
 script = ExtResource("8_night")
+light_cones = [NodePath("LightCone"), NodePath("LightCone2")]
 
 [node name="GlowOverlay" type="AnimatedSprite2D" parent="NightLight" unique_id=1301023996]
 modulate = Color(1, 1, 1, 0)
