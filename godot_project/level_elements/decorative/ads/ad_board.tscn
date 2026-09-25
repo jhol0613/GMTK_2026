@@ -26,7 +26,7 @@ animations = [{
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glow"]
 blend_mode = 1
 
-[node name="StaticBody" type="StaticBody2D" unique_id=232674008]
+[node name="AdBoard" type="StaticBody2D" unique_id=232674008]
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1878472438]
