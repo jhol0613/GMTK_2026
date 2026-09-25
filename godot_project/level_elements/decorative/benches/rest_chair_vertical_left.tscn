@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://c2ncf42cx2trq" path="res://level_elements/decorative/benches/bench_sitting_vertical.png" id="12_sitting"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fpcxu"]
-size = Vector2(15.75, 41.5)
+size = Vector2(16.75, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w78y7"]
 atlas = ExtResource("3_q70f2")
@@ -86,19 +86,19 @@ collision_layer = 2
 script = ExtResource("1_lmjf5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1878472438]
-position = Vector2(0.125, -12)
+position = Vector2(0.625, 17)
 shape = SubResource("RectangleShape2D_fpcxu")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1185998454]
 z_index = 1
-position = Vector2(0, -24.5)
+position = Vector2(0, 11.5)
 sprite_frames = SubResource("SpriteFrames_fpcxu")
 autoplay = "default"
 
 [node name="SeatedSprite" type="Sprite2D" parent="." unique_id=267901733]
 visible = false
 z_index = 1
-position = Vector2(0, -24.5)
+position = Vector2(-2, 11.5)
 texture = ExtResource("12_sitting")
 
 [node name="NightLight" type="Node2D" parent="." unique_id=1782784319 groups=["night_lights"]]
@@ -123,13 +123,18 @@ texture = ExtResource("10_light")
 texture_scale = 0.38
 
 [node name="DialogueInteractable" parent="." unique_id=1631350735 instance=ExtResource("4_6alwt")]
-z_index = 2
 dialogue = SubResource("Resource_6cojq")
 panel_path = NodePath("../DialoguePanel")
 
 [node name="InteractableCollisionShape2D" parent="DialogueInteractable" index="0" unique_id=278382881]
-position = Vector2(-13, -12)
+position = Vector2(-13, 14.5)
 shape = SubResource("RectangleShape2D_o8pop")
+
+[node name="Prompt" parent="DialogueInteractable" index="1" unique_id=272794898]
+offset_left = -39.0
+offset_top = -105.0
+offset_right = 36.0
+offset_bottom = 63.0
 
 [node name="AnimatedSprite2D" parent="DialogueInteractable" index="2" unique_id=819702371]
 visible = false

@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cit6uoxu58nwk" path="res://level_elements/maps/transit/train_map.tscn" id="9_dj0pt"]
 [ext_resource type="PackedScene" uid="uid://bni8iwfqac6ap" path="res://level_elements/coffee_shop/coffee_shop.tscn" id="10_1vf62"]
 [ext_resource type="PackedScene" uid="uid://c5jvn4a3mfhj" path="res://level_elements/decorative/recycle_bin/recycle_bin.tscn" id="11_yiikh"]
+[ext_resource type="PackedScene" uid="uid://bcltguxgmfo2w" path="res://level_elements/decorative/sprinkler/sprinkler.tscn" id="12_bkbve"]
 [ext_resource type="PackedScene" uid="uid://dg7w0a3gclx0w" path="res://level_elements/bathroom/outside_restroom_open.tscn" id="13_1vf62"]
 [ext_resource type="PackedScene" uid="uid://d2ffkk2tvq3wc" path="res://level_elements/NPCs/coffee_npc/coffee_npc.tscn" id="13_s4b5i"]
 [ext_resource type="PackedScene" uid="uid://0ckll8fgejet" path="res://level_elements/bathroom/bathroom_open.tscn" id="14_yiikh"]
@@ -155,6 +156,18 @@ position = Vector2(112, 96)
 [node name="Plant3" parent="Platform1" index="32" unique_id=823157983 instance=ExtResource("22_ihnwd")]
 position = Vector2(-384, -56)
 
+[node name="TinyFoliage7" parent="Platform1" index="33" unique_id=2007237052 instance=ExtResource("34_r7wcl")]
+position = Vector2(72, 64)
+
+[node name="StreetLamp" parent="Platform1" index="34" unique_id=872603544 instance=ExtResource("19_qfhyh")]
+position = Vector2(-296, -40)
+
+[node name="StreetLamp2" parent="Platform1" index="35" unique_id=1424406956 instance=ExtResource("19_qfhyh")]
+position = Vector2(-32, 80)
+
+[node name="StreetLamp3" parent="Platform1" index="36" unique_id=135358398 instance=ExtResource("19_qfhyh")]
+position = Vector2(40, -48)
+
 [node name="Platform2" parent="." index="7" unique_id=293687369 instance=ExtResource("3_2smvo")]
 position = Vector2(-1696, -2464)
 station_number = 2
@@ -195,7 +208,25 @@ collision_layer = 0
 collision_mask = 0
 
 [node name="StaticBody" parent="Platform2" index="22" unique_id=1609591599 instance=ExtResource("5_gsja5")]
-position = Vector2(-128, 104)
+position = Vector2(-88, -24)
+
+[node name="TinyFoliage" parent="Platform2" index="23" unique_id=1964180363 instance=ExtResource("34_r7wcl")]
+position = Vector2(-168, -16)
+anim = 1
+
+[node name="TinyFoliage2" parent="Platform2" index="24" unique_id=451518666 instance=ExtResource("34_r7wcl")]
+position = Vector2(-184, -24)
+anim = 1
+
+[node name="TinyFoliage3" parent="Platform2" index="25" unique_id=666691329 instance=ExtResource("34_r7wcl")]
+position = Vector2(-48, -48)
+anim = 1
+
+[node name="StreetLamp" parent="Platform2" index="26" unique_id=429148028 instance=ExtResource("19_qfhyh")]
+position = Vector2(-144, -104)
+
+[node name="StreetLamp2" parent="Platform2" index="27" unique_id=1958886823 instance=ExtResource("19_qfhyh")]
+position = Vector2(-64, 136)
 
 [node name="Platform3" parent="." index="8" unique_id=662428683 instance=ExtResource("2_pqqg8")]
 z_index = 5
@@ -231,6 +262,232 @@ transition_z_index = 6
 [node name="CollisionShape2D" parent="Platform3/LayerTransitionZone" index="0" unique_id=1067701298]
 position = Vector2(-280.5, 14.5)
 shape = SubResource("RectangleShape2D_yiikh")
+
+[node name="TinyFoliage" parent="Platform3" index="23" unique_id=909632196 instance=ExtResource("34_r7wcl")]
+position = Vector2(-24, 24)
+
+[node name="TinyFoliage2" parent="Platform3" index="24" unique_id=434430805 instance=ExtResource("34_r7wcl")]
+position = Vector2(-8, 8)
+
+[node name="TinyFoliage3" parent="Platform3" index="25" unique_id=608774408 instance=ExtResource("34_r7wcl")]
+position = Vector2(72, 72)
+
+[node name="TinyFoliage4" parent="Platform3" index="26" unique_id=1735250554 instance=ExtResource("34_r7wcl")]
+position = Vector2(-32, -40)
+
+[node name="TinyFoliage6" parent="Platform3" index="27" unique_id=153129545 instance=ExtResource("34_r7wcl")]
+position = Vector2(56, -16)
+
+[node name="TinyFoliage50" parent="Platform3" index="28" unique_id=922021992 instance=ExtResource("34_r7wcl")]
+position = Vector2(56, 40)
+
+[node name="TinyFoliage51" parent="Platform3" index="29" unique_id=944594973 instance=ExtResource("34_r7wcl")]
+position = Vector2(88, 48)
+
+[node name="TinyFoliage52" parent="Platform3" index="30" unique_id=4249432 instance=ExtResource("34_r7wcl")]
+position = Vector2(80, 56)
+
+[node name="TinyFoliage53" parent="Platform3" index="31" unique_id=722654917 instance=ExtResource("34_r7wcl")]
+position = Vector2(56, 64)
+
+[node name="TinyFoliage54" parent="Platform3" index="32" unique_id=1886585838 instance=ExtResource("34_r7wcl")]
+position = Vector2(40, 72)
+
+[node name="TinyFoliage55" parent="Platform3" index="33" unique_id=1234973603 instance=ExtResource("34_r7wcl")]
+position = Vector2(24, 56)
+
+[node name="TinyFoliage56" parent="Platform3" index="34" unique_id=1275836229 instance=ExtResource("34_r7wcl")]
+position = Vector2(8, 40)
+
+[node name="TinyFoliage11" parent="Platform3" index="35" unique_id=452936743 instance=ExtResource("34_r7wcl")]
+position = Vector2(40, 24)
+
+[node name="TinyFoliage7" parent="Platform3" index="36" unique_id=848403816 instance=ExtResource("34_r7wcl")]
+position = Vector2(72, -32)
+
+[node name="TinyFoliage8" parent="Platform3" index="37" unique_id=95195193 instance=ExtResource("34_r7wcl")]
+position = Vector2(104, -16)
+
+[node name="TinyFoliage9" parent="Platform3" index="38" unique_id=558151516 instance=ExtResource("34_r7wcl")]
+position = Vector2(112, -48)
+
+[node name="TinyFoliage10" parent="Platform3" index="39" unique_id=877102907 instance=ExtResource("34_r7wcl")]
+position = Vector2(16, -24)
+
+[node name="TinyFoliage12" parent="Platform3" index="40" unique_id=1429196633 instance=ExtResource("34_r7wcl")]
+position = Vector2(40, -8)
+anim = 1
+
+[node name="TinyFoliage13" parent="Platform3" index="41" unique_id=1905038282 instance=ExtResource("34_r7wcl")]
+position = Vector2(48, 8)
+anim = 1
+
+[node name="TinyFoliage14" parent="Platform3" index="42" unique_id=2113814676 instance=ExtResource("34_r7wcl")]
+position = Vector2(80, -8)
+anim = 1
+
+[node name="TinyFoliage15" parent="Platform3" index="43" unique_id=612247015 instance=ExtResource("34_r7wcl")]
+position = Vector2(104, 24)
+anim = 1
+
+[node name="TinyFoliage16" parent="Platform3" index="44" unique_id=583020111 instance=ExtResource("34_r7wcl")]
+position = Vector2(112, -32)
+anim = 1
+
+[node name="TinyFoliage17" parent="Platform3" index="45" unique_id=272847726 instance=ExtResource("34_r7wcl")]
+position = Vector2(80, -48)
+anim = 1
+
+[node name="TinyFoliage20" parent="Platform3" index="46" unique_id=1595578712 instance=ExtResource("34_r7wcl")]
+position = Vector2(32, -40)
+anim = 1
+
+[node name="TinyFoliage21" parent="Platform3" index="47" unique_id=282473464 instance=ExtResource("34_r7wcl")]
+position = Vector2(-8, -24)
+anim = 1
+
+[node name="TinyFoliage18" parent="Platform3" index="48" unique_id=419706219 instance=ExtResource("34_r7wcl")]
+position = Vector2(24, 8)
+anim = 1
+
+[node name="TinyFoliage19" parent="Platform3" index="49" unique_id=2106152476 instance=ExtResource("34_r7wcl")]
+position = Vector2(64, 48)
+anim = 1
+
+[node name="TinyFoliage57" parent="Platform3" index="50" unique_id=1907310964 instance=ExtResource("34_r7wcl")]
+position = Vector2(72, 16)
+anim = 1
+
+[node name="TinyFoliage58" parent="Platform3" index="51" unique_id=915826586 instance=ExtResource("34_r7wcl")]
+position = Vector2(64, 32)
+anim = 1
+
+[node name="TinyFoliage22" parent="Platform3" index="52" unique_id=1787311319 instance=ExtResource("34_r7wcl")]
+position = Vector2(0, 48)
+anim = 1
+
+[node name="TinyFoliage23" parent="Platform3" index="53" unique_id=1820739452 instance=ExtResource("34_r7wcl")]
+position = Vector2(-48, 64)
+anim = 1
+
+[node name="TinyFoliage24" parent="Platform3" index="54" unique_id=641980157 instance=ExtResource("34_r7wcl")]
+position = Vector2(-88, 40)
+anim = 1
+
+[node name="TinyFoliage25" parent="Platform3" index="55" unique_id=1888904774 instance=ExtResource("34_r7wcl")]
+position = Vector2(-72, 32)
+anim = 2
+
+[node name="TinyFoliage26" parent="Platform3" index="56" unique_id=732670520 instance=ExtResource("34_r7wcl")]
+position = Vector2(-32, 48)
+anim = 2
+
+[node name="TinyFoliage27" parent="Platform3" index="57" unique_id=1499180532 instance=ExtResource("34_r7wcl")]
+position = Vector2(-24, 0)
+anim = 2
+
+[node name="TinyFoliage28" parent="Platform3" index="58" unique_id=1563461415 instance=ExtResource("34_r7wcl")]
+position = Vector2(8, -16)
+anim = 2
+
+[node name="TinyFoliage29" parent="Platform3" index="59" unique_id=296172431 instance=ExtResource("34_r7wcl")]
+position = Vector2(24, 32)
+anim = 2
+
+[node name="TinyFoliage30" parent="Platform3" index="60" unique_id=219831541 instance=ExtResource("34_r7wcl")]
+position = Vector2(48, 56)
+anim = 2
+
+[node name="TinyFoliage31" parent="Platform3" index="61" unique_id=2117960229 instance=ExtResource("34_r7wcl")]
+position = Vector2(72, 88)
+anim = 2
+
+[node name="TinyFoliage32" parent="Platform3" index="62" unique_id=323979781 instance=ExtResource("34_r7wcl")]
+position = Vector2(104, 80)
+anim = 2
+
+[node name="TinyFoliage33" parent="Platform3" index="63" unique_id=47754584 instance=ExtResource("34_r7wcl")]
+position = Vector2(112, 48)
+anim = 2
+
+[node name="TinyFoliage34" parent="Platform3" index="64" unique_id=902110614 instance=ExtResource("34_r7wcl")]
+position = Vector2(104, 8)
+anim = 2
+
+[node name="TinyFoliage35" parent="Platform3" index="65" unique_id=278253000 instance=ExtResource("34_r7wcl")]
+position = Vector2(72, 0)
+anim = 2
+
+[node name="TinyFoliage36" parent="Platform3" index="66" unique_id=565980515 instance=ExtResource("34_r7wcl")]
+position = Vector2(48, 96)
+anim = 2
+
+[node name="TinyFoliage37" parent="Platform3" index="67" unique_id=1546304174 instance=ExtResource("34_r7wcl")]
+position = Vector2(-56, -16)
+anim = 2
+
+[node name="TinyFoliage38" parent="Platform3" index="68" unique_id=1588642671 instance=ExtResource("34_r7wcl")]
+position = Vector2(-40, -24)
+anim = 2
+
+[node name="TinyFoliage39" parent="Platform3" index="69" unique_id=2016108669 instance=ExtResource("34_r7wcl")]
+position = Vector2(-88, -48)
+anim = 2
+
+[node name="TinyFoliage40" parent="Platform3" index="70" unique_id=1198751740 instance=ExtResource("34_r7wcl")]
+position = Vector2(-120, -24)
+anim = 2
+
+[node name="TinyFoliage41" parent="Platform3" index="71" unique_id=1212411776 instance=ExtResource("34_r7wcl")]
+position = Vector2(-72, -32)
+anim = 2
+
+[node name="TinyFoliage42" parent="Platform3" index="72" unique_id=476471301 instance=ExtResource("34_r7wcl")]
+position = Vector2(-24, -48)
+anim = 2
+
+[node name="TinyFoliage43" parent="Platform3" index="73" unique_id=824047224 instance=ExtResource("34_r7wcl")]
+position = Vector2(0, -40)
+anim = 2
+
+[node name="TinyFoliage44" parent="Platform3" index="74" unique_id=443667162 instance=ExtResource("34_r7wcl")]
+position = Vector2(64, -48)
+anim = 2
+
+[node name="TinyFoliage45" parent="Platform3" index="75" unique_id=2073400299 instance=ExtResource("34_r7wcl")]
+position = Vector2(88, 16)
+anim = 2
+
+[node name="TinyFoliage46" parent="Platform3" index="76" unique_id=1271954787 instance=ExtResource("34_r7wcl")]
+position = Vector2(8, 24)
+anim = 2
+
+[node name="TinyFoliage47" parent="Platform3" index="77" unique_id=419394082 instance=ExtResource("34_r7wcl")]
+position = Vector2(32, 48)
+anim = 2
+
+[node name="TinyFoliage48" parent="Platform3" index="78" unique_id=191707437 instance=ExtResource("34_r7wcl")]
+position = Vector2(40, 32)
+anim = 2
+
+[node name="TinyFoliage49" parent="Platform3" index="79" unique_id=1667213282 instance=ExtResource("34_r7wcl")]
+position = Vector2(56, 16)
+anim = 2
+
+[node name="TinyFoliage5" parent="Platform3" index="80" unique_id=1480610036 instance=ExtResource("34_r7wcl")]
+position = Vector2(80, 32)
+
+[node name="Plant2" parent="Platform3" index="81" unique_id=1181838082 instance=ExtResource("23_km4sl")]
+position = Vector2(-376, -56)
+
+[node name="Plant3" parent="Platform3" index="82" unique_id=587505279 instance=ExtResource("23_km4sl")]
+position = Vector2(-376, 96)
+
+[node name="Plant4" parent="Platform3" index="83" unique_id=1365327523 instance=ExtResource("23_km4sl")]
+position = Vector2(104, -56)
+
+[node name="Plant5" parent="Platform3" index="84" unique_id=144444420 instance=ExtResource("23_km4sl")]
+position = Vector2(104, 96)
 
 [node name="Platform4" parent="." index="9" unique_id=978393930 instance=ExtResource("2_pqqg8")]
 z_index = 5
@@ -269,13 +526,13 @@ collision_layer = 0
 collision_mask = 0
 
 [node name="RestChairVerticalLeft" parent="Platform4" index="23" unique_id=844779710 instance=ExtResource("26_sm3vb")]
-position = Vector2(-216, 24)
+position = Vector2(-216, -8)
 
 [node name="RestChairVerticalRight" parent="Platform4" index="24" unique_id=1351793824 instance=ExtResource("25_xpuws")]
-position = Vector2(-40, 24)
+position = Vector2(-40, -8)
 
 [node name="RestChairVerticalLeft2" parent="Platform4" index="25" unique_id=90261535 instance=ExtResource("26_sm3vb")]
-position = Vector2(104, 24)
+position = Vector2(104, -8)
 
 [node name="StaticBody" parent="Platform4" index="26" unique_id=43577204 instance=ExtResource("5_gsja5")]
 position = Vector2(-376, -24)
@@ -285,6 +542,95 @@ position = Vector2(-376, 56)
 
 [node name="StaticBody3" parent="Platform4" index="28" unique_id=1568686584 instance=ExtResource("5_gsja5")]
 position = Vector2(752, -528)
+
+[node name="TinyFoliage" parent="Platform4" index="29" unique_id=531380296 instance=ExtResource("34_r7wcl")]
+position = Vector2(96, 40)
+
+[node name="TinyFoliage2" parent="Platform4" index="30" unique_id=1598507590 instance=ExtResource("34_r7wcl")]
+position = Vector2(104, 48)
+anim = 1
+
+[node name="TinyFoliage3" parent="Platform4" index="31" unique_id=1340506081 instance=ExtResource("34_r7wcl")]
+position = Vector2(96, 56)
+
+[node name="TinyFoliage4" parent="Platform4" index="32" unique_id=502622568 instance=ExtResource("34_r7wcl")]
+position = Vector2(112, 56)
+
+[node name="TinyFoliage5" parent="Platform4" index="33" unique_id=1348363222 instance=ExtResource("34_r7wcl")]
+position = Vector2(112, 40)
+
+[node name="TinyFoliage6" parent="Platform4" index="34" unique_id=1388290644 instance=ExtResource("34_r7wcl")]
+position = Vector2(96, -32)
+
+[node name="TinyFoliage7" parent="Platform4" index="35" unique_id=806468099 instance=ExtResource("34_r7wcl")]
+position = Vector2(104, -24)
+anim = 2
+
+[node name="TinyFoliage11" parent="Platform4" index="36" unique_id=1855160677 instance=ExtResource("34_r7wcl")]
+position = Vector2(-192, 24)
+anim = 2
+
+[node name="TinyFoliage12" parent="Platform4" index="37" unique_id=1464031238 instance=ExtResource("34_r7wcl")]
+position = Vector2(-176, 16)
+anim = 1
+
+[node name="TinyFoliage13" parent="Platform4" index="38" unique_id=1987088464 instance=ExtResource("34_r7wcl")]
+position = Vector2(-160, 24)
+anim = 2
+
+[node name="TinyFoliage14" parent="Platform4" index="39" unique_id=2143911730 instance=ExtResource("34_r7wcl")]
+position = Vector2(-144, 16)
+anim = 1
+
+[node name="TinyFoliage15" parent="Platform4" index="40" unique_id=202285017 instance=ExtResource("34_r7wcl")]
+position = Vector2(-128, 24)
+anim = 2
+
+[node name="TinyFoliage16" parent="Platform4" index="41" unique_id=1066552943 instance=ExtResource("34_r7wcl")]
+position = Vector2(-112, 16)
+anim = 1
+
+[node name="TinyFoliage17" parent="Platform4" index="42" unique_id=1797972763 instance=ExtResource("34_r7wcl")]
+position = Vector2(-96, 24)
+anim = 2
+
+[node name="TinyFoliage18" parent="Platform4" index="43" unique_id=284685195 instance=ExtResource("34_r7wcl")]
+position = Vector2(-80, 16)
+anim = 1
+
+[node name="TinyFoliage19" parent="Platform4" index="44" unique_id=523207521 instance=ExtResource("34_r7wcl")]
+position = Vector2(-64, 24)
+anim = 2
+
+[node name="TinyFoliage8" parent="Platform4" index="45" unique_id=191516075 instance=ExtResource("34_r7wcl")]
+position = Vector2(96, -16)
+
+[node name="TinyFoliage9" parent="Platform4" index="46" unique_id=1100584224 instance=ExtResource("34_r7wcl")]
+position = Vector2(112, -16)
+
+[node name="TinyFoliage10" parent="Platform4" index="47" unique_id=596242412 instance=ExtResource("34_r7wcl")]
+position = Vector2(112, -32)
+
+[node name="StreetLamp" parent="Platform4" index="48" unique_id=1412867018 instance=ExtResource("19_qfhyh")]
+position = Vector2(-296, -56)
+
+[node name="StreetLamp2" parent="Platform4" index="49" unique_id=1988838585 instance=ExtResource("19_qfhyh")]
+position = Vector2(-152, 96)
+
+[node name="StreetLamp3" parent="Platform4" index="50" unique_id=1647510448 instance=ExtResource("19_qfhyh")]
+position = Vector2(56, -16)
+
+[node name="StreetLamp4" parent="Platform4" index="51" unique_id=397662640 instance=ExtResource("19_qfhyh")]
+position = Vector2(856, -448)
+
+[node name="StreetLamp5" parent="Platform4" index="52" unique_id=521838963 instance=ExtResource("19_qfhyh")]
+position = Vector2(1072, -544)
+
+[node name="StreetLamp6" parent="Platform4" index="53" unique_id=630362810 instance=ExtResource("19_qfhyh")]
+position = Vector2(1320, -448)
+
+[node name="Sprinkler" parent="Platform4" index="54" unique_id=645521632 instance=ExtResource("12_bkbve")]
+position = Vector2(-1248, 480)
 
 [node name="Platform5" parent="." index="10" unique_id=1126306435 instance=ExtResource("3_2smvo")]
 position = Vector2(-288, -576)
@@ -309,25 +655,16 @@ station_number = 2
 [node name="Station0Sign2" parent="Platform5" index="12" unique_id=421458582]
 station_number = 2
 
-[node name="LayerTransitionZone" parent="Platform5" index="13" unique_id=1662407236]
-visible = true
-
-[node name="CollisionShape2D" parent="Platform5/LayerTransitionZone" index="0" unique_id=6447672]
+[node name="CollisionShape2D" parent="Platform5/LayerTransitionZone" parent_id_path=PackedInt32Array(1126306435, 1662407236) index="0" unique_id=6447672]
 shape = SubResource("RectangleShape2D_s4b5i")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Platform5/LayerTransitionZone" index="1" unique_id=1264534563]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Platform5/LayerTransitionZone" parent_id_path=PackedInt32Array(1126306435, 1662407236) index="1" unique_id=1264534563]
 position = Vector2(-215.5, -115)
 shape = SubResource("RectangleShape2D_pg750")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Platform5/LayerTransitionZone" index="2" unique_id=429838709]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Platform5/LayerTransitionZone" parent_id_path=PackedInt32Array(1126306435, 1662407236) index="2" unique_id=429838709]
 position = Vector2(-40, -114.5)
 shape = SubResource("RectangleShape2D_pg750")
-
-[node name="StaticBody" parent="Platform5/LayerTransitionZone" index="3" unique_id=615950227 instance=ExtResource("5_gsja5")]
-position = Vector2(-56, -104)
-
-[node name="StaticBody2" parent="Platform5/LayerTransitionZone" index="4" unique_id=2065315801 instance=ExtResource("5_gsja5")]
-position = Vector2(-200, 144)
 
 [node name="RestChairVerticalLeft2" parent="Platform5" index="20" unique_id=1219193307]
 process_mode = 4
@@ -340,6 +677,49 @@ process_mode = 4
 visible = false
 collision_layer = 0
 collision_mask = 0
+
+[node name="StaticBody" parent="Platform5" index="22" unique_id=615950227 instance=ExtResource("5_gsja5")]
+position = Vector2(-56, -104)
+
+[node name="StaticBody2" parent="Platform5" index="23" unique_id=2065315801 instance=ExtResource("5_gsja5")]
+position = Vector2(-200, 144)
+
+[node name="TinyFoliage18" parent="Platform5" index="24" unique_id=8373833 instance=ExtResource("34_r7wcl")]
+position = Vector2(-56, 112)
+anim = 2
+
+[node name="TinyFoliage19" parent="Platform5" index="25" unique_id=68229982 instance=ExtResource("34_r7wcl")]
+position = Vector2(-64, 120)
+anim = 2
+
+[node name="TinyFoliage20" parent="Platform5" index="26" unique_id=1245774019 instance=ExtResource("34_r7wcl")]
+position = Vector2(-96, 112)
+anim = 2
+
+[node name="TinyFoliage21" parent="Platform5" index="27" unique_id=1574039601 instance=ExtResource("34_r7wcl")]
+position = Vector2(-112, 136)
+anim = 2
+
+[node name="TinyFoliage22" parent="Platform5" index="28" unique_id=1842258283 instance=ExtResource("34_r7wcl")]
+position = Vector2(-136, 96)
+anim = 2
+
+[node name="TinyFoliage23" parent="Platform5" index="29" unique_id=2105571728 instance=ExtResource("34_r7wcl")]
+position = Vector2(-168, 144)
+anim = 2
+
+[node name="TinyFoliage24" parent="Platform5" index="30" unique_id=1167476824 instance=ExtResource("34_r7wcl")]
+position = Vector2(-184, 120)
+anim = 2
+
+[node name="StreetLamp" parent="Platform5" index="31" unique_id=399667752 instance=ExtResource("19_qfhyh")]
+position = Vector2(-128, 128)
+
+[node name="StreetLamp2" parent="Platform5" index="32" unique_id=799775296 instance=ExtResource("19_qfhyh")]
+position = Vector2(-208, -96)
+
+[node name="StreetLamp3" parent="Platform5" index="33" unique_id=1267195896 instance=ExtResource("19_qfhyh")]
+position = Vector2(-80, -16)
 
 [node name="Platform6" parent="." index="11" unique_id=275140016 instance=ExtResource("3_2smvo")]
 position = Vector2(-2528, -704)
@@ -365,22 +745,19 @@ station_number = 2
 [node name="Station0Sign2" parent="Platform6" index="12" unique_id=421458582]
 station_number = 2
 
-[node name="LayerTransitionZone" parent="Platform6" index="13" unique_id=1662407236]
-visible = true
-
-[node name="CollisionShape2D" parent="Platform6/LayerTransitionZone" index="0" unique_id=6447672]
+[node name="CollisionShape2D" parent="Platform6/LayerTransitionZone" parent_id_path=PackedInt32Array(275140016, 1662407236) index="0" unique_id=6447672]
 shape = SubResource("RectangleShape2D_uuidd")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Platform6/LayerTransitionZone" index="1" unique_id=2081528539]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Platform6/LayerTransitionZone" parent_id_path=PackedInt32Array(275140016, 1662407236) index="1" unique_id=2081528539]
 position = Vector2(-215.5, -114)
 shape = SubResource("RectangleShape2D_5l23l")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Platform6/LayerTransitionZone" index="2" unique_id=1535857085]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Platform6/LayerTransitionZone" parent_id_path=PackedInt32Array(275140016, 1662407236) index="2" unique_id=1535857085]
 position = Vector2(-41, -115)
 shape = SubResource("RectangleShape2D_5l23l")
 
 [node name="RestChairVerticalLeft" parent="Platform6" index="18" unique_id=232674008]
-position = Vector2(-168, -16)
+position = Vector2(-168, -56)
 
 [node name="RestChairVerticalRight" parent="Platform6" index="19" unique_id=484732143]
 process_mode = 4
@@ -397,7 +774,22 @@ collision_layer = 0
 collision_mask = 0
 
 [node name="RestChairVerticalRight2" parent="Platform6" index="21" unique_id=1655447813]
-position = Vector2(-88, 88)
+position = Vector2(-88, 48)
+
+[node name="StaticBody" parent="Platform6" index="22" unique_id=929298962 instance=ExtResource("5_gsja5")]
+position = Vector2(-168, 72)
+
+[node name="StaticBody2" parent="Platform6" index="23" unique_id=2063993111 instance=ExtResource("5_gsja5")]
+position = Vector2(-88, -32)
+
+[node name="StreetLamp" parent="Platform6" index="24" unique_id=1101163051 instance=ExtResource("19_qfhyh")]
+position = Vector2(-136, -32)
+
+[node name="StreetLamp2" parent="Platform6" index="25" unique_id=786967363 instance=ExtResource("19_qfhyh")]
+position = Vector2(-208, 112)
+
+[node name="StreetLamp3" parent="Platform6" index="26" unique_id=2010119205 instance=ExtResource("19_qfhyh")]
+position = Vector2(-56, 136)
 
 [node name="Platform7" parent="." index="12" unique_id=261612207 instance=ExtResource("2_pqqg8")]
 z_index = 5
@@ -442,6 +834,119 @@ position = Vector2(96, -48)
 
 [node name="StaticBody2" parent="Platform7" index="25" unique_id=405673041 instance=ExtResource("5_gsja5")]
 position = Vector2(-360, 80)
+
+[node name="TinyFoliage2" parent="Platform7" index="26" unique_id=1475487862 instance=ExtResource("34_r7wcl")]
+position = Vector2(-344, -24)
+anim = 2
+
+[node name="TinyFoliage3" parent="Platform7" index="27" unique_id=1970090954 instance=ExtResource("34_r7wcl")]
+position = Vector2(-320, -32)
+anim = 2
+
+[node name="TinyFoliage4" parent="Platform7" index="28" unique_id=1153969120 instance=ExtResource("34_r7wcl")]
+position = Vector2(-296, -24)
+anim = 2
+
+[node name="TinyFoliage6" parent="Platform7" index="29" unique_id=1618270016 instance=ExtResource("34_r7wcl")]
+position = Vector2(-368, -16)
+anim = 2
+
+[node name="TinyFoliage7" parent="Platform7" index="30" unique_id=216278277 instance=ExtResource("34_r7wcl")]
+position = Vector2(-344, -8)
+
+[node name="TinyFoliage8" parent="Platform7" index="31" unique_id=1806515715 instance=ExtResource("34_r7wcl")]
+position = Vector2(-320, -16)
+
+[node name="TinyFoliage9" parent="Platform7" index="32" unique_id=1902489789 instance=ExtResource("34_r7wcl")]
+position = Vector2(-296, -8)
+
+[node name="TinyFoliage10" parent="Platform7" index="33" unique_id=832342622 instance=ExtResource("34_r7wcl")]
+position = Vector2(-272, -16)
+anim = 2
+
+[node name="TinyFoliage11" parent="Platform7" index="34" unique_id=575521265 instance=ExtResource("34_r7wcl")]
+position = Vector2(-368, 0)
+
+[node name="TinyFoliage12" parent="Platform7" index="35" unique_id=84929148 instance=ExtResource("34_r7wcl")]
+position = Vector2(-344, 8)
+anim = 1
+
+[node name="TinyFoliage13" parent="Platform7" index="36" unique_id=1373816965 instance=ExtResource("34_r7wcl")]
+position = Vector2(-320, 0)
+anim = 1
+
+[node name="TinyFoliage14" parent="Platform7" index="37" unique_id=1160794786 instance=ExtResource("34_r7wcl")]
+position = Vector2(-296, 8)
+anim = 1
+
+[node name="TinyFoliage15" parent="Platform7" index="38" unique_id=225958973 instance=ExtResource("34_r7wcl")]
+position = Vector2(-272, 0)
+
+[node name="TinyFoliage16" parent="Platform7" index="39" unique_id=1552904512 instance=ExtResource("34_r7wcl")]
+position = Vector2(-368, 16)
+
+[node name="TinyFoliage17" parent="Platform7" index="40" unique_id=1403441089 instance=ExtResource("34_r7wcl")]
+position = Vector2(-344, 24)
+anim = 1
+
+[node name="TinyFoliage18" parent="Platform7" index="41" unique_id=150580181 instance=ExtResource("34_r7wcl")]
+position = Vector2(-320, 16)
+anim = 2
+
+[node name="TinyFoliage19" parent="Platform7" index="42" unique_id=2088270072 instance=ExtResource("34_r7wcl")]
+position = Vector2(-296, 24)
+anim = 1
+
+[node name="TinyFoliage20" parent="Platform7" index="43" unique_id=2122812195 instance=ExtResource("34_r7wcl")]
+position = Vector2(-272, 16)
+
+[node name="TinyFoliage21" parent="Platform7" index="44" unique_id=979896440 instance=ExtResource("34_r7wcl")]
+position = Vector2(-368, 32)
+
+[node name="TinyFoliage22" parent="Platform7" index="45" unique_id=1161713521 instance=ExtResource("34_r7wcl")]
+position = Vector2(-344, 40)
+
+[node name="TinyFoliage23" parent="Platform7" index="46" unique_id=618225752 instance=ExtResource("34_r7wcl")]
+position = Vector2(-320, 32)
+anim = 1
+
+[node name="TinyFoliage24" parent="Platform7" index="47" unique_id=221257605 instance=ExtResource("34_r7wcl")]
+position = Vector2(-296, 40)
+
+[node name="TinyFoliage25" parent="Platform7" index="48" unique_id=162707264 instance=ExtResource("34_r7wcl")]
+position = Vector2(-272, 32)
+
+[node name="TinyFoliage27" parent="Platform7" index="49" unique_id=1800418271 instance=ExtResource("34_r7wcl")]
+position = Vector2(-320, 48)
+
+[node name="TinyFoliage26" parent="Platform7" index="50" unique_id=959176753 instance=ExtResource("34_r7wcl")]
+position = Vector2(-368, 48)
+anim = 2
+
+[node name="TinyFoliage28" parent="Platform7" index="51" unique_id=528998020 instance=ExtResource("34_r7wcl")]
+position = Vector2(-344, 56)
+anim = 2
+
+[node name="TinyFoliage29" parent="Platform7" index="52" unique_id=201992801 instance=ExtResource("34_r7wcl")]
+position = Vector2(-296, 56)
+anim = 2
+
+[node name="TinyFoliage30" parent="Platform7" index="53" unique_id=1234176722 instance=ExtResource("34_r7wcl")]
+position = Vector2(-272, 48)
+anim = 2
+
+[node name="TinyFoliage31" parent="Platform7" index="54" unique_id=89469674 instance=ExtResource("34_r7wcl")]
+position = Vector2(-320, 64)
+anim = 2
+
+[node name="StreetLamp" parent="Platform7" index="55" unique_id=1746196159 instance=ExtResource("19_qfhyh")]
+position = Vector2(56, 16)
+
+[node name="StreetLamp2" parent="Platform7" index="56" unique_id=799271492 instance=ExtResource("19_qfhyh")]
+position = Vector2(-152, 56)
+
+[node name="StreetLamp3" parent="Platform7" index="57" unique_id=37641706 instance=ExtResource("19_qfhyh")]
+position = Vector2(-368, -40)
 
 [node name="DepartureBoard" parent="." index="13" unique_id=994016923 instance=ExtResource("3_lnqnw")]
 position = Vector2(-1657, -1509)
@@ -576,7 +1081,7 @@ station_number = 2
 position = Vector2(-2224, -704)
 station_number = 2
 
-[node name="StreetLamp" parent="Decorations" index="18" unique_id=872603544 instance=ExtResource("19_qfhyh")]
+[node name="StreetLamp" parent="Decorations" index="18" unique_id=66639473 instance=ExtResource("19_qfhyh")]
 position = Vector2(-1824, -1120)
 
 [node name="StreetLamp2" parent="Decorations" index="19" unique_id=1038863293 instance=ExtResource("19_qfhyh")]
@@ -832,7 +1337,7 @@ position = Vector2(-1424, -1904)
 position = Vector2(-816, -2016)
 
 [node name="Plant27" parent="Decorations" index="103" unique_id=19399408 instance=ExtResource("21_bkbve")]
-position = Vector2(-1856, -1944)
+position = Vector2(-1856, -1920)
 
 [node name="Plant28" parent="Decorations" index="104" unique_id=843337883 instance=ExtResource("21_bkbve")]
 position = Vector2(-1792, -2240)
@@ -871,7 +1376,7 @@ position = Vector2(-1880, -1728)
 position = Vector2(-1928, -1728)
 
 [node name="Plant58" parent="Decorations" index="116" unique_id=1619102532 instance=ExtResource("22_ihnwd")]
-position = Vector2(-1792, -1944)
+position = Vector2(-1792, -1920)
 
 [node name="Plant59" parent="Decorations" index="117" unique_id=242444788 instance=ExtResource("22_ihnwd")]
 position = Vector2(-1792, -2200)
@@ -979,10 +1484,10 @@ position = Vector2(-632, -1928)
 position = Vector2(-1224, -1928)
 
 [node name="RestChairVerticalRight" parent="Decorations" index="152" unique_id=2058026529 instance=ExtResource("25_xpuws")]
-position = Vector2(-1080, -1968)
+position = Vector2(-1080, -2008)
 
 [node name="RestChairVerticalLeft" parent="Decorations" index="153" unique_id=1212599250 instance=ExtResource("26_sm3vb")]
-position = Vector2(-1032, -1968)
+position = Vector2(-1032, -2008)
 
 [node name="RestChair3" parent="Decorations" index="154" unique_id=1392740651 instance=ExtResource("24_oaqh1")]
 position = Vector2(-1584, -1784)
@@ -994,13 +1499,13 @@ position = Vector2(-2256, -2032)
 position = Vector2(-2696, -1976)
 
 [node name="RestChairVerticalRight2" parent="Decorations" index="157" unique_id=383777 instance=ExtResource("25_xpuws")]
-position = Vector2(-2032, -1640)
+position = Vector2(-2032, -1680)
 
 [node name="RestChairVerticalRight3" parent="Decorations" index="158" unique_id=1548635246 instance=ExtResource("25_xpuws")]
-position = Vector2(-2480, -1480)
+position = Vector2(-2480, -1520)
 
 [node name="RestChairVerticalRight4" parent="Decorations" index="159" unique_id=723984585 instance=ExtResource("25_xpuws")]
-position = Vector2(-2480, -1432)
+position = Vector2(-2480, -1472)
 
 [node name="RestChair6" parent="Decorations" index="160" unique_id=50932923 instance=ExtResource("24_oaqh1")]
 position = Vector2(-2544, -1224)
@@ -1012,22 +1517,22 @@ position = Vector2(-2440, -1224)
 position = Vector2(-2152, -1224)
 
 [node name="RestChairVerticalLeft2" parent="Decorations" index="163" unique_id=1807017885 instance=ExtResource("26_sm3vb")]
-position = Vector2(-2224, -936)
+position = Vector2(-2224, -976)
 
 [node name="RestChairVerticalLeft3" parent="Decorations" index="164" unique_id=390806269 instance=ExtResource("26_sm3vb")]
-position = Vector2(-2224, -768)
+position = Vector2(-2224, -808)
 
 [node name="RestChairVerticalLeft4" parent="Decorations" index="165" unique_id=645138616 instance=ExtResource("26_sm3vb")]
-position = Vector2(-2064, -632)
+position = Vector2(-2064, -672)
 
 [node name="RestChair9" parent="Decorations" index="166" unique_id=1501550302 instance=ExtResource("24_oaqh1")]
 position = Vector2(-1848, -1200)
 
 [node name="RestChairVerticalRight5" parent="Decorations" index="167" unique_id=701656686 instance=ExtResource("25_xpuws")]
-position = Vector2(-1736, -1392)
+position = Vector2(-1736, -1432)
 
 [node name="RestChairVerticalLeft5" parent="Decorations" index="168" unique_id=2067120797 instance=ExtResource("26_sm3vb")]
-position = Vector2(-1960, -1392)
+position = Vector2(-1960, -1432)
 
 [node name="RestChair10" parent="Decorations" index="169" unique_id=670189896 instance=ExtResource("24_oaqh1")]
 position = Vector2(-1808, -984)
@@ -1036,28 +1541,28 @@ position = Vector2(-1808, -984)
 position = Vector2(-960, -1128)
 
 [node name="RestChairVerticalLeft6" parent="Decorations" index="171" unique_id=39747809 instance=ExtResource("26_sm3vb")]
-position = Vector2(-1360, -1200)
+position = Vector2(-1360, -1248)
 
 [node name="RestChairVerticalLeft7" parent="Decorations" index="172" unique_id=1065373098 instance=ExtResource("26_sm3vb")]
 position = Vector2(-1360, -1720)
 
 [node name="RestChairVerticalRight6" parent="Decorations" index="173" unique_id=1288828356 instance=ExtResource("25_xpuws")]
-position = Vector2(-1424, -1376)
+position = Vector2(-1424, -1424)
 
 [node name="RestChairVerticalLeft8" parent="Decorations" index="174" unique_id=913632502 instance=ExtResource("26_sm3vb")]
-position = Vector2(-1912, -1104)
+position = Vector2(-1912, -1144)
 
 [node name="RestChairVerticalLeft9" parent="Decorations" index="175" unique_id=1379598413 instance=ExtResource("26_sm3vb")]
-position = Vector2(-880, -824)
+position = Vector2(-880, -864)
 
 [node name="RestChairVerticalRight7" parent="Decorations" index="176" unique_id=747024445 instance=ExtResource("25_xpuws")]
-position = Vector2(-448, -728)
+position = Vector2(-448, -768)
 
 [node name="RestChairVerticalLeft10" parent="Decorations" index="177" unique_id=1872150640 instance=ExtResource("26_sm3vb")]
 position = Vector2(-384, -1248)
 
 [node name="RestChairVerticalLeft11" parent="Decorations" index="178" unique_id=231217893 instance=ExtResource("26_sm3vb")]
-position = Vector2(-384, -1672)
+position = Vector2(-384, -1712)
 
 [node name="StaticBody" parent="Decorations" index="179" unique_id=1547525935 instance=ExtResource("5_gsja5")]
 position = Vector2(-1072, -1880)
@@ -1166,6 +1671,12 @@ position = Vector2(-2400, -1728)
 [node name="StaticBody6" parent="Decorations" index="210" unique_id=1934451233 instance=ExtResource("5_gsja5")]
 position = Vector2(-2072, -1792)
 
+[node name="StreetLamp49" parent="Decorations" index="211" unique_id=2061511352 instance=ExtResource("19_qfhyh")]
+position = Vector2(-1856, -1952)
+
+[node name="StreetLamp50" parent="Decorations" index="212" unique_id=1920843518 instance=ExtResource("19_qfhyh")]
+position = Vector2(-2400, -1792)
+
 [node name="TrinketShop" parent="." index="35" unique_id=877031898 instance=ExtResource("19_1vf62")]
 position = Vector2(-1663, -1186)
 
@@ -1220,6 +1731,92 @@ position = Vector2(-448, -1408)
 
 [node name="StaticBody4" parent="." index="51" unique_id=781116927 instance=ExtResource("5_gsja5")]
 position = Vector2(-408, -1928)
+
+[node name="TinyFoliage3" parent="." index="52" unique_id=1089507518 instance=ExtResource("34_r7wcl")]
+position = Vector2(-2704, -584)
+anim = 1
+
+[node name="TinyFoliage9" parent="." index="53" unique_id=1221342456 instance=ExtResource("34_r7wcl")]
+position = Vector2(-2632, -616)
+anim = 1
+
+[node name="TinyFoliage10" parent="." index="54" unique_id=299378759 instance=ExtResource("34_r7wcl")]
+position = Vector2(-2664, -656)
+anim = 1
+
+[node name="TinyFoliage4" parent="." index="55" unique_id=1850683491 instance=ExtResource("34_r7wcl")]
+position = Vector2(-2688, -600)
+anim = 1
+
+[node name="TinyFoliage5" parent="." index="56" unique_id=125875156 instance=ExtResource("34_r7wcl")]
+position = Vector2(-2648, -568)
+anim = 1
+
+[node name="TinyFoliage6" parent="." index="57" unique_id=816989990 instance=ExtResource("34_r7wcl")]
+position = Vector2(-2616, -576)
+anim = 1
+
+[node name="TinyFoliage7" parent="." index="58" unique_id=1454899419 instance=ExtResource("34_r7wcl")]
+position = Vector2(-2640, -600)
+anim = 1
+
+[node name="TinyFoliage8" parent="." index="59" unique_id=2136635957 instance=ExtResource("34_r7wcl")]
+position = Vector2(-2576, -592)
+anim = 1
+
+[node name="TinyFoliage11" parent="." index="60" unique_id=1061832002 instance=ExtResource("34_r7wcl")]
+position = Vector2(-1624, -1336)
+
+[node name="TinyFoliage12" parent="." index="61" unique_id=273332650 instance=ExtResource("34_r7wcl")]
+position = Vector2(-1632, -1320)
+
+[node name="TinyFoliage13" parent="." index="62" unique_id=266475532 instance=ExtResource("34_r7wcl")]
+position = Vector2(-1664, -1344)
+
+[node name="TinyFoliage14" parent="." index="63" unique_id=2033943097 instance=ExtResource("34_r7wcl")]
+position = Vector2(-1656, -1328)
+anim = 2
+
+[node name="TinyFoliage15" parent="." index="64" unique_id=2051110593 instance=ExtResource("34_r7wcl")]
+position = Vector2(-1632, -1288)
+anim = 2
+
+[node name="TinyFoliage16" parent="." index="65" unique_id=287649581 instance=ExtResource("34_r7wcl")]
+position = Vector2(-1680, -1304)
+anim = 2
+
+[node name="TinyFoliage17" parent="." index="66" unique_id=1394687143 instance=ExtResource("34_r7wcl")]
+position = Vector2(-1744, -2336)
+
+[node name="Sprinkler" parent="." index="67" unique_id=307519851 instance=ExtResource("12_bkbve")]
+position = Vector2(-1752, -1032)
+
+[node name="Sprinkler2" parent="." index="68" unique_id=516780344 instance=ExtResource("12_bkbve")]
+position = Vector2(-1840, -928)
+
+[node name="Sprinkler3" parent="." index="69" unique_id=244348454 instance=ExtResource("12_bkbve")]
+position = Vector2(-2016, -1136)
+
+[node name="Sprinkler4" parent="." index="70" unique_id=1336011977 instance=ExtResource("12_bkbve")]
+position = Vector2(-1784, -1384)
+
+[node name="Sprinkler5" parent="." index="71" unique_id=1101789581 instance=ExtResource("12_bkbve")]
+position = Vector2(-1856, -1336)
+
+[node name="Sprinkler6" parent="." index="72" unique_id=2078976125 instance=ExtResource("12_bkbve")]
+position = Vector2(-1656, -1296)
+
+[node name="Sprinkler7" parent="." index="73" unique_id=1532947847 instance=ExtResource("12_bkbve")]
+position = Vector2(-2640, -1216)
+
+[node name="Sprinkler8" parent="." index="74" unique_id=888032235 instance=ExtResource("12_bkbve")]
+position = Vector2(-2208, -1992)
+
+[node name="Sprinkler9" parent="." index="75" unique_id=129525365 instance=ExtResource("12_bkbve")]
+position = Vector2(-2320, -2056)
+
+[node name="Sprinkler10" parent="." index="76" unique_id=223399333 instance=ExtResource("12_bkbve")]
+position = Vector2(-1112, -2008)
 
 [editable path="Platform1"]
 [editable path="Platform2"]

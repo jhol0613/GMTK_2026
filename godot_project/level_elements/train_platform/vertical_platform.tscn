@@ -137,13 +137,13 @@ position = Vector2(-229, 124)
 position = Vector2(-232, -77)
 
 [node name="RestChairVerticalLeft" parent="." unique_id=232674008 instance=ExtResource("14_m7glf")]
-position = Vector2(-144, 80)
+position = Vector2(-144, 40)
 
 [node name="RestChairVerticalRight" parent="." unique_id=484732143 instance=ExtResource("15_48o67")]
-position = Vector2(-112, 80)
+position = Vector2(-112, 40)
 
 [node name="RestChairVerticalLeft2" parent="." unique_id=1219193307 instance=ExtResource("14_m7glf")]
-position = Vector2(-144, 0)
+position = Vector2(-144, -40)
 
 [node name="RestChairVerticalRight2" parent="." unique_id=1655447813 instance=ExtResource("15_48o67")]
-position = Vector2(-112, 0)
+position = Vector2(-112, -40)
