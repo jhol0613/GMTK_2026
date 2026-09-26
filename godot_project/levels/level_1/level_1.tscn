@@ -14,9 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://bph5ufs84kb6f" path="res://level_elements/bathroom/bathroom.tscn" id="24_gukcl"]
 [ext_resource type="PackedScene" uid="uid://c7ekkaj708al" path="res://level_elements/maps/station/station_map_lvl1.tscn" id="25_13ste"]
 [ext_resource type="PackedScene" uid="uid://bj6c3dkqrbxyt" path="res://level_elements/train_platform/vertical_platform.tscn" id="26_2jmd8"]
-[ext_resource type="Texture2D" uid="uid://danrb3vfq83ag" path="res://level_elements/decorative/hoverthruster.png" id="26_db00x"]
 [ext_resource type="PackedScene" uid="uid://cniar1emgicic" path="res://level_elements/decorative/ads/ad_board.tscn" id="27_wn8pp"]
 [ext_resource type="PackedScene" uid="uid://b3rra7yj17p2b" path="res://level_elements/decorative/benches/bench_snoozin.tscn" id="29_4acx1"]
+[ext_resource type="PackedScene" uid="uid://cndvpqyxvlxh7" path="res://level_elements/decorative/hover_thruster.tscn" id="29_lu7vs"]
 [ext_resource type="PackedScene" uid="uid://dcsei1m2axnjk" path="res://level_elements/decorative/benches/bench.tscn" id="30_sqt4m"]
 [ext_resource type="Texture2D" uid="uid://70v4pred1q71" path="res://level_elements/bathroom/outside_restroom.png" id="31_530me"]
 [ext_resource type="PackedScene" uid="uid://ba3allrv3pni0" path="res://level_elements/decorative/plants/plant_1.tscn" id="32_82lf4"]
@@ -112,94 +112,89 @@ color = 7
 hide_if_vertical = []
 color = 7
 
-[node name="Station0Sign" parent="Platform1" index="19" unique_id=98722644]
+[node name="Station0Sign" parent="Platform1" index="14" unique_id=98722644]
 station_number = 1
 
-[node name="Station0Sign2" parent="Platform1" index="20" unique_id=421458582]
+[node name="Station0Sign2" parent="Platform1" index="15" unique_id=421458582]
 station_number = 1
 
-[node name="LayerTransitionZone" parent="Platform1" index="21" unique_id=1963443963]
+[node name="LayerTransitionZone" parent="Platform1" index="16" unique_id=1963443963]
 transition_z_index = 6
 
 [node name="CollisionShape2D" parent="Platform1/LayerTransitionZone" index="0" unique_id=1067701298]
 position = Vector2(54, 14.5)
 shape = SubResource("RectangleShape2D_2jmd8")
 
-[node name="Hoverthruster7" type="Sprite2D" parent="Platform1" index="22" unique_id=1593168932]
-z_index = -6
-position = Vector2(280, 120)
-texture = ExtResource("26_db00x")
+[node name="RestChair" parent="Platform1" index="17" unique_id=232674008]
+position = Vector2(0, 16)
 
-[node name="Board" parent="Platform1" index="23" unique_id=1185998454 instance=ExtResource("27_wn8pp")]
+[node name="Board" parent="Platform1" index="18" unique_id=1185998454 instance=ExtResource("27_wn8pp")]
 position = Vector2(-328, 8)
 
-[node name="Board2" parent="Platform1" index="24" unique_id=1351519759 instance=ExtResource("27_wn8pp")]
+[node name="Board2" parent="Platform1" index="19" unique_id=1351519759 instance=ExtResource("27_wn8pp")]
 position = Vector2(-240, 8)
 
-[node name="RestChairVerticalRight" parent="Platform1" index="25" unique_id=1442036108 instance=ExtResource("38_lu7vs")]
+[node name="RestChairVerticalRight" parent="Platform1" index="20" unique_id=1442036108 instance=ExtResource("38_lu7vs")]
 position = Vector2(-378, -66)
 
-[node name="RestChairVerticalLeft" parent="Platform1" index="26" unique_id=363741417 instance=ExtResource("39_wl75l")]
+[node name="RestChairVerticalLeft" parent="Platform1" index="21" unique_id=363741417 instance=ExtResource("39_wl75l")]
 position = Vector2(96, -62)
 
-[node name="TinyFoliage18" parent="Platform1" index="27" unique_id=1564407425 instance=ExtResource("35_ya8pr")]
+[node name="TinyFoliage18" parent="Platform1" index="22" unique_id=1564407425 instance=ExtResource("35_ya8pr")]
 position = Vector2(160, 1)
 
-[node name="TinyFoliage19" parent="Platform1" index="28" unique_id=397608248 instance=ExtResource("35_ya8pr")]
+[node name="TinyFoliage19" parent="Platform1" index="23" unique_id=397608248 instance=ExtResource("35_ya8pr")]
 position = Vector2(-304, 16)
 anim = 2
 
-[node name="TinyFoliage20" parent="Platform1" index="29" unique_id=1678617489 instance=ExtResource("35_ya8pr")]
+[node name="TinyFoliage20" parent="Platform1" index="24" unique_id=1678617489 instance=ExtResource("35_ya8pr")]
 position = Vector2(-272, 0)
 anim = 2
 
-[node name="Birb" parent="Platform1" index="30" unique_id=218145144 instance=ExtResource("39_ton1c")]
+[node name="Birb" parent="Platform1" index="25" unique_id=218145144 instance=ExtResource("39_ton1c")]
 position = Vector2(-216, -16)
 
-[node name="Birb3" parent="Platform1" index="31" unique_id=256394402 instance=ExtResource("39_ton1c")]
+[node name="Birb3" parent="Platform1" index="26" unique_id=256394402 instance=ExtResource("39_ton1c")]
 position = Vector2(-192, -24)
 
-[node name="Birb4" parent="Platform1" index="32" unique_id=594114438 instance=ExtResource("39_ton1c")]
+[node name="Birb4" parent="Platform1" index="27" unique_id=594114438 instance=ExtResource("39_ton1c")]
 position = Vector2(-160, -24)
 
-[node name="Birb5" parent="Platform1" index="33" unique_id=369816595 instance=ExtResource("39_ton1c")]
+[node name="Birb5" parent="Platform1" index="28" unique_id=369816595 instance=ExtResource("39_ton1c")]
 position = Vector2(-136, -16)
 
-[node name="Birb6" parent="Platform1" index="34" unique_id=1775601579 instance=ExtResource("39_ton1c")]
+[node name="Birb6" parent="Platform1" index="29" unique_id=1775601579 instance=ExtResource("39_ton1c")]
 position = Vector2(-112, -24)
 
-[node name="Birb7" parent="Platform1" index="35" unique_id=311438673 instance=ExtResource("39_ton1c")]
+[node name="Birb7" parent="Platform1" index="30" unique_id=311438673 instance=ExtResource("39_ton1c")]
 position = Vector2(-96, -32)
 
-[node name="Birb8" parent="Platform1" index="36" unique_id=405354904 instance=ExtResource("39_ton1c")]
+[node name="Birb8" parent="Platform1" index="31" unique_id=405354904 instance=ExtResource("39_ton1c")]
 position = Vector2(-64, -24)
 
-[node name="Birb2" parent="Platform1" index="37" unique_id=1257316208 instance=ExtResource("39_ton1c")]
+[node name="Birb2" parent="Platform1" index="32" unique_id=1257316208 instance=ExtResource("39_ton1c")]
 position = Vector2(-208, 16)
 
-[node name="RecycleBin" parent="Platform1" index="38" unique_id=981033953 instance=ExtResource("40_m78yj")]
+[node name="RecycleBin" parent="Platform1" index="33" unique_id=981033953 instance=ExtResource("40_m78yj")]
 position = Vector2(189, -7)
 
-[node name="StreetLamp" parent="Platform1" index="39" unique_id=1013452097 instance=ExtResource("47_n5t7a")]
+[node name="StreetLamp" parent="Platform1" index="34" unique_id=1013452097 instance=ExtResource("47_n5t7a")]
 position = Vector2(48, -40)
 
-[node name="StreetLamp2" parent="Platform1" index="40" unique_id=1016945674 instance=ExtResource("47_n5t7a")]
+[node name="StreetLamp2" parent="Platform1" index="35" unique_id=1016945674 instance=ExtResource("47_n5t7a")]
 position = Vector2(-334, -57)
 
-[node name="StreetLamp3" parent="Platform1" index="41" unique_id=1027379929 instance=ExtResource("47_n5t7a")]
+[node name="StreetLamp3" parent="Platform1" index="36" unique_id=1027379929 instance=ExtResource("47_n5t7a")]
 position = Vector2(290, -8)
 
-[node name="Sprinkler2" parent="Platform1" index="42" unique_id=402207223 instance=ExtResource("35_wl75l")]
+[node name="Sprinkler2" parent="Platform1" index="37" unique_id=402207223 instance=ExtResource("35_wl75l")]
 position = Vector2(79, 38)
 
-[node name="Sprinkler3" parent="Platform1" index="43" unique_id=50668991 instance=ExtResource("35_wl75l")]
+[node name="Sprinkler3" parent="Platform1" index="38" unique_id=50668991 instance=ExtResource("35_wl75l")]
 position = Vector2(-342, 29)
 
-[node name="Sprinkler4" parent="Platform1" index="44" unique_id=2066610491 instance=ExtResource("35_wl75l")]
+[node name="Sprinkler4" parent="Platform1" index="39" unique_id=2066610491 instance=ExtResource("35_wl75l")]
 position = Vector2(249, 42)
-
-[node name="RestChair" parent="Platform1" index="45" unique_id=232674008]
-position = Vector2(0, 16)
 
 [node name="Platform2" parent="." index="9" unique_id=395130522 instance=ExtResource("26_2jmd8")]
 position = Vector2(64, -2128)
@@ -248,93 +243,88 @@ color = 3
 hide_if_vertical = []
 color = 3
 
-[node name="Station0Sign" parent="Platform3" index="19" unique_id=98722644]
+[node name="Station0Sign" parent="Platform3" index="14" unique_id=98722644]
 station_number = 1
 
-[node name="Station0Sign2" parent="Platform3" index="20" unique_id=421458582]
+[node name="Station0Sign2" parent="Platform3" index="15" unique_id=421458582]
 station_number = 1
 
-[node name="LayerTransitionZone" parent="Platform3" index="21" unique_id=1963443963]
+[node name="LayerTransitionZone" parent="Platform3" index="16" unique_id=1963443963]
 transition_z_index = 6
 
 [node name="CollisionShape2D" parent="Platform3/LayerTransitionZone" index="0" unique_id=1067701298]
 position = Vector2(-326.5, 14.5)
 shape = SubResource("RectangleShape2D_60i3m")
 
-[node name="Hoverthruster12" type="Sprite2D" parent="Platform3" index="22" unique_id=661365257]
-z_index = -6
-position = Vector2(-552, 120)
-texture = ExtResource("26_db00x")
+[node name="RestChair" parent="Platform3" index="17" unique_id=232674008]
+position = Vector2(48, -8)
 
-[node name="Bench8" parent="Platform3" index="23" unique_id=1711168543 instance=ExtResource("30_sqt4m")]
+[node name="Bench8" parent="Platform3" index="18" unique_id=1711168543 instance=ExtResource("30_sqt4m")]
 position = Vector2(-304, -8)
 
-[node name="Board3" parent="Platform3" index="24" unique_id=1417847566 instance=ExtResource("27_wn8pp")]
+[node name="Board3" parent="Platform3" index="19" unique_id=1417847566 instance=ExtResource("27_wn8pp")]
 position = Vector2(-237, 8)
 
-[node name="Board4" parent="Platform3" index="25" unique_id=1361364478 instance=ExtResource("27_wn8pp")]
+[node name="Board4" parent="Platform3" index="20" unique_id=1361364478 instance=ExtResource("27_wn8pp")]
 position = Vector2(-20, 9)
 
-[node name="RestChairVerticalLeft4" parent="Platform3" index="26" unique_id=1293768725 instance=ExtResource("39_wl75l")]
+[node name="RestChairVerticalLeft4" parent="Platform3" index="21" unique_id=1293768725 instance=ExtResource("39_wl75l")]
 position = Vector2(-266, -15)
 
-[node name="RestChairVerticalLeft5" parent="Platform3" index="27" unique_id=736331896 instance=ExtResource("39_wl75l")]
+[node name="RestChairVerticalLeft5" parent="Platform3" index="22" unique_id=736331896 instance=ExtResource("39_wl75l")]
 position = Vector2(88, -13)
 
-[node name="RestChairVerticalRight3" parent="Platform3" index="28" unique_id=456023347 instance=ExtResource("38_lu7vs")]
+[node name="RestChairVerticalRight3" parent="Platform3" index="23" unique_id=456023347 instance=ExtResource("38_lu7vs")]
 position = Vector2(-343, -15)
 
-[node name="RestChairVerticalRight4" parent="Platform3" index="29" unique_id=639330820 instance=ExtResource("38_lu7vs")]
+[node name="RestChairVerticalRight4" parent="Platform3" index="24" unique_id=639330820 instance=ExtResource("38_lu7vs")]
 position = Vector2(9, -12)
 
-[node name="TinyFoliage25" parent="Platform3" index="30" unique_id=408531999 instance=ExtResource("35_ya8pr")]
+[node name="TinyFoliage25" parent="Platform3" index="25" unique_id=408531999 instance=ExtResource("35_ya8pr")]
 position = Vector2(-304, 16)
 anim = 2
 
-[node name="TinyFoliage26" parent="Platform3" index="31" unique_id=1348487357 instance=ExtResource("35_ya8pr")]
+[node name="TinyFoliage26" parent="Platform3" index="26" unique_id=1348487357 instance=ExtResource("35_ya8pr")]
 position = Vector2(48, 16)
 anim = 2
 
-[node name="Solardecor18" type="Sprite2D" parent="Platform3" index="32" unique_id=1716443130]
+[node name="Solardecor18" type="Sprite2D" parent="Platform3" index="27" unique_id=1716443130]
 position = Vector2(-416, 200)
 texture = ExtResource("37_dy5lu")
 
-[node name="Solardecor19" type="Sprite2D" parent="Platform3" index="33" unique_id=534919382]
+[node name="Solardecor19" type="Sprite2D" parent="Platform3" index="28" unique_id=534919382]
 position = Vector2(144, 200)
 texture = ExtResource("37_dy5lu")
 flip_h = true
 
-[node name="Solardecor20" type="Sprite2D" parent="Platform3" index="34" unique_id=192601988]
+[node name="Solardecor20" type="Sprite2D" parent="Platform3" index="29" unique_id=192601988]
 z_index = -3
 position = Vector2(-414, -134)
 texture = ExtResource("37_dy5lu")
 
-[node name="Solardecor21" type="Sprite2D" parent="Platform3" index="35" unique_id=52088338]
+[node name="Solardecor21" type="Sprite2D" parent="Platform3" index="30" unique_id=52088338]
 z_index = -3
 position = Vector2(146, -134)
 texture = ExtResource("37_dy5lu")
 flip_h = true
 
-[node name="StreetLamp9" parent="Platform3" index="36" unique_id=468253220 instance=ExtResource("47_n5t7a")]
+[node name="StreetLamp9" parent="Platform3" index="31" unique_id=468253220 instance=ExtResource("47_n5t7a")]
 position = Vector2(-554, -13)
 
-[node name="StreetLamp10" parent="Platform3" index="37" unique_id=15031296 instance=ExtResource("47_n5t7a")]
+[node name="StreetLamp10" parent="Platform3" index="32" unique_id=15031296 instance=ExtResource("47_n5t7a")]
 position = Vector2(-238, -56)
 
-[node name="StreetLamp11" parent="Platform3" index="38" unique_id=157112062 instance=ExtResource("47_n5t7a")]
+[node name="StreetLamp11" parent="Platform3" index="33" unique_id=157112062 instance=ExtResource("47_n5t7a")]
 position = Vector2(93, -51)
 
-[node name="Sprinkler15" parent="Platform3" index="39" unique_id=45061636 instance=ExtResource("35_wl75l")]
+[node name="Sprinkler15" parent="Platform3" index="34" unique_id=45061636 instance=ExtResource("35_wl75l")]
 position = Vector2(-476, 37)
 
-[node name="Sprinkler16" parent="Platform3" index="40" unique_id=1044004931 instance=ExtResource("35_wl75l")]
+[node name="Sprinkler16" parent="Platform3" index="35" unique_id=1044004931 instance=ExtResource("35_wl75l")]
 position = Vector2(-131, 32)
 
-[node name="Preston" parent="Platform3" index="41" unique_id=504841927 instance=ExtResource("43_y7g21")]
+[node name="Preston" parent="Platform3" index="36" unique_id=504841927 instance=ExtResource("43_y7g21")]
 position = Vector2(-304, -6)
-
-[node name="RestChair" parent="Platform3" index="42" unique_id=232674008]
-position = Vector2(48, -8)
 
 [node name="Platform4" parent="." index="11" unique_id=1026362249 instance=ExtResource("6_rflqb")]
 position = Vector2(-608, -1440)
@@ -355,181 +345,176 @@ hide_if_vertical = []
 hide_if_vertical = []
 color = 0
 
-[node name="Station0Sign" parent="Platform4" index="19" unique_id=98722644]
+[node name="Station0Sign" parent="Platform4" index="14" unique_id=98722644]
 station_number = 1
 
-[node name="Station0Sign2" parent="Platform4" index="20" unique_id=421458582]
+[node name="Station0Sign2" parent="Platform4" index="15" unique_id=421458582]
 station_number = 1
 
 [node name="CollisionShape2D" parent="Platform4/LayerTransitionZone" parent_id_path=PackedInt32Array(1026362249, 1963443963) index="0" unique_id=1067701298]
 position = Vector2(45.5, 14.5)
 shape = SubResource("RectangleShape2D_tr4hg")
 
-[node name="Hoverthruster13" type="Sprite2D" parent="Platform4" index="22" unique_id=909239818]
-z_index = -1
-position = Vector2(264, 120)
-texture = ExtResource("26_db00x")
+[node name="RestChair" parent="Platform4" index="17" unique_id=232674008]
+position = Vector2(32, 16)
 
-[node name="Bench3" parent="Platform4" index="23" unique_id=2088653367 instance=ExtResource("29_4acx1")]
+[node name="Bench3" parent="Platform4" index="18" unique_id=2088653367 instance=ExtResource("29_4acx1")]
 position = Vector2(-288, 16)
 
-[node name="TinyFoliage33" parent="Platform4" index="24" unique_id=562737974 instance=ExtResource("35_ya8pr")]
+[node name="TinyFoliage33" parent="Platform4" index="19" unique_id=562737974 instance=ExtResource("35_ya8pr")]
 position = Vector2(-384, -16)
 
-[node name="TinyFoliage34" parent="Platform4" index="25" unique_id=769453831 instance=ExtResource("35_ya8pr")]
+[node name="TinyFoliage34" parent="Platform4" index="20" unique_id=769453831 instance=ExtResource("35_ya8pr")]
 position = Vector2(-376, 8)
 
-[node name="TinyFoliage35" parent="Platform4" index="26" unique_id=875946060 instance=ExtResource("35_ya8pr")]
+[node name="TinyFoliage35" parent="Platform4" index="21" unique_id=875946060 instance=ExtResource("35_ya8pr")]
 position = Vector2(-368, -16)
 
-[node name="TinyFoliage36" parent="Platform4" index="27" unique_id=1870386963 instance=ExtResource("35_ya8pr")]
+[node name="TinyFoliage36" parent="Platform4" index="22" unique_id=1870386963 instance=ExtResource("35_ya8pr")]
 position = Vector2(-368, 24)
 
-[node name="TinyFoliage37" parent="Platform4" index="28" unique_id=1784028214 instance=ExtResource("35_ya8pr")]
+[node name="TinyFoliage37" parent="Platform4" index="23" unique_id=1784028214 instance=ExtResource("35_ya8pr")]
 position = Vector2(-336, 40)
 
-[node name="TinyFoliage38" parent="Platform4" index="29" unique_id=1959400595 instance=ExtResource("35_ya8pr")]
+[node name="TinyFoliage38" parent="Platform4" index="24" unique_id=1959400595 instance=ExtResource("35_ya8pr")]
 position = Vector2(-344, 16)
 
-[node name="TinyFoliage39" parent="Platform4" index="30" unique_id=739097966 instance=ExtResource("35_ya8pr")]
+[node name="TinyFoliage39" parent="Platform4" index="25" unique_id=739097966 instance=ExtResource("35_ya8pr")]
 position = Vector2(-280, 40)
 
-[node name="TinyFoliage40" parent="Platform4" index="31" unique_id=1054997038 instance=ExtResource("35_ya8pr")]
+[node name="TinyFoliage40" parent="Platform4" index="26" unique_id=1054997038 instance=ExtResource("35_ya8pr")]
 position = Vector2(-376, 48)
 anim = 1
 
-[node name="TinyFoliage41" parent="Platform4" index="32" unique_id=1122798151 instance=ExtResource("35_ya8pr")]
+[node name="TinyFoliage41" parent="Platform4" index="27" unique_id=1122798151 instance=ExtResource("35_ya8pr")]
 position = Vector2(-376, 32)
 anim = 1
 
-[node name="TinyFoliage42" parent="Platform4" index="33" unique_id=1822594911 instance=ExtResource("35_ya8pr")]
+[node name="TinyFoliage42" parent="Platform4" index="28" unique_id=1822594911 instance=ExtResource("35_ya8pr")]
 position = Vector2(-360, 8)
 anim = 1
 
-[node name="TinyFoliage43" parent="Platform4" index="34" unique_id=1196105762 instance=ExtResource("35_ya8pr")]
+[node name="TinyFoliage43" parent="Platform4" index="29" unique_id=1196105762 instance=ExtResource("35_ya8pr")]
 position = Vector2(-384, 0)
 anim = 1
 
-[node name="TinyFoliage44" parent="Platform4" index="35" unique_id=1507149884 instance=ExtResource("35_ya8pr")]
+[node name="TinyFoliage44" parent="Platform4" index="30" unique_id=1507149884 instance=ExtResource("35_ya8pr")]
 position = Vector2(-376, -24)
 anim = 1
 
-[node name="TinyFoliage45" parent="Platform4" index="36" unique_id=1775025734 instance=ExtResource("35_ya8pr")]
+[node name="TinyFoliage45" parent="Platform4" index="31" unique_id=1775025734 instance=ExtResource("35_ya8pr")]
 position = Vector2(-376, -40)
 anim = 1
 
-[node name="TinyFoliage46" parent="Platform4" index="37" unique_id=46544840 instance=ExtResource("35_ya8pr")]
+[node name="TinyFoliage46" parent="Platform4" index="32" unique_id=46544840 instance=ExtResource("35_ya8pr")]
 position = Vector2(-360, -32)
 anim = 1
 
-[node name="TinyFoliage47" parent="Platform4" index="38" unique_id=51435127 instance=ExtResource("35_ya8pr")]
+[node name="TinyFoliage47" parent="Platform4" index="33" unique_id=51435127 instance=ExtResource("35_ya8pr")]
 position = Vector2(-368, -48)
 anim = 1
 
-[node name="TinyFoliage48" parent="Platform4" index="39" unique_id=1102932119 instance=ExtResource("35_ya8pr")]
+[node name="TinyFoliage48" parent="Platform4" index="34" unique_id=1102932119 instance=ExtResource("35_ya8pr")]
 position = Vector2(-344, -16)
 anim = 2
 
-[node name="TinyFoliage49" parent="Platform4" index="40" unique_id=674772177 instance=ExtResource("35_ya8pr")]
+[node name="TinyFoliage49" parent="Platform4" index="35" unique_id=674772177 instance=ExtResource("35_ya8pr")]
 position = Vector2(-328, -8)
 anim = 2
 
-[node name="TinyFoliage50" parent="Platform4" index="41" unique_id=1936524246 instance=ExtResource("35_ya8pr")]
+[node name="TinyFoliage50" parent="Platform4" index="36" unique_id=1936524246 instance=ExtResource("35_ya8pr")]
 position = Vector2(-328, 8)
 anim = 2
 
-[node name="TinyFoliage51" parent="Platform4" index="42" unique_id=1249463294 instance=ExtResource("35_ya8pr")]
+[node name="TinyFoliage51" parent="Platform4" index="37" unique_id=1249463294 instance=ExtResource("35_ya8pr")]
 position = Vector2(-320, 16)
 anim = 2
 
-[node name="TinyFoliage52" parent="Platform4" index="43" unique_id=1124959288 instance=ExtResource("35_ya8pr")]
+[node name="TinyFoliage52" parent="Platform4" index="38" unique_id=1124959288 instance=ExtResource("35_ya8pr")]
 position = Vector2(-352, 0)
 anim = 2
 
-[node name="Solardecor3" type="Sprite2D" parent="Platform4" index="44" unique_id=1896359128]
+[node name="Solardecor3" type="Sprite2D" parent="Platform4" index="39" unique_id=1896359128]
 z_index = 4
 position = Vector2(-360, 184)
 texture = ExtResource("36_t3e5a")
 
-[node name="Solardecor4" type="Sprite2D" parent="Platform4" index="45" unique_id=934390827]
+[node name="Solardecor4" type="Sprite2D" parent="Platform4" index="40" unique_id=934390827]
 z_index = 4
 position = Vector2(-296, 184)
 texture = ExtResource("36_t3e5a")
 
-[node name="Solardecor5" type="Sprite2D" parent="Platform4" index="46" unique_id=1804114327]
+[node name="Solardecor5" type="Sprite2D" parent="Platform4" index="41" unique_id=1804114327]
 z_index = 4
 position = Vector2(-232, 184)
 texture = ExtResource("36_t3e5a")
 
-[node name="Solardecor6" type="Sprite2D" parent="Platform4" index="47" unique_id=1901303168]
+[node name="Solardecor6" type="Sprite2D" parent="Platform4" index="42" unique_id=1901303168]
 z_index = 4
 position = Vector2(-168, 184)
 texture = ExtResource("36_t3e5a")
 
-[node name="Solardecor7" type="Sprite2D" parent="Platform4" index="48" unique_id=843652285]
+[node name="Solardecor7" type="Sprite2D" parent="Platform4" index="43" unique_id=843652285]
 z_index = 4
 position = Vector2(-104, 184)
 texture = ExtResource("36_t3e5a")
 
-[node name="Solardecor8" type="Sprite2D" parent="Platform4" index="49" unique_id=826801081]
+[node name="Solardecor8" type="Sprite2D" parent="Platform4" index="44" unique_id=826801081]
 z_index = 4
 position = Vector2(-40, 184)
 texture = ExtResource("36_t3e5a")
 
-[node name="Solardecor9" type="Sprite2D" parent="Platform4" index="50" unique_id=174930534]
+[node name="Solardecor9" type="Sprite2D" parent="Platform4" index="45" unique_id=174930534]
 z_index = 4
 position = Vector2(24, 184)
 texture = ExtResource("36_t3e5a")
 
-[node name="Solardecor10" type="Sprite2D" parent="Platform4" index="51" unique_id=1467540003]
+[node name="Solardecor10" type="Sprite2D" parent="Platform4" index="46" unique_id=1467540003]
 z_index = 4
 position = Vector2(88, 184)
 texture = ExtResource("36_t3e5a")
 
-[node name="Birb18" parent="Platform4" index="52" unique_id=933932631 instance=ExtResource("39_ton1c")]
+[node name="Birb18" parent="Platform4" index="47" unique_id=933932631 instance=ExtResource("39_ton1c")]
 position = Vector2(-376, 48)
 
-[node name="Birb19" parent="Platform4" index="53" unique_id=1869948728 instance=ExtResource("39_ton1c")]
+[node name="Birb19" parent="Platform4" index="48" unique_id=1869948728 instance=ExtResource("39_ton1c")]
 position = Vector2(-376, 24)
 
-[node name="Birb20" parent="Platform4" index="54" unique_id=1214163695 instance=ExtResource("39_ton1c")]
+[node name="Birb20" parent="Platform4" index="49" unique_id=1214163695 instance=ExtResource("39_ton1c")]
 position = Vector2(-336, 40)
 
-[node name="Birb21" parent="Platform4" index="55" unique_id=1422137832 instance=ExtResource("39_ton1c")]
+[node name="Birb21" parent="Platform4" index="50" unique_id=1422137832 instance=ExtResource("39_ton1c")]
 position = Vector2(-344, 8)
 
-[node name="Birb22" parent="Platform4" index="56" unique_id=992682249 instance=ExtResource("39_ton1c")]
+[node name="Birb22" parent="Platform4" index="51" unique_id=992682249 instance=ExtResource("39_ton1c")]
 position = Vector2(-368, -16)
 
-[node name="Birb23" parent="Platform4" index="57" unique_id=967419266 instance=ExtResource("39_ton1c")]
+[node name="Birb23" parent="Platform4" index="52" unique_id=967419266 instance=ExtResource("39_ton1c")]
 position = Vector2(-328, -24)
 
-[node name="Birb24" parent="Platform4" index="58" unique_id=1821334819 instance=ExtResource("39_ton1c")]
+[node name="Birb24" parent="Platform4" index="53" unique_id=1821334819 instance=ExtResource("39_ton1c")]
 position = Vector2(-304, 40)
 
-[node name="Birb25" parent="Platform4" index="59" unique_id=1660683402 instance=ExtResource("39_ton1c")]
+[node name="Birb25" parent="Platform4" index="54" unique_id=1660683402 instance=ExtResource("39_ton1c")]
 position = Vector2(-360, -40)
 
-[node name="Birb26" parent="Platform4" index="60" unique_id=784926065 instance=ExtResource("39_ton1c")]
+[node name="Birb26" parent="Platform4" index="55" unique_id=784926065 instance=ExtResource("39_ton1c")]
 position = Vector2(-352, 24)
 
-[node name="Birb27" parent="Platform4" index="61" unique_id=1785394733 instance=ExtResource("39_ton1c")]
+[node name="Birb27" parent="Platform4" index="56" unique_id=1785394733 instance=ExtResource("39_ton1c")]
 position = Vector2(-384, 0)
 
-[node name="StreetLamp15" parent="Platform4" index="62" unique_id=1362645705 instance=ExtResource("47_n5t7a")]
+[node name="StreetLamp15" parent="Platform4" index="57" unique_id=1362645705 instance=ExtResource("47_n5t7a")]
 position = Vector2(220, -14)
 
-[node name="StreetLamp16" parent="Platform4" index="63" unique_id=225393082 instance=ExtResource("47_n5t7a")]
+[node name="StreetLamp16" parent="Platform4" index="58" unique_id=225393082 instance=ExtResource("47_n5t7a")]
 position = Vector2(-303, -56)
 
-[node name="Sprinkler17" parent="Platform4" index="64" unique_id=357576705 instance=ExtResource("35_wl75l")]
+[node name="Sprinkler17" parent="Platform4" index="59" unique_id=357576705 instance=ExtResource("35_wl75l")]
 position = Vector2(125, 44)
 
-[node name="Sprinkler18" parent="Platform4" index="65" unique_id=1728403506 instance=ExtResource("35_wl75l")]
+[node name="Sprinkler18" parent="Platform4" index="60" unique_id=1728403506 instance=ExtResource("35_wl75l")]
 position = Vector2(-132, 30)
-
-[node name="RestChair" parent="Platform4" index="66" unique_id=232674008]
-position = Vector2(32, 16)
 
 [node name="DeaprtureBoard" parent="." index="12" unique_id=994016923 instance=ExtResource("7_jq5vq")]
 position = Vector2(-146, -416)
@@ -584,55 +569,35 @@ position = Vector2(-318, -445)
 y_sort_enabled = true
 script = ExtResource("44_thruster_light")
 
-[node name="Hoverthruster" type="Sprite2D" parent="Decorations" index="0" unique_id=236404443]
-z_index = -6
+[node name="Hoverthruster" parent="Decorations" index="0" unique_id=1697223773 instance=ExtResource("29_lu7vs")]
 position = Vector2(-600, -56)
-texture = ExtResource("26_db00x")
 
-[node name="Hoverthruster2" type="Sprite2D" parent="Decorations" index="1" unique_id=698290148]
-z_index = -6
+[node name="Hoverthruster2" parent="Decorations" index="1" unique_id=2067887978 instance=ExtResource("29_lu7vs")]
 position = Vector2(-40, -56)
-texture = ExtResource("26_db00x")
 
-[node name="Hoverthruster3" type="Sprite2D" parent="Decorations" index="2" unique_id=654094576]
-z_index = -6
+[node name="Hoverthruster3" parent="Decorations" index="2" unique_id=852667764 instance=ExtResource("29_lu7vs")]
 position = Vector2(-152, -56)
-texture = ExtResource("26_db00x")
 
-[node name="Hoverthruster4" type="Sprite2D" parent="Decorations" index="3" unique_id=153828386]
-z_index = -6
+[node name="Hoverthruster4" parent="Decorations" index="3" unique_id=920272294 instance=ExtResource("29_lu7vs")]
 position = Vector2(-488, -56)
-texture = ExtResource("26_db00x")
 
-[node name="Hoverthruster5" type="Sprite2D" parent="Decorations" index="4" unique_id=1145824133]
-z_index = -6
+[node name="Hoverthruster5" parent="Decorations" index="4" unique_id=1646804457 instance=ExtResource("29_lu7vs")]
 position = Vector2(-376, -56)
-texture = ExtResource("26_db00x")
 
-[node name="Hoverthruster6" type="Sprite2D" parent="Decorations" index="5" unique_id=14164561]
-z_index = -6
+[node name="Hoverthruster6" parent="Decorations" index="5" unique_id=269294706 instance=ExtResource("29_lu7vs")]
 position = Vector2(-264, -56)
-texture = ExtResource("26_db00x")
 
-[node name="Hoverthruster8" type="Sprite2D" parent="Decorations" index="6" unique_id=2021264767]
-z_index = -6
+[node name="Hoverthruster8" parent="Decorations" index="6" unique_id=2123545683 instance=ExtResource("29_lu7vs")]
 position = Vector2(-480, -488)
-texture = ExtResource("26_db00x")
 
-[node name="Hoverthruster9" type="Sprite2D" parent="Decorations" index="7" unique_id=1279003934]
-z_index = -6
+[node name="Hoverthruster9" parent="Decorations" index="7" unique_id=450087405 instance=ExtResource("29_lu7vs")]
 position = Vector2(-384, -488)
-texture = ExtResource("26_db00x")
 
-[node name="Hoverthruster10" type="Sprite2D" parent="Decorations" index="8" unique_id=1092477541]
-z_index = -6
+[node name="Hoverthruster10" parent="Decorations" index="8" unique_id=273466743 instance=ExtResource("29_lu7vs")]
 position = Vector2(-256, -488)
-texture = ExtResource("26_db00x")
 
-[node name="Hoverthruster11" type="Sprite2D" parent="Decorations" index="9" unique_id=816733153]
-z_index = -6
+[node name="Hoverthruster11" parent="Decorations" index="9" unique_id=1290075249 instance=ExtResource("29_lu7vs")]
 position = Vector2(-160, -488)
-texture = ExtResource("26_db00x")
 
 [node name="Board5" parent="Decorations" index="10" unique_id=1504911370 instance=ExtResource("27_wn8pp")]
 position = Vector2(-440, -136)
@@ -1049,6 +1014,18 @@ repeat_times = 5
 
 [node name="CloseClouds" parent="Background" index="3" unique_id=782128031]
 repeat_times = 5
+
+[node name="HoverThruster" parent="." index="29" unique_id=245771013 instance=ExtResource("29_lu7vs")]
+position = Vector2(104, -1480)
+
+[node name="Hoverthruster7" parent="." index="30" unique_id=796064659 instance=ExtResource("29_lu7vs")]
+position = Vector2(-840, -584)
+
+[node name="Hoverthruster12" parent="." index="31" unique_id=499580621 instance=ExtResource("29_lu7vs")]
+position = Vector2(200, -968)
+
+[node name="Hoverthruster13" parent="." index="32" unique_id=193305127 instance=ExtResource("29_lu7vs")]
+position = Vector2(-344, -1320)
 
 [editable path="Platform1"]
 [editable path="Platform2"]

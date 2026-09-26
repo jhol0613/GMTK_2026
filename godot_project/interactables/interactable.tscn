@@ -82,6 +82,7 @@ shape = SubResource("RectangleShape2D_riqys")
 
 [node name="Prompt" type="Control" parent="." unique_id=272794898]
 modulate = Color(1, 0.9764706, 0.827451, 1)
+z_index = 12
 texture_filter = 1
 custom_minimum_size = Vector2(75, 168)
 layout_mode = 3
@@ -114,6 +115,7 @@ color = Color(0.1764706, 0.12941177, 0.21568628, 0.5019608)
 polygon = PackedVector2Array(0, 0, 1, 0, 1, 1, 0, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=819702371]
+z_index = 12
 position = Vector2(0, -55)
 sprite_frames = SubResource("SpriteFrames_fpcxu")
 autoplay = "default"

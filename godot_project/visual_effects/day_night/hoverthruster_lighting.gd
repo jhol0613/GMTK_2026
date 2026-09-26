@@ -62,7 +62,7 @@ func _collect_thrusters(node: Node) -> void:
 	for child in node.get_children():
 		if child is AnimatedSprite2D and child.name.begins_with("HoverSparcle"):
 			_configure_thruster(child, true)
-		elif child is Sprite2D and child.name.begins_with("Hoverthruster"):
+		elif child is Sprite2D and ( child.name.begins_with("HoverThruster") or child.name.begins_with("Hoverthruster") ):
 			_configure_thruster(child, false)
 		_collect_thrusters(child)
 

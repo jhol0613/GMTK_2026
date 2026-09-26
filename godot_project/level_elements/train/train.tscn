@@ -778,7 +778,6 @@ metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 libraries/ = SubResource("AnimationLibrary_oe38n")
 
 [node name="NorthSouth" type="Node2D" parent="." unique_id=1383071599]
-visible = false
 
 [node name="TrainInteractableD" parent="NorthSouth" unique_id=1650056729 instance=ExtResource("3_725i7")]
 position = Vector2(0, -2)
@@ -824,6 +823,7 @@ position = Vector2(-64, -57)
 position = Vector2(0, -57)
 
 [node name="EastWest" type="Node2D" parent="." unique_id=1018275487]
+visible = false
 
 [node name="TrainInteractableL" parent="EastWest" unique_id=779530687 instance=ExtResource("3_725i7")]
 position = Vector2(-64, -66)

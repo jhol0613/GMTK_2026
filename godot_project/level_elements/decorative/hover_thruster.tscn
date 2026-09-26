@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cndvpqyxvlxh7"]
+
+[ext_resource type="Texture2D" uid="uid://danrb3vfq83ag" path="res://level_elements/decorative/hoverthruster.png" id="1_twm2r"]
+[ext_resource type="Texture2D" uid="uid://dixkuxjdnkyp" path="res://level_elements/train/hoverthruster_sparcle.png" id="2_xe7d1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85iol"]
+atlas = ExtResource("2_xe7d1")
+region = Rect2(0, 0, 56, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hp142"]
+atlas = ExtResource("2_xe7d1")
+region = Rect2(56, 0, 56, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phiue"]
+atlas = ExtResource("2_xe7d1")
+region = Rect2(112, 0, 56, 9)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fpcxu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85iol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hp142")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phiue")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="HoverThruster" type="Sprite2D" unique_id=1697223773]
+z_index = -1
+texture = ExtResource("1_twm2r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=283783631]
+position = Vector2(0, 9)
+sprite_frames = SubResource("SpriteFrames_fpcxu")
+autoplay = "default"
+frame_progress = 0.8163058
