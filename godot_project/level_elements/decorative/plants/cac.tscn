@@ -7,7 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://cci611me4u0h1" path="res://interactables/dialog_system/character_portraits/player/mc_portrait_7.png" id="5_du6lw"]
 [ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="6_20q6o"]
 [ext_resource type="Texture2D" uid="uid://b53hkyvvsyjsc" path="res://interactables/dialog_system/character_portraits/player/mc_portrait_10.png" id="6_abdfh"]
-[ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialog_system/dialogue_panel.tscn" id="7_12dd2"]
+[ext_resource type="Texture2D" uid="uid://xyxl2kfpsy52" path="res://interactables/dialog_system/ui_sprites/dialogue_window.png" id="8_12dd2"]
+[ext_resource type="Script" uid="uid://q7vq3bqshhrc" path="res://level_elements/decorative/plants/cac.gd" id="8_iw015"]
+[ext_resource type="Texture2D" uid="uid://lrmhbdpln080" path="res://interactables/dialog_system/ui_sprites/Portraits_depr/MainCharacter/mc_portrait_1.png" id="9_iw015"]
+[ext_resource type="Script" uid="uid://sidowamkhcrt" path="res://resshan_systems/resshan_label.gd" id="10_mrr5x"]
+[ext_resource type="Texture2D" uid="uid://bmok62eayytn7" path="res://interactables/dialog_system/ui_sprites/E_next_icon.png" id="11_cjkyw"]
+[ext_resource type="Texture2D" uid="uid://bioorh5dcmhg5" path="res://interactables/dialog_system/ui_sprites/W_up_icon.png" id="12_rgrpn"]
+[ext_resource type="Texture2D" uid="uid://c754vhftsimq5" path="res://interactables/dialog_system/ui_sprites/S_down_icon.png" id="13_l05du"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tqimh"]
 atlas = ExtResource("1_qooyv")
@@ -48,11 +54,53 @@ size = Vector2(34, 27)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]
 size = Vector2(17, 10)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yyy73"]
+texture = ExtResource("8_12dd2")
+texture_margin_left = 64.0
+texture_margin_top = 30.0
+texture_margin_right = 60.0
+texture_margin_bottom = 30.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ynh0y"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fpcxu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_cjkyw")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tcx3e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_rgrpn")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2ag7x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_l05du")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Cactus" type="Node2D" unique_id=1630953085]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2084166253]
 z_index = 1
-position = Vector2(0, -16)
+position = Vector2(0, -18)
 sprite_frames = SubResource("SpriteFrames_klxk1")
 autoplay = "default"
 frame_progress = 0.9811859
@@ -84,6 +132,138 @@ collision_mask = 3
 position = Vector2(-0.5, -2)
 shape = SubResource("RectangleShape2D_ujtin")
 
-[node name="DialoguePanel" parent="." unique_id=210961773 instance=ExtResource("7_12dd2")]
+[node name="DialoguePanel" type="CanvasLayer" parent="." unique_id=210961773]
+layer = 2
+script = ExtResource("8_iw015")
+
+[node name="Root" type="Control" parent="DialoguePanel" unique_id=919228005]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="DimScreen" type="ColorRect" parent="DialoguePanel/Root" unique_id=591646733]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.54901963)
+
+[node name="Popup" type="PanelContainer" parent="DialoguePanel/Root" unique_id=805446468]
+custom_minimum_size = Vector2(1440, 180)
+layout_mode = 0
+offset_left = 240.0
+offset_top = 657.0
+offset_right = 1680.0
+offset_bottom = 999.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_yyy73")
+
+[node name="MarginContainer" type="MarginContainer" parent="DialoguePanel/Root/Popup" unique_id=874999154]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 42
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 42
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DialoguePanel/Root/Popup/MarginContainer" unique_id=1882468605]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 41
+
+[node name="MarginContainer" type="MarginContainer" parent="DialoguePanel/Root/Popup/MarginContainer/HBoxContainer" unique_id=274384998]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="DialoguePanel/Root/Popup/MarginContainer/HBoxContainer/MarginContainer" unique_id=1480363704]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ynh0y")
+
+[node name="SpeakerIcon" type="TextureRect" parent="DialoguePanel/Root/Popup/MarginContainer/HBoxContainer/MarginContainer/PanelContainer" unique_id=463443169]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("9_iw015")
+stretch_mode = 5
+
+[node name="VBox" type="VBoxContainer" parent="DialoguePanel/Root/Popup/MarginContainer/HBoxContainer" unique_id=831945309]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="Speaker" type="Control" parent="DialoguePanel/Root/Popup/MarginContainer/HBoxContainer/VBox" unique_id=1657995010]
+visible = false
+texture_filter = 1
+custom_minimum_size = Vector2(164, 58)
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("10_mrr5x")
+text = "Speaker"
+font_size = 42
+wrap_text = true
+metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="Body" type="Control" parent="DialoguePanel/Root/Popup/MarginContainer/HBoxContainer/VBox" unique_id=895602396]
+modulate = Color(1, 0.9764706, 0.827451, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("10_mrr5x")
+text = "Dialogue line"
+font_size = 42
+wrap_text = true
+metadata/_custom_type_script = "uid://sidowamkhcrt"
+
+[node name="OptionsScroll" type="ScrollContainer" parent="DialoguePanel/Root/Popup/MarginContainer/HBoxContainer/VBox" unique_id=1645536568]
+visible = false
+custom_minimum_size = Vector2(0, 196)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+horizontal_scroll_mode = 0
+
+[node name="Options" type="VBoxContainer" parent="DialoguePanel/Root/Popup/MarginContainer/HBoxContainer/VBox/OptionsScroll" unique_id=1694041012]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DialoguePanel/Root/Popup" unique_id=1615101979]
+position = Vector2(1368, 263)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_fpcxu")
+
+[node name="ChoiceNavIcons" type="Control" parent="DialoguePanel/Root/Popup" unique_id=65935935]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Up" type="AnimatedSprite2D" parent="DialoguePanel/Root/Popup/ChoiceNavIcons" unique_id=1925884366]
+position = Vector2(1304, 49)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_tcx3e")
+
+[node name="Down" type="AnimatedSprite2D" parent="DialoguePanel/Root/Popup/ChoiceNavIcons" unique_id=1745496435]
+position = Vector2(1304, 121)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_2ag7x")
+
+[node name="LinesSFX" type="AudioStreamPlayer" parent="DialoguePanel/Root" unique_id=161182088]
+unique_name_in_owner = true
+bus = &"SFX"
 
 [editable path="DialogueInteractable"]

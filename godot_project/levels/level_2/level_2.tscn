@@ -3136,6 +3136,24 @@ position = Vector2(-592, -1928)
 [node name="Plant83" parent="Decorations/Plants" index="123" unique_id=457289284 instance=ExtResource("23_km4sl")]
 position = Vector2(-672, -1928)
 
+[node name="Cactus" parent="Decorations/Plants" index="124" unique_id=789055862 instance=ExtResource("35_pqi81")]
+position = Vector2(-2056, -1720)
+
+[node name="Cactus2" parent="Decorations/Plants" index="125" unique_id=732015425 instance=ExtResource("35_pqi81")]
+position = Vector2(-2200, -1232)
+
+[node name="Cactus3" parent="Decorations/Plants" index="126" unique_id=1500357769 instance=ExtResource("35_pqi81")]
+position = Vector2(-480, -1136)
+
+[node name="Cactus4" parent="Decorations/Plants" index="127" unique_id=1038817621 instance=ExtResource("35_pqi81")]
+position = Vector2(176, -2128)
+
+[node name="Cactus5" parent="Decorations/Plants" index="128" unique_id=989856386 instance=ExtResource("35_pqi81")]
+position = Vector2(96, -2128)
+
+[node name="Cactus6" parent="Decorations/Plants" index="129" unique_id=1502191397 instance=ExtResource("35_pqi81")]
+position = Vector2(-2088, -592)
+
 [node name="Benches" type="Node2D" parent="Decorations" index="8" unique_id=1600687530]
 y_sort_enabled = true
 
@@ -3245,7 +3263,7 @@ position = Vector2(-2104, -1224)
 position = Vector2(-2400, -1728)
 
 [node name="StaticBody6" parent="Decorations/Ads" index="5" unique_id=1934451233 instance=ExtResource("5_gsja5")]
-position = Vector2(-2072, -1792)
+position = Vector2(-2056, -1792)
 
 [node name="StaticBody7" parent="Decorations/Ads" index="6" unique_id=2107332848 instance=ExtResource("5_gsja5")]
 position = Vector2(-1896, -1216)
@@ -3474,9 +3492,6 @@ position = Vector2(128, -1992)
 
 [node name="HoverThruster12" parent="Decorations/Thrusters" index="45" unique_id=1521999915 instance=ExtResource("34_sm3vb")]
 position = Vector2(-1640, -856)
-
-[node name="Cactus" parent="Decorations" index="13" unique_id=789055862 instance=ExtResource("35_pqi81")]
-position = Vector2(-1856, -2256)
 
 [node name="TrinketShop" parent="." index="35" unique_id=877031898 instance=ExtResource("19_1vf62")]
 position = Vector2(-1663, -1186)
