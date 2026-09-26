@@ -64,7 +64,6 @@ animations = [{
 }]
 
 [node name="TinyFoliage" type="Node2D" unique_id=1245074896 node_paths=PackedStringArray("sprite")]
-z_index = 1
 script = ExtResource("1_xto4f")
 sprite = NodePath("AnimatedSprite2D")
 
