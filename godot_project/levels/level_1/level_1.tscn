@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://denris0n7w5iu"]
 
 [ext_resource type="PackedScene" uid="uid://hhrseelwguig" path="res://levels/level_template/level_template.tscn" id="1_2jmd8"]
+[ext_resource type="Resource" uid="uid://ccb0ue2yufxhw" path="res://levels/level_1/level_specific_resources/level_1_train_schedule.tres" id="2_wl75l"]
 [ext_resource type="PackedScene" uid="uid://cit6uoxu58nwk" path="res://level_elements/maps/transit/train_map.tscn" id="3_tr4hg"]
 [ext_resource type="PackedScene" uid="uid://baukigq6wfgs1" path="res://level_elements/ATM/atm.tscn" id="4_s81jn"]
 [ext_resource type="PackedScene" uid="uid://dpexe87ps0d7f" path="res://level_elements/hourglass/hourglass.tscn" id="5_n5t7a"]
@@ -70,6 +71,9 @@ wrong_train_destination = 3
 arrival_train = NodePath("Platform1/UpperTrain")
 level_music_track = 1
 play_train_intro_before_music = true
+
+[node name="StationHandler" parent="." index="0" unique_id=1058728153]
+train_schedule = ExtResource("2_wl75l")
 
 [node name="Camera2D" parent="." index="2" unique_id=855071997]
 position = Vector2(-1056, -752)

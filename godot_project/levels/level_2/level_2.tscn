@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://hhrseelwguig" path="res://levels/level_template/level_template.tscn" id="1_mi4ay"]
 [ext_resource type="PackedScene" uid="uid://cxekovsy3q368" path="res://level_elements/train_platform/platform.tscn" id="2_pqqg8"]
+[ext_resource type="Resource" uid="uid://bbiqg1las2w2b" path="res://levels/level_2/level_specific_resources/level_2_train_schedule.tres" id="2_xpuws"]
 [ext_resource type="PackedScene" uid="uid://bj6c3dkqrbxyt" path="res://level_elements/train_platform/vertical_platform.tscn" id="3_2smvo"]
 [ext_resource type="PackedScene" uid="uid://denclmxtn1x1l" path="res://level_elements/departure_board/departure_board.tscn" id="3_lnqnw"]
 [ext_resource type="PackedScene" uid="uid://dpexe87ps0d7f" path="res://level_elements/hourglass/hourglass.tscn" id="5_2smvo"]
@@ -47,16 +48,16 @@ size = Vector2(816, 408)
 size = Vector2(815, 413)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s4b5i"]
-size = Vector2(574, 291)
+size = Vector2(574, 263)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pg750"]
-size = Vector2(81, 27)
+size = Vector2(96, 28.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uuidd"]
-size = Vector2(574, 291)
+size = Vector2(574, 263)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5l23l"]
-size = Vector2(79, 26)
+size = Vector2(79, 27.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fq0us"]
 size = Vector2(816, 416)
@@ -75,6 +76,9 @@ previous_station_direction = 1
 previous_station_scene = 3
 wrong_train_destination = 4
 arrival_train = NodePath("Platform2/UpperTrain")
+
+[node name="StationHandler" parent="." index="0" unique_id=1058728153]
+train_schedule = ExtResource("2_xpuws")
 
 [node name="Camera2D" parent="." index="2" unique_id=855071997]
 position = Vector2(-1781, -2713)
@@ -1307,15 +1311,19 @@ station_number = 2
 [node name="Station0Sign2" parent="Platform5" index="12" unique_id=421458582]
 station_number = 2
 
-[node name="CollisionShape2D" parent="Platform5/LayerTransitionZone" parent_id_path=PackedInt32Array(1126306435, 1662407236) index="0" unique_id=6447672]
+[node name="LayerTransitionZone" parent="Platform5" index="13" unique_id=1662407236]
+visible = true
+
+[node name="CollisionShape2D" parent="Platform5/LayerTransitionZone" index="0" unique_id=6447672]
+position = Vector2(-128, 31.5)
 shape = SubResource("RectangleShape2D_s4b5i")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Platform5/LayerTransitionZone" parent_id_path=PackedInt32Array(1126306435, 1662407236) index="1" unique_id=1264534563]
-position = Vector2(-215.5, -115)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Platform5/LayerTransitionZone" index="1" unique_id=1264534563]
+position = Vector2(-208, -114.25)
 shape = SubResource("RectangleShape2D_pg750")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Platform5/LayerTransitionZone" parent_id_path=PackedInt32Array(1126306435, 1662407236) index="2" unique_id=429838709]
-position = Vector2(-40, -114.5)
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Platform5/LayerTransitionZone" index="2" unique_id=429838709]
+position = Vector2(-48, -114)
 shape = SubResource("RectangleShape2D_pg750")
 
 [node name="RestChairVerticalLeft2" parent="Platform5" index="20" unique_id=1219193307]
@@ -1509,15 +1517,19 @@ station_number = 2
 [node name="Station0Sign2" parent="Platform6" index="12" unique_id=421458582]
 station_number = 2
 
-[node name="CollisionShape2D" parent="Platform6/LayerTransitionZone" parent_id_path=PackedInt32Array(275140016, 1662407236) index="0" unique_id=6447672]
+[node name="LayerTransitionZone" parent="Platform6" index="13" unique_id=1662407236]
+visible = true
+
+[node name="CollisionShape2D" parent="Platform6/LayerTransitionZone" index="0" unique_id=6447672]
+position = Vector2(-128, 31.5)
 shape = SubResource("RectangleShape2D_uuidd")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Platform6/LayerTransitionZone" parent_id_path=PackedInt32Array(275140016, 1662407236) index="1" unique_id=2081528539]
-position = Vector2(-215.5, -114)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Platform6/LayerTransitionZone" index="1" unique_id=2081528539]
+position = Vector2(-216, -114)
 shape = SubResource("RectangleShape2D_5l23l")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Platform6/LayerTransitionZone" parent_id_path=PackedInt32Array(275140016, 1662407236) index="2" unique_id=1535857085]
-position = Vector2(-41, -115)
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Platform6/LayerTransitionZone" index="2" unique_id=1535857085]
+position = Vector2(-41, -114)
 shape = SubResource("RectangleShape2D_5l23l")
 
 [node name="RestChairVerticalLeft" parent="Platform6" index="18" unique_id=232674008]
@@ -1546,49 +1558,46 @@ position = Vector2(-168, 72)
 [node name="StaticBody2" parent="Platform6" index="23" unique_id=2063993111 instance=ExtResource("5_gsja5")]
 position = Vector2(-88, -32)
 
-[node name="StreetLamp" parent="Platform6" index="24" unique_id=1101163051 instance=ExtResource("19_qfhyh")]
-position = Vector2(-136, -32)
-
-[node name="StreetLamp2" parent="Platform6" index="25" unique_id=786967363 instance=ExtResource("19_qfhyh")]
+[node name="StreetLamp2" parent="Platform6" index="24" unique_id=786967363 instance=ExtResource("19_qfhyh")]
 position = Vector2(-208, 112)
 
-[node name="StreetLamp3" parent="Platform6" index="26" unique_id=2010119205 instance=ExtResource("19_qfhyh")]
+[node name="StreetLamp3" parent="Platform6" index="25" unique_id=2010119205 instance=ExtResource("19_qfhyh")]
 position = Vector2(-56, 136)
 
-[node name="Sprinkler" parent="Platform6" index="27" unique_id=1967431297 instance=ExtResource("12_bkbve")]
+[node name="Sprinkler" parent="Platform6" index="26" unique_id=1967431297 instance=ExtResource("12_bkbve")]
 position = Vector2(-168, 128)
 
-[node name="Sprinkler2" parent="Platform6" index="28" unique_id=848657609 instance=ExtResource("12_bkbve")]
+[node name="Sprinkler2" parent="Platform6" index="27" unique_id=848657609 instance=ExtResource("12_bkbve")]
 position = Vector2(-144, 88)
 
-[node name="Sprinkler3" parent="Platform6" index="29" unique_id=1611794078 instance=ExtResource("12_bkbve")]
+[node name="Sprinkler3" parent="Platform6" index="28" unique_id=1611794078 instance=ExtResource("12_bkbve")]
 position = Vector2(-96, 112)
 
-[node name="Sprinkler4" parent="Platform6" index="30" unique_id=842615066 instance=ExtResource("12_bkbve")]
+[node name="Sprinkler4" parent="Platform6" index="29" unique_id=842615066 instance=ExtResource("12_bkbve")]
 position = Vector2(-112, -16)
 
-[node name="Birb" parent="Platform6" index="31" unique_id=1385593351 instance=ExtResource("25_ppf8r")]
+[node name="Birb" parent="Platform6" index="30" unique_id=1385593351 instance=ExtResource("25_ppf8r")]
 position = Vector2(-104, 128)
 
-[node name="Birb2" parent="Platform6" index="32" unique_id=1009697789 instance=ExtResource("25_ppf8r")]
+[node name="Birb2" parent="Platform6" index="31" unique_id=1009697789 instance=ExtResource("25_ppf8r")]
 position = Vector2(-96, 104)
 
-[node name="Birb3" parent="Platform6" index="33" unique_id=1821748099 instance=ExtResource("25_ppf8r")]
+[node name="Birb3" parent="Platform6" index="32" unique_id=1821748099 instance=ExtResource("25_ppf8r")]
 position = Vector2(-144, 120)
 
-[node name="Birb4" parent="Platform6" index="34" unique_id=2019369389 instance=ExtResource("25_ppf8r")]
+[node name="Birb4" parent="Platform6" index="33" unique_id=2019369389 instance=ExtResource("25_ppf8r")]
 position = Vector2(-192, 88)
 
-[node name="Birb5" parent="Platform6" index="35" unique_id=1729468268 instance=ExtResource("25_ppf8r")]
+[node name="Birb5" parent="Platform6" index="34" unique_id=1729468268 instance=ExtResource("25_ppf8r")]
 position = Vector2(-112, 48)
 
-[node name="Birb6" parent="Platform6" index="36" unique_id=29359518 instance=ExtResource("25_ppf8r")]
+[node name="Birb6" parent="Platform6" index="35" unique_id=29359518 instance=ExtResource("25_ppf8r")]
 position = Vector2(-200, -104)
 
-[node name="Birb7" parent="Platform6" index="37" unique_id=2003662060 instance=ExtResource("25_ppf8r")]
+[node name="Birb7" parent="Platform6" index="36" unique_id=2003662060 instance=ExtResource("25_ppf8r")]
 position = Vector2(-208, -96)
 
-[node name="Birb8" parent="Platform6" index="38" unique_id=1928325307 instance=ExtResource("25_ppf8r")]
+[node name="Birb8" parent="Platform6" index="37" unique_id=1928325307 instance=ExtResource("25_ppf8r")]
 position = Vector2(-32, -56)
 
 [node name="Platform7" parent="." index="12" unique_id=261612207 instance=ExtResource("2_pqqg8")]
@@ -2822,91 +2831,85 @@ position = Vector2(-2688, -920)
 [node name="Plant62" parent="Decorations/Plants" index="97" unique_id=44272663 instance=ExtResource("22_ihnwd")]
 position = Vector2(-2624, -920)
 
-[node name="Plant81" parent="Decorations/Plants" index="98" unique_id=475112607 instance=ExtResource("22_ihnwd")]
-position = Vector2(-2688, -840)
-
-[node name="Plant82" parent="Decorations/Plants" index="99" unique_id=752235159 instance=ExtResource("22_ihnwd")]
-position = Vector2(-2624, -840)
-
-[node name="Plant78" parent="Decorations/Plants" index="100" unique_id=1103246396 instance=ExtResource("22_ihnwd")]
+[node name="Plant78" parent="Decorations/Plants" index="98" unique_id=1103246396 instance=ExtResource("22_ihnwd")]
 position = Vector2(-2392, -1224)
 
-[node name="Plant63" parent="Decorations/Plants" index="101" unique_id=587779319 instance=ExtResource("22_ihnwd")]
+[node name="Plant63" parent="Decorations/Plants" index="99" unique_id=587779319 instance=ExtResource("22_ihnwd")]
 position = Vector2(-2224, -976)
 
-[node name="Plant79" parent="Decorations/Plants" index="102" unique_id=1102831169 instance=ExtResource("22_ihnwd")]
+[node name="Plant79" parent="Decorations/Plants" index="100" unique_id=1102831169 instance=ExtResource("22_ihnwd")]
 position = Vector2(-2224, -928)
 
-[node name="Plant64" parent="Decorations/Plants" index="103" unique_id=1226194666 instance=ExtResource("22_ihnwd")]
+[node name="Plant64" parent="Decorations/Plants" index="101" unique_id=1226194666 instance=ExtResource("22_ihnwd")]
 position = Vector2(-2256, -592)
 
-[node name="Plant80" parent="Decorations/Plants" index="104" unique_id=1772178569 instance=ExtResource("22_ihnwd")]
+[node name="Plant80" parent="Decorations/Plants" index="102" unique_id=1772178569 instance=ExtResource("22_ihnwd")]
 position = Vector2(-2264, -616)
 
-[node name="Plant65" parent="Decorations/Plants" index="105" unique_id=2139558841 instance=ExtResource("22_ihnwd")]
+[node name="Plant65" parent="Decorations/Plants" index="103" unique_id=2139558841 instance=ExtResource("22_ihnwd")]
 position = Vector2(-2288, -624)
 
-[node name="Plant66" parent="Decorations/Plants" index="106" unique_id=256490780 instance=ExtResource("23_km4sl")]
+[node name="Plant66" parent="Decorations/Plants" index="104" unique_id=256490780 instance=ExtResource("23_km4sl")]
 position = Vector2(-912, -384)
 
-[node name="Plant87" parent="Decorations/Plants" index="107" unique_id=977429544 instance=ExtResource("23_km4sl")]
+[node name="Plant87" parent="Decorations/Plants" index="105" unique_id=977429544 instance=ExtResource("23_km4sl")]
 position = Vector2(-880, -416)
 
-[node name="Plant67" parent="Decorations/Plants" index="108" unique_id=832471056 instance=ExtResource("23_km4sl")]
+[node name="Plant67" parent="Decorations/Plants" index="106" unique_id=832471056 instance=ExtResource("23_km4sl")]
 position = Vector2(-944, -648)
 
-[node name="Plant74" parent="Decorations/Plants" index="109" unique_id=1150854382 instance=ExtResource("23_km4sl")]
+[node name="Plant74" parent="Decorations/Plants" index="107" unique_id=1150854382 instance=ExtResource("23_km4sl")]
 position = Vector2(-944, -696)
 
-[node name="Plant68" parent="Decorations/Plants" index="110" unique_id=1011703746 instance=ExtResource("23_km4sl")]
+[node name="Plant68" parent="Decorations/Plants" index="108" unique_id=1011703746 instance=ExtResource("23_km4sl")]
 position = Vector2(-1232, -648)
 
-[node name="Plant86" parent="Decorations/Plants" index="111" unique_id=1791864079 instance=ExtResource("23_km4sl")]
+[node name="Plant86" parent="Decorations/Plants" index="109" unique_id=1791864079 instance=ExtResource("23_km4sl")]
 position = Vector2(-1264, -648)
 
-[node name="Plant69" parent="Decorations/Plants" index="112" unique_id=610532949 instance=ExtResource("23_km4sl")]
+[node name="Plant69" parent="Decorations/Plants" index="110" unique_id=610532949 instance=ExtResource("23_km4sl")]
 position = Vector2(-1200, -648)
 
-[node name="Plant70" parent="Decorations/Plants" index="113" unique_id=300556591 instance=ExtResource("23_km4sl")]
+[node name="Plant70" parent="Decorations/Plants" index="111" unique_id=300556591 instance=ExtResource("23_km4sl")]
 position = Vector2(-448, -800)
 
-[node name="Plant88" parent="Decorations/Plants" index="114" unique_id=867217802 instance=ExtResource("23_km4sl")]
+[node name="Plant88" parent="Decorations/Plants" index="112" unique_id=867217802 instance=ExtResource("23_km4sl")]
 position = Vector2(-384, -712)
 
-[node name="Plant71" parent="Decorations/Plants" index="115" unique_id=276376709 instance=ExtResource("23_km4sl")]
+[node name="Plant71" parent="Decorations/Plants" index="113" unique_id=276376709 instance=ExtResource("23_km4sl")]
 position = Vector2(-384, -1048)
 
-[node name="Plant89" parent="Decorations/Plants" index="116" unique_id=1136100540 instance=ExtResource("23_km4sl")]
+[node name="Plant89" parent="Decorations/Plants" index="114" unique_id=1136100540 instance=ExtResource("23_km4sl")]
 position = Vector2(-448, -1048)
 
-[node name="Plant72" parent="Decorations/Plants" index="117" unique_id=658571330 instance=ExtResource("23_km4sl")]
+[node name="Plant72" parent="Decorations/Plants" index="115" unique_id=658571330 instance=ExtResource("23_km4sl")]
 position = Vector2(-384, -1304)
 
-[node name="Plant73" parent="Decorations/Plants" index="118" unique_id=1283765261 instance=ExtResource("23_km4sl")]
+[node name="Plant73" parent="Decorations/Plants" index="116" unique_id=1283765261 instance=ExtResource("23_km4sl")]
 position = Vector2(-384, -1504)
 
-[node name="Plant75" parent="Decorations/Plants" index="119" unique_id=360202450 instance=ExtResource("23_km4sl")]
+[node name="Plant75" parent="Decorations/Plants" index="117" unique_id=360202450 instance=ExtResource("23_km4sl")]
 position = Vector2(-384, -1712)
 
-[node name="Plant76" parent="Decorations/Plants" index="120" unique_id=1675308492 instance=ExtResource("23_km4sl")]
+[node name="Plant76" parent="Decorations/Plants" index="118" unique_id=1675308492 instance=ExtResource("23_km4sl")]
 position = Vector2(-192, -1864)
 
-[node name="Plant48" parent="Decorations/Plants" index="121" unique_id=1356471834 instance=ExtResource("20_gsja5")]
+[node name="Plant48" parent="Decorations/Plants" index="119" unique_id=1356471834 instance=ExtResource("20_gsja5")]
 position = Vector2(-224, -1864)
 
-[node name="Plant84" parent="Decorations/Plants" index="122" unique_id=1437397146 instance=ExtResource("23_km4sl")]
+[node name="Plant84" parent="Decorations/Plants" index="120" unique_id=1437397146 instance=ExtResource("23_km4sl")]
 position = Vector2(-256, -1864)
 
-[node name="Plant49" parent="Decorations/Plants" index="123" unique_id=1517857923 instance=ExtResource("20_gsja5")]
+[node name="Plant49" parent="Decorations/Plants" index="121" unique_id=1517857923 instance=ExtResource("20_gsja5")]
 position = Vector2(-288, -1864)
 
-[node name="Plant85" parent="Decorations/Plants" index="124" unique_id=1242432402 instance=ExtResource("23_km4sl")]
+[node name="Plant85" parent="Decorations/Plants" index="122" unique_id=1242432402 instance=ExtResource("23_km4sl")]
 position = Vector2(-320, -1864)
 
-[node name="Plant77" parent="Decorations/Plants" index="125" unique_id=282855023 instance=ExtResource("23_km4sl")]
+[node name="Plant77" parent="Decorations/Plants" index="123" unique_id=282855023 instance=ExtResource("23_km4sl")]
 position = Vector2(-592, -1928)
 
-[node name="Plant83" parent="Decorations/Plants" index="126" unique_id=457289284 instance=ExtResource("23_km4sl")]
+[node name="Plant83" parent="Decorations/Plants" index="124" unique_id=457289284 instance=ExtResource("23_km4sl")]
 position = Vector2(-672, -1928)
 
 [node name="Benches" type="Node2D" parent="Decorations" index="8" unique_id=1600687530]
