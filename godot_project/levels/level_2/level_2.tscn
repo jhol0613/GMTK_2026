@@ -41,6 +41,7 @@
 [ext_resource type="Texture2D" uid="uid://cs5l21wrqu5gc" path="res://level_elements/decorative/solar_decor/Solardecor3.png" id="32_sm3vb"]
 [ext_resource type="PackedScene" uid="uid://bavx6n5qxivtt" path="res://level_elements/decorative/plants/tiny_foliage.tscn" id="34_r7wcl"]
 [ext_resource type="PackedScene" uid="uid://cndvpqyxvlxh7" path="res://level_elements/decorative/hover_thruster.tscn" id="34_sm3vb"]
+[ext_resource type="PackedScene" uid="uid://bm5vuqo4ec0ly" path="res://level_elements/decorative/plants/cac.tscn" id="35_pqi81"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vf62"]
 size = Vector2(816, 408)
@@ -3473,6 +3474,9 @@ position = Vector2(128, -1992)
 
 [node name="HoverThruster12" parent="Decorations/Thrusters" index="45" unique_id=1521999915 instance=ExtResource("34_sm3vb")]
 position = Vector2(-1640, -856)
+
+[node name="Cactus" parent="Decorations" index="13" unique_id=789055862 instance=ExtResource("35_pqi81")]
+position = Vector2(-1856, -2256)
 
 [node name="TrinketShop" parent="." index="35" unique_id=877031898 instance=ExtResource("19_1vf62")]
 position = Vector2(-1663, -1186)
