@@ -533,6 +533,9 @@ sources/2 = SubResource("TileSetAtlasSource_0fg8s")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fpcxu"]
 size = Vector2(112, 32)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u460r"]
+load_path = "res://.godot/imported/transit_map.png-90f9d1869f69195d5eb74d0ab84d3d77.ctex"
+
 [node name="Level0" unique_id=783439983 instance=ExtResource("1_eus5j")]
 script = ExtResource("2_as6hq")
 correct_train_line = 7
@@ -673,46 +676,10 @@ player_icon = ExtResource("19_ggct0")
 [node name="ATM" parent="." index="7" unique_id=124595741 instance=ExtResource("18_uuq13")]
 position = Vector2(-1056, -480)
 
-[node name="TrainMap" parent="." index="8" unique_id=940096549 instance=ExtResource("18_owf05")]
-position = Vector2(-1280, -464)
-
-[node name="Sprite2D" type="Sprite2D" parent="TrainMap/SignPanel/Root/Popup/Map" parent_id_path=PackedInt32Array(940096549, 87657577) index="2" unique_id=1083837460]
-position = Vector2(-427.2727, 202.59741)
-texture = ExtResource("12_oxxmn")
-
-[node name="I" type="Control" parent="TrainMap/SignPanel/Root/Popup/Map/Sprite2D" index="0" unique_id=1521231276]
-physics_interpolation_mode = 0
-layout_mode = 3
-anchors_preset = 0
-offset_left = -54.54541
-offset_top = -33.766235
-offset_right = 11.6883545
-offset_bottom = 27.272827
-scale = Vector2(0.84415585, 0.8961039)
-script = ExtResource("13_u460r")
-_string = "<<I>>"
-metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="station" type="Control" parent="TrainMap/SignPanel/Root/Popup/Map/Sprite2D" index="1" unique_id=1377955918]
-physics_interpolation_mode = 0
-layout_mode = 3
-anchors_preset = 0
-offset_left = 1.298706
-offset_top = -33.766235
-offset_right = 67.53247
-offset_bottom = 27.272827
-scale = Vector2(0.84416217, 0.8961039)
-script = ExtResource("13_u460r")
-_string = "<<station>>"
-metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="Overlay" parent="TrainMap/SignPanel/Root/Popup" parent_id_path=PackedInt32Array(940096549, 1998267979, 2123670025) index="2" unique_id=146975511]
-position = Vector2(234, 238)
-
-[node name="Hourglass" parent="." index="9" unique_id=259821884 instance=ExtResource("20_uuq13")]
+[node name="Hourglass" parent="." index="8" unique_id=259821884 instance=ExtResource("20_uuq13")]
 position = Vector2(-1176, -474)
 
-[node name="SkipIntroLayer" type="CanvasLayer" parent="." index="10" unique_id=996840601]
+[node name="SkipIntroLayer" type="CanvasLayer" parent="." index="9" unique_id=996840601]
 layer = 2101
 
 [node name="SkipIntroButton" type="Button" parent="SkipIntroLayer" index="0" unique_id=1667629156]
@@ -733,7 +700,7 @@ icon = ExtResource("18_juy1h")
 flat = true
 icon_alignment = 1
 
-[node name="LevelExitBarrier" type="StaticBody2D" parent="." index="11" unique_id=1462180597]
+[node name="LevelExitBarrier" type="StaticBody2D" parent="." index="10" unique_id=1462180597]
 position = Vector2(-1232, -144)
 collision_layer = 2
 
@@ -747,7 +714,7 @@ position = Vector2(56.000004, -32)
 scale = Vector2(0.87500006, 1)
 texture = ExtResource("23_2sfss")
 
-[node name="Decorations" type="Node2D" parent="." index="12" unique_id=192914961]
+[node name="Decorations" type="Node2D" parent="." index="11" unique_id=192914961]
 y_sort_enabled = true
 script = ExtResource("31_thruster_light")
 
@@ -928,19 +895,19 @@ position = Vector2(-1119, -459)
 [node name="Sprinkler3" parent="Decorations" index="52" unique_id=1367537945 instance=ExtResource("31_u460r")]
 position = Vector2(-1099, -319)
 
-[node name="Player" parent="." index="13" unique_id=799939449]
+[node name="Player" parent="." index="12" unique_id=799939449]
 position = Vector2(-574, -307)
 
-[node name="StationNameSign" parent="." index="14" unique_id=98722644 instance=ExtResource("27_7di2q")]
+[node name="StationNameSign" parent="." index="13" unique_id=98722644 instance=ExtResource("27_7di2q")]
 position = Vector2(-1247, -465)
 
-[node name="Bench" parent="." index="15" unique_id=1146302488 instance=ExtResource("26_juy1h")]
+[node name="Bench" parent="." index="14" unique_id=1146302488 instance=ExtResource("26_juy1h")]
 position = Vector2(-160, -248)
 
-[node name="BatteryPickup" parent="." index="16" unique_id=440037839 instance=ExtResource("36_dp5o0")]
+[node name="BatteryPickup" parent="." index="15" unique_id=440037839 instance=ExtResource("36_dp5o0")]
 position = Vector2(-617, -293)
 
-[node name="Background" parent="." index="17" unique_id=102847613]
+[node name="Background" parent="." index="16" unique_id=102847613]
 transition_duration = 0.6
 
 [node name="FarClouds" parent="Background" index="1" unique_id=1089277525]
@@ -951,6 +918,38 @@ repeat_times = 5
 
 [node name="CloseClouds" parent="Background" index="3" unique_id=782128031]
 repeat_times = 5
+
+[node name="TrainMap" parent="." index="19" unique_id=940096549 instance=ExtResource("18_owf05")]
+position = Vector2(-1280, -464)
+
+[node name="Map" parent="TrainMap/SignPanel/Root/Popup" parent_id_path=PackedInt32Array(940096549, 1998267979, 2123670025) index="1" unique_id=87657577]
+texture = SubResource("CompressedTexture2D_u460r")
+
+[node name="Sprite2D" type="Sprite2D" parent="TrainMap/SignPanel/Root/Popup/Map" index="2" unique_id=1410784445]
+position = Vector2(-415.5844, 379.22076)
+texture = ExtResource("12_oxxmn")
+
+[node name="i" type="Control" parent="TrainMap/SignPanel/Root/Popup/Overlay" parent_id_path=PackedInt32Array(940096549, 146975511) index="30" unique_id=1724544029]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -459.7402
+offset_top = 348.05194
+offset_right = -415.58438
+offset_bottom = 405.1949
+script = ExtResource("13_u460r")
+_string = "<<i>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="station" type="Control" parent="TrainMap/SignPanel/Root/Popup/Overlay" parent_id_path=PackedInt32Array(940096549, 146975511) index="31" unique_id=606457109]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -411.6883
+offset_top = 348.05194
+offset_right = -367.53247
+offset_bottom = 405.1949
+script = ExtResource("13_u460r")
+_string = "<<station>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [connection signal="pressed" from="SkipIntroLayer/SkipIntroButton" to="." method="_skip_intro"]
 
