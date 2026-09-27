@@ -2524,7 +2524,7 @@ position = Vector2(-416, -1800)
 position = Vector2(-424, -1824)
 
 [node name="Birb38" parent="Decorations/Borbs" index="51" unique_id=635073183 instance=ExtResource("25_ppf8r")]
-position = Vector2(-432, -1208)
+position = Vector2(-424, -1200)
 
 [node name="Birb39" parent="Decorations/Borbs" index="52" unique_id=1857965739 instance=ExtResource("25_ppf8r")]
 position = Vector2(-432, -1208)
