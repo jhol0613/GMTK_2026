@@ -34,7 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://bo3pcctdon7l" path="res://level_elements/signs/sign_station_name.tscn" id="41_r4js7"]
 [ext_resource type="PackedScene" uid="uid://bqn5083nuxoa8" path="res://level_elements/NPCs/pee_pee_dance/pee_pee_dance.tscn" id="42_jg3i0"]
 [ext_resource type="PackedScene" uid="uid://blkhoxm6f3cap" path="res://level_elements/vending_machine/vending_machine.tscn" id="42_wx43u"]
-[ext_resource type="PackedScene" uid="uid://4mogavb5vbg8" path="res://level_elements/NPCs/technician/technician.tscn" id="43_tr4hg"]
+[ext_resource type="PackedScene" uid="uid://4mogavb5vbg8" path="res://level_elements/NPCs/greg/technician.tscn" id="43_tr4hg"]
 [ext_resource type="PackedScene" uid="uid://cltjgiddt3m3y" path="res://level_elements/NPCs/preston/preston.tscn" id="43_y7g21"]
 [ext_resource type="Script" uid="uid://dcanbg433hb0v" path="res://visual_effects/day_night/hoverthruster_lighting.gd" id="44_thruster_light"]
 [ext_resource type="PackedScene" uid="uid://c6cf2lsxpijf6" path="res://level_elements/decorative/street_lamp/street_lamp.tscn" id="47_n5t7a"]

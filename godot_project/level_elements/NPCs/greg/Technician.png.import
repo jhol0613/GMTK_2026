@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f0t211to8vc5"
-path="res://.godot/imported/portrait_greg_mad.png-1092c1ba3de2ca1ff3b8cc9f360a92cd.ctex"
+uid="uid://0hyaunokk3ac"
+path="res://.godot/imported/Technician.png-398134e25231cb7dcd7da6acbbd130ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level_elements/NPCs/technician/portrait_greg_mad.png"
-dest_files=["res://.godot/imported/portrait_greg_mad.png-1092c1ba3de2ca1ff3b8cc9f360a92cd.ctex"]
+source_file="res://level_elements/NPCs/greg/Technician.png"
+dest_files=["res://.godot/imported/Technician.png-398134e25231cb7dcd7da6acbbd130ff.ctex"]
 
 [params]
 

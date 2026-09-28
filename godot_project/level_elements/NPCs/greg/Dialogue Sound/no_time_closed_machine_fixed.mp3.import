@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bhsmfakqcv02l"
+path="res://.godot/imported/no_time_closed_machine_fixed.mp3-e1140f4be246de2e8c0a133c629d5a8e.mp3str"
+
+[deps]
+
+source_file="res://level_elements/NPCs/greg/Dialogue Sound/no_time_closed_machine_fixed.mp3"
+dest_files=["res://.godot/imported/no_time_closed_machine_fixed.mp3-e1140f4be246de2e8c0a133c629d5a8e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvld1jrdvayhn"
-path="res://.godot/imported/echncian_idle.png-933bc28173d1080884d44b9073d0452a.ctex"
+uid="uid://74mtphl52xwy"
+path="res://.godot/imported/Technician_Placeholder.png-567209e5bce3b9349815e64a2cc68ace.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level_elements/NPCs/technician/echncian_idle.png"
-dest_files=["res://.godot/imported/echncian_idle.png-933bc28173d1080884d44b9073d0452a.ctex"]
+source_file="res://level_elements/NPCs/greg/Technician_Placeholder.png"
+dest_files=["res://.godot/imported/Technician_Placeholder.png-567209e5bce3b9349815e64a2cc68ace.ctex"]
 
 [params]
 

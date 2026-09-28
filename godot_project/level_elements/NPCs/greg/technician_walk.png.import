@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8g4sylvu473d"
-path="res://.godot/imported/portrait_greg_embarassed.png-7265d25aefc3c37c3e92e1403773d547.ctex"
+uid="uid://b7k247u3cphb4"
+path="res://.godot/imported/technician_walk.png-6e464f970355f038d80427396e3747ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level_elements/NPCs/technician/portrait_greg_embarassed.png"
-dest_files=["res://.godot/imported/portrait_greg_embarassed.png-7265d25aefc3c37c3e92e1403773d547.ctex"]
+source_file="res://level_elements/NPCs/greg/technician_walk.png"
+dest_files=["res://.godot/imported/technician_walk.png-6e464f970355f038d80427396e3747ad.ctex"]
 
 [params]
 

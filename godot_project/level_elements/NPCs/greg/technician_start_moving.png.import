@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7k247u3cphb4"
-path="res://.godot/imported/technician_walk.png-c732b727d215f479fe2adf7e8e07857c.ctex"
+uid="uid://b83hlm6tqijgc"
+path="res://.godot/imported/technician_start_moving.png-83da5fd22484fd107ecab1a6f167c40b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level_elements/NPCs/technician/technician_walk.png"
-dest_files=["res://.godot/imported/technician_walk.png-c732b727d215f479fe2adf7e8e07857c.ctex"]
+source_file="res://level_elements/NPCs/greg/technician_start_moving.png"
+dest_files=["res://.godot/imported/technician_start_moving.png-83da5fd22484fd107ecab1a6f167c40b.ctex"]
 
 [params]
 

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dlv0db311ow52"
+path="res://.godot/imported/money_machine_no_fix.mp3-2a2cb3d5abd646170b1ed1d92522f62d.mp3str"
+
+[deps]
+
+source_file="res://level_elements/NPCs/greg/Dialogue Sound/money_machine_no_fix.mp3"
+dest_files=["res://.godot/imported/money_machine_no_fix.mp3-2a2cb3d5abd646170b1ed1d92522f62d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

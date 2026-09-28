@@ -27,7 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://x4ghn30rc8l0" path="res://level_elements/NPCs/crying_kid/crying_kid.tscn" id="19_yiikh"]
 [ext_resource type="PackedScene" uid="uid://ospha2vyynas" path="res://level_elements/NPCs/guide/guide.tscn" id="20_fq0us"]
 [ext_resource type="PackedScene" uid="uid://ba3allrv3pni0" path="res://level_elements/decorative/plants/plant_1.tscn" id="20_gsja5"]
-[ext_resource type="PackedScene" uid="uid://wvltf0ie5ih7" path="res://level_elements/NPCs/technician/station_2_technician.tscn" id="20_yiikh"]
+[ext_resource type="PackedScene" uid="uid://wvltf0ie5ih7" path="res://level_elements/NPCs/greg/station_2_technician.tscn" id="20_yiikh"]
 [ext_resource type="PackedScene" uid="uid://b8j82426dfwlf" path="res://level_elements/decorative/plants/plant_2.tscn" id="21_bkbve"]
 [ext_resource type="PackedScene" uid="uid://dg7htfhwkx2pj" path="res://level_elements/decorative/plants/plant_3.tscn" id="22_ihnwd"]
 [ext_resource type="PackedScene" uid="uid://blufc37tpefe4" path="res://level_elements/decorative/plants/plant_4.tscn" id="23_km4sl"]
@@ -2026,51 +2026,48 @@ position = Vector2(-736, -1952)
 [node name="CoffeeShop" parent="." index="21" unique_id=780382610 instance=ExtResource("10_1vf62")]
 position = Vector2(-928, -1984)
 
-[node name="CoffeeShop2" parent="." index="22" unique_id=1986393938 instance=ExtResource("10_1vf62")]
-position = Vector2(-2144, -688)
-
-[node name="CoffeeNpc" parent="." index="23" unique_id=934775270 node_paths=PackedStringArray("action_point", "spawn_point", "shop_point", "patrol_path") instance=ExtResource("13_s4b5i")]
-position = Vector2(-2111, -644)
+[node name="CoffeeNpc" parent="." index="22" unique_id=934775270 node_paths=PackedStringArray("action_point", "spawn_point", "shop_point", "patrol_path") instance=ExtResource("13_s4b5i")]
+position = Vector2(-892, -1942)
 action_point = NodePath("../CoffeeActionPoint")
 spawn_point = NodePath("../CoffeeSpawnPoint")
 shop_point = NodePath("../CoffeeShopPoint")
 patrol_path = NodePath("../CoffeePatrol")
 
-[node name="CoffeePatrol" type="Path2D" parent="." index="24" unique_id=1439544814]
-position = Vector2(-2189, -645)
+[node name="CoffeePatrol" type="Path2D" parent="." index="23" unique_id=1439544814]
+position = Vector2(-970, -1943)
 curve = SubResource("Curve2D_s4b5i")
 
-[node name="CoffeeShopPoint" type="Marker2D" parent="." index="25" unique_id=1794303509]
-position = Vector2(-2144, -668)
+[node name="CoffeeShopPoint" type="Marker2D" parent="." index="24" unique_id=1794303509]
+position = Vector2(-945, -1969)
 
-[node name="CoffeeSpawnPoint" type="Marker2D" parent="." index="26" unique_id=404684285]
-position = Vector2(-2122, -633)
+[node name="CoffeeSpawnPoint" type="Marker2D" parent="." index="25" unique_id=404684285]
+position = Vector2(-905, -1942)
 
-[node name="CoffeeActionPoint" type="Marker2D" parent="." index="27" unique_id=279803127]
-position = Vector2(-2111, -644)
+[node name="CoffeeActionPoint" type="Marker2D" parent="." index="26" unique_id=279803127]
+position = Vector2(-892, -1942)
 
-[node name="RecycleBin" parent="." index="28" unique_id=981033953 instance=ExtResource("11_yiikh")]
+[node name="RecycleBin" parent="." index="27" unique_id=981033953 instance=ExtResource("11_yiikh")]
 position = Vector2(-1008, -1968)
 
-[node name="RecycleBin6" parent="." index="29" unique_id=29257217 instance=ExtResource("11_yiikh")]
+[node name="RecycleBin6" parent="." index="28" unique_id=29257217 instance=ExtResource("11_yiikh")]
 position = Vector2(-832, -1968)
 
-[node name="RecycleBin2" parent="." index="30" unique_id=1992548694 instance=ExtResource("11_yiikh")]
+[node name="RecycleBin2" parent="." index="29" unique_id=1992548694 instance=ExtResource("11_yiikh")]
 position = Vector2(-784, -1192)
 
-[node name="RecycleBin3" parent="." index="31" unique_id=67699898 instance=ExtResource("11_yiikh")]
+[node name="RecycleBin3" parent="." index="30" unique_id=67699898 instance=ExtResource("11_yiikh")]
 position = Vector2(-592, -1192)
 
-[node name="RecycleBin4" parent="." index="32" unique_id=1647806399 instance=ExtResource("11_yiikh")]
+[node name="RecycleBin4" parent="." index="31" unique_id=1647806399 instance=ExtResource("11_yiikh")]
 position = Vector2(-2408, -1480)
 
-[node name="RecycleBin7" parent="." index="33" unique_id=1562498425 instance=ExtResource("11_yiikh")]
+[node name="RecycleBin7" parent="." index="32" unique_id=1562498425 instance=ExtResource("11_yiikh")]
 position = Vector2(-2012, -926)
 
-[node name="RecycleBin5" parent="." index="34" unique_id=1973554782 instance=ExtResource("11_yiikh")]
+[node name="RecycleBin5" parent="." index="33" unique_id=1973554782 instance=ExtResource("11_yiikh")]
 position = Vector2(-2168, -1936)
 
-[node name="Decorations" type="Node2D" parent="." index="35" unique_id=270941818]
+[node name="Decorations" type="Node2D" parent="." index="34" unique_id=270941818]
 y_sort_enabled = true
 
 [node name="StationNameSign" parent="Decorations" index="0" unique_id=1908951428 instance=ExtResource("18_s4b5i")]
@@ -2701,6 +2698,7 @@ position = Vector2(-2224, -1096)
 position = Vector2(-2288, -888)
 
 [node name="StreetLamp36" parent="Decorations/Lamps" index="35" unique_id=1406662783 instance=ExtResource("19_qfhyh")]
+visible = false
 position = Vector2(-2072, -696)
 
 [node name="StreetLamp37" parent="Decorations/Lamps" index="36" unique_id=1756860901 instance=ExtResource("19_qfhyh")]
@@ -3162,6 +3160,18 @@ position = Vector2(96, -2128)
 [node name="Cactus6" parent="Decorations/Plants" index="129" unique_id=1502191397 instance=ExtResource("35_pqi81")]
 position = Vector2(-2088, -592)
 
+[node name="Cactus7" parent="Decorations/Plants" index="130" unique_id=954371661 instance=ExtResource("35_pqi81")]
+position = Vector2(-2088, -736)
+
+[node name="Cactus8" parent="Decorations/Plants" index="131" unique_id=1458835497 instance=ExtResource("35_pqi81")]
+position = Vector2(-2064, -728)
+
+[node name="Cactus9" parent="Decorations/Plants" index="132" unique_id=2048790935 instance=ExtResource("35_pqi81")]
+position = Vector2(-2096, -720)
+
+[node name="Cactus10" parent="Decorations/Plants" index="133" unique_id=1295739692 instance=ExtResource("35_pqi81")]
+position = Vector2(-2072, -712)
+
 [node name="Benches" type="Node2D" parent="Decorations" index="8" unique_id=1600687530]
 y_sort_enabled = true
 
@@ -3501,24 +3511,24 @@ position = Vector2(128, -1992)
 [node name="HoverThruster12" parent="Decorations/Thrusters" index="45" unique_id=1521999915 instance=ExtResource("34_sm3vb")]
 position = Vector2(-1640, -856)
 
-[node name="TrinketShop" parent="." index="36" unique_id=877031898 instance=ExtResource("19_1vf62")]
+[node name="TrinketShop" parent="." index="35" unique_id=877031898 instance=ExtResource("19_1vf62")]
 position = Vector2(-1663, -1186)
 
-[node name="CryingKid" parent="." index="37" unique_id=837182991 instance=ExtResource("19_yiikh")]
+[node name="CryingKid" parent="." index="36" unique_id=837182991 instance=ExtResource("19_yiikh")]
 position = Vector2(-1755, -1177)
 collision_layer = 2
 
-[node name="TechnicianStation2" parent="." index="38" unique_id=1047069434 node_paths=PackedStringArray("atm", "atm_guy", "vending_machines") instance=ExtResource("20_yiikh")]
+[node name="TechnicianStation2" parent="." index="37" unique_id=1047069434 node_paths=PackedStringArray("atm", "atm_guy", "vending_machines") instance=ExtResource("20_yiikh")]
 position = Vector2(-2332, -1550)
 atm = NodePath("../ATM")
 atm_guy = NodePath("../ATMGuy")
 vending_machines = [NodePath("../VendingMachine"), NodePath("../VendingMachine2"), NodePath("../VendingMachine3")]
 
-[node name="StationMapLevel2" parent="." index="39" unique_id=1664644018 instance=ExtResource("6_cp47v")]
+[node name="StationMapLevel2" parent="." index="38" unique_id=1664644018 instance=ExtResource("6_cp47v")]
 z_index = 1
 position = Vector2(-1944, -1511)
 
-[node name="Guide" parent="." index="40" unique_id=1499669555 instance=ExtResource("20_fq0us")]
+[node name="Guide" parent="." index="39" unique_id=1499669555 instance=ExtResource("20_fq0us")]
 position = Vector2(-1730, -1516)
 
 [node name="DialogueInteractable" parent="Guide" index="2" unique_id=1161048169]
@@ -3530,17 +3540,23 @@ z_index = 0
 [node name="AnimatedSprite2D" parent="Guide/DialogueInteractable" index="2" unique_id=819702371]
 z_index = 0
 
-[node name="VendingMachine" parent="." index="41" unique_id=2058901394 instance=ExtResource("24_uuidd")]
+[node name="VendingMachine" parent="." index="40" unique_id=2058901394 instance=ExtResource("24_uuidd")]
 position = Vector2(-2458, -1562)
 start_broken = true
 
-[node name="VendingMachine2" parent="." index="42" unique_id=1576657544 instance=ExtResource("24_uuidd")]
+[node name="VendingMachine2" parent="." index="41" unique_id=1576657544 instance=ExtResource("24_uuidd")]
 position = Vector2(-2395, -1562)
 start_broken = true
 
-[node name="VendingMachine3" parent="." index="43" unique_id=482119658 instance=ExtResource("24_uuidd")]
+[node name="VendingMachine3" parent="." index="42" unique_id=482119658 instance=ExtResource("24_uuidd")]
 position = Vector2(-2332, -1562)
 start_broken = true
+
+[node name="RestChair" parent="." index="46" unique_id=1986588196 instance=ExtResource("24_oaqh1")]
+position = Vector2(-2146, -706)
+
+[node name="StreetLamp" parent="." index="47" unique_id=1616235728 instance=ExtResource("19_qfhyh")]
+position = Vector2(-2080, -724)
 
 [editable path="Platform1"]
 [editable path="Platform2"]

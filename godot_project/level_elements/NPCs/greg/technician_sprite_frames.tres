@@ -1,10 +1,10 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://de2gdrslgml7o"]
 
-[ext_resource type="Texture2D" uid="uid://74mtphl52xwy" path="res://level_elements/NPCs/technician/Technician_Placeholder.png" id="1_6bado"]
-[ext_resource type="Texture2D" uid="uid://0hyaunokk3ac" path="res://level_elements/NPCs/technician/Technician.png" id="2_1kpes"]
-[ext_resource type="Texture2D" uid="uid://dvld1jrdvayhn" path="res://level_elements/NPCs/technician/echncian_idle.png" id="3_idle"]
-[ext_resource type="Texture2D" uid="uid://b7k247u3cphb4" path="res://level_elements/NPCs/technician/technician_walk.png" id="4_walk"]
-[ext_resource type="Texture2D" uid="uid://b83hlm6tqijgc" path="res://level_elements/NPCs/technician/technician_start_moving.png" id="5_start"]
+[ext_resource type="Texture2D" uid="uid://74mtphl52xwy" path="res://level_elements/NPCs/greg/Technician_Placeholder.png" id="1_6bado"]
+[ext_resource type="Texture2D" uid="uid://0hyaunokk3ac" path="res://level_elements/NPCs/greg/Technician.png" id="2_1kpes"]
+[ext_resource type="Texture2D" uid="uid://dvld1jrdvayhn" path="res://level_elements/NPCs/greg/echncian_idle.png" id="3_idle"]
+[ext_resource type="Texture2D" uid="uid://b7k247u3cphb4" path="res://level_elements/NPCs/greg/technician_walk.png" id="4_walk"]
+[ext_resource type="Texture2D" uid="uid://b83hlm6tqijgc" path="res://level_elements/NPCs/greg/technician_start_moving.png" id="5_start"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o54ux"]
 atlas = ExtResource("2_1kpes")

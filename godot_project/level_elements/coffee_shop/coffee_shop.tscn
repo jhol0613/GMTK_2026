@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://6wbqq7hrqxwo" path="res://level_elements/coffee_shop/Dialogue Sound/I_a_money_coffee_b_money.mp3" id="3_qwrh7"]
 [ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="4_4qbo7"]
 [ext_resource type="AudioStream" uid="uid://bwqibhrj4sfb2" path="res://level_elements/coffee_shop/Dialogue Sound/next_coffee_two_money.mp3" id="4_27f6s"]
+[ext_resource type="Texture2D" uid="uid://d1s6ushbaw6h0" path="res://interactables/dialog_system/character_portraits/barman/portrait_barman.png" id="4_46tqn"]
 [ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialog_system/dialogue_panel.tscn" id="4_panel"]
 [ext_resource type="Texture2D" uid="uid://d130gjdthocbq" path="res://level_elements/coffee_shop/Coffee_Shop_2_glow.png" id="5_glow"]
 [ext_resource type="Texture2D" uid="uid://b7k1rwda5wu1p" path="res://visual_effects/day_night/light_radial.png" id="6_light"]
@@ -27,12 +28,14 @@
 [sub_resource type="Resource" id="Resource_3uvvl"]
 script = ExtResource("3_m5xxu")
 text = "<<i>> <<%s>> <<money>> <<coffee>> <<%s>> <<money>> <<angry>>"
+speaker_icon = ExtResource("4_46tqn")
 sfx = ExtResource("3_qwrh7")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_27f6s"]
 script = ExtResource("3_m5xxu")
 text = "<<next>> <<coffee>> <<2>> <<money>>"
+speaker_icon = ExtResource("4_46tqn")
 sfx = ExtResource("4_27f6s")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
@@ -58,6 +61,7 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 [sub_resource type="Resource" id="Resource_q3akp"]
 script = ExtResource("3_m5xxu")
 text = "<<thankyou>>"
+speaker_icon = ExtResource("4_46tqn")
 sfx = ExtResource("13_fqmxt")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
@@ -88,12 +92,14 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 [sub_resource type="Resource" id="Resource_lu7vs"]
 script = ExtResource("3_m5xxu")
 text = "<<coffee>> <<buy>> <<?>>"
+speaker_icon = ExtResource("4_46tqn")
 sfx = ExtResource("18_46tqn")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_bvkv4"]
 script = ExtResource("3_m5xxu")
 text = "<<holiday>> <<1>> <<coffee>> <<0>> <<money>> <<next>> <<coffee>> <<4>> <<money>>"
+speaker_icon = ExtResource("4_46tqn")
 sfx = ExtResource("19_4mc3m")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
