@@ -14,6 +14,13 @@ ticket_data = ExtResource("2_mynkr")
 [node name="Background" type="Sprite2D" parent="." unique_id=1449115875]
 texture = ExtResource("3_bxong")
 
+[node name="MouseBlocker" type="Control" parent="Background"]
+offset_left = -697.5
+offset_top = -358.5
+offset_right = 697.5
+offset_bottom = 358.5
+mouse_filter = 0
+
 [node name="Train" type="Control" parent="." unique_id=1207718148]
 unique_name_in_owner = true
 texture_filter = 1

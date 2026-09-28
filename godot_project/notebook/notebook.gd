@@ -82,8 +82,8 @@ func _on_section_header_changed(index: int, text: String):
 
 func _handle_show_resshan(encoded: String) -> void:
 	var overlay := get_parent()
-	if overlay != null and overlay.has_method("on_notebook_button_pressed"):
-		overlay.on_notebook_button_pressed()
+	if overlay != null and overlay.has_method("open_notebook"):
+		overlay.open_notebook()
 	else:
 		show()
 	for section_index in _sections.size():

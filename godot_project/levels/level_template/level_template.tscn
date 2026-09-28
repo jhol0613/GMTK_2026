@@ -96,7 +96,7 @@ texture = ExtResource("10_u3vgj")
 centered = false
 
 [node name="PopupCanvasLayer" type="CanvasLayer" parent="." unique_id=1090977002 groups=["popup_layer"]]
-layer = 3
+layer = 26
 follow_viewport_enabled = true
 
 [node name="FireflyField" parent="." unique_id=1243834593 instance=ExtResource("17_7nq05")]

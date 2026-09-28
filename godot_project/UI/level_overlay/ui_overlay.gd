@@ -254,6 +254,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("escape"):
 		if _has_open_panel():
 			_close_all_panels()
+		elif _get_open_dialogue() != null:
+			return
 		elif GameManager.pause_enabled and not get_tree().paused:
 			GameManager.pause_game()
 		get_viewport().set_input_as_handled()
@@ -275,6 +277,15 @@ func _unhandled_input(event: InputEvent) -> void:
 	#if _notebook.visible and not over_notebook:
 		#close_notebook()
 		#closed_something = true
+
+	if (
+		notebook_is_docked()
+		and not over_notebook
+		and not _pointer_over_compacted_panel(pointer_position)
+	):
+		close_notebook()
+		get_viewport().set_input_as_handled()
+		return
 
 	if _ticket.visible and not _sprite_contains_point($Ticket/Background, pointer_position):
 		_close_ticket()
@@ -468,6 +479,17 @@ func _close_all_panels() -> void:
 	close_notebook()
 	_close_ticket()
 	_close_inventory()
+
+
+func notebook_is_docked() -> bool:
+	return _notebook_docked and _notebook.visible
+
+
+func _pointer_over_compacted_panel(point: Vector2) -> bool:
+	if _compacted_panel == null or not is_instance_valid(_compacted_panel):
+		return false
+	var popup := _compacted_panel.get_node_or_null("Root/Popup") as Control
+	return popup != null and _control_contains_point(popup, point)
 
 
 func _has_open_panel() -> bool:

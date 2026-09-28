@@ -308,7 +308,6 @@ var _full_offset_left := 0.0
 var _full_offset_right := 0.0
 var _full_min_width := 0.0
 var _full_saved := false
-var _compact_tween: Tween
 
 
 func set_compact(

@@ -254,6 +254,7 @@ _data = {
 }
 
 [node name="UiOverlay" type="CanvasLayer" unique_id=368800410 groups=["ui_overlay"]]
+layer = 25
 script = ExtResource("1_0h6y4")
 
 [node name="RestVignette" type="ColorRect" parent="." unique_id=447198729]

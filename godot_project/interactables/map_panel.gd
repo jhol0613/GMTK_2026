@@ -6,6 +6,7 @@ extends InteractionPanelBase
 
 
 func show_map(title: String, texture: Texture2D = null, minutes: int = 1) -> void:
+	set_compact(false, 0.0)
 	_title.text = title
 	_map_image.texture = texture
 	_map_image.visible = texture != null

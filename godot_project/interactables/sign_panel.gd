@@ -5,6 +5,7 @@ extends InteractionPanelBase
 
 
 func show_sign(title: String, minutes: int = 1) -> void:
+	set_compact(false, 0.0)
 	_title.text = title
 	_open(minutes)
 
