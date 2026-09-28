@@ -9,10 +9,58 @@ var transitioning := false
 var notebook_state: Dictionary = {}
 var world_state: Dictionary = {}
 var last_error := ""
+var _notebook_open := false
+var _notebook_save_pending := false
+var _notebook_save_scene: WeakRef
+var _notebook_save_timer: Timer
 
 
 func _ready() -> void:
 	load_game()
+	_notebook_save_timer = Timer.new()
+	_notebook_save_timer.wait_time = 3.0
+	add_child(_notebook_save_timer)
+	_notebook_save_timer.timeout.connect(_save_notebook_progress)
+	SignalBus.notebook_opened.connect(_on_notebook_opened)
+	SignalBus.notebook_closed.connect(_on_notebook_closed)
+	get_tree().scene_changed.connect(_reset_notebook_autosave)
+
+
+func _on_notebook_opened() -> void:
+	_notebook_open = true
+	_notebook_save_scene = weakref(get_tree().current_scene)
+	_notebook_save_timer.start()
+
+
+func _on_notebook_closed() -> void:
+	if not _notebook_open:
+		return
+	_notebook_open = false
+	_notebook_save_pending = true
+	_save_notebook_progress.call_deferred()
+
+
+func _save_notebook_progress() -> void:
+	if _notebook_save_scene == null or _notebook_save_scene.get_ref() != get_tree().current_scene:
+		_reset_notebook_autosave()
+		return
+	if not _notebook_open and not _notebook_save_pending:
+		_notebook_save_timer.stop()
+		return
+	_notebook_save_pending = true
+	if not save_unavailable_reason().is_empty():
+		return
+	if save_game():
+		_notebook_save_pending = false
+	if not _notebook_open and not _notebook_save_pending:
+		_notebook_save_timer.stop()
+
+
+func _reset_notebook_autosave() -> void:
+	_notebook_save_timer.stop()
+	_notebook_open = false
+	_notebook_save_pending = false
+	_notebook_save_scene = null
 
 
 func load_game() -> void:
