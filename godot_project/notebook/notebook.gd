@@ -137,7 +137,10 @@ func _add_entry_to_the_section(
 	entry.reordered.connect(_on_entry_reordered)
 	
 	player_vocab.data[section][encoded] = initial_text
-	
+
+	if play_feedback:
+		_update_nav_button_visibility(_current_section, _sections[_current_section].current_page)
+
 	return entry
 
 
