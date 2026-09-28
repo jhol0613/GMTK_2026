@@ -8,6 +8,7 @@ script = ExtResource("1_eo3dq")
 color = 7
 direction = 2
 arrival_interval_minutes = 3
+arrival_variation_minutes = 0
 scene_destination = 3
 metadata/_custom_type_script = "uid://kipmht1y7efq"
 
@@ -16,7 +17,8 @@ script = ExtResource("1_eo3dq")
 color = 7
 direction = 3
 arrival_interval_minutes = 3
-initial_offset = 2
+arrival_variation_minutes = 0
+initial_offset = 13
 scene_destination = 2
 metadata/_custom_type_script = "uid://kipmht1y7efq"
 

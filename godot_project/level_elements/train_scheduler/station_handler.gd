@@ -71,8 +71,10 @@ func build_schedule():
 			var time_offset = randi_range(-schedule_item.arrival_variation_minutes,
 				schedule_item.arrival_variation_minutes)
 			time_offset *= TimeManager.SECONDS_PER_MINUTE
-			time += schedule_item.arrival_interval_minutes * TimeManager.SECONDS_PER_MINUTE
-			time += time_offset
+			time += maxi(
+				schedule_item.arrival_interval_minutes * TimeManager.SECONDS_PER_MINUTE + time_offset,
+				TimeManager.SECONDS_PER_MINUTE
+			)
 			
 
 			departure_list.append(departure_data)

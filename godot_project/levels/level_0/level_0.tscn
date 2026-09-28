@@ -543,6 +543,9 @@ correct_train_direction = 2
 correct_train_scene = 3
 wrong_train_destination = 2
 
+[node name="StationHandler" parent="." index="0" unique_id=1058728153]
+pull_in_seconds_before_departure = 14
+
 [node name="Camera2D" parent="." index="2" unique_id=855071997]
 limit_bottom = -144
 
