@@ -42,6 +42,7 @@ func _ready():
 	repeat_dialogue = repeat_dialogue.duplicate(true)
 	initial_dialogue = initial_dialogue.duplicate(true)
 	panel.option_confirmed.connect(_on_option_confirmed)
+	panel.closed.connect(_on_dialogue_closed)
 	dialogue_interactable.dialogue = initial_dialogue
 	_state = State.ACTING
 	_mask_original_position = mask.position
@@ -89,8 +90,8 @@ func _on_dialogue_interactable_interacted() -> void:
 	var _choices : Array[DialogueChoice] = dialogue_interactable.dialogue.choices
 	_choices.clear()
 	_choices.append(nevermind_choice)
-	if  happy_timer and happy_timer.timeout.is_connected(_on_no_longer_happy):
-		happy_timer.timeout.disconnect(_on_no_longer_happy)
+	if _happy:
+		_cancel_happy_timer()
 	for key in choice_bank.keys():
 		var color_str = str(Enums.TrainColor.find_key(key))
 		var item = Inventory.get_item("mask_" + color_str.to_lower())
@@ -100,15 +101,10 @@ func _on_dialogue_interactable_interacted() -> void:
 
 func _on_option_confirmed(outcome_id: StringName):
 	if outcome_id == &"NONE":
-		if _happy:
-			happy_timer = get_tree().create_timer(happy_time)
-			happy_timer.timeout.connect(_on_no_longer_happy.bind(_previous_outcome_id))
 		return
-	if happy_timer and happy_timer.timeout.is_connected(_on_no_longer_happy):
-		happy_timer.timeout.disconnect(_on_no_longer_happy)
+	_cancel_happy_timer()
 	_happy = true
 	_crying = false
-	_mask_generation += 1
 	_cry_player.stop()
 	if _laugh_player.stream != null:
 		_laugh_player.play()
@@ -117,24 +113,45 @@ func _on_option_confirmed(outcome_id: StringName):
 		"%s <<trinketmask>> <<thankyou>>" % ["<<" + outcome_id.to_lower() + ">>"]
 	repeat_dialogue.lines[0].speaker_icon = happy_portrait
 	dialogue_interactable.dialogue = repeat_dialogue
-	happy_timer = get_tree().create_timer(happy_time)
-	happy_timer.timeout.connect(_on_no_longer_happy.bind(outcome_id))
 	_previous_outcome_id = outcome_id
 	_sprite.play("happy")
 	mask.position = _mask_original_position
 	mask.visible = true
 	mask.play(outcome_id)
 
-func _on_no_longer_happy(outcome_id: StringName):
+func _cancel_happy_timer() -> void:
+	_mask_generation += 1
+	if happy_timer and happy_timer.timeout.is_connected(_on_no_longer_happy):
+		happy_timer.timeout.disconnect(_on_no_longer_happy)
+	happy_timer = null
+	if _happy:
+		_drop_player.stop()
+
+
+func _on_dialogue_closed() -> void:
+	if not _happy:
+		return
+	_cancel_happy_timer()
+	happy_timer = get_tree().create_timer(happy_time)
+	happy_timer.timeout.connect(_on_no_longer_happy)
+
+
+func _on_no_longer_happy():
+	happy_timer = null
+	if not _happy or panel.is_open():
+		return
 	var generation := _mask_generation
-	repeat_dialogue.lines[0].speaker_icon = sad_portrait
-	repeat_dialogue.lines[0].text = \
-		"%s <<trinketmask>> <<angry>> <<i>> <<buy>> <<next>> <<trinketmask>>" % ["<<" + outcome_id.to_lower() + ">>"]
-	happy_timer.timeout.disconnect(_on_no_longer_happy)
 	if _drop_player.stream != null:
 		_drop_player.play()
 	if mask_drop_delay > 0.0:
 		await get_tree().create_timer(mask_drop_delay).timeout
+	# A new conversation or gift cancels even a drop already waiting on its sound.
+	if generation != _mask_generation or panel.is_open():
+		return
+	_happy = false
+	repeat_dialogue.lines[0].speaker_icon = sad_portrait
+	repeat_dialogue.lines[0].text = \
+		"%s <<trinketmask>> <<angry>> <<i>> <<buy>> <<next>> <<trinketmask>>" % ["<<" + _previous_outcome_id.to_lower() + ">>"]
 	_sprite.play("throw")
 	mask.position = _mask_original_position + dropped_mask_offset
 	if _drop_player.playing:
