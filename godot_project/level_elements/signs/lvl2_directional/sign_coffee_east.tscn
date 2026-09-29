@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://c86b4gf8cw6mw"]
+
+[ext_resource type="Texture2D" uid="uid://bgxlwngq13yps" path="res://level_elements/signs/lvl2_directional/sprites/sign_coffee_east.png" id="1_qn61s"]
+[ext_resource type="Script" uid="uid://cawljfdqejobl" path="res://level_elements/signs/sign_screen_glow.gd" id="2_pamhd"]
+[ext_resource type="Texture2D" uid="uid://b2ngyywuxkg7x" path="res://level_elements/signs/lvl2_directional/sprites/sign_coffee_east_overlay.png" id="3_pamhd"]
+[ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="4_ohbce"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7shr0"]
+atlas = ExtResource("1_qn61s")
+region = Rect2(0, 0, 40, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohbce"]
+atlas = ExtResource("1_qn61s")
+region = Rect2(40, 0, 40, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7uj6"]
+atlas = ExtResource("1_qn61s")
+region = Rect2(80, 0, 40, 49)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_71mc2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7shr0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohbce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7uj6")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pc0su"]
+atlas = ExtResource("3_pamhd")
+region = Rect2(0, 0, 40, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1ht2"]
+atlas = ExtResource("3_pamhd")
+region = Rect2(40, 0, 40, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dr7od"]
+atlas = ExtResource("3_pamhd")
+region = Rect2(80, 0, 40, 49)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4fh27"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pc0su")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1ht2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dr7od")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]
+size = Vector2(11, 6)
+
+[node name="CoffeeEastSign" type="Node2D" unique_id=733299724]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1452118075]
+z_index = 1
+position = Vector2(5, -25)
+sprite_frames = SubResource("SpriteFrames_71mc2")
+autoplay = "default"
+
+[node name="ScreenGlow" type="Node2D" parent="." unique_id=96135887 groups=["night_lights"]]
+script = ExtResource("2_pamhd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScreenGlow" unique_id=276422177]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+position = Vector2(5, -25)
+sprite_frames = SubResource("SpriteFrames_4fh27")
+autoplay = "default"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=500868513]
+position = Vector2(-2, 0)
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=351718269]
+position = Vector2(2, -3)
+shape = SubResource("RectangleShape2D_ujtin")
+
+[node name="ResshanInteractable" type="Control" parent="." unique_id=772314074]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -5.0
+offset_top = -46.0
+offset_right = 5.0
+offset_bottom = -35.0
+script = ExtResource("4_ohbce")
+_string = "<<coffee>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="ResshanInteractable2" type="Control" parent="." unique_id=1340402580]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -5.0
+offset_top = -35.0
+offset_right = 5.0
+offset_bottom = -24.0
+script = ExtResource("4_ohbce")
+_string = "<<east>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"

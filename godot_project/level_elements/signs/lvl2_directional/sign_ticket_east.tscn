@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://c2s7p1gl14a64"]
+
+[ext_resource type="Texture2D" uid="uid://c36mm7vvk4p3a" path="res://level_elements/signs/lvl2_directional/sprites/sign_ticket_east.png" id="1_ft6xc"]
+[ext_resource type="Script" uid="uid://cawljfdqejobl" path="res://level_elements/signs/sign_screen_glow.gd" id="2_ogrjt"]
+[ext_resource type="Texture2D" uid="uid://bykvm36cjelvg" path="res://level_elements/signs/lvl2_directional/sprites/sign_ticket_east_overlay.png" id="3_oruda"]
+[ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="4_2j7ww"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3ucy"]
+atlas = ExtResource("1_ft6xc")
+region = Rect2(0, 0, 40, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21f1l"]
+atlas = ExtResource("1_ft6xc")
+region = Rect2(40, 0, 40, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4y3g"]
+atlas = ExtResource("1_ft6xc")
+region = Rect2(80, 0, 40, 49)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_71mc2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3ucy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21f1l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4y3g")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hq3b2"]
+atlas = ExtResource("3_oruda")
+region = Rect2(0, 0, 40, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8w5h"]
+atlas = ExtResource("3_oruda")
+region = Rect2(40, 0, 40, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bn63w"]
+atlas = ExtResource("3_oruda")
+region = Rect2(80, 0, 40, 49)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4fh27"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hq3b2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8w5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bn63w")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]
+size = Vector2(11, 6)
+
+[node name="TicketEastSign" type="Node2D" unique_id=733299724]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1452118075]
+z_index = 1
+position = Vector2(5, -25)
+sprite_frames = SubResource("SpriteFrames_71mc2")
+autoplay = "default"
+
+[node name="ScreenGlow" type="Node2D" parent="." unique_id=96135887 groups=["night_lights"]]
+script = ExtResource("2_ogrjt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScreenGlow" unique_id=276422177]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+position = Vector2(5, -25)
+sprite_frames = SubResource("SpriteFrames_4fh27")
+autoplay = "default"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=500868513]
+position = Vector2(-2, 0)
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=351718269]
+position = Vector2(2, -3)
+shape = SubResource("RectangleShape2D_ujtin")
+
+[node name="ResshanInteractable" type="Control" parent="." unique_id=772314074]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -5.0
+offset_top = -46.0
+offset_right = 5.0
+offset_bottom = -35.0
+script = ExtResource("4_2j7ww")
+_string = "<<ticket>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="ResshanInteractable2" type="Control" parent="." unique_id=1340402580]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -5.0
+offset_top = -35.0
+offset_right = 5.0
+offset_bottom = -24.0
+script = ExtResource("4_2j7ww")
+_string = "<<east>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"

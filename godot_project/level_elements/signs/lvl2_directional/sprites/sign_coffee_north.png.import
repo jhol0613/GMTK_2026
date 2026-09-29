@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rhcpne7wge4n"
-path="res://.godot/imported/sign_station_names.png-911a162db0fc01f29d1116934c233231.ctex"
+uid="uid://begah0jlrew36"
+path="res://.godot/imported/sign_coffee_north.png-bf7a1e0feb522bc64462a57d4d120266.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level_elements/signs/sign_station_names.png"
-dest_files=["res://.godot/imported/sign_station_names.png-911a162db0fc01f29d1116934c233231.ctex"]
+source_file="res://level_elements/signs/lvl2_directional/sprites/sign_coffee_north.png"
+dest_files=["res://.godot/imported/sign_coffee_north.png-bf7a1e0feb522bc64462a57d4d120266.ctex"]
 
 [params]
 

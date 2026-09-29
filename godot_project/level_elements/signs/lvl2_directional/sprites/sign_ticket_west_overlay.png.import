@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b48qp3csk2gks"
-path="res://.godot/imported/sign_east.png-d4faa7a466768164fb3930607f6ee1cb.ctex"
+uid="uid://di21xwgwy0bqc"
+path="res://.godot/imported/sign_ticket_west_overlay.png-94f07a44e8d92faa683b0c69a9ad823c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level_elements/signs/sign_east.png"
-dest_files=["res://.godot/imported/sign_east.png-d4faa7a466768164fb3930607f6ee1cb.ctex"]
+source_file="res://level_elements/signs/lvl2_directional/sprites/sign_ticket_west_overlay.png"
+dest_files=["res://.godot/imported/sign_ticket_west_overlay.png-94f07a44e8d92faa683b0c69a9ad823c.ctex"]
 
 [params]
 

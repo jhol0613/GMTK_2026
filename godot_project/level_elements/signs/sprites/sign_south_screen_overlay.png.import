@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nqrgw08tt37g"
-path="res://.godot/imported/sign_north_screen_overlay.png-ece45912bcc5d34396ba71968f727f57.ctex"
+uid="uid://bs1idgra3g6mj"
+path="res://.godot/imported/sign_south_screen_overlay.png-7017a7946aa4a43e3cf6218e1547249d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level_elements/signs/sign_north_screen_overlay.png"
-dest_files=["res://.godot/imported/sign_north_screen_overlay.png-ece45912bcc5d34396ba71968f727f57.ctex"]
+source_file="res://level_elements/signs/sprites/sign_south_screen_overlay.png"
+dest_files=["res://.godot/imported/sign_south_screen_overlay.png-7017a7946aa4a43e3cf6218e1547249d.ctex"]
 
 [params]
 
