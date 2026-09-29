@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Keeping TRACK of my Notes.mp3-518cd4955a2e258
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

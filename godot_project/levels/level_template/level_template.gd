@@ -19,7 +19,7 @@ class_name LevelTemplate
 
 @export_category("Level Music")
 
-@export_enum("Level 0", "Level 1")
+@export_enum("Level 0", "Level 1", "Level 2")
 var level_music_track: int = AudioManager.MusicTrack.LEVEL_0
 
 @export var play_train_intro_before_music: bool = false

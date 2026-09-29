@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dv6o1o2st2lpy"
+path="res://.godot/imported/RAIL-dy to go.mp3-63aa95db49826f7a310dfedc9b04b695.mp3str"
+
+[deps]
+
+source_file="res://levels/level_2/level_specific_resources/RAIL-dy to go.mp3"
+dest_files=["res://.godot/imported/RAIL-dy to go.mp3-63aa95db49826f7a310dfedc9b04b695.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -4,6 +4,7 @@ extends Node
 enum MusicTrack {
 	LEVEL_0,
 	LEVEL_1,
+	LEVEL_2,
 }
 
 
@@ -28,8 +29,13 @@ const LEVEL_1_BGM: AudioStream = preload(
 	"uid://c12ly8vl2parx"
 )
 
+const LEVEL_2_BGM: AudioStream = preload(
+	"res://levels/level_2/level_specific_resources/RAIL-dy to go.mp3"
+)
+
 const LEVEL_0_MUSIC_DB: float = -8.0
 const LEVEL_1_MUSIC_DB: float = -8.0
+const LEVEL_2_MUSIC_DB: float = -8.0
 
 const TRIPPED_BGM: AudioStream = preload(
 	"uid://bwdovww0j8m0k"
@@ -136,6 +142,9 @@ func _get_level_music(track: int) -> AudioStream:
 
 		MusicTrack.LEVEL_1:
 			return LEVEL_1_BGM
+
+		MusicTrack.LEVEL_2:
+			return LEVEL_2_BGM
 
 	return null
 
@@ -549,6 +558,9 @@ func _get_level_music_volume(track: int) -> float:
 
 		MusicTrack.LEVEL_1:
 			return LEVEL_1_MUSIC_DB
+
+		MusicTrack.LEVEL_2:
+			return LEVEL_2_MUSIC_DB
 
 	return DEFAULT_MUSIC_DB
 

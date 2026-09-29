@@ -79,6 +79,7 @@ previous_station_direction = 1
 previous_station_scene = 3
 wrong_train_destination = 4
 arrival_train = NodePath("Platform2/UpperTrain")
+level_music_track = 2
 
 [node name="StationHandler" parent="." index="0" unique_id=1058728153]
 train_schedule = ExtResource("2_xpuws")
