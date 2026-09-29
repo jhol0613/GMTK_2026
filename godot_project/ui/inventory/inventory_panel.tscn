@@ -49,10 +49,10 @@ layout_mode = 2
 [node name="Slot4" parent="VBoxContainer/Slots" unique_id=498118464 instance=ExtResource("2_obcwt")]
 layout_mode = 2
 
-[node name="Slot5" parent="VBoxContainer/Slots" instance=ExtResource("2_obcwt")]
+[node name="Slot5" parent="VBoxContainer/Slots" unique_id=222987647 instance=ExtResource("2_obcwt")]
 layout_mode = 2
 
-[node name="Slot6" parent="VBoxContainer/Slots" instance=ExtResource("2_obcwt")]
+[node name="Slot6" parent="VBoxContainer/Slots" unique_id=2127403368 instance=ExtResource("2_obcwt")]
 layout_mode = 2
 
 [node name="CloseButton" type="TextureButton" parent="." unique_id=1402412403]

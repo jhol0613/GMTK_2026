@@ -53,7 +53,6 @@ size_flags_vertical = 4
 mouse_filter = 2
 script = ExtResource("2_hwg0l")
 font_size = 32
-note_popup_scale_multiplier = 2.0
 metadata/_custom_type_script = "uid://sidowamkhcrt"
 
 [node name="StackCount" type="Label" parent="SlotBg" unique_id=588139805]
