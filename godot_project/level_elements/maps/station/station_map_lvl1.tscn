@@ -44,7 +44,6 @@ offset_bottom = 42.5
 position = Vector2(0, -40.5)
 
 [node name="SignPanel" parent="." unique_id=1998267979 instance=ExtResource("3_adogf")]
-layer = 3
 
 [node name="Popup" parent="SignPanel/Root" parent_id_path=PackedInt32Array(1998267979, 313175214) index="1" unique_id=2123670025]
 offset_left = -460.0
@@ -248,30 +247,6 @@ offset_right = 133.76625
 offset_bottom = 377.92215
 script = ExtResource("5_7usu2")
 _string = "<<trinketmask>>"
-metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="store2" type="Control" parent="SignPanel/Root/Popup/Sprite2D" unique_id=449317927]
-physics_interpolation_mode = 0
-layout_mode = 3
-anchors_preset = 0
-offset_left = -122.077896
-offset_top = 302.5974
-offset_right = -87.08119
-offset_bottom = 345.5624
-script = ExtResource("5_7usu2")
-_string = "<<store>>"
-metadata/_custom_type_script = "uid://chrvqq7u4wun5"
-
-[node name="coffee" type="Control" parent="SignPanel/Root/Popup/Sprite2D" unique_id=593838799]
-physics_interpolation_mode = 0
-layout_mode = 3
-anchors_preset = 0
-offset_left = -177.922
-offset_top = 294.8052
-offset_right = -126.04224
-offset_bottom = 345.45462
-script = ExtResource("5_7usu2")
-_string = "<<coffee>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="ticket" type="Control" parent="SignPanel/Root/Popup/Sprite2D" unique_id=1411979825]
