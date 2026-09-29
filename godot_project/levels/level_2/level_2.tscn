@@ -47,6 +47,8 @@
 [ext_resource type="PackedScene" uid="uid://nktmu2sybr8x" path="res://level_elements/signs/lvl2_directional/sign_ticket_west.tscn" id="45_1h50e"]
 [ext_resource type="PackedScene" uid="uid://c33xsp1vsh13f" path="res://level_elements/signs/lvl2_directional/sign_ticket_south.tscn" id="46_vdtjt"]
 [ext_resource type="PackedScene" uid="uid://c86b4gf8cw6mw" path="res://level_elements/signs/lvl2_directional/sign_coffee_east.tscn" id="47_vdtjt"]
+[ext_resource type="PackedScene" uid="uid://bp8b31mewybrk" path="res://level_elements/signs/lvl2_directional/sign_bathroom_east.tscn" id="48_t8ul1"]
+[ext_resource type="PackedScene" uid="uid://betnx72ugd4so" path="res://level_elements/signs/lvl2_directional/sign_bathroom_south.tscn" id="49_ve7lj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vf62"]
 size = Vector2(816, 408)
@@ -2075,23 +2077,7 @@ position = Vector2(-2168, -1936)
 [node name="Decorations" type="Node2D" parent="." index="34" unique_id=270941818]
 y_sort_enabled = true
 
-[node name="StationNameSign" parent="Decorations" index="0" unique_id=1908951428 instance=ExtResource("18_s4b5i")]
-position = Vector2(-1792, -1504)
-station_number = 2
-
-[node name="StationNameSign2" parent="Decorations" index="1" unique_id=941208577 instance=ExtResource("18_s4b5i")]
-position = Vector2(-784, -1952)
-station_number = 2
-
-[node name="StationNameSign3" parent="Decorations" index="2" unique_id=1711917111 instance=ExtResource("18_s4b5i")]
-position = Vector2(-2344, -1936)
-station_number = 2
-
-[node name="StationNameSign4" parent="Decorations" index="3" unique_id=1174903269 instance=ExtResource("18_s4b5i")]
-position = Vector2(-2224, -704)
-station_number = 2
-
-[node name="Solar" type="Node2D" parent="Decorations" index="4" unique_id=1512994621]
+[node name="Solar" type="Node2D" parent="Decorations" index="0" unique_id=1512994621]
 y_sort_enabled = true
 
 [node name="Solardecor1" type="Sprite2D" parent="Decorations/Solar" index="0" unique_id=650745515]
@@ -2369,7 +2355,7 @@ rotation = -3.1415925
 scale = Vector2(1, -1)
 texture = ExtResource("32_sm3vb")
 
-[node name="Borbs" type="Node2D" parent="Decorations" index="5" unique_id=117060344]
+[node name="Borbs" type="Node2D" parent="Decorations" index="1" unique_id=117060344]
 y_sort_enabled = true
 
 [node name="Birb7" parent="Decorations/Borbs" index="0" unique_id=2025132504 instance=ExtResource("25_ppf8r")]
@@ -2594,7 +2580,7 @@ position = Vector2(-400, -1808)
 [node name="Birb80" parent="Decorations/Borbs" index="73" unique_id=1100533387 instance=ExtResource("25_ppf8r")]
 position = Vector2(-408, -1840)
 
-[node name="Lamps" type="Node2D" parent="Decorations" index="6" unique_id=2137781033]
+[node name="Lamps" type="Node2D" parent="Decorations" index="2" unique_id=2137781033]
 y_sort_enabled = true
 
 [node name="StreetLamp" parent="Decorations/Lamps" index="0" unique_id=66639473 instance=ExtResource("19_qfhyh")]
@@ -2751,7 +2737,7 @@ position = Vector2(-2400, -1792)
 [node name="StreetLamp51" parent="Decorations/Lamps" index="50" unique_id=1616235728 instance=ExtResource("19_qfhyh")]
 position = Vector2(-2080, -724)
 
-[node name="Plants" type="Node2D" parent="Decorations" index="7" unique_id=1224301456]
+[node name="Plants" type="Node2D" parent="Decorations" index="3" unique_id=1224301456]
 y_sort_enabled = true
 
 [node name="TinyFoliage15" parent="Decorations/Plants" index="0" unique_id=1089507518 instance=ExtResource("34_r7wcl")]
@@ -3180,7 +3166,7 @@ position = Vector2(-2096, -720)
 [node name="Cactus10" parent="Decorations/Plants" index="133" unique_id=1295739692 instance=ExtResource("35_pqi81")]
 position = Vector2(-2072, -712)
 
-[node name="Benches" type="Node2D" parent="Decorations" index="8" unique_id=1600687530]
+[node name="Benches" type="Node2D" parent="Decorations" index="4" unique_id=1600687530]
 y_sort_enabled = true
 
 [node name="RestChair" parent="Decorations/Benches" index="0" unique_id=2057166387 instance=ExtResource("24_oaqh1")]
@@ -3273,7 +3259,7 @@ position = Vector2(-384, -1712)
 [node name="RestChair11" parent="Decorations/Benches" index="29" unique_id=1986588196 instance=ExtResource("24_oaqh1")]
 position = Vector2(-2146, -706)
 
-[node name="Ads" type="Node2D" parent="Decorations" index="9" unique_id=659901272]
+[node name="Ads" type="Node2D" parent="Decorations" index="5" unique_id=659901272]
 y_sort_enabled = true
 
 [node name="StaticBody" parent="Decorations/Ads" index="0" unique_id=1547525935 instance=ExtResource("5_gsja5")]
@@ -3309,7 +3295,7 @@ position = Vector2(-408, -1928)
 [node name="StaticBody11" parent="Decorations/Ads" index="10" unique_id=1568686584 instance=ExtResource("5_gsja5")]
 position = Vector2(128, -2128)
 
-[node name="Sprinklers" type="Node2D" parent="Decorations" index="10" unique_id=432761666]
+[node name="Sprinklers" type="Node2D" parent="Decorations" index="6" unique_id=432761666]
 y_sort_enabled = true
 
 [node name="Sprinkler" parent="Decorations/Sprinklers" index="0" unique_id=307519851 instance=ExtResource("12_bkbve")]
@@ -3354,7 +3340,7 @@ position = Vector2(-840, -2008)
 [node name="Sprinkler14" parent="Decorations/Sprinklers" index="13" unique_id=1737518074 instance=ExtResource("12_bkbve")]
 position = Vector2(-1120, -2016)
 
-[node name="Banyos" type="Node2D" parent="Decorations" index="11" unique_id=162132367]
+[node name="Banyos" type="Node2D" parent="Decorations" index="7" unique_id=162132367]
 y_sort_enabled = true
 
 [node name="OutsideRestroom" parent="Decorations/Banyos" index="0" unique_id=1631350735 instance=ExtResource("13_1vf62")]
@@ -3381,7 +3367,7 @@ position = Vector2(-720, -1152)
 [node name="Bathroom2" parent="Decorations/Banyos" index="7" unique_id=1753618523 instance=ExtResource("14_yiikh")]
 position = Vector2(-656, -1152)
 
-[node name="Thrusters" type="Node2D" parent="Decorations" index="12" unique_id=906358123]
+[node name="Thrusters" type="Node2D" parent="Decorations" index="8" unique_id=906358123]
 y_sort_enabled = true
 
 [node name="HoverThruster" parent="Decorations/Thrusters" index="0" unique_id=1697223773 instance=ExtResource("34_sm3vb")]
@@ -3522,6 +3508,70 @@ position = Vector2(128, -1992)
 [node name="HoverThruster12" parent="Decorations/Thrusters" index="45" unique_id=1521999915 instance=ExtResource("34_sm3vb")]
 position = Vector2(-1640, -856)
 
+[node name="Signage" type="Node2D" parent="Decorations" index="9" unique_id=690519452]
+y_sort_enabled = true
+
+[node name="StationNameSign" parent="Decorations/Signage" index="0" unique_id=1908951428 instance=ExtResource("18_s4b5i")]
+position = Vector2(-1792, -1504)
+station_number = 2
+
+[node name="StationNameSign2" parent="Decorations/Signage" index="1" unique_id=941208577 instance=ExtResource("18_s4b5i")]
+position = Vector2(-784, -1952)
+station_number = 2
+
+[node name="StationNameSign3" parent="Decorations/Signage" index="2" unique_id=1711917111 instance=ExtResource("18_s4b5i")]
+position = Vector2(-2344, -1936)
+station_number = 2
+
+[node name="StationNameSign4" parent="Decorations/Signage" index="3" unique_id=1174903269 instance=ExtResource("18_s4b5i")]
+position = Vector2(-2224, -704)
+station_number = 2
+
+[node name="TicketEastSign" parent="Decorations/Signage" index="4" unique_id=733299724 instance=ExtResource("44_pvqwi")]
+position = Vector2(-2312, -1160)
+
+[node name="TicketWestSign" parent="Decorations/Signage" index="5" unique_id=1546057449 instance=ExtResource("45_1h50e")]
+position = Vector2(-1336, -1136)
+
+[node name="TicketWestSign3" parent="Decorations/Signage" index="6" unique_id=1143418952 instance=ExtResource("45_1h50e")]
+position = Vector2(-712, -1872)
+
+[node name="TicketWestSign4" parent="Decorations/Signage" index="7" unique_id=171138508 instance=ExtResource("45_1h50e")]
+position = Vector2(-944, -1040)
+
+[node name="TicketSouthSign" parent="Decorations/Signage" index="8" unique_id=112513243 instance=ExtResource("46_vdtjt")]
+position = Vector2(-2224, -1704)
+
+[node name="TicketSouthSign2" parent="Decorations/Signage" index="9" unique_id=620717325 instance=ExtResource("46_vdtjt")]
+position = Vector2(-2000, -1784)
+
+[node name="TicketSouthSign3" parent="Decorations/Signage" index="10" unique_id=1015266798 instance=ExtResource("46_vdtjt")]
+position = Vector2(-1360, -1768)
+
+[node name="TicketWestSign2" parent="Decorations/Signage" index="11" unique_id=461464532 instance=ExtResource("45_1h50e")]
+position = Vector2(-480, -1064)
+
+[node name="CoffeeEastSign" parent="Decorations/Signage" index="12" unique_id=245239860 instance=ExtResource("47_vdtjt")]
+position = Vector2(-1760, -1784)
+
+[node name="CoffeeEastSign2" parent="Decorations/Signage" index="13" unique_id=1720007052 instance=ExtResource("47_vdtjt")]
+position = Vector2(-1424, -1848)
+
+[node name="CoffeeEastSign3" parent="Decorations/Signage" index="14" unique_id=35247240 instance=ExtResource("47_vdtjt")]
+position = Vector2(-2224, -1800)
+
+[node name="BathroomEastSign" parent="Decorations/Signage" index="15" unique_id=585042493 instance=ExtResource("48_t8ul1")]
+position = Vector2(-1592, -1136)
+
+[node name="BathroomSouthSign" parent="Decorations/Signage" index="16" unique_id=1371361092 instance=ExtResource("49_ve7lj")]
+position = Vector2(-1424, -1456)
+
+[node name="BathroomSouthSign2" parent="Decorations/Signage" index="17" unique_id=1127508464 instance=ExtResource("49_ve7lj")]
+position = Vector2(-472, -1864)
+
+[node name="TicketSouthSign4" parent="Decorations/Signage" index="18" unique_id=2024928190 instance=ExtResource("46_vdtjt")]
+position = Vector2(-360, -1864)
+
 [node name="TrinketShop" parent="." index="35" unique_id=877031898 instance=ExtResource("19_1vf62")]
 position = Vector2(-1663, -1186)
 
@@ -3562,39 +3612,6 @@ start_broken = true
 [node name="VendingMachine3" parent="." index="42" unique_id=482119658 instance=ExtResource("24_uuidd")]
 position = Vector2(-2332, -1562)
 start_broken = true
-
-[node name="TicketEastSign" parent="." index="46" unique_id=733299724 instance=ExtResource("44_pvqwi")]
-position = Vector2(-2312, -1160)
-
-[node name="TicketWestSign" parent="." index="47" unique_id=1546057449 instance=ExtResource("45_1h50e")]
-position = Vector2(-1336, -1136)
-
-[node name="TicketWestSign3" parent="." index="48" unique_id=1143418952 instance=ExtResource("45_1h50e")]
-position = Vector2(-712, -1872)
-
-[node name="TicketWestSign4" parent="." index="49" unique_id=171138508 instance=ExtResource("45_1h50e")]
-position = Vector2(-944, -1040)
-
-[node name="TicketSouthSign" parent="." index="50" unique_id=112513243 instance=ExtResource("46_vdtjt")]
-position = Vector2(-2224, -1704)
-
-[node name="TicketSouthSign2" parent="." index="51" unique_id=620717325 instance=ExtResource("46_vdtjt")]
-position = Vector2(-2000, -1784)
-
-[node name="TicketSouthSign3" parent="." index="52" unique_id=1015266798 instance=ExtResource("46_vdtjt")]
-position = Vector2(-1360, -1768)
-
-[node name="TicketWestSign2" parent="." index="53" unique_id=461464532 instance=ExtResource("45_1h50e")]
-position = Vector2(-480, -1064)
-
-[node name="CoffeeEastSign" parent="." index="54" unique_id=245239860 instance=ExtResource("47_vdtjt")]
-position = Vector2(-1760, -1784)
-
-[node name="CoffeeEastSign2" parent="." index="55" unique_id=1720007052 instance=ExtResource("47_vdtjt")]
-position = Vector2(-1424, -1848)
-
-[node name="CoffeeEastSign3" parent="." index="56" unique_id=35247240 instance=ExtResource("47_vdtjt")]
-position = Vector2(-2224, -1800)
 
 [editable path="Platform1"]
 [editable path="Platform2"]

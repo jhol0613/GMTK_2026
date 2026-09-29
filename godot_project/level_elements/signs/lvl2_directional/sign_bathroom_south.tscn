@@ -1,62 +1,62 @@
-[gd_scene format=3 uid="uid://c33xsp1vsh13f"]
+[gd_scene format=3 uid="uid://betnx72ugd4so"]
 
-[ext_resource type="Texture2D" uid="uid://b0rwplmnqodb2" path="res://level_elements/signs/lvl2_directional/sprites/sign_ticket_south.png" id="1_xuu8u"]
-[ext_resource type="Script" uid="uid://cawljfdqejobl" path="res://level_elements/signs/sign_screen_glow.gd" id="2_0a6dn"]
-[ext_resource type="Texture2D" uid="uid://bdplv5unypwbl" path="res://level_elements/signs/lvl2_directional/sprites/sign_ticket_south_overlay.png" id="3_0a6dn"]
-[ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="4_uchof"]
+[ext_resource type="Texture2D" uid="uid://cnsnp7e6svlbb" path="res://level_elements/signs/lvl2_directional/sprites/sign_bathroom_south.png" id="1_0ptqp"]
+[ext_resource type="Script" uid="uid://cawljfdqejobl" path="res://level_elements/signs/sign_screen_glow.gd" id="2_6ouow"]
+[ext_resource type="Texture2D" uid="uid://btyyolgvdg822" path="res://level_elements/signs/lvl2_directional/sprites/sign_bathroom_south_overlay.png" id="3_6ouow"]
+[ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="4_3bu8h"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ywhve"]
-atlas = ExtResource("1_xuu8u")
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgkpu"]
+atlas = ExtResource("1_0ptqp")
 region = Rect2(0, 0, 40, 49)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uchof"]
-atlas = ExtResource("1_xuu8u")
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bu8h"]
+atlas = ExtResource("1_0ptqp")
 region = Rect2(40, 0, 40, 49)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l6c40"]
-atlas = ExtResource("1_xuu8u")
+[sub_resource type="AtlasTexture" id="AtlasTexture_m72xi"]
+atlas = ExtResource("1_0ptqp")
 region = Rect2(80, 0, 40, 49)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_71mc2"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ywhve")
+"texture": SubResource("AtlasTexture_kgkpu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_uchof")
+"texture": SubResource("AtlasTexture_3bu8h")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_l6c40")
+"texture": SubResource("AtlasTexture_m72xi")
 }],
 "loop": 1,
 "name": &"default",
 "speed": 6.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ly0ny"]
-atlas = ExtResource("3_0a6dn")
+[sub_resource type="AtlasTexture" id="AtlasTexture_su2o1"]
+atlas = ExtResource("3_6ouow")
 region = Rect2(0, 0, 40, 49)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_df3ty"]
-atlas = ExtResource("3_0a6dn")
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqptu"]
+atlas = ExtResource("3_6ouow")
 region = Rect2(40, 0, 40, 49)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yoawd"]
-atlas = ExtResource("3_0a6dn")
+[sub_resource type="AtlasTexture" id="AtlasTexture_01jd5"]
+atlas = ExtResource("3_6ouow")
 region = Rect2(80, 0, 40, 49)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4fh27"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ly0ny")
+"texture": SubResource("AtlasTexture_su2o1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_df3ty")
+"texture": SubResource("AtlasTexture_kqptu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yoawd")
+"texture": SubResource("AtlasTexture_01jd5")
 }],
 "loop": 1,
 "name": &"default",
@@ -66,7 +66,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]
 size = Vector2(11, 6)
 
-[node name="TicketSouthSign" type="Node2D" unique_id=733299724]
+[node name="BathroomSouthSign" type="Node2D" unique_id=733299724]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1452118075]
 z_index = 1
@@ -75,7 +75,7 @@ sprite_frames = SubResource("SpriteFrames_71mc2")
 autoplay = "default"
 
 [node name="ScreenGlow" type="Node2D" parent="." unique_id=96135887 groups=["night_lights"]]
-script = ExtResource("2_0a6dn")
+script = ExtResource("2_6ouow")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScreenGlow" unique_id=276422177]
 modulate = Color(1, 1, 1, 0)
@@ -101,8 +101,8 @@ offset_left = -5.0
 offset_top = -46.0
 offset_right = 5.0
 offset_bottom = -35.0
-script = ExtResource("4_uchof")
-_string = "<<ticket>>"
+script = ExtResource("4_3bu8h")
+_string = "<<bathroom>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="ResshanInteractable2" type="Control" parent="." unique_id=1340402580]
@@ -113,6 +113,6 @@ offset_left = -5.0
 offset_top = -35.0
 offset_right = 5.0
 offset_bottom = -24.0
-script = ExtResource("4_uchof")
+script = ExtResource("4_3bu8h")
 _string = "<<south>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
