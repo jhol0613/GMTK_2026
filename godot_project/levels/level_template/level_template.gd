@@ -51,9 +51,6 @@ func _ready() -> void:
 
 	#SignalBus.missed_train.connect(_on_missed_train)
 
-	if TimeManager.consume_wrong_train_dialogue():
-		call_deferred("_play_wrong_train_dialogue")
-
 
 func get_resume_spawn_train() -> Train:
 	return arrival_train
@@ -66,8 +63,7 @@ func _start_level_audio() -> void:
 		await arrival_train.wait_for_pulling_in()
 	AudioManager.finish_level_music_start(sequence, music_fade_in_duration)
 
-func _play_wrong_train_dialogue() -> void:
-	await get_tree().create_timer(1.5).timeout
+func play_wrong_train_dialogue() -> void:
 	await _play_character_dialogue(wrong_train_line)
 
 func _play_character_dialogue(line: DialogueLine) -> void:

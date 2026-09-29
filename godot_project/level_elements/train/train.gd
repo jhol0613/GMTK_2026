@@ -4,6 +4,8 @@ extends Node2D
 
 class_name Train
 
+signal player_disembarked
+
 @export var next_scene: Enums.Scenes = Enums.Scenes.LEVEL_1
 @export var level_clear_time_cost_minutes: int = 5
 @export var direction: Enums.TrainDirection:
@@ -260,14 +262,13 @@ func _wrong_train_sequence() -> void:
 	GameManager.play_scene_concurrently(Enums.Scenes.WRONG_TRAIN)
 	await GameManager.concurrent_scene_complete
 
-	TimeManager.stash_before_reload(incorrect_penalty_minutes)
-	
+	TimeManager.apply_penalty(incorrect_penalty_minutes)
+
 	return_train.play_arrival_animation()
-	#GameManager.stash_data_before_scene_change(return_train)
-	#var current_scene = GameManager.get_current_scene()
-	#if GameManager.scene_dict[current_scene] is LevelTemplate:
-		#GameManager.scene_dict[current_scene].
-	#GameManager.load_scene(GameManager.get_current_scene())
+	await return_train.player_disembarked
+	var level := get_tree().current_scene as LevelTemplate
+	if level != null:
+		await level.play_wrong_train_dialogue()
 	_boarding = false
 
 
@@ -404,6 +405,7 @@ func play_arrival_animation(include_player = true) -> void:
 	
 	player.set_active(true)
 	get_tree().get_first_node_in_group("ui_overlay").player_in_arrive_disembark_anim = false
+	player_disembarked.emit()
 	
 	await train_depart(true)
 	_block_arrivals = false
