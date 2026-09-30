@@ -57,16 +57,16 @@ size = Vector2(816, 408)
 size = Vector2(815, 413)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s4b5i"]
-size = Vector2(574, 263)
+size = Vector2(574, 252)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pg750"]
-size = Vector2(96, 28.5)
+size = Vector2(96, 39.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uuidd"]
-size = Vector2(574, 263)
+size = Vector2(574, 253)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5l23l"]
-size = Vector2(79, 27.5)
+size = Vector2(79, 37.375)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fq0us"]
 size = Vector2(816, 416)
@@ -1326,26 +1326,37 @@ hide_if_vertical = []
 [node name="LowerTrain" parent="Platform5" index="4" unique_id=1370361982 node_paths=PackedStringArray("hide_if_vertical")]
 hide_if_vertical = []
 
+[node name="Hourglass" parent="Platform5" index="5" unique_id=259821884]
+position = Vector2(-127, 37)
+
 [node name="Station0Sign" parent="Platform5" index="11" unique_id=98722644]
+position = Vector2(-184, 34)
 station_number = 2
 
 [node name="Station0Sign2" parent="Platform5" index="12" unique_id=421458582]
+position = Vector2(-71, 34)
 station_number = 2
 
 [node name="LayerTransitionZone" parent="Platform5" index="13" unique_id=1662407236]
 visible = true
 
 [node name="CollisionShape2D" parent="Platform5/LayerTransitionZone" index="0" unique_id=6447672]
-position = Vector2(-128, 31.5)
+position = Vector2(-128, 37)
 shape = SubResource("RectangleShape2D_s4b5i")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Platform5/LayerTransitionZone" index="1" unique_id=1264534563]
-position = Vector2(-208, -114.25)
+position = Vector2(-208, -108.75)
 shape = SubResource("RectangleShape2D_pg750")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Platform5/LayerTransitionZone" index="2" unique_id=429838709]
-position = Vector2(-48, -114)
+position = Vector2(-48, -108)
 shape = SubResource("RectangleShape2D_pg750")
+
+[node name="RestChairVerticalLeft" parent="Platform5" index="18" unique_id=232674008]
+position = Vector2(-144, 60)
+
+[node name="RestChairVerticalRight" parent="Platform5" index="19" unique_id=484732143]
+position = Vector2(-112, 60)
 
 [node name="RestChairVerticalLeft2" parent="Platform5" index="20" unique_id=1219193307]
 process_mode = 4
@@ -1532,25 +1543,30 @@ hide_if_vertical = []
 hide_if_vertical = []
 color = 5
 
+[node name="Hourglass" parent="Platform6" index="5" unique_id=259821884]
+position = Vector2(-127, 37)
+
 [node name="Station0Sign" parent="Platform6" index="11" unique_id=98722644]
+position = Vector2(-184, 35)
 station_number = 2
 
 [node name="Station0Sign2" parent="Platform6" index="12" unique_id=421458582]
+position = Vector2(-71, 35)
 station_number = 2
 
 [node name="LayerTransitionZone" parent="Platform6" index="13" unique_id=1662407236]
 visible = true
 
 [node name="CollisionShape2D" parent="Platform6/LayerTransitionZone" index="0" unique_id=6447672]
-position = Vector2(-128, 31.5)
+position = Vector2(-128, 36.5)
 shape = SubResource("RectangleShape2D_uuidd")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Platform6/LayerTransitionZone" index="1" unique_id=2081528539]
-position = Vector2(-216, -114)
+position = Vector2(-216, -109)
 shape = SubResource("RectangleShape2D_5l23l")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Platform6/LayerTransitionZone" index="2" unique_id=1535857085]
-position = Vector2(-41, -114)
+position = Vector2(-41, -108.6875)
 shape = SubResource("RectangleShape2D_5l23l")
 
 [node name="RestChairVerticalLeft" parent="Platform6" index="18" unique_id=232674008]
@@ -1574,10 +1590,10 @@ collision_mask = 0
 position = Vector2(-88, 48)
 
 [node name="StaticBody" parent="Platform6" index="22" unique_id=929298962 instance=ExtResource("5_gsja5")]
-position = Vector2(-168, 72)
+position = Vector2(-168, 85)
 
 [node name="StaticBody2" parent="Platform6" index="23" unique_id=2063993111 instance=ExtResource("5_gsja5")]
-position = Vector2(-88, -32)
+position = Vector2(-82, -29)
 
 [node name="StreetLamp2" parent="Platform6" index="24" unique_id=786967363 instance=ExtResource("19_qfhyh")]
 position = Vector2(-208, 112)
@@ -1999,7 +2015,7 @@ position = Vector2(104, 64)
 [node name="DepartureBoard" parent="." index="14" unique_id=994016923 instance=ExtResource("3_lnqnw")]
 position = Vector2(-1657, -1509)
 
-[node name="CentralHourglass" parent="." index="15" unique_id=259821884 instance=ExtResource("5_2smvo")]
+[node name="CentralHourglass" parent="." index="15" unique_id=1944013354 instance=ExtResource("5_2smvo")]
 position = Vector2(-1822, -1284)
 
 [node name="TicketBooth" parent="." index="16" unique_id=861247956 instance=ExtResource("7_aq41y")]

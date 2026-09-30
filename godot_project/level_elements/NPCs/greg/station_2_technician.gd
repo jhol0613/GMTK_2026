@@ -82,7 +82,7 @@ func _on_option_confirmed(option_id: StringName):
 		_fixing_vending_machines = false
 		_player.movement_disabled = true
 		await _panel.dialogue_complete
-		#_collision_shape.disabled = true
+		_collision_shape.disabled = true
 		set_collision_layer_value(2, false)
 		atm_guy.visible = false
 		_state = State.ACTING
@@ -93,6 +93,7 @@ func _on_option_confirmed(option_id: StringName):
 		_state = State.FOLLOWING
 		_set_interactable(false)
 		_player.movement_disabled = false
+		_collision_shape.disabled = false
 		atm.dialog_interactable.active = true
 		atm.dialog_interactable.interacted.connect(_on_broken_atm_interacted)
 		_start_follow_timeout()
