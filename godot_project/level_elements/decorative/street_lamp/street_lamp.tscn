@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c6cf2lsxpijf6"]
 
-[ext_resource type="Texture2D" uid="uid://dkjr6f7tchcf" path="res://level_elements/decorative/street_lamp/Untitled 08-11-2026 11-15-18.png" id="1_base"]
+[ext_resource type="Texture2D" uid="uid://dkjr6f7tchcf" path="res://level_elements/decorative/street_lamp/street_lamp.png" id="1_base"]
 [ext_resource type="Texture2D" uid="uid://d35o264k0rfvt" path="res://level_elements/decorative/street_lamp/Street_Lamp_Glow.png" id="2_glow"]
 [ext_resource type="Texture2D" uid="uid://b7k1rwda5wu1p" path="res://visual_effects/day_night/light_radial.png" id="3_light"]
 [ext_resource type="Script" uid="uid://iodb4my382ba" path="res://level_elements/decorative/street_lamp/night_light_cones.gd" id="4_night"]
