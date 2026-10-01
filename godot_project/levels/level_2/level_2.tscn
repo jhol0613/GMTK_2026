@@ -313,6 +313,9 @@ position = Vector2(-232, 72)
 [node name="Birb5" parent="Platform1" index="43" unique_id=2047234949 instance=ExtResource("25_ppf8r")]
 position = Vector2(-232, 72)
 
+[node name="StreetLamp27" parent="Platform1" index="44" unique_id=1315195335 instance=ExtResource("19_qfhyh")]
+position = Vector2(200, 48)
+
 [node name="Platform2" parent="." index="8" unique_id=293687369 instance=ExtResource("3_2smvo")]
 position = Vector2(-1696, -2464)
 station_number = 2
@@ -2677,80 +2680,77 @@ position = Vector2(-2312, -1936)
 [node name="StreetLamp26" parent="Decorations/Lamps" index="25" unique_id=1408438783 instance=ExtResource("19_qfhyh")]
 position = Vector2(-2160, -2080)
 
-[node name="StreetLamp27" parent="Decorations/Lamps" index="26" unique_id=1315195335 instance=ExtResource("19_qfhyh")]
-position = Vector2(-2680, -1920)
-
-[node name="StreetLamp28" parent="Decorations/Lamps" index="27" unique_id=1504580393 instance=ExtResource("19_qfhyh")]
+[node name="StreetLamp28" parent="Decorations/Lamps" index="26" unique_id=1504580393 instance=ExtResource("19_qfhyh")]
 position = Vector2(-2224, -1584)
 
-[node name="StreetLamp29" parent="Decorations/Lamps" index="28" unique_id=1461651674 instance=ExtResource("19_qfhyh")]
+[node name="StreetLamp29" parent="Decorations/Lamps" index="27" unique_id=1461651674 instance=ExtResource("19_qfhyh")]
 position = Vector2(-2304, -1456)
 
-[node name="StreetLamp30" parent="Decorations/Lamps" index="29" unique_id=414785500 instance=ExtResource("19_qfhyh")]
+[node name="StreetLamp30" parent="Decorations/Lamps" index="28" unique_id=414785500 instance=ExtResource("19_qfhyh")]
 position = Vector2(-2448, -1376)
 
-[node name="StreetLamp31" parent="Decorations/Lamps" index="30" unique_id=857641272 instance=ExtResource("19_qfhyh")]
+[node name="StreetLamp31" parent="Decorations/Lamps" index="29" unique_id=857641272 instance=ExtResource("19_qfhyh")]
 position = Vector2(-2224, -1288)
 
-[node name="StreetLamp32" parent="Decorations/Lamps" index="31" unique_id=675308360 instance=ExtResource("19_qfhyh")]
+[node name="StreetLamp32" parent="Decorations/Lamps" index="30" unique_id=675308360 instance=ExtResource("19_qfhyh")]
 position = Vector2(-2448, -1160)
 
-[node name="StreetLamp33" parent="Decorations/Lamps" index="32" unique_id=255074205 instance=ExtResource("19_qfhyh")]
+[node name="StreetLamp33" parent="Decorations/Lamps" index="31" unique_id=255074205 instance=ExtResource("19_qfhyh")]
 position = Vector2(-2680, -1224)
 
-[node name="StreetLamp34" parent="Decorations/Lamps" index="33" unique_id=388481584 instance=ExtResource("19_qfhyh")]
+[node name="StreetLamp34" parent="Decorations/Lamps" index="32" unique_id=388481584 instance=ExtResource("19_qfhyh")]
 position = Vector2(-2224, -1096)
 
-[node name="StreetLamp35" parent="Decorations/Lamps" index="34" unique_id=1747347694 instance=ExtResource("19_qfhyh")]
+[node name="StreetLamp35" parent="Decorations/Lamps" index="33" unique_id=1747347694 instance=ExtResource("19_qfhyh")]
 position = Vector2(-2288, -888)
 
-[node name="StreetLamp36" parent="Decorations/Lamps" index="35" unique_id=1406662783 instance=ExtResource("19_qfhyh")]
+[node name="StreetLamp36" parent="Decorations/Lamps" index="34" unique_id=1406662783 instance=ExtResource("19_qfhyh")]
 visible = false
 position = Vector2(-2072, -696)
 
-[node name="StreetLamp37" parent="Decorations/Lamps" index="36" unique_id=1756860901 instance=ExtResource("19_qfhyh")]
+[node name="StreetLamp37" parent="Decorations/Lamps" index="35" unique_id=1756860901 instance=ExtResource("19_qfhyh")]
 position = Vector2(-2280, -600)
 
-[node name="StreetLamp38" parent="Decorations/Lamps" index="37" unique_id=523240334 instance=ExtResource("19_qfhyh")]
+[node name="StreetLamp38" parent="Decorations/Lamps" index="36" unique_id=523240334 instance=ExtResource("19_qfhyh")]
 position = Vector2(-880, -968)
 
-[node name="StreetLamp39" parent="Decorations/Lamps" index="38" unique_id=832246172 instance=ExtResource("19_qfhyh")]
+[node name="StreetLamp39" parent="Decorations/Lamps" index="37" unique_id=832246172 instance=ExtResource("19_qfhyh")]
 position = Vector2(-944, -736)
 
-[node name="StreetLamp40" parent="Decorations/Lamps" index="39" unique_id=222776889 instance=ExtResource("19_qfhyh")]
+[node name="StreetLamp40" parent="Decorations/Lamps" index="38" unique_id=222776889 instance=ExtResource("19_qfhyh")]
 position = Vector2(-880, -552)
 
-[node name="StreetLamp41" parent="Decorations/Lamps" index="40" unique_id=1464569242 instance=ExtResource("19_qfhyh")]
+[node name="StreetLamp41" parent="Decorations/Lamps" index="39" unique_id=1464569242 instance=ExtResource("19_qfhyh")]
 position = Vector2(-888, -392)
 
-[node name="StreetLamp42" parent="Decorations/Lamps" index="41" unique_id=1430724900 instance=ExtResource("19_qfhyh")]
+[node name="StreetLamp42" parent="Decorations/Lamps" index="40" unique_id=1430724900 instance=ExtResource("19_qfhyh")]
 position = Vector2(-1184, -656)
 
-[node name="StreetLamp43" parent="Decorations/Lamps" index="42" unique_id=261337424 instance=ExtResource("19_qfhyh")]
+[node name="StreetLamp43" parent="Decorations/Lamps" index="41" unique_id=261337424 instance=ExtResource("19_qfhyh")]
 position = Vector2(-1120, -1616)
 
-[node name="StreetLamp44" parent="Decorations/Lamps" index="43" unique_id=2001047648 instance=ExtResource("19_qfhyh")]
+[node name="StreetLamp44" parent="Decorations/Lamps" index="42" unique_id=2001047648 instance=ExtResource("19_qfhyh")]
 position = Vector2(-2624, -880)
 
-[node name="StreetLamp45" parent="Decorations/Lamps" index="44" unique_id=854732238 instance=ExtResource("19_qfhyh")]
+[node name="StreetLamp45" parent="Decorations/Lamps" index="43" unique_id=854732238 instance=ExtResource("19_qfhyh")]
 position = Vector2(-1760, -1512)
 
-[node name="StreetLamp46" parent="Decorations/Lamps" index="45" unique_id=2040432359 instance=ExtResource("19_qfhyh")]
+[node name="StreetLamp46" parent="Decorations/Lamps" index="44" unique_id=2040432359 instance=ExtResource("19_qfhyh")]
 position = Vector2(-1840, -1408)
 
-[node name="StreetLamp47" parent="Decorations/Lamps" index="46" unique_id=504118578 instance=ExtResource("19_qfhyh")]
+[node name="StreetLamp47" parent="Decorations/Lamps" index="45" unique_id=504118578 instance=ExtResource("19_qfhyh")]
 position = Vector2(-2032, -1424)
 
-[node name="StreetLamp48" parent="Decorations/Lamps" index="47" unique_id=2100449336 instance=ExtResource("19_qfhyh")]
+[node name="StreetLamp48" parent="Decorations/Lamps" index="46" unique_id=2100449336 instance=ExtResource("19_qfhyh")]
 position = Vector2(-1616, -912)
 
-[node name="StreetLamp49" parent="Decorations/Lamps" index="48" unique_id=2061511352 instance=ExtResource("19_qfhyh")]
+[node name="StreetLamp49" parent="Decorations/Lamps" index="47" unique_id=2061511352 instance=ExtResource("19_qfhyh")]
 position = Vector2(-1856, -1952)
 
-[node name="StreetLamp50" parent="Decorations/Lamps" index="49" unique_id=1920843518 instance=ExtResource("19_qfhyh")]
+[node name="StreetLamp50" parent="Decorations/Lamps" index="48" unique_id=1920843518 instance=ExtResource("19_qfhyh")]
 position = Vector2(-2400, -1792)
 
-[node name="StreetLamp51" parent="Decorations/Lamps" index="50" unique_id=1616235728 instance=ExtResource("19_qfhyh")]
+[node name="StreetLamp51" parent="Decorations/Lamps" index="49" unique_id=1616235728 instance=ExtResource("19_qfhyh")]
 position = Vector2(-2080, -724)
 
 [node name="Plants" type="Node2D" parent="Decorations" index="3" unique_id=1224301456]
