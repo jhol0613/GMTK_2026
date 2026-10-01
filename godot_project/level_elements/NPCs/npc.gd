@@ -184,7 +184,7 @@ func _idle_animation() -> StringName:
 
 
 func _play(anim: StringName) -> void:
-	if _sprite.animation != anim or not _sprite.is_playing():
+	if ( _sprite.animation != anim or not _sprite.is_playing() ) and _sprite.sprite_frames.has_animation(anim):
 		_sprite.play(anim)
 
 

@@ -75,7 +75,7 @@ func _build_cry_randomizer() -> AudioStreamRandomizer:
 
 func _sob() -> void:
 	if _sprite.animation == &"throw":
-		_sprite.play("idle")
+		_sprite.play("cry")
 	if _crying and not cry_clips.is_empty():
 		_cry_player.play()
 

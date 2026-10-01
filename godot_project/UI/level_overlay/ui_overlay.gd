@@ -300,7 +300,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func open_notebook() -> void:
-	if _notebook.visible:
+	if _notebook.visible or player_in_arrive_disembark_anim:
 		return
 
 	_close_ticket()
