@@ -111,6 +111,7 @@ func _ready() -> void:
 		Enums.TrainDirection.NORTH:
 			player_embark_marker = $NorthSouth/PlayerEmbarkMarkerVertical
 			player_disembark_marker = $NorthSouth/PlayerDisembarkMarkerNorth
+			$EastWest.visible = false
 		Enums.TrainDirection.SOUTH:
 			player_embark_marker = $NorthSouth/PlayerEmbarkMarkerVertical
 			player_disembark_marker = $NorthSouth/PlayerDisembarkMarkerSouth
@@ -119,12 +120,15 @@ func _ready() -> void:
 			train_interactable_u._prompt.scale.x = -train_interactable_u._prompt.scale.x
 			train_interactable_d.scale = Vector2(-1, 1)
 			train_interactable_d._prompt.scale.x = -train_interactable_d._prompt.scale.x
+			$EastWest.visible = false
 		Enums.TrainDirection.EAST:
 			player_embark_marker = $EastWest/PlayerEmbarkMarkerHorizontal
 			player_disembark_marker = $EastWest/PlayerDisembarkMarkerEast
+			$EastWest.visible = true
 		Enums.TrainDirection.WEST:
 			player_embark_marker = $EastWest/PlayerEmbarkMarkerHorizontal
 			player_disembark_marker = $EastWest/PlayerDisembarkMarkerWest
+			$EastWest.visible = true
 	train_interactable_u.visible = _is_vertical()
 	train_interactable_d.visible = _is_vertical()
 	train_interactable_l.visible = not _is_vertical()
