@@ -25,5 +25,5 @@ func set_data(departure: DepartureData) -> void:
 	time_seconds = departure.departure_time_seconds
 	var time_hms = TimeManager.seconds_to_hms(time_seconds)
 	$Time.text = "<<%s>> : <<%s>> : <<%s>>" % [time_hms.x, time_hms.y, time_hms.z]
-	$Station.text = "<<to>> %s" % [departure.destination]
+	$Station.text = "<<go>> %s" % [departure.destination]
 	$Platform.text = "<<platform>> <<%s>>" % [departure.platform]
