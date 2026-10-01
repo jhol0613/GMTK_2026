@@ -104,6 +104,7 @@ texture = ExtResource("12_sitting")
 flip_h = true
 
 [node name="NightLight" type="Node2D" parent="." unique_id=1713894748 groups=["night_lights"]]
+position = Vector2(0, 36)
 script = ExtResource("11_night")
 max_energy = 0.12
 max_glow_alpha = 0.9
