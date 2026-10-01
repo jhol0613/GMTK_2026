@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cmdda7648573b" path="res://level_elements/NPCs/npc.tscn" id="1_a1kig"]
 [ext_resource type="Texture2D" uid="uid://baqw0y264taw5" path="res://level_elements/NPCs/guide/Guide.png" id="2_qddw2"]
+[ext_resource type="Script" uid="uid://uw5b0113aoya" path="res://level_elements/NPCs/guide/guide.gd" id="2_urub3"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="3_qddw2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o4ndn"]
@@ -65,6 +66,7 @@ animations = [{
 }]
 
 [node name="Guide" unique_id=837182991 instance=ExtResource("1_a1kig")]
+script = ExtResource("2_urub3")
 
 [node name="Sprite" parent="." index="0" unique_id=1868209522]
 sprite_frames = SubResource("SpriteFrames_qxlha")
