@@ -207,6 +207,17 @@ script = ExtResource("18_abad0")
 _string = "<<coffee>> "
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
+[node name="ResshanInteractable3" type="Control" parent="." unique_id=2052200239]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -11.0
+offset_top = -46.0
+offset_right = -5.0
+offset_bottom = -40.0
+script = ExtResource("18_abad0")
+_string = "<<coffee>> "
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
 [node name="ResshanInteractable2" type="Control" parent="." unique_id=569445288]
 layout_mode = 3
 anchors_preset = 0
