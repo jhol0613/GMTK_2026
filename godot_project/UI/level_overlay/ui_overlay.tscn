@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bcvo7wxbtrab5" path="res://ui/ticket/ticket.tscn" id="4_ticket"]
 [ext_resource type="Texture2D" uid="uid://d05r7jsgne3d5" path="res://ui/ticket/icon_ticket.png" id="6_3atem"]
 [ext_resource type="Texture2D" uid="uid://bj88cvml0vs4h" path="res://ui/sprites/item_popup.png" id="6_ak43t"]
-[ext_resource type="PackedScene" path="res://ui/coffee_indicator/coffee_indicator.tscn" id="6_coffee"]
+[ext_resource type="PackedScene" uid="uid://n0ycuoup584n" path="res://ui/coffee_indicator/coffee_indicator.tscn" id="6_coffee"]
 [ext_resource type="PackedScene" uid="uid://bdx06b4wet51l" path="res://time/time.tscn" id="6_time"]
 [ext_resource type="PackedScene" uid="uid://bsoxy1crv442m" path="res://ui/token_display/token_display.tscn" id="6_tokens"]
 [ext_resource type="AudioStream" uid="uid://dxds6wjegh3pq" path="res://ui/sfx/HoverTicket_Schedule3.mp3" id="7_64688"]
@@ -267,6 +267,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="Time" parent="." unique_id=1094747134 instance=ExtResource("6_time")]
+z_index = 1
 offset_left = 1601.0
 offset_top = 24.0
 offset_right = 1801.0
@@ -281,12 +282,10 @@ offset_right = 228.0
 offset_bottom = 116.0
 
 [node name="CoffeeIndicator" parent="." unique_id=1195736173 instance=ExtResource("6_coffee")]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 1374.0
-offset_top = 153.0
-offset_right = 1554.0
-offset_bottom = 193.0
+offset_left = 1643.0
+offset_top = 183.0
+offset_right = 1835.0
+offset_bottom = 247.0
 
 [node name="Notebook" parent="." unique_id=2020796058 instance=ExtResource("2_l5of1")]
 visible = false
@@ -306,6 +305,7 @@ offset_right = 136.0
 offset_bottom = 474.0
 
 [node name="ItemPopup" type="CenterContainer" parent="." unique_id=1015391337]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

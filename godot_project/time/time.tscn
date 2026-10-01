@@ -34,6 +34,7 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_kgoo1")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1927031688]
+texture_filter = 1
 layout_mode = 0
 offset_right = 123.0
 offset_bottom = 83.0

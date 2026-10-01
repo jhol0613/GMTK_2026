@@ -1,6 +1,6 @@
 extends Control
 
-@onready var _bar: ProgressBar = $Bar
+@onready var _bar: ProgressBar = $TextureRect/Bar
 
 
 func _ready() -> void:
