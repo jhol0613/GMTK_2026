@@ -91,8 +91,10 @@ func _handle_show_resshan(encoded: String) -> void:
 		for page: NotebookPage in pages:
 			for entry: NotebookEntry in page.get_entries():
 				if entry.resshan_string == encoded:
-					_on_section_switch_pressed(section_index)
-					_sections[_current_section].show_page(pages.find(page))
+					var page_number = pages.find(page)
+					_on_section_switch_pressed(section_index, page_number)
+					_sections[section_index].show_page(page_number)
+					return
 
 func _handle_moving_entry(to_section:int, remove_old_entry: bool, entry:NotebookEntry) -> void:
 	for section: NotebookSection in _sections:

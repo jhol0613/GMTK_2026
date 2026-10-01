@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cg7lcfqothrd2"]
 
 [ext_resource type="Script" uid="uid://dw50etyrf26ll" path="res://notebook/notebook_section.gd" id="1_e75hj"]
-[ext_resource type="PackedScene" uid="uid://bfuu8moxyxa5w" path="res://notebook/notebook_page.tscn" id="2_dohu8"]
 [ext_resource type="FontFile" uid="uid://byxrvfx8kprnq" path="res://ui/fonts/Embolism Spark.ttf" id="3_8irv7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e75hj"]
@@ -27,9 +26,6 @@ offset_top = 52.0
 offset_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="NotebookPage" parent="Pages" unique_id=1241555215 instance=ExtResource("2_dohu8")]
-layout_mode = 1
 
 [node name="Label" type="LineEdit" parent="." unique_id=1597412108]
 layout_mode = 1

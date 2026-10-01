@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cl8johgipjs7n"]
+
+[ext_resource type="PackedScene" uid="uid://bfuu8moxyxa5w" path="res://notebook/notebook_page.tscn" id="1_bl268"]
+[ext_resource type="FontFile" uid="uid://byxrvfx8kprnq" path="res://ui/fonts/Embolism Spark.ttf" id="2_y0yfv"]
+
+[node name="NotebookPage" unique_id=1241555215 instance=ExtResource("1_bl268")]
+offset_top = -8.0
+offset_bottom = -8.0
+
+[node name="Label" type="Label" parent="." index="0" unique_id=1837031826]
+layout_mode = 0
+offset_top = -53.0
+offset_right = 576.0
+offset_bottom = 52.0
+theme_override_colors/font_color = Color(0.19215687, 0.19215687, 0.19215687, 1)
+theme_override_fonts/font = ExtResource("2_y0yfv")
+theme_override_font_sizes/font_size = 32
+text = "I can click on any word I see to put it in this notebook!
+Then I can type my best guesses for what they mean.
+I bet learning a lot of words will help me find my way."
+
+[node name="Holder" parent="." index="1" unique_id=173175333]
+offset_left = 1.0
+offset_top = 77.0
+offset_right = 1.0
+offset_bottom = 1077.0

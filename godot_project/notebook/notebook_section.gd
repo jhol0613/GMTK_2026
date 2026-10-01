@@ -4,12 +4,15 @@ extends Control
 ## This must match a section name in the dictionary json
 @export var section_name: String = 'Section'
 
+#Use these to load special page scenes when a page is created
+@export var special_pages: Dictionary[int, PackedScene]
+
 
 var current_page: int = 0
 
 const INSTRUCTION_PAGE_TOP := 124.0
 const ENTRY_PAGE_TOP := 65.0
-const FIRST_PAGE_LIMIT := 7
+const INSTRUCTION_PAGE_LIMIT := 7
 const OTHER_PAGE_LIMIT := 8
 
 signal header_changed(index: int, text: String)
@@ -23,11 +26,17 @@ func _ready() -> void:
 		page.entry_limit = _get_page_limit(page_index)
 		_connect_page(page)
 	_update_page_layout()
+	_new_page()
 
 
 # It always be placed at the end
 func _new_page() -> void:
-	var page:NotebookPage = preload('res://notebook/notebook_page.tscn').instantiate()
+	var new_page_num = get_pages().size()
+	var page:NotebookPage
+	if special_pages.has(new_page_num):
+		page = special_pages[new_page_num].instantiate()
+	else:
+		page = preload('res://notebook/notebook_page.tscn').instantiate()
 	page.entry_limit = _get_page_limit(get_pages().size())
 	_connect_page(page)
 	
@@ -107,19 +116,19 @@ func get_entry_page() -> NotebookPage:
 	return get_pages()[-1]
 
 
-func _has_instruction_page() -> bool:
-	return has_node("Label2")
-
+func _has_instruction_page(page_index: int) -> bool:
+	return special_pages.has(page_index)
 
 func _get_page_limit(page_index: int) -> int:
-	return FIRST_PAGE_LIMIT if _has_instruction_page() and page_index == 0 else OTHER_PAGE_LIMIT
+	return INSTRUCTION_PAGE_LIMIT if _has_instruction_page(page_index) else OTHER_PAGE_LIMIT
 
 
 func _update_page_layout() -> void:
-	if not _has_instruction_page():
-		return
-	$Label2.visible = current_page == 0
-	_pages.offset_top = INSTRUCTION_PAGE_TOP if current_page == 0 else ENTRY_PAGE_TOP
+	pass
+	#if not _has_instruction_page(current_page):
+		#return
+	#$Label2.visible = current_page == 0
+	#_pages.offset_top = INSTRUCTION_PAGE_TOP if _has_instruction_page(current_page) else ENTRY_PAGE_TOP
 
 
 func get_pages() -> Array[NotebookPage]:

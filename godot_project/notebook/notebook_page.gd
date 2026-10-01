@@ -7,7 +7,7 @@ signal entry_updated(encoded:String, new_text:String)
 signal entry_order_changed
 
 var entries_count: int = 0
-var entry_limit := 8
+@export var entry_limit := 8
 var _drop_indicator: Line2D
 
 @onready var holder := %Holder
@@ -25,17 +25,17 @@ func _ready() -> void:
 
 func _new_entry(encoded:String, initial_text = "") -> NotebookEntry:
 	var entry:NotebookEntry = preload('uid://s4gdpvpyayn0').instantiate()
-	
+
 	entries_count += 1
 	if entries_count >= entry_limit:
 		limit_reached.emit()
-	
+
 	holder.add_child(entry)
 	entry.player_input.text = initial_text
 	entry.add_resshan(encoded)
 	entry.player_input.text_changed.connect(_handle_entry_update.bind(encoded))
 	entry.reordered.connect(entry_order_changed.emit)
-	
+
 	return entry
 
 ## Entry must not be in the scene tree

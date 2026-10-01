@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://jfy1kqnuic48"]
+
+[ext_resource type="PackedScene" uid="uid://bfuu8moxyxa5w" path="res://notebook/notebook_page.tscn" id="1_hghan"]
+[ext_resource type="FontFile" uid="uid://byxrvfx8kprnq" path="res://ui/fonts/Embolism Spark.ttf" id="2_pibc1"]
+
+[node name="NotebookPage" unique_id=1241555215 instance=ExtResource("1_hghan")]
+
+[node name="Label" type="Label" parent="." index="0" unique_id=1837031826]
+layout_mode = 0
+offset_top = -63.0
+offset_right = 516.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0.19215687, 0.19215687, 0.19215687, 1)
+theme_override_fonts/font = ExtResource("2_pibc1")
+theme_override_font_sizes/font_size = 32
+text = "There are so many words! I can stay organized by
+dragging them onto new tabs or by dragging them
+up and down on the page."
+
+[node name="Holder" parent="." index="1" unique_id=173175333]
+offset_top = 64.0
+offset_bottom = 1064.0
