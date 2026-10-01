@@ -40,6 +40,12 @@ func explode() -> void:
 	#numerator is desired frame number
 	var time_until_shake = 4.0/sprite.sprite_frames.get_animation_speed("explode")
 	await get_tree().create_timer(time_until_shake).timeout
+	
+	$ExplosionLight.visible = true
+	var light_tween = create_tween()
+	light_tween.tween_property($ExplosionLight, "energy", 3.0, 0.25)
+	light_tween.tween_property($ExplosionLight, "energy", 0.0, 0.5)
+	
 	var camera = get_tree().get_first_node_in_group("cameras") as ShakeCamera
 	if camera:
 		camera.apply_shake()

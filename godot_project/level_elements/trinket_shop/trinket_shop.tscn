@@ -213,7 +213,7 @@ material = SubResource("ShaderMaterial_fhk1x")
 offset_left = -15.0
 offset_top = -55.0
 offset_right = 50.0
-offset_bottom = 13.0
+offset_bottom = 31.0
 mouse_filter = 2
 
 [node name="LightCone2" type="ColorRect" parent="NightLight" unique_id=824084984]
@@ -222,7 +222,7 @@ z_index = 1
 material = SubResource("ShaderMaterial_fhk1x")
 offset_left = -65.0
 offset_top = -55.0
-offset_bottom = 13.0
+offset_bottom = 31.0
 mouse_filter = 2
 
 [node name="DialogueInteractable" parent="." unique_id=358228256 instance=ExtResource("3_xxwc8")]

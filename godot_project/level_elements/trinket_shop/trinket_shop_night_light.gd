@@ -3,7 +3,7 @@ extends Node2D
 @export_range(0.0, 1.0, 0.01) var start_progress := 0.25
 @export_range(0.0, 1.0, 0.01) var full_strength_progress := 0.75
 @export_range(0.0, 1.0, 0.05) var max_glow_alpha := 1.0
-@export_range(0.0, 1.0, 0.01) var max_cone_alpha := 0.26
+@export_range(0.0, 1.0, 0.01) var max_cone_alpha := 0.4
 @export var light_cones: Array[ColorRect] = []
 
 @onready var source: AnimatedSprite2D = $"../Sprite2D"

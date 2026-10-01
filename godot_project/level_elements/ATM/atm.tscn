@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dutgmr1vyofwv" path="res://level_elements/ATM/atm_glow.png" id="7_normal_glow"]
 [ext_resource type="Texture2D" uid="uid://bdk1p3vfen6aa" path="res://level_elements/ATM/atm_broken_glow.png" id="8_broken_glow"]
 [ext_resource type="AudioStream" uid="uid://dbh1ouofo0rld" path="res://level_elements/ATM/ATM_Explosion.mp3" id="9_explosion"]
+[ext_resource type="Texture2D" uid="uid://luhdx2mhg1wj" path="res://visual_effects/day_night/point_light.png" id="12_7yx5x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ylf28"]
 atlas = ExtResource("1_df8qj")
@@ -231,7 +232,6 @@ modulate = Color(1, 1, 1, 0)
 material = SubResource("CanvasItemMaterial_glow")
 sprite_frames = SubResource("SpriteFrames_glow")
 animation = &"broken"
-frame_progress = 0.9145892
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1122527182]
 z_index = 1
@@ -279,5 +279,13 @@ bus = &"SFX"
 
 [node name="RefillLightningOrigin" type="Marker2D" parent="." unique_id=926426454]
 position = Vector2(9, -29)
+
+[node name="ExplosionLight" type="PointLight2D" parent="." unique_id=243302590]
+visible = false
+position = Vector2(-5, -47)
+scale = Vector2(4, 4)
+color = Color(1, 0.81200004, 0.060000002, 1)
+energy = 0.0
+texture = ExtResource("12_7yx5x")
 
 [editable path="DialogueInteractable"]

@@ -2041,6 +2041,9 @@ z_index = 0
 [node name="AnimatedSprite2D" parent="ATM/DialogueInteractable" parent_id_path=PackedInt32Array(124595741, 1631350735) index="2" unique_id=819702371]
 z_index = 0
 
+[node name="ExplosionLight" parent="ATM" index="8" unique_id=243302590]
+visible = false
+
 [node name="ATMGuy" parent="." index="18" unique_id=1630953085 instance=ExtResource("9_12l1j")]
 position = Vector2(-1994, -1038)
 
