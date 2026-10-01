@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://ct10126tfbxb3" path="res://levels/level_1/level_specific_resources/trinket_dialogue_level1.tres" id="9_jq5vq"]
 [ext_resource type="PackedScene" uid="uid://2pwlm8itluel" path="res://level_elements/ticket_booth/ticket_booth.tscn" id="19_uptk2"]
 [ext_resource type="Resource" uid="uid://cnbhuvmr2ufjd" path="res://levels/level_1/level_specific_resources/ticket_dialogue_level1.tres" id="21_rflqb"]
+[ext_resource type="PackedScene" uid="uid://bf2vyl6ya5byc" path="res://level_elements/signs/sign_info.tscn" id="22_xf1kb"]
 [ext_resource type="Texture2D" uid="uid://bhn6gjy4u51qd" path="res://level_elements/decorative/exit_gradient.png" id="23_v3xwt"]
 [ext_resource type="PackedScene" uid="uid://bph5ufs84kb6f" path="res://level_elements/bathroom/bathroom.tscn" id="24_gukcl"]
 [ext_resource type="PackedScene" uid="uid://c7ekkaj708al" path="res://level_elements/maps/station/station_map_lvl1.tscn" id="25_13ste"]
@@ -1104,6 +1105,12 @@ position = Vector2(-344, -1320)
 
 [node name="StreetLamp" parent="." index="33" unique_id=723400860 instance=ExtResource("47_n5t7a")]
 position = Vector2(-96, -1864)
+
+[node name="InfoSign" parent="." index="34" unique_id=733299724 instance=ExtResource("22_xf1kb")]
+position = Vector2(-528, -408)
+
+[node name="InfoSign2" parent="." index="35" unique_id=1563845675 instance=ExtResource("22_xf1kb")]
+position = Vector2(-352, -408)
 
 [editable path="Platform1"]
 [editable path="Platform2"]

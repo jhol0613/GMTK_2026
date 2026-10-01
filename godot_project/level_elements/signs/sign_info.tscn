@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bf2vyl6ya5byc"]
+
+[ext_resource type="Texture2D" uid="uid://ccol6hq6je667" path="res://level_elements/signs/sprites/sandwich_board_info.png" id="1_s8des"]
+[ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="4_0lc71"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vt2vh"]
+atlas = ExtResource("1_s8des")
+region = Rect2(0, 0, 18, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l2epn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vt2vh")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]
+size = Vector2(18, 7)
+
+[node name="InfoSign" type="Node2D" unique_id=733299724]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1452118075]
+z_index = 1
+position = Vector2(0, -13)
+sprite_frames = SubResource("SpriteFrames_l2epn")
+autoplay = "default"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=500868513]
+position = Vector2(-2, 0)
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=351718269]
+position = Vector2(2, -3.5)
+shape = SubResource("RectangleShape2D_ujtin")
+
+[node name="ResshanInteractable" type="Control" parent="." unique_id=772314074]
+physics_interpolation_mode = 0
+layout_mode = 3
+anchors_preset = 0
+offset_left = -3.0
+offset_top = -16.0
+offset_right = 6.0
+offset_bottom = -7.0
+script = ExtResource("4_0lc71")
+_string = "<<map>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"

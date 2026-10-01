@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://dj6pi30ngfhch" path="res://level_elements/decorative/benches/rest_chair.tscn" id="32_oxxmn"]
 [ext_resource type="PackedScene" uid="uid://digydaor1ukv0" path="res://level_elements/decorative/benches/rest_chair_vertical_right.tscn" id="32_u460r"]
 [ext_resource type="PackedScene" uid="uid://c6cf2lsxpijf6" path="res://level_elements/decorative/street_lamp/street_lamp.tscn" id="33_2dnbt"]
+[ext_resource type="PackedScene" uid="uid://bf2vyl6ya5byc" path="res://level_elements/signs/sign_info.tscn" id="34_6h1n3"]
 [ext_resource type="PackedScene" uid="uid://dk0yrl5ejk4vw" path="res://ui/token_display/battery_pickup.tscn" id="36_dp5o0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8v7xn"]
@@ -902,7 +903,7 @@ position = Vector2(-1099, -319)
 position = Vector2(-574, -307)
 
 [node name="StationNameSign" parent="." index="13" unique_id=98722644 instance=ExtResource("27_7di2q")]
-position = Vector2(-1247, -465)
+position = Vector2(-1176, -248)
 
 [node name="Bench" parent="." index="14" unique_id=1146302488 instance=ExtResource("26_juy1h")]
 position = Vector2(-160, -248)
@@ -953,6 +954,9 @@ offset_bottom = 405.1949
 script = ExtResource("13_u460r")
 _string = "<<station>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="InfoSign" parent="TrainMap/SignPanel/Root/Popup/Overlay" parent_id_path=PackedInt32Array(940096549, 146975511) index="32" unique_id=733299724 instance=ExtResource("34_6h1n3")]
+position = Vector2(-2867.5325, -1303.8961)
 
 [connection signal="pressed" from="SkipIntroLayer/SkipIntroButton" to="." method="_skip_intro"]
 
