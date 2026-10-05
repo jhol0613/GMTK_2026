@@ -114,6 +114,9 @@ func _on_broken_atm_interacted():
 	_sprite.play("stand_up")
 	await _sprite.animation_finished
 	await get_tree().create_timer(walk_after_standing).timeout
+	# Following disabled the layer the player collides with. Restore it before
+	# walking away, otherwise only we detect the player and get pushed out.
+	set_collision_layer_value(2, true)
 	walk_speed = speed_after_atm_explosion
 	await go_to(atm.dialog_interactable.global_position + \
 		after_broken_atm_goto)

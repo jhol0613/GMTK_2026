@@ -140,12 +140,16 @@ func _can_interact() -> bool:
 		if ancestor == ui:
 			return true
 		ancestor = ancestor.get_parent()
-	if ui != null and (ui._has_open_panel() or ui._item_popup.visible):
+	if ui != null and (ui._has_open_panel(false) or ui._item_popup.visible):
 		return false
 	for panel in get_tree().get_nodes_in_group("interaction_panel"):
 		if panel.is_open():
 			return false
 	for blocker in get_tree().get_nodes_in_group("world_interaction_blocker"):
+		# Notebook only blocks words under its GUI, not exposed world text.
+		# Keep its blocker group for ordinary NPC / E-key interactions.
+		if blocker is Notebook:
+			continue
 		if blocker is CanvasItem and blocker.is_visible_in_tree():
 			return false
 	return true

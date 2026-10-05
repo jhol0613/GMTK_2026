@@ -492,8 +492,8 @@ func _pointer_over_compacted_panel(point: Vector2) -> bool:
 	return popup != null and _control_contains_point(popup, point)
 
 
-func _has_open_panel() -> bool:
-	return _notebook.visible or _ticket.visible or _inventory.visible
+func _has_open_panel(include_notebook := true) -> bool:
+	return (include_notebook and _notebook.visible) or _ticket.visible or _inventory.visible
 
 
 func _get_pressed_pointer_position(event: InputEvent) -> Vector2:
