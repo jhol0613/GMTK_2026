@@ -105,11 +105,13 @@ func _handle_moving_entry(to_section:int, remove_old_entry: bool, entry:Notebook
 				entry = _add_entry_to_the_section(
 					entry.resshan_string,entry.get_note(), _sections[to_section].section_name
 				)
+				_sections[_current_section].consolidate_pages()
 				#if remove_old_entry:
 					#entry.queue_free()
 				return
 
 func _on_switch_section_requested(to_section, dragged_data: NotebookEntry = null):
+	#_sections[_current_section].consolidate_pages()
 	_on_section_switch_pressed(to_section)
 	if dragged_data:
 		dragged_data.reparent(_sections[_current_section].get_pages()[-1].holder, false)
@@ -144,7 +146,6 @@ func _add_entry_to_the_section(
 		_update_nav_button_visibility(_current_section, _sections[_current_section].current_page)
 
 	return entry
-
 
 static func get_note(resshan:String) -> ResshanPopUp:
 	for section: String in player_vocab.data:

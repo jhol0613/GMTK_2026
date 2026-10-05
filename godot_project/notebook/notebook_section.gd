@@ -55,20 +55,37 @@ func _delete_page() -> void:
 
 
 func _handle_removed_entry(page:NotebookPage) -> void:
-	var page_index := 0
-	
-	for child_page in _pages.get_children():
-		if page == child_page:
-			break
-		page_index += 1
-	if page_index < _pages.get_child_count() - 1 and page.entries_count < page.entry_limit:
-		var next_page = _pages.get_child(page_index + 1) as NotebookPage
-		var entry = next_page.get_entries()[0] as NotebookEntry
-		next_page.remove_entry(entry)
-		page.add_entry(entry)
-		if next_page.entries_count == 0:
-			next_page.queue_free()
+	consolidate_pages()
+	#var page_index := 0
+	#
+	#for child_page in _pages.get_children():
+		#if page == child_page:
+			#break
+		#page_index += 1
+	#if page_index < _pages.get_child_count() - 1 and page.entries_count < page.entry_limit:
+		#var next_page = _pages.get_child(page_index + 1) as NotebookPage
+		#var entry = next_page.get_entries()[0] as NotebookEntry
+		#next_page.remove_entry(entry)
+		#page.add_entry(entry)
+		#if next_page.entries_count == 0:
+			#next_page.queue_free()
 
+func consolidate_pages():
+	var i := 0
+	while i < _pages.get_child_count() - 1:
+		var this_page = _pages.get_child(i) as NotebookPage
+		var next_page = _pages.get_child(i + 1) as NotebookPage
+		if next_page.entries_count <= 0:
+			_pages.remove_child(next_page)
+			next_page.queue_free()
+			continue
+		elif this_page.entries_count < this_page.entry_limit:
+			var entry = next_page.get_entries()[0]
+			next_page.remove_entry(entry, false)
+			this_page.add_entry(entry)
+			continue
+		else:
+			i += 1
 
 func _handle_limit_reached(page:NotebookPage) -> void:
 	if page.entries_count >= page.entry_limit:

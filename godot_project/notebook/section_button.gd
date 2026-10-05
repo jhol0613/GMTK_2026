@@ -32,8 +32,8 @@ func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 
 func _on_section_switch_timeout():
 	if _dragged_data:
+		_dragged_data.move_requested.emit(get_index(), true)
 		_dragged_data.request_switch_section_view.emit(get_index())
-		_dragged_data.move_requested.emit(get_index(), false)
 		#_dragged_data._get_entry_drag_data(Vector2.ZERO)
 
 func _drop_data(at_position: Vector2, data: Variant) -> void:

@@ -44,11 +44,11 @@ func add_entry(entry:NotebookEntry) -> void:
 	holder.add_child(entry)
 
 # This WILL cause memory leak, if entry isn't properly handled 
-func remove_entry(entry:NotebookEntry) -> void:
+func remove_entry(entry:NotebookEntry, emit_entry_removed_signal = true) -> void:
 	holder.remove_child(entry)
 	entries_count -= 1
-	entry_removed.emit()
-
+	if emit_entry_removed_signal:
+		entry_removed.emit()
 
 func _handle_entry_update(new_text:String, encoded:String) -> void:
 	entry_updated.emit(encoded, new_text)
