@@ -37,3 +37,8 @@ func _play_body() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("escape"):
 		GameManager.load_scene(Enums.Scenes.TITLE)
+
+
+
+func _on_button_pressed() -> void:
+	GameManager.load_scene(Enums.Scenes.TITLE)

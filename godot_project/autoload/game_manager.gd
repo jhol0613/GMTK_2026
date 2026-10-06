@@ -28,7 +28,7 @@ func _ready() -> void:
 
 func load_scene(
 	scene: Enums.Scenes,
-	transition_style = Enums.TransitionStyle.FADEINOUT,
+	transition_style = Enums.TransitionStyle.FADE_BLACK,
 	transition_in_time = default_fade_in_time,
 	transition_out_time = default_fade_out_time,
 ):
@@ -41,8 +41,10 @@ func load_scene(
 	get_tree().paused = false
 
 	match transition_style:
-		Enums.TransitionStyle.FADEINOUT:
+		Enums.TransitionStyle.FADE_BLACK:
 			_fadeout(scene)
+		Enums.TransitionStyle.FADE_WHITE:
+			_fadeout(scene, true)
 		Enums.TransitionStyle.NONE:
 			_load_scene(scene)
 
@@ -60,14 +62,17 @@ func unpause_game():
 	get_tree().paused = false
 	_pause_layer.queue_free()
 
+
 func play_scene_concurrently(scene: Enums.Scenes):
 	var concurrent_scene = scene_dict.get(scene).instantiate()
 	if concurrent_scene.has_signal("scene_complete"):
 		concurrent_scene.connect("scene_complete", _on_concurrent_scene_complete)
 	get_tree().current_scene.add_child(concurrent_scene)
 
+
 func stash_data_before_scene_change(data):
 	stashed_data = data
+
 
 ##Returns -1 if scene isn't in the scene dict
 func get_current_scene() -> Enums.Scenes:
@@ -79,17 +84,18 @@ func get_current_scene() -> Enums.Scenes:
 			return key
 	@warning_ignore("int_as_enum_without_cast", "int_as_enum_without_match")
 	return -1
-		
+
 
 func _on_concurrent_scene_complete():
 	concurrent_scene_complete.emit()
+
 
 func _load_scene(scene_to_load: Enums.Scenes):
 	get_tree().call_deferred("change_scene_to_packed", scene_dict.get(scene_to_load))
 
 
-func _fadeout(next_scene: Enums.Scenes):
-	var fadeout_rect = _build_fadeout_rect(0)
+func _fadeout(next_scene: Enums.Scenes, white: bool = false):
+	var fadeout_rect = _build_fadeout_rect(0, white)
 	_transition_layer.add_child(fadeout_rect)
 	var tween = create_tween()
 	tween.tween_property(fadeout_rect, "modulate:a", 1.0, _transition_out_time)
@@ -113,13 +119,13 @@ func _remove_fadeout_rect(rect: ColorRect):
 	rect.queue_free()
 
 
-func _build_fadeout_rect(alpha: float) -> ColorRect:
+func _build_fadeout_rect(alpha: float, white: bool = false) -> ColorRect:
 	var fadeout_rect = ColorRect.new()
 	fadeout_rect.size = Vector2(
 		ProjectSettings.get_setting("display/window/size/viewport_width"),
 		ProjectSettings.get_setting("display/window/size/viewport_height"),
 	)
-	fadeout_rect.color = Color(0, 0, 0, 1)
+	fadeout_rect.color = Color(1, 1, 1, 1) if white else Color(0, 0, 0, 1)
 	fadeout_rect.modulate.a = alpha
 	fadeout_rect.z_index = RenderingServer.CANVAS_ITEM_Z_MAX
 	fadeout_rect.mouse_filter = Control.MOUSE_FILTER_STOP

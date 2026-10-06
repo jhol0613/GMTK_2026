@@ -163,6 +163,20 @@ text = "Maybe I'll make it next year..."
 font_size = 49
 metadata/_custom_type_script = "uid://sidowamkhcrt"
 
+[node name="Button" type="Button" parent="CanvasLayer/Node2D2" unique_id=1423688878]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1679.0
+offset_top = 958.0
+offset_right = 1884.0
+offset_bottom = 1046.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Return to Menu..."
+
 [node name="BadEndingPlayer" type="AnimationPlayer" parent="." unique_id=2003462197]
 libraries/ = SubResource("AnimationLibrary_4hxt7")
 
@@ -173,3 +187,5 @@ bus = &"Music"
 [node name="BodyAudio" type="AudioStreamPlayer" parent="." unique_id=1454872870]
 stream = ExtResource("9_2go8g")
 bus = &"Music"
+
+[connection signal="pressed" from="CanvasLayer/Node2D2/Button" to="." method="_on_button_pressed"]

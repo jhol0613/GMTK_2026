@@ -2,7 +2,8 @@ extends Node
 
 enum TransitionStyle {
 	NONE,
-	FADEINOUT,
+	FADE_BLACK,
+	FADE_WHITE
 }
 
 enum Scenes {
