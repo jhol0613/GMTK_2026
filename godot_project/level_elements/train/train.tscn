@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://bs11d6gbcpom8" path="res://level_elements/train/door_blocker.png" id="3_17x1t"]
 [ext_resource type="PackedScene" uid="uid://dchuwbctx2fxx" path="res://interactables/train_interactable.tscn" id="3_725i7"]
 [ext_resource type="Texture2D" uid="uid://d0p3sbfud3275" path="res://player/sprites/Main_Character.png" id="4_player"]
-[ext_resource type="Texture2D" uid="uid://dixkuxjdnkyp" path="res://level_elements/train/hoverthruster_sparcle.png" id="4_wb4gf"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="5_oe38n"]
 [ext_resource type="AudioStream" uid="uid://dwigb4phdw4ik" path="res://level_elements/train/updated_sfx/Train_Pulling_Into_with_doors.mp3" id="6_pulling_in"]
 [ext_resource type="Texture2D" uid="uid://ce6pqv3chf6bn" path="res://level_elements/train/train_vertical.png" id="7_f6fyi"]
@@ -14,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://t63ujqoprrca" path="res://level_elements/train/updated_sfx/Train_Pulling_Out.mp3" id="9_pulling_out_no_doors"]
 [ext_resource type="Script" uid="uid://xxne2e5lqbq1" path="res://level_elements/train/no_ticket_night_light.gd" id="10_no_ticket_night"]
 [ext_resource type="Texture2D" uid="uid://b7k1rwda5wu1p" path="res://visual_effects/day_night/light_radial.png" id="11_no_ticket_light"]
+[ext_resource type="PackedScene" uid="uid://cndvpqyxvlxh7" path="res://level_elements/decorative/hover_thruster.tscn" id="12_8tfg2"]
 [ext_resource type="Script" uid="uid://iqsa7knvxpkd" path="res://level_elements/train/train_night_glow.gd" id="12_train_night_glow"]
 [ext_resource type="Texture2D" uid="uid://brf15e0nly738" path="res://level_elements/train/train_body_glow.png" id="13_body_glow"]
 [ext_resource type="Texture2D" uid="uid://ckse578l7fu5i" path="res://level_elements/train/train_door_left_glow.png" id="14_door_left_glow"]
@@ -215,35 +215,6 @@ animations = [{
 }],
 "loop": 0,
 "name": &"VERTICAL",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l3brj"]
-atlas = ExtResource("4_wb4gf")
-region = Rect2(0, 0, 56, 9)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1o5m3"]
-atlas = ExtResource("4_wb4gf")
-region = Rect2(56, 0, 56, 9)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yvb78"]
-atlas = ExtResource("4_wb4gf")
-region = Rect2(112, 0, 56, 9)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_khhxn"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l3brj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1o5m3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yvb78")
-}],
-"loop": 1,
-"name": &"default",
 "speed": 5.0
 }]
 
@@ -555,6 +526,7 @@ region = Rect2(0, 0, 32, 32)
 
 [node name="Train" type="Node2D" unique_id=2086324427 node_paths=PackedStringArray("hide_if_vertical", "sprite")]
 script = ExtResource("1_cjdsu")
+direction = 2
 hide_if_vertical = [NodePath("EastWest/DoorL"), NodePath("EastWest/DoorR"), NodePath("EastWest/DoorL2"), NodePath("EastWest/DoorR2"), NodePath("TrainSprite/DoorBlocker"), NodePath("TrainSprite/DoorBlocker2"), NodePath("TrainSprite/DoorBlocker3"), NodePath("TrainSprite/DoorBlocker4"), NodePath("TrainSprite/HoverSparcles"), NodePath("TrainSprite/NoTicketLight")]
 pulling_in_sound = ExtResource("6_pulling_in")
 pulling_in_no_doors_sound = ExtResource("8_no_doors")
@@ -580,7 +552,7 @@ bus = &"SFX"
 [node name="TrainSprite" type="AnimatedSprite2D" parent="." unique_id=865404147]
 position = Vector2(0, -40)
 sprite_frames = SubResource("SpriteFrames_ujtin")
-animation = &"VERTICAL_BLUE"
+animation = &"BLUE"
 frame_progress = 1.0
 
 [node name="BodyNightGlow" type="Node2D" parent="TrainSprite" unique_id=638013023 groups=["night_lights"]]
@@ -593,80 +565,72 @@ sprite_frames = SubResource("SpriteFrames_body_glow")
 animation = &"HORIZONTAL"
 
 [node name="DoorBlocker" type="Sprite2D" parent="TrainSprite" unique_id=1733779265]
-visible = false
 position = Vector2(-335, 5)
 texture = ExtResource("3_17x1t")
 
 [node name="DoorBlocker2" type="Sprite2D" parent="TrainSprite" unique_id=566216451]
-visible = false
 position = Vector2(-206, 5)
 texture = ExtResource("3_17x1t")
 
 [node name="DoorBlocker3" type="Sprite2D" parent="TrainSprite" unique_id=1551714510]
-visible = false
 position = Vector2(207, 5)
 texture = ExtResource("3_17x1t")
 
 [node name="DoorBlocker4" type="Sprite2D" parent="TrainSprite" unique_id=1361625764]
-visible = false
 position = Vector2(336, 5)
 texture = ExtResource("3_17x1t")
 
 [node name="HoverSparcles" type="Node2D" parent="TrainSprite" unique_id=1933076444]
-visible = false
 
-[node name="HoverSparcle3" type="AnimatedSprite2D" parent="TrainSprite/HoverSparcles" unique_id=1935636803]
-position = Vector2(-373, 54)
-sprite_frames = SubResource("SpriteFrames_khhxn")
+[node name="HoverSparcle3" parent="TrainSprite/HoverSparcles" unique_id=1697223773 instance=ExtResource("12_8tfg2")]
+z_index = 0
+position = Vector2(-374, 46)
 
-[node name="HoverSparcle4" type="AnimatedSprite2D" parent="TrainSprite/HoverSparcles" unique_id=4018946]
-position = Vector2(-296, 54)
-sprite_frames = SubResource("SpriteFrames_khhxn")
+[node name="HoverSparcle4" parent="TrainSprite/HoverSparcles" unique_id=1075773653 instance=ExtResource("12_8tfg2")]
+z_index = 0
+position = Vector2(-298, 46)
 
-[node name="HoverSparcle5" type="AnimatedSprite2D" parent="TrainSprite/HoverSparcles" unique_id=1401127404]
-position = Vector2(-244, 54)
-sprite_frames = SubResource("SpriteFrames_khhxn")
+[node name="HoverSparcle5" parent="TrainSprite/HoverSparcles" unique_id=1702340090 instance=ExtResource("12_8tfg2")]
+z_index = 0
+position = Vector2(-244, 46)
 
-[node name="HoverSparcle6" type="AnimatedSprite2D" parent="TrainSprite/HoverSparcles" unique_id=1823955298]
-position = Vector2(-167, 54)
-sprite_frames = SubResource("SpriteFrames_khhxn")
+[node name="HoverSparcle6" parent="TrainSprite/HoverSparcles" unique_id=369359554 instance=ExtResource("12_8tfg2")]
+z_index = 0
+position = Vector2(-168, 46)
 
-[node name="HoverSparcle7" type="AnimatedSprite2D" parent="TrainSprite/HoverSparcles" unique_id=1378574286]
-position = Vector2(-102, 54)
-sprite_frames = SubResource("SpriteFrames_khhxn")
+[node name="HoverSparcle7" parent="TrainSprite/HoverSparcles" unique_id=19865563 instance=ExtResource("12_8tfg2")]
+z_index = 0
+position = Vector2(-103, 46)
 
-[node name="HoverSparcle8" type="AnimatedSprite2D" parent="TrainSprite/HoverSparcles" unique_id=1996089721]
-position = Vector2(-25, 54)
-sprite_frames = SubResource("SpriteFrames_khhxn")
+[node name="HoverSparcle8" parent="TrainSprite/HoverSparcles" unique_id=27874857 instance=ExtResource("12_8tfg2")]
+z_index = 0
+position = Vector2(-27, 46)
 
-[node name="HoverSparcle9" type="AnimatedSprite2D" parent="TrainSprite/HoverSparcles" unique_id=349411872]
-position = Vector2(27, 54)
-sprite_frames = SubResource("SpriteFrames_khhxn")
+[node name="HoverSparcle9" parent="TrainSprite/HoverSparcles" unique_id=2047742997 instance=ExtResource("12_8tfg2")]
+z_index = 0
+position = Vector2(27, 46)
 
-[node name="HoverSparcle10" type="AnimatedSprite2D" parent="TrainSprite/HoverSparcles" unique_id=1319442465]
-position = Vector2(104, 54)
-sprite_frames = SubResource("SpriteFrames_khhxn")
-frame = 1
-frame_progress = 0.33035225
+[node name="HoverSparcle10" parent="TrainSprite/HoverSparcles" unique_id=2012512007 instance=ExtResource("12_8tfg2")]
+z_index = 0
+position = Vector2(103, 46)
 
-[node name="HoverSparcle11" type="AnimatedSprite2D" parent="TrainSprite/HoverSparcles" unique_id=865315591]
-position = Vector2(169, 54)
-sprite_frames = SubResource("SpriteFrames_khhxn")
+[node name="HoverSparcle11" parent="TrainSprite/HoverSparcles" unique_id=1998286279 instance=ExtResource("12_8tfg2")]
+z_index = 0
+position = Vector2(168, 46)
 
-[node name="HoverSparcle12" type="AnimatedSprite2D" parent="TrainSprite/HoverSparcles" unique_id=281738798]
-position = Vector2(246, 54)
-sprite_frames = SubResource("SpriteFrames_khhxn")
+[node name="HoverSparcle12" parent="TrainSprite/HoverSparcles" unique_id=229053858 instance=ExtResource("12_8tfg2")]
+z_index = 0
+position = Vector2(244, 46)
 
-[node name="HoverSparcle13" type="AnimatedSprite2D" parent="TrainSprite/HoverSparcles" unique_id=418400464]
-position = Vector2(298, 54)
-sprite_frames = SubResource("SpriteFrames_khhxn")
+[node name="HoverSparcle13" parent="TrainSprite/HoverSparcles" unique_id=1439974446 instance=ExtResource("12_8tfg2")]
+z_index = 0
+position = Vector2(298, 46)
 
-[node name="HoverSparcle14" type="AnimatedSprite2D" parent="TrainSprite/HoverSparcles" unique_id=1512011494]
-position = Vector2(375, 54)
-sprite_frames = SubResource("SpriteFrames_khhxn")
+[node name="HoverSparcle14" parent="TrainSprite/HoverSparcles" unique_id=1502119697 instance=ExtResource("12_8tfg2")]
+z_index = 0
+position = Vector2(374, 46)
 
 [node name="NoTicketLight" type="Sprite2D" parent="TrainSprite" unique_id=994817530 groups=["night_lights"]]
-visible = false
 z_index = 4
 position = Vector2(0, 26)
 texture = SubResource("AtlasTexture_ticket")
@@ -823,6 +787,7 @@ position = Vector2(-64, -57)
 position = Vector2(0, -57)
 
 [node name="EastWest" type="Node2D" parent="." unique_id=1018275487]
+visible = false
 
 [node name="TrainInteractableL" parent="EastWest" unique_id=779530687 instance=ExtResource("3_725i7")]
 position = Vector2(-64, -66)

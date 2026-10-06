@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://dype06xkw1udm" path="res://visual_effects/stars/star_field.gd" id="12_stars"]
 [ext_resource type="Texture2D" uid="uid://b7k1rwda5wu1p" path="res://visual_effects/day_night/light_radial.png" id="13_starlight"]
 [ext_resource type="PackedScene" uid="uid://7db0w0lpg45q" path="res://visual_effects/fireflies/firefly_field.tscn" id="17_7nq05"]
+[ext_resource type="Script" uid="uid://dcanbg433hb0v" path="res://visual_effects/day_night/hoverthruster_lighting.gd" id="18_q2ovu"]
 
 [node name="LevelTemplate" type="Node2D" unique_id=783439983 groups=["level"]]
 y_sort_enabled = true
@@ -101,3 +102,8 @@ follow_viewport_enabled = true
 
 [node name="FireflyField" parent="." unique_id=1243834593 instance=ExtResource("17_7nq05")]
 brightness = 1.6
+
+[node name="HoverthrusterLighting" type="Node" parent="." unique_id=1444792530]
+process_mode = 4
+script = ExtResource("18_q2ovu")
+target_root_path = NodePath("..")

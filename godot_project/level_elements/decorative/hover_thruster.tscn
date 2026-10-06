@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://danrb3vfq83ag" path="res://level_elements/decorative/hoverthruster.png" id="1_twm2r"]
 [ext_resource type="Texture2D" uid="uid://dixkuxjdnkyp" path="res://level_elements/train/hoverthruster_sparcle.png" id="2_xe7d1"]
+[ext_resource type="Script" uid="uid://c03vvuyrklr3q" path="res://visual_effects/day_night/hoverthrusterlighting_single.gd" id="3_xe7d1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_85iol"]
 atlas = ExtResource("2_xe7d1")
@@ -36,8 +37,14 @@ animations = [{
 z_index = -1
 texture = ExtResource("1_twm2r")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=283783631]
+[node name="HoverSparkle" type="AnimatedSprite2D" parent="." unique_id=283783631]
 position = Vector2(0, 9)
 sprite_frames = SubResource("SpriteFrames_fpcxu")
 autoplay = "default"
 frame_progress = 0.8163058
+script = ExtResource("3_xe7d1")
+target_root_path = null
+start_progress = null
+full_strength_progress = null
+static_light_energy = null
+train_light_energy = null

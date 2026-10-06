@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://dbiw0lhyerkp2" path="res://level_elements/signs/sign_east.tscn" id="6_3v7e2"]
 [ext_resource type="PackedScene" uid="uid://dpexe87ps0d7f" path="res://level_elements/hourglass/hourglass.tscn" id="6_f3ea8"]
 [ext_resource type="PackedScene" uid="uid://bo3pcctdon7l" path="res://level_elements/signs/sign_station_name.tscn" id="8_tem3n"]
-[ext_resource type="Script" uid="uid://dcanbg433hb0v" path="res://visual_effects/day_night/hoverthruster_lighting.gd" id="9_thruster_light"]
 [ext_resource type="Script" uid="uid://iqsa7knvxpkd" path="res://level_elements/train/train_night_glow.gd" id="10_train_night_glow"]
 [ext_resource type="Texture2D" uid="uid://duudg8ecdajql" path="res://level_elements/train/train_front_glow.png" id="11_train_front_glow"]
 [ext_resource type="Script" uid="uid://c5fk2wp7w5c5k" path="res://level_elements/train_platform/layer_transition_zone.gd" id="13_6gnah"]
@@ -27,10 +26,6 @@ y_sort_enabled = true
 script = ExtResource("1_n6ck0")
 upper_train = NodePath("UpperTrain")
 lower_train = NodePath("LowerTrain")
-
-[node name="HoverthrusterLighting" type="Node" parent="." unique_id=1158262431]
-script = ExtResource("9_thruster_light")
-target_root_path = NodePath("..")
 
 [node name="FrontGround" type="TileMapLayer" parent="." unique_id=673161970]
 z_index = 3

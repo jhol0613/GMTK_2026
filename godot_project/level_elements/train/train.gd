@@ -139,9 +139,10 @@ func _ready() -> void:
 	
 	play_bobbing()
 
-	for i: AnimatedSprite2D in $TrainSprite/HoverSparcles.get_children():
-		i.frame = randi() % 2
-		i.play(&"", 0.5)
+	for i: Sprite2D in $TrainSprite/HoverSparcles.get_children():
+		var j := i.get_child(0)
+		j.frame = randi() % 2
+		j.play(&"", 0.5)
 		
 	arrival_offset = _get_arrival_offset_vector()
 	depart_offset = _get_departure_offset_vector()

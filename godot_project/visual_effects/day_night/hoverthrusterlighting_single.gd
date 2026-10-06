@@ -1,20 +1,12 @@
 extends Node
 
-@export var target_root_path := NodePath(".")
 @export_range(0.0, 1.0, 0.01) var start_progress := 0.25
 @export_range(0.0, 1.0, 0.01) var full_strength_progress := 0.75
-# Trains now use the same hoverthruster as
-@export_range(0.0, 2.0, 0.05) var static_light_energy := 1.0
-@export_range(0.0, 2.0, 0.05) var train_light_energy := 1.0
+@export_range(0.0, 2.0, 0.05) var light_energy := 2.0
 
 const PARTICLE_SHADER := preload("res://visual_effects/day_night/hoverthruster_particle.gdshader")
 const LIGHT_TEXTURE := preload("res://visual_effects/day_night/light_radial.png")
-const LIGHT_DISABLED_THRUSTERS := [
-	&"Hoverthruster8",
-	&"Hoverthruster9",
-	&"Hoverthruster10",
-	&"Hoverthruster11",
-]
+
 const TINT_POSITIONS := [0.0, 0.25, 0.65, 0.85, 1.0]
 const WORLD_TINTS := [
 	Color("ffffff"),
@@ -24,11 +16,10 @@ const WORLD_TINTS := [
 	Color("52658e"),
 ]
 
-var _static_material := ShaderMaterial.new()
 var _train_material := ShaderMaterial.new()
-var _emitters: Array[CanvasItem] = []
-var _lights: Array[PointLight2D] = []
-var _light_max_energies: Array[float] = []
+var _emitter: CanvasItem
+var _light: PointLight2D
+var _light_max_energy: float
 var _occluding_layers: Array[TileMapLayer] = []
 var _compensation := Vector3.ONE
 var _tween: Tween
@@ -36,10 +27,9 @@ var _tween: Tween
 
 func _ready() -> void:
 	add_to_group("night_lights")
-	_static_material.shader = PARTICLE_SHADER
 	_train_material.shader = PARTICLE_SHADER
 	_train_material.set_shader_parameter("full_sprite", true)
-	_collect_thrusters(get_node(target_root_path))
+	_configure_thruster($".")
 	_collect_occluding_layers()
 	var total := (
 		TimeManager.HOURS_PER_DAY
@@ -52,38 +42,22 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	for index in _lights.size():
-		_lights[index].enabled = not _is_covered(
-			_emitters[index],
-			_lights[index].global_position,
-		)
+	_light.enabled = not _is_covered(_emitter, _light.global_position)
 
 
-func _collect_thrusters(node: Node) -> void:
-	for child in node.get_children():
-		if child is AnimatedSprite2D and child.name.begins_with("HoverSparcle"):
-			_configure_thruster(child, true)
-		# elif child is Sprite2D and ( child.name.begins_with("HoverThruster") or child.name.begins_with("Hoverthruster") ):
-		elif child is AnimatedSprite2D and child.name.begins_with("HoverSparkle"):
-			_configure_thruster(child, false)
-		_collect_thrusters(child)
+func _configure_thruster(sprite: CanvasItem) -> void:
+	sprite.material = _train_material
 
-
-func _configure_thruster(sprite: CanvasItem, is_train_particle: bool) -> void:
-	sprite.material = _train_material #if is_train_particle else _static_material
-	if not is_train_particle and sprite.name in LIGHT_DISABLED_THRUSTERS:
-		return
 	var light := PointLight2D.new()
 	light.name = "CyanLight"
 	light.color = Color("63d8e4")
 	light.energy = 0.0
 	light.texture = LIGHT_TEXTURE
-	# light.position = Vector2(0, 1 if is_train_particle else 16)
-	# light.texture_scale = 2.0 if is_train_particle else 2.0
+	
 	sprite.add_child(light)
-	_emitters.append(sprite)
-	_lights.append(light)
-	_light_max_energies.append(train_light_energy if is_train_particle else static_light_energy)
+	_emitter = sprite
+	_light = light
+	_light_max_energy = light_energy
 
 
 func _collect_occluding_layers() -> void:
@@ -130,23 +104,21 @@ func set_day_progress(progress: float, duration: float) -> void:
 		_tween.kill()
 	if duration <= 0.0:
 		_set_compensation(target_compensation)
-		for index in _lights.size():
-			_lights[index].energy = strength * _light_max_energies[index]
+		_light.energy = strength * _light_max_energy
 		return
 	_tween = create_tween().set_parallel(true)
 	_tween.tween_method(_set_compensation, _compensation, target_compensation, duration)
-	for index in _lights.size():
-		_tween.tween_property(
-			_lights[index],
-			"energy",
-			strength * _light_max_energies[index],
-			duration,
+	
+	_tween.tween_property(
+		_light,
+		"energy",
+		strength * _light_max_energy,
+		duration,
 		)
 
 
 func _set_compensation(value: Vector3) -> void:
 	_compensation = value
-	_static_material.set_shader_parameter("tint_compensation", value)
 	_train_material.set_shader_parameter("tint_compensation", value)
 
 

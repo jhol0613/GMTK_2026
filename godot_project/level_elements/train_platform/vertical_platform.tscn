@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://bj6c3dkqrbxyt"]
 
 [ext_resource type="Script" uid="uid://dws2j2w3sgf60" path="res://level_elements/train_platform/platform.gd" id="1_25jkk"]
-[ext_resource type="Script" uid="uid://dcanbg433hb0v" path="res://visual_effects/day_night/hoverthruster_lighting.gd" id="2_n0ljr"]
 [ext_resource type="TileSet" uid="uid://dvxgqw1r5w5ps" path="res://level_elements/tileset/station_tileset.tres" id="3_qp02f"]
 [ext_resource type="PackedScene" uid="uid://67c8xgtu7o7f" path="res://level_elements/train/train.tscn" id="4_m7glf"]
 [ext_resource type="Texture2D" uid="uid://ddfg2tu66h78y" path="res://level_elements/train/trainfront_vertical.png" id="5_qp02f"]
@@ -29,10 +28,6 @@ y_sort_enabled = true
 script = ExtResource("1_25jkk")
 upper_train = NodePath("UpperTrain")
 lower_train = NodePath("LowerTrain")
-
-[node name="HoverthrusterLighting" type="Node" parent="." unique_id=1158262431]
-script = ExtResource("2_n0ljr")
-target_root_path = NodePath("..")
 
 [node name="CentralGround" type="TileMapLayer" parent="." unique_id=1607148194 groups=["footstep_surfaces"]]
 y_sort_enabled = true
