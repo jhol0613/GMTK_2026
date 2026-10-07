@@ -86,6 +86,8 @@ func consolidate_pages():
 			continue
 		else:
 			i += 1
+	if current_page > _pages.get_child_count() - 1:
+		show_page(_pages.get_child_count() - 1)
 
 func _handle_limit_reached(page:NotebookPage) -> void:
 	if page.entries_count >= page.entry_limit:
@@ -121,7 +123,8 @@ func switch_page(direction:int) -> void:
 
 func show_page(index: int) -> void:
 	var pages := get_pages()
-	pages[current_page].hide()
+	if current_page < pages.size():
+		pages[current_page].hide()
 	current_page = index
 	pages[current_page].show()
 	_update_page_layout()

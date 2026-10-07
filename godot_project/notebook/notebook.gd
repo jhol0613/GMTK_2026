@@ -3,7 +3,7 @@ extends Node2D
 
 signal close_requested
 
-@export var button_hover_scale := Vector2(1.03, 1.03)
+#@export var button_hover_scale := Vector2(1.03, 1.03)
 @export var page_number_label_text := "%s / %s"
 
 static var player_vocab: JSON = preload('res://resshan_systems/player_vocab.json')
@@ -18,7 +18,7 @@ var _active_section_count := 1
 
 @onready var _page_turn_sound: AudioStreamPlayer = $PageTurnSound
 @onready var _entry_added_sound: AudioStreamPlayer = $EntryAdded
-@onready var _hover_sound: AudioStreamPlayer = $HoverSound
+#@onready var _hover_sound: AudioStreamPlayer = $HoverSound
 @onready var _section_selector_holder := $SectionSelector/Holder
 @onready var _next_page_button := %NextPage
 @onready var _previous_page_button := %PreviousPage
@@ -46,6 +46,9 @@ func _ready() -> void:
 	
 	for section: NotebookSection in _sections:
 		section.header_changed.connect(_on_section_header_changed)
+	
+	_next_page_button.move_entry_to_new_page_requested.connect(_move_entry_to_page)
+	_previous_page_button.move_entry_to_new_page_requested.connect(_move_entry_to_page)
 	
 	_section_selector_holder.get_child(0).z_index = TOP_TAB_Z_INDEX
 	_restore_section_state(SaveManager.notebook_state)
@@ -96,7 +99,7 @@ func _handle_show_resshan(encoded: String) -> void:
 					_sections[section_index].show_page(page_number)
 					return
 
-func _handle_moving_entry(to_section:int, remove_old_entry: bool, entry:NotebookEntry) -> void:
+func _move_entry_to_section(to_section:int, remove_old_entry: bool, entry:NotebookEntry) -> void:
 	for section: NotebookSection in _sections:
 		for page: NotebookPage in section.get_pages():
 			if page.get_entries().has(entry):
@@ -110,9 +113,17 @@ func _handle_moving_entry(to_section:int, remove_old_entry: bool, entry:Notebook
 					#entry.queue_free()
 				return
 
+func _move_entry_to_page(page_increment:int, entry:NotebookEntry):
+	#for page: NotebookPage in section.get_pages():
+		#if page.get_entries().has(entry):
+			#page.remove_entry(entry)
+			#
+			#page.add_entry(entry)
+	pass
+
 func _on_switch_section_requested(to_section, dragged_data: NotebookEntry = null):
 	#_sections[_current_section].consolidate_pages()
-	_on_section_switch_pressed(to_section)
+	_on_section_switch_pressed(to_section, _sections[to_section].get_pages().size()-1)
 	if dragged_data:
 		dragged_data.reparent(_sections[_current_section].get_pages()[-1].holder, false)
 
@@ -136,7 +147,7 @@ func _add_entry_to_the_section(
 		_entry_added_sound.play()
 		SignalBus.new_unique_resshan_note_added_to_notebook.emit()
 	var entry: = page._new_entry(encoded, initial_text)
-	entry.move_requested.connect(_handle_moving_entry.bind(entry))
+	entry.move_requested.connect(_move_entry_to_section.bind(entry))
 	entry.request_switch_section_view.connect(_on_switch_section_requested.bind(entry))
 	entry.reordered.connect(_on_entry_reordered)
 	
@@ -197,19 +208,23 @@ func _on_previous_page_pressed() -> void:
 	
 	_update_nav_button_visibility(_current_section, _sections[_current_section].current_page)
 
-func _on_next_page_mouse_entered() -> void:
-	_hover_sound.play()
-	_next_page_button.scale = button_hover_scale
-
-func _on_next_page_mouse_exited() -> void:
-	_next_page_button.scale = Vector2.ONE
-
-func _on_previous_page_mouse_entered() -> void:
-	_hover_sound.play()
-	_previous_page_button.scale = button_hover_scale
-
-func _on_previous_page_mouse_exited() -> void:
-	_previous_page_button.scale = Vector2.ONE
+#func _on_next_page_mouse_entered() -> void:
+	#_hover_sound.play()
+	#_next_page_button.scale = button_hover_scale
+#
+#func _on_next_page_mouse_exited() -> void:
+	#_next_page_button.scale = Vector2.ONE
+	#if _page_switch_timer and _page_switch_timer.timeout.is_connected(_on_page_switch_timeout):
+		#_page_switch_timer.timeout.disconnect(_on_page_switch_timeout)
+#
+#func _on_previous_page_mouse_entered() -> void:
+	#_hover_sound.play()
+	#_previous_page_button.scale = button_hover_scale
+#
+#func _on_previous_page_mouse_exited() -> void:
+	#_previous_page_button.scale = Vector2.ONE
+	#if _page_switch_timer and _page_switch_timer.timeout.is_connected(_on_page_switch_timeout):
+		#_page_switch_timer.timeout.disconnect(_on_page_switch_timeout)
 
 func _get_current_section_page_count() -> int:
 	return _sections[_current_section].get_pages().size()
@@ -258,6 +273,21 @@ func _update_nav_button_visibility(section_indx: int, page_number: int):
 		_page_number_label.show()
 	else:
 		_page_number_label.hide()
+
+
+
+#func _on_page_switch_timeout():
+	#if _dragged_data:
+		#_on_next_page_pressed()
+		##_dragged_data.move_requested.emit(get_index(), true)
+		##_dragged_data.request_switch_section_view.emit(get_index())
+		##_dragged_data._get_entry_drag_data(Vector2.ZERO)
+#
+#func _drop_data(at_position: Vector2, data: Variant) -> void:
+	#if _dragged_data is NotebookEntry:
+		##_dragged_data.move_requested.emit(get_index(), true)
+		#if _page_switch_timer and _page_switch_timer.timeout.is_connected(_on_page_switch_timeout):
+			#_page_switch_timer.timeout.disconnect(_on_page_switch_timeout)
 
 func _on_add_section_button_pressed() -> void:
 	$SectionAdded.play()
