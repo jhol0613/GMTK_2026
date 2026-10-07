@@ -122,8 +122,12 @@ func _remove_fadeout_rect(rect: ColorRect):
 func _build_fadeout_rect(alpha: float, white: bool = false) -> ColorRect:
 	var fadeout_rect = ColorRect.new()
 	fadeout_rect.size = Vector2(
-		ProjectSettings.get_setting("display/window/size/viewport_width"),
-		ProjectSettings.get_setting("display/window/size/viewport_height"),
+		ProjectSettings.get_setting("display/window/size/viewport_width")*4,
+		ProjectSettings.get_setting("display/window/size/viewport_height")*4,
+	)
+	fadeout_rect.position = Vector2(
+		ProjectSettings.get_setting("display/window/size/viewport_width")*-2,
+		ProjectSettings.get_setting("display/window/size/viewport_height")*-2,
 	)
 	fadeout_rect.color = Color(1, 1, 1, 1) if white else Color(0, 0, 0, 1)
 	fadeout_rect.modulate.a = alpha
