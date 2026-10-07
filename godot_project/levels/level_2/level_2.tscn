@@ -2074,7 +2074,7 @@ position = Vector2(-905, -1942)
 position = Vector2(-892, -1942)
 
 [node name="RecycleBin" parent="." index="27" unique_id=981033953 instance=ExtResource("11_yiikh")]
-position = Vector2(-1008, -1968)
+position = Vector2(-1800, -1424)
 
 [node name="RecycleBin6" parent="." index="28" unique_id=29257217 instance=ExtResource("11_yiikh")]
 position = Vector2(-832, -1968)
@@ -2980,7 +2980,7 @@ position = Vector2(-160, -1864)
 position = Vector2(-448, -1696)
 
 [node name="Plant16" parent="Decorations/Plants" index="66" unique_id=271935219 instance=ExtResource("20_gsja5")]
-position = Vector2(-384, -1224)
+position = Vector2(-387, -1231)
 
 [node name="Plant17" parent="Decorations/Plants" index="67" unique_id=442510680 instance=ExtResource("20_gsja5")]
 position = Vector2(-928, -672)
@@ -3270,6 +3270,10 @@ position = Vector2(-448, -768)
 [node name="RestChairVerticalLeft10" parent="Decorations/Benches" index="27" unique_id=1872150640 instance=ExtResource("26_sm3vb")]
 position = Vector2(-384, -1248)
 
+[node name="DialogueInteractable" parent="Decorations/Benches/RestChairVerticalLeft10" index="4" unique_id=1631350735]
+process_mode = 4
+visible = false
+
 [node name="RestChairVerticalLeft11" parent="Decorations/Benches" index="28" unique_id=231217893 instance=ExtResource("26_sm3vb")]
 position = Vector2(-384, -1712)
 
@@ -3360,7 +3364,7 @@ position = Vector2(-1120, -2016)
 [node name="Banyos" type="Node2D" parent="Decorations" index="7" unique_id=162132367]
 y_sort_enabled = true
 
-[node name="OutsideRestroom" parent="Decorations/Banyos" index="0" unique_id=1631350735 instance=ExtResource("13_1vf62")]
+[node name="OutsideRestroom" parent="Decorations/Banyos" index="0" unique_id=1504187242 instance=ExtResource("13_1vf62")]
 position = Vector2(-872, -1232)
 
 [node name="OutsideRestroom2" parent="Decorations/Banyos" index="1" unique_id=724565945 instance=ExtResource("13_1vf62")]
@@ -3650,5 +3654,7 @@ start_broken = true
 [editable path="TicketBooth/DialogueInteractable"]
 [editable path="ATM"]
 [editable path="ATM/DialogueInteractable"]
+[editable path="Decorations/Benches/RestChairVerticalLeft10"]
+[editable path="Decorations/Benches/RestChairVerticalLeft10/DialogueInteractable"]
 [editable path="Guide"]
 [editable path="Guide/DialogueInteractable"]

@@ -70,7 +70,7 @@ size = Vector2(11, 6)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1452118075]
 z_index = 1
-position = Vector2(-2, -24.5)
+position = Vector2(-2, -24)
 sprite_frames = SubResource("SpriteFrames_71mc2")
 autoplay = "default"
 
@@ -80,7 +80,7 @@ script = ExtResource("2_i07jj")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ScreenGlow" unique_id=276422177]
 modulate = Color(1, 1, 1, 0)
 z_index = 1
-position = Vector2(-2, -22.5)
+position = Vector2(-2, -24)
 sprite_frames = SubResource("SpriteFrames_4fh27")
 autoplay = "default"
 
