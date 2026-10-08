@@ -1,7 +1,7 @@
 class_name NotebookPage
 extends Control
 
-signal limit_reached
+#signal limit_reached
 signal entry_removed
 signal entry_updated(encoded:String, new_text:String)
 signal entry_order_changed
@@ -27,8 +27,8 @@ func _new_entry(encoded:String, initial_text = "") -> NotebookEntry:
 	var entry:NotebookEntry = preload('uid://s4gdpvpyayn0').instantiate()
 
 	entries_count += 1
-	if entries_count >= entry_limit:
-		limit_reached.emit()
+	#if entries_count >= entry_limit:
+		#limit_reached.emit()
 
 	holder.add_child(entry)
 	entry.player_input.text = initial_text

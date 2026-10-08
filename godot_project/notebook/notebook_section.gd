@@ -93,7 +93,6 @@ func _handle_limit_reached(page:NotebookPage) -> void:
 	if page.entries_count >= page.entry_limit:
 		_new_page()
 
-
 func _handle_entry_update(encoded:String, new_text:String) -> void:
 	Notebook.player_vocab.data[section_name][encoded] = new_text
 
@@ -101,7 +100,7 @@ func _handle_entry_update(encoded:String, new_text:String) -> void:
 func _connect_page(page: NotebookPage) -> void:
 	page.entry_updated.connect(_handle_entry_update)
 	page.entry_removed.connect(_handle_removed_entry.bind(page))
-	page.limit_reached.connect(_handle_limit_reached.bind(page))
+	#page.limit_reached.connect(_handle_limit_reached.bind(page))
 	page.entry_order_changed.connect(_sync_entry_order)
 
 
@@ -129,9 +128,10 @@ func show_page(index: int) -> void:
 	pages[current_page].show()
 	_update_page_layout()
 
-
+##adds a page if there is none or if pages are full, then returns the last page
 func get_entry_page() -> NotebookPage:
-	if get_pages().is_empty():
+	var pages: Array[NotebookPage] = get_pages()
+	if pages.is_empty() or pages[-1].entries_count >= pages[-1].entry_limit:
 		_new_page()
 	return get_pages()[-1]
 
