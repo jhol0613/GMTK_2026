@@ -93,7 +93,7 @@ metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 
 [sub_resource type="Resource" id="Resource_ouyi4"]
 script = ExtResource("2_line")
-text = "<<go>> <<bathroom>> <<next>> <<west>> <<south>>"
+text = "<<go>> <<trinketmask>> <<store>> <<next>> <<east>> <<south>>"
 speaker_icon = ExtResource("5_68ik4")
 sfx = ExtResource("3_dl4dy")
 metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
