@@ -2,8 +2,11 @@ class_name NotebookEntry
 extends HBoxContainer
 
 signal entry_updated
-signal move_requested(to_section:int)
+signal move_section_requested(to_section:int)
 signal request_switch_section_view(to_section:int)
+signal move_page_requested(to_page:int)
+##returns pages to increment, not absolute page number
+signal request_switch_page_view(to_page:int)
 signal reordered
 
 var drag_offset := 40.0

@@ -39,9 +39,11 @@ func _new_entry(encoded:String, initial_text = "") -> NotebookEntry:
 	return entry
 
 ## Entry must not be in the scene tree
-func add_entry(entry:NotebookEntry) -> void:
+func add_entry(entry:NotebookEntry, add_at_front = false) -> void:
 	entries_count += 1
 	holder.add_child(entry)
+	if add_at_front:
+		holder.move_child(entry, 0)
 
 # This WILL cause memory leak, if entry isn't properly handled 
 func remove_entry(entry:NotebookEntry, emit_entry_removed_signal = true) -> void:
