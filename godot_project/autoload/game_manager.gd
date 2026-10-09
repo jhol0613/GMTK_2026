@@ -2,6 +2,7 @@ extends Node2D
 
 @export_subgroup("Scenes")
 @export var scene_dict: Dictionary[Enums.Scenes, PackedScene]
+@export var level_transition_stash_data = TransitionStash.new()
 ## Scenes must explicitly set pause enabled to true
 @export var pause_enabled := false
 
@@ -31,11 +32,14 @@ func load_scene(
 	transition_style = Enums.TransitionStyle.FADE_BLACK,
 	transition_in_time = default_fade_in_time,
 	transition_out_time = default_fade_out_time,
+	stash = TransitionStash.new()
 ):
 	SaveManager.capture_scene()
 	SaveManager.transitioning = true
 	_transition_out_time = transition_out_time
 	_transition_in_time = transition_in_time
+
+	level_transition_stash_data = stash
 
 	pause_enabled = false
 	get_tree().paused = false

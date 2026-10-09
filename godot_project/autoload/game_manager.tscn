@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://eq06imnrtf45" path="res://menus/settings_screen.tscn" id="8_4gcu2"]
 [ext_resource type="PackedScene" uid="uid://c72jo4tde0cb4" path="res://menus/title_screen.tscn" id="9_075p0"]
 [ext_resource type="PackedScene" uid="uid://b4f18g70lleg5" path="res://levels/wrong_train_boarded_message.tscn" id="10_a0cyl"]
+[ext_resource type="PackedScene" uid="uid://bqq8nk5j0cjjg" path="res://cutscenes/transit_cutscene/transition_cutscene.tscn" id="11_83kal"]
 
 [node name="GameManager" type="Node2D" unique_id=482173798]
 script = ExtResource("1_7xclw")
@@ -24,5 +25,6 @@ scene_dict = Dictionary[int, PackedScene]({
 7: ExtResource("7_badend"),
 8: ExtResource("8_4gcu2"),
 9: ExtResource("9_075p0"),
-10: ExtResource("10_a0cyl")
+10: ExtResource("10_a0cyl"),
+11: ExtResource("11_83kal")
 })

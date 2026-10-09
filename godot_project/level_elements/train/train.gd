@@ -9,6 +9,7 @@ signal player_disembarked
 signal time_up
 
 @export var next_scene: Enums.Scenes = Enums.Scenes.LEVEL_1
+
 @export var level_clear_time_cost_minutes: int = 5
 @export var direction: Enums.TrainDirection:
 	set(new_direction):
@@ -271,9 +272,9 @@ func _boarding_sequence() -> void:
 	_boarding = true
 	get_tree().get_first_node_in_group("ui_overlay").player_in_arrive_disembark_anim = true
 	await _run_boarding_and_departure(true)
-
-	TimeManager.advance_minutes(level_clear_time_cost_minutes)
-	GameManager.load_scene(next_scene)
+	
+	var stash_data = get_tree().get_first_node_in_group("level").stash_data
+	GameManager.load_scene( Enums.Scenes.TRANSITION, Enums.TransitionStyle.FADE_BLACK, 1.0, 1.0, stash_data )
 	_boarding = false
 
 

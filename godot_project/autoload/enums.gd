@@ -17,7 +17,8 @@ enum Scenes {
 	BAD_ENDING,
 	OPTIONS,
 	MAIN,
-	WRONG_TRAIN
+	WRONG_TRAIN,
+	TRANSITION
 }
 
 # unfortunately alphabetical order here matters. Sorry

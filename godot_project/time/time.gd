@@ -3,6 +3,7 @@ extends Control
 const HOUR_PER_DAY: int = 7
 
 @export_category("Clock Sounds")
+@export var _play_sound: bool = true
 @export var second_change_sound: AudioStream
 @export_range(-40.0, 6.0, 0.5) var second_volume_db: float = -3.0
 @export var minute_change_sound: AudioStream
@@ -17,8 +18,6 @@ const HOUR_PER_DAY: int = 7
 @export var start_hour: int = HOUR_PER_DAY
 @export var start_minute: int = 7
 @export var start_second: int = 7
-
-
 
 
 
@@ -57,7 +56,7 @@ func _on_time_changed(
 		_has_previous_time = true
 		return
 
-	if _has_previous_time:
+	if _has_previous_time and _play_sound:
 		if minute != _previous_minute or hour != _previous_hour:
 			_play_clock_sound(
 				minute_change_sound,
@@ -114,7 +113,8 @@ func tick_second() -> void:
 	if tween and tween.is_running():
 		tween.kill()
 	scale = Vector2.ONE
-	_play_clock_sound(countdown_finished_sound, countdown_finished_volume_db)
+	if _play_sound:
+		_play_clock_sound(countdown_finished_sound, countdown_finished_volume_db)
 
 
 func _update_label(hour: int, minute: int, second: int) -> void:

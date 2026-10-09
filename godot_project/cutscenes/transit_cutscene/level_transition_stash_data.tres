@@ -1,0 +1,7 @@
+[gd_resource type="Resource" format=3 uid="uid://xsef2x8gpw3a"]
+
+[ext_resource type="Script" uid="uid://dppi7sbuftfim" path="res://cutscenes/transit_cutscene/level_transition_stash_data.gd" id="1_pt0x6"]
+
+[resource]
+resource_name = "LevelTransitionStashData"
+script = ExtResource("1_pt0x6")
