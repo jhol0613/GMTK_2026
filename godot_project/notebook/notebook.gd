@@ -111,6 +111,7 @@ func _move_entry_to_section(to_section:int, remove_old_entry: bool, entry:Notebo
 				#)
 				_sections[_current_section].consolidate_pages()
 				_update_nav_button_visibility(_current_section, _sections[_current_section].current_page)
+				_on_entry_reordered()
 				#_sections[to_section].consolidate_pages()
 				#if remove_old_entry:
 					#entry.queue_free()
@@ -138,6 +139,7 @@ func _move_entry_to_page(page_increment:int, entry:NotebookEntry):
 	current_page.add_entry(entry_to_shift, page_increment < 0) #preserve overall order
 	new_page.add_entry(entry, page_increment > 0)
 	_sections[_current_section].consolidate_pages()
+	_on_entry_reordered()
 
 func _on_switch_page_requested(increment_page:int, dragged_data: NotebookEntry = null):
 	if increment_page == 1:
