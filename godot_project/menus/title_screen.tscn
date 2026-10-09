@@ -90,8 +90,8 @@ title = "New Game"
 ok_button_text = "New Game"
 dialog_text = "Start a new game? The next save will replace your current progress."
 
-[connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Buttons/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Buttons/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="Buttons/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="confirmed" from="NewGameConfirmation" to="." method="_on_new_game_confirmed"]

@@ -81,7 +81,7 @@ func train_direction_to_resshan(direction: TrainDirection) -> String:
 
 enum BoardResult {
 	REJECTED, ## No ticket, or ticket does not match this train
-	TOO_LATE, ## Matching ticket, but the departure deadline has passed
+	TOO_LATE, ## Matching ticket, but the train reaches its stop after midnight
 	WRONG_TRAIN, ## Ticket matches this train, but line is wrong for the level
 	SUCCESS, ## Correct train, correct line, and still on time
 }

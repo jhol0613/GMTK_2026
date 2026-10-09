@@ -5,6 +5,8 @@ extends Node2D
 class_name Train
 
 signal player_disembarked
+@warning_ignore("unused_signal")
+signal time_up
 
 @export var next_scene: Enums.Scenes = Enums.Scenes.LEVEL_1
 @export var level_clear_time_cost_minutes: int = 5
@@ -49,9 +51,9 @@ var arrival_offset: Vector2
 
 @export_group('Gameplay')
 
-@export var incorrect_penalty_minutes: int = 5
+@export var incorrect_penalty_seconds: int = 8
 ## Time cost for trying to board with no ticket / wrong ticket for this train
-@export var no_ticket_penalty_minutes: int = 3
+@export var no_ticket_penalty_seconds: int = 3
 ## The delay before the train arrives at the platform after missing the deadline
 #@export var missed_rearrive_delay: float = 8.0
 ## If true, this train leaves on its own when a matching ticket's deadline passes
@@ -159,12 +161,12 @@ func try_board(l_or_r: String) -> void:
 		Enums.BoardResult.REJECTED:
 			_boarding = true
 			AudioManager.play_wrong_ticket_sfx()
-			TimeManager.apply_penalty(no_ticket_penalty_minutes)
+			TimeManager.apply_penalty(no_ticket_penalty_seconds)
 			await _flash_reject(_no_ticket_light)
 			_boarding = false
 			return
 		#Enums.BoardResult.TOO_LATE:
-			#await _missed_departure_sequence()
+			#await _missed_midnight_sequence()
 			#return
 		Enums.BoardResult.WRONG_TRAIN:
 			await _wrong_train_sequence()
@@ -179,12 +181,24 @@ func evaluate_board(ticket: TicketData) -> Enums.BoardResult:
 	# No ticket, or ticket is for a different train.
 	if (ticket == null or not _matches_ticket(ticket)):
 		return Enums.BoardResult.REJECTED
+	## Ticket matches this train, but player is too late to make it to the celebration.
+	#if not _is_on_time():
+		#return Enums.BoardResult.TOO_LATE
 	# Ticket matches this train, but is on the wrong line for the level.
 	if not _is_correct_line(ticket):
 		return Enums.BoardResult.WRONG_TRAIN
-	#if not _is_on_time(ticket):
-		#return Enums.BoardResult.TOO_LATE
 	return Enums.BoardResult.SUCCESS
+
+
+#func _missed_midnight_sequence() -> void:
+	#_boarding = true
+	#get_tree().get_first_node_in_group("ui_overlay").player_in_arrive_disembark_anim = true
+	#await _run_boarding_and_departure(true)
+	## TimeManager._emit_time_up()
+	#while TimeManager.total_seconds() > 0:
+		#TimeManager.advance()
+		#await get_tree().create_timer(0.1).timeout
+
 
 #func _on_time_changed(_hour: int, _minute: int, _second: int) -> void:
 	#if not departs_on_missed_deadline:
@@ -205,11 +219,13 @@ func evaluate_board(ticket: TicketData) -> Enums.BoardResult:
 	## Should probably be renamed into just "departure_sequence" with schedule system 🚩
 	#_missed_departure_sequence()
 
+
 func _matches_ticket(ticket: TicketData) -> bool:
 	return (
 		direction == ticket.direction and 
 		color == ticket.train_line
 	)
+
 
 ## Checks if the ticket is on this level's correct line. If it is, set the
 ## correct destination
@@ -233,9 +249,9 @@ func _is_correct_line(ticket: TicketData) -> bool:
 		next_scene = level.wrong_train_destination
 		return false
 
-#func _is_on_time(ticket: TicketData) -> bool:
-	#return TimeManager.has_at_least(ticket.departure_hours, 
-		#ticket.departure_minutes, ticket.departure_seconds)
+
+func _is_on_time() -> bool:
+	return TimeManager.has_at_least(0,level_clear_time_cost_minutes,0)
 
 #func _on_inventory_changed() -> void:
 	## If the player buys a still-valid matching ticket, reset the missed departure flag
@@ -263,11 +279,12 @@ func _boarding_sequence() -> void:
 
 func _wrong_train_sequence() -> void:
 	_boarding = true
+	get_tree().get_first_node_in_group("ui_overlay").player_in_arrive_disembark_anim = true
 	await _run_boarding_and_departure(true)
 	GameManager.play_scene_concurrently(Enums.Scenes.WRONG_TRAIN)
 	await GameManager.concurrent_scene_complete
 
-	TimeManager.apply_penalty(incorrect_penalty_minutes)
+	TimeManager.apply_penalty(incorrect_penalty_seconds)
 
 	return_train.play_arrival_animation()
 	await return_train.player_disembarked
@@ -461,6 +478,7 @@ func _run_boarding_and_departure(should_play_pulling_out: bool = false) -> void:
 	var board_marker: Sprite2D = _boarded_player_l if _l_or_r == "l" else _boarded_player_r
 	if player and player_embark_marker and player.has_method("walk_to"):
 		await player.walk_to(_embark_global_position(), board_walk_speed, true)
+		
 
 	if player:
 		player.visible = false

@@ -140,6 +140,18 @@ tracks/7/keys = {
 "update": 0,
 "values": [Vector2(200, 80)]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Time/Label:text")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["hi"]
+}
 
 [sub_resource type="Animation" id="Animation_ticket_consumed"]
 resource_name = "ticket_consumed"
@@ -244,6 +256,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(200, 80)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Time/Label:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.3333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["<<0>> : <<0>> : <<0>>"]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_overlay"]
@@ -426,3 +450,5 @@ libraries/ = SubResource("AnimationLibrary_overlay")
 [connection signal="mouse_entered" from="InventoryButton" to="." method="_on_inventory_button_mouse_entered"]
 [connection signal="mouse_exited" from="InventoryButton" to="." method="_on_inventory_button_mouse_exited"]
 [connection signal="pressed" from="InventoryButton" to="." method="_on_inventory_button_pressed"]
+
+[editable path="Time"]
