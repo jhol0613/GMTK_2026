@@ -110,6 +110,7 @@ func _move_entry_to_section(to_section:int, remove_old_entry: bool, entry:Notebo
 					#entry.resshan_string,entry.get_note(), _sections[to_section].section_name
 				#)
 				_sections[_current_section].consolidate_pages()
+				#_entry_added_sound.play()
 				_update_nav_button_visibility(_current_section, _sections[_current_section].current_page)
 				#_sections[to_section].consolidate_pages()
 				#if remove_old_entry:
@@ -201,13 +202,16 @@ static func has_note(resshan: String) -> bool:
 	return false
 
 func _on_entry_reordered() -> void:
-	_entry_added_sound.play()
+	pass
+	#_entry_added_sound.play()
 
 func _on_next_page_pressed() -> void:
 	if _sections[_current_section].current_page < _get_current_section_page_count() - 1:
+		_sections[_current_section].get_current_page().hide_drop_indicator()
 		_sections[_current_section].switch_page(1)
-	elif _current_section < _active_section_count - 1:
-		_on_section_switch_pressed(_current_section + 1, 0)
+		
+	#elif _current_section < _active_section_count - 1:
+		#_on_section_switch_pressed(_current_section + 1, 0)
 
 	#if _current_section == _active_section_count - 1 and \
 		#_sections[_current_section].current_page == _get_current_section_page_count() - 1:
@@ -220,10 +224,12 @@ func _on_next_page_pressed() -> void:
 
 func _on_previous_page_pressed() -> void:
 	if _sections[_current_section].current_page > 0:
+		_sections[_current_section].get_current_page().hide_drop_indicator()
 		_sections[_current_section].switch_page(-1)
-	elif _current_section > 0:
-		_on_section_switch_pressed(_current_section - 1, 
-			_sections[_current_section - 1].get_pages().size() - 1)
+		
+	#elif _current_section > 0:
+		#_on_section_switch_pressed(_current_section - 1, 
+			#_sections[_current_section - 1].get_pages().size() - 1)
 
 	#if _current_section == 0 and _sections[_current_section].current_page == 0:
 		#_previous_page_button.show()
@@ -249,6 +255,7 @@ func _on_close_button_pressed() -> void:
 
 func _on_section_switch_pressed(section_indx: int, page_number := 0) -> void:
 	_page_turn_sound.play()
+	_sections[_current_section].get_current_page().hide_drop_indicator()
 	_sections[_current_section].hide()
 	var tab: SectionTab = _section_selector_holder.get_child(_current_section)
 	tab.sticker.visible = false
@@ -291,6 +298,10 @@ func _update_nav_button_visibility(section_indx: int, page_number: int):
 		_page_number_label.show()
 	else:
 		_page_number_label.hide()
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_DRAG_END:
+		_entry_added_sound.play()
 
 func _on_add_section_button_pressed() -> void:
 	$SectionAdded.play()

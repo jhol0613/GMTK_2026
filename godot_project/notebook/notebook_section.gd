@@ -128,6 +128,9 @@ func show_page(index: int) -> void:
 	pages[current_page].show()
 	_update_page_layout()
 
+func get_current_page() -> NotebookPage:
+	return get_pages()[current_page]
+
 ##adds a page if there is none or if pages are full, then returns the last page
 func get_entry_page() -> NotebookPage:
 	var pages: Array[NotebookPage] = get_pages()

@@ -90,11 +90,12 @@ func show_drop_indicator_top() -> void:
 		Vector2(holder.position.x, holder.position.y),
 		Vector2(holder.position.x + holder.size.x, holder.position.y)
 	])
-	_drop_indicator.visible = false
+	_drop_indicator.visible = true
 
 # this only gets called if drag position isn't intercepted by holder
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
-	if at_position.y < holder.position.y:
+	var first_entry = holder.get_child(0) as NotebookEntry
+	if at_position.y < holder.position.y + first_entry.size.y:
 		show_drop_indicator_top()
 	else:
 		show_drop_indicator_bottom()

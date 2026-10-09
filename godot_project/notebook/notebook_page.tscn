@@ -22,3 +22,10 @@ offset_top = 20.0
 offset_bottom = 1020.0
 grow_horizontal = 2
 theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="." unique_id=281601676]
+anchors_preset = 0
+offset_top = -100.0
+offset_right = 1920.0
+offset_bottom = 40.0
+mouse_filter = 1
