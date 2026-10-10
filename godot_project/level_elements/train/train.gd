@@ -331,7 +331,14 @@ func train_depart(play_pulling_out_sfx = false) -> void:
 	
 	if _is_vertical():
 		z_index -= 2
-	tween.tween_property(self, "position", position + depart_offset, depart_duration)
+		
+	var adjusted_depart_duration := (
+		depart_duration * rest_arrival_duration_multiplier
+		if _resting
+		else depart_duration
+	)
+	
+	tween.tween_property(self, "position", position + depart_offset, adjusted_depart_duration)
 
 	await tween.finished
 
