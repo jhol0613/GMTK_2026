@@ -23,18 +23,39 @@ var _colors: Array[Color] = [	Color(0,0,1,1),
 								Color(1,0,1,1),
 								Color(0.6,0,1,1),
 								Color(1,0,0,1),
-								Color(0,1,1,1) ]
+								Color(0,1,1,1),
+								Color(1,1,0,1) ]
+var _seconds: int
+var _interval: float
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	stash_data = GameManager.level_transition_stash_data
 	
+	_seconds = stash_data.resshan_transit_time * 8.0
 	_train.play(Enums.TrainColor.find_key(stash_data.color))
 	_line.modulate = _colors[stash_data.color]
 	_start_label.text = stash_data.start
 	_end_label.text = stash_data.end
 	
-	_anim_player.play(&"MoveTrain", 1, 1/stash_data.time_to_complete)
-	await _anim_player.animation_finished
+	_anim_player.play(&"move_train", 1, 1/stash_data.time_to_complete)
 	
-	GameManager.load_scene(stash_data.next_scene)
+	_interval = stash_data.time_to_complete / _seconds
+	_tick()
+	
+
+func _tick():
+	if _seconds > 0 and TimeManager.total_seconds() > 0:
+		TimeManager.advance()
+		await get_tree().create_timer(_interval).timeout
+		_seconds -= 1
+		_tick()
+	elif TimeManager.total_seconds() == 0:
+		_anim_player.stop(true)
+		_anim_player.play(&"time_up")
+		$Control/Time._play_sound = true
+		$Control/Time.tick_second()
+		await _anim_player.animation_finished
+		GameManager.load_scene(Enums.Scenes.BAD_ENDING)
+	elif _seconds <= 0:
+		await _anim_player.animation_finished
+		GameManager.load_scene(stash_data.next_scene)

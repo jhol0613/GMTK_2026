@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://2pwlm8itluel" path="res://level_elements/ticket_booth/ticket_booth.tscn" id="2_823pn"]
 [ext_resource type="Script" uid="uid://nxfc4h6u5iq6" path="res://levels/level_0/level_0.gd" id="2_as6hq"]
 [ext_resource type="PackedScene" uid="uid://cxekovsy3q368" path="res://level_elements/train_platform/platform.tscn" id="3_iss0w"]
-[ext_resource type="Script" uid="uid://dppi7sbuftfim" path="res://cutscenes/transit_cutscene/level_transition_stash_data.gd" id="8_j8vpj"]
 [ext_resource type="Resource" uid="uid://b00veulruyir3" path="res://levels/level_0/level_specific_resources/ticket_dialogue_level0.tres" id="9_dp5o0"]
 [ext_resource type="Texture2D" uid="uid://4ktjedml7yly" path="res://level_elements/maps/transit/transit_map_lvl0_u_r_here.png" id="12_oxxmn"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="13_u460r"]
@@ -534,15 +533,6 @@ sources/1 = SubResource("TileSetAtlasSource_mpakt")
 sources/0 = SubResource("TileSetAtlasSource_8v7xn")
 sources/2 = SubResource("TileSetAtlasSource_0fg8s")
 
-[sub_resource type="Resource" id="Resource_ar2qe"]
-script = ExtResource("8_j8vpj")
-
-[sub_resource type="Resource" id="Resource_lnyl4"]
-script = ExtResource("8_j8vpj")
-start = "station.0"
-end = "station.1"
-next_scene = null
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fpcxu"]
 size = Vector2(112, 32)
 
@@ -602,7 +592,6 @@ tile_set = SubResource("TileSet_3beyx")
 
 [node name="UpperTrain" parent="Platform" index="6" unique_id=995237668]
 visible = true
-stash_data = SubResource("Resource_ar2qe")
 color = 7
 
 [node name="TrainSprite" parent="Platform/UpperTrain" index="2" unique_id=865404147]
@@ -641,7 +630,6 @@ visible = true
 
 [node name="LowerTrain" parent="Platform" index="7" unique_id=1370361982]
 next_scene = 2
-stash_data = SubResource("Resource_lnyl4")
 color = 7
 
 [node name="TrainSprite" parent="Platform/LowerTrain" index="2" unique_id=865404147]

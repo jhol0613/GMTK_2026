@@ -43,7 +43,6 @@ mouse_filter = 2
 texture = ExtResource("2_ss088")
 
 [node name="Label" type="Control" parent="." unique_id=331463616]
-texture_filter = 1
 custom_minimum_size = Vector2(21, 32)
 anchors_preset = 0
 offset_left = 76.0

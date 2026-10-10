@@ -232,6 +232,21 @@ light_mode = 1
 atlas = ExtResource("12_oywde")
 region = Rect2(200, 1333, 16, 54)
 
+[sub_resource type="Animation" id="Animation_eyr6n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/TrainSprite:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [544.0]
+}
+
 [sub_resource type="Animation" id="Animation_oywde"]
 resource_name = "MoveTrain"
 tracks/0/type = "value"
@@ -247,49 +262,75 @@ tracks/0/keys = {
 "values": [544.0, 1300.0]
 }
 
-[sub_resource type="Animation" id="Animation_eyr6n"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_7gmjs"]
+resource_name = "time_up"
+length = 4.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Control/TrainSprite:position_x")
+tracks/0/path = NodePath("Control/Time:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [null]
+"times": PackedFloat32Array(2.1333332, 2.3333333, 2.5333333, 2.733333, 2.9333332, 3.3333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.2, 0.2, 1), Color(1, 1, 1, 1), Color(1, 0.2, 0.2, 1), Color(1, 0.35, 0.35, 1), Color(1, 1, 1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Control/TrainSprite:position.x")
+tracks/1/path = NodePath("Control/Time:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [null]
+"times": PackedFloat32Array(0, 2.08),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1680, 24), Vector2(832, 384)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Control/TrainSprite:position:x")
+tracks/2/path = NodePath("Control/Time:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.04),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(3, 3)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/Time:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(200, 80)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/Time/Label:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.3333333),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [544.0]
+"values": ["<<0>> : <<0>> : <<0>>"]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7gmjs"]
 _data = {
-&"MoveTrain": SubResource("Animation_oywde"),
-&"RESET": SubResource("Animation_eyr6n")
+&"RESET": SubResource("Animation_eyr6n"),
+&"move_train": SubResource("Animation_oywde"),
+&"time_up": SubResource("Animation_7gmjs")
 }
 
 [node name="TransitionCutscene" type="Node2D" unique_id=700242184 node_paths=PackedStringArray("_start_label", "_end_label", "_line", "_train")]
@@ -371,13 +412,18 @@ texture = ExtResource("8_mmlqb")
 [node name="Time" parent="Control" unique_id=1094747133 instance=ExtResource("1_88xve")]
 z_index = 1
 layout_mode = 0
-offset_left = 1601.0
+offset_left = 1680.0
 offset_top = 24.0
-offset_right = 1801.0
+offset_right = 1880.0
 offset_bottom = 104.0
 pivot_offset = Vector2(100, 40)
 mouse_filter = 2
 _play_sound = false
+
+[node name="Label" parent="Control/Time" index="2" unique_id=331463616]
+texture_filter = 1
+custom_minimum_size = Vector2(106, 32)
+text = "<<0>> : <<0>> : <<0>>"
 
 [node name="StartStation" type="ColorRect" parent="Control" unique_id=1688510673]
 layout_mode = 0
