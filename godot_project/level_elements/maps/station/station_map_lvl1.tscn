@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://0h6rwq0bq753" path="res://interactables/sign_panel.tscn" id="3_adogf"]
 [ext_resource type="Texture2D" uid="uid://d1v8h2a68eh6h" path="res://level_elements/maps/station/station_map_lvl1.png" id="4_eaavb"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="5_7usu2"]
+[ext_resource type="Script" uid="uid://cqe28fftgjtbc" path="res://visual_effects/day_night/night_light_2d.gd" id="6_5lj1p"]
+[ext_resource type="Texture2D" uid="uid://bfenqespjlgor" path="res://level_elements/maps/station/station_map_lvl1_overlay.png" id="7_asrqj"]
+[ext_resource type="Texture2D" uid="uid://b7k1rwda5wu1p" path="res://visual_effects/day_night/light_radial.png" id="8_0t7n8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]
 size = Vector2(47, 13)
@@ -12,9 +15,13 @@ size = Vector2(47, 13)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_riqys"]
 size = Vector2(50, 19)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_x3nn0"]
+blend_mode = 1
+
 [node name="StationMapLvl1" type="Node2D" unique_id=1108949590]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=665700838]
+position = Vector2(0, -31)
 collision_layer = 2
 collision_mask = 3
 
@@ -24,6 +31,7 @@ shape = SubResource("RectangleShape2D_ujtin")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1337781976]
 z_index = 1
+position = Vector2(0, -31)
 texture = ExtResource("1_ayper")
 
 [node name="1" type="Control" parent="Sprite2D" unique_id=1608879793]
@@ -71,6 +79,7 @@ _string = "<<4>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
 [node name="SignInteractable" parent="." unique_id=1631350735 instance=ExtResource("2_kho12")]
+position = Vector2(0, -31)
 panel_path = NodePath("../SignPanel")
 
 [node name="InteractableCollisionShape2D" parent="SignInteractable" index="0" unique_id=278382881]
@@ -376,6 +385,25 @@ offset_bottom = -279.22083
 script = ExtResource("5_7usu2")
 _string = "<<4>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="NightLight" type="Node2D" parent="." unique_id=731338242 groups=["night_lights"]]
+script = ExtResource("6_5lj1p")
+max_energy = 0.1
+stagger_range = 0.04
+
+[node name="GlowOverlay" type="Sprite2D" parent="NightLight" unique_id=9790801]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+material = SubResource("CanvasItemMaterial_x3nn0")
+position = Vector2(0, -31)
+texture = ExtResource("7_asrqj")
+
+[node name="PointLight2D" type="PointLight2D" parent="NightLight" unique_id=1111699533]
+position = Vector2(7.1525574e-07, -28)
+scale = Vector2(0.56249994, 0.53125)
+color = Color(0.20784314, 0.9019608, 0.8980392, 1)
+energy = 0.0
+texture = ExtResource("8_0t7n8")
 
 [editable path="SignInteractable"]
 [editable path="SignPanel"]

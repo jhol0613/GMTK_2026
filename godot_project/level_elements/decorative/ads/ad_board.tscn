@@ -41,7 +41,7 @@ autoplay = "default"
 
 [node name="NightLight" type="Node2D" parent="." unique_id=2071726499 groups=["night_lights"]]
 script = ExtResource("4_night")
-max_energy = 0.12
+max_energy = 0.1
 stagger_range = 0.04
 
 [node name="GlowOverlay" type="Sprite2D" parent="NightLight" unique_id=344365579]
@@ -52,9 +52,8 @@ position = Vector2(0, -32)
 texture = ExtResource("2_overlay")
 
 [node name="PointLight2D" type="PointLight2D" parent="NightLight" unique_id=565976209]
-position = Vector2(0, -32)
-scale = Vector2(0.6, 0.8)
+position = Vector2(-9.536743e-07, -34)
+scale = Vector2(0.31249997, 0.31249997)
 color = Color(0.20784314, 0.9019608, 0.8980392, 1)
 energy = 0.0
 texture = ExtResource("3_light")
-texture_scale = 0.45

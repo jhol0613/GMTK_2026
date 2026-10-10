@@ -1,15 +1,21 @@
 [gd_scene format=3 uid="uid://cit6uoxu58nwk"]
 
-[ext_resource type="Texture2D" uid="uid://cnf5hjo1lj1xu" path="res://level_elements/maps/transit/trainmap.png" id="1_f63an"]
+[ext_resource type="Texture2D" uid="uid://cnf5hjo1lj1xu" path="res://level_elements/maps/transit/transit_map_sprite.png" id="1_f63an"]
 [ext_resource type="PackedScene" uid="uid://i202174cj82c" path="res://interactables/sign_interactable.tscn" id="2_ed7fu"]
 [ext_resource type="Texture2D" uid="uid://cxftno5ffy14d" path="res://level_elements/maps/transit/transit_map.png" id="2_nf7gk"]
 [ext_resource type="Texture2D" uid="uid://bkrj6y6y1oc3g" path="res://level_elements/maps/transit/map_overlay_all_stations.png" id="3_detsl"]
 [ext_resource type="PackedScene" uid="uid://0h6rwq0bq753" path="res://interactables/sign_panel.tscn" id="3_rlmea"]
 [ext_resource type="Texture2D" uid="uid://den2eufnw50jh" path="res://level_elements/maps/transit/transit_map_colorblind_overlay.png" id="5_qxlha"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="6_nf7gk"]
+[ext_resource type="Script" uid="uid://cqe28fftgjtbc" path="res://visual_effects/day_night/night_light_2d.gd" id="8_2wocn"]
+[ext_resource type="Texture2D" uid="uid://ctfdkqgrt3lxy" path="res://level_elements/maps/transit/transit_map_overlay.png" id="9_2wocn"]
+[ext_resource type="Texture2D" uid="uid://b7k1rwda5wu1p" path="res://visual_effects/day_night/light_radial.png" id="10_80yvj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]
 size = Vector2(34, 12)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_h36g6"]
+blend_mode = 1
 
 [node name="TrainMap" type="Node2D" unique_id=940096549]
 
@@ -444,6 +450,25 @@ position = Vector2(0, 28)
 
 [node name="AnimatedSprite2D" parent="SignInteractable" index="2" unique_id=819702371]
 position = Vector2(0, -71.5)
+
+[node name="NightLight" type="Node2D" parent="." unique_id=1435217695 groups=["night_lights"]]
+script = ExtResource("8_2wocn")
+max_energy = 0.1
+stagger_range = 0.04
+
+[node name="GlowOverlay" type="Sprite2D" parent="NightLight" unique_id=1424858616]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+material = SubResource("CanvasItemMaterial_h36g6")
+position = Vector2(0, -31)
+texture = ExtResource("9_2wocn")
+
+[node name="PointLight2D" type="PointLight2D" parent="NightLight" unique_id=635988887]
+position = Vector2(-2.3841858e-07, -27.999998)
+scale = Vector2(0.375, 0.53124994)
+color = Color(0.20784314, 0.9019608, 0.8980392, 1)
+energy = 0.0
+texture = ExtResource("10_80yvj")
 
 [editable path="SignPanel"]
 [editable path="SignInteractable"]

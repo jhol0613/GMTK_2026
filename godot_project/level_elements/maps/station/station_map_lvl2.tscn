@@ -6,7 +6,10 @@
 [ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="3_eaavb"]
 [ext_resource type="Texture2D" uid="uid://b53hkyvvsyjsc" path="res://interactables/dialog_system/character_portraits/player/mc_portrait_10.png" id="4_adogf"]
 [ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="6_xa7cy"]
+[ext_resource type="Script" uid="uid://cqe28fftgjtbc" path="res://visual_effects/day_night/night_light_2d.gd" id="8_48722"]
 [ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialog_system/dialogue_panel.tscn" id="8_eaavb"]
+[ext_resource type="Texture2D" uid="uid://d4b8edo0medao" path="res://level_elements/maps/station/station_map_lvl2_overlay.png" id="9_xa7cy"]
+[ext_resource type="Texture2D" uid="uid://b7k1rwda5wu1p" path="res://visual_effects/day_night/light_radial.png" id="10_6prji"]
 
 [sub_resource type="Resource" id="Resource_eaavb"]
 script = ExtResource("3_eaavb")
@@ -32,6 +35,9 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n1xhd"]
 size = Vector2(50, 15)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gpxuc"]
+blend_mode = 1
 
 [node name="StationMapLevel2" type="Node2D" unique_id=580888112]
 
@@ -63,5 +69,25 @@ position = Vector2(0, -7.5)
 shape = SubResource("RectangleShape2D_n1xhd")
 
 [node name="DialoguePanel" parent="." unique_id=210961773 instance=ExtResource("8_eaavb")]
+
+[node name="NightLight" type="Node2D" parent="." unique_id=444334340 groups=["night_lights"]]
+script = ExtResource("8_48722")
+max_energy = 0.1
+stagger_range = 0.04
+
+[node name="GlowOverlay" type="Sprite2D" parent="NightLight" unique_id=617874171]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+material = SubResource("CanvasItemMaterial_gpxuc")
+position = Vector2(-4, -46)
+scale = Vector2(0.99999994, 0.9999999)
+texture = ExtResource("9_xa7cy")
+
+[node name="PointLight2D" type="PointLight2D" parent="NightLight" unique_id=1382255522]
+position = Vector2(3.999999, -23)
+scale = Vector2(0.43749997, 0.375)
+color = Color(0.20784314, 0.9019608, 0.8980392, 1)
+energy = 0.0
+texture = ExtResource("10_6prji")
 
 [editable path="DialogueInteractable"]

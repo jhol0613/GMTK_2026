@@ -43,6 +43,9 @@ script = ExtResource("5_4eows")
 lines = Array[ExtResource("3_g1vn7")]([SubResource("Resource_14r7i")])
 metadata/_custom_type_script = "uid://dvkforrusa0nj"
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7j6g1"]
+size = Vector2(28, 19)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]
 size = Vector2(20, 8)
 
@@ -61,6 +64,7 @@ has_arrow = false
 
 [node name="InteractableCollisionShape2D" parent="DialogueInteractable" index="0" unique_id=278382881]
 position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_7j6g1")
 
 [node name="Prompt" parent="DialogueInteractable" index="1" unique_id=272794898]
 offset_left = -37.5
