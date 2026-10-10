@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://2pwlm8itluel" path="res://level_elements/ticket_booth/ticket_booth.tscn" id="2_823pn"]
 [ext_resource type="Script" uid="uid://nxfc4h6u5iq6" path="res://levels/level_0/level_0.gd" id="2_as6hq"]
 [ext_resource type="PackedScene" uid="uid://cxekovsy3q368" path="res://level_elements/train_platform/platform.tscn" id="3_iss0w"]
+[ext_resource type="Script" uid="uid://dppi7sbuftfim" path="res://cutscenes/transit_cutscene/level_transition_stash_data.gd" id="3_j8vpj"]
 [ext_resource type="Resource" uid="uid://b00veulruyir3" path="res://levels/level_0/level_specific_resources/ticket_dialogue_level0.tres" id="9_dp5o0"]
 [ext_resource type="Texture2D" uid="uid://4ktjedml7yly" path="res://level_elements/maps/transit/transit_map_lvl0_u_r_here.png" id="12_oxxmn"]
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="13_u460r"]
@@ -36,6 +37,10 @@
 [ext_resource type="PackedScene" uid="uid://c6cf2lsxpijf6" path="res://level_elements/decorative/street_lamp/street_lamp.tscn" id="33_2dnbt"]
 [ext_resource type="PackedScene" uid="uid://bf2vyl6ya5byc" path="res://level_elements/signs/sign_info.tscn" id="34_6h1n3"]
 [ext_resource type="PackedScene" uid="uid://dk0yrl5ejk4vw" path="res://ui/token_display/battery_pickup.tscn" id="36_dp5o0"]
+
+[sub_resource type="Resource" id="Resource_ar2qe"]
+script = ExtResource("3_j8vpj")
+metadata/_custom_type_script = "uid://dppi7sbuftfim"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8v7xn"]
 texture = ExtResource("17_ggct0")
@@ -547,6 +552,7 @@ script = ExtResource("2_as6hq")
 correct_train_line = 7
 correct_train_direction = 2
 correct_train_scene = 3
+stash_data = SubResource("Resource_ar2qe")
 wrong_train_destination = 2
 
 [node name="StationHandler" parent="." index="0" unique_id=1058728153]

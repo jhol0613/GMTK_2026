@@ -7,15 +7,17 @@ extends Node2D
 #@export var start: String = "<<station.0>>"
 #@export var end: String = "<<station.1>>"
 
-var stash_data = TransitionStash.new()
+var stash_data: TransitionStash
 
 @export var _start_label: ResshanLabel
 @export var _end_label: ResshanLabel
 @export var _line: ColorRect
 @export var _train: AnimatedSprite2D
+@export var _timer: Countdown
+
 
 @onready var _anim_player : AnimationPlayer = $AnimationPlayer
-var _colors: Array[Color] = [	Color(0,0,1,1),
+const _colors: Array[Color] = [	Color(0,0,1,1),
 								Color(0.45,0.35,0.1,1),
 								Color(0.5,0.5,0.5,1),
 								Color(0,1,0,1),
@@ -27,6 +29,7 @@ var _colors: Array[Color] = [	Color(0,0,1,1),
 								Color(1,1,0,1) ]
 var _seconds: int
 var _interval: float
+var _time_up: bool = false
 
 func _ready() -> void:
 	stash_data = GameManager.level_transition_stash_data
@@ -52,10 +55,10 @@ func _tick():
 	elif TimeManager.total_seconds() == 0:
 		_anim_player.stop(true)
 		_anim_player.play(&"time_up")
-		$Control/Time._play_sound = true
-		$Control/Time.tick_second()
+		_timer._play_sound = true
+		_timer.tick_second()
 		await _anim_player.animation_finished
 		GameManager.load_scene(Enums.Scenes.BAD_ENDING)
 	elif _seconds <= 0:
-		await _anim_player.animation_finished
 		GameManager.load_scene(stash_data.next_scene)
+	

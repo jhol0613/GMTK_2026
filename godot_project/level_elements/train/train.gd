@@ -273,7 +273,7 @@ func _boarding_sequence() -> void:
 	get_tree().get_first_node_in_group("ui_overlay").player_in_arrive_disembark_anim = true
 	await _run_boarding_and_departure(true)
 	
-	var stash_data = get_tree().get_first_node_in_group("level").stash_data
+	var stash_data: TransitionStash = get_tree().get_first_node_in_group("level").stash_data
 	GameManager.load_scene( Enums.Scenes.TRANSITION, Enums.TransitionStyle.FADE_BLACK, 1.0, 1.0, stash_data )
 	_boarding = false
 
@@ -331,6 +331,11 @@ func train_depart(play_pulling_out_sfx = false) -> void:
 	
 	if _is_vertical():
 		z_index -= 2
+		train_interactable_d.visible = false
+		train_interactable_u.visible = false
+	else:
+		train_interactable_l.visible = false
+		train_interactable_r.visible = false
 		
 	var adjusted_depart_duration := (
 		depart_duration * rest_arrival_duration_multiplier
@@ -339,7 +344,9 @@ func train_depart(play_pulling_out_sfx = false) -> void:
 	)
 	
 	tween.tween_property(self, "position", position + depart_offset, adjusted_depart_duration)
-
+	
+	
+	
 	await tween.finished
 
 
@@ -384,6 +391,11 @@ func play_arrival_animation(include_player = true) -> void:
 	#z index has to be higher while train is in the station
 	if _is_vertical():
 		z_index += 2
+		train_interactable_d.visible = true
+		train_interactable_u.visible = true
+	else:
+		train_interactable_l.visible = true
+		train_interactable_r.visible = true
 	
 	if not include_player or not player:
 		_block_arrivals = false

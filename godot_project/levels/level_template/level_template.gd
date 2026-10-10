@@ -8,7 +8,7 @@ class_name LevelTemplate
 @export var previous_station_line: Enums.TrainColor
 @export var previous_station_direction: Enums.TrainDirection
 @export var previous_station_scene: Enums.Scenes
-@export var stash_data = TransitionStash.new()
+@export var stash_data: TransitionStash
 ## Typically refers to this scene
 @export var wrong_train_destination: Enums.Scenes
 @export var arrival_train: Train

@@ -1,3 +1,4 @@
+class_name Countdown
 extends Control
 
 const HOUR_PER_DAY: int = 7

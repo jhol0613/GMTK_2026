@@ -748,6 +748,7 @@ libraries/ = SubResource("AnimationLibrary_oe38n")
 [node name="NorthSouth" type="Node2D" parent="." unique_id=1383071599]
 
 [node name="TrainInteractableD" parent="NorthSouth" unique_id=1650056729 instance=ExtResource("3_725i7")]
+visible = false
 position = Vector2(0, -2)
 l_or_r = "l"
 
@@ -765,6 +766,7 @@ offset_bottom = 72.5
 position = Vector2(56, -10.5)
 
 [node name="TrainInteractableU" parent="NorthSouth" unique_id=459656988 instance=ExtResource("3_725i7")]
+visible = false
 position = Vector2(1, -103)
 l_or_r = "l"
 
@@ -794,6 +796,7 @@ position = Vector2(0, -57)
 visible = false
 
 [node name="TrainInteractableL" parent="EastWest" unique_id=779530687 instance=ExtResource("3_725i7")]
+visible = false
 position = Vector2(-64, -66)
 l_or_r = "l"
 
@@ -809,6 +812,7 @@ offset_bottom = 43.5
 position = Vector2(0, -38.5)
 
 [node name="TrainInteractableR" parent="EastWest" unique_id=1631350735 instance=ExtResource("3_725i7")]
+visible = false
 position = Vector2(64, -66)
 l_or_r = "r"
 

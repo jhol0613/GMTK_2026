@@ -7,7 +7,7 @@ func _ready() -> void:
 	for player in get_tree().get_nodes_in_group("player"):
 		player.movement_disabled = true
 		
-	$AnimationPlayer.animation_finished.connect(queue_free)
+	#$AnimationPlayer.animation_finished.connect(queue_free)
 	var rec_tween = create_tween()
 	rec_tween.tween_property($CanvasLayer/ColorRect, "self_modulate:a", 1.0, 2.0)
 	await rec_tween.finished
