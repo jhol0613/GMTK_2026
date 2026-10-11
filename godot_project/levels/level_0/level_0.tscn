@@ -995,9 +995,6 @@ metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 [node name="InfoSign" parent="TrainMap/SignPanel/Root/Popup/Overlay" parent_id_path=PackedInt32Array(940096549, 146975511) index="32" unique_id=733299724 instance=ExtResource("34_6h1n3")]
 position = Vector2(-2867.5325, -1303.8961)
 
-[node name="Trainmap" parent="TrainMap" index="1" unique_id=2020560551]
-texture = null
-
 [connection signal="pressed" from="SkipIntroLayer/SkipIntroButton" to="." method="_skip_intro"]
 
 [editable path="Platform"]
