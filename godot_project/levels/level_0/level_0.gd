@@ -18,7 +18,9 @@ func _ready() -> void:
 	_battery_pickup.set_active(false)
 	if not play_intro or skip_intro:
 		_begin_without_intro()
+		get_tree().get_first_node_in_group(&"ui_overlay").player_in_arrive_disembark_anim = false
 		return
+	get_tree().get_first_node_in_group(&"ui_overlay").player_in_arrive_disembark_anim = true
 	Wallet.enable(false)
 	_set_pigeon_ambient_muted(true)
 	_intro_conversation_scene = preload("uid://b40aq7wt2wqcs").instantiate()

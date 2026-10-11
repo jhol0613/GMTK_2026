@@ -32,4 +32,5 @@ func _end_intro():
 	for player in get_tree().get_nodes_in_group("player"):
 		player.movement_disabled = false
 	scene_complete.emit()
+	get_tree().get_first_node_in_group(&"ui_overlay").player_in_arrive_disembark_anim = false
 	queue_free()
