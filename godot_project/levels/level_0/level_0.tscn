@@ -992,8 +992,9 @@ script = ExtResource("13_u460r")
 _string = "<<station>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
-[node name="InfoSign" parent="TrainMap/SignPanel/Root/Popup/Overlay" parent_id_path=PackedInt32Array(940096549, 146975511) index="32" unique_id=733299724 instance=ExtResource("34_6h1n3")]
-position = Vector2(-2867.5325, -1303.8961)
+[node name="InfoSign" parent="." index="20" unique_id=733299724 instance=ExtResource("34_6h1n3")]
+position = Vector2(-1248, -464)
+scale = Vector2(0.77, 0.77)
 
 [connection signal="pressed" from="SkipIntroLayer/SkipIntroButton" to="." method="_skip_intro"]
 

@@ -14,6 +14,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujtin"]
 size = Vector2(34, 12)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2wocn"]
+size = Vector2(42, 19)
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_h36g6"]
 blend_mode = 1
 
@@ -436,7 +439,8 @@ shape = SubResource("RectangleShape2D_ujtin")
 panel_path = NodePath("../SignPanel")
 
 [node name="InteractableCollisionShape2D" parent="SignInteractable" index="0" unique_id=278382881]
-position = Vector2(2, 1)
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_2wocn")
 
 [node name="Prompt" parent="SignInteractable" index="1" unique_id=272794898]
 custom_minimum_size = Vector2(75, 168)
