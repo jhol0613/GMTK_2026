@@ -103,7 +103,12 @@ func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 
 func _drop_data(at_position: Vector2, data: Variant) -> void:
 	hide_drop_indicator()
-	var target := holder.get_child_count() - 1
+	var first_entry = holder.get_child(0) as NotebookEntry
+	var target: int
+	if at_position.y < holder.position.y + first_entry.size.y:
+		target = 0
+	else:
+		target = holder.get_child_count() - 1
 	if data.get_index() != target:
 		holder.move_child(data, target)
 		data.reordered.emit()
