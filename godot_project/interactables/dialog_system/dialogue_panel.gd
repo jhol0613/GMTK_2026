@@ -23,7 +23,7 @@ var _choices: Array[DialogueChoice] = []
 
 var _showing_options: bool
 var _selected_option: int
-var _reward: ItemData
+var _reward: ItemData = null
 var _awaiting_close: bool
 var _awaiting_reward: bool
 var _choice_reply_override: DialogueLine

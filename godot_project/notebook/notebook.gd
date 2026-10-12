@@ -15,7 +15,7 @@ var _current_section: int = 0
 var _sections: Array[NotebookSection] = []
 var _active_section_count := 1
 
-
+@onready var size : Vector2 = $Sprite2D.texture.get_size()
 @onready var _page_turn_sound: AudioStreamPlayer = $PageTurnSound
 @onready var _entry_added_sound: AudioStreamPlayer = $EntryAdded
 #@onready var _hover_sound: AudioStreamPlayer = $HoverSound

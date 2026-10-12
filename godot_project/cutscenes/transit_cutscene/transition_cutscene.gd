@@ -45,6 +45,7 @@ func _ready() -> void:
 	_interval = stash_data.time_to_complete / _seconds
 	_tick()
 	
+	#get_tree().create_timer(4).timeout.connect(_test)
 
 func _tick():
 	if _seconds > 0 and TimeManager.total_seconds() > 0:
@@ -62,3 +63,7 @@ func _tick():
 	elif _seconds <= 0:
 		GameManager.load_scene(stash_data.next_scene)
 	
+
+func _test():
+	
+	_anim_player.play(&"time_up")

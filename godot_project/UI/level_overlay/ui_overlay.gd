@@ -1,8 +1,6 @@
 extends CanvasLayer
 
 @export var mouse_hover_offset := Vector2(0, -8)
-@export var notebook_dock_x := 352.0
-@export var notebook_offscreen_x := -352.0
 @export var notebook_slide_time := 0.3
 @export var dialogue_compact_left := 744.0
 
@@ -11,23 +9,19 @@ var pen = load("uid://c8yj5np7nrak6")
 var hand_open = load("uid://xuaolfjqb2gn")
 var hand_closed = load("uid://w4yu8aix4u4b")
 
-var _notebook_home := Vector2.ZERO
-var _notebook_docked := false
-var _notebook_tween: Tween
-var _compacted_panel: Node
-var _compacted_close_signal := &""
-# stores whether the player's movement was enabled (walking around) or disabled (in dialog, etc) when they open the notebook
-var _notebook_player_initial_movement_disabled: bool
-var _launcher_button_states: Dictionary = {}
+@export_category("Control Nodes")
+@export var _time : Countdown
+@export var _animation_player: AnimationPlayer
+@export var _notebook: Notebook
+@export var _notebook_button : TextureButton
+@export var _ticket_button : TextureButton
+@export var _ticket: Ticket
+@export var _inventory_button : TextureButton
+@export var _inventory: InventoryPanel
+@export var _item_popup: Control
+@export var _item_popup_icon: TextureRect
+@export var _rest_vignette: ColorRect
 
-@onready var _time := $Time
-@onready var _animation_player: AnimationPlayer = $AnimationPlayer
-@onready var _notebook: Notebook = $Notebook
-@onready var _notebook_button : TextureButton = $NotebookButton
-@onready var _ticket_button : TextureButton = $TicketButton
-@onready var _ticket: Ticket = $Ticket
-@onready var _inventory_button : TextureButton = $InventoryButton
-@onready var _inventory: InventoryPanel = $InventoryPanel
 @onready var _notebook_hover_sound: AudioStreamPlayer = $NotebookHoverSound
 @onready var _notebook_click_sound: AudioStreamPlayer = $NotebookClickSound
 @onready var _notebook_exit_sound: AudioStreamPlayer = $NotebookCloseSound
@@ -37,11 +31,9 @@ var _launcher_button_states: Dictionary = {}
 @onready var _inventory_hover_sound: AudioStreamPlayer = $InventoryHoverSound
 @onready var _inventory_click_sound: AudioStreamPlayer = $InventoryClickSound
 @onready var _inventory_close_sound: AudioStreamPlayer = $InventoryCloseSound
-@onready var _item_popup: Control = $ItemPopup
-@onready var _item_popup_icon: TextureRect = $ItemPopup/Icon
 @onready var _trinket_purchase_sound: AudioStreamPlayer = $TrinketPurchaseSound
 @onready var _item_to_inventory_sound: AudioStreamPlayer = $ItemToInventorySound
-@onready var _rest_vignette: ColorRect = $RestVignette
+
 
 @onready var _initial_notebook_button_scale: Vector2 = _notebook_button.scale
 @onready var _initial_inventory_button_scale: Vector2 = _inventory_button.scale
@@ -58,7 +50,13 @@ var _reject_tween: Tween
 var _reject_color_tween: Tween
 var _reject_target: Control
 var _reject_shake_x: float = 0.0
-
+var _notebook_docked := false
+var _notebook_tween: Tween
+var _compacted_panel: Node
+var _compacted_close_signal := &""
+# stores whether the player's movement was enabled (walking around) or disabled (in dialog, etc) when they open the notebook
+var _notebook_player_initial_movement_disabled: bool
+var _launcher_button_states: Dictionary = {}
 var player_in_arrive_disembark_anim: bool
 var dragging_item: bool = false
 var in_dialog: bool = false
@@ -67,7 +65,6 @@ var in_dialog: bool = false
 func _ready() -> void:
 	GameManager.pause_enabled = true
 	_inventory_button.pivot_offset = _inventory_button.size * 0.5
-	_notebook_home = _notebook.position
 	_notebook.visible = false
 	_ticket.visible = false
 	_inventory.visible = false
@@ -165,11 +162,12 @@ func open_notebook() -> void:
 					_on_compacted_panel_closed,
 					CONNECT_ONE_SHOT,
 				)
-		_notebook.position = Vector2(notebook_offscreen_x, _notebook_home.y)
+		$Control/NotebookHolder.set_anchors_preset(Control.PRESET_CENTER_LEFT)
+		_slide_notebook($Control.size.x / -2 + _notebook.size.x / 2)
 		_notebook.visible = true
-		_slide_notebook(notebook_dock_x)
 	else:
-		_notebook.position = _notebook_home
+		$Control/NotebookHolder.set_anchors_preset(Control.PRESET_CENTER)
+		_slide_notebook(0)
 		_notebook.visible = true
 	
 	var player := get_tree().get_first_node_in_group("player")
@@ -202,9 +200,11 @@ func close_notebook() -> void:
 			_compacted_panel.set_compact(false, 0.0, notebook_slide_time)
 		_compacted_panel = null
 		_compacted_close_signal = &""
-		var tween := _slide_notebook(notebook_offscreen_x)
-		tween.tween_callback(func() -> void: _notebook.visible = false)
-		tween.tween_callback(_restore_launcher_buttons)
+		
+		$Control/NotebookHolder.set_anchors_preset(Control.PRESET_CENTER)
+		var _close_notebook_tween : Tween = _slide_notebook(0)
+		_close_notebook_tween.tween_callback(func() -> void: _notebook.visible = false)
+		_close_notebook_tween.tween_callback(_restore_launcher_buttons)
 	else:
 		_notebook.visible = false
 		_restore_launcher_buttons()
@@ -240,10 +240,13 @@ func _on_compacted_panel_closed() -> void:
 	if _compacted_panel != null and is_instance_valid(_compacted_panel):
 		if _compacted_panel.has_method("set_compact"):
 			_compacted_panel.set_compact(false, 0.0, notebook_slide_time)
+		if _compacted_panel._reward != null:
+			await _item_popup_tween.finished
 	_compacted_panel = null
 	_compacted_close_signal = &""
 	if _notebook.visible:
-		_slide_notebook(_notebook_home.x)
+		$Control/NotebookHolder.set_anchors_preset(Control.PRESET_CENTER)
+		_slide_notebook(0)
 
 
 
@@ -310,9 +313,12 @@ func _refresh_ticket() -> void:
 
 	_ticket_button_show_tween = create_tween()
 	_ticket_button_show_tween.tween_interval(TICKET_BUTTON_SHOW_DELAY)
-	_ticket_button_show_tween.tween_callback(func() -> void:
-		_ticket_button.visible = true
-	)
+	_launcher_button_states[_ticket_button] = true
+	if not _notebook.visible:
+		_ticket_button_show_tween.tween_callback(func() -> void:
+			_ticket_button.visible = true
+		)
+	
 
 
 func _on_ticket_consumed():
@@ -380,6 +386,7 @@ func _on_item_added(item: ItemData) -> void:
 	if icon == null:
 		return
 	_show_item_popup(icon, item)
+	
 
 
 func _on_animated_item_added(item: ItemData) -> void:
@@ -414,6 +421,7 @@ func _show_item_popup(icon: Texture2D, item: ItemData = null) -> void:
 	if _item_popup_animation_tween != null and _item_popup_animation_tween.is_valid():
 		_item_popup_animation_tween.kill()
 
+	
 	_item_popup_icon.texture = icon
 	_item_popup.visible = true
 	_item_popup_icon.modulate = Color(1, 1, 1, 0)
@@ -469,8 +477,8 @@ func _reject_icon( button:Control, initial_scale:Vector2 ):
 	_reject_tween = create_tween()
 	_reject_tween.tween_property(button, "scale", initial_scale * 1.18, 0.1)
 	var previous := 0.0
-	for offset in [2.0, -2.0, 1.0, -1.0, 0.0]:
-		var target: float = offset * REJECT_SHAKE_UNIT
+	for _offset in [2.0, -2.0, 1.0, -1.0, 0.0]:
+		var target: float = _offset * REJECT_SHAKE_UNIT
 		_reject_tween.tween_method(_apply_reject_shake, previous, target, 0.06)
 		previous = target
 	_reject_tween.tween_property(button, "scale", initial_scale, 0.2)
@@ -559,8 +567,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	var closed_something := false
 
 	var over_notebook := (
-		_sprite_contains_point($Notebook/Sprite2D, pointer_position)
-		or _control_contains_point($Notebook/SectionSelector/Holder, pointer_position)
+		_sprite_contains_point($Control/NotebookHolder/Notebook/Sprite2D, pointer_position)
+		or _control_contains_point($Control/NotebookHolder/Notebook/SectionSelector/Holder, pointer_position)
 	)
 	#if _notebook.visible and not over_notebook:
 		#close_notebook()
@@ -575,7 +583,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 		return
 
-	if _ticket.visible and not _sprite_contains_point($Ticket/Background, pointer_position):
+	if _ticket.visible and not _sprite_contains_point($Control/TicketHolder/Ticket/Background, pointer_position):
 		_close_ticket()
 		closed_something = true
 

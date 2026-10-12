@@ -47,7 +47,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Time:modulate")
+tracks/0/path = NodePath("Control/Time:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -59,7 +59,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Time:position")
+tracks/1/path = NodePath("Control/Time:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -71,7 +71,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Time:scale")
+tracks/2/path = NodePath("Control/Time:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -83,7 +83,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("TicketButton:size")
+tracks/3/path = NodePath("Control/TicketButton:size")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -95,7 +95,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("TicketButton:rotation")
+tracks/4/path = NodePath("Control/TicketButton:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -107,7 +107,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("TicketButton:scale")
+tracks/5/path = NodePath("Control/TicketButton:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -119,7 +119,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("TicketButton:position")
+tracks/6/path = NodePath("Control/TicketButton:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -131,7 +131,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Time:size")
+tracks/7/path = NodePath("Control/Time:size")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -143,7 +143,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Time/Label:text")
+tracks/8/path = NodePath("Control/Time/Label:text")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -160,7 +160,7 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TicketButton:size")
+tracks/0/path = NodePath("Control/TicketButton:size")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -172,7 +172,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("TicketButton:rotation")
+tracks/1/path = NodePath("Control/TicketButton:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -184,7 +184,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("TicketButton:scale")
+tracks/2/path = NodePath("Control/TicketButton:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -196,7 +196,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("TicketButton:position")
+tracks/3/path = NodePath("Control/TicketButton:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -212,7 +212,7 @@ length = 4.0333333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Time:modulate")
+tracks/0/path = NodePath("Control/Time:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -224,7 +224,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Time:position")
+tracks/1/path = NodePath("Control/Time:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -236,7 +236,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Time:scale")
+tracks/2/path = NodePath("Control/Time:scale")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -248,7 +248,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Time:size")
+tracks/3/path = NodePath("Control/Time:size")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -260,7 +260,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Time/Label:text")
+tracks/4/path = NodePath("Control/Time/Label:text")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -277,12 +277,23 @@ _data = {
 &"time_up": SubResource("Animation_time_up")
 }
 
-[node name="UiOverlay" type="CanvasLayer" unique_id=368800410 groups=["ui_overlay"]]
+[node name="UiOverlay" type="CanvasLayer" unique_id=368800410 node_paths=PackedStringArray("_time", "_animation_player", "_notebook", "_notebook_button", "_ticket_button", "_ticket", "_inventory_button", "_inventory", "_item_popup", "_item_popup_icon", "_rest_vignette") groups=["ui_overlay"]]
 layer = 25
 script = ExtResource("1_0h6y4")
+_time = NodePath("Control/Time")
+_animation_player = NodePath("AnimationPlayer")
+_notebook = NodePath("Control/NotebookHolder/Notebook")
+_notebook_button = NodePath("Control/NotebookButton")
+_ticket_button = NodePath("Control/TicketButton")
+_ticket = NodePath("Control/TicketHolder/Ticket")
+_inventory_button = NodePath("Control/InventoryButton")
+_inventory = NodePath("Control/InventoryPanel")
+_item_popup = NodePath("Control/ItemPopup")
+_item_popup_icon = NodePath("Control/ItemPopup/Icon")
+_rest_vignette = NodePath("Control/RestVignette")
 
-[node name="RestVignette" type="ColorRect" parent="." unique_id=447198729]
-material = SubResource("ShaderMaterial_rest_vignette")
+[node name="Control" type="Control" parent="." unique_id=1917789093]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -290,59 +301,84 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Time" parent="." unique_id=1094747134 instance=ExtResource("6_time")]
-z_index = 1
-offset_left = 1601.0
-offset_top = 24.0
-offset_right = 1801.0
-offset_bottom = 104.0
-pivot_offset = Vector2(100, 40)
+[node name="RestVignette" type="ColorRect" parent="Control" unique_id=447198729]
+material = SubResource("ShaderMaterial_rest_vignette")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 
-[node name="TokenDisplay" parent="." unique_id=1614850616 instance=ExtResource("6_tokens")]
+[node name="Time" parent="Control" unique_id=1094747134 instance=ExtResource("6_time")]
+z_index = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -319.0
+offset_top = 24.0
+offset_right = -119.0
+offset_bottom = 104.0
+grow_horizontal = 0
+mouse_filter = 2
+
+[node name="Label" parent="Control/Time" index="2" unique_id=331463616]
+text = "hi"
+
+[node name="CoffeeIndicator" parent="Control/Time" unique_id=1195736173 instance=ExtResource("6_coffee")]
+z_index = -1
+texture_filter = 1
+layout_mode = 0
+offset_left = 43.0
+offset_top = 157.0
+offset_right = 223.0
+offset_bottom = 197.0
+
+[node name="TokenDisplay" parent="Control" unique_id=1614850616 instance=ExtResource("6_tokens")]
+layout_mode = 1
 offset_left = 48.0
 offset_top = 32.0
 offset_right = 228.0
 offset_bottom = 116.0
 
-[node name="CoffeeIndicator" parent="." unique_id=1195736173 instance=ExtResource("6_coffee")]
-offset_left = 1643.0
-offset_top = 183.0
-offset_right = 1835.0
-offset_bottom = 247.0
-
-[node name="Notebook" parent="." unique_id=2020796058 instance=ExtResource("2_l5of1")]
-visible = false
-texture_filter = 1
-position = Vector2(987, 553)
-
-[node name="Ticket" parent="." unique_id=1917505248 instance=ExtResource("4_ticket")]
-visible = false
-texture_filter = 2
-position = Vector2(992, 496)
-ticket_data = null
-
-[node name="InventoryPanel" parent="." unique_id=1917505249 instance=ExtResource("10_invpanel")]
-offset_left = -952.0
-offset_top = 94.0
-offset_right = 136.0
-offset_bottom = 474.0
-
-[node name="ItemPopup" type="CenterContainer" parent="." unique_id=1015391337]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
+[node name="InventoryPanel" parent="Control" unique_id=1917505249 instance=ExtResource("10_invpanel")]
+layout_mode = 1
+anchors_preset = 2
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
 anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = -380.0
+offset_right = 1110.0
+offset_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 0
+
+[node name="ItemPopup" type="CenterContainer" parent="Control" unique_id=1015391337]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -182.0
+offset_top = -182.5
+offset_right = 182.0
+offset_bottom = 182.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="PanelContainer" type="TextureRect" parent="ItemPopup" unique_id=1290032628]
+[node name="PanelContainer" type="TextureRect" parent="Control/ItemPopup" unique_id=1290032628]
 custom_minimum_size = Vector2(256, 256)
 layout_mode = 2
 texture = ExtResource("6_ak43t")
 
-[node name="Icon" type="TextureRect" parent="ItemPopup" unique_id=523522977]
+[node name="Icon" type="TextureRect" parent="Control/ItemPopup" unique_id=523522977]
 texture_filter = 1
 custom_minimum_size = Vector2(256, 256)
 layout_mode = 2
@@ -350,35 +386,85 @@ mouse_filter = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="NotebookButton" type="TextureButton" parent="." unique_id=1767702104]
+[node name="NotebookButton" type="TextureButton" parent="Control" unique_id=1767702104]
 texture_filter = 2
-offset_left = 30.0
-offset_top = 908.0
-offset_right = 185.0
-offset_bottom = 1069.0
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 54.0
+offset_top = -180.0
+offset_right = 209.0
+offset_bottom = -19.0
+grow_vertical = 0
 texture_normal = ExtResource("3_l5of1")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="TicketButton" type="TextureButton" parent="." unique_id=1767702105]
+[node name="TicketButton" type="TextureButton" parent="Control" unique_id=1767702105]
 texture_filter = 2
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
 offset_left = 376.0
-offset_top = 906.0
+offset_top = -174.0
 offset_right = 531.0
-offset_bottom = 1067.0
+offset_bottom = -13.0
+grow_vertical = 0
 texture_normal = ExtResource("6_3atem")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="InventoryButton" type="TextureButton" parent="." unique_id=630397442]
+[node name="InventoryButton" type="TextureButton" parent="Control" unique_id=630397442]
 texture_filter = 2
-offset_left = 216.0
-offset_top = 912.0
-offset_right = 371.0
-offset_bottom = 1073.0
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 228.0
+offset_top = -180.0
+offset_right = 383.0
+offset_bottom = -19.0
+grow_vertical = 0
 texture_normal = ExtResource("7_kjn1x")
 ignore_texture_size = true
 stretch_mode = 4
+
+[node name="TicketHolder" type="Control" parent="Control" unique_id=583833739]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Ticket" parent="Control/TicketHolder" unique_id=1917505248 instance=ExtResource("4_ticket")]
+visible = false
+z_index = 2
+texture_filter = 2
+ticket_data = null
+
+[node name="NotebookHolder" type="Control" parent="Control" unique_id=390409178]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Notebook" parent="Control/NotebookHolder" unique_id=2020796058 instance=ExtResource("2_l5of1")]
+visible = false
+z_index = 2
+texture_filter = 1
 
 [node name="NotebookHoverSound" type="AudioStreamPlayer" parent="." unique_id=732685104]
 stream = ExtResource("7_64688")
@@ -441,14 +527,14 @@ bus = &"SFX"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=746603066]
 libraries/ = SubResource("AnimationLibrary_overlay")
 
-[connection signal="mouse_entered" from="NotebookButton" to="." method="_on_notebook_button_mouse_entered"]
-[connection signal="mouse_exited" from="NotebookButton" to="." method="_on_notebook_button_mouse_exited"]
-[connection signal="pressed" from="NotebookButton" to="." method="on_notebook_button_pressed"]
-[connection signal="mouse_entered" from="TicketButton" to="." method="_on_ticket_button_mouse_entered"]
-[connection signal="mouse_exited" from="TicketButton" to="." method="_on_ticket_button_mouse_exited"]
-[connection signal="pressed" from="TicketButton" to="." method="_on_ticket_button_pressed"]
-[connection signal="mouse_entered" from="InventoryButton" to="." method="_on_inventory_button_mouse_entered"]
-[connection signal="mouse_exited" from="InventoryButton" to="." method="_on_inventory_button_mouse_exited"]
-[connection signal="pressed" from="InventoryButton" to="." method="_on_inventory_button_pressed"]
+[connection signal="mouse_entered" from="Control/NotebookButton" to="." method="_on_notebook_button_mouse_entered"]
+[connection signal="mouse_exited" from="Control/NotebookButton" to="." method="_on_notebook_button_mouse_exited"]
+[connection signal="pressed" from="Control/NotebookButton" to="." method="on_notebook_button_pressed"]
+[connection signal="mouse_entered" from="Control/TicketButton" to="." method="_on_ticket_button_mouse_entered"]
+[connection signal="mouse_exited" from="Control/TicketButton" to="." method="_on_ticket_button_mouse_exited"]
+[connection signal="pressed" from="Control/TicketButton" to="." method="_on_ticket_button_pressed"]
+[connection signal="mouse_entered" from="Control/InventoryButton" to="." method="_on_inventory_button_mouse_entered"]
+[connection signal="mouse_exited" from="Control/InventoryButton" to="." method="_on_inventory_button_mouse_exited"]
+[connection signal="pressed" from="Control/InventoryButton" to="." method="_on_inventory_button_pressed"]
 
-[editable path="Time"]
+[editable path="Control/Time"]
