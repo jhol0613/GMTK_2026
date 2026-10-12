@@ -1828,33 +1828,47 @@ scale = Vector2(1, -1)
 texture = ExtResource("31_xpuws")
 
 [node name="Birb9" parent="Platform7/RearGround" parent_id_path=PackedInt32Array(261612207, 94519414) index="10" unique_id=896847941 instance=ExtResource("25_ppf8r")]
+z_index = 0
 position = Vector2(-48, -152)
 
 [node name="Birb10" parent="Platform7/RearGround" parent_id_path=PackedInt32Array(261612207, 94519414) index="11" unique_id=339170499 instance=ExtResource("25_ppf8r")]
+z_index = 0
 position = Vector2(-72, -136)
 
 [node name="Birb11" parent="Platform7/RearGround" parent_id_path=PackedInt32Array(261612207, 94519414) index="12" unique_id=1066136885 instance=ExtResource("25_ppf8r")]
+z_index = 0
 position = Vector2(-88, -160)
 
 [node name="Birb12" parent="Platform7/RearGround" parent_id_path=PackedInt32Array(261612207, 94519414) index="13" unique_id=102930847 instance=ExtResource("25_ppf8r")]
+z_index = 0
 position = Vector2(-144, -128)
 
 [node name="Birb13" parent="Platform7/RearGround" parent_id_path=PackedInt32Array(261612207, 94519414) index="14" unique_id=1837675063 instance=ExtResource("25_ppf8r")]
+z_index = 0
 position = Vector2(-136, -152)
 
 [node name="Birb14" parent="Platform7/RearGround" parent_id_path=PackedInt32Array(261612207, 94519414) index="15" unique_id=503298663 instance=ExtResource("25_ppf8r")]
+z_index = 0
 position = Vector2(-96, -128)
 
 [node name="Sprinkler12" parent="Platform7/RearGround" parent_id_path=PackedInt32Array(261612207, 94519414) index="16" unique_id=1704916309 instance=ExtResource("12_bkbve")]
+z_index = -1
+y_sort_enabled = false
 position = Vector2(-360, -160)
 
 [node name="Sprinkler13" parent="Platform7/RearGround" parent_id_path=PackedInt32Array(261612207, 94519414) index="17" unique_id=1626550174 instance=ExtResource("12_bkbve")]
+z_index = -1
+y_sort_enabled = false
 position = Vector2(-304, -144)
 
 [node name="Sprinkler14" parent="Platform7/RearGround" parent_id_path=PackedInt32Array(261612207, 94519414) index="18" unique_id=783137308 instance=ExtResource("12_bkbve")]
+z_index = -1
+y_sort_enabled = false
 position = Vector2(-224, -160)
 
 [node name="Sprinkler15" parent="Platform7/RearGround" parent_id_path=PackedInt32Array(261612207, 94519414) index="19" unique_id=1783346838 instance=ExtResource("12_bkbve")]
+z_index = -1
+y_sort_enabled = false
 position = Vector2(48, -152)
 
 [node name="UpperTrain" parent="Platform7" index="6" unique_id=995237668 node_paths=PackedStringArray("hide_if_vertical")]
