@@ -25,6 +25,8 @@ func _enable_resshan():
 	$CanvasLayer/Comic1Picture4a/ResshanInteractable4.enabled = true
 
 func _input(event):
+	if not OS.is_debug_build():
+		return
 	if event.is_action_pressed("skip"):
 		_end_intro()
 
