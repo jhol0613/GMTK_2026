@@ -62,6 +62,7 @@ func _skip_intro() -> void:
 
 	AudioManager.restore_level_music(2.0)
 	ui_layer.in_dialog = false
+	ui_layer.player_in_arrive_disembark_anim = false
 	$Player.set_active(true)
 	ui_layer.open_notebook()
 	platform.upper_train.call_train()
