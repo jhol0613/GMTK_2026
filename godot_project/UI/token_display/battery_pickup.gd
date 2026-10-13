@@ -15,5 +15,5 @@ func set_active(value: bool) -> void:
 func _on_dialogue_panel_option_confirmed(outcome_id: StringName) -> void:
 	if outcome_id == &"GOT_BATTERY":
 		AudioManager.play_ui_sfx($PickupSound.stream, $PickupSound.volume_db)
-		Wallet.enable(true)
+		Wallet.enable(true, global_position)
 		queue_free()

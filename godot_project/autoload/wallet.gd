@@ -7,6 +7,7 @@ signal refilled
 signal set_enabled(new_enabled: bool)
 
 const MAX_TOKENS: int = 16
+const PICKUP_TOKENS: int = 10
 const TICKET_COST: int = 4
 const TRINKET_COST: int = 3
 const COFFEE_COST: int = 4
@@ -18,13 +19,11 @@ func _ready() -> void:
 	tokens_changed.emit(tokens, MAX_TOKENS, Vector2(0,0))
 
 
-func enable(new_enabled):
+func enable(new_enabled, origin_global := Vector2.ZERO):
 	enabled = new_enabled
-	if new_enabled:
-		tokens = MAX_TOKENS
-	else:
-		tokens = 0
+	tokens = PICKUP_TOKENS if new_enabled else 0
 	set_enabled.emit(new_enabled)
+	tokens_changed.emit(tokens, MAX_TOKENS, origin_global)
 	
 
 
