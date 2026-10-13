@@ -80,6 +80,10 @@ func _on_set_enabled(new_enabled: bool):
 	if not visible and new_enabled:
 		_play_scale_bump()
 	visible = new_enabled
+	if not new_enabled:
+		_charge_generation += 1
+		_displayed_tokens = 0
+		_refresh(0)
 
 func _create_audio_players() -> void:
 	_gain_player = AudioStreamPlayer.new()
