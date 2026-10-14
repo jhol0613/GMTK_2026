@@ -73,7 +73,7 @@ func _get_entry_drag_data(_position: Vector2) -> Variant:
 	preview.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	preview.resshan_string = resshan_string
 	preview.get_node("PlayerInput").text = player_input.text
-	preview.z_index = 1
+	preview.z_index = 2
 	holder.add_child(preview)
 	set_drag_preview(holder)
 	_drag_preview = preview

@@ -8,6 +8,7 @@ class_name SwitchPageButton
 var _dragged_data: NotebookEntry
 var _page_switch_timer: SceneTreeTimer
 const hover_time_to_page_switch := 0.5
+const follow_on_hover_time_to_page_switch := 0.5
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,6 +27,11 @@ func _on_page_switch_timeout():
 	if _dragged_data:
 		_dragged_data.move_page_requested.emit(page_increment)
 		_dragged_data.request_switch_page_view.emit(page_increment)
+		_page_switch_timer.timeout.disconnect(_on_page_switch_timeout)
+	#if button got hidden with switch page requested, it won't restart the timer
+	if visible:
+		_page_switch_timer = get_tree().create_timer(follow_on_hover_time_to_page_switch)
+		_page_switch_timer.timeout.connect(_on_page_switch_timeout)
 		#_on_next_page_pressed()
 		#_dragged_data.move_requested.emit(get_index(), true)
 		#_dragged_data.request_switch_section_view.emit(get_index())
