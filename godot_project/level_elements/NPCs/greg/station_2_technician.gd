@@ -14,7 +14,9 @@ const RETURN_SPEED := 300.0
 #@export var vending_machine_stay_fixed_time := 9.0
 @export_group("Animation Sequence")
 @export var broken_atm_fix_location := Vector2(0, 10)
+@export var broken_atm_player_location := Vector2(0, 30)
 @export var after_broken_atm_goto := Vector2(40, 10)
+@export var after_broken_atm_player_goto := Vector2(40, 30)
 @export var stand_after_atm_explosion := 1.5
 @export var walk_after_standing := 1.5
 @export var speed_after_atm_explosion := 25.0
@@ -103,8 +105,19 @@ func _on_broken_atm_interacted():
 	_follow_session += 1
 	set_flight_visual(false)
 	atm.dialog_interactable.interacted.disconnect(_on_broken_atm_interacted)
+	
+	var player := get_tree().get_first_node_in_group("player") as PlayerCharacter
+	
+	if player:
+		player.movement_disabled = true
+		player.set_physics_process(false)
+		player.visible = true
+		player.walk_to(atm.dialog_interactable.global_position + \
+		broken_atm_player_location, player.NORMAL_SPEED, true)
+
 	await go_to(atm.dialog_interactable.global_position + \
 		broken_atm_fix_location)
+
 	_state = State.ACTING
 	_sprite.play("fix_start")
 	_set_interactable(false)
@@ -116,14 +129,27 @@ func _on_broken_atm_interacted():
 	await get_tree().create_timer(walk_after_standing).timeout
 	# Following disabled the layer the player collides with. Restore it before
 	# walking away, otherwise only we detect the player and get pushed out.
-	set_collision_layer_value(2, true)
 	walk_speed = speed_after_atm_explosion
+	
 	await go_to(atm.dialog_interactable.global_position + \
 		after_broken_atm_goto)
+
+	await player.walk_to(atm.dialog_interactable.global_position + \
+		after_broken_atm_player_goto, player.NORMAL_SPEED, false)
+	#turn upward
+	await player.walk_to(atm.dialog_interactable.global_position + \
+		after_broken_atm_player_goto - Vector2(0,1), player.NORMAL_SPEED, false)
+
+	set_collision_layer_value(2, true)
+	
 	_interactable.dialogue = no_fix_dialogue
 	_interactable.interact()
 	_collision_shape.disabled = false
 	_state = State.IDLE
+	
+	if player:
+		player.movement_disabled = false
+		player.set_physics_process(true)
 
 func _start_follow_timeout() -> void:
 	_follow_session += 1
