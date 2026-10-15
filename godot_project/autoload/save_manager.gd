@@ -9,6 +9,7 @@ var transitioning := false
 var notebook_state: Dictionary = {}
 var world_state: Dictionary = {}
 var last_error := ""
+var completed_notebook: Dictionary = {}
 var _notebook_open := false
 var _notebook_save_pending := false
 var _notebook_save_scene: WeakRef
@@ -67,6 +68,56 @@ func load_game() -> void:
 	save_data = _read_save(save_data_path)
 	if save_data == null:
 		save_data = _read_save(_backup_path())
+	_load_completed_notebook()
+
+
+func _completed_notebook_path() -> String:
+	return save_data_path.get_basename() + ".completed_notebook.cfg"
+
+
+func _load_completed_notebook() -> void:
+	var archive := ConfigFile.new()
+	if archive.load(_completed_notebook_path()) != OK:
+		return
+	var vocabulary = archive.get_value("completion", "vocabulary", {})
+	var layout = archive.get_value("completion", "notebook", {})
+	if vocabulary is Dictionary and not vocabulary.is_empty() and layout is Dictionary:
+		completed_notebook = {"vocabulary": vocabulary, "notebook": layout}
+
+
+func has_new_game_plus() -> bool:
+	return not completed_notebook.is_empty()
+
+
+func complete_run() -> bool:
+	capture_scene()
+	completed_notebook = {
+		"vocabulary": Notebook.player_vocab.data.duplicate(true),
+		"notebook": notebook_state.duplicate(true),
+	}
+	_reset_notebook_autosave()
+	var archive := ConfigFile.new()
+	for key in completed_notebook:
+		archive.set_value("completion", key, completed_notebook[key])
+	var path := _completed_notebook_path()
+	var temporary := path + ".tmp"
+	var result := archive.save(temporary)
+	if result != OK:
+		return _fail("Couldn't save the New Game+ notebook: " + error_string(result), temporary)
+	var check := ConfigFile.new()
+	if check.load(temporary) != OK or check.get_value("completion", "vocabulary", {}) != completed_notebook.vocabulary:
+		return _fail("New Game+ notebook validation failed.", temporary)
+	if DirAccess.rename_absolute(temporary, path) != OK:
+		return _fail("Couldn't replace the New Game+ notebook.", temporary)
+	last_error = ""
+	return true
+
+
+func new_game_plus() -> bool:
+	if not has_new_game_plus():
+		return false
+	new_game(true)
+	return true
 
 
 func has_save() -> bool:
@@ -200,10 +251,14 @@ func continue_game() -> bool:
 	return true
 
 
-func new_game() -> void:
+func new_game(keep_notebook := false) -> void:
+	_reset_notebook_autosave()
 	world_state.clear()
 	notebook_state.clear()
 	Notebook.player_vocab.data = JSON.parse_string(FileAccess.get_file_as_string("res://resshan_systems/player_vocab.json"))
+	if keep_notebook and has_new_game_plus():
+		notebook_state = completed_notebook.notebook.duplicate(true)
+		Notebook.player_vocab.data = completed_notebook.vocabulary.duplicate(true)
 	Inventory.items.clear()
 	Wallet.enabled = true
 	Wallet.tokens = Wallet.MAX_TOKENS
@@ -211,7 +266,9 @@ func new_game() -> void:
 	GameManager.stashed_data = null
 	GameManager.level_0_intro_pending = true
 	SignalBus.rest_ended.emit()
+	restoring = true
 	GameManager.load_scene(Enums.Scenes.LEVEL_0)
+	restoring = false
 
 
 func capture_scene() -> void:

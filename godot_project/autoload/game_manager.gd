@@ -35,6 +35,8 @@ func load_scene(
 	stash = TransitionStash.new()
 ):
 	SaveManager.capture_scene()
+	if scene in [Enums.Scenes.GOOD_ENDING, Enums.Scenes.BAD_ENDING]:
+		SaveManager.complete_run()
 	SaveManager.transitioning = true
 	_transition_out_time = transition_out_time
 	_transition_in_time = transition_in_time
