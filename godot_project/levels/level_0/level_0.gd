@@ -35,7 +35,7 @@ func _begin_without_intro() -> void:
 	_battery_pickup.set_active(not Wallet.enabled)
 	_set_pigeon_ambient_muted(false)
 	_remove_skip_intro_button()
-	#platform.upper_train.call_train()
+	platform.upper_train.train_depart(true)
 
 
 func get_resume_spawn_train() -> Train:
