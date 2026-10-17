@@ -7,13 +7,7 @@ extends Control
 #Use these to load special page scenes when a page is created
 @export var special_pages: Dictionary[int, PackedScene]
 
-
 var current_page: int = 0
-
-const INSTRUCTION_PAGE_TOP := 124.0
-const ENTRY_PAGE_TOP := 65.0
-const INSTRUCTION_PAGE_LIMIT := 7
-const OTHER_PAGE_LIMIT := 8
 
 signal header_changed(index: int, text: String)
 
@@ -23,7 +17,6 @@ func _ready() -> void:
 	var pages: = get_pages()
 	for page_index in pages.size():
 		var page := pages[page_index]
-		page.entry_limit = _get_page_limit(page_index)
 		_connect_page(page)
 	_update_page_layout()
 	_new_page()
@@ -37,14 +30,12 @@ func _new_page() -> void:
 		page = special_pages[new_page_num].instantiate()
 	else:
 		page = preload('res://notebook/notebook_page.tscn').instantiate()
-	page.entry_limit = _get_page_limit(get_pages().size())
 	_connect_page(page)
 	
 	_pages.add_child(page)
 	page.hide()
 	if get_pages().size() == 1:
 		page.show()
-
 
 # It always be the last one
 func _delete_page() -> void:
@@ -53,22 +44,8 @@ func _delete_page() -> void:
 	var pages: = get_pages()
 	pages[-1].queue_free()
 
-
 func _handle_removed_entry(page:NotebookPage) -> void:
 	consolidate_pages()
-	#var page_index := 0
-	#
-	#for child_page in _pages.get_children():
-		#if page == child_page:
-			#break
-		#page_index += 1
-	#if page_index < _pages.get_child_count() - 1 and page.entries_count < page.entry_limit:
-		#var next_page = _pages.get_child(page_index + 1) as NotebookPage
-		#var entry = next_page.get_entries()[0] as NotebookEntry
-		#next_page.remove_entry(entry)
-		#page.add_entry(entry)
-		#if next_page.entries_count == 0:
-			#next_page.queue_free()
 
 func consolidate_pages():
 	var i := 0
@@ -138,13 +115,8 @@ func get_entry_page() -> NotebookPage:
 		_new_page()
 	return get_pages()[-1]
 
-
 func _has_instruction_page(page_index: int) -> bool:
 	return special_pages.has(page_index)
-
-func _get_page_limit(page_index: int) -> int:
-	return INSTRUCTION_PAGE_LIMIT if _has_instruction_page(page_index) else OTHER_PAGE_LIMIT
-
 
 func _update_page_layout() -> void:
 	pass
@@ -153,12 +125,10 @@ func _update_page_layout() -> void:
 	#$Label2.visible = current_page == 0
 	#_pages.offset_top = INSTRUCTION_PAGE_TOP if _has_instruction_page(current_page) else ENTRY_PAGE_TOP
 
-
 func get_pages() -> Array[NotebookPage]:
 	var arr: Array[NotebookPage]
 	arr.append_array(_pages.get_children())
 	return arr
-
 
 func _on_header_text_changed(new_text: String) -> void:
 	header_changed.emit(get_index(), new_text)

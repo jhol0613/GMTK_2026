@@ -6,6 +6,7 @@
 [node name="NotebookPage" unique_id=1241555215 instance=ExtResource("1_bl268")]
 offset_top = -8.0
 offset_bottom = -8.0
+entry_limit = 7
 
 [node name="Label" type="Label" parent="." index="0" unique_id=1837031826]
 layout_mode = 0
