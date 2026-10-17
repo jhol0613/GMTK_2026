@@ -218,6 +218,7 @@ func _on_time_changed(hour, minute, second):
 	
 	#Old trains depart
 	while not departure_list.is_empty() and time <= departure_list[0].departure_time_seconds:
+		var train_actually_in_station = departure_assignments[0].visible
 		departure_assignments[0].train_depart(true)
 		for board in departure_boards:
 			if departure_list.size() > board.MAX_ENTRIES:
@@ -227,7 +228,8 @@ func _on_time_changed(hour, minute, second):
 		#inefficient. could change the sorting order and work from the back but probably not worth it
 		departure_list.pop_front()
 		departure_assignments.pop_front()
-		trains_in_station -= 1
+		if train_actually_in_station:
+			trains_in_station -= 1
 
 	#new trains arrive
 	while departure_list.size() > trains_in_station and time <= departure_list[trains_in_station].arrival_time_seconds:

@@ -344,9 +344,7 @@ func train_depart(play_pulling_out_sfx = false) -> void:
 	)
 	
 	tween.tween_property(self, "position", position + depart_offset, adjusted_depart_duration)
-	
-	
-	
+
 	await tween.finished
 
 
