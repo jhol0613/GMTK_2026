@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="5_400x5"]
 [ext_resource type="Script" uid="uid://xc4w5cfbic0d" path="res://level_elements/trinket_shop/trinket_shop.gd" id="6_trinket"]
 [ext_resource type="Texture2D" uid="uid://0fat232mqu7p" path="res://level_elements/trinket_shop/trinket_shop_glowpng.png" id="7_glow"]
+[ext_resource type="Texture2D" uid="uid://cw7nufg7lo5jp" path="res://level_elements/trinket_shop/trinket_shop_lvl2_glow.png" id="8_awq2l"]
 [ext_resource type="Script" uid="uid://drq0avlr51tqy" path="res://level_elements/trinket_shop/trinket_shop_night_light.gd" id="8_night"]
 [ext_resource type="AudioStream" uid="uid://catt5hiwwwfor" path="res://level_elements/trinket_shop/trinket_purchased.wav" id="9_7wyia"]
 [ext_resource type="Shader" uid="uid://8idom0gsb7r" path="res://level_elements/decorative/street_lamp/street_lamp_light_cone.gdshader" id="9_bqp2h"]
@@ -109,6 +110,22 @@ region = Rect2(0, 107, 179, 107)
 atlas = ExtResource("7_glow")
 region = Rect2(179, 107, 179, 107)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0r3ha"]
+atlas = ExtResource("8_awq2l")
+region = Rect2(0, 0, 179, 107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twycf"]
+atlas = ExtResource("8_awq2l")
+region = Rect2(179, 0, 179, 107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lylov"]
+atlas = ExtResource("8_awq2l")
+region = Rect2(0, 107, 179, 107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_if4hy"]
+atlas = ExtResource("8_awq2l")
+region = Rect2(179, 107, 179, 107)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_glow"]
 animations = [{
 "frames": [{
@@ -130,16 +147,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_glow_0")
+"texture": SubResource("AtlasTexture_0r3ha")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_glow_1")
+"texture": SubResource("AtlasTexture_twycf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_glow_2")
+"texture": SubResource("AtlasTexture_lylov")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_glow_3")
+"texture": SubResource("AtlasTexture_if4hy")
 }],
 "loop": 1,
 "name": &"level2_idle",
