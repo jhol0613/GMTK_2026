@@ -2,11 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://bfuu8moxyxa5w" path="res://notebook/notebook_page.tscn" id="1_bl268"]
 [ext_resource type="FontFile" uid="uid://byxrvfx8kprnq" path="res://ui/fonts/Embolism Spark.ttf" id="2_y0yfv"]
+[ext_resource type="Script" uid="uid://chrvqq7u4wun5" path="res://resshan_systems/resshan_interactable.gd" id="3_klcm4"]
+[ext_resource type="Texture2D" uid="uid://dqtnnu7ee4s5c" path="res://notebook/meet_me_note.png" id="3_y0yfv"]
 
 [node name="NotebookPage" unique_id=1241555215 instance=ExtResource("1_bl268")]
 offset_top = -8.0
 offset_bottom = -8.0
-entry_limit = 7
+entry_limit = 6
 
 [node name="Label" type="Label" parent="." index="0" unique_id=1837031826]
 layout_mode = 0
@@ -25,3 +27,68 @@ offset_left = 1.0
 offset_top = 77.0
 offset_right = 1.0
 offset_bottom = 1077.0
+
+[node name="NoteHolder" type="Control" parent="." index="3" unique_id=23455189]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="resshancentralsquare" type="Control" parent="NoteHolder" index="0" unique_id=1726793340]
+z_index = 1
+anchors_preset = 0
+offset_left = 98.99999
+offset_top = 39.0
+offset_right = 139.0
+offset_bottom = 79.0
+rotation = -0.075049154
+script = ExtResource("3_klcm4")
+_string = "<<resshancentralsquare>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="0_1" type="Control" parent="NoteHolder" index="1" unique_id=279180837]
+z_index = 1
+anchors_preset = 0
+offset_left = 42.430363
+offset_top = 189.62811
+offset_right = 82.197525
+offset_bottom = 232.0451
+rotation = -0.15184365
+script = ExtResource("3_klcm4")
+_string = "<<0>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="0_2" type="Control" parent="NoteHolder" index="2" unique_id=821632723]
+z_index = 1
+anchors_preset = 0
+offset_left = 90.0
+offset_top = 175.99994
+offset_right = 129.76717
+offset_bottom = 222.55243
+rotation = -0.15184365
+script = ExtResource("3_klcm4")
+_string = "<<0>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="0_3" type="Control" parent="NoteHolder" index="3" unique_id=671843394]
+z_index = 1
+anchors_preset = 0
+offset_left = 137.0
+offset_top = 166.99994
+offset_right = 176.76717
+offset_bottom = 213.55243
+rotation = -0.15184365
+script = ExtResource("3_klcm4")
+_string = "<<0>>"
+metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+
+[node name="MeetMeNote" type="Sprite2D" parent="NoteHolder" index="4" unique_id=384745678]
+texture_filter = 2
+position = Vector2(107, 129)
+rotation = -0.06981317
+scale = Vector2(0.6167582, 0.6167582)
+texture = ExtResource("3_y0yfv")
