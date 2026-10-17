@@ -4,6 +4,8 @@ extends Node
 @export_range(0.0, 1.0, 0.01) var full_strength_progress := 0.75
 @export_range(0.0, 2.0, 0.05) var light_energy := 2.0
 
+@onready var visibility_notifier: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
+
 const PARTICLE_SHADER := preload("res://visual_effects/day_night/hoverthruster_particle.gdshader")
 const LIGHT_TEXTURE := preload("res://visual_effects/day_night/light_radial.png")
 
@@ -42,6 +44,8 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	if not visibility_notifier.is_on_screen():
+		return
 	_light.enabled = not _is_covered(_emitter, _light.global_position)
 
 

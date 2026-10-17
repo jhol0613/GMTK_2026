@@ -43,8 +43,6 @@ sprite_frames = SubResource("SpriteFrames_fpcxu")
 autoplay = "default"
 frame_progress = 0.8163058
 script = ExtResource("3_xe7d1")
-target_root_path = null
-start_progress = null
-full_strength_progress = null
-static_light_energy = null
-train_light_energy = null
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="HoverSparkle" unique_id=1068999781]
+position = Vector2(0, -9)

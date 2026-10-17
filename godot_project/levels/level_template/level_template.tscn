@@ -65,7 +65,7 @@ layer = -100
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/Blue" unique_id=1648586157]
 position = Vector2(960, 540)
-scale = Vector2(4, 4)
+scale = Vector2(8, 8)
 texture = ExtResource("7_64qpc")
 
 [node name="StarField" type="Node2D" parent="Background/Blue" unique_id=1370911981 groups=["night_lights"]]
@@ -77,7 +77,7 @@ texture = ExtResource("13_starlight")
 scroll_offset = Vector2(0, 179)
 repeat_size = Vector2(720, 405)
 autoscroll = Vector2(1, 1.5)
-repeat_times = 4
+repeat_times = 7
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/FarClouds" unique_id=303005145]
 texture = ExtResource("8_2ip8h")
@@ -86,7 +86,7 @@ centered = false
 [node name="FloatingIslands" type="Parallax2D" parent="Background" unique_id=168409842]
 repeat_size = Vector2(720, 405)
 autoscroll = Vector2(2, 3)
-repeat_times = 4
+repeat_times = 7
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/FloatingIslands" unique_id=1405803179]
 texture = ExtResource("9_unwjj")
@@ -96,7 +96,7 @@ centered = false
 scroll_offset = Vector2(-78, 34)
 repeat_size = Vector2(720, 405)
 autoscroll = Vector2(4, 6)
-repeat_times = 4
+repeat_times = 7
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/CloseClouds" unique_id=542614353]
 texture = ExtResource("10_u3vgj")
