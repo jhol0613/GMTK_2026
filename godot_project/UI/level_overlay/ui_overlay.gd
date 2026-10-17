@@ -309,7 +309,12 @@ func _refresh_ticket() -> void:
 
 	_ticket.set_ticket(ticket)
 	if _ticket_button.visible:
-		return
+		_launcher_button_states[_ticket_button] = false
+		_animation_player.play(&"ticket_removed")
+		await _animation_player.animation_finished
+		_ticket_button.visible = false
+		_animation_player.play(&"ticket_button_reset")
+		#return
 
 	_ticket_button_show_tween = create_tween()
 	_ticket_button_show_tween.tween_interval(TICKET_BUTTON_SHOW_DELAY)

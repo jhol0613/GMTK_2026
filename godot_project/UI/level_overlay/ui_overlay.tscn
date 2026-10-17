@@ -22,6 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://r48846sj6hs2" path="res://ui/ticket/TicketClose.mp3" id="15_sm8jv"]
 [ext_resource type="AudioStream" uid="uid://cukpxpc572l3f" path="res://ui/inventory/item_goes_into_inventory.mp3" id="16_item_inventory"]
 [ext_resource type="AudioStream" uid="uid://catt5hiwwwfor" path="res://level_elements/trinket_shop/trinket_purchased.wav" id="17_trinket_purchase"]
+[ext_resource type="Texture2D" uid="uid://h3betpdkgx0n" path="res://ui/ticket/icon_ticket_torn.png" id="23_5u7tf"]
 
 [sub_resource type="Shader" id="Shader_rest_vignette"]
 code = "shader_type canvas_item;
@@ -152,6 +153,71 @@ tracks/8/keys = {
 "update": 1,
 "values": ["hi"]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Control/TicketButton:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Control/TicketButton:texture_normal")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_3atem")]
+}
+
+[sub_resource type="Animation" id="Animation_5u7tf"]
+resource_name = "ticket_button_reset"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/TicketButton:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/TicketButton:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/TicketButton:texture_normal")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_3atem")]
+}
 
 [sub_resource type="Animation" id="Animation_ticket_consumed"]
 resource_name = "ticket_consumed"
@@ -204,6 +270,46 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(402, 900), Vector2(887, 496), Vector2(887, 496)]
+}
+
+[sub_resource type="Animation" id="Animation_twqss"]
+resource_name = "ticket_removed"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/TicketButton:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/TicketButton:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/TicketButton:texture_normal")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("23_5u7tf")]
 }
 
 [sub_resource type="Animation" id="Animation_time_up"]
@@ -273,7 +379,9 @@ tracks/4/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_overlay"]
 _data = {
 &"RESET": SubResource("Animation_reset"),
+&"ticket_button_reset": SubResource("Animation_5u7tf"),
 &"ticket_consumed": SubResource("Animation_ticket_consumed"),
+&"ticket_removed": SubResource("Animation_twqss"),
 &"time_up": SubResource("Animation_time_up")
 }
 
@@ -428,6 +536,7 @@ offset_top = -180.0
 offset_right = 557.0
 offset_bottom = -19.0
 grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
 texture_normal = ExtResource("6_3atem")
 ignore_texture_size = true
 stretch_mode = 4
