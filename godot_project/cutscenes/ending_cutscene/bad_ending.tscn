@@ -15,7 +15,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Node2D:scale")
+tracks/0/path = NodePath("CanvasLayer/CenterContainer/Control/Node2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -27,7 +27,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/Node2D2:modulate")
+tracks/1/path = NodePath("CanvasLayer/CenterContainer/Control/Node2D2:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -43,7 +43,7 @@ length = 19.466667
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Node2D/Comic1Picture1")
+tracks/0/path = NodePath("CanvasLayer/CenterContainer/Control/Node2D/Comic1Picture1")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -57,7 +57,7 @@ tracks/0/keys = {
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/Node2D/Comic1Picture2")
+tracks/1/path = NodePath("CanvasLayer/CenterContainer/Control/Node2D/Comic1Picture2")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -71,7 +71,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/Node2D:scale")
+tracks/2/path = NodePath("CanvasLayer/CenterContainer/Control/Node2D:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -83,7 +83,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/Node2D2:modulate")
+tracks/3/path = NodePath("CanvasLayer/CenterContainer/Control/Node2D2:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -99,24 +99,44 @@ _data = {
 &"play_scene": SubResource("Animation_c14pj")
 }
 
-[node name="EndingCutscene" type="Node2D" unique_id=96105910]
+[node name="EndingCutscene" type="Control" unique_id=1034447750]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_rvaff")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1357069554]
 layer = 30
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1788254380]
-visible = false
-self_modulate = Color(1, 1, 1, 0)
-offset_right = 1926.0
-offset_bottom = 1086.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="Node2D" type="Node2D" parent="CanvasLayer" unique_id=1020679280]
-position = Vector2(960, 540)
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer" unique_id=1308744362]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Comic1Picture1" type="Sprite2D" parent="CanvasLayer/Node2D" unique_id=545036155]
+[node name="Control" type="Control" parent="CanvasLayer/CenterContainer" unique_id=650051715]
+layout_mode = 2
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer/CenterContainer/Control" unique_id=1020679280]
+
+[node name="Comic1Picture1" type="Sprite2D" parent="CanvasLayer/CenterContainer/Control/Node2D" unique_id=545036155]
 self_modulate = Color(1, 1, 1, 0)
 texture_filter = 2
 position = Vector2(-1.0000005, 0)
@@ -127,7 +147,7 @@ fade_in_time = 4.0
 fade_out_time = 4.0
 metadata/_custom_type_script = "uid://dlgrteq5xyd5w"
 
-[node name="Comic1Picture2" type="Sprite2D" parent="CanvasLayer/Node2D" unique_id=1655975254]
+[node name="Comic1Picture2" type="Sprite2D" parent="CanvasLayer/CenterContainer/Control/Node2D" unique_id=1655975254]
 self_modulate = Color(1, 1, 1, 0)
 texture_filter = 2
 scale = Vector2(0.9785714, 0.96428573)
@@ -137,42 +157,43 @@ fade_in_time = 4.0
 fade_out_time = 4.0
 metadata/_custom_type_script = "uid://dlgrteq5xyd5w"
 
-[node name="Node2D2" type="Node2D" parent="CanvasLayer" unique_id=869709648]
+[node name="Node2D2" type="Node2D" parent="CanvasLayer/CenterContainer/Control" unique_id=869709648]
 z_index = 9
 
-[node name="DialogueWindow" type="Sprite2D" parent="CanvasLayer/Node2D2" unique_id=1918917608]
-position = Vector2(958, 204.5)
+[node name="DialogueWindow" type="Sprite2D" parent="CanvasLayer/CenterContainer/Control/Node2D2" unique_id=1918917608]
+position = Vector2(37, -267.5)
 texture = ExtResource("5_j8wbs")
 
-[node name="McPortrait9" type="Sprite2D" parent="CanvasLayer/Node2D2" unique_id=113334552]
-position = Vector2(390.4059, 203.5)
+[node name="McPortrait9" type="Sprite2D" parent="CanvasLayer/CenterContainer/Control/Node2D2" unique_id=113334552]
+position = Vector2(-530.5941, -268.5)
 texture = ExtResource("6_4hxt7")
 
-[node name="ResshanLabel" type="Control" parent="CanvasLayer/Node2D2" unique_id=1448686825]
+[node name="ResshanLabel" type="Control" parent="CanvasLayer/CenterContainer/Control/Node2D2" unique_id=1448686825]
 texture_filter = 1
 custom_minimum_size = Vector2(680, 65)
 layout_mode = 3
 anchors_preset = 0
-offset_left = 529.0
-offset_top = 112.5
-offset_right = 1475.1865
-offset_bottom = 206.5
+offset_left = -392.0
+offset_top = -359.5
+offset_right = 554.1865
+offset_bottom = -265.5
 mouse_filter = 2
 script = ExtResource("7_d5p1b")
 text = "Maybe I'll make it next year..."
 font_size = 49
 metadata/_custom_type_script = "uid://sidowamkhcrt"
 
-[node name="Button" type="Button" parent="CanvasLayer/Node2D2" unique_id=1423688878]
+[node name="Button" type="Button" parent="CanvasLayer/CenterContainer/Control" unique_id=1423688878]
+layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1679.0
-offset_top = 958.0
-offset_right = 1884.0
-offset_bottom = 1046.0
+offset_left = 711.0
+offset_top = 399.0
+offset_right = 916.0
+offset_bottom = 487.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "Return to Menu..."
@@ -188,4 +209,4 @@ bus = &"Music"
 stream = ExtResource("9_2go8g")
 bus = &"Music"
 
-[connection signal="pressed" from="CanvasLayer/Node2D2/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/CenterContainer/Control/Button" to="." method="_on_button_pressed"]

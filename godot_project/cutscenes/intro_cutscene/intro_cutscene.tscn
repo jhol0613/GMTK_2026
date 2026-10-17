@@ -14,7 +14,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Comic1Picture4a/ResshanInteractable:enabled")
+tracks/0/path = NodePath("CanvasLayer/CenterContainer/Control/Comic1Picture4a/ResshanInteractable:enabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -26,7 +26,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/Comic1Picture4a/ResshanInteractable2:enabled")
+tracks/1/path = NodePath("CanvasLayer/CenterContainer/Control/Comic1Picture4a/ResshanInteractable2:enabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -38,7 +38,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/Comic1Picture4a/ResshanInteractable3:enabled")
+tracks/2/path = NodePath("CanvasLayer/CenterContainer/Control/Comic1Picture4a/ResshanInteractable3:enabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -50,7 +50,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/Comic1Picture4a/ResshanInteractable4:enabled")
+tracks/3/path = NodePath("CanvasLayer/CenterContainer/Control/Comic1Picture4a/ResshanInteractable4:enabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -66,7 +66,7 @@ length = 19.166666
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Comic1Picture1")
+tracks/0/path = NodePath("CanvasLayer/CenterContainer/Control/Comic1Picture1")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -83,7 +83,7 @@ tracks/0/keys = {
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/Comic1Picture2")
+tracks/1/path = NodePath("CanvasLayer/CenterContainer/Control/Comic1Picture2")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -100,7 +100,7 @@ tracks/1/keys = {
 tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/Comic1Picture3")
+tracks/2/path = NodePath("CanvasLayer/CenterContainer/Control/Comic1Picture3")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -117,7 +117,7 @@ tracks/2/keys = {
 tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/Comic1Picture4a")
+tracks/3/path = NodePath("CanvasLayer/CenterContainer/Control/Comic1Picture4a")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -134,7 +134,7 @@ tracks/3/keys = {
 tracks/4/type = "method"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("CanvasLayer/Comic1Picture4b")
+tracks/4/path = NodePath("CanvasLayer/CenterContainer/Control/Comic1Picture4b")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -151,7 +151,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("CanvasLayer/Comic1Picture4a/ResshanInteractable:enabled")
+tracks/5/path = NodePath("CanvasLayer/CenterContainer/Control/Comic1Picture4a/ResshanInteractable:enabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -163,7 +163,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("CanvasLayer/Comic1Picture4a/ResshanInteractable2:enabled")
+tracks/6/path = NodePath("CanvasLayer/CenterContainer/Control/Comic1Picture4a/ResshanInteractable2:enabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -175,7 +175,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("CanvasLayer/Comic1Picture4a/ResshanInteractable3:enabled")
+tracks/7/path = NodePath("CanvasLayer/CenterContainer/Control/Comic1Picture4a/ResshanInteractable3:enabled")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -187,7 +187,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("CanvasLayer/Comic1Picture4a/ResshanInteractable4:enabled")
+tracks/8/path = NodePath("CanvasLayer/CenterContainer/Control/Comic1Picture4a/ResshanInteractable4:enabled")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -203,8 +203,18 @@ _data = {
 &"cutscene_sequence": SubResource("Animation_3auth")
 }
 
-[node name="IntroCutscene" type="Node2D" unique_id=627022193]
+[node name="IntroCutscene" type="Control" unique_id=324912985]
 z_index = 2968
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_2prw1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=395345619]
@@ -216,46 +226,61 @@ layer = 2100
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=689421373]
 self_modulate = Color(1, 1, 1, 0)
-offset_right = 1926.0
-offset_bottom = 1086.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="Comic1Picture1" type="Sprite2D" parent="CanvasLayer" unique_id=1013606209]
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer" unique_id=1680932744]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/CenterContainer" unique_id=1758091891]
+layout_mode = 2
+
+[node name="Comic1Picture1" type="Sprite2D" parent="CanvasLayer/CenterContainer/Control" unique_id=1013606209]
 texture_filter = 2
-position = Vector2(980, 293)
+position = Vector2(14.5, -243.5)
 texture = ExtResource("1_8owei")
 script = ExtResource("2_2prw1")
 fade_in_time = 2.0
 fade_out_time = 1.5
 metadata/_custom_type_script = "uid://dlgrteq5xyd5w"
 
-[node name="Comic1Picture2" type="Sprite2D" parent="CanvasLayer" unique_id=206320261]
+[node name="Comic1Picture2" type="Sprite2D" parent="CanvasLayer/CenterContainer/Control" unique_id=206320261]
 texture_filter = 2
-position = Vector2(976, 781)
+position = Vector2(10.5, 244.5)
 texture = ExtResource("2_oneg1")
 script = ExtResource("2_2prw1")
 fade_in_time = 2.0
 fade_out_time = 1.5
 metadata/_custom_type_script = "uid://dlgrteq5xyd5w"
 
-[node name="Comic1Picture3" type="Sprite2D" parent="CanvasLayer" unique_id=1850597694]
+[node name="Comic1Picture3" type="Sprite2D" parent="CanvasLayer/CenterContainer/Control" unique_id=1850597694]
 texture_filter = 2
-position = Vector2(981, 295)
+position = Vector2(15.5, -241.5)
 texture = ExtResource("3_2prw1")
 script = ExtResource("2_2prw1")
 fade_in_time = 2.0
 fade_out_time = 1.5
 metadata/_custom_type_script = "uid://dlgrteq5xyd5w"
 
-[node name="Comic1Picture4a" type="Sprite2D" parent="CanvasLayer" unique_id=674879809]
+[node name="Comic1Picture4a" type="Sprite2D" parent="CanvasLayer/CenterContainer/Control" unique_id=674879809]
 texture_filter = 2
-position = Vector2(980, 781)
+position = Vector2(14.5, 244.5)
 texture = ExtResource("6_2prw1")
 script = ExtResource("2_2prw1")
 fade_in_time = 2.0
 fade_out_time = 1.5
 metadata/_custom_type_script = "uid://dlgrteq5xyd5w"
 
-[node name="ResshanInteractable" type="Control" parent="CanvasLayer/Comic1Picture4a" unique_id=74513459]
+[node name="ResshanInteractable" type="Control" parent="CanvasLayer/CenterContainer/Control/Comic1Picture4a" unique_id=74513459]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -494.0
@@ -266,8 +291,9 @@ script = ExtResource("7_3auth")
 _string = "<<0>>"
 enabled = false
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+metadata/_edit_use_anchors_ = true
 
-[node name="ResshanInteractable2" type="Control" parent="CanvasLayer/Comic1Picture4a" unique_id=2019000948]
+[node name="ResshanInteractable2" type="Control" parent="CanvasLayer/CenterContainer/Control/Comic1Picture4a" unique_id=2019000948]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -427.0
@@ -278,8 +304,9 @@ script = ExtResource("7_3auth")
 _string = "<<0>>"
 enabled = false
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+metadata/_edit_use_anchors_ = true
 
-[node name="ResshanInteractable3" type="Control" parent="CanvasLayer/Comic1Picture4a" unique_id=1042209667]
+[node name="ResshanInteractable3" type="Control" parent="CanvasLayer/CenterContainer/Control/Comic1Picture4a" unique_id=1042209667]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -354.0
@@ -290,8 +317,9 @@ script = ExtResource("7_3auth")
 _string = "<<0>>"
 enabled = false
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+metadata/_edit_use_anchors_ = true
 
-[node name="ResshanInteractable4" type="Control" parent="CanvasLayer/Comic1Picture4a" unique_id=1847454174]
+[node name="ResshanInteractable4" type="Control" parent="CanvasLayer/CenterContainer/Control/Comic1Picture4a" unique_id=1847454174]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -446.0
@@ -302,10 +330,11 @@ script = ExtResource("7_3auth")
 _string = "<<resshancentralsquare>>"
 enabled = false
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
+metadata/_edit_use_anchors_ = true
 
-[node name="Comic1Picture4b" type="Sprite2D" parent="CanvasLayer" unique_id=255630539]
+[node name="Comic1Picture4b" type="Sprite2D" parent="CanvasLayer/CenterContainer/Control" unique_id=255630539]
 texture_filter = 2
-position = Vector2(976, 782)
+position = Vector2(10.5, 245.5)
 texture = ExtResource("5_p0bb6")
 script = ExtResource("2_2prw1")
 fade_in_time = 2.0

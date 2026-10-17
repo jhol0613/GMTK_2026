@@ -79,6 +79,10 @@ custom_maximum_size = Vector2(512, -1)
 layout_mode = 2
 value = 100.0
 
+[node name="CheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer" unique_id=1986280587]
+layout_mode = 2
+text = "Fullscreen"
+
 [node name="Background" type="Node2D" parent="." unique_id=1425075099]
 
 [node name="Clouds" type="Sprite2D" parent="Background" unique_id=1220973564]
@@ -139,7 +143,7 @@ theme_override_font_sizes/font_size = 96
 text = "Resume"
 horizontal_alignment = 1
 
-[node name="SaveButton" type="TextureButton" parent="."]
+[node name="SaveButton" type="TextureButton" parent="." unique_id=486723808]
 layout_mode = 0
 offset_left = 952.0
 offset_top = 911.0
@@ -148,7 +152,7 @@ offset_bottom = 1129.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("5_g3fo3")
 
-[node name="Label" type="Label" parent="SaveButton"]
+[node name="Label" type="Label" parent="SaveButton" unique_id=1161551934]
 layout_mode = 0
 offset_left = 18.0
 offset_top = 62.0
@@ -159,7 +163,7 @@ theme_override_font_sizes/font_size = 96
 text = "Save"
 horizontal_alignment = 1
 
-[node name="SaveStatus" type="Label" parent="."]
+[node name="SaveStatus" type="Label" parent="." unique_id=916056242]
 layout_mode = 0
 offset_left = 64.0
 offset_top = 808.0
@@ -167,13 +171,14 @@ offset_right = 1856.0
 offset_bottom = 884.0
 theme_override_colors/font_color = Color(1, 0.9764706, 0.827451, 1)
 theme_override_font_sizes/font_size = 32
-autowrap_mode = 2
 horizontal_alignment = 2
+autowrap_mode = 2
 
-[connection signal="pressed" from="SaveButton" to="." method="_on_save_button_pressed"]
-[connection signal="mouse_entered" from="SaveButton" to="." method="_play_button_hover"]
 [connection signal="timeout" from="SFXTestTimer" to="." method="_play_sfx_test_sound"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/CheckBox" to="." method="_on_check_box_toggled"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="mouse_entered" from="SaveButton" to="." method="_play_button_hover"]
+[connection signal="pressed" from="SaveButton" to="." method="_on_save_button_pressed"]

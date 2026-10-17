@@ -98,6 +98,12 @@ func _on_resume_button_pressed() -> void:
 	)
 	GameManager.unpause_game()
 
+func _on_check_box_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
 func _unhandled_input(event: InputEvent) -> void:
 	if not _opened_as_pause_menu:
 		return

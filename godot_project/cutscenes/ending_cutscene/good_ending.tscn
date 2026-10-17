@@ -13,7 +13,7 @@ length = 1.1666666
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Node2D:scale")
+tracks/0/path = NodePath("CanvasLayer/CenterContainer/Control/Node2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -41,7 +41,7 @@ length = 19.433332
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Node2D/Comic1Picture1")
+tracks/0/path = NodePath("CanvasLayer/CenterContainer/Control/Node2D/Comic1Picture1")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -55,7 +55,7 @@ tracks/0/keys = {
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/Node2D/Comic1Picture2")
+tracks/1/path = NodePath("CanvasLayer/CenterContainer/Control/Node2D/Comic1Picture2")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -69,7 +69,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/Node2D:scale")
+tracks/2/path = NodePath("CanvasLayer/CenterContainer/Control/Node2D:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -81,7 +81,7 @@ tracks/2/keys = {
 tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/Credits")
+tracks/3/path = NodePath("CanvasLayer/CenterContainer/Control/Credits")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -111,27 +111,49 @@ _data = {
 &"play_scene": SubResource("Animation_c14pj")
 }
 
-[node name="GoodEnding" type="Node2D" unique_id=96105910]
+[node name="GoodEnding" type="Control" unique_id=1670425893]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_s70ew")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=275467982]
 layer = 30
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=15971778]
-visible = false
-self_modulate = Color(1, 1, 1, 0)
-offset_right = 1926.0
-offset_bottom = 1086.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 color = Color(0, 0, 0, 1)
-metadata/_edit_use_anchors_ = true
 
-[node name="Node2D" type="Node2D" parent="CanvasLayer" unique_id=1376555044]
-position = Vector2(960, 540)
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer" unique_id=669112143]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Comic1Picture1" type="Sprite2D" parent="CanvasLayer/Node2D" unique_id=1402340287]
+[node name="Control" type="Control" parent="CanvasLayer/CenterContainer" unique_id=1663710005]
+layout_mode = 2
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer/CenterContainer/Control" unique_id=1376555044]
+position = Vector2(-20, -20)
+
+[node name="Comic1Picture1" type="Sprite2D" parent="CanvasLayer/CenterContainer/Control/Node2D" unique_id=1402340287]
 self_modulate = Color(1, 1, 1, 0)
 texture_filter = 2
-position = Vector2(-1.0000005, 0)
+position = Vector2(20.000002, 20)
 scale = Vector2(0.9785714, 0.96428573)
 texture = ExtResource("1_gug6m")
 script = ExtResource("2_s70ew")
@@ -139,9 +161,10 @@ fade_in_time = 4.0
 fade_out_time = 4.0
 metadata/_custom_type_script = "uid://dlgrteq5xyd5w"
 
-[node name="Comic1Picture2" type="Sprite2D" parent="CanvasLayer/Node2D" unique_id=1768400689]
+[node name="Comic1Picture2" type="Sprite2D" parent="CanvasLayer/CenterContainer/Control/Node2D" unique_id=1768400689]
 self_modulate = Color(1, 1, 1, 0)
 texture_filter = 2
+position = Vector2(20.000002, 20)
 scale = Vector2(0.9785714, 0.96428573)
 texture = ExtResource("3_8ij2b")
 script = ExtResource("2_s70ew")
@@ -149,7 +172,8 @@ fade_in_time = 4.0
 fade_out_time = 4.0
 metadata/_custom_type_script = "uid://dlgrteq5xyd5w"
 
-[node name="Credits" parent="CanvasLayer" unique_id=86303653 instance=ExtResource("7_imjug")]
+[node name="Credits" parent="CanvasLayer/CenterContainer/Control" unique_id=86303653 instance=ExtResource("7_imjug")]
+position = Vector2(-20, -20)
 
 [node name="Button" type="Button" parent="CanvasLayer" unique_id=954988474]
 modulate = Color(1, 1, 1, 0)
