@@ -118,6 +118,8 @@ func _load_scene_fadein(scene_to_load: Enums.Scenes, fadeout_rect: ColorRect):
 	get_tree().change_scene_to_packed(scene_dict.get(scene_to_load))
 	while get_tree().current_scene == null:
 		await get_tree().process_frame
+		if not get_tree():
+			return
 	_fadein(fadeout_rect)
 
 

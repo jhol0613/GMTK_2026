@@ -117,6 +117,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	await get_tree().create_timer(randf_range(minimum, maximum)).timeout
 
 	while _spawn_is_visible() or _player_is_in_spawn_area():
+		if not get_tree():
+			return
 		await get_tree().create_timer(maxf(respawn_check_interval, 0.1)).timeout
 
 	_respawn()

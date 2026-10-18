@@ -66,6 +66,8 @@ func go_to(target_global: Vector2, resume := true) -> void:
 	_state = State.GOTO
 	_set_interactable(false)
 	while _state == State.GOTO:
+		if not get_tree():
+			return
 		await get_tree().physics_frame
 	_set_interactable(true)
 

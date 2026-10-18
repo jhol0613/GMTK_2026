@@ -43,6 +43,8 @@ func _process_data_queue():
 			continue
 		_entry_holder.get_child(0).set_data(null)
 		_update_board_sound.play()
+		if not get_tree():
+			return
 		await get_tree().create_timer(board_update_animation_pause).timeout
 		for i in range(MAX_ENTRIES - 1):
 			_entry_holder.move_child(_entry_holder.get_child(i+1), i)

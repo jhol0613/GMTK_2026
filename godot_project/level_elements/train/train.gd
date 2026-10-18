@@ -316,6 +316,8 @@ func _flash_reject(light: Sprite2D, flashes: int = 3, interval: float = 0.5) -> 
 	SignalBus.no_ticket.emit()
 	for i in flashes:
 		light.visible = true
+		if not get_tree():
+			return
 		await get_tree().create_timer(interval).timeout
 		light.visible = false
 		await get_tree().create_timer(interval).timeout
@@ -529,6 +531,8 @@ func play_pulling_out(no_doors: bool = false) -> void:
 
 func wait_for_pulling_in() -> void:
 	while _pulling_in_player.playing:
+		if not get_tree():
+			return
 		await get_tree().process_frame
 
 

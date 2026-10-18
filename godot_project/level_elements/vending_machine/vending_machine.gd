@@ -87,6 +87,8 @@ func _loop_seconds() -> float:
 
 func _run_current() -> void:
 	while electricity != null or _current.stream != null:
+		if not get_tree():
+			return
 		await get_tree().create_timer(
 			_loop_seconds() * current_every_loops
 		).timeout
@@ -121,6 +123,8 @@ func _burst() -> void:
 
 func _run_spark() -> void:
 	while _spark.stream != null:
+		if not get_tree():
+			return
 		await get_tree().create_timer(randf_range(spark_gap_min, spark_gap_max)).timeout
 		if not is_inside_tree():
 			return
@@ -137,6 +141,8 @@ func shake(duration := -1.0, strength_scale := 1.0) -> void:
 	var total: float = shake_duration if duration < 0.0 else duration
 	var elapsed := 0.0
 	while elapsed < total and is_inside_tree() and token == _shake_token:
+		if not get_tree():
+			return
 		elapsed += get_process_delta_time()
 		var decay := 1.0 - elapsed / total
 		var phase := elapsed * shake_frequency * TAU

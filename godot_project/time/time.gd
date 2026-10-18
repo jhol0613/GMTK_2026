@@ -124,6 +124,8 @@ func _update_label(hour: int, minute: int, second: int) -> void:
 
 func _flash_timer(flashes: int = 3, interval: float = 0.5) -> void:
 	for i in flashes:
+		if not get_tree():
+			return
 		label.modulate = Color.RED
 		await get_tree().create_timer(interval).timeout
 		label.modulate = Color.WHITE

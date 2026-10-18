@@ -68,6 +68,8 @@ func fix_vending_machine():
 		_sprite.play("fix_start")
 		await _sprite.animation_finished
 		_sprite.play("fix_loop")
+		if not get_tree():
+			return
 		await get_tree().create_timer(vending_machine_fix_time).timeout
 		vending_machines[index].fix(true)
 		_sprite.play("stand_up")

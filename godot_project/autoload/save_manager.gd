@@ -310,4 +310,6 @@ func level_ready(level: Node) -> void:
 			if not save_game():
 				push_warning("Autosave failed: " + last_error)
 			return
+		if not get_tree():
+			return
 		await get_tree().create_timer(0.25, false).timeout

@@ -195,6 +195,8 @@ func _animate_gain(target: int, generation: int) -> void:
 		var cell := _cell_for_token(_displayed_tokens)
 		if cell != null:
 			cell.texture = cell_charging if cell_charging != null else cell_full
+		if not get_tree():
+			return
 		await get_tree().create_timer(charge_step_delay * 0.45).timeout
 		if generation != _charge_generation:
 			return
@@ -213,6 +215,8 @@ func _animate_drain(target: int, generation: int) -> void:
 		var cell := _cell_for_token(_displayed_tokens - 1)
 		if cell != null:
 			cell.texture = cell_low if cell_low != null else cell_empty
+		if not get_tree():
+			return
 		await get_tree().create_timer(discharge_step_delay * 0.45).timeout
 		if generation != _charge_generation:
 			return
