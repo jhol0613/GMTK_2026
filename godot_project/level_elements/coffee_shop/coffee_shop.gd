@@ -19,8 +19,10 @@ func _ready() -> void:
 	add_to_group("save_state")
 	_interactable.dialogue = _interactable.dialogue.duplicate(true)
 	_got_free_coffee = SaveManager.state_for(self).get("got_free_coffee", false)
+	after_first_coffee_line.text = after_first_coffee_line.text % [Wallet.COFFEE_COST]
 	if _got_free_coffee:
 		_interactable.dialogue.lines[1] = after_first_coffee_line
+		
 
 
 func get_save_state() -> Dictionary:
