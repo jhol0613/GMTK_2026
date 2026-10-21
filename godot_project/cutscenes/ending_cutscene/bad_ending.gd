@@ -5,8 +5,10 @@ signal scene_complete
 @onready var _intro_audio: AudioStreamPlayer = $IntroAudio
 @onready var _body_audio: AudioStreamPlayer = $BodyAudio
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+
 	AudioManager.stop_music()
 
 	if _body_audio.stream is AudioStreamMP3:
@@ -41,4 +43,7 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_button_pressed() -> void:
-	GameManager.load_scene(Enums.Scenes.TITLE)
+	if GameManager.should_show_new_game_plus_message:
+		GameManager.load_scene(Enums.Scenes.NEW_GAME_PLUS_EXPLANATION)
+	else:
+		GameManager.load_scene(Enums.Scenes.TITLE, Enums.TransitionStyle.FADE_WHITE)

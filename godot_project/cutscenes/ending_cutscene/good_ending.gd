@@ -10,6 +10,7 @@ signal scene_complete
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	AudioManager.stop_music()
 
 	if _body_audio.stream is AudioStreamMP3:
@@ -20,6 +21,7 @@ func _ready() -> void:
 		_intro_audio.play()
 	else:
 		_play_body()
+
 
 	#$AnimationPlayer.animation_finished.connect(queue_free)
 	#var rec_tween = create_tween()
@@ -45,7 +47,10 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_button_pressed() -> void:
-	GameManager.load_scene(Enums.Scenes.TITLE, Enums.TransitionStyle.FADE_WHITE)
+	if GameManager.should_show_new_game_plus_message:
+		GameManager.load_scene(Enums.Scenes.NEW_GAME_PLUS_EXPLANATION)
+	else:
+		GameManager.load_scene(Enums.Scenes.TITLE, Enums.TransitionStyle.FADE_WHITE)
 
 func scroll_credits() -> void:
 	var end_posit = _credits.position.y - get_viewport().size.y - _credits.size.y - 48

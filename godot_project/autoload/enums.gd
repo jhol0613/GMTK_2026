@@ -18,7 +18,8 @@ enum Scenes {
 	OPTIONS,
 	MAIN,
 	WRONG_TRAIN,
-	TRANSITION
+	TRANSITION,
+	NEW_GAME_PLUS_EXPLANATION
 }
 
 # unfortunately alphabetical order here matters. Sorry

@@ -18,6 +18,7 @@ extends Node2D
 var _transition_layer: CanvasLayer
 var stashed_data
 var level_0_intro_pending := false
+var should_show_new_game_plus_message := true
 
 signal concurrent_scene_complete
 
@@ -36,6 +37,7 @@ func load_scene(
 ):
 	SaveManager.capture_scene()
 	if scene in [Enums.Scenes.GOOD_ENDING, Enums.Scenes.BAD_ENDING]:
+		should_show_new_game_plus_message = not SaveManager.has_new_game_plus() #has to be stored before complete_run, or this will always return true
 		SaveManager.complete_run()
 	SaveManager.transitioning = true
 	_transition_out_time = transition_out_time
