@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://bsp7mdms308nu"]
+
+[ext_resource type="Script" uid="uid://q4gtj1pjt72t" path="res://cutscenes/new_game_plus_explanation/new_game_plus_explanation.gd" id="1_fxh0b"]
+[ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialog_system/dialogue_panel.tscn" id="2_u0la5"]
+[ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialog_system/dialogue_interactable.tscn" id="3_i8h4o"]
+[ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://interactables/dialog_system/dialogue_choice.gd" id="4_rruhs"]
+[ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="5_p41ke"]
+[ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="6_ksiur"]
+[ext_resource type="AudioStream" uid="uid://c0escibr5rayy" path="res://ui/sfx/Purchased Ticket no ding.mp3" id="6_rgpqr"]
+[ext_resource type="AudioStream" uid="uid://blh13btny3043" path="res://ui/sfx/Purchased Ticket ding only.mp3" id="7_rruhs"]
+
+[sub_resource type="Resource" id="Resource_5bq20"]
+script = ExtResource("5_p41ke")
+text = "You've unlocked..."
+sfx = ExtResource("6_rgpqr")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_hgrs7"]
+script = ExtResource("6_ksiur")
+lines = Array[ExtResource("5_p41ke")]([SubResource("Resource_5bq20")])
+metadata/_custom_type_script = "uid://dvkforrusa0nj"
+
+[sub_resource type="Resource" id="Resource_rgpqr"]
+script = ExtResource("5_p41ke")
+text = "New Game+"
+sfx = ExtResource("7_rruhs")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_fxh0b"]
+script = ExtResource("5_p41ke")
+speaker = "You've unlocked New Game+."
+text = "When you start a New Game+, you will keep all of your previous notebook entries."
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_rruhs"]
+script = ExtResource("6_ksiur")
+lines = Array[ExtResource("5_p41ke")]([SubResource("Resource_rgpqr"), SubResource("Resource_fxh0b")])
+metadata/_custom_type_script = "uid://dvkforrusa0nj"
+
+[node name="NewGamePlusExplanation" type="Control" unique_id=1163797703]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_fxh0b")
+
+[node name="DialoguePanel" parent="." unique_id=210961773 instance=ExtResource("2_u0la5")]
+characters_per_second = 10.0
+
+[node name="DimScreen" parent="DialoguePanel/Root" parent_id_path=PackedInt32Array(210961773, 919228005) index="0" unique_id=591646733]
+color = Color(0, 0, 0, 1)
+
+[node name="Popup" parent="DialoguePanel/Root" parent_id_path=PackedInt32Array(210961773, 919228005) index="1" unique_id=805446468]
+anchors_preset = 8
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -170.99976
+offset_bottom = 170.99976
+grow_vertical = 2
+
+[node name="SpeakerIcon" parent="DialoguePanel/Root/Popup/MarginContainer/HBoxContainer/MarginContainer/PanelContainer" parent_id_path=PackedInt32Array(210961773, 1480363704) index="0" unique_id=463443169]
+visible = false
+
+[node name="Speaker" parent="DialoguePanel/Root/Popup/MarginContainer/HBoxContainer/VBox" parent_id_path=PackedInt32Array(210961773, 831945309) index="0" unique_id=1657995010]
+custom_minimum_size = Vector2(0, 55)
+
+[node name="DialoguePanel2" parent="." unique_id=1506631418 instance=ExtResource("2_u0la5")]
+
+[node name="DimScreen" parent="DialoguePanel2/Root" parent_id_path=PackedInt32Array(1506631418, 919228005) index="0" unique_id=591646733]
+color = Color(0, 0, 0, 1)
+
+[node name="Popup" parent="DialoguePanel2/Root" parent_id_path=PackedInt32Array(1506631418, 919228005) index="1" unique_id=805446468]
+anchors_preset = 8
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -170.99976
+offset_bottom = 170.99976
+grow_vertical = 2
+
+[node name="DialogueInteractable1" parent="." unique_id=1631350735 instance=ExtResource("3_i8h4o")]
+dialogue = SubResource("Resource_hgrs7")
+panel_path = NodePath("../DialoguePanel")
+
+[node name="DialogueInteractable2" parent="." unique_id=646572042 instance=ExtResource("3_i8h4o")]
+dialogue = SubResource("Resource_rruhs")
+panel_path = NodePath("../DialoguePanel2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2137670346]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1890649174]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[editable path="DialoguePanel"]
+[editable path="DialoguePanel2"]

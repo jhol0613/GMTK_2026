@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c0escibr5rayy"
+path="res://.godot/imported/Purchased Ticket no ding.mp3-4a2350043bc5b4bb93ff45cac67bd10a.mp3str"
+
+[deps]
+
+source_file="res://ui/sfx/Purchased Ticket no ding.mp3"
+dest_files=["res://.godot/imported/Purchased Ticket no ding.mp3-4a2350043bc5b4bb93ff45cac67bd10a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
