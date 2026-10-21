@@ -5,6 +5,9 @@ signal scene_complete
 @onready var _intro_audio: AudioStreamPlayer = $IntroAudio
 @onready var _body_audio: AudioStreamPlayer = $BodyAudio
 
+@export var _credits: VBoxContainer
+@export var _thanks: ResshanLabel
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	AudioManager.stop_music()
@@ -43,3 +46,14 @@ func _input(event: InputEvent) -> void:
 
 func _on_button_pressed() -> void:
 	GameManager.load_scene(Enums.Scenes.TITLE, Enums.TransitionStyle.FADE_WHITE)
+
+func scroll_credits() -> void:
+	var end_posit = _credits.position.y - get_viewport().size.y - _credits.size.y - 48
+	var credit_tween := create_tween()
+	credit_tween.tween_property(_credits,"position",Vector2(_credits.position.x, end_posit),12)
+
+
+func scroll_thanks() -> void:
+	var end_posit = _thanks.position.y - (get_viewport().size.y + _thanks.size.y) / 2
+	var thanks_tween := create_tween()
+	thanks_tween.tween_property(_thanks,"position",Vector2(_thanks.position.x, end_posit),4)
