@@ -386,7 +386,7 @@ _data = {
 }
 
 [node name="UiOverlay" type="CanvasLayer" unique_id=368800410 node_paths=PackedStringArray("_time", "_animation_player", "_notebook", "_notebook_button", "_ticket_button", "_ticket", "_inventory_button", "_inventory", "_item_popup", "_item_popup_icon", "_rest_vignette") groups=["ui_overlay"]]
-layer = 25
+layer = 4
 script = ExtResource("1_0h6y4")
 _time = NodePath("Control/Time")
 _animation_player = NodePath("AnimationPlayer")
