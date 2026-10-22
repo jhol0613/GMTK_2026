@@ -13,3 +13,4 @@ class_name SaveData
 @export var vocabulary: Dictionary = {}
 @export var notebook: Dictionary = {}
 @export var world: Dictionary = {}
+@export var run_history: Array[Enums.RunResult] = []

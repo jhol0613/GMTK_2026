@@ -87,3 +87,8 @@ enum BoardResult {
 	WRONG_TRAIN, ## Ticket matches this train, but line is wrong for the level
 	SUCCESS, ## Correct train, correct line, and still on time
 }
+
+enum RunResult {
+	GOOD_ENDING,
+	BAD_ENDING
+}

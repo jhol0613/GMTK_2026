@@ -31,18 +31,18 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 44
 text = "Continue"
 
-[node name="PlayButton" type="Button" parent="Buttons" unique_id=1271435869]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 44
-text = "New Game"
-
-[node name="NewGamePlusButton" type="Button" parent="Buttons"]
+[node name="NewGamePlusButton" type="Button" parent="Buttons" unique_id=1482794671]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 44
 text = "New Game+"
+
+[node name="PlayButton" type="Button" parent="Buttons" unique_id=1271435869]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 44
+text = "New Game"
 
 [node name="OptionsButton" type="Button" parent="Buttons" unique_id=1170702684]
 layout_mode = 2
@@ -97,15 +97,15 @@ title = "New Game"
 ok_button_text = "New Game"
 dialog_text = "Start a new game? The next save will replace your current progress."
 
-[node name="NewGamePlusConfirmation" type="ConfirmationDialog" parent="."]
+[node name="NewGamePlusConfirmation" type="ConfirmationDialog" parent="." unique_id=963719866]
 title = "New Game+"
 ok_button_text = "New Game+"
 dialog_text = "Start a new game with the notebook from your last completed run? Time, items and world progress will reset. The next save will replace your current progress."
 
-[connection signal="pressed" from="Buttons/NewGamePlusButton" to="." method="_on_new_game_plus_pressed"]
-[connection signal="confirmed" from="NewGamePlusConfirmation" to="." method="_on_new_game_plus_confirmed"]
 [connection signal="pressed" from="Buttons/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="Buttons/NewGamePlusButton" to="." method="_on_new_game_plus_pressed"]
 [connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Buttons/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="Buttons/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="confirmed" from="NewGameConfirmation" to="." method="_on_new_game_confirmed"]
+[connection signal="confirmed" from="NewGamePlusConfirmation" to="." method="_on_new_game_plus_confirmed"]

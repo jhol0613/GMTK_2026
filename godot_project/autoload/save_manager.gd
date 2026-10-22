@@ -4,6 +4,8 @@ const LEVELS := [Enums.Scenes.LEVEL_0, Enums.Scenes.LEVEL_1, Enums.Scenes.LEVEL_
 
 var save_data_path := "user://save_data.tres"
 var save_data: SaveData
+var persistent_save_path := "user://persistent_save_data.tres"
+var persistent_save_data: PersistentSaveData
 var restoring := false
 var transitioning := false
 var notebook_state: Dictionary = {}
@@ -14,7 +16,6 @@ var _notebook_open := false
 var _notebook_save_pending := false
 var _notebook_save_scene: WeakRef
 var _notebook_save_timer: Timer
-
 
 func _ready() -> void:
 	load_game()
@@ -86,11 +87,22 @@ func _load_completed_notebook() -> void:
 
 
 func has_new_game_plus() -> bool:
-	return not completed_notebook.is_empty()
+	var data = _read_persistent_data()
+	return not data.run_history.is_empty()
+	#return not completed_notebook.is_empty()
 
+func get_run_history() -> Array[Enums.RunResult]:
+	var data = _read_persistent_data()
+	return data.run_history
 
-func complete_run() -> bool:
+func complete_run(run_result: Enums.RunResult) -> bool:
 	capture_scene()
+
+	var data = _read_persistent_data()
+	data.run_history.append(run_result)
+	ResourceSaver.save(data, persistent_save_path)
+	_clear_save()
+
 	completed_notebook = {
 		"vocabulary": Notebook.player_vocab.data.duplicate(true),
 		"notebook": notebook_state.duplicate(true),
@@ -132,7 +144,6 @@ func _reject(reason: String) -> SaveData:
 	push_warning("Save rejected: " + reason)
 	return null
 
-
 func _read_save(path: String) -> SaveData:
 	if not FileAccess.file_exists(path):
 		return null
@@ -168,6 +179,22 @@ func _read_save(path: String) -> SaveData:
 	data.items = valid
 	return data
 
+func _read_persistent_data() -> PersistentSaveData:
+	if not FileAccess.file_exists(persistent_save_path):
+		ResourceSaver.save(PersistentSaveData.new(), persistent_save_path)
+	if not FileAccess.file_exists(persistent_save_path):
+		_reject("no persistent data file found and unable to create one")
+		return null
+	var file := FileAccess.open(persistent_save_path, FileAccess.READ)
+	if file == null or not file.get_line().begins_with("[gd_resource "):
+		_reject("not a resource file")
+		return null
+	file.close()
+	var data = ResourceLoader.load(persistent_save_path, "", ResourceLoader.CACHE_MODE_IGNORE)
+	if not data is PersistentSaveData:
+		_reject("not a PersistentSaveData resource")
+		return null
+	return data
 
 func save_unavailable_reason() -> String:
 	var level := get_tree().current_scene
@@ -313,3 +340,9 @@ func level_ready(level: Node) -> void:
 		if not get_tree():
 			return
 		await get_tree().create_timer(0.25, false).timeout
+
+func _clear_save():
+	if FileAccess.file_exists(save_data_path):
+		DirAccess.remove_absolute(save_data_path)
+	if FileAccess.file_exists(_backup_path()):
+		DirAccess.remove_absolute(_backup_path())
