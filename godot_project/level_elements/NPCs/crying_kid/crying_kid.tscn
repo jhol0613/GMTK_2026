@@ -199,7 +199,7 @@ metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
 
 [sub_resource type="Resource" id="Resource_1ki84"]
 script = ExtResource("3_a5aw8")
-player_text = "Nevermind"
+player_text = "Never mind..."
 reply = SubResource("Resource_tbpbq")
 outcome_id = &"NONE"
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"

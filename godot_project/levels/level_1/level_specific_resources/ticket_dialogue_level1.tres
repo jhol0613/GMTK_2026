@@ -11,7 +11,7 @@
 
 [sub_resource type="Resource" id="Resource_nevermind"]
 script = ExtResource("1_wuq0v")
-player_text = "Never mind"
+player_text = "Never mind..."
 outcome_id = &"cancel"
 metadata/_custom_type_script = "uid://dcq16ybg1hhts"
 
