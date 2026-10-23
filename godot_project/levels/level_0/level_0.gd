@@ -1,6 +1,8 @@
 extends LevelTemplate
 
-var _intro_conversation_scene
+@export var dana_position_rel_alex := Vector2(15, -28)
+
+var _intro_conversation_scene: Node2D
 var _intro_falling_scene
 var _intro_active := true
 
@@ -24,6 +26,10 @@ func _ready() -> void:
 	Wallet.enable(false)
 	_set_pigeon_ambient_muted(true)
 	_intro_conversation_scene = preload("uid://b40aq7wt2wqcs").instantiate()
+	var player = get_tree().get_first_node_in_group("player") as PlayerCharacter
+	if player:
+		player.sprite.play("idle_right")
+		_intro_conversation_scene.position = player.position + dana_position_rel_alex
 	_intro_falling_scene = preload("uid://dnm5746r17yej").instantiate()
 	add_child(_intro_conversation_scene)
 	_intro_conversation_scene.scene_complete.connect(_on_conversation_complete)

@@ -546,6 +546,7 @@ load_path = "res://.godot/imported/transit_map.png-90f9d1869f69195d5eb74d0ab84d3
 
 [node name="Level0" unique_id=783439983 instance=ExtResource("1_eus5j")]
 script = ExtResource("2_as6hq")
+dana_position_rel_alex = Vector2(15, -28)
 correct_train_line = 7
 correct_train_direction = 2
 correct_train_scene = 3
@@ -917,7 +918,7 @@ position = Vector2(-1119, -459)
 position = Vector2(-1099, -319)
 
 [node name="Player" parent="." index="12" unique_id=799939449]
-position = Vector2(-574, -307)
+position = Vector2(-574, -291)
 
 [node name="StationNameSign" parent="." index="13" unique_id=98722644 instance=ExtResource("27_7di2q")]
 position = Vector2(-1176, -248)

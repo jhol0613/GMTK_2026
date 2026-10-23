@@ -1,4 +1,4 @@
-extends Node2D
+extends Sprite2D
 
 
 @onready var dialogue_interactable := $DialogueInteractable
