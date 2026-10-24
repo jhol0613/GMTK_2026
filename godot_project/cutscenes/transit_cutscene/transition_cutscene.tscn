@@ -321,12 +321,13 @@ light_mode = 1
 atlas = ExtResource("12_oywde")
 region = Rect2(200, 1333, 16, 54)
 
-[node name="TransitionCutscene" type="Node2D" unique_id=700242184 node_paths=PackedStringArray("_start_label", "_end_label", "_line", "_train")]
+[node name="TransitionCutscene" type="Node2D" unique_id=700242184 node_paths=PackedStringArray("_start_label", "_end_label", "_line", "_train", "_timer")]
 script = ExtResource("1_l2r8j")
 _start_label = NodePath("CanvasLayer/Control/TransitProgress/TextureRect/StartStation/StartStationLabel")
 _end_label = NodePath("CanvasLayer/Control/TransitProgress/TextureRect/EndStation/EndStationLabel")
 _line = NodePath("CanvasLayer/Control/TransitProgress/TextureRect/Line")
 _train = NodePath("CanvasLayer/Control/TransitProgress/TrainSprite")
+_timer = NodePath("CanvasLayer/Control/Time")
 
 [node name="Background" type="Node2D" parent="." unique_id=1238793335]
 z_index = -1374
