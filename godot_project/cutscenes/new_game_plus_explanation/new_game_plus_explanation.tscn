@@ -39,7 +39,11 @@ metadata/_custom_type_script = "uid://dvkforrusa0nj"
 
 [node name="NewGamePlusExplanation" type="Control" unique_id=1163797703]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_fxh0b")
 
 [node name="DialoguePanel" parent="." unique_id=210961773 instance=ExtResource("2_u0la5")]
@@ -48,32 +52,60 @@ characters_per_second = 10.0
 [node name="DimScreen" parent="DialoguePanel/Root" parent_id_path=PackedInt32Array(210961773, 919228005) index="0" unique_id=591646733]
 color = Color(0, 0, 0, 1)
 
-[node name="Popup" parent="DialoguePanel/Root" parent_id_path=PackedInt32Array(210961773, 919228005) index="1" unique_id=805446468]
-anchors_preset = 8
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -170.99976
-offset_bottom = 170.99976
-grow_vertical = 2
+[node name="PleaseWork" parent="DialoguePanel/Root" parent_id_path=PackedInt32Array(210961773, 919228005) index="1" unique_id=649416142]
+anchors_preset = 5
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 48.0
+offset_bottom = 408.0
+grow_vertical = 1
 
-[node name="SpeakerIcon" parent="DialoguePanel/Root/Popup/MarginContainer/HBoxContainer/MarginContainer/PanelContainer" parent_id_path=PackedInt32Array(210961773, 1480363704) index="0" unique_id=463443169]
+[node name="Popup" parent="DialoguePanel/Root/PleaseWork" index="0" unique_id=805446468]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -720.0
+offset_top = -180.0
+offset_right = 720.0
+offset_bottom = 180.0
+
+[node name="SpeakerIcon" parent="DialoguePanel/Root/PleaseWork/Popup/MarginContainer/HBoxContainer/MarginContainer/PanelContainer" parent_id_path=PackedInt32Array(210961773, 1480363704) index="0" unique_id=463443169]
 visible = false
 
-[node name="Speaker" parent="DialoguePanel/Root/Popup/MarginContainer/HBoxContainer/VBox" parent_id_path=PackedInt32Array(210961773, 831945309) index="0" unique_id=1657995010]
+[node name="Body" parent="DialoguePanel/Root/PleaseWork/Popup/MarginContainer/HBoxContainer/VBox" parent_id_path=PackedInt32Array(210961773, 831945309) index="1" unique_id=895602396]
 custom_minimum_size = Vector2(0, 55)
+
+[node name="ChoiceNavIcons" parent="DialoguePanel/Root/PleaseWork" index="1" unique_id=65935935]
+visible = false
 
 [node name="DialoguePanel2" parent="." unique_id=1506631418 instance=ExtResource("2_u0la5")]
 
 [node name="DimScreen" parent="DialoguePanel2/Root" parent_id_path=PackedInt32Array(1506631418, 919228005) index="0" unique_id=591646733]
 color = Color(0, 0, 0, 1)
 
-[node name="Popup" parent="DialoguePanel2/Root" parent_id_path=PackedInt32Array(1506631418, 919228005) index="1" unique_id=805446468]
+[node name="PleaseWork" parent="DialoguePanel2/Root" parent_id_path=PackedInt32Array(1506631418, 919228005) index="1" unique_id=649416142]
+anchors_preset = 5
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 64.0
+offset_bottom = 424.0
+grow_vertical = 1
+
+[node name="Popup" parent="DialoguePanel2/Root/PleaseWork" index="0" unique_id=805446468]
 anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = -170.99976
-offset_bottom = 170.99976
-grow_vertical = 2
+offset_left = -720.0
+offset_top = -180.0
+offset_right = 720.0
+offset_bottom = 180.0
+
+[node name="ChoiceNavIcons" parent="DialoguePanel2/Root/PleaseWork" index="1" unique_id=65935935]
+visible = false
 
 [node name="DialogueInteractable1" parent="." unique_id=1631350735 instance=ExtResource("3_i8h4o")]
 dialogue = SubResource("Resource_hgrs7")
