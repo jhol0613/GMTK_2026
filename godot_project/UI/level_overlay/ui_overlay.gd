@@ -549,6 +549,9 @@ func _on_time_up() -> void:
 		_time.tick_second()
 
 	_animation_player.play(&"time_up")
+	var timer_tween := create_tween()
+	_time.set_anchors_preset(Control.PRESET_CENTER)
+	timer_tween.tween_property(_time, "position",($Control.size - _time.size) / 2, 2)
 	await _animation_player.animation_finished
 	GameManager.load_scene(Enums.Scenes.BAD_ENDING)
 

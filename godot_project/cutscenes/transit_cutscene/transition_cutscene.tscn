@@ -383,9 +383,11 @@ layer = 25
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=424061848]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="TransitProgress" type="Control" parent="CanvasLayer/Control" unique_id=979269360]
 layout_mode = 1
@@ -618,9 +620,12 @@ texture = ExtResource("21_l7p0f")
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
+anchor_top = 0.0
 anchor_right = 1.0
-offset_left = -320.0
-offset_top = 48.0
-offset_right = -3.0
-offset_bottom = 343.0
+anchor_bottom = 0.0
+offset_left = -296.0
+offset_top = 88.0
+offset_right = -96.0
+offset_bottom = 168.0
 grow_horizontal = 0
+grow_vertical = 1

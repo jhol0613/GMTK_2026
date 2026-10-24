@@ -60,6 +60,9 @@ func _tick():
 		_anim_player.play(&"time_up")
 		_timer._play_sound = true
 		_timer.tick_second()
+		var timer_tween := create_tween()
+		$CanvasLayer/Control/Time.set_anchors_preset(Control.PRESET_CENTER)
+		timer_tween.tween_property($CanvasLayer/Control/Time, "position",($CanvasLayer/Control.size - $CanvasLayer/Control/Time.size) / 2, 2)
 		await _anim_player.animation_finished
 		GameManager.load_scene(Enums.Scenes.BAD_ENDING)
 	elif _seconds <= 0:
