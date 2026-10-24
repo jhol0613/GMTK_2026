@@ -277,7 +277,7 @@ func _on_ticket_button_pressed() -> void:
 
 
 func _open_ticket() -> void:
-	if _ticket.visible:
+	if _ticket.visible or _get_open_dialogue():
 		return
 
 	close_notebook()

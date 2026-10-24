@@ -43,6 +43,8 @@ func _is_any_panel_open() -> bool:
 	for panel in get_tree().get_nodes_in_group("interaction_panel"):
 		if panel.has_method("is_open") and panel.is_open():
 			return true
+	if get_tree().get_first_node_in_group("ui_overlay")._ticket.visible:
+		return true
 	return false
 
 
