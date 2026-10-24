@@ -34,6 +34,8 @@ var _time_up: bool = false
 func _ready() -> void:
 	stash_data = GameManager.level_transition_stash_data
 	
+	SaveManager.set_failed_at_station(Enums.resshan_to_station_scene(stash_data.end))
+	
 	_seconds = stash_data.resshan_transit_time * 8.0
 	_train.play(Enums.TrainColor.find_key(stash_data.color))
 	_line.modulate = _colors[stash_data.color]

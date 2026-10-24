@@ -106,4 +106,14 @@ func station_scene_to_resshan(scene: Scenes) -> String:
 		_:
 			return "no matching station name"
 
+func resshan_to_station_scene(station_string: String) -> Scenes:
+	match station_string:
+		"<<station.0>>":
+			return Scenes.LEVEL_0
+		"<<station.1>>":
+			return Scenes.LEVEL_1
+		"<<station.2>>":
+			return Scenes.LEVEL_2
+		_:
+			return Scenes.PAUSE
 #endregion

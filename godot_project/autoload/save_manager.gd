@@ -113,6 +113,7 @@ func complete_run(run_result: Enums.RunResult) -> bool:
 	#update persistent data
 	var data = _read_persistent_data()
 	data.run_history.append(run_result)
+	#only save failed at if you're at an actual station
 	if run_result == Enums.RunResult.BAD_ENDING and GameManager.get_current_scene() in LEVELS:
 		data.failed_at_station = GameManager.get_current_scene()
 	ResourceSaver.save(data, persistent_save_path)
@@ -145,6 +146,11 @@ func new_game_plus() -> bool:
 	new_game(true)
 	return true
 
+func set_failed_at_station(station: Enums.Scenes):
+	#update persistent data
+	var data = _read_persistent_data()
+	data.failed_at_station = station
+	ResourceSaver.save(data, persistent_save_path)
 
 func has_save() -> bool:
 	return save_data != null

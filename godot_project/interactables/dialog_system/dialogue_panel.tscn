@@ -197,10 +197,12 @@ grow_horizontal = 0
 mouse_filter = 2
 
 [node name="Up" type="AnimatedSprite2D" parent="Root/PleaseWork/ChoiceNavIcons" unique_id=1925884366]
+visible = false
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_tcx3e")
 
 [node name="Down" type="AnimatedSprite2D" parent="Root/PleaseWork/ChoiceNavIcons" unique_id=1745496435]
+visible = false
 position = Vector2(0, 72)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_2ag7x")
