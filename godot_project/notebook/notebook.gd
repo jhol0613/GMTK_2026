@@ -81,7 +81,7 @@ func _on_section_header_changed(index: int, text: String):
 	tab.label.text = text
 
 func _handle_show_resshan(encoded: String) -> void:
-	var overlay := get_parent()
+	var overlay := get_tree().get_first_node_in_group("ui_overlay")
 	if overlay != null and overlay.has_method("open_notebook"):
 		overlay.open_notebook()
 	else:
