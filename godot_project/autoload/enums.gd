@@ -36,6 +36,40 @@ enum TrainColor {
 	YELLOW = 9,
 }
 
+enum TrainDirection {
+	NORTH,
+	SOUTH,
+	EAST,
+	WEST
+}
+
+enum BoardResult {
+	REJECTED, ## No ticket, or ticket does not match this train
+	TOO_LATE, ## Matching ticket, but the train reaches its stop after midnight
+	WRONG_TRAIN, ## Ticket matches this train, but line is wrong for the level
+	SUCCESS, ## Correct train, correct line, and still on time
+}
+
+enum RunResult {
+	GOOD_ENDING,
+	BAD_ENDING,
+	NEW_GAME #for a fresh start without new game plus
+}
+
+#region enums to resshan
+func train_direction_to_resshan(direction: TrainDirection) -> String:
+	match direction:
+		TrainDirection.NORTH:
+			return "<<north>>"
+		TrainDirection.SOUTH:
+			return "<<south>>"
+		TrainDirection.EAST:
+			return "<<east>>"
+		TrainDirection.WEST:
+			return "<<west>>"
+		_:
+			return ""
+
 func train_color_to_resshan(color: TrainColor) -> String:
 	match color:
 		TrainColor.BLUE:
@@ -61,34 +95,15 @@ func train_color_to_resshan(color: TrainColor) -> String:
 		_:
 			return ""
 
-enum TrainDirection {
-	NORTH,
-	SOUTH,
-	EAST,
-	WEST
-}
-
-func train_direction_to_resshan(direction: TrainDirection) -> String:
-	match direction:
-		TrainDirection.NORTH:
-			return "<<north>>"
-		TrainDirection.SOUTH:
-			return "<<south>>"
-		TrainDirection.EAST:
-			return "<<east>>"
-		TrainDirection.WEST:
-			return "<<west>>"
+func station_scene_to_resshan(scene: Scenes) -> String:
+	match scene:
+		Scenes.LEVEL_0:
+			return "<<station.0>>"
+		Scenes.LEVEL_1:
+			return "<<station.1>>"
+		Scenes.LEVEL_2:
+			return "<<station.2>>"
 		_:
-			return ""
+			return "no matching station name"
 
-enum BoardResult {
-	REJECTED, ## No ticket, or ticket does not match this train
-	TOO_LATE, ## Matching ticket, but the train reaches its stop after midnight
-	WRONG_TRAIN, ## Ticket matches this train, but line is wrong for the level
-	SUCCESS, ## Correct train, correct line, and still on time
-}
-
-enum RunResult {
-	GOOD_ENDING,
-	BAD_ENDING
-}
+#endregion

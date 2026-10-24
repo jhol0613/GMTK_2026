@@ -87,19 +87,34 @@ func _load_completed_notebook() -> void:
 
 
 func has_new_game_plus() -> bool:
-	var data = _read_persistent_data()
-	return not data.run_history.is_empty()
+	var run_history_since_new_game = get_run_history_since_last_new_game()
+	return not run_history_since_new_game.is_empty()
 	#return not completed_notebook.is_empty()
 
 func get_run_history() -> Array[Enums.RunResult]:
 	var data = _read_persistent_data()
 	return data.run_history
 
+func get_last_failed_station() -> Enums.Scenes:
+	var data = _read_persistent_data()
+	return data.failed_at_station
+
+func get_run_history_since_last_new_game() -> Array[Enums.RunResult]:
+	var data = _read_persistent_data()
+	var last_new_game_index = data.run_history.rfind(Enums.RunResult.NEW_GAME)
+	if last_new_game_index == data.run_history.size() - 1:
+		return []
+	else:
+		return data.run_history.slice(last_new_game_index + 1, data.run_history.size())
+
 func complete_run(run_result: Enums.RunResult) -> bool:
 	capture_scene()
 
+	#update persistent data
 	var data = _read_persistent_data()
 	data.run_history.append(run_result)
+	if run_result == Enums.RunResult.BAD_ENDING and GameManager.get_current_scene() in LEVELS:
+		data.failed_at_station = GameManager.get_current_scene()
 	ResourceSaver.save(data, persistent_save_path)
 	_clear_save()
 
@@ -123,7 +138,6 @@ func complete_run(run_result: Enums.RunResult) -> bool:
 		return _fail("Couldn't replace the New Game+ notebook.", temporary)
 	last_error = ""
 	return true
-
 
 func new_game_plus() -> bool:
 	if not has_new_game_plus():
@@ -279,6 +293,12 @@ func continue_game() -> bool:
 
 
 func new_game(keep_notebook := false) -> void:
+	#add new game to run history
+	if not keep_notebook:
+		var data = _read_persistent_data()
+		data.run_history.append(Enums.RunResult.NEW_GAME)
+		ResourceSaver.save(data, persistent_save_path)
+	
 	_reset_notebook_autosave()
 	world_state.clear()
 	notebook_state.clear()

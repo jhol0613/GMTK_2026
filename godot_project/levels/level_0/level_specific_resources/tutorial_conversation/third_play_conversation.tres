@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://qmy46b0rjalq"]
+
+[ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://interactables/dialog_system/dialogue_choice.gd" id="1_22vbo"]
+[ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="2_tkkl7"]
+[ext_resource type="Texture2D" uid="uid://jlxtiftww3s" path="res://interactables/dialog_system/character_portraits/friend/friend_portrait_5.png" id="3_fqcrb"]
+[ext_resource type="Texture2D" uid="uid://bjn6f5al15odg" path="res://interactables/dialog_system/character_portraits/player/mc_portrait_8.png" id="10_gqxxx"]
+[ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="12_87r7r"]
+
+[sub_resource type="Resource" id="Resource_w11hi"]
+script = ExtResource("2_tkkl7")
+text = "Don't trip again."
+speaker_icon = ExtResource("3_fqcrb")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_dtvkt"]
+script = ExtResource("2_tkkl7")
+text = "..."
+speaker_icon = ExtResource("10_gqxxx")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[resource]
+script = ExtResource("12_87r7r")
+lines = Array[ExtResource("2_tkkl7")]([SubResource("Resource_w11hi"), SubResource("Resource_dtvkt")])
+metadata/_custom_type_script = "uid://dvkforrusa0nj"

@@ -41,9 +41,8 @@ func _input(event: InputEvent) -> void:
 		GameManager.load_scene(Enums.Scenes.TITLE)
 
 
-
 func _on_button_pressed() -> void:
-	if SaveManager.get_run_history().size() <= 1:
+	if SaveManager.get_run_history_since_last_new_game().size() <= 1:
 	#if GameManager.should_show_new_game_plus_message:
 		GameManager.load_scene(Enums.Scenes.NEW_GAME_PLUS_EXPLANATION)
 	else:

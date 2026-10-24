@@ -43,6 +43,7 @@ func _on_continue_button_pressed() -> void:
 
 
 func _on_new_game_confirmed() -> void:
+	SaveManager.persistent_save_data
 	SaveManager.new_game()
 
 

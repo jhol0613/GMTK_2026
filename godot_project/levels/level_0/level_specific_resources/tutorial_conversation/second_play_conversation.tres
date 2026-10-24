@@ -1,0 +1,85 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://5jkeetq787xp"]
+
+[ext_resource type="Script" uid="uid://dcq16ybg1hhts" path="res://interactables/dialog_system/dialogue_choice.gd" id="1_65a0p"]
+[ext_resource type="Script" uid="uid://bnh3vfxgbhvxy" path="res://interactables/dialog_system/dialogue_line.gd" id="2_6pmic"]
+[ext_resource type="Texture2D" uid="uid://c6kbovdmlav3a" path="res://interactables/dialog_system/character_portraits/player/mc_portrait_2.png" id="3_8w2im"]
+[ext_resource type="Texture2D" uid="uid://drbj4g6y7pqm3" path="res://interactables/dialog_system/character_portraits/friend/friend_portrait_3.png" id="4_0gvgc"]
+[ext_resource type="Texture2D" uid="uid://chivossxat7i8" path="res://interactables/dialog_system/character_portraits/friend/friend_portrait_8.png" id="5_d4xve"]
+[ext_resource type="Texture2D" uid="uid://cttd3meoxissd" path="res://interactables/dialog_system/ui_sprites/Portraits_depr/MainCharacter/mc_portrait_3.png" id="6_dkmfd"]
+[ext_resource type="Texture2D" uid="uid://wal81orx5xo6" path="res://interactables/dialog_system/character_portraits/friend/friend_portrait_4.png" id="7_x3ouk"]
+[ext_resource type="Texture2D" uid="uid://b8ea6wifakiyu" path="res://interactables/dialog_system/character_portraits/player/mc_portrait_4.png" id="8_2ut87"]
+[ext_resource type="Texture2D" uid="uid://ccrqgct6bn6ok" path="res://interactables/dialog_system/character_portraits/friend/friend_portrait_2.png" id="9_4sj23"]
+[ext_resource type="Texture2D" uid="uid://bjn6f5al15odg" path="res://interactables/dialog_system/character_portraits/player/mc_portrait_8.png" id="10_ph0qb"]
+[ext_resource type="Texture2D" uid="uid://c5wqmqb5wo7d7" path="res://interactables/dialog_system/character_portraits/friend/friend_portrait_6.png" id="11_kueo8"]
+[ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="12_lkqus"]
+
+[sub_resource type="Resource" id="Resource_w11hi"]
+script = ExtResource("2_6pmic")
+text = "I'm so glad to be back! Let's stick together this time, ok?"
+speaker_icon = ExtResource("3_8w2im")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_s81r5"]
+script = ExtResource("2_6pmic")
+text = "I'm not the one who missed the train."
+speaker_icon = ExtResource("4_0gvgc")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_d1dci"]
+script = ExtResource("2_6pmic")
+text = "You should watch your step this time."
+speaker_icon = ExtResource("5_d4xve")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_vrhds"]
+script = ExtResource("2_6pmic")
+text = "I don't want to find you sleeping on a bench at %s again."
+speaker_icon = ExtResource("4_0gvgc")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_6mhbs"]
+script = ExtResource("2_6pmic")
+text = "Hey at least I made it to %s."
+speaker_icon = ExtResource("6_dkmfd")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_hiktp"]
+script = ExtResource("2_6pmic")
+text = "I'm impressed you even know what %s is."
+speaker_icon = ExtResource("7_x3ouk")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_yy6oh"]
+script = ExtResource("2_6pmic")
+text = "I learned a lot last time!"
+speaker_icon = ExtResource("3_8w2im")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_63f8k"]
+script = ExtResource("2_6pmic")
+text = "I even brought my notebook again. Maybe I can keep adding to it!"
+speaker_icon = ExtResource("8_2ut87")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_ppbrf"]
+script = ExtResource("2_6pmic")
+text = "So you haven't added anything since then?"
+speaker_icon = ExtResource("9_4sj23")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_38nxc"]
+script = ExtResource("2_6pmic")
+text = "..."
+speaker_icon = ExtResource("10_ph0qb")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[sub_resource type="Resource" id="Resource_ox6af"]
+script = ExtResource("2_6pmic")
+text = "Let's not miss our train!"
+speaker_icon = ExtResource("11_kueo8")
+metadata/_custom_type_script = "uid://bnh3vfxgbhvxy"
+
+[resource]
+script = ExtResource("12_lkqus")
+lines = Array[ExtResource("2_6pmic")]([SubResource("Resource_w11hi"), SubResource("Resource_s81r5"), SubResource("Resource_d1dci"), SubResource("Resource_vrhds"), SubResource("Resource_6mhbs"), SubResource("Resource_hiktp"), SubResource("Resource_yy6oh"), SubResource("Resource_63f8k"), SubResource("Resource_ppbrf"), SubResource("Resource_38nxc"), SubResource("Resource_ox6af")])
+metadata/_custom_type_script = "uid://dvkforrusa0nj"

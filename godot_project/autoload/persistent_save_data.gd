@@ -4,3 +4,4 @@ extends Resource
 class_name PersistentSaveData
 
 @export var run_history : Array[Enums.RunResult] = []
+@export var failed_at_station: Enums.Scenes

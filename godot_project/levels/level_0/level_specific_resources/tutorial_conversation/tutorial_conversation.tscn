@@ -2,7 +2,10 @@
 
 [ext_resource type="Script" uid="uid://d4bklq4j0j1ok" path="res://levels/level_0/level_specific_resources/tutorial_conversation/tutorial_conversation.gd" id="1_7hjq0"]
 [ext_resource type="PackedScene" uid="uid://483qwouln1ra" path="res://interactables/dialog_system/dialogue_interactable.tscn" id="2_01jsl"]
+[ext_resource type="Script" uid="uid://dvkforrusa0nj" path="res://interactables/dialog_system/dialogue.gd" id="3_38nxc"]
 [ext_resource type="Resource" uid="uid://dr3vntgs8fy32" path="res://levels/level_0/level_specific_resources/tutorial_conversation/tutorial_conversation_dialogue.tres" id="3_bg5je"]
+[ext_resource type="Resource" uid="uid://5jkeetq787xp" path="res://levels/level_0/level_specific_resources/tutorial_conversation/second_play_conversation.tres" id="5_ox6af"]
+[ext_resource type="Resource" uid="uid://qmy46b0rjalq" path="res://levels/level_0/level_specific_resources/tutorial_conversation/third_play_conversation.tres" id="6_ox6af"]
 [ext_resource type="PackedScene" uid="uid://dlagfmlay2r8" path="res://interactables/dialog_system/dialogue_panel.tscn" id="12_xlt43"]
 [ext_resource type="Texture2D" uid="uid://cnx2wdgdmxkv6" path="res://interactables/dialog_system/character_portraits/player/mc_portrait_1.png" id="13_7gk55"]
 [ext_resource type="Texture2D" uid="uid://dtienb1p5xsvp" path="res://levels/level_0/level_specific_resources/tutorial_conversation/BFF.png" id="14_knngv"]
@@ -11,6 +14,7 @@
 z_index = 1
 texture = ExtResource("14_knngv")
 script = ExtResource("1_7hjq0")
+dialogues = Array[ExtResource("3_38nxc")]([ExtResource("3_bg5je"), ExtResource("5_ox6af"), ExtResource("6_ox6af")])
 
 [node name="Bff" type="Sprite2D" parent="." unique_id=1632636105]
 visible = false
