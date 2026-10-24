@@ -385,7 +385,7 @@ _data = {
 &"time_up": SubResource("Animation_time_up")
 }
 
-[node name="UiOverlay" type="CanvasLayer" unique_id=368800410 node_paths=PackedStringArray("_time", "_animation_player", "_notebook", "_notebook_button", "_ticket_button", "_ticket", "_inventory_button", "_inventory", "_item_popup", "_item_popup_icon", "_rest_vignette") groups=["ui_overlay"]]
+[node name="UiOverlay" type="CanvasLayer" unique_id=368800410 node_paths=PackedStringArray("_time", "_animation_player", "_notebook", "_notebook_button", "_ticket_button", "_ticket", "_inventory_button", "_inventory", "_item_popup", "_item_popup_icon", "_rest_vignette", "_notebook_holder") groups=["ui_overlay"]]
 layer = 4
 script = ExtResource("1_0h6y4")
 _time = NodePath("Control/Time")
@@ -399,6 +399,7 @@ _inventory = NodePath("Control/InventoryPanel")
 _item_popup = NodePath("Control/ItemPopup")
 _item_popup_icon = NodePath("Control/ItemPopup/Icon")
 _rest_vignette = NodePath("Control/RestVignette")
+_notebook_holder = NodePath("Control/NotebookHolder")
 
 [node name="Control" type="Control" parent="." unique_id=1917789093]
 layout_mode = 3

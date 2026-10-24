@@ -21,6 +21,7 @@ var hand_closed = load("uid://w4yu8aix4u4b")
 @export var _item_popup: Control
 @export var _item_popup_icon: TextureRect
 @export var _rest_vignette: ColorRect
+@export var _notebook_holder : Control
 
 @onready var _notebook_hover_sound: AudioStreamPlayer = $NotebookHoverSound
 @onready var _notebook_click_sound: AudioStreamPlayer = $NotebookClickSound
@@ -163,11 +164,12 @@ func open_notebook() -> void:
 					CONNECT_ONE_SHOT,
 				)
 		$Control/NotebookHolder.set_anchors_preset(Control.PRESET_CENTER_LEFT)
-		_slide_notebook($Control.size.x / -2 + _notebook.size.x / 2)
+		
+		_slide_notebook(_notebook.size.x / 2)
 		_notebook.visible = true
 	else:
 		$Control/NotebookHolder.set_anchors_preset(Control.PRESET_CENTER)
-		_slide_notebook(0)
+		_slide_notebook($Control.size.x / 2)
 		_notebook.visible = true
 	
 	var player := get_tree().get_first_node_in_group("player")
@@ -202,9 +204,9 @@ func close_notebook() -> void:
 		_compacted_close_signal = &""
 		
 		$Control/NotebookHolder.set_anchors_preset(Control.PRESET_CENTER)
-		var _close_notebook_tween : Tween = _slide_notebook(0)
-		_close_notebook_tween.tween_callback(func() -> void: _notebook.visible = false)
-		_close_notebook_tween.tween_callback(_restore_launcher_buttons)
+		_notebook_tween = _slide_notebook($Control.size.x / 2)
+		_notebook_tween.tween_callback(func() -> void: _notebook.visible = false)
+		_notebook_tween.tween_callback(_restore_launcher_buttons)
 	else:
 		_notebook.visible = false
 		_restore_launcher_buttons()
@@ -228,7 +230,7 @@ func _slide_notebook(target_x: float) -> Tween:
 	_notebook_tween.set_ease(Tween.EASE_OUT)
 	_notebook_tween.set_trans(Tween.TRANS_CUBIC)
 	_notebook_tween.tween_property(
-		_notebook, "position:x", target_x, notebook_slide_time
+		_notebook_holder, "position:x", target_x, notebook_slide_time
 	)
 	return _notebook_tween
 
@@ -246,7 +248,7 @@ func _on_compacted_panel_closed() -> void:
 	_compacted_close_signal = &""
 	if _notebook.visible:
 		$Control/NotebookHolder.set_anchors_preset(Control.PRESET_CENTER)
-		_slide_notebook(0)
+		_slide_notebook($Control.size.x / 2)
 
 
 

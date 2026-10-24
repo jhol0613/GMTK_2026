@@ -7,15 +7,17 @@ signal option_confirmed(outcome_id: StringName)
 @export var player_name: String = "You"
 @export var player_icon: Texture2D
 @export var choice_nav_icons: Control
+
 @export_range(5.0, 120.0, 1.0) var characters_per_second := 45.0
 @export_range(0.5, 4.0, 0.1) var note_popup_scale_multiplier := 2.0
 
-@onready var _speaker: ResshanLabel = $Root/Popup/MarginContainer/HBoxContainer/VBox/Speaker
-@onready var _body: ResshanLabel = $Root/Popup/MarginContainer/HBoxContainer/VBox/Body
-@onready var _options_scroll: ScrollContainer = $Root/Popup/MarginContainer/HBoxContainer/VBox/OptionsScroll
-@onready var _options: VBoxContainer = $Root/Popup/MarginContainer/HBoxContainer/VBox/OptionsScroll/Options
-@onready var _speaker_icon: TextureRect = %SpeakerIcon
-@onready var _lines_sfx: AudioStreamPlayer = %LinesSFX
+@export var _pleasework : Control
+@export var _speaker: ResshanLabel
+@export var _body: ResshanLabel
+@export var _options_scroll: ScrollContainer
+@export var _options: VBoxContainer
+@export var _speaker_icon: TextureRect
+@export var _lines_sfx: AudioStreamPlayer
 
 var _lines: Array[DialogueLine] = []
 var _index: int = 0
@@ -32,9 +34,13 @@ var _typewriter_units: Array[String] = []
 var _typewriter_index := 0
 var _typewriter_accumulator := 0.0
 var _typewriter_active := false
+var _compacted := false
 
 signal dialogue_complete
 
+func _ready() -> void:
+	super._ready()
+	get_viewport().size_changed.connect(_resize)
 
 func _process(delta: float) -> void:
 	if not _typewriter_active:
@@ -225,6 +231,7 @@ func _refresh_options_visual() -> void:
 		var label := _options.get_child(i) as ResshanLabel
 		if label == null:
 			continue
+			label.wrap_text = true
 		var prefix : String = "> " if i == _selected_option else "  "
 		label.text = prefix + _choices[i].player_text
 		label.modulate = Color.WHITE if i == _selected_option else Color.GRAY
@@ -304,50 +311,48 @@ func _get_typewriter_text(count: int) -> String:
 	return result
 
 
-var _full_offset_left := 0.0
-var _full_offset_right := 0.0
-var _full_min_width := 0.0
-var _full_saved := false
-
-
 func set_compact(
 	enabled: bool,
-	edge: float,
+	_edge: float,
 	duration := 0.0,
 	align_right := false,
 ) -> void:
-	var popup: PanelContainer = $Root/Popup
-	if not _full_saved:
-		_full_saved = true
-		_full_offset_left = popup.offset_left
-		_full_offset_right = popup.offset_right
-		_full_min_width = popup.custom_minimum_size.x
-
-	var target_left := _full_offset_left
-	var target_right := _full_offset_right
-	var target_width := _full_min_width
-	if enabled:
-		if align_right:
-			target_left = edge
-			target_right = ($Root as Control).size.x
-			target_width = maxf(target_right - target_left, 0.0)
-		else:
-			target_left = 0.0
-			target_right = edge
-			target_width = maxf(edge, 0.0)
-
+	
 	if _compact_tween != null and _compact_tween.is_valid():
 		_compact_tween.kill()
-
+	
+	var target_x : float
+	var target_size_x : float
+	_compacted = enabled
+	if enabled:
+		_pleasework.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
+		target_x = _root.size.x * 0.4
+		target_size_x = _root.size.x * 0.6
+	else:
+		_pleasework.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
+		target_size_x = _root.size.x * 0.75
+		target_x = ( _root.size.x - target_size_x ) / 2
+		
+	
 	if duration <= 0.0:
-		popup.offset_left = target_left
-		popup.offset_right = target_right
-		popup.custom_minimum_size.x = target_width
+		_pleasework.position.x = target_x
+		_pleasework.size.x = target_size_x
 		return
-
+	
 	_compact_tween = create_tween().set_parallel(true)
 	_compact_tween.set_ease(Tween.EASE_OUT)
 	_compact_tween.set_trans(Tween.TRANS_CUBIC)
-	_compact_tween.tween_property(popup, "offset_left", target_left, duration)
-	_compact_tween.tween_property(popup, "offset_right", target_right, duration)
-	_compact_tween.tween_property(popup, "custom_minimum_size:x", target_width, duration)
+	_compact_tween.tween_property(_pleasework, "position:x", target_x, duration)
+	_compact_tween.tween_property(_pleasework, "custom_maximum_size:x", target_size_x, duration)
+	_compact_tween.tween_property(_pleasework, "size:x", target_size_x, duration)
+
+
+func _resize():
+	if not _is_open:
+		return
+	if _compacted:
+		_pleasework.position.x = _root.size.x * 0.4
+		_pleasework.size.x = _root.size.x * 0.6
+	else:
+		_pleasework.size.x = _root.size.x * 0.75
+		_pleasework.position.x = ( _root.size.x - _pleasework.size.x ) / 2

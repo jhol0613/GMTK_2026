@@ -17,17 +17,6 @@ texture_margin_bottom = 30.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ynh0y"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_fpcxu"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_q5n4t")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
-}]
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_tcx3e"]
 animations = [{
 "frames": [{
@@ -50,11 +39,30 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="DialoguePanel" type="CanvasLayer" unique_id=210961773 node_paths=PackedStringArray("choice_nav_icons")]
+[sub_resource type="SpriteFrames" id="SpriteFrames_fpcxu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_q5n4t")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="DialoguePanel" type="CanvasLayer" unique_id=210961773 node_paths=PackedStringArray("choice_nav_icons", "_pleasework", "_speaker", "_body", "_options_scroll", "_options", "_speaker_icon", "_lines_sfx", "_popup")]
 layer = 5
 script = ExtResource("1_script")
-choice_nav_icons = NodePath("Root/Popup/ChoiceNavIcons")
+choice_nav_icons = NodePath("Root/PleaseWork/ChoiceNavIcons")
 note_popup_scale_multiplier = 1.0
+_pleasework = NodePath("Root/PleaseWork")
+_speaker = NodePath("Root/PleaseWork/Popup/MarginContainer/HBoxContainer/VBox/Speaker")
+_body = NodePath("Root/PleaseWork/Popup/MarginContainer/HBoxContainer/VBox/Body")
+_options_scroll = NodePath("Root/PleaseWork/Popup/MarginContainer/HBoxContainer/VBox/OptionsScroll")
+_options = NodePath("Root/PleaseWork/Popup/MarginContainer/HBoxContainer/VBox/OptionsScroll/Options")
+_speaker_icon = NodePath("Root/PleaseWork/Popup/MarginContainer/HBoxContainer/MarginContainer/PanelContainer/SpeakerIcon")
+_lines_sfx = NodePath("Root/LinesSFX")
+_popup = NodePath("Root/PleaseWork/Popup")
 
 [node name="Root" type="Control" parent="." unique_id=919228005]
 layout_mode = 3
@@ -76,8 +84,8 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0.54901963)
 
-[node name="Popup" type="PanelContainer" parent="Root" unique_id=805446468]
-custom_minimum_size = Vector2(1440, 180)
+[node name="PleaseWork" type="Control" parent="Root" unique_id=649416142]
+propagate_maximum_size = true
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -85,15 +93,25 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -720.0
-offset_top = -390.0
+offset_top = -408.0
 offset_right = 720.0
-offset_bottom = -48.00049
+offset_bottom = -48.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="Popup" type="PanelContainer" parent="Root/PleaseWork" unique_id=805446468]
+custom_minimum_size = Vector2(-1, -1)
+custom_maximum_size = Vector2(-1, 360)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_yyy73")
 
-[node name="MarginContainer" type="MarginContainer" parent="Root/Popup" unique_id=874999154]
+[node name="MarginContainer" type="MarginContainer" parent="Root/PleaseWork/Popup" unique_id=874999154]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 24
@@ -101,37 +119,37 @@ theme_override_constants/margin_top = 42
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 42
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Root/Popup/MarginContainer" unique_id=1882468605]
+[node name="HBoxContainer" type="HBoxContainer" parent="Root/PleaseWork/Popup/MarginContainer" unique_id=1882468605]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 41
 
-[node name="MarginContainer" type="MarginContainer" parent="Root/Popup/MarginContainer/HBoxContainer" unique_id=274384998]
+[node name="MarginContainer" type="MarginContainer" parent="Root/PleaseWork/Popup/MarginContainer/HBoxContainer" unique_id=274384998]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="Root/Popup/MarginContainer/HBoxContainer/MarginContainer" unique_id=1480363704]
+[node name="PanelContainer" type="PanelContainer" parent="Root/PleaseWork/Popup/MarginContainer/HBoxContainer/MarginContainer" unique_id=1480363704]
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_ynh0y")
 
-[node name="SpeakerIcon" type="TextureRect" parent="Root/Popup/MarginContainer/HBoxContainer/MarginContainer/PanelContainer" unique_id=463443169]
+[node name="SpeakerIcon" type="TextureRect" parent="Root/PleaseWork/Popup/MarginContainer/HBoxContainer/MarginContainer/PanelContainer" unique_id=463443169]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 texture = ExtResource("2_ynh0y")
 stretch_mode = 5
 
-[node name="VBox" type="VBoxContainer" parent="Root/Popup/MarginContainer/HBoxContainer" unique_id=831945309]
+[node name="VBox" type="VBoxContainer" parent="Root/PleaseWork/Popup/MarginContainer/HBoxContainer" unique_id=831945309]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 theme_override_constants/separation = 8
 
-[node name="Speaker" type="Control" parent="Root/Popup/MarginContainer/HBoxContainer/VBox" unique_id=1657995010]
+[node name="Speaker" type="Control" parent="Root/PleaseWork/Popup/MarginContainer/HBoxContainer/VBox" unique_id=1657995010]
 visible = false
 texture_filter = 1
-custom_minimum_size = Vector2(164, 58)
+custom_minimum_size = Vector2(0, 55)
 layout_mode = 2
 mouse_filter = 2
 script = ExtResource("2_wos7g")
@@ -140,20 +158,19 @@ font_size = 42
 wrap_text = true
 metadata/_custom_type_script = "uid://sidowamkhcrt"
 
-[node name="Body" type="Control" parent="Root/Popup/MarginContainer/HBoxContainer/VBox" unique_id=895602396]
+[node name="Body" type="Control" parent="Root/PleaseWork/Popup/MarginContainer/HBoxContainer/VBox" unique_id=895602396]
 modulate = Color(1, 0.9764706, 0.827451, 1)
 texture_filter = 1
-custom_minimum_size = Vector2(0, 55)
+custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
 mouse_filter = 2
 script = ExtResource("2_wos7g")
-text = "Dialogue line"
+text = "Dialogue line ne cede malis sed contra audentior ito"
 font_size = 42
 wrap_text = true
 metadata/_custom_type_script = "uid://sidowamkhcrt"
 
-[node name="OptionsScroll" type="ScrollContainer" parent="Root/Popup/MarginContainer/HBoxContainer/VBox" unique_id=1645536568]
-visible = false
+[node name="OptionsScroll" type="ScrollContainer" parent="Root/PleaseWork/Popup/MarginContainer/HBoxContainer/VBox" unique_id=1645536568]
 custom_minimum_size = Vector2(0, 196)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -161,31 +178,50 @@ size_flags_vertical = 3
 mouse_filter = 2
 horizontal_scroll_mode = 0
 
-[node name="Options" type="VBoxContainer" parent="Root/Popup/MarginContainer/HBoxContainer/VBox/OptionsScroll" unique_id=1694041012]
+[node name="Options" type="VBoxContainer" parent="Root/PleaseWork/Popup/MarginContainer/HBoxContainer/VBox/OptionsScroll" unique_id=1694041012]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 theme_override_constants/separation = 4
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Root/Popup" unique_id=1615101979]
-position = Vector2(1368, 263)
-scale = Vector2(0.25, 0.25)
-sprite_frames = SubResource("SpriteFrames_fpcxu")
-
-[node name="ChoiceNavIcons" type="Control" parent="Root/Popup" unique_id=65935935]
-visible = false
-layout_mode = 2
+[node name="ChoiceNavIcons" type="Control" parent="Root/PleaseWork" unique_id=65935935]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -77.0
+offset_top = 82.0
+offset_right = -77.0
+offset_bottom = 82.0
+grow_horizontal = 0
 mouse_filter = 2
 
-[node name="Up" type="AnimatedSprite2D" parent="Root/Popup/ChoiceNavIcons" unique_id=1925884366]
-position = Vector2(1304, 49)
+[node name="Up" type="AnimatedSprite2D" parent="Root/PleaseWork/ChoiceNavIcons" unique_id=1925884366]
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_tcx3e")
 
-[node name="Down" type="AnimatedSprite2D" parent="Root/Popup/ChoiceNavIcons" unique_id=1745496435]
-position = Vector2(1304, 121)
+[node name="Down" type="AnimatedSprite2D" parent="Root/PleaseWork/ChoiceNavIcons" unique_id=1745496435]
+position = Vector2(0, 72)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_2ag7x")
+
+[node name="AdvanceIcon" type="Control" parent="Root/PleaseWork" unique_id=841191838]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -77.0
+offset_top = -79.0
+offset_right = -37.0
+offset_bottom = -39.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Root/PleaseWork/AdvanceIcon" unique_id=1615101979]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_fpcxu")
 
 [node name="LinesSFX" type="AudioStreamPlayer" parent="Root" unique_id=161182088]
 unique_name_in_owner = true

@@ -5,7 +5,7 @@ signal opened
 signal closed
 
 @onready var _root: Control = $Root
-
+@export var _popup: PanelContainer
 var _is_open: bool = false
 ## Info-only panels (maps, signs) set this so escape or a click outside the popup
 ## also closes them. Dialogue leaves it off so a stray click cannot skip a reward.
@@ -21,7 +21,7 @@ func _ready() -> void:
 	add_to_group("interaction_panel")
 	_root.visible = false
 	_root.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
-	$Root/Popup.mouse_filter = Control.MOUSE_FILTER_STOP
+	_popup.mouse_filter = Control.MOUSE_FILTER_STOP
 	var dimmer := get_node_or_null("Root/DimScreen") as Control
 	if dimmer != null:
 		dimmer.mouse_filter = Control.MOUSE_FILTER_STOP

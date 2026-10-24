@@ -5,9 +5,10 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sign"]
 bg_color = Color(0.9372549, 0.68235296, 0.54509807, 1)
 
-[node name="SignPanel" type="CanvasLayer" unique_id=1998267979]
+[node name="SignPanel" type="CanvasLayer" unique_id=1998267979 node_paths=PackedStringArray("_popup")]
 layer = 3
 script = ExtResource("1_script")
+_popup = NodePath("Root/Popup")
 
 [node name="Root" type="Control" parent="." unique_id=313175214]
 layout_mode = 3
