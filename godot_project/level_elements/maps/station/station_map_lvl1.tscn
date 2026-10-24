@@ -386,6 +386,12 @@ script = ExtResource("5_7usu2")
 _string = "<<4>>"
 metadata/_custom_type_script = "uid://chrvqq7u4wun5"
 
+[node name="CloseButton" parent="SignPanel/Root" parent_id_path=PackedInt32Array(1998267979, 313175214) index="2" unique_id=280492562]
+offset_left = 440.0
+offset_top = -508.0
+offset_right = 504.0
+offset_bottom = -444.0
+
 [node name="NightLight" type="Node2D" parent="." unique_id=731338242 groups=["night_lights"]]
 script = ExtResource("6_5lj1p")
 max_energy = 0.1

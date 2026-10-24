@@ -422,6 +422,12 @@ position = Vector2(460, 460)
 scale = Vector2(0.7699999, 0.7699999)
 texture = ExtResource("5_qxlha")
 
+[node name="CloseButton" parent="SignPanel/Root" parent_id_path=PackedInt32Array(1998267979, 313175214) index="2" unique_id=280492562]
+offset_left = 440.0
+offset_top = -508.0
+offset_right = 504.0
+offset_bottom = -444.0
+
 [node name="Trainmap" type="Sprite2D" parent="." unique_id=2020560551]
 z_index = 1
 position = Vector2(0, -31)

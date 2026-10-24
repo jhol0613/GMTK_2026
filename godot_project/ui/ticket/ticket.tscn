@@ -14,12 +14,13 @@ ticket_data = ExtResource("2_mynkr")
 [node name="Background" type="Sprite2D" parent="." unique_id=1449115875]
 texture = ExtResource("3_bxong")
 
-[node name="MouseBlocker" type="Control" parent="Background"]
+[node name="MouseBlocker" type="Control" parent="Background" unique_id=841649293]
+layout_mode = 3
+anchors_preset = 0
 offset_left = -697.5
 offset_top = -358.5
 offset_right = 697.5
 offset_bottom = 358.5
-mouse_filter = 0
 
 [node name="Train" type="Control" parent="." unique_id=1207718148]
 unique_name_in_owner = true
@@ -131,10 +132,10 @@ metadata/_custom_type_script = "uid://sidowamkhcrt"
 
 [node name="CloseButton" type="TextureButton" parent="." unique_id=95101247]
 texture_filter = 1
-offset_left = 615.0
-offset_top = -343.0
-offset_right = 679.0
-offset_bottom = -279.0
+offset_left = 648.0
+offset_top = -376.0
+offset_right = 712.0
+offset_bottom = -312.0
 focus_mode = 0
 texture_normal = ExtResource("5_close")
 ignore_texture_size = true

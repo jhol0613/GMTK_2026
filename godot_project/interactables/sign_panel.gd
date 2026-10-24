@@ -2,6 +2,7 @@ class_name SignPanel
 extends InteractionPanelBase
 
 @onready var _title: Label = $Root/Popup/MarginContainer/Title
+@onready var _close_button: TextureButton = $Root/CloseButton
 
 
 func show_sign(title: String, minutes: int = 1) -> void:
@@ -12,3 +13,7 @@ func show_sign(title: String, minutes: int = 1) -> void:
 func _ready() -> void:
 	super._ready()
 	dismissible = true
+
+
+func _on_close_button_pressed() -> void:
+	hide_popup()
