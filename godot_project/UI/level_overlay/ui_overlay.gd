@@ -330,6 +330,9 @@ func _refresh_ticket() -> void:
 
 
 func _on_ticket_consumed():
+	var ticket_tween := create_tween()
+	_ticket_button.set_anchors_preset(Control.PRESET_CENTER)
+	ticket_tween.tween_property(_ticket_button, "position",($Control.size - _ticket_button.size) / 2, 0.4)
 	_animation_player.play("ticket_consumed")
 
 
