@@ -316,6 +316,7 @@ func _refresh_ticket() -> void:
 		await _animation_player.animation_finished
 		_ticket_button.visible = false
 		_animation_player.play(&"ticket_button_reset")
+		
 		#return
 
 	_ticket_button_show_tween = create_tween()
@@ -389,8 +390,10 @@ func _on_item_added(item: ItemData) -> void:
 	var icon: Texture2D = item.item_icon
 	if item is TicketData:
 	# if icon == null and item is TicketData:
-		if _ticket_button.visible: _animation_player.play(&"ticket_removed")
 		icon = _ticket_button.texture_normal
+		if _ticket_button.visible:
+			_animation_player.play(&"ticket_removed")
+			await _animation_player.animation_finished
 	if icon == null:
 		return
 	_show_item_popup(icon, item)
@@ -404,6 +407,7 @@ func _on_animated_item_added(item: ItemData) -> void:
 	if sprite_sheet == null or frame_count <= 0 or fps <= 0.0:
 		SignalBus.item_popup_finished.emit()
 		return
+	@warning_ignore("integer_division")
 	var frame_width := int(sprite_sheet.get_width() / frame_count)
 	var frame_texture := AtlasTexture.new()
 	frame_texture.atlas = sprite_sheet
@@ -442,7 +446,9 @@ func _show_item_popup(icon: Texture2D, item: ItemData = null) -> void:
 	_item_popup_tween.set_parallel(false)
 	_item_popup_tween.tween_interval(1.2)
 	_item_popup_tween.tween_property(_item_popup_icon, "modulate:a", 0.0, 0.35)
-	_item_popup_tween.tween_callback(_hide_item_popup.bind(item))
+	await _item_popup_tween.finished
+	_hide_item_popup(item)
+	#_item_popup_tween.tween_callback(_hide_item_popup.bind(item))
 
 
 func _hide_item_popup(item: ItemData = null) -> void:
@@ -463,6 +469,7 @@ func _hide_item_popup(item: ItemData = null) -> void:
 
 #region allbuttons
 func _emphasize_icon( button:TextureButton, initial_scale:Vector2 ):
+	button.visible = true
 	var tween = create_tween()
 	tween.tween_property(button, "scale", (initial_scale * 1.5), .08)
 	await tween.finished
