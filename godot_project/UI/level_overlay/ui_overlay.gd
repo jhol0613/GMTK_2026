@@ -312,7 +312,7 @@ func _refresh_ticket() -> void:
 	_ticket.set_ticket(ticket)
 	if _ticket_button.visible:
 		_launcher_button_states[_ticket_button] = false
-		_animation_player.play(&"ticket_removed")
+		
 		await _animation_player.animation_finished
 		_ticket_button.visible = false
 		_animation_player.play(&"ticket_button_reset")
@@ -389,6 +389,7 @@ func _on_item_added(item: ItemData) -> void:
 	var icon: Texture2D = item.item_icon
 	if item is TicketData:
 	# if icon == null and item is TicketData:
+		if _ticket_button.visible: _animation_player.play(&"ticket_removed")
 		icon = _ticket_button.texture_normal
 	if icon == null:
 		return
